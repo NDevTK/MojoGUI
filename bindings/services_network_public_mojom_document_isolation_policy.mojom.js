@@ -23,7 +23,7 @@ network.mojom.DocumentIsolationPolicySpec = {
       name: 'network.mojom.DocumentIsolationPolicy',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicyValueSpec, nullable: false },
         { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'report_only_reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
@@ -104,8 +104,8 @@ network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpe
       name: 'network.mojom.DocumentIsolationPolicyReporter.QueueCorpViolationReport_Params',
       packedSize: 32,
       fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
         { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

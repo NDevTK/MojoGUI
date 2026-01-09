@@ -38,10 +38,10 @@ viz.mojom.CompositorFrameTransitionDirectiveSpec = {
       name: 'viz.mojom.CompositorFrameTransitionDirective',
       packedSize: 56,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false },
         { name: 'shared_elements', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'display_color_spaces', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_color_spaces', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
         { name: 'sequence_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'maybe_cross_frame_sink', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'delay_layer_tree_view_deletion', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

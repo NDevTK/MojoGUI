@@ -30,13 +30,13 @@ app_home.mojom.AppInfoSpec = {
       name: 'app_home.mojom.AppInfo',
       packedSize: 72,
       fields: [
-        { name: 'app_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_type', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'run_on_os_login_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'store_page_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'run_on_os_login_mode', packedOffset: 40, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false },
+        { name: 'store_page_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'may_show_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'may_toggle_run_on_os_login_mode', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_locally_installed', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -381,7 +381,7 @@ app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.ClickEventSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -396,7 +396,7 @@ app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: app_home.mojom.RunOnOsLoginModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -438,7 +438,7 @@ app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: web_app.mojom.UserDisplayModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -531,7 +531,7 @@ app_home.mojom.Page_AddApp_ParamsSpec = {
       name: 'app_home.mojom.Page.AddApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -545,7 +545,7 @@ app_home.mojom.Page_RemoveApp_ParamsSpec = {
       name: 'app_home.mojom.Page.RemoveApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -559,7 +559,7 @@ app_home.mojom.Page_UpdateApp_ParamsSpec = {
       name: 'app_home.mojom.Page.UpdateApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: app_home.mojom.AppInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

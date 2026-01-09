@@ -72,7 +72,7 @@ new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
       name: 'new_window_proxy.mojom.NewWindowProxy.OpenUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

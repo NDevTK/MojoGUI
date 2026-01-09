@@ -39,7 +39,7 @@ schema_org.improved.mojom.PropertySpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: schema_org.improved.mojom.ValuesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

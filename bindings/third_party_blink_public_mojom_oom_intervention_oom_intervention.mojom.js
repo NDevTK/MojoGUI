@@ -160,7 +160,7 @@ blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
       name: 'blink.mojom.OomIntervention.StartDetection_Params',
       packedSize: 32,
       fields: [
-        { name: 'detection_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'detection_args', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'renderer_pause_enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'navigate_ads_enabled', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

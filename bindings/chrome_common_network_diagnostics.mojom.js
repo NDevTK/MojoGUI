@@ -72,7 +72,7 @@ chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
       name: 'chrome.mojom.NetworkDiagnostics.RunNetworkDiagnostics_Params',
       packedSize: 16,
       fields: [
-        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

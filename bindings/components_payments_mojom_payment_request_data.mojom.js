@@ -55,8 +55,8 @@ payments.mojom.PaymentValidationErrorsSpec = {
       packedSize: 32,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'payer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payer', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PayerErrorsSpec, nullable: false },
+        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

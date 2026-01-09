@@ -17,7 +17,7 @@ password_manager.mojom.DomainInfoSpec = {
       packedSize: 32,
       fields: [
         { name: 'human_readable_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'signon_realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -32,8 +32,8 @@ password_manager.mojom.ActorLoginPermissionSpec = {
       name: 'password_manager.mojom.ActorLoginPermission',
       packedSize: 32,
       fields: [
-        { name: 'domain_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'domain_info', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.DomainInfoSpec, nullable: false },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -394,7 +394,7 @@ password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
       name: 'password_manager.mojom.PageHandler.RevokeActorLoginPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.ActorLoginPermissionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

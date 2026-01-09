@@ -24,7 +24,7 @@ on_device_translation_internals.mojom.LanguagePackInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: on_device_translation_internals.mojom.LanguagePackStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

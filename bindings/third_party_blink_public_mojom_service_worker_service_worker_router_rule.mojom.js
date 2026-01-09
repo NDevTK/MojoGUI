@@ -22,7 +22,7 @@ blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRunningStatusCondition',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -37,8 +37,8 @@ blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
       packedSize: 40,
       fields: [
         { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false },
+        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
         { name: 'has_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_destination', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -68,7 +68,7 @@ blink.mojom.ServiceWorkerRouterNotConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterNotCondition',
       packedSize: 16,
       fields: [
-        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -83,10 +83,10 @@ blink.mojom.ServiceWorkerRouterConditionSpec = {
       packedSize: 48,
       fields: [
         { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'running_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'or_condition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'not_condition', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRequestConditionSpec, nullable: true },
+        { name: 'running_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, nullable: true },
+        { name: 'or_condition', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterOrConditionSpec, nullable: true },
+        { name: 'not_condition', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterNotConditionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -153,7 +153,7 @@ blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSource',
       packedSize: 16,
       fields: [
-        { name: 'cache_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cache_source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterCacheSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ blink.mojom.ServiceWorkerRouterRuleSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRule',
       packedSize: 24,
       fields: [
-        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false },
         { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

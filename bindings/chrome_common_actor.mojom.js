@@ -141,7 +141,7 @@ actor.mojom.ObservedToolTargetSpec = {
       name: 'actor.mojom.ObservedToolTarget',
       packedSize: 16,
       fields: [
-        { name: 'node_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'node_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentAttributesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,10 +280,10 @@ actor.mojom.ToolInvocationSpec = {
       name: 'actor.mojom.ToolInvocation',
       packedSize: 40,
       fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
         { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'observed_target', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'observed_target', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ObservedToolTargetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -297,10 +297,10 @@ actor.mojom.ActionResultSpec = {
       name: 'actor.mojom.ActionResult',
       packedSize: 48,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'script_tool_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
         { name: 'requires_page_stabilization', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -330,9 +330,9 @@ actor.mojom.JournalEntrySpec = {
       name: 'actor.mojom.JournalEntry',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.JournalEntryTypeSpec, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'track_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'details', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -480,7 +480,7 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       name: 'actor.mojom.PageStabilityMonitor.NotifyWhenStable_Params',
       packedSize: 16,
       fields: [
-        { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

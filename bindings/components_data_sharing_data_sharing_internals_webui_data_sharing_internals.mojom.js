@@ -271,8 +271,8 @@ data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       name: 'data_sharing_internals.mojom.Page.OnLogMessageAdded_Params',
       packedSize: 48,
       fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'log_source', packedOffset: 8, packedBitOffset: 0, type: logger_common.mojom.LogSourceSpec, nullable: false },
         { name: 'source_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_line', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

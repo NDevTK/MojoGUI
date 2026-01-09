@@ -303,7 +303,7 @@ chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnHomePageImportReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -317,7 +317,7 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnBookmarksImportStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'total_bookmarks_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -374,7 +374,7 @@ chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnPasswordFormImportReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportedPasswordFormSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -280,7 +280,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,7 +322,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSp
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_dir_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_dir_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,7 +349,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_Params',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },

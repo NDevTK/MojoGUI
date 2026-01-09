@@ -72,7 +72,7 @@ blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = {
       name: 'blink.mojom.BroadcastChannelClient.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

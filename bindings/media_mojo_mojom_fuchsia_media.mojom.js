@@ -108,7 +108,7 @@ media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,8 +193,8 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false },
+        { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -109,7 +109,7 @@ data_sharing.mojom.SharedTabSpec = {
       packedSize: 24,
       fields: [
         { name: 'display_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -125,7 +125,7 @@ data_sharing.mojom.GroupPreviewSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'shared_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -407,7 +407,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
       name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -435,7 +435,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
       name: 'data_sharing.mojom.PageHandler.GetShareLink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
       name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'group_preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_preview', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupPreviewSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -519,8 +519,8 @@ data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
       name: 'data_sharing.mojom.PageHandler.OnGroupAction_Params',
       packedSize: 24,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupActionSpec, nullable: false },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: data_sharing.mojom.GroupActionProgressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -645,7 +645,7 @@ data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
       name: 'data_sharing.mojom.Page.ReadGroups_Params',
       packedSize: 16,
       fields: [
-        { name: 'read_groups_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'read_groups_params', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -658,7 +658,7 @@ data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
       name: 'data_sharing.mojom.Page.ReadGroups_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -672,7 +672,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
       name: 'data_sharing.mojom.Page.ReadGroupWithToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenParamSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -685,7 +685,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
       name: 'data_sharing.mojom.Page.ReadGroupWithToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

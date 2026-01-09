@@ -33,7 +33,7 @@ arc.mojom.TextInputStateSpec = {
       name: 'arc.mojom.TextInputState',
       packedSize: 56,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },

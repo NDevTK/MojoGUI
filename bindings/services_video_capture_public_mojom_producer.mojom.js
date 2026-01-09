@@ -81,7 +81,7 @@ video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
       name: 'video_capture.mojom.Producer.OnNewBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
         { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

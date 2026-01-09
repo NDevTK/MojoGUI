@@ -63,7 +63,7 @@ network.mojom.StructuredHeadersDictionaryMemberSpec = {
       packedSize: 24,
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: network.mojom.StructuredHeadersParameterizedMemberSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

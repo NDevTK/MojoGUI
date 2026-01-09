@@ -89,8 +89,8 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = 
       name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source_auction_worklet_function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodWithOptionsSpec, nullable: false },
+        { name: 'source_auction_worklet_function', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,9 +104,9 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSp
       name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageBatchUpdate_Params',
       packedSize: 32,
       fields: [
-        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'source_auction_worklet_function', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false },
+        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true },
+        { name: 'source_auction_worklet_function', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

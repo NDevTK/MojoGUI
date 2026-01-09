@@ -124,7 +124,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerDown_Params',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,8 +138,8 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverEager_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -153,8 +153,8 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverModerate_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Pa
       name: 'blink.mojom.AnchorElementInteractionHost.OnModerateViewportHeuristicTriggered_Params',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

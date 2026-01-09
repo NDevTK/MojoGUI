@@ -41,7 +41,7 @@ ash.printing.print_preview.mojom.ColorOptionSpec = {
       name: 'ash.printing.print_preview.mojom.ColorOption',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.ColorTypeSpec, nullable: true },
         { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'custom_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'is_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
@@ -102,7 +102,7 @@ ash.printing.print_preview.mojom.DuplexOptionSpec = {
       name: 'ash.printing.print_preview.mojom.DuplexOption',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.DuplexTypeSpec, nullable: true },
         { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
@@ -131,7 +131,7 @@ ash.printing.print_preview.mojom.PageOrientationOptionSpec = {
       name: 'ash.printing.print_preview.mojom.PageOrientationOption',
       packedSize: 24,
       fields: [
-        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.PageOrientationSpec, nullable: false },
         { name: 'is_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
@@ -296,15 +296,15 @@ ash.printing.print_preview.mojom.CapabilitiesSpec = {
       packedSize: 88,
       fields: [
         { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'collate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'copies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'duplex', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'page_orientation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'media_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'media_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'dpi', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'pin', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'collate', packedOffset: 8, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CollateCapabilitySpec, nullable: true },
+        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: ash.printing.print_preview.mojom.ColorCapabilitySpec, nullable: true },
+        { name: 'copies', packedOffset: 24, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CopiesCapabilitySpec, nullable: true },
+        { name: 'duplex', packedOffset: 32, packedBitOffset: 0, type: ash.printing.print_preview.mojom.DuplexCapabilitySpec, nullable: true },
+        { name: 'page_orientation', packedOffset: 40, packedBitOffset: 0, type: ash.printing.print_preview.mojom.PageOrientationCapabilitySpec, nullable: true },
+        { name: 'media_size', packedOffset: 48, packedBitOffset: 0, type: ash.printing.print_preview.mojom.MediaSizeCapabilitySpec, nullable: true },
+        { name: 'media_type', packedOffset: 56, packedBitOffset: 0, type: ash.printing.print_preview.mojom.MediaTypeCapabilitySpec, nullable: true },
+        { name: 'dpi', packedOffset: 64, packedBitOffset: 0, type: ash.printing.print_preview.mojom.DpiCapabilitySpec, nullable: true },
+        { name: 'pin', packedOffset: 72, packedBitOffset: 0, type: ash.printing.print_preview.mojom.PinCapabilitySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

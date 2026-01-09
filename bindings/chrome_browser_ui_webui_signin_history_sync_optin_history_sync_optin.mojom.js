@@ -30,7 +30,7 @@ history_sync_optin.mojom.AccountInfoSpec = {
       name: 'history_sync_optin.mojom.AccountInfo',
       packedSize: 16,
       fields: [
-        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendAccountInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history_sync_optin.mojom.AccountInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,7 +340,7 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendScreenMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: history_sync_optin.mojom.ScreenModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

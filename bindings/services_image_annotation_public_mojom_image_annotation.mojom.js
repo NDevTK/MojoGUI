@@ -31,7 +31,7 @@ image_annotation.mojom.AnnotationSpec = {
       name: 'image_annotation.mojom.Annotation',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: image_annotation.mojom.AnnotationTypeSpec, nullable: false },
         { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

@@ -17,7 +17,7 @@ contextual_tasks.mojom.TabSpec = {
       packedSize: 32,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -235,7 +235,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.GetThreadUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -249,7 +249,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.GetUrlForTask_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.GetUrlForTask_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,7 +276,7 @@ contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.SetTaskId_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.IsZeroState_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -435,7 +435,7 @@ contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.OnTabClickedFromSourcesMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -697,7 +697,7 @@ contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.SetTaskDetails_Params',
       packedSize: 32,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'thread_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'turn_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

@@ -32,13 +32,13 @@ translate.mojom.LanguageDetectionDetailsSpec = {
       name: 'translate.mojom.LanguageDetectionDetails',
       packedSize: 88,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'adopted_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'content_language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'model_detected_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'html_root_language', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'contents', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contents', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'detection_model_version', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'model_reliability_score', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'has_notranslate', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -139,7 +139,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
       fields: [
         { name: 'original_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'translated_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: translate.mojom.TranslateErrorSpec, nullable: false },
         { name: 'cancelled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -228,7 +228,7 @@ translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
       name: 'translate.mojom.ContentTranslateDriver.RegisterPage_Params',
       packedSize: 32,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: translate.mojom.LanguageDetectionDetailsSpec, nullable: false },
         { name: 'translate_agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'translation_critiera_met', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

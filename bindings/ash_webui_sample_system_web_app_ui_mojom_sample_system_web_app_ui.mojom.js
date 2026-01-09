@@ -194,7 +194,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.sample_swa.PreferencesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

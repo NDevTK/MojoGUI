@@ -140,7 +140,7 @@ remoting.mojom.ClipboardEventSpec = {
       packedSize: 24,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,7 +174,7 @@ remoting.mojom.MouseEventSpec = {
       fields: [
         { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.MouseButtonSpec, nullable: false },
         { name: 'button_down', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'wheel_delta_x', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'wheel_delta_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
@@ -209,8 +209,8 @@ remoting.mojom.TouchEventPointSpec = {
       name: 'remoting.mojom.TouchEventPoint',
       packedSize: 40,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -227,7 +227,7 @@ remoting.mojom.TouchEventSpec = {
       name: 'remoting.mojom.TouchEvent',
       packedSize: 24,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TouchEventTypeSpec, nullable: false },
         { name: 'touch_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -306,7 +306,7 @@ remoting.mojom.BeginFileReadSuccessSpec = {
       name: 'remoting.mojom.BeginFileReadSuccess',
       packedSize: 32,
       fields: [
-        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'file_reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
@@ -353,7 +353,7 @@ remoting.mojom.VideoTrackLayoutSpec = {
       fields: [
         { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'media_stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
         { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dpi', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -595,7 +595,7 @@ remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionManager.CreateDesktopSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
         { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_virtual_terminal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -625,7 +625,7 @@ remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionManager.SetScreenResolution_Params',
       packedSize: 24,
       fields: [
-        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
         { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -702,8 +702,8 @@ remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'authenticated_jid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.DesktopEnvironmentOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -813,7 +813,7 @@ remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
       name: 'remoting.mojom.FileWriter.WriteChunk_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -839,7 +839,7 @@ remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
       name: 'remoting.mojom.FileWriter.CloseFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1132,7 +1132,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.CreateVideoCapturerResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1146,7 +1146,7 @@ remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.SetScreenResolution_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1186,7 +1186,7 @@ remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.InjectClipboardEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1200,7 +1200,7 @@ remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.InjectKeyEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.KeyEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1214,7 +1214,7 @@ remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.InjectMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.MouseEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1228,7 +1228,7 @@ remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.InjectTextEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TextEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1242,7 +1242,7 @@ remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.InjectTouchEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TouchEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1308,7 +1308,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1524,7 +1524,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec 
       name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -1701,7 +1701,7 @@ remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnClipboardEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ClipboardEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1715,7 +1715,7 @@ remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec =
       name: 'remoting.mojom.DesktopSessionEventHandler.OnUrlForwarderStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.UrlForwarderStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1729,7 +1729,7 @@ remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnAudioPacket_Params',
       packedSize: 16,
       fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.AudioPacketSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1743,7 +1743,7 @@ remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnDesktopDisplayChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.VideoLayoutSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1771,7 +1771,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged
       name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorFractionalPositionChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FractionalCoordinateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1888,9 +1888,9 @@ remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
       name: 'remoting.mojom.DesktopSessionStateHandler.DisconnectSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ProtocolErrorCodeSpec, nullable: false },
         { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_location', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.SourceLocationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

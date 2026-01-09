@@ -22,11 +22,11 @@ blink.mojom.SharedWorkerInfoSpec = {
       name: 'blink.mojom.SharedWorkerInfo',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'content_security_policies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'outside_fetch_client_settings_object', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'same_site_cookies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'same_site_cookies', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedWorkerSameSiteCookiesSpec, nullable: false },
         { name: 'extended_lifetime', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

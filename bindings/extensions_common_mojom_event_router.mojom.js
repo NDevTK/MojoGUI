@@ -16,7 +16,7 @@ extensions.mojom.ServiceWorkerContextSpec = {
       name: 'extensions.mojom.ServiceWorkerContext',
       packedSize: 32,
       fields: [
-        { name: 'scope_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'thread_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -34,8 +34,8 @@ extensions.mojom.EventListenerSpec = {
       fields: [
         { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ServiceWorkerContextSpec, nullable: true },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
       name: 'extensions.mojom.EventRouter.AddListenerForMainThread_Params',
       packedSize: 16,
       fields: [
-        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,7 +218,7 @@ extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
       name: 'extensions.mojom.EventRouter.AddListenerForServiceWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -265,7 +265,7 @@ extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
       fields: [
         { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
         { name: 'add_lazy_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -282,8 +282,8 @@ extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ServiceWorkerContextSpec, nullable: false },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
         { name: 'add_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -298,7 +298,7 @@ extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
       name: 'extensions.mojom.EventRouter.RemoveListenerForMainThread_Params',
       packedSize: 16,
       fields: [
-        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
       name: 'extensions.mojom.EventRouter.RemoveListenerForServiceWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.EventListenerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -359,7 +359,7 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
       fields: [
         { name: 'listener_owner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
         { name: 'remove_lazy_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -376,8 +376,8 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec =
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_worker_context', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ServiceWorkerContextSpec, nullable: false },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
         { name: 'remove_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

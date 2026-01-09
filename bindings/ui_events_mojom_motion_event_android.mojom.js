@@ -16,7 +16,7 @@ ui.mojom.PointerCoordinatesSpec = {
       name: 'ui.mojom.PointerCoordinates',
       packedSize: 24,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'touch_major', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
@@ -31,7 +31,7 @@ ui.mojom.MotionEventAndroidCachedPointerSpec = {
       name: 'ui.mojom.MotionEventAndroidCachedPointer',
       packedSize: 48,
       fields: [
-        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.PointerCoordinatesSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'touch_minor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'pressure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -53,7 +53,7 @@ ui.mojom.HistoricalCachedPointerSpec = {
       packedSize: 24,
       fields: [
         { name: 'pointers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -67,9 +67,9 @@ ui.mojom.CachedMotionEventAndroidSpec = {
       name: 'ui.mojom.CachedMotionEventAndroid',
       packedSize: 104,
       fields: [
-        { name: 'latest_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'down_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'raw_position_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'latest_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'down_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'raw_position_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
         { name: 'pointers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'historical_events', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'pix_to_dip', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },

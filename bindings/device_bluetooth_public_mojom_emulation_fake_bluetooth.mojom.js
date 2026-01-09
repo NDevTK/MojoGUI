@@ -97,10 +97,10 @@ bluetooth.mojom.ScanRecordSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'uuids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'appearance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'tx_power', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'appearance', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.AppearanceSpec, nullable: false },
+        { name: 'tx_power', packedOffset: 24, packedBitOffset: 0, type: bluetooth.mojom.PowerSpec, nullable: false },
         { name: 'manufacturer_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'service_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'service_data', packedOffset: 40, packedBitOffset: 0, type: bluetooth.mojom.ServiceDataMapSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ bluetooth.mojom.ScanResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'device_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'scan_record', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scan_record', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.ScanRecordSpec, nullable: false },
         { name: 'rssi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
@@ -239,7 +239,7 @@ bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec = {
       name: 'bluetooth.mojom.FakeBluetooth.SimulateCentral_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CentralStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -595,7 +595,7 @@ bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.SimulateAdvertisementReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ScanResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -609,7 +609,7 @@ bluetooth.mojom.FakeCentral_SetState_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.SetState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CentralStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -679,7 +679,7 @@ bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.SimulateGATTOperationResponse_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GATTOperationTypeSpec, nullable: false },
         { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
@@ -762,7 +762,7 @@ bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec =
       name: 'bluetooth.mojom.FakeCentral.SimulateCharacteristicOperationResponse_Params',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicOperationTypeSpec, nullable: false },
         { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -794,7 +794,7 @@ bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.SimulateDescriptorOperationResponse_Params',
       packedSize: 64,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.DescriptorOperationTypeSpec, nullable: false },
         { name: 'descriptor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'characteristic_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'service_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -884,7 +884,7 @@ bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'characteristic_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicPropertiesSpec, nullable: false },
         { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -1169,7 +1169,7 @@ bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec
       packedSize: 32,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'write_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'write_type', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.WriteTypeSpec, nullable: false },
         { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1371,7 +1371,7 @@ bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentralClient.DispatchGATTOperationEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GATTOperationTypeSpec, nullable: false },
         { name: 'peripheral_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1386,9 +1386,9 @@ bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpe
       name: 'bluetooth.mojom.FakeCentralClient.DispatchCharacteristicOperationEvent_Params',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicOperationTypeSpec, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'write_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'write_type', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.WriteTypeSpec, nullable: true },
         { name: 'characteristic_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1403,7 +1403,7 @@ bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = 
       name: 'bluetooth.mojom.FakeCentralClient.DispatchDescriptorOperationEvent_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.DescriptorOperationTypeSpec, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'descriptor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

@@ -71,7 +71,7 @@ arc.mojom.RunningAppProcessInfoSpec = {
       packedSize: 56,
       fields: [
         { name: 'process_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'process_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'process_state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false },
         { name: 'packages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'last_activity_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'pid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

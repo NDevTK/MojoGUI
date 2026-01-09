@@ -16,7 +16,7 @@ gpu.mojom.SharedImageExportResultSpec = {
       name: 'gpu.mojom.SharedImageExportResult',
       packedSize: 16,
       fields: [
-        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,12 +30,12 @@ gpu.mojom.ExportedSharedImageSpec = {
       name: 'gpu.mojom.ExportedSharedImage',
       packedSize: 72,
       fields: [
-        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'creation_sync_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageMetadataSpec, nullable: false },
+        { name: 'creation_sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
         { name: 'debug_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'buffer_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'buffer_usage', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buffer_handle', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: true },
+        { name: 'buffer_usage', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.BufferUsageSpec, nullable: true },
         { name: 'texture_target', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'is_software', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

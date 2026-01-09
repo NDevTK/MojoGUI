@@ -16,12 +16,12 @@ theme_color_picker.mojom.ThemeSpec = {
       name: 'theme_color_picker.mojom.Theme',
       packedSize: 72,
       fields: [
-        { name: 'background_image_main_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'seed_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'foreground_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'color_picker_icon_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'browser_color_variant', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_image_main_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
+        { name: 'seed_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'foreground_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
+        { name: 'color_picker_icon_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'browser_color_variant', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
         { name: 'seed_color_hue', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'has_background_image', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_third_party_theme', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -43,11 +43,11 @@ theme_color_picker.mojom.ChromeColorSpec = {
       packedSize: 56,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'foreground', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'base', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'variant', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'background', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'foreground', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'base', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'variant', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,8 +313,8 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColor_Params',
       packedSize: 24,
       fields: [
-        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerClient.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

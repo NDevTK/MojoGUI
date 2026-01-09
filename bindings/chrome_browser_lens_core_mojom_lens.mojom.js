@@ -45,16 +45,16 @@ lens.mojom.OverlayThemeSpec = {
       name: 'lens.mojom.OverlayTheme',
       packedSize: 88,
       fields: [
-        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shader_layer_1', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shader_layer_2', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shader_layer_3', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shader_layer_4', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shader_layer_5', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrim', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'surface_container_highest_light', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'surface_container_highest_dark', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'selection_element', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'shader_layer_1', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'shader_layer_2', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'shader_layer_3', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'shader_layer_4', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'shader_layer_5', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'scrim', packedOffset: 48, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'surface_container_highest_light', packedOffset: 56, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'surface_container_highest_dark', packedOffset: 64, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'selection_element', packedOffset: 72, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.ActivityRequestedByOverlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,7 +562,7 @@ lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.InfoRequestedByOverlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -740,7 +740,7 @@ lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_P
       name: 'lens.mojom.LensPageHandler.RecordUkmAndTaskCompletionForLensOverlayInteraction_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.UserActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -754,7 +754,7 @@ lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.RecordLensOverlaySemanticEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.SemanticEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1085,7 +1085,7 @@ lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.ScreenshotDataReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false },
         { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1182,7 +1182,7 @@ lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.ThemeReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.OverlayThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1333,7 +1333,7 @@ lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
       name: 'lens.mojom.LensPage.OnOverlayReshown_Params',
       packedSize: 16,
       fields: [
-        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

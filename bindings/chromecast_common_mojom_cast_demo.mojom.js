@@ -257,7 +257,7 @@ chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'event_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -431,7 +431,7 @@ chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetAvailableWifiNetworks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetConnectionStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

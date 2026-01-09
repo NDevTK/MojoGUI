@@ -17,7 +17,7 @@ contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = {
       packedSize: 32,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tab_selection_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_selection_mode', packedOffset: 8, packedBitOffset: 0, type: contextual_tasks.mojom.TabSelectionModeSpec, nullable: false },
         { name: 'min_model_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
@@ -33,7 +33,7 @@ contextual_tasks_internals.mojom.TabSpec = {
       packedSize: 24,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage.OnLogMessageAdded_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

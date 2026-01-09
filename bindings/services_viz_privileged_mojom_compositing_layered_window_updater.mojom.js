@@ -81,8 +81,8 @@ viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
       name: 'viz.mojom.LayeredWindowUpdater.OnAllocatedSharedMemory_Params',
       packedSize: 24,
       fields: [
-        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

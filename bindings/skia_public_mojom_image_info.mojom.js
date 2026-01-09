@@ -34,8 +34,8 @@ skia.mojom.ImageInfoSpec = {
       name: 'skia.mojom.ImageInfo',
       packedSize: 48,
       fields: [
-        { name: 'color_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'alpha_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_type', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.ColorTypeSpec, nullable: false },
+        { name: 'alpha_type', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false },
         { name: 'color_transfer_function', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'color_to_xyz_matrix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -53,7 +53,7 @@ skia.mojom.BitmapN32ImageInfoSpec = {
       name: 'skia.mojom.BitmapN32ImageInfo',
       packedSize: 40,
       fields: [
-        { name: 'alpha_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'alpha_type', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false },
         { name: 'color_transfer_function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'color_to_xyz_matrix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

@@ -25,8 +25,8 @@ arc.mojom.PurchaseDetailsSpec = {
       fields: [
         { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'purchase_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'purchase_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purchase_state', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PurchaseStateSpec, nullable: false },
+        { name: 'purchase_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'acknowledged', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'will_auto_renew', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],

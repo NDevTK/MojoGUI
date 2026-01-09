@@ -38,8 +38,8 @@ passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams',
       packedSize: 32,
       fields: [
-        { name: 'embeddings_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'embeddings_model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
         { name: 'input_window_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -129,7 +129,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: passage_embeddings.mojom.PassagePrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,8 +217,8 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_Params',
       packedSize: 32,
       fields: [
-        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbedderParamsSpec, nullable: false },
         { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

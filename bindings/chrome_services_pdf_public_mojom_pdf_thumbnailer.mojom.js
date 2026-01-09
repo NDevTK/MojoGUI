@@ -16,8 +16,8 @@ pdf.mojom.ThumbParamsSpec = {
       name: 'pdf.mojom.ThumbParams',
       packedSize: 32,
       fields: [
-        { name: 'size_px', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size_px', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'stretch', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'keep_aspect', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -98,8 +98,8 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.ThumbParamsSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }

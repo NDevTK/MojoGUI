@@ -155,7 +155,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler.NotifyUserAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

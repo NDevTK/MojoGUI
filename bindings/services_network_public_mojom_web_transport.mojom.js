@@ -63,10 +63,10 @@ network.mojom.WebTransportStatsSpec = {
       name: 'network.mojom.WebTransportStats',
       packedSize: 64,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'min_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'smoothed_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'rtt_variation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'min_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'smoothed_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'rtt_variation', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'estimated_send_rate_bps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'datagrams_expired_outgoing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'datagrams_lost_outgoing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
@@ -220,7 +220,7 @@ network.mojom.WebTransport_SendDatagram_ParamsSpec = {
       name: 'network.mojom.WebTransport.SendDatagram_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
       name: 'network.mojom.WebTransport.SetOutgoingDatagramExpirationDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -401,7 +401,7 @@ network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
       name: 'network.mojom.WebTransport.GetStats_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -415,7 +415,7 @@ network.mojom.WebTransport_Close_ParamsSpec = {
       name: 'network.mojom.WebTransport.Close_Params',
       packedSize: 16,
       fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -535,7 +535,7 @@ network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnDatagramReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -608,8 +608,8 @@ network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnClosed_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true },
+        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -718,7 +718,7 @@ network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       fields: [
         { name: 'response_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'selected_application_protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'initial_stats', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_stats', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false },
         { name: 'transport', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -734,7 +734,7 @@ network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnHandshakeFailed_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

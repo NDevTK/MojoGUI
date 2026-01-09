@@ -25,8 +25,8 @@ ax.mojom.SyntheticKeyEventSpec = {
       name: 'ax.mojom.SyntheticKeyEvent',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: false },
         { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -41,9 +41,9 @@ ax.mojom.SyntheticMouseEventSpec = {
       name: 'ax.mojom.SyntheticMouseEvent',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mouse_button', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'mouse_button', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventButtonSpec, nullable: true },
         { name: 'touch_accessibility', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
@@ -123,7 +123,7 @@ ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
       name: 'ax.mojom.UserInput.SendSyntheticKeyEventForShortcutOrNavigation_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticKeyEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -137,7 +137,7 @@ ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
       name: 'ax.mojom.UserInput.SendSyntheticMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

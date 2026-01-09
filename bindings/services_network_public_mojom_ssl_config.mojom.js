@@ -28,11 +28,11 @@ network.mojom.SSLConfigSpec = {
       name: 'network.mojom.SSLConfig',
       packedSize: 72,
       fields: [
-        { name: 'version_min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'version_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version_min', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false },
+        { name: 'version_max', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false },
         { name: 'disabled_cipher_suites', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client_cert_pooling_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'named_groups_preset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'named_groups_preset', packedOffset: 32, packedBitOffset: 0, type: network.mojom.SSLNamedGroupsPresetSpec, nullable: false },
         { name: 'trust_anchor_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'mtc_trust_anchor_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'rev_checking_enabled', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -110,7 +110,7 @@ network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
       name: 'network.mojom.SSLConfigClient.OnSSLConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

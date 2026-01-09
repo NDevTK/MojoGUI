@@ -72,7 +72,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
       name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

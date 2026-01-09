@@ -156,7 +156,7 @@ ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
       name: 'ash.office_fallback.mojom.PageHandler.Close_Params',
       packedSize: 16,
       fields: [
-        { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: ash.office_fallback.mojom.DialogChoiceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

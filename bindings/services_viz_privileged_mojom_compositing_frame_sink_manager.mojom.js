@@ -17,7 +17,7 @@ viz.mojom.RootCompositorFrameSinkParamsSpec = {
       packedSize: 80,
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false },
         { name: 'renderer_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'create_input_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'refresh_rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -383,7 +383,7 @@ viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateRootCompositorFrameSink_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.RootCompositorFrameSinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,7 +397,7 @@ viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.CreateCompositorDisplayLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorDisplayLinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,7 +429,7 @@ viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bundle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: input.mojom.RenderInputRouterConfigSpec, nullable: true },
         { name: 'compositor_frame_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'compositor_frame_sink_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -533,7 +533,7 @@ viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'frame_sink_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.StartThrottlingAllFrameSinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -633,7 +633,7 @@ viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManager.ClearUnclaimedViewTransitionResources_Params',
       packedSize: 16,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -862,7 +862,7 @@ viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'activation_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -904,7 +904,7 @@ viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnScreenshotCaptured_Params',
       packedSize: 24,
       fields: [
-        { name: 'destination_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, nullable: false },
         { name: 'copy_output_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -919,7 +919,7 @@ viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerClient.OnVizTouchStateAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -933,7 +933,7 @@ viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = 
       name: 'viz.mojom.FrameSinkManagerClient.OnViewTransitionResourcesCaptured_Params',
       packedSize: 16,
       fields: [
-        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

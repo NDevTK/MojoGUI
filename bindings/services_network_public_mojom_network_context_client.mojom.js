@@ -118,7 +118,7 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'destination_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'async', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -175,7 +175,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec =
       name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

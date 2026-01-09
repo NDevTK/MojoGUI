@@ -72,7 +72,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
       name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

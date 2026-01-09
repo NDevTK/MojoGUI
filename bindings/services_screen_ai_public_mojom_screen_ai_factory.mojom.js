@@ -164,7 +164,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeOCR_Params',
       packedSize: 32,
       fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
@@ -193,7 +193,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpe
       name: 'screen_ai.mojom.ScreenAIServiceFactory.InitializeMainContentExtraction_Params',
       packedSize: 32,
       fields: [
-        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],

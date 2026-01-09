@@ -353,8 +353,8 @@ media.mojom.VideoCaptureFormatSpec = {
       name: 'media.mojom.VideoCaptureFormat',
       packedSize: 32,
       fields: [
-        { name: 'frame_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false },
         { name: 'frame_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
@@ -369,10 +369,10 @@ media.mojom.VideoCaptureParamsSpec = {
       name: 'media.mojom.VideoCaptureParams',
       packedSize: 56,
       fields: [
-        { name: 'requested_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'resolution_change_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'power_line_frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requested_format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFormatSpec, nullable: false },
+        { name: 'buffer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureBufferTypeSpec, nullable: false },
+        { name: 'resolution_change_policy', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ResolutionChangePolicySpec, nullable: false },
+        { name: 'power_line_frequency', packedOffset: 24, packedBitOffset: 0, type: media.mojom.PowerLineFrequencySpec, nullable: false },
         { name: 'capture_version_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'enable_face_detection', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_high_dpi_enabled', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -426,11 +426,11 @@ media.mojom.VideoCaptureDeviceDescriptorSpec = {
         { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'model_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'facing_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'capture_api', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'control_support', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'transport_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'availability', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'facing_mode', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false },
+        { name: 'capture_api', packedOffset: 32, packedBitOffset: 0, type: media.mojom.VideoCaptureApiSpec, nullable: false },
+        { name: 'control_support', packedOffset: 40, packedBitOffset: 0, type: media.mojom.VideoCaptureControlSupportSpec, nullable: false },
+        { name: 'transport_type', packedOffset: 48, packedBitOffset: 0, type: media.mojom.VideoCaptureTransportTypeSpec, nullable: false },
+        { name: 'availability', packedOffset: 56, packedBitOffset: 0, type: media.mojom.CameraAvailabilitySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -444,7 +444,7 @@ media.mojom.VideoCaptureDeviceInfoSpec = {
       name: 'media.mojom.VideoCaptureDeviceInfo',
       packedSize: 24,
       fields: [
-        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceDescriptorSpec, nullable: false },
         { name: 'supported_formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

@@ -113,8 +113,8 @@ ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateCh
       name: 'ash.secure_channel.mojom.NearbyConnectionStateListener.OnNearbyConnectionStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.NearbyConnectionStepResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

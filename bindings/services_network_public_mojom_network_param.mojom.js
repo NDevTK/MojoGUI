@@ -26,7 +26,7 @@ network.mojom.AuthChallengeInfoSpec = {
       name: 'network.mojom.AuthChallengeInfo',
       packedSize: 56,
       fields: [
-        { name: 'challenger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'challenger', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
         { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -75,8 +75,8 @@ network.mojom.ProxyServerSpec = {
       name: 'network.mojom.ProxyServer',
       packedSize: 24,
       fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxySchemeSpec, nullable: false },
+        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ network.mojom.SSLCertRequestInfoSpec = {
       name: 'network.mojom.SSLCertRequestInfo',
       packedSize: 40,
       fields: [
-        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
         { name: 'cert_authorities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'signature_algorithms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'is_proxy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -137,7 +137,7 @@ network.mojom.NetLogSourceSpec = {
       name: 'network.mojom.NetLogSource',
       packedSize: 24,
       fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'source_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'source_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],

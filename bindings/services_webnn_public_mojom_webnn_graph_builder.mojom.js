@@ -105,9 +105,9 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraphBuilder.CreatePendingConstant_Params',
       packedSize: 32,
       fields: [
-        { name: 'constant_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'constant_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false },
         { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

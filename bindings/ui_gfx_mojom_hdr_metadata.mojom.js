@@ -31,7 +31,7 @@ gfx.mojom.HdrMetadataSmpteSt2086Spec = {
       name: 'gfx.mojom.HdrMetadataSmpteSt2086',
       packedSize: 24,
       fields: [
-        { name: 'primaries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primaries', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
         { name: 'luminance_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'luminance_min', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
@@ -76,10 +76,10 @@ gfx.mojom.HDRMetadataSpec = {
       name: 'gfx.mojom.HDRMetadata',
       packedSize: 48,
       fields: [
-        { name: 'smpte_st_2086', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'cta_861_3', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'ndwl', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'extended_range', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'smpte_st_2086', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.HdrMetadataSmpteSt2086Spec, nullable: true },
+        { name: 'cta_861_3', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.HdrMetadataCta861_3Spec, nullable: true },
+        { name: 'ndwl', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.HdrMetadataNdwlSpec, nullable: true },
+        { name: 'extended_range', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.HdrMetadataExtendedRangeSpec, nullable: true },
         { name: 'agtm_serialized', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]

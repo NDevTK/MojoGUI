@@ -49,7 +49,7 @@ emoji_picker.mojom.HistoryItemSpec = {
       packedSize: 24,
       fields: [
         { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,7 +349,7 @@ emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.InsertGif_Params',
       packedSize: 16,
       fields: [
-        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,7 +427,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetCategories_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false },
         { name: 'gif_categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -455,8 +455,8 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetFeaturedGifs_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'featured_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false },
+        { name: 'featured_gifs', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.PaginatedGifResponsesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,8 +484,8 @@ emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.SearchGifs_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'search_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false },
+        { name: 'search_gifs', packedOffset: 8, packedBitOffset: 0, type: tenor.mojom.PaginatedGifResponsesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -512,7 +512,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false },
         { name: 'selected_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -552,7 +552,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetInitialCategory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -592,7 +592,7 @@ emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.UpdateHistoryInPrefs_Params',
       packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false },
         { name: 'history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -621,7 +621,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_Params',
       packedSize: 16,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

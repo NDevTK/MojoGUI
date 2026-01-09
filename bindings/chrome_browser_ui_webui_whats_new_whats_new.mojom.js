@@ -374,7 +374,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
       name: 'whats_new.mojom.PageHandler.GetServerUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -388,7 +388,7 @@ whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordTimeToLoadContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -432,7 +432,7 @@ whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -460,7 +460,7 @@ whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordScrollDepth_Params',
       packedSize: 16,
       fields: [
-        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -474,7 +474,7 @@ whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordTimeOnPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -504,7 +504,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -519,7 +519,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -534,7 +534,7 @@ whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -549,7 +549,7 @@ whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -564,7 +564,7 @@ whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

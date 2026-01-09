@@ -72,7 +72,7 @@ blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
       name: 'blink.mojom.ManifestUrlChangeObserver.ManifestUrlChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

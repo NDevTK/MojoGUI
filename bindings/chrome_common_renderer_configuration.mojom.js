@@ -30,7 +30,7 @@ chrome.mojom.BoundSessionThrottlerParamsSpec = {
       fields: [
         { name: 'domain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cookie_expiry_date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cookie_expiry_date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,7 +131,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
       name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_Params',
       packedSize: 16,
       fields: [
-        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -144,7 +144,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Re
       name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ResumeBlockedRequestsTriggerSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
       name: 'chrome.mojom.RendererConfiguration.SetConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.DynamicParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpe
       name: 'chrome.mojom.RendererConfiguration.SetConfigurationOnProcessLockUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.StaticParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

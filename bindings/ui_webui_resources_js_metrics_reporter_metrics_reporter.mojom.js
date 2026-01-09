@@ -126,7 +126,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -155,7 +155,7 @@ metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

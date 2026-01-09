@@ -106,7 +106,7 @@ media.mojom.SpeechRecognizer_Start_ParamsSpec = {
       name: 'media.mojom.SpeechRecognizer.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StartSpeechRecognitionRequestParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
       name: 'media.mojom.OnDeviceSpeechRecognition.Available_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AvailabilityStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

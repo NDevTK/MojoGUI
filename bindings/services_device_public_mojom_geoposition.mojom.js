@@ -30,7 +30,7 @@ device.mojom.GeopositionSpec = {
         { name: 'altitude_accuracy', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'heading', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'speed', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'is_precise', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -45,7 +45,7 @@ device.mojom.GeopositionErrorSpec = {
       name: 'device.mojom.GeopositionError',
       packedSize: 32,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionErrorCodeSpec, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error_technical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

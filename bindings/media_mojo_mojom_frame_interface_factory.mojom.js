@@ -260,7 +260,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,7 +274,7 @@ media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.BindEmbedderReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

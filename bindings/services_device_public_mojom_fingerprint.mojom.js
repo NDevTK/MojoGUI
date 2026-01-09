@@ -158,7 +158,7 @@ device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BiometricsManagerStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnEnrollScanDone_Params',
       packedSize: 32,
       fields: [
-        { name: 'scan_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scan_result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScanResultSpec, nullable: false },
         { name: 'percent_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_complete', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -609,7 +609,7 @@ device.mojom.Fingerprint_RequestType_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.RequestType_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BiometricTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

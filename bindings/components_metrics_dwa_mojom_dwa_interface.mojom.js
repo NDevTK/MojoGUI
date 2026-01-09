@@ -142,7 +142,7 @@ metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
       name: 'metrics.dwa.mojom.DwaRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

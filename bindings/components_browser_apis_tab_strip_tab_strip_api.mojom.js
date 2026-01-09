@@ -169,7 +169,7 @@ tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

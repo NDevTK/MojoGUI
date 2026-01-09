@@ -51,10 +51,10 @@ device_signals.mojom.FileSystemItemSpec = {
       name: 'device_signals.mojom.FileSystemItem',
       packedSize: 40,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'presence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sha256_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'executable_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'presence', packedOffset: 8, packedBitOffset: 0, type: device_signals.mojom.PresenceValueSpec, nullable: false },
+        { name: 'sha256_hash', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true },
+        { name: 'executable_metadata', packedOffset: 24, packedBitOffset: 0, type: device_signals.mojom.ExecutableMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -68,7 +68,7 @@ device_signals.mojom.FileSystemItemRequestSpec = {
       name: 'device_signals.mojom.FileSystemItemRequest',
       packedSize: 24,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'compute_sha256', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'compute_executable_metadata', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -85,7 +85,7 @@ device_signals.mojom.AntiVirusSignalSpec = {
       packedSize: 24,
       fields: [
         { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: device_signals.mojom.AntiVirusProductStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

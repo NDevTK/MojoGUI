@@ -16,7 +16,7 @@ gfx.mojom.ImageSkiaRepSpec = {
       name: 'gfx.mojom.ImageSkiaRep',
       packedSize: 24,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapWithArbitraryBppSpec, nullable: false },
         { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]

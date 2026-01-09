@@ -162,7 +162,7 @@ echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
       name: 'echo.mojom.EchoService.LoadNativeLibrary_Params',
       packedSize: 24,
       fields: [
-        { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'call_winmm_delayload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -229,7 +229,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
       name: 'echo.mojom.EchoService.LoadNativeLibrary_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: echo.mojom.LoadStatusSpec, nullable: false },
         { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -244,7 +244,7 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
       name: 'echo.mojom.EchoService.DecryptEncrypt_Params',
       packedSize: 24,
       fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
         { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

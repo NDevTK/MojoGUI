@@ -149,7 +149,7 @@ arc.mojom.OemCryptoKeyObjectV14Spec = {
       name: 'arc.mojom.OemCryptoKeyObjectV14',
       packedSize: 48,
       fields: [
-        { name: 'cipher_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cipher_mode', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoCipherModeSpec, nullable: false },
         { name: 'key_id_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'key_id_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'key_data_iv_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -170,11 +170,11 @@ arc.mojom.OemCryptoKeyObjectSpec = {
       name: 'arc.mojom.OemCryptoKeyObject',
       packedSize: 48,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_data_iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_control_iv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_control', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_data_iv', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control_iv', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,10 +205,10 @@ arc.mojom.OemCryptoEntitledContentKeyObjectSpec = {
       name: 'arc.mojom.OemCryptoEntitledContentKeyObject',
       packedSize: 40,
       fields: [
-        { name: 'entitlement_key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_key_data_iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_key_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entitlement_key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_data_iv', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'content_key_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -240,9 +240,9 @@ arc.mojom.OemCryptoKeyRefreshObjectSpec = {
       name: 'arc.mojom.OemCryptoKeyRefreshObject',
       packedSize: 32,
       fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_control_iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_control', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control_iv', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
+        { name: 'key_control', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

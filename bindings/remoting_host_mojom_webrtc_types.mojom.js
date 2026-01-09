@@ -39,10 +39,10 @@ remoting.mojom.DesktopFrameSpec = {
       name: 'remoting.mojom.DesktopFrame',
       packedSize: 56,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false },
         { name: 'dirty_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'capture_time_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'dpi', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dpi', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false },
         { name: 'shared_buffer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'stride', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'capturer_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -106,9 +106,9 @@ remoting.mojom.MouseCursorSpec = {
       name: 'remoting.mojom.MouseCursor',
       packedSize: 32,
       fields: [
-        { name: 'image_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_size', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false },
         { name: 'image_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hotspot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hotspot', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

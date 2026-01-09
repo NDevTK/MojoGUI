@@ -56,7 +56,7 @@ mac_notifications.mojom.NotificationIdentifierSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -70,8 +70,8 @@ mac_notifications.mojom.NotificationMetadataSpec = {
       name: 'mac_notifications.mojom.NotificationMetadata',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'origin_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false },
+        { name: 'origin_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'user_data_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -87,9 +87,9 @@ mac_notifications.mojom.NotificationActionInfoSpec = {
       name: 'mac_notifications.mojom.NotificationActionInfo',
       packedSize: 40,
       fields: [
-        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false },
+        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationOperationSpec, nullable: false },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
         { name: 'button_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -104,8 +104,8 @@ mac_notifications.mojom.NotificationActionButtonSpec = {
       name: 'mac_notifications.mojom.NotificationActionButton',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -119,12 +119,12 @@ mac_notifications.mojom.NotificationSpec = {
       name: 'mac_notifications.mojom.Notification',
       packedSize: 64,
       fields: [
-        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'buttons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
         { name: 'renotify', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'show_settings_button', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -241,7 +241,7 @@ mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = 
       name: 'mac_notifications.mojom.MacNotificationService.DisplayNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -255,8 +255,8 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_Params',
       packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: true },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -283,7 +283,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,7 +297,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Para
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotificationsForProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params
       name: 'mac_notifications.mojom.MacNotificationActionHandler.OnNotificationAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationActionInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

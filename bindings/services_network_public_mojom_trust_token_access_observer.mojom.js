@@ -16,8 +16,8 @@ network.mojom.TrustTokenIssuanceDetailsSpec = {
       name: 'network.mojom.TrustTokenIssuanceDetails',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -32,8 +32,8 @@ network.mojom.TrustTokenRedemptionDetailsSpec = {
       name: 'network.mojom.TrustTokenRedemptionDetails',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'issuer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'blocked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -48,7 +48,7 @@ network.mojom.TrustTokenSigningDetailsSpec = {
       name: 'network.mojom.TrustTokenSigningDetails',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

@@ -106,7 +106,7 @@ device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.BindGeolocation_Params',
       packedSize: 40,
       fields: [
-        { name: 'requesting_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requesting_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'has_precise_permission', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -123,8 +123,8 @@ device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.OnPermissionUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationPermissionLevelSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

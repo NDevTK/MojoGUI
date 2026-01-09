@@ -96,7 +96,7 @@ network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
       name: 'network.mojom.ProxyConfigClient.OnProxyConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyConfigWithAnnotationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -109,7 +109,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams
       name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,7 +123,7 @@ blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec =
       name: 'blink.mojom.DevicePostureProvider.OverrideDevicePostureForEmulation_Params',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
       name: 'blink.mojom.DevicePostureClient.OnPostureChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

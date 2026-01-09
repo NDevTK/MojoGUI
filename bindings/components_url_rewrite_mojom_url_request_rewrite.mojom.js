@@ -112,7 +112,7 @@ url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
       packedSize: 24,
       fields: [
         { name: 'url_ends_with', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
       name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: url_rewrite.mojom.UrlRequestRewriteRulesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

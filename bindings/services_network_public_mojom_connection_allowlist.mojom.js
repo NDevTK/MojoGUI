@@ -41,8 +41,8 @@ network.mojom.ConnectionAllowlistsSpec = {
       name: 'network.mojom.ConnectionAllowlists',
       packedSize: 24,
       fields: [
-        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
+        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

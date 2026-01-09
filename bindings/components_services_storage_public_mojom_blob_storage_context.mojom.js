@@ -33,7 +33,7 @@ storage.mojom.BlobDataItemSpec = {
       name: 'storage.mojom.BlobDataItem',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BlobDataItemTypeSpec, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'side_data_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'content_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -157,7 +157,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
       name: 'storage.mojom.BlobDataItemReader.ReadSideData_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -261,7 +261,7 @@ storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BlobDataItemSpec, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -277,7 +277,7 @@ storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -292,8 +292,8 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
       name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_Params',
       packedSize: 40,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'last_modified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'last_modified', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'flush_on_write', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -308,7 +308,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
       name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.WriteBlobToFileResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -252,7 +252,7 @@ viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.Resize_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -266,7 +266,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetDisplayColorMatrix_Params',
       packedSize: 16,
       fields: [
-        { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetDisplayColorSpaces_Params',
       packedSize: 16,
       fields: [
-        { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,8 +322,8 @@ viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetDisplayVSyncParameters_Params',
       packedSize: 24,
       fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,8 +463,8 @@ viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetMaxVSyncAndVrr_Params',
       packedSize: 24,
       fields: [
-        { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -602,7 +602,7 @@ viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.OnDisplayReceivedCALayerParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.CALayerParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -630,7 +630,7 @@ viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.AddChildWindowToBrowser_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -644,7 +644,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.DidCompleteSwapWithSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -658,7 +658,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.DidCompleteSwapWithNewSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -672,7 +672,7 @@ viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.OnContextCreationResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

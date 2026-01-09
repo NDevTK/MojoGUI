@@ -157,7 +157,7 @@ media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamSender.SendFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -730,7 +730,7 @@ media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
       name: 'media.mojom.Remotee.OnVideoNaturalSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -17,14 +17,14 @@ blink.mojom.EmbeddedWorkerStartParamsSpec = {
       packedSize: 216,
       fields: [
         { name: 'service_worker_version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'script_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'script_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'script_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'outside_fetch_client_settings_object', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_agent', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'ua_metadata', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'devtools_worker_token', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'script_url_to_skip_throttling', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'devtools_worker_token', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'script_url_to_skip_throttling', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'renderer_preferences', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'forced_enabled_runtime_features', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'installed_scripts_info', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
@@ -34,7 +34,7 @@ blink.mojom.EmbeddedWorkerStartParamsSpec = {
         { name: 'ukm_source_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'main_script_load_params', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'policy_container', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'storage_key', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 144, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'cors_exempt_header_list', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'service_worker_route_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'service_worker_receiver', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
@@ -61,9 +61,9 @@ blink.mojom.EmbeddedWorkerStartTimingSpec = {
       name: 'blink.mojom.EmbeddedWorkerStartTiming',
       packedSize: 32,
       fields: [
-        { name: 'start_worker_received_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'script_evaluation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'script_evaluation_end_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_worker_received_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'script_evaluation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'script_evaluation_end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceClient.StartWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,8 +384,8 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
       packedSize: 48,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'fetch_handler_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'start_timing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_handler_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false },
+        { name: 'start_timing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.EmbeddedWorkerStartTimingSpec, nullable: false },
         { name: 'thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'has_hid_event_handlers', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_usb_event_handlers', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -402,8 +402,8 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
       name: 'blink.mojom.EmbeddedWorkerInstanceHost.OnReportException_Params',
       packedSize: 32,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -421,8 +421,8 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'line_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

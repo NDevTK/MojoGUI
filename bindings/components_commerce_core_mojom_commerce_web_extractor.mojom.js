@@ -84,7 +84,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams
       name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

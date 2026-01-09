@@ -208,7 +208,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RecordAction_Params',
       packedSize: 32,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, nullable: false },
         { name: 'url_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'visit_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],

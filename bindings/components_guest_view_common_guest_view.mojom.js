@@ -133,7 +133,7 @@ guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
       name: 'guest_view.mojom.GuestViewHost.AttachToEmbedderFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
         { name: 'element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'guest_instance_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

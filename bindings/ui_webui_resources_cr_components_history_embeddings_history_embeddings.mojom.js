@@ -50,13 +50,13 @@ history_embeddings.mojom.SearchResultItemSpec = {
       packedSize: 80,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'url_for_display', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'relative_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'short_date_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'last_url_visit_timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'source_passage', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'answer_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'answer_data', packedOffset: 56, packedBitOffset: 0, type: history_embeddings.mojom.AnswerDataSpec, nullable: true },
         { name: 'is_url_known_to_sync', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -72,7 +72,7 @@ history_embeddings.mojom.SearchQuerySpec = {
       packedSize: 24,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time_range_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'time_range_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -87,7 +87,7 @@ history_embeddings.mojom.SearchResultSpec = {
       packedSize: 40,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'answer_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'answer_status', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false },
         { name: 'answer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -227,7 +227,7 @@ history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.Search_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchQuerySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SetUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -376,7 +376,7 @@ history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
       name: 'history_embeddings.mojom.Page.SearchResultChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

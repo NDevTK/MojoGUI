@@ -40,8 +40,8 @@ arc.mojom.AnrSpec = {
       name: 'arc.mojom.Anr',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AnrSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

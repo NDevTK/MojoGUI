@@ -200,8 +200,8 @@ proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = {
       name: 'proxy_resolver.mojom.ProxyResolver.GetProxyForUrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -304,7 +304,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = {
       name: 'proxy_resolver.mojom.ProxyResolverRequestClient.ReportResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -349,8 +349,8 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -574,8 +574,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -651,7 +651,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = {
       name: 'proxy_resolver.mojom.SystemProxyResolver.GetProxyForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -664,8 +664,8 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = {
       name: 'proxy_resolver.mojom.SystemProxyResolver.GetProxyForUrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'proxy_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'proxy_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.SystemProxyResolutionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

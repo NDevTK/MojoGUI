@@ -90,8 +90,8 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_Params',
       packedSize: 40,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'process_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
+        { name: 'process_type', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false },
         { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],

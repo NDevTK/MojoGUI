@@ -16,7 +16,7 @@ blink.mojom.SerializedArrayBufferContentsSpec = {
       name: 'blink.mojom.SerializedArrayBufferContents',
       packedSize: 32,
       fields: [
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
         { name: 'max_byte_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'is_resizable_by_user_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

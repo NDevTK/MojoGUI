@@ -167,7 +167,7 @@ media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
       name: 'media.mojom.Renderer.StartPlayingFrom_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
       name: 'media.mojom.Renderer.SetCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
       name: 'media.mojom.Renderer.SetLatencyHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -392,9 +392,9 @@ media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnTimeUpdate_Params',
       packedSize: 32,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -478,7 +478,7 @@ media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoNaturalSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

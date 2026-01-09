@@ -82,7 +82,7 @@ ash.projector.mojom.NewScreencastPreconditionSpec = {
       name: 'ash.projector.mojom.NewScreencastPrecondition',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false },
         { name: 'reasons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -115,8 +115,8 @@ ash.projector.mojom.XhrResponseSpec = {
       packedSize: 32,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'net_error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseCodeSpec, nullable: false },
+        { name: 'net_error_code', packedOffset: 16, packedBitOffset: 0, type: ash.projector.mojom.JsNetErrorCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

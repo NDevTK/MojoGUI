@@ -26,7 +26,7 @@ blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = {
       name: 'blink.mojom.ChooseFileSystemEntryAcceptsOption',
       packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'mime_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -57,7 +57,7 @@ blink.mojom.OpenFilePickerOptionsSpec = {
       name: 'blink.mojom.OpenFilePickerOptions',
       packedSize: 24,
       fields: [
-        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false },
         { name: 'can_select_multiple_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -72,7 +72,7 @@ blink.mojom.SaveFilePickerOptionsSpec = {
       name: 'blink.mojom.SaveFilePickerOptions',
       packedSize: 24,
       fields: [
-        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false },
         { name: 'suggested_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -282,7 +282,7 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.ChooseEntries_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FilePickerOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

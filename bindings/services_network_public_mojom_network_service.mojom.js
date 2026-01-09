@@ -90,10 +90,10 @@ network.mojom.SCTAuditingConfigurationSpec = {
       packedSize: 64,
       fields: [
         { name: 'sampling_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'log_expected_ingestion_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'log_max_ingestion_random_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'report_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'hashdance_lookup_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_expected_ingestion_delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'log_max_ingestion_random_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'report_uri', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'hashdance_lookup_uri', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'traffic_annotation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'hashdance_traffic_annotation', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
@@ -613,7 +613,7 @@ network.mojom.NetworkService_SetParams_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkServiceParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -627,11 +627,11 @@ network.mojom.NetworkService_StartNetLog_ParamsSpec = {
       name: 'network.mojom.NetworkService.StartNetLog_Params',
       packedSize: 48,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
         { name: 'max_total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'constants', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'duration', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'constants', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -660,7 +660,7 @@ network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetSSLKeyLogFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -721,7 +721,7 @@ network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetUpHttpAuth_Params',
       packedSize: 16,
       fields: [
-        { name: 'http_auth_static_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'http_auth_static_params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpAuthStaticParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -735,7 +735,7 @@ network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
       name: 'network.mojom.NetworkService.ConfigureHttpAuthPrefs_Params',
       packedSize: 16,
       fields: [
-        { name: 'http_auth_dynamic_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'http_auth_dynamic_params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpAuthDynamicParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -873,7 +873,7 @@ network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetEncryptionKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'encryption_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encryption_key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -901,7 +901,7 @@ network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
       name: 'network.mojom.NetworkService.OnApplicationStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ApplicationStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -942,7 +942,7 @@ network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
       name: 'network.mojom.NetworkService.ConfigureSCTAuditing_Params',
       packedSize: 16,
       fields: [
-        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SCTAuditingConfigurationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -999,7 +999,7 @@ network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'pin_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1013,7 +1013,7 @@ network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
       name: 'network.mojom.NetworkService.DumpWithoutCrashing_Params',
       packedSize: 16,
       fields: [
-        { name: 'dump_request_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dump_request_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1069,7 +1069,7 @@ network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
       name: 'network.mojom.NetworkService.ParseHeaders_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1332,7 +1332,7 @@ network.mojom.DurableMessageCollector_Configure_ParamsSpec = {
       name: 'network.mojom.DurableMessageCollector.Configure_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkDurableMessageConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1346,7 +1346,7 @@ network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
       name: 'network.mojom.DurableMessageCollector.EnableForProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'throttling_profile_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'throttling_profile_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1360,7 +1360,7 @@ network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
       name: 'network.mojom.DurableMessageCollector.DisableForProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'throttling_profile_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'throttling_profile_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1387,7 +1387,7 @@ network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
       name: 'network.mojom.DurableMessageCollector.Retrieve_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

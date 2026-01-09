@@ -265,7 +265,7 @@ composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
       name: 'composebox.mojom.PageHandler.NavigateUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

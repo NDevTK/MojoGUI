@@ -39,12 +39,12 @@ blink.mojom.CredentialInfoSpec = {
       name: 'blink.mojom.CredentialInfo',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'federation', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialTypeSpec, nullable: false },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'federation', packedOffset: 40, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +132,7 @@ blink.mojom.CredentialManager_Store_ParamsSpec = {
       name: 'blink.mojom.CredentialManager.Store_Params',
       packedSize: 16,
       fields: [
-        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ blink.mojom.CredentialManager_Get_ParamsSpec = {
       name: 'blink.mojom.CredentialManager.Get_Params',
       packedSize: 32,
       fields: [
-        { name: 'mediation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mediation', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false },
         { name: 'federations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'include_passwords', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -174,8 +174,8 @@ blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
       name: 'blink.mojom.CredentialManager.Get_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialManagerErrorSpec, nullable: false },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

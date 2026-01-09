@@ -216,8 +216,8 @@ blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
       name: 'blink.mojom.StorageAccessHandle.Estimate_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
+        { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
         { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

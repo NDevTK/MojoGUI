@@ -235,7 +235,7 @@ media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
       name: 'media.mojom.CdmServiceBroker.GetService_Params',
       packedSize: 32,
       fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],

@@ -96,9 +96,9 @@ chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
       name: 'chromecast.mojom.SettingsClient.HandleSideSwipe_Params',
       packedSize: 32,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'touch_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false },
+        { name: 'touch_location', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

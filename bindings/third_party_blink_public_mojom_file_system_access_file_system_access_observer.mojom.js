@@ -111,7 +111,7 @@ blink.mojom.FileSystemAccessChangeSpec = {
       name: 'blink.mojom.FileSystemAccessChange',
       packedSize: 24,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeMetadataSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]

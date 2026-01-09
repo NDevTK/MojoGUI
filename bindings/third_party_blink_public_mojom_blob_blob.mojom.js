@@ -296,7 +296,7 @@ blink.mojom.Blob_Load_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'request_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false },
         { name: 'loader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -324,7 +324,7 @@ blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
       name: 'blink.mojom.Blob.ReadSideData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -351,7 +351,7 @@ blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

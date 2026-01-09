@@ -132,7 +132,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceProvider.GetCameraAppDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -301,7 +301,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceBridge.GetCameraAppDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -580,7 +580,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetFpsRange_Params',
       packedSize: 16,
       fields: [
-        { name: 'fps_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fps_range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -607,7 +607,7 @@ cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetStillCaptureResolution_Params',
       packedSize: 16,
       fields: [
-        { name: 'resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolution', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -621,7 +621,7 @@ cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetCaptureIntent_Params',
       packedSize: 16,
       fields: [
-        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CaptureIntentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -635,7 +635,7 @@ cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.AddResultMetadataObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.StreamTypeSpec, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -759,7 +759,7 @@ cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetCropRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'crop_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'crop_region', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1146,8 +1146,8 @@ cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
       name: 'cros.mojom.StillCaptureResultObserver.OnStillCaptureDone_Params',
       packedSize: 32,
       fields: [
-        { name: 'effect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'effect', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectSpec, nullable: false },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
         { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

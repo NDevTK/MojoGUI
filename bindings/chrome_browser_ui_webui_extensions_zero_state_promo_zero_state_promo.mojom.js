@@ -156,7 +156,7 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
       name: 'zero_state_promo.mojom.PageHandler.LaunchWebStoreLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: zero_state_promo.mojom.WebStoreLinkClickedSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

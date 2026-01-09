@@ -22,7 +22,7 @@ blink.mojom.IdleStateSpec = {
       name: 'blink.mojom.IdleState',
       packedSize: 24,
       fields: [
-        { name: 'idle_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'idle_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
         { name: 'screen_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -93,7 +93,7 @@ blink.mojom.IdleMonitor_Update_ParamsSpec = {
       name: 'blink.mojom.IdleMonitor.Update_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: false },
         { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -182,8 +182,8 @@ blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
       name: 'blink.mojom.IdleManager.AddMonitor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleManagerErrorSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

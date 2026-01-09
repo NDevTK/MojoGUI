@@ -1224,8 +1224,8 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'input_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1253,7 +1253,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
         { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -1283,7 +1283,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1312,7 +1312,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1340,7 +1340,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

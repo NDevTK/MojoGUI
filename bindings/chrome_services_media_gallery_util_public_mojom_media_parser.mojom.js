@@ -17,7 +17,7 @@ chrome.mojom.ExtractVideoFrameResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,7 +32,7 @@ chrome.mojom.MediaStreamInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'additional_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'additional_properties', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
       name: 'chrome.mojom.MediaParser.ParseMediaMetadata_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.MediaMetadataSpec, nullable: false },
         { name: 'attached_images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'parse_success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -219,7 +219,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
       name: 'chrome.mojom.MediaParser.ExtractVideoFrame_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ExtractVideoFrameResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -233,8 +233,8 @@ chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
       name: 'chrome.mojom.MediaParser.CheckMediaFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'decode_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decode_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

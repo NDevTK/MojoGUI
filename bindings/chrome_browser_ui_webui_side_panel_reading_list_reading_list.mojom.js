@@ -39,7 +39,7 @@ reading_list.mojom.ReadLaterEntrySpec = {
       packedSize: 56,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'display_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'display_time_since_update', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -306,7 +306,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
       name: 'reading_list.mojom.PageHandler.GetReadLaterEntries_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,8 +320,8 @@ reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.OpenURL_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
         { name: 'mark_as_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -336,7 +336,7 @@ reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.UpdateReadStatus_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -377,7 +377,7 @@ reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.RemoveEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -391,7 +391,7 @@ reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
       name: 'reading_list.mojom.PageHandler.ShowContextMenuForURL_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -542,7 +542,7 @@ reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
       name: 'reading_list.mojom.Page.ItemsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -556,7 +556,7 @@ reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
       name: 'reading_list.mojom.Page.CurrentPageActionButtonStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.CurrentPageActionButtonStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,7 @@ extensions.mojom.EventFilteringInfoSpec = {
       name: 'extensions.mojom.EventFilteringInfo',
       packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'window_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -38,7 +38,7 @@ extensions.mojom.DispatchEventParamsSpec = {
       fields: [
         { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'filtering_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filtering_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false },
         { name: 'worker_thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'event_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -111,8 +111,8 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
       name: 'extensions.mojom.EventDispatcher.DispatchEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false },
+        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

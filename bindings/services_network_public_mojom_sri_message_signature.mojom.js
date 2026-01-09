@@ -100,7 +100,7 @@ network.mojom.SRIMessageSignatureIssueSpec = {
       name: 'network.mojom.SRIMessageSignatureIssue',
       packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SRIMessageSignatureErrorSpec, nullable: false },
         { name: 'signature_base', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'integrity_assertions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],

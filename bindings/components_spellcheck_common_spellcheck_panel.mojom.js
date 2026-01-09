@@ -192,7 +192,7 @@ spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Param
       name: 'spellcheck.mojom.SpellCheckPanelHost.UpdateSpellingPanelWithMisspelledWord_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

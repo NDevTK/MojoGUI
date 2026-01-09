@@ -17,7 +17,7 @@ ash.shortcut_customization.mojom.SearchResultSpec = {
       name: 'ash.shortcut_customization.mojom.SearchResult',
       packedSize: 32,
       fields: [
-        { name: 'accelerator_layout_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accelerator_layout_info', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutInfoSpec, nullable: false },
         { name: 'accelerator_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'relevance_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
@@ -172,7 +172,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
       name: 'ash.shortcut_customization.mojom.SearchHandler.Search_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

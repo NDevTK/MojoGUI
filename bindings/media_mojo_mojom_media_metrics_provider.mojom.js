@@ -297,7 +297,7 @@ media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = {
       name: 'media.mojom.MediaMetricsProvider.Initialize_Params',
       packedSize: 32,
       fields: [
-        { name: 'url_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_scheme', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaURLSchemeSpec, nullable: false },
         { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_mse', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -394,7 +394,7 @@ media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec = {
       name: 'media.mojom.MediaMetricsProvider.SetTimeToMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,7 +408,7 @@ media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec = {
       name: 'media.mojom.MediaMetricsProvider.SetTimeToFirstFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -422,7 +422,7 @@ media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = {
       name: 'media.mojom.MediaMetricsProvider.SetTimeToPlayReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'elapsed', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,8 +16,8 @@ blink.mojom.DWriteStringPairSpec = {
       name: 'blink.mojom.DWriteStringPair',
       packedSize: 24,
       fields: [
-        { name: 'first', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'second', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -47,8 +47,8 @@ blink.mojom.MapCharactersResultSpec = {
       name: 'blink.mojom.MapCharactersResult',
       packedSize: 40,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false },
         { name: 'family_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'mapped_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -166,7 +166,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
       name: 'blink.mojom.DWriteFontProxy.FindFamily_Params',
       packedSize: 16,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,7 +273,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
       name: 'blink.mojom.DWriteFontProxy.MatchUniqueFont_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_unique_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_unique_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
       name: 'blink.mojom.DWriteFontProxy.MatchUniqueFont_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
         { name: 'ttc_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -301,10 +301,10 @@ blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
       name: 'blink.mojom.DWriteFontProxy.MapCharacters_Params',
       packedSize: 48,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'locale_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'base_family_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false },
+        { name: 'locale_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'base_family_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'reading_direction', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -318,7 +318,7 @@ blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
       name: 'blink.mojom.DWriteFontProxy.MapCharacters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MapCharactersResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

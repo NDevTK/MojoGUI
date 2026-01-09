@@ -110,7 +110,7 @@ IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
       name: 'IPC.mojom.Channel.GetAssociatedInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

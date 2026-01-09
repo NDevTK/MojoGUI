@@ -72,8 +72,8 @@ blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
       name: 'blink.mojom.WakeLockService.GetWakeLock_Params',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false },
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'wake_lock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],

@@ -323,7 +323,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.SetBatteryIcon_Params',
       packedSize: 16,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.status_area_internals.BatteryIconSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

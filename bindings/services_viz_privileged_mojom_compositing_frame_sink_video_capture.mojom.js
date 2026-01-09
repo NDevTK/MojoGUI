@@ -116,7 +116,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks.ProvideFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -227,9 +227,9 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnFrameCaptured_Params',
       packedSize: 40,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_rect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
+        { name: 'content_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'callbacks', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -244,7 +244,7 @@ viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnNewCaptureVersion_Params',
       packedSize: 16,
       fields: [
-        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -449,7 +449,7 @@ viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetFormat_Params',
       packedSize: 16,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinCapturePeriod_Params',
       packedSize: 16,
       fields: [
-        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,7 +477,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinSizeChangePeriod_Params',
       packedSize: 16,
       fields: [
-        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,8 +491,8 @@ viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetResolutionConstraints_Params',
       packedSize: 32,
       fields: [
-        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'use_fixed_aspect_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -536,7 +536,7 @@ viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.ChangeTarget_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.VideoCaptureTargetSpec, nullable: true },
         { name: 'sub_capture_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -551,7 +551,7 @@ viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.Start_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_format_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_format_preference', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false },
         { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -686,8 +686,8 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetImageAndBounds_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -701,7 +701,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetBounds_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -715,7 +715,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.OnCapturedMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

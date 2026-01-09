@@ -39,7 +39,7 @@ chromeos.payments.mojom.PaymentParametersSpec = {
         { name: 'payment_request_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'payment_request_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'request_token', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'twa_instance_identifier', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'twa_instance_identifier', packedOffset: 56, packedBitOffset: 0, type: [MinVersion=4] mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

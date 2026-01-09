@@ -291,7 +291,7 @@ device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
       name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

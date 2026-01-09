@@ -49,8 +49,8 @@ ash.settings.mojom.DisplaySettingsValueSpec = {
       packedSize: 40,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'night_light_schedule', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsOrientationOptionSpec, nullable: true },
+        { name: 'night_light_schedule', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, nullable: true },
         { name: 'is_internal_display', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
         { name: 'night_light_status', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
         { name: 'mirror_mode_status', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
@@ -600,8 +600,8 @@ ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsS
       name: 'ash.settings.mojom.DisplaySettingsProvider.RecordChangingDisplaySettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsTypeSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

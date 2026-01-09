@@ -26,7 +26,7 @@ blink.mojom.MediaPlayerActionSpec = {
       name: 'blink.mojom.MediaPlayerAction',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaPlayerActionTypeSpec, nullable: false },
         { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

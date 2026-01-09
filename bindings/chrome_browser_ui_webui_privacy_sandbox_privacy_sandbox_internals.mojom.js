@@ -17,7 +17,7 @@ privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,7 +150,7 @@ privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec = {
       name: 'privacy_sandbox_internals.mojom.PageHandler.ReadContentSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_Param
       name: 'privacy_sandbox_internals.mojom.PageHandler.ContentSettingsPatternToString_Params',
       packedSize: 16,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_Respo
       name: 'privacy_sandbox_internals.mojom.PageHandler.StringToContentSettingsPattern_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

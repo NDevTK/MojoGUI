@@ -165,7 +165,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

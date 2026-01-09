@@ -89,9 +89,9 @@ ui.mojom.ImeTextSpanSpec = {
       name: 'ui.mojom.ImeTextSpan',
       packedSize: 72,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'thickness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'underline_style', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false },
+        { name: 'thickness', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ImeTextSpanThicknessSpec, nullable: false },
+        { name: 'underline_style', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ImeTextSpanUnderlineStyleSpec, nullable: false },
         { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'start_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'end_offset', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

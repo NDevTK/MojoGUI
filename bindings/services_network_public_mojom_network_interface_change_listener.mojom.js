@@ -62,8 +62,8 @@ network.mojom.InitialAddressMapSpec = {
       name: 'network.mojom.InitialAddressMap',
       packedSize: 24,
       fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false },
+        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: network.mojom.OnlineLinksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSp
       name: 'network.mojom.NetworkInterfaceChangeListener.OnNetworkInterfacesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -34,8 +34,8 @@ continuous_search.mojom.SearchResultSpec = {
       name: 'continuous_search.mojom.SearchResult',
       packedSize: 24,
       fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -49,7 +49,7 @@ continuous_search.mojom.ResultGroupSpec = {
       name: 'continuous_search.mojom.ResultGroup',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -64,8 +64,8 @@ continuous_search.mojom.CategoryResultsSpec = {
       name: 'continuous_search.mojom.CategoryResults',
       packedSize: 32,
       fields: [
-        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'category_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'category_type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false },
         { name: 'groups', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -149,8 +149,8 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Respon
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

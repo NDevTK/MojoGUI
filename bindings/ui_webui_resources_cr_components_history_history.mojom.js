@@ -85,9 +85,9 @@ history.mojom.HistoryEntrySpec = {
         { name: 'date_relative_day', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'readableTimestamp', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'snippet', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'host_filtering_behavior', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_filtering_behavior', packedOffset: 104, packedBitOffset: 0, type: history.mojom.FilteringBehaviorSpec, nullable: false },
         { name: 'remote_icon_url_for_uma', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'debug', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'debug', packedOffset: 120, packedBitOffset: 0, type: history.mojom.DebugInfoSpec, nullable: true },
         { name: 'selected', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'starred', packedOffset: 128, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'blocked_visit', packedOffset: 128, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -106,7 +106,7 @@ history.mojom.QueryResultSpec = {
       name: 'history.mojom.QueryResult',
       packedSize: 24,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.HistoryQuerySpec, nullable: true },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -136,7 +136,7 @@ history.mojom.AccountInfoSpec = {
       name: 'history.mojom.AccountInfo',
       packedSize: 32,
       fields: [
-        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -345,7 +345,7 @@ history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.QueryHistory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.QueryHistoryContinuation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
       name: 'history.mojom.PageHandler.RequestAccountInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -650,7 +650,7 @@ history.mojom.Page_SendAccountInfo_ParamsSpec = {
       name: 'history.mojom.Page.SendAccountInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

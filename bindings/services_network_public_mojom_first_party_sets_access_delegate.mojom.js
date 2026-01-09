@@ -110,7 +110,7 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegate.NotifyReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsReadyEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

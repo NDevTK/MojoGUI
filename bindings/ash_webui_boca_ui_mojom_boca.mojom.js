@@ -172,8 +172,8 @@ ash.boca.mojom.TabInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'favicon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'favicon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
@@ -191,7 +191,7 @@ ash.boca.mojom.IdentitySpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'photo_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'photo_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ ash.boca.mojom.MaterialSpec = {
       packedSize: 24,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.boca.mojom.MaterialTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,10 +237,10 @@ ash.boca.mojom.AssignmentSpec = {
       packedSize: 48,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'last_update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'last_update_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
         { name: 'materials', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: ash.boca.mojom.AssignmentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,8 +269,8 @@ ash.boca.mojom.NetworkInfoSpec = {
       name: 'ash.boca.mojom.NetworkInfo',
       packedSize: 40,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ConnectionStateTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.boca.mojom.NetworkTypeSpec, nullable: false },
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'signal_strength', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -286,13 +286,13 @@ ash.boca.mojom.ConfigSpec = {
       name: 'ash.boca.mojom.Config',
       packedSize: 72,
       fields: [
-        { name: 'session_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'session_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'teacher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'session_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: true },
+        { name: 'teacher', packedOffset: 16, packedBitOffset: 0, type: ash.boca.mojom.IdentitySpec, nullable: true },
         { name: 'students', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'students_join_via_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'on_task_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'caption_config', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'on_task_config', packedOffset: 40, packedBitOffset: 0, type: ash.boca.mojom.OnTaskConfigSpec, nullable: false },
+        { name: 'caption_config', packedOffset: 48, packedBitOffset: 0, type: ash.boca.mojom.CaptionConfigSpec, nullable: false },
         { name: 'access_code', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -323,8 +323,8 @@ ash.boca.mojom.ControlledTabSpec = {
       name: 'ash.boca.mojom.ControlledTab',
       packedSize: 24,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'navigation_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.TabInfoSpec, nullable: false },
+        { name: 'navigation_type', packedOffset: 8, packedBitOffset: 0, type: ash.boca.mojom.NavigationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,7 +354,7 @@ ash.boca.mojom.SessionSpec = {
       name: 'ash.boca.mojom.Session',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.ConfigSpec, nullable: false },
         { name: 'activities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -369,9 +369,9 @@ ash.boca.mojom.StudentActivitySpec = {
       name: 'ash.boca.mojom.StudentActivity',
       packedSize: 48,
       fields: [
-        { name: 'student_status_detail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'student_status_detail', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.StudentStatusDetailSpec, nullable: false },
         { name: 'active_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'join_method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'join_method', packedOffset: 16, packedBitOffset: 0, type: ash.boca.mojom.JoinMethodSpec, nullable: false },
         { name: 'view_screen_session_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'is_active', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_caption_enabled', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -390,7 +390,7 @@ ash.boca.mojom.IdentifiedActivitySpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: ash.boca.mojom.StudentActivitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -862,7 +862,7 @@ ash.boca.mojom.PageHandler_CreateSession_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.CreateSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.ConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -875,7 +875,7 @@ ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.CreateSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.CreateSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -927,7 +927,7 @@ ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.EndSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.UpdateSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -941,7 +941,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.ExtendSessionDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'extended_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extended_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -954,7 +954,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.ExtendSessionDuration_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.UpdateSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -981,7 +981,7 @@ ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.RemoveStudent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.RemoveStudentErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1008,7 +1008,7 @@ ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.RenotifyStudent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.RenotifyStudentErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1035,7 +1035,7 @@ ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.AddStudents_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.AddStudentsErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1049,7 +1049,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.UpdateOnTaskConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'on_task_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'on_task_config', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.OnTaskConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1062,7 +1062,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.UpdateOnTaskConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.UpdateSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1076,7 +1076,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.UpdateCaptionConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'caption_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'caption_config', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.CaptionConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1089,7 +1089,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.UpdateCaptionConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.UpdateSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1143,7 +1143,7 @@ ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.SubmitAccessCode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.SubmitAccessCodeErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1170,7 +1170,7 @@ ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.ViewStudentScreen_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.ViewStudentScreenErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1197,7 +1197,7 @@ ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.EndViewScreenSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.EndViewScreenSessionErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1224,7 +1224,7 @@ ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.SetViewScreenSessionActive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.SetViewScreenSessionActiveErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1238,7 +1238,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.GetUserPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.BocaValidPrefSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1251,7 +1251,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.GetUserPref_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1265,8 +1265,8 @@ ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.SetUserPref_Params',
       packedSize: 24,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.BocaValidPrefSpec, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1281,8 +1281,8 @@ ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: ash.boca.mojom.PermissionSpec, nullable: false },
+        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: ash.boca.mojom.PermissionSettingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1374,7 +1374,7 @@ ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParams
       name: 'ash.boca.mojom.PageHandler.GetSpeechRecognitionInstallationStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.SpeechRecognitionInstallStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1402,7 +1402,7 @@ ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.PresentStudentScreen_Params',
       packedSize: 24,
       fields: [
-        { name: 'student', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'student', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.IdentitySpec, nullable: false },
         { name: 'receiver_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1706,7 +1706,7 @@ ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec = {
       name: 'ash.boca.mojom.Page.OnSpeechRecognitionInstallStateUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.SpeechRecognitionInstallStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1734,7 +1734,7 @@ ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec = {
       name: 'ash.boca.mojom.Page.OnFrameDataReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1748,7 +1748,7 @@ ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec = {
       name: 'ash.boca.mojom.Page.OnSpotlightCrdSessionStatusUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.CrdConnectionStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

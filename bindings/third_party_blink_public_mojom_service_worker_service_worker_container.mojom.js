@@ -164,7 +164,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerContainerHost.Register_Params',
       packedSize: 32,
       fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
@@ -195,7 +195,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -278,7 +278,7 @@ blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec 
       name: 'blink.mojom.ServiceWorkerContainerHost.EnsureControllerServiceWorker_Params',
       packedSize: 24,
       fields: [
-        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerPurposeSpec, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

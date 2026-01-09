@@ -268,7 +268,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetParentBookmarkFolderNameForCurrentUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.PriceTrackedForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,7 +397,7 @@ commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.PriceUntrackedForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.OperationFailedForBookmark_Params',
       packedSize: 24,
       fields: [
-        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
         { name: 'attempted_track', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -426,7 +426,7 @@ commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.OnProductBookmarkMoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

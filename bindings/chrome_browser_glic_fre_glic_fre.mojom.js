@@ -258,7 +258,7 @@ glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.DismissFre_Params',
       packedSize: 16,
       fields: [
-        { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.ValidateAndOpenLinkInNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
       name: 'glic.mojom.FrePageHandler.WebUiStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FreWebUiStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

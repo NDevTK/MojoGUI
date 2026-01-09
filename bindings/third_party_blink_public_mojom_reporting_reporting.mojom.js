@@ -135,7 +135,7 @@ blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = {
       name: 'blink.mojom.ReportingServiceProxy.QueueInterventionReport_Params',
       packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
@@ -154,9 +154,9 @@ blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
       name: 'blink.mojom.ReportingServiceProxy.QueueDeprecationReport_Params',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'anticipatedRemoval', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'anticipatedRemoval', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_file', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'line_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -174,7 +174,7 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
       name: 'blink.mojom.ReportingServiceProxy.QueueCspViolationReport_Params',
       packedSize: 104,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'document_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'referrer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
@@ -200,7 +200,7 @@ blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = {
       name: 'blink.mojom.ReportingServiceProxy.QueueIntegrityViolationReport_Params',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'document_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'blocked_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -219,7 +219,7 @@ blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSp
       name: 'blink.mojom.ReportingServiceProxy.QueuePermissionsPolicyViolationReport_Params',
       packedSize: 64,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'policy_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -240,7 +240,7 @@ blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport
       name: 'blink.mojom.ReportingServiceProxy.QueuePotentialPermissionsPolicyViolationReport_Params',
       packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'policy_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -263,7 +263,7 @@ blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec 
       name: 'blink.mojom.ReportingServiceProxy.QueueDocumentPolicyViolationReport_Params',
       packedSize: 64,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'policy_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -284,7 +284,7 @@ blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = {
       name: 'blink.mojom.ReportingServiceProxy.QueueCSPHashReport_Params',
       packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'subresource_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'integrity_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

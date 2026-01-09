@@ -241,7 +241,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_
       name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.ValidatePin_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.PinValidationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,7 +405,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstal
       name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.OnAppInstalledOrUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninst
       name: 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.OnAppUninstalled_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_parental_controls.mojom.AppSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

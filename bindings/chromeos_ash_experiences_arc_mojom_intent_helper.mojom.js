@@ -108,7 +108,7 @@ arc.mojom.PatternMatcherSpec = {
       packedSize: 24,
       fields: [
         { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PatternTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,10 +234,10 @@ arc.mojom.TextSelectionActionSpec = {
       name: 'arc.mojom.TextSelectionAction',
       packedSize: 40,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityIconSpec, nullable: false },
         { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ arc.mojom.LaunchFileInfoSpec = {
       name: 'arc.mojom.LaunchFileInfo',
       packedSize: 40,
       fields: [
-        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'removed_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
@@ -269,7 +269,7 @@ arc.mojom.LaunchIntentSpec = {
       packedSize: 56,
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'extra_subject', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'extra_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
@@ -320,9 +320,9 @@ arc.mojom.CaptionStyleSpec = {
       packedSize: 48,
       fields: [
         { name: 'user_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'text_shadow_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true },
+        { name: 'text_shadow_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false },
         { name: 'font_scale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]

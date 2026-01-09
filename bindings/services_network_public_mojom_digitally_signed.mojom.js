@@ -35,8 +35,8 @@ network.mojom.DigitallySignedSpec = {
       name: 'network.mojom.DigitallySigned',
       packedSize: 32,
       fields: [
-        { name: 'hash_algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'signature_algorithm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hash_algorithm', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HashAlgorithmSpec, nullable: false },
+        { name: 'signature_algorithm', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SignatureAlgorithmSpec, nullable: false },
         { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

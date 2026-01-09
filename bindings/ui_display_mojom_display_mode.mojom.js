@@ -16,7 +16,7 @@ display.mojom.DisplayModeSpec = {
       name: 'display.mojom.DisplayMode',
       packedSize: 32,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'refresh_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'vsync_rate_min', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
         { name: 'is_interlaced', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

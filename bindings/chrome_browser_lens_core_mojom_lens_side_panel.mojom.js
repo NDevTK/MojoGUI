@@ -474,7 +474,7 @@ lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
       name: 'lens.mojom.LensSidePanelPage.LoadResultsInFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'results_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -530,7 +530,7 @@ lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
       name: 'lens.mojom.LensSidePanelPage.SetShowErrorPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.SidePanelResultStatusSpec, nullable: false },
         { name: 'should_show_error_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

@@ -127,7 +127,7 @@ network.mojom.ResolveHostParametersSpec = {
       name: 'network.mojom.ResolveHostParameters',
       packedSize: 32,
       fields: [
-        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
         { name: 'initial_priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'ANY', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
@@ -425,8 +425,8 @@ network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
       name: 'network.mojom.MdnsListenClient.OnAddressResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false },
+        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
         { name: 'endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -441,8 +441,8 @@ network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
       name: 'network.mojom.MdnsListenClient.OnTextResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false },
+        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
         { name: 'text_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -457,8 +457,8 @@ network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
       name: 'network.mojom.MdnsListenClient.OnHostnameResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false },
+        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
         { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -473,8 +473,8 @@ network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
       name: 'network.mojom.MdnsListenClient.OnUnhandledResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false },
+        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -560,7 +560,7 @@ network.mojom.HostResolver_ResolveHost_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'optional_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'optional_parameters', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ResolveHostParametersSpec, nullable: true },
         { name: 'response_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -576,7 +576,7 @@ network.mojom.HostResolver_MdnsListen_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
         { name: 'response_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

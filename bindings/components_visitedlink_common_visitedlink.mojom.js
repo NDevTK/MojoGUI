@@ -99,7 +99,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

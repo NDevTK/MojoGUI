@@ -32,7 +32,7 @@ arc.mojom.PrivacyItemSpec = {
       packedSize: 24,
       fields: [
         { name: 'permission_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'privacy_application', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'privacy_application', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrivacyApplicationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

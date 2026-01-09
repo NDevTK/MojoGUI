@@ -31,9 +31,9 @@ ax.mojom.AssistantNodeSpec = {
       packedSize: 80,
       fields: [
         { name: 'children_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true },
         { name: 'class_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'role', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'text_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -56,9 +56,9 @@ ax.mojom.AssistantExtraSpec = {
       name: 'ax.mojom.AssistantExtra',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds_pixel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'bounds_pixel', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -72,8 +72,8 @@ ax.mojom.AssistantStructureSpec = {
       name: 'ax.mojom.AssistantStructure',
       packedSize: 24,
       fields: [
-        { name: 'assistant_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'assistant_extra', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'assistant_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistantTreeSpec, nullable: true },
+        { name: 'assistant_extra', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistantExtraSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

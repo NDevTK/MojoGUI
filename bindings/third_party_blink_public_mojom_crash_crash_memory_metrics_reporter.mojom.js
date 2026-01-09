@@ -72,7 +72,7 @@ blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
       name: 'blink.mojom.CrashMemoryMetricsReporter.SetSharedMemory_Params',
       packedSize: 16,
       fields: [
-        { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

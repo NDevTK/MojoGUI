@@ -16,7 +16,7 @@ site_engagement.mojom.SiteEngagementDetailsSpec = {
       name: 'site_engagement.mojom.SiteEngagementDetails',
       packedSize: 40,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'base_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'installed_bonus', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
@@ -124,7 +124,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.SetSiteEngagementBaseScoreForUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]

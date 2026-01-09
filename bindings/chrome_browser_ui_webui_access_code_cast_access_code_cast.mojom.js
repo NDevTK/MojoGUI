@@ -183,7 +183,7 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

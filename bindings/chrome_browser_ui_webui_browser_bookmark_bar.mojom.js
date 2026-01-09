@@ -27,8 +27,8 @@ bookmark_bar.mojom.BookmarkDataSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false },
+        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
       name: 'bookmark_bar.mojom.Page.FavIconChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

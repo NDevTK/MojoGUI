@@ -60,7 +60,7 @@ arc.mojom.WebApkInfoSpec = {
         { name: 'start_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'scope', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'icon_hash', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'share_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'share_info', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.WebShareTargetInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

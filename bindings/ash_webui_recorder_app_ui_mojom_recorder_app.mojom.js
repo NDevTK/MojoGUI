@@ -27,7 +27,7 @@ ash.recorder_app.mojom.ModelStateSpec = {
       name: 'ash.recorder_app.mojom.ModelState',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateTypeSpec, nullable: false },
         { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
@@ -42,7 +42,7 @@ ash.recorder_app.mojom.ModelInfoSpec = {
       name: 'ash.recorder_app.mojom.ModelInfo',
       packedSize: 32,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'input_token_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'is_large_model', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -74,7 +74,7 @@ ash.recorder_app.mojom.LangPackInfoSpec = {
       packedSize: 32,
       fields: [
         { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'is_gen_ai_supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_speaker_label_supported', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -146,7 +146,7 @@ ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
       name: 'ash.recorder_app.mojom.ModelStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,7 +440,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -453,7 +453,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,7 +467,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -481,7 +481,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -495,8 +495,8 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.FormatModelInput_Params',
       packedSize: 32,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false },
         { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
@@ -524,9 +524,9 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'safety_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'safety_feature', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyFeatureSpec, nullable: false },
         { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -553,7 +553,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_Params',
       packedSize: 24,
       fields: [
-        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -567,7 +567,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -647,7 +647,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -731,7 +731,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
       name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.MicrophoneInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

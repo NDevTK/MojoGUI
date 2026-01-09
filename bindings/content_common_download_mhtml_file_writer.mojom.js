@@ -30,7 +30,7 @@ content.mojom.SerializeAsMHTMLParamsSpec = {
       fields: [
         { name: 'mhtml_boundary_marker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
         { name: 'output_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mhtml_binary_encoding', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'mhtml_popup_overlay_removal', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -103,7 +103,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SerializeAsMHTMLParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -116,7 +116,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MhtmlSaveStatusSpec, nullable: false },
         { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

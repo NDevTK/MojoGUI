@@ -269,7 +269,7 @@ media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
       name: 'media.mojom.InterfaceFactory.CreateCastRenderer_Params',
       packedSize: 24,
       fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

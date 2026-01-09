@@ -29,7 +29,7 @@ mojom.UpdateInfoSpec = {
       name: 'mojom.UpdateInfo',
       packedSize: 40,
       fields: [
-        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pinned_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'allow_downgrades', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -51,7 +51,7 @@ mojom.IwaDevModeAppInfoSpec = {
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'location', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'installed_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'update_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'update_info', packedOffset: 40, packedBitOffset: 0, type: mojom.UpdateInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -66,7 +66,7 @@ mojom.VersionEntrySpec = {
       packedSize: 24,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'web_bundle_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_bundle_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,8 +94,8 @@ mojom.InstallFromBundleUrlParamsSpec = {
       name: 'mojom.InstallFromBundleUrlParams',
       packedSize: 24,
       fields: [
-        { name: 'web_bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'update_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'web_bundle_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'update_info', packedOffset: 8, packedBitOffset: 0, type: mojom.UpdateInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromDevProxy_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.ParseUpdateManifestFromUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,7 +406,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromBundleUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojom.InstallFromBundleUrlParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

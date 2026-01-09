@@ -45,7 +45,7 @@ mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
       name: 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent',
       packedSize: 24,
       fields: [
-        { name: 'disconnect_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'disconnect_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.pipe_control.DisconnectReasonSpec, nullable: true },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

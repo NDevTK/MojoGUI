@@ -72,7 +72,7 @@ data_decoder.mojom.CborParser_Parse_ParamsSpec = {
       name: 'data_decoder.mojom.CborParser.Parse_Params',
       packedSize: 16,
       fields: [
-        { name: 'cbor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cbor', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
       name: 'data_decoder.mojom.CborParser.Parse_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]

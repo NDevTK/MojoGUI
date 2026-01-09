@@ -72,7 +72,7 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroupHost.DidUnloadRenderFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
       name: 'content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService_Params',
       packedSize: 24,
       fields: [
-        { name: 'global_scope_creation_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'global_scope_creation_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

@@ -39,7 +39,7 @@ network.mojom.WebSocketHandshakeRequestSpec = {
       name: 'network.mojom.WebSocketHandshakeRequest',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'headers_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -55,7 +55,7 @@ network.mojom.WebSocketHandshakeResponseSpec = {
       name: 'network.mojom.WebSocketHandshakeResponse',
       packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'http_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'remote_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -241,7 +241,7 @@ network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
       name: 'network.mojom.WebSocketHandshakeClient.OnOpeningHandshakeStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       name: 'network.mojom.WebSocketHandshakeClient.OnConnectionEstablished_Params',
       packedSize: 40,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeResponseSpec, nullable: false },
         { name: 'readable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'writable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
@@ -368,7 +368,7 @@ network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
       name: 'network.mojom.WebSocketClient.OnDataFrame_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false },
         { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'fin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -492,7 +492,7 @@ network.mojom.WebSocket_SendMessage_ParamsSpec = {
       name: 'network.mojom.WebSocket.SendMessage_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false },
         { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]

@@ -348,7 +348,7 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
       name: 'signout_confirmation.mojom.Page.SendSignoutConfirmationData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: signout_confirmation.mojom.SignoutConfirmationDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

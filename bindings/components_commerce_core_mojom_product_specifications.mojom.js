@@ -157,7 +157,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDi
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.SetAcceptedDisclosureVersion_Params',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: commerce.product_specifications.mojom.DisclosureVersionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,7 +226,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetForUuid_Params',
       packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -269,7 +269,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       packedSize: 24,
       fields: [
         { name: 'uuids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: commerce.product_specifications.mojom.ShowSetDispositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,7 +297,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -310,7 +310,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -412,7 +412,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Param
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -426,7 +426,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Par
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,7 +440,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Par
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

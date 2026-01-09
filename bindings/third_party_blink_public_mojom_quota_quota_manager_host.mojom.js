@@ -84,7 +84,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
       name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false },
         { name: 'current_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'current_quota', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'usage_breakdown', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },

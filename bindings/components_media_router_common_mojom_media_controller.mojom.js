@@ -180,7 +180,7 @@ media_router.mojom.MediaController_Seek_ParamsSpec = {
       name: 'media_router.mojom.MediaController.Seek_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

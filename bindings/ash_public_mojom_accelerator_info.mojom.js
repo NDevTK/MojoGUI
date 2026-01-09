@@ -91,8 +91,8 @@ ash.mojom.TextAcceleratorPartSpec = {
       name: 'ash.mojom.TextAcceleratorPart',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.TextAcceleratorPartTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +120,9 @@ ash.mojom.StandardAcceleratorPropertiesSpec = {
       name: 'ash.mojom.StandardAcceleratorProperties',
       packedSize: 32,
       fields: [
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_display', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'original_accelerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: false },
+        { name: 'key_display', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'original_accelerator', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -136,8 +136,8 @@ ash.mojom.AcceleratorInfoSpec = {
       name: 'ash.mojom.AcceleratorInfo',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorTypeSpec, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorStateSpec, nullable: false },
         { name: 'layout_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'locked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'accelerator_locked', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -154,11 +154,11 @@ ash.mojom.AcceleratorLayoutInfoSpec = {
       name: 'ash.mojom.AcceleratorLayoutInfo',
       packedSize: 56,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sub_category', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorCategorySpec, nullable: false },
+        { name: 'sub_category', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorSubcategorySpec, nullable: false },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutStyleSpec, nullable: false },
+        { name: 'source', packedOffset: 32, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false },
         { name: 'action', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

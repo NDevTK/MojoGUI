@@ -85,7 +85,7 @@ chromeos.cdm.mojom.CdmPromiseResultSpec = {
       name: 'chromeos.cdm.mojom.CdmPromiseResult',
       packedSize: 40,
       fields: [
-        { name: 'exception', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exception', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.PromiseExceptionSpec, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'success', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -103,7 +103,7 @@ chromeos.cdm.mojom.CdmKeyInformationSpec = {
       packedSize: 32,
       fields: [
         { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.CdmKeyStatusSpec, nullable: false },
         { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -148,11 +148,11 @@ chromeos.cdm.mojom.DecryptConfigSpec = {
       name: 'chromeos.cdm.mojom.DecryptConfig',
       packedSize: 48,
       fields: [
-        { name: 'encryption_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encryption_scheme', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionSchemeSpec, nullable: false },
         { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'subsamples', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encryption_pattern', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'encryption_pattern', packedOffset: 32, packedBitOffset: 0, type: chromeos.cdm.mojom.EncryptionPatternSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

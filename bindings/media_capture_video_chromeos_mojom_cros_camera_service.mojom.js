@@ -78,8 +78,8 @@ cros.mojom.KioskVisionAppearanceSpec = {
       packedSize: 40,
       fields: [
         { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'face', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'face', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionFaceDetectionSpec, nullable: true },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.KioskVisionBodyDetectionSpec, nullable: true },
         { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -95,7 +95,7 @@ cros.mojom.KioskVisionFaceDetectionSpec = {
       packedSize: 40,
       fields: [
         { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false },
         { name: 'roll', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'pan', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'tilt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -113,7 +113,7 @@ cros.mojom.KioskVisionBodyDetectionSpec = {
       packedSize: 24,
       fields: [
         { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

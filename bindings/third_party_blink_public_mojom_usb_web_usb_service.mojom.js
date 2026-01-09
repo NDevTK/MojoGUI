@@ -164,7 +164,7 @@ blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,7 +177,7 @@ blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
       name: 'blink.mojom.WebUsbService.GetPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

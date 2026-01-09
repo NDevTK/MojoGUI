@@ -446,7 +446,7 @@ bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
       name: 'bluetooth.mojom.ServerSocket.Accept_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.AcceptConnectionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -862,7 +862,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
       name: 'bluetooth.mojom.Adapter.ConnectToDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ConnectResultSpec, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -915,7 +915,7 @@ bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
       name: 'bluetooth.mojom.Adapter.GetInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.AdapterInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1069,7 +1069,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
       name: 'bluetooth.mojom.Adapter.ConnectToServiceInsecurely_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ConnectToServiceResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

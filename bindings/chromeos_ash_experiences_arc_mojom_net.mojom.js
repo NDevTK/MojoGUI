@@ -206,7 +206,7 @@ arc.mojom.IPConfigurationSpec = {
         { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false },
         { name: 'routing_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -240,12 +240,12 @@ arc.mojom.NetworkConfigurationSpec = {
       name: 'arc.mojom.NetworkConfiguration',
       packedSize: 56,
       fields: [
-        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'deprecated_ip_configs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'deprecated_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'wifi', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false },
+        { name: 'wifi', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.WiFiSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ arc.mojom.GetNetworksResponseTypeSpec = {
       name: 'arc.mojom.GetNetworksResponseType',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false },
         { name: 'networks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

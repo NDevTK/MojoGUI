@@ -85,7 +85,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
       name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

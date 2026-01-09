@@ -72,7 +72,7 @@ blink.mojom.IdentityProviderConfigSpec = {
       name: 'blink.mojom.IdentityProviderConfig',
       packedSize: 40,
       fields: [
-        { name: 'config_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'from_idp_registration_api', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -89,13 +89,13 @@ blink.mojom.IdentityProviderRequestOptionsSpec = {
       name: 'blink.mojom.IdentityProviderRequestOptions',
       packedSize: 64,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
         { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'login_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'domain_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'fields', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'params_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'format', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'format', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FormatSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ blink.mojom.IdentityCredentialDisconnectOptionsSpec = {
       name: 'blink.mojom.IdentityCredentialDisconnectOptions',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
         { name: 'account_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -145,7 +145,7 @@ blink.mojom.LoginStatusAccountSpec = {
         { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'given_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'picture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'picture', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ blink.mojom.LoginStatusOptionsSpec = {
       packedSize: 24,
       fields: [
         { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ blink.mojom.IdentityProviderGetParametersSpec = {
       packedSize: 32,
       fields: [
         { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RpContextSpec, nullable: false },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RpModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,10 +356,10 @@ blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RequestToken_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'selected_identity_provider_config_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestTokenStatusSpec, nullable: false },
+        { name: 'selected_identity_provider_config_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TokenErrorSpec, nullable: true },
         { name: 'is_auto_selected', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -374,7 +374,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -387,7 +387,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestUserInfoStatusSpec, nullable: false },
         { name: 'user_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -416,7 +416,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'account_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,9 +443,9 @@ blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.SetIdpSigninStatus_Params',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdpSigninStatusSpec, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LoginStatusOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -459,7 +459,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -472,7 +472,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RegisterIdpStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -486,7 +486,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -539,7 +539,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.Disconnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityCredentialDisconnectOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -552,7 +552,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.Disconnect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisconnectStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

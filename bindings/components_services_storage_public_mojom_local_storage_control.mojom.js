@@ -135,7 +135,7 @@ storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.BindStorageArea_Params',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -176,7 +176,7 @@ storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.DeleteStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

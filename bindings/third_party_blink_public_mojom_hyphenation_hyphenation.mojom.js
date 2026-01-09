@@ -85,7 +85,7 @@ blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
       name: 'blink.mojom.Hyphenation.OpenDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hyphenation_dictionary_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'hyphenation_dictionary_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -34,7 +34,7 @@ webnn.mojom.TensorInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.TensorUsageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,7 +157,7 @@ webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.WriteTensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.ImportTensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

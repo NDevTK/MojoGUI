@@ -314,7 +314,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec
       name: 'blink.mojom.NotificationService.DisplayPersistentNotification_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PersistentNotificationErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -43,8 +43,8 @@ blink.mojom.RemoteTypedArraySpec = {
       name: 'blink.mojom.RemoteTypedArray',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteArrayTypeSpec, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -58,7 +58,7 @@ blink.mojom.RemoteInvocationResultSpec = {
       name: 'blink.mojom.RemoteInvocationResult',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteInvocationErrorSpec, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -345,7 +345,7 @@ blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = {
       name: 'blink.mojom.RemoteObject.InvokeMethod_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteInvocationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

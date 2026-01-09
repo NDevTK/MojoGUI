@@ -28,9 +28,9 @@ paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
       packedSize: 64,
       fields: [
         { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
         { name: 'max_capture_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'max_decoded_image_size_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'is_main_frame', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -49,8 +49,8 @@ paint_preview.mojom.LinkDataSpec = {
       name: 'paint_preview.mojom.LinkData',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -64,13 +64,13 @@ paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
       name: 'paint_preview.mojom.PaintPreviewCaptureResponse',
       packedSize: 64,
       fields: [
-        { name: 'embedding_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'embedding_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'content_id_to_embedding_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'links', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'blink_recording_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blink_recording_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'serialized_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'geometry_metadata', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'skp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry_metadata', packedOffset: 40, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: false },
+        { name: 'skp', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -84,7 +84,7 @@ paint_preview.mojom.GeometryMetadataParamsSpec = {
       name: 'paint_preview.mojom.GeometryMetadataParams',
       packedSize: 40,
       fields: [
-        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'clip_x_coord_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'clip_y_coord_override', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'clip_rect_is_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -101,8 +101,8 @@ paint_preview.mojom.GeometryMetadataResponseSpec = {
       name: 'paint_preview.mojom.GeometryMetadataResponse',
       packedSize: 24,
       fields: [
-        { name: 'scroll_offsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'frame_offsets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scroll_offsets', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'frame_offsets', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.CapturePaintPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewCaptureParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec 
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

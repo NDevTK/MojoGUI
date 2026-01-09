@@ -165,7 +165,7 @@ webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
       name: 'webui_examples.mojom.PageHandler.Navigate_Params',
       packedSize: 24,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

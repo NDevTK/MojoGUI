@@ -46,8 +46,8 @@ blink.mojom.ReportSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReportBodySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -117,7 +117,7 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
       name: 'blink.mojom.ReportingObserver.Notify_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

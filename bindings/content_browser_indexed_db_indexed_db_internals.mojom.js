@@ -16,7 +16,7 @@ storage.mojom.IdbPartitionMetadataSpec = {
       name: 'storage.mojom.IdbPartitionMetadata',
       packedSize: 24,
       fields: [
-        { name: 'partition_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'partition_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'origin_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

@@ -75,7 +75,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
       packedSize: 24,
       fields: [
         { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

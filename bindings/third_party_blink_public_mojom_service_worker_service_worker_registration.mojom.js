@@ -33,7 +33,7 @@ blink.mojom.ServiceWorkerRegistrationObjectInfoSpec = {
       packedSize: 64,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'update_via_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'installing', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'waiting', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
@@ -242,7 +242,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Respon
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NavigationPreloadStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -363,7 +363,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec =
       name: 'blink.mojom.ServiceWorkerRegistrationObject.SetServiceWorkerObjects_Params',
       packedSize: 40,
       fields: [
-        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ChangedServiceWorkerObjectsMaskSpec, nullable: false },
         { name: 'installing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },

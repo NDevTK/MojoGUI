@@ -16,7 +16,7 @@ feed.mojom.RssLinksSpec = {
       name: 'feed.mojom.RssLinks',
       packedSize: 24,
       fields: [
-        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -99,7 +99,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
       name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: feed.mojom.RssLinksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -101,7 +101,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponsePa
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

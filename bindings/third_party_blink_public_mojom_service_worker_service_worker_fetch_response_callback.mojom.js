@@ -16,8 +16,8 @@ blink.mojom.ServiceWorkerFetchEventTimingSpec = {
       name: 'blink.mojom.ServiceWorkerFetchEventTiming',
       packedSize: 24,
       fields: [
-        { name: 'dispatch_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'respond_with_settled_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dispatch_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'respond_with_settled_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -136,8 +136,8 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnFallback_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DataElementChunkedDataPipeSpec, nullable: true },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

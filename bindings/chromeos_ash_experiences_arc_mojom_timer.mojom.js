@@ -28,7 +28,7 @@ arc.mojom.CreateTimerRequestSpec = {
       name: 'arc.mojom.CreateTimerRequest',
       packedSize: 24,
       fields: [
-        { name: 'clock_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clock_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false },
         { name: 'expiration_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
       ],
       versions: [{version: 0}]

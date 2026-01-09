@@ -236,7 +236,7 @@ media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnNaturalSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

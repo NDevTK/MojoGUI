@@ -37,13 +37,13 @@ cc.mojom.RenderFrameMetadataSpec = {
       name: 'cc.mojom.RenderFrameMetadata',
       packedSize: 184,
       fields: [
-        { name: 'root_background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'root_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'selection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'delegated_ink_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'viewport_size_in_pixels', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'local_surface_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'new_vertical_scroll_direction', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_background_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
+        { name: 'root_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: true },
+        { name: 'selection', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SelectionSpec, nullable: false },
+        { name: 'delegated_ink_metadata', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DelegatedInkBrowserMetadataSpec, nullable: true },
+        { name: 'viewport_size_in_pixels', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'local_surface_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
+        { name: 'new_vertical_scroll_direction', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.VerticalScrollDirectionSpec, nullable: false },
         { name: 'primary_main_frame_item_sequence_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'bottom_controls_height', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bottom_controls_shown_ratio', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -52,8 +52,8 @@ cc.mojom.RenderFrameMetadataSpec = {
         { name: 'min_page_scale_factor', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_page_scale_factor', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'root_overflow_y_hidden', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrollable_viewport_size', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'root_layer_size', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollable_viewport_size', packedOffset: 120, packedBitOffset: 0, type: [EnableIf=is_android|is_ios] gfx.mojom.SizeFSpec, nullable: false },
+        { name: 'root_layer_size', packedOffset: 128, packedBitOffset: 0, type: [EnableIf=is_android|is_ios] gfx.mojom.SizeFSpec, nullable: false },
         { name: 'has_transparent_background', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_scale_factor', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'page_scale_factor', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -140,7 +140,7 @@ cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Param
       name: 'cc.mojom.RenderFrameMetadataObserver.UpdateRootScrollOffsetUpdateFrequency_Params',
       packedSize: 16,
       fields: [
-        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.RootScrollOffsetUpdateFrequencySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,7 +247,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSp
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRenderFrameMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.RenderFrameMetadataSpec, nullable: false },
         { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -276,7 +276,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec 
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRootScrollOffsetChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'root_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

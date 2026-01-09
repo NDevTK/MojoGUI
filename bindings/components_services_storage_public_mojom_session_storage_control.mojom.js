@@ -22,7 +22,7 @@ storage.mojom.SessionStorageUsageInfoSpec = {
       name: 'storage.mojom.SessionStorageUsageInfo',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -198,7 +198,7 @@ storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.BindStorageArea_Params',
       packedSize: 32,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -240,7 +240,7 @@ storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
       name: 'storage.mojom.SessionStorageControl.DeleteStorage_Params',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -323,7 +323,7 @@ storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
       fields: [
         { name: 'namespace_id_to_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'clone_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clone_type', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.SessionStorageCloneTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

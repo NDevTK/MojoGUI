@@ -24,7 +24,7 @@ new_tab_footer.mojom.ManagementNoticeSpec = {
       packedSize: 24,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'custom_bitmap_data_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'custom_bitmap_data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -39,7 +39,7 @@ new_tab_footer.mojom.BackgroundAttributionSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -335,7 +335,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterHandler.OpenUrlInCurrentTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,7 +349,7 @@ new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterHandler.ShowContextMenu_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -478,7 +478,7 @@ new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterDocument.SetManagementNotice_Params',
       packedSize: 16,
       fields: [
-        { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.ManagementNoticeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -492,7 +492,7 @@ new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterDocument.AttachedTabStateUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.NewTabPageTypeSpec, nullable: false },
         { name: 'can_customize_chrome', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -507,7 +507,7 @@ new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = 
       name: 'new_tab_footer.mojom.NewTabFooterDocument.SetBackgroundAttribution_Params',
       packedSize: 16,
       fields: [
-        { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.BackgroundAttributionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

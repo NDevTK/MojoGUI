@@ -148,7 +148,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputStreamParameters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetOutputStreamParameters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
       name: 'audio.mojom.SystemInfo.GetInputDeviceInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'input_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: true },
         { name: 'associated_output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]

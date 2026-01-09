@@ -97,7 +97,7 @@ ash.nearby.presence.mojom.PresenceScanFilterSpec = {
       name: 'ash.nearby.presence.mojom.PresenceScanFilter',
       packedSize: 16,
       fields: [
-        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,7 +111,7 @@ ash.nearby.presence.mojom.MetadataSpec = {
       name: 'ash.nearby.presence.mojom.Metadata',
       packedSize: 40,
       fields: [
-        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceTypeSpec, nullable: false },
         { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'bluetooth_mac_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'device_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -135,9 +135,9 @@ ash.nearby.presence.mojom.SharedCredentialSpec = {
         { name: 'metadata_encryption_key_tag_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'connection_signature_verification_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'advertisement_signature_verification_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: ash.nearby.presence.mojom.IdentityTypeSpec, nullable: false },
         { name: 'version', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'credential_type', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credential_type', packedOffset: 72, packedBitOffset: 0, type: ash.nearby.presence.mojom.CredentialTypeSpec, nullable: false },
         { name: 'encrypted_metadata_bytes_v1', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'identity_token_short_salt_adv_hmac_key_v1', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
@@ -161,8 +161,8 @@ ash.nearby.presence.mojom.PresenceDeviceSpec = {
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'stable_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'decrypt_shared_credential', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false },
+        { name: 'decrypt_shared_credential', packedOffset: 32, packedBitOffset: 0, type: ash.nearby.presence.mojom.SharedCredentialSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -181,9 +181,9 @@ ash.nearby.presence.mojom.LocalCredentialSpec = {
         { name: 'start_time_millis', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'end_time_millis', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'metadata_encryption_key_v0', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'advertisement_signing_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'connection_signing_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'advertisement_signing_key', packedOffset: 40, packedBitOffset: 0, type: ash.nearby.presence.mojom.PrivateKeySpec, nullable: false },
+        { name: 'connection_signing_key', packedOffset: 48, packedBitOffset: 0, type: ash.nearby.presence.mojom.PrivateKeySpec, nullable: false },
+        { name: 'identity_type', packedOffset: 56, packedBitOffset: 0, type: ash.nearby.presence.mojom.IdentityTypeSpec, nullable: false },
         { name: 'consumed_salts', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'identity_token_v1', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
@@ -327,7 +327,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
       name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceFound_Params',
       packedSize: 16,
       fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
       name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -355,7 +355,7 @@ ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
       name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceLost_Params',
       packedSize: 16,
       fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -475,7 +475,7 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
       name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_Params',
       packedSize: 16,
       fields: [
-        { name: 'scan_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scan_request', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.ScanRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -488,7 +488,7 @@ ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
       name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
         { name: 'scan_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -517,7 +517,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = 
       name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -531,7 +531,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCre
       name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadataAndGenerateCredentials_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.MetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -545,7 +545,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCre
       packedSize: 24,
       fields: [
         { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -573,7 +573,7 @@ ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseP
       name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateRemoteSharedCredentials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,7 +601,7 @@ ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParam
       packedSize: 24,
       fields: [
         { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

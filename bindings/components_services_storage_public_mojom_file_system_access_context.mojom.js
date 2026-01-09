@@ -117,7 +117,7 @@ storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
       name: 'storage.mojom.FileSystemAccessContext.DeserializeHandle_Params',
       packedSize: 32,
       fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],

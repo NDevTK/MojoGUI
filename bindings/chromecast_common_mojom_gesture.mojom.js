@@ -170,7 +170,7 @@ chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnBackGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnTopDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnRightDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

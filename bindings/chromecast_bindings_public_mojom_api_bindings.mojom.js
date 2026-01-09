@@ -122,7 +122,7 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

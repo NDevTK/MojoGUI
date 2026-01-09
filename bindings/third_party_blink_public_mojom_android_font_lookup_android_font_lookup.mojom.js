@@ -129,7 +129,7 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
       name: 'blink.mojom.AndroidFontLookup.MatchLocalFontByUniqueName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

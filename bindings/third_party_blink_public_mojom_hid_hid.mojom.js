@@ -234,7 +234,7 @@ blink.mojom.HidService_Forget_ParamsSpec = {
       name: 'blink.mojom.HidService.Forget_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,7 @@ chrome_urls.mojom.WebuiUrlInfoSpec = {
       name: 'chrome_urls.mojom.WebuiUrlInfo',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'internal', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -201,7 +201,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
       name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: chrome_urls.mojom.ChromeUrlsDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

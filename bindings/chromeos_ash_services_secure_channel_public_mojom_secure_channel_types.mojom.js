@@ -25,8 +25,8 @@ ash.secure_channel.mojom.PayloadFilesSpec = {
       name: 'ash.secure_channel.mojom.PayloadFiles',
       packedSize: 24,
       fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -41,7 +41,7 @@ ash.secure_channel.mojom.FileTransferUpdateSpec = {
       packedSize: 40,
       fields: [
         { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferStatusSpec, nullable: false },
         { name: 'total_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'bytes_transferred', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
@@ -113,7 +113,7 @@ ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
       name: 'ash.secure_channel.mojom.FilePayloadListener.OnFileTransferUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

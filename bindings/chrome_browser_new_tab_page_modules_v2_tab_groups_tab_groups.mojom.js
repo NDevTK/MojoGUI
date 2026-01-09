@@ -21,7 +21,7 @@ ntp.tab_groups.mojom.TabGroupSpec = {
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 32, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false },
         { name: 'favicon_urls', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'total_tab_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_shared_tab_group', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

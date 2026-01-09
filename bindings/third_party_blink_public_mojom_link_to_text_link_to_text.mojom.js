@@ -169,8 +169,8 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false },
+        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
       name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

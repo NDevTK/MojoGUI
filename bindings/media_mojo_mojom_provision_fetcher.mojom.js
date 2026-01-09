@@ -72,7 +72,7 @@ media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
       name: 'media.mojom.ProvisionFetcher.Retrieve_Params',
       packedSize: 24,
       fields: [
-        { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

@@ -294,7 +294,7 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
       name: 'webui_browser.mojom.Page.OnFullscreenModeChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true },
         { name: 'is_fullscreen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -460,7 +460,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -765,7 +765,7 @@ webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.Navigate_Params',
       packedSize: 16,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -908,7 +908,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.SecurityIconSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

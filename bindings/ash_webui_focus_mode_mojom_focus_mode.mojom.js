@@ -28,8 +28,8 @@ ash.focus_mode.mojom.TrackDefinitionSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'thumbnail_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'media_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thumbnail_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'media_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'enable_playback_reporting', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -44,11 +44,11 @@ ash.focus_mode.mojom.PlaybackDataSpec = {
       name: 'ash.focus_mode.mojom.PlaybackData',
       packedSize: 72,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackStateSpec, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client_current_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client_start_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'client_current_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
+        { name: 'client_start_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
         { name: 'playback_start_offset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'media_time_current', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'media_start', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -123,7 +123,7 @@ ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
       name: 'ash.focus_mode.mojom.MediaClient.StartPlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -265,7 +265,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.ReportPlayback_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

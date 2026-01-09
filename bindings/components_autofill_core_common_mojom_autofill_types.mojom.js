@@ -234,7 +234,7 @@ autofill.mojom.FrameTokenSpec = {
       name: 'autofill.mojom.FrameToken',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'is_local', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -249,7 +249,7 @@ autofill.mojom.FrameTokenWithPredecessorSpec = {
       name: 'autofill.mojom.FrameTokenWithPredecessor',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FrameTokenSpec, nullable: false },
         { name: 'predecessor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -292,7 +292,7 @@ autofill.mojom.FillIdSpec = {
       name: 'autofill.mojom.FillId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -306,8 +306,8 @@ autofill.mojom.SelectOptionSpec = {
       name: 'autofill.mojom.SelectOption',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -322,8 +322,8 @@ autofill.mojom.AutocompleteParsingResultSpec = {
       packedSize: 40,
       fields: [
         { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'field_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.HtmlFieldModeSpec, nullable: false },
+        { name: 'field_type', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.HtmlFieldTypeSpec, nullable: false },
         { name: 'webauthn', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'webidentity', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -353,9 +353,9 @@ autofill.mojom.FormFieldData_FillDataSpec = {
       name: 'autofill.mojom.FormFieldData_FillData',
       packedSize: 40,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'renderer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'host_form_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'host_form_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
         { name: 'is_autofilled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'force_override', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -371,8 +371,8 @@ autofill.mojom.ButtonTitleInfoSpec = {
       name: 'autofill.mojom.ButtonTitleInfo',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.ButtonTitleTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,14 +386,14 @@ autofill.mojom.FormDataSpec = {
       name: 'autofill.mojom.FormData',
       packedSize: 96,
       fields: [
-        { name: 'id_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'name_attribute', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'name_attribute', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'button_titles', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'renderer_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'renderer_id', packedOffset: 40, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
         { name: 'child_frames', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'submission_event', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'submission_event', packedOffset: 56, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false },
         { name: 'fields', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'username_predictions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'is_action_empty', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -441,7 +441,7 @@ autofill.mojom.FormDataPredictionsSpec = {
       name: 'autofill.mojom.FormDataPredictions',
       packedSize: 48,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
         { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'alternative_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'structural_form_signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -459,8 +459,8 @@ autofill.mojom.PasswordAndMetadataSpec = {
       name: 'autofill.mojom.PasswordAndMetadata',
       packedSize: 40,
       fields: [
-        { name: 'username_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username_value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'uses_account_store', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_grouped_affiliation', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -477,11 +477,11 @@ autofill.mojom.PasswordFormFillDataSpec = {
       name: 'autofill.mojom.PasswordFormFillData',
       packedSize: 72,
       fields: [
-        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'username_element_renderer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'password_element_renderer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'preferred_login', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'username_element_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'password_element_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'preferred_login', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.PasswordAndMetadataSpec, nullable: false },
         { name: 'additional_logins', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'suggestion_banned_fields', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'wait_for_username', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -499,8 +499,8 @@ autofill.mojom.PasswordFormGenerationDataSpec = {
       name: 'autofill.mojom.PasswordFormGenerationData',
       packedSize: 24,
       fields: [
-        { name: 'new_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'confirmation_password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'confirmation_password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,11 +514,11 @@ autofill.mojom.PasswordGenerationUIDataSpec = {
       name: 'autofill.mojom.PasswordGenerationUIData',
       packedSize: 64,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'generation_element', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'generation_element_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'form_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'generation_element', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'generation_element_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'text_direction', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'form_data', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
         { name: 'max_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_generation_element_password_type', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'generation_rejected', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -535,11 +535,11 @@ autofill.mojom.TriggeringFieldSpec = {
       name: 'autofill.mojom.TriggeringField',
       packedSize: 56,
       fields: [
-        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text_direction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'typed_username', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false },
+        { name: 'text_direction', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'typed_username', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'show_webauthn_credentials', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'show_identity_credentials', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -555,8 +555,8 @@ autofill.mojom.PasswordSuggestionRequestSpec = {
       name: 'autofill.mojom.PasswordSuggestionRequest',
       packedSize: 40,
       fields: [
-        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.TriggeringFieldSpec, nullable: false },
+        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
         { name: 'username_field_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'password_field_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
@@ -572,10 +572,10 @@ autofill.mojom.ParsingResultSpec = {
       name: 'autofill.mojom.ParsingResult',
       packedSize: 40,
       fields: [
-        { name: 'username_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'new_password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'confirm_password_renderer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'new_password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'confirm_password_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -84,7 +84,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
       name: 'content.mojom.PowerMonitorTest.QueryNextState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

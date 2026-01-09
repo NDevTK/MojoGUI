@@ -103,7 +103,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
         { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
@@ -118,7 +118,7 @@ printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverter.SetWebContentsURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_Params',
       packedSize: 24,
       fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
         { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]

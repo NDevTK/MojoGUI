@@ -72,8 +72,8 @@ drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
       name: 'drivefs.mojom.FakeDriveFsLauncher.LaunchDriveFs_Params',
       packedSize: 32,
       fields: [
-        { name: 'datadir_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'datadir_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'mojo_socket_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
       ],
       versions: [{version: 0}]

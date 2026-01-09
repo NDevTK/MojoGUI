@@ -42,10 +42,10 @@ performance_manager.mojom.V8ContextDescriptionSpec = {
       name: 'performance_manager.mojom.V8ContextDescription',
       packedSize: 40,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'world_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false },
+        { name: 'world_type', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.V8ContextWorldTypeSpec, nullable: false },
         { name: 'world_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'execution_context_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'execution_context_token', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

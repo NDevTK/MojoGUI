@@ -32,7 +32,7 @@ payments.mojom.PaymentHandlerModifierSpec = {
       packedSize: 24,
       fields: [
         { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
       name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_Params',
       packedSize: 16,
       fields: [
-        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestDetailsUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

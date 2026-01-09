@@ -111,7 +111,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec
       name: 'ash.settings.mojom.KeyboardSettingsObserver.OnKeyboardPoliciesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardPoliciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
       name: 'ash.settings.mojom.MouseSettingsObserver.OnMousePoliciesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MousePoliciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -434,7 +434,7 @@ ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
       name: 'ash.settings.mojom.ButtonPressObserver.OnButtonPressed_Params',
       packedSize: 16,
       fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1214,7 +1214,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = 
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetKeyboardSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyboardSettingsSpec, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1229,7 +1229,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSp
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetPointingStickSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.PointingStickSettingsSpec, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1244,7 +1244,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetMouseSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.MouseSettingsSpec, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1259,7 +1259,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = 
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetTouchpadSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.TouchpadSettingsSpec, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1274,7 +1274,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsS
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.SetGraphicsTabletSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.GraphicsTabletSettingsSpec, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1408,7 +1408,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParam
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetMetaKeyToDisplay_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

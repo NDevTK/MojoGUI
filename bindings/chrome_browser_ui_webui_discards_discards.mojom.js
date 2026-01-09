@@ -32,15 +32,15 @@ discards.mojom.TabDiscardsInfoSpec = {
       fields: [
         { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'visibility', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'loading_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visibility', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.LifecycleUnitVisibilitySpec, nullable: false },
+        { name: 'loading_state', packedOffset: 24, packedBitOffset: 0, type: mojom.LifecycleUnitLoadingStateSpec, nullable: false },
+        { name: 'state', packedOffset: 32, packedBitOffset: 0, type: mojom.LifecycleUnitStateSpec, nullable: false },
         { name: 'cannot_discard_reasons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'can_freeze', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'can_freeze', packedOffset: 48, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false },
         { name: 'cannot_freeze_reasons', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'discard_reason', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'discard_reason', packedOffset: 64, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
         { name: 'site_engagement_score', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'state_change_time', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state_change_time', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'discard_count', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'utility_rank', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'last_active_seconds', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -62,7 +62,7 @@ discards.mojom.PageInfoSpec = {
       packedSize: 48,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'main_frame_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'main_frame_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'opener_frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'embedder_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'description_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -80,7 +80,7 @@ discards.mojom.FrameInfoSpec = {
       packedSize: 56,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'page_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'parent_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
@@ -99,7 +99,7 @@ discards.mojom.ProcessInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
         { name: 'private_footprint_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'description_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -116,7 +116,7 @@ discards.mojom.WorkerInfoSpec = {
       packedSize: 64,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'client_frame_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client_worker_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -310,7 +310,7 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.DiscardById_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
         { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -534,7 +534,7 @@ discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -548,7 +548,7 @@ discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,7 +562,7 @@ discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -576,7 +576,7 @@ discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,7 +590,7 @@ discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -618,7 +618,7 @@ discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -632,7 +632,7 @@ discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -646,7 +646,7 @@ discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FavIconDataAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -25,7 +25,7 @@ network.mojom.RuleSpec = {
       name: 'network.mojom.Rule',
       packedSize: 48,
       fields: [
-        { name: 'resolver_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolver_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ResolverTypeSpec, nullable: false },
         { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'replacement', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'dns_aliases', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -354,7 +354,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
       name: 'network.mojom.SimpleCacheEntryEnumerator.GetNext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SimpleCacheOpenEntryResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1116,7 +1116,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec
       name: 'network.mojom.NetworkServiceTest.GetLatestMemoryPressureLevel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1211,7 +1211,7 @@ network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.SetSCTAuditingRetryDelay_Params',
       packedSize: 16,
       fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1225,7 +1225,7 @@ network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.OpenFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1252,7 +1252,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.EnumerateFiles_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1281,7 +1281,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.CreateSimpleCache_Params',
       packedSize: 32,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'reset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -1350,7 +1350,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsS
       name: 'network.mojom.NetworkServiceTest.ResolveOwnHostnameWithSystemDns_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false },
         { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'net_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -1392,8 +1392,8 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.GetAddressMapCacheLinux_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'addr_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'addr_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false },
+        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: network.mojom.OnlineLinksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -22,8 +22,8 @@ media.mojom.SpeechRecognitionErrorSpec = {
       name: 'media.mojom.SpeechRecognitionError',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionErrorCodeSpec, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SpeechAudioErrorDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -29,7 +29,7 @@ blink.mojom.FileSystemAccessRegularFileSpec = {
       name: 'blink.mojom.FileSystemAccessRegularFile',
       packedSize: 32,
       fields: [
-        { name: 'os_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'os_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
         { name: 'file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'file_modification_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -268,7 +268,7 @@ blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -283,7 +283,7 @@ blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.CreateFileWriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, nullable: false },
         { name: 'keep_existing_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'auto_close', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -394,7 +394,7 @@ blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.OpenAccessHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessAccessHandleLockModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

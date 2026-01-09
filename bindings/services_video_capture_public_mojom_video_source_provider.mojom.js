@@ -144,7 +144,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.GetSourceInfosResultSpec, nullable: false },
         { name: 'source_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -174,7 +174,7 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false },
         { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'virtual_device_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -190,7 +190,7 @@ video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.AddTextureVirtualDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false },
         { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

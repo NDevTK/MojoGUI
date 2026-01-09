@@ -33,7 +33,7 @@ viz.mojom.RendererSettingsSpec = {
       name: 'viz.mojom.RendererSettings',
       packedSize: 48,
       fields: [
-        { name: 'occlusion_culler_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'occlusion_culler_settings', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OcclusionCullerSettingsSpec, nullable: false },
         { name: 'overlay_strategies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'highp_threshold_min', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

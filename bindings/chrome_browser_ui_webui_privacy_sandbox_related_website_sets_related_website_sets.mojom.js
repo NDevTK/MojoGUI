@@ -24,7 +24,7 @@ related_website_sets.mojom.MemberSpec = {
       packedSize: 24,
       fields: [
         { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: related_website_sets.mojom.SiteTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -95,7 +95,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityErrorCodeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

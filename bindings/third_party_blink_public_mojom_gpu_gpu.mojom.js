@@ -72,7 +72,7 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
       name: 'blink.mojom.GpuDataManager.Are3DAPIsBlockedForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

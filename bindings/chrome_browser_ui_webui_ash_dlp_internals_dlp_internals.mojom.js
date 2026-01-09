@@ -84,8 +84,8 @@ dlp_internals.mojom.DataTransferEndpointSpec = {
       name: 'dlp_internals.mojom.DataTransferEndpoint',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.EndpointTypeSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -99,9 +99,9 @@ dlp_internals.mojom.ContentRestrictionInfoSpec = {
       name: 'dlp_internals.mojom.ContentRestrictionInfo',
       packedSize: 32,
       fields: [
-        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.ContentRestrictionSpec, nullable: false },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.LevelSpec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ dlp_internals.mojom.RenderFrameHostInfoSpec = {
       name: 'dlp_internals.mojom.RenderFrameHostInfo',
       packedSize: 24,
       fields: [
-        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -130,7 +130,7 @@ dlp_internals.mojom.WebContentsInfoSpec = {
       name: 'dlp_internals.mojom.WebContentsInfo',
       packedSize: 32,
       fields: [
-        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'frames_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -247,7 +247,7 @@ dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
       name: 'dlp_internals.mojom.ReportingObserver.OnReportEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.DlpEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.DataTransferEndpointSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -103,7 +103,7 @@ chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindowObserver.OnVisibilityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visibility_type', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.VisibilityTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'z_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.RequestVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

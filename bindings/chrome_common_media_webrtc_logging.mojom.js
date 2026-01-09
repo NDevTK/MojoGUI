@@ -16,7 +16,7 @@ chrome.mojom.WebRtcLoggingMessageSpec = {
       name: 'chrome.mojom.WebRtcLoggingMessage',
       packedSize: 24,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

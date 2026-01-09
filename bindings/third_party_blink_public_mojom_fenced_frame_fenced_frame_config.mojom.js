@@ -43,7 +43,7 @@ blink.mojom.AdAuctionDataSpec = {
       name: 'blink.mojom.AdAuctionData',
       packedSize: 24,
       fields: [
-        { name: 'interest_group_owner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interest_group_owner', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'interest_group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -58,8 +58,8 @@ blink.mojom.URNConfigPairSpec = {
       name: 'blink.mojom.URNConfigPair',
       packedSize: 24,
       fields: [
-        { name: 'urn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'urn', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,7 +73,7 @@ blink.mojom.SharedStorageBudgetMetadataSpec = {
       name: 'blink.mojom.SharedStorageBudgetMetadata',
       packedSize: 32,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'budget_to_charge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'top_navigated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -90,7 +90,7 @@ blink.mojom.ParentPermissionsInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'parsed_permissions_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -111,10 +111,10 @@ blink.mojom.FencedFrameConfigSpec = {
         { name: 'ad_auction_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'nested_configs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'shared_storage_budget_metadata', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'urn_uuid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'urn_uuid', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false },
         { name: 'effective_enabled_permissions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'parent_permissions_info', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parent_permissions_info', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -135,9 +135,9 @@ blink.mojom.FencedFramePropertiesSpec = {
         { name: 'ad_auction_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'nested_urn_config_pairs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'shared_storage_budget_metadata', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'mode', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false },
         { name: 'effective_enabled_permissions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'parent_permissions_info', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parent_permissions_info', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true },
         { name: 'can_disable_untrusted_network', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_cross_origin_content', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'allow_cross_origin_event_reporting', packedOffset: 80, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },

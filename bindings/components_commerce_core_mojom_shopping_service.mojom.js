@@ -48,9 +48,9 @@ shopping_service.mojom.UrlInfoSpec = {
       packedSize: 48,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'favicon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'favicon_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'previewText', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -141,10 +141,10 @@ shopping_service.mojom.ProductSpecificationsProductSpec = {
       fields: [
         { name: 'product_cluster_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'product_dimension_values', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'summary', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'buying_options_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buying_options_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -507,7 +507,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_Respon
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductInfoForCurrentUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'productInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'productInfo', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -521,7 +521,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec = 
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductInfoForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -534,8 +534,8 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParam
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductInfoForUrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'productInfo', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'productInfo', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -588,7 +588,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetPriceInsightsInfoForCurrentUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'priceInsightsInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priceInsightsInfo', packedOffset: 0, packedBitOffset: 0, type: shopping_service.mojom.PriceInsightsInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -602,7 +602,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsS
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetPriceInsightsInfoForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -615,8 +615,8 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_Respons
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetPriceInsightsInfoForUrl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'priceInsightsInfo', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'priceInsightsInfo', packedOffset: 8, packedBitOffset: 0, type: shopping_service.mojom.PriceInsightsInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -643,7 +643,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_Re
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductSpecificationsForUrls_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'productSpecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'productSpecs', packedOffset: 0, packedBitOffset: 0, type: shopping_service.mojom.ProductSpecificationsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -761,7 +761,7 @@ shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec = {
       name: 'shopping_service.mojom.ShoppingServiceHandler.OpenUrlInNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -775,7 +775,7 @@ shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec = {
       name: 'shopping_service.mojom.ShoppingServiceHandler.SwitchToOrOpenTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -815,7 +815,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductSpecificationsSetByUuid_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -828,7 +828,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductSpecificationsSetByUuid_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -856,7 +856,7 @@ shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_Respon
       name: 'shopping_service.mojom.ShoppingServiceHandler.AddProductSpecificationsSet_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'created_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'created_set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -870,7 +870,7 @@ shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_Par
       name: 'shopping_service.mojom.ShoppingServiceHandler.DeleteProductSpecificationsSet_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -884,7 +884,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
       name: 'shopping_service.mojom.ShoppingServiceHandler.SetNameForProductSpecificationsSet_Params',
       packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -898,7 +898,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
       name: 'shopping_service.mojom.ShoppingServiceHandler.SetNameForProductSpecificationsSet_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -912,7 +912,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
       name: 'shopping_service.mojom.ShoppingServiceHandler.SetUrlsForProductSpecificationsSet_Params',
       packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
         { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -926,7 +926,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
       name: 'shopping_service.mojom.ShoppingServiceHandler.SetUrlsForProductSpecificationsSet_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -940,7 +940,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedba
       name: 'shopping_service.mojom.ShoppingServiceHandler.SetProductSpecificationsUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: shopping_service.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -966,7 +966,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureSta
       name: 'shopping_service.mojom.ShoppingServiceHandler.GetProductSpecificationsFeatureState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: shopping_service.mojom.ProductSpecificationsFeatureStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

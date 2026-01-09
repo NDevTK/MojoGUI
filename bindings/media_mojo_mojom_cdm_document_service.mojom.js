@@ -16,9 +16,9 @@ media.mojom.MediaFoundationCdmDataSpec = {
       name: 'media.mojom.MediaFoundationCdmData',
       packedSize: 32,
       fields: [
-        { name: 'origin_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'client_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'cdm_store_path_root', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_store_path_root', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
       name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaFoundationCdmDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

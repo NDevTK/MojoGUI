@@ -72,7 +72,7 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
       name: 'media.mojom.GpuInfoObserver.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,7 +269,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,7 +296,7 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.GetService_Params',
       packedSize: 24,
       fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]

@@ -95,8 +95,8 @@ blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
       name: 'blink.mojom.WebLaunchService.EnqueueLaunchParams_Params',
       packedSize: 32,
       fields: [
-        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'navigation_started', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

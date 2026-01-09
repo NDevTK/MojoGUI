@@ -17,9 +17,9 @@ most_visited.mojom.MostVisitedTileSpec = {
       packedSize: 56,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title_direction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title_direction', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false },
         { name: 'title_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_query_tile', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'allow_user_edit', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -37,7 +37,7 @@ most_visited.mojom.MostVisitedThemeSpec = {
       name: 'most_visited.mojom.MostVisitedTheme',
       packedSize: 24,
       fields: [
-        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'use_white_tile_icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_dark', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -337,7 +337,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPageHandler.AddMostVisitedTile_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -365,7 +365,7 @@ most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPageHandler.DeleteMostVisitedTile_Params',
       packedSize: 16,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPageHandler.ReorderMostVisitedTile_Params',
       packedSize: 24,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
         { name: 'new_pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
@@ -394,7 +394,7 @@ most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec 
       name: 'most_visited.mojom.MostVisitedPageHandler.RestoreMostVisitedDefaults_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -421,7 +421,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec =
       name: 'most_visited.mojom.MostVisitedPageHandler.UndoMostVisitedTileAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -448,8 +448,8 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPageHandler.UpdateMostVisitedTile_Params',
       packedSize: 32,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
+        { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'new_title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -477,7 +477,7 @@ most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = 
       name: 'most_visited.mojom.MostVisitedPageHandler.PrerenderMostVisitedTile_Params',
       packedSize: 16,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,7 +491,7 @@ most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPageHandler.PrefetchMostVisitedTile_Params',
       packedSize: 16,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -505,7 +505,7 @@ most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec =
       name: 'most_visited.mojom.MostVisitedPageHandler.PreconnectMostVisitedTile_Params',
       packedSize: 16,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -587,7 +587,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec
       name: 'most_visited.mojom.MostVisitedPageHandler.OnMostVisitedTileNavigation_Params',
       packedSize: 32,
       fields: [
-        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedTileSpec, nullable: false },
         { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'mouse_button', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'alt_key', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -677,7 +677,7 @@ most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
       name: 'most_visited.mojom.MostVisitedPage.SetMostVisitedInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: most_visited.mojom.MostVisitedInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

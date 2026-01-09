@@ -22,7 +22,7 @@ signin.mojom.AccountIdSpec = {
       name: 'signin.mojom.AccountId',
       packedSize: 32,
       fields: [
-        { name: 'account_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_type', packedOffset: 0, packedBitOffset: 0, type: signin.mojom.AccountTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'user_email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

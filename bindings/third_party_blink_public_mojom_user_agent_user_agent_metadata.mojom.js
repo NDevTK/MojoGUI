@@ -56,7 +56,7 @@ blink.mojom.UserAgentOverrideSpec = {
       packedSize: 24,
       fields: [
         { name: 'ua_string_override', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ua_metadata_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ua_metadata_override', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserAgentMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

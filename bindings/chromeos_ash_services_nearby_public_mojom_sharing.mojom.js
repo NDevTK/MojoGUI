@@ -49,8 +49,8 @@ sharing.mojom.NearbyDependenciesSpec = {
       packedSize: 40,
       fields: [
         { name: 'webrtc_dependencies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'wifilan_dependencies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'wifidirect_dependencies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'wifilan_dependencies', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.WifiLanDependenciesSpec, nullable: true },
+        { name: 'wifidirect_dependencies', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.WifiDirectDependenciesSpec, nullable: true },
         { name: 'bluetooth_adapter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'nearby_presence_credential_storage', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
@@ -131,7 +131,7 @@ sharing.mojom.Sharing_Connect_ParamsSpec = {
       name: 'sharing.mojom.Sharing.Connect_Params',
       packedSize: 32,
       fields: [
-        { name: 'deps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'deps', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NearbyDependenciesSpec, nullable: false },
         { name: 'nearby_connections', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'nearby_presence', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'decoder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },

@@ -72,7 +72,7 @@ ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
       name: 'ax.mojom.Autoclick.RequestScrollableBoundsForPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
       name: 'ax.mojom.AutoclickClient.HandleScrollableBoundsForPointFound_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

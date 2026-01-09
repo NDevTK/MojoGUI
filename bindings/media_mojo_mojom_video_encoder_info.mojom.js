@@ -16,7 +16,7 @@ media.mojom.ResolutionRateLimitSpec = {
       name: 'media.mojom.ResolutionRateLimit',
       packedSize: 40,
       fields: [
-        { name: 'frame_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'min_start_bitrate_bps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'min_bitrate_bps', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'max_bitrate_bps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

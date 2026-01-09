@@ -164,7 +164,7 @@ chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpe
       name: 'chromecast.media.mojom.MediaCapsObserver.AddSupportedCodecProfileLevel_Params',
       packedSize: 16,
       fields: [
-        { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: chromecast.media.mojom.CodecProfileLevelSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

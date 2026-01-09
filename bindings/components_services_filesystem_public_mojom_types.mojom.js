@@ -45,7 +45,7 @@ filesystem.mojom.FileInformationSpec = {
       name: 'filesystem.mojom.FileInformation',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: filesystem.mojom.FsFileTypeSpec, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'atime', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'mtime', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
@@ -63,9 +63,9 @@ filesystem.mojom.DirectoryEntrySpec = {
       name: 'filesystem.mojom.DirectoryEntry',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
         { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: filesystem.mojom.FsFileTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

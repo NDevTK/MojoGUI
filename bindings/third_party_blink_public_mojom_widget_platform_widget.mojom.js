@@ -209,7 +209,7 @@ blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
       name: 'blink.mojom.WidgetHost.SetCursor_Params',
       packedSize: 16,
       fields: [
-        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.CursorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,8 +223,8 @@ blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
       name: 'blink.mojom.WidgetHost.UpdateTooltipUnderCursor_Params',
       packedSize: 24,
       fields: [
-        { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,9 +238,9 @@ blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
       name: 'blink.mojom.WidgetHost.UpdateTooltipFromKeyboard_Params',
       packedSize: 32,
       fields: [
-        { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
       name: 'blink.mojom.WidgetHost.TextInputStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,11 +281,11 @@ blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
       name: 'blink.mojom.WidgetHost.SelectionBoundsChanged_Params',
       packedSize: 56,
       fields: [
-        { name: 'anchor_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'anchor_dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'focus_rect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'focus_dir', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounding_box_rect', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'anchor_dir', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'focus_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'focus_dir', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
+        { name: 'bounding_box_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'is_anchor_first', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -482,8 +482,8 @@ blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
       name: 'blink.mojom.Widget.UpdateScreenRects_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget_screen_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'window_screen_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget_screen_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'window_screen_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -661,8 +661,8 @@ blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
       name: 'blink.mojom.RenderInputRouterClient.ShowContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

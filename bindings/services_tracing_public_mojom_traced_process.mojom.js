@@ -86,7 +86,7 @@ tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
       name: 'tracing.mojom.TracedProcess.ConnectToTracingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ConnectToTracingRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

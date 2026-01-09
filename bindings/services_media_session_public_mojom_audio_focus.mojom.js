@@ -32,7 +32,7 @@ media_session.mojom.AudioFocusRequestStateSpec = {
       packedSize: 24,
       fields: [
         { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'audio_focus_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_focus_type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

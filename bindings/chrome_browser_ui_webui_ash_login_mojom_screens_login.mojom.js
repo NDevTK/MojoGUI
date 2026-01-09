@@ -299,7 +299,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetUIState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.ArcVmUIStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsS
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetEstimatedRemainingTime_Params',
       packedSize: 16,
       fields: [
-        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -652,7 +652,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetUIState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.screens_login.mojom.UIStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -724,8 +724,8 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec 
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetSpaceInfoInString_Params',
       packedSize: 24,
       fields: [
-        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

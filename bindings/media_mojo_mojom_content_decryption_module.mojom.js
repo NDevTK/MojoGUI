@@ -64,7 +64,7 @@ media.mojom.CdmKeyInformationSpec = {
       packedSize: 32,
       fields: [
         { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmKeyStatusSpec, nullable: false },
         { name: 'system_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -79,7 +79,7 @@ media.mojom.CdmContextSpec = {
       name: 'media.mojom.CdmContext',
       packedSize: 32,
       fields: [
-        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'requires_media_foundation_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'decryptor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
@@ -241,7 +241,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,8 +268,8 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
+        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmKeyStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponsePara
       name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -327,7 +327,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -356,7 +356,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -410,7 +410,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -635,7 +635,7 @@ media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
       name: 'media.mojom.CdmFactory.CreateCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -648,7 +648,7 @@ media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
       name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cdm_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cdm_context', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],

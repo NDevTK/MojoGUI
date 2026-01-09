@@ -119,7 +119,7 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
       name: 'tracing.mojom.TracingService.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ClientInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

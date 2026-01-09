@@ -31,7 +31,7 @@ network.mojom.TCPConnectedSocketOptionsSpec = {
       name: 'network.mojom.TCPConnectedSocketOptions',
       packedSize: 32,
       fields: [
-        { name: 'keep_alive_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'keep_alive_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TCPKeepAliveOptionsSpec, nullable: true },
         { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'no_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -158,7 +158,7 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'remote_addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'tcp_connected_socket_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'tcp_connected_socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true },
         { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],

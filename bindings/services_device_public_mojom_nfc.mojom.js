@@ -44,7 +44,7 @@ device.mojom.NDEFErrorSpec = {
       name: 'device.mojom.NDEFError',
       packedSize: 24,
       fields: [
-        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorTypeSpec, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -59,14 +59,14 @@ device.mojom.NDEFRecordSpec = {
       name: 'device.mojom.NDEFRecord',
       packedSize: 72,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFRecordTypeCategorySpec, nullable: false },
         { name: 'record_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'media_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'encoding', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'lang', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'payload_message', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'payload_message', packedOffset: 56, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -97,7 +97,7 @@ device.mojom.NDEFRawRecordSpec = {
         { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type_name_format', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type_name_format', packedOffset: 24, packedBitOffset: 0, type: device.mojom.NSRawTypeNameFormatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,8 +263,8 @@ device.mojom.NFC_Push_ParamsSpec = {
       name: 'device.mojom.NFC.Push_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFWriteOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -277,7 +277,7 @@ device.mojom.NFC_Push_ResponseParamsSpec = {
       name: 'device.mojom.NFC.Push_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
       name: 'device.mojom.NFC.MakeReadOnly_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ device.mojom.NFC_Watch_ResponseParamsSpec = {
       name: 'device.mojom.NFC.Watch_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -456,7 +456,7 @@ device.mojom.NFCClient_OnWatch_ParamsSpec = {
       fields: [
         { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ device.mojom.NFCClient_OnError_ParamsSpec = {
       name: 'device.mojom.NFCClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -555,7 +555,7 @@ device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFRawMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -569,7 +569,7 @@ device.mojom.RawNFCClient_OnError_ParamsSpec = {
       name: 'device.mojom.RawNFCClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

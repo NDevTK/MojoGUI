@@ -22,7 +22,7 @@ spellcheck.mojom.SpellCheckBDictLanguageSpec = {
       name: 'spellcheck.mojom.SpellCheckBDictLanguage',
       packedSize: 24,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
         { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -37,7 +37,7 @@ spellcheck.mojom.SpellCheckResultSpec = {
       name: 'spellcheck.mojom.SpellCheckResult',
       packedSize: 40,
       fields: [
-        { name: 'decoration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoration', packedOffset: 0, packedBitOffset: 0, type: spellcheck.mojom.DecorationSpec, nullable: false },
         { name: 'replacements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -340,7 +340,7 @@ spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.NotifyChecked_Params',
       packedSize: 24,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'misspelled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -355,7 +355,7 @@ spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.CallSpellingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.RequestTextCheck_Params',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'spelling_markers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -424,7 +424,7 @@ spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.CheckSpelling_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
       name: 'spellcheck.mojom.SpellCheckHost.FillSuggestionList_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

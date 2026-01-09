@@ -16,12 +16,12 @@ new_tab_page_third_party.mojom.ThemeSpec = {
       name: 'new_tab_page_third_party.mojom.Theme',
       packedSize: 64,
       fields: [
-        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'color_background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'background_tiling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'background_position', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'most_visited', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'most_visited', packedOffset: 40, packedBitOffset: 0, type: most_visited.mojom.MostVisitedThemeSpec, nullable: false },
         { name: 'is_dark', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_custom_background', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -243,7 +243,7 @@ new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
       name: 'new_tab_page_third_party.mojom.Page.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: new_tab_page_third_party.mojom.ThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

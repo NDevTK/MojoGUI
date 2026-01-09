@@ -366,7 +366,7 @@ ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       name: 'ash.borealis_installer.mojom.Page.OnInstallFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: borealis.mojom.InstallResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

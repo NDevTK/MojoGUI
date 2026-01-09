@@ -195,11 +195,11 @@ gpu.mojom.VkPhysicalDevicePropertiesSpec = {
       name: 'gpu.mojom.VkPhysicalDeviceProperties',
       packedSize: 64,
       fields: [
-        { name: 'deviceType', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'deviceType', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceTypeSpec, nullable: false },
         { name: 'deviceName', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pipelineCacheUUID', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'limits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sparseProperties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'limits', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceLimitsSpec, nullable: false },
+        { name: 'sparseProperties', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec, nullable: false },
         { name: 'apiVersion', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'driverVersion', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'vendorID', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -301,7 +301,7 @@ gpu.mojom.VkQueueFamilyPropertiesSpec = {
       name: 'gpu.mojom.VkQueueFamilyProperties',
       packedSize: 32,
       fields: [
-        { name: 'minImageTransferGranularity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'minImageTransferGranularity', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VkExtent3DSpec, nullable: false },
         { name: 'queueFlags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'queueCount', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'timestampValidBits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

@@ -117,7 +117,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
       name: 'payments.mojom.SecurePaymentConfirmationService.SecurePaymentConfirmationAvailability_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseP
       name: 'payments.mojom.SecurePaymentConfirmationService.StorePaymentCredential_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCredentialStorageStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec
       name: 'payments.mojom.SecurePaymentConfirmationService.MakePaymentCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PublicKeyCredentialCreationOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,9 +173,9 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponsePa
       name: 'payments.mojom.SecurePaymentConfirmationService.MakePaymentCredential_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MakeCredentialAuthenticatorResponseSpec, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebAuthnDOMExceptionDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

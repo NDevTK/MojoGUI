@@ -100,10 +100,10 @@ side_panel.customize_chrome.mojom.InspirationSpec = {
       name: 'side_panel.customize_chrome.mojom.Inspiration',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
         { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'background_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'background_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,9 +117,9 @@ side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
       name: 'side_panel.customize_chrome.mojom.InspirationDescriptors',
       packedSize: 40,
       fields: [
-        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
+        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
         { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -134,7 +134,7 @@ side_panel.customize_chrome.mojom.InspirationGroupSpec = {
       name: 'side_panel.customize_chrome.mojom.InspirationGroup',
       packedSize: 24,
       fields: [
-        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.InspirationDescriptorsSpec, nullable: false },
         { name: 'inspirations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -149,9 +149,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchResult',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
         { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ResultDescriptorsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Response
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetDescriptors_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -456,7 +456,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetWallpaperSearchResults_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_descriptors', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ResultDescriptorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -469,7 +469,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetWallpaperSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -499,8 +499,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryI
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToHistoryImage_Params',
       packedSize: 24,
       fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'descriptors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'descriptors', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ResultDescriptorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,8 +514,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirat
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToInspirationImage_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'background_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
+        { name: 'background_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -529,9 +529,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpape
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToWallpaperSearchResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ResultDescriptorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -558,7 +558,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsS
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'selected_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selected_option', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

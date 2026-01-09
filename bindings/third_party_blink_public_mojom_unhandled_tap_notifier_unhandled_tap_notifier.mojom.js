@@ -16,7 +16,7 @@ blink.mojom.UnhandledTapInfoSpec = {
       name: 'blink.mojom.UnhandledTapInfo',
       packedSize: 16,
       fields: [
-        { name: 'tapped_position_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tapped_position_in_viewport', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,7 +86,7 @@ blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
       name: 'blink.mojom.UnhandledTapNotifier.ShowUnhandledTapUIIfNeeded_Params',
       packedSize: 16,
       fields: [
-        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UnhandledTapInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

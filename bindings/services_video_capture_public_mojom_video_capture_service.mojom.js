@@ -262,7 +262,7 @@ video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.LuidSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

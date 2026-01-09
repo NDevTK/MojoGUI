@@ -16,7 +16,7 @@ media.mojom.SpeechRecognitionHypothesisSpec = {
       name: 'media.mojom.SpeechRecognitionHypothesis',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]

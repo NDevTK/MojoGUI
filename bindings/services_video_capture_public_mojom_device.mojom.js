@@ -135,7 +135,7 @@ video_capture.mojom.Device_Start_ParamsSpec = {
       name: 'video_capture.mojom.Device.Start_Params',
       packedSize: 24,
       fields: [
-        { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -188,7 +188,7 @@ video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = {
       name: 'video_capture.mojom.Device.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = {
       name: 'video_capture.mojom.Device.SetPhotoOptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -241,7 +241,7 @@ video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = {
       name: 'video_capture.mojom.Device.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -255,7 +255,7 @@ video_capture.mojom.Device_ProcessFeedback_ParamsSpec = {
       name: 'video_capture.mojom.Device.ProcessFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

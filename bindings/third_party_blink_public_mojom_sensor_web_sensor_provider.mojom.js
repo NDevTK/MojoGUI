@@ -72,7 +72,7 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
       name: 'blink.mojom.WebSensorProvider.GetSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,8 +85,8 @@ blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
       name: 'blink.mojom.WebSensorProvider.GetSensor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false },
+        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

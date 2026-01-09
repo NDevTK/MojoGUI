@@ -46,13 +46,13 @@ blink.mojom.SpeculationCandidateSpec = {
       name: 'blink.mojom.SpeculationCandidate',
       packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false },
         { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'target_browsing_context_name_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'eagerness', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'no_vary_search_hint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'injection_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_browsing_context_name_hint', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false },
+        { name: 'eagerness', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false },
+        { name: 'no_vary_search_hint', packedOffset: 40, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true },
+        { name: 'injection_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false },
         { name: 'tags', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'form_submission', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -171,7 +171,7 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

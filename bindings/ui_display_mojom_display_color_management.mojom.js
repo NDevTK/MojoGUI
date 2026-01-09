@@ -30,9 +30,9 @@ display.mojom.ColorCalibrationSpec = {
       name: 'display.mojom.ColorCalibration',
       packedSize: 32,
       fields: [
-        { name: 'srgb_to_linear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'srgb_to_device_matrix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'linear_to_device', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'srgb_to_linear', packedOffset: 0, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false },
+        { name: 'srgb_to_device_matrix', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: false },
+        { name: 'linear_to_device', packedOffset: 16, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,7 +46,7 @@ display.mojom.ColorTemperatureAdjustmentSpec = {
       name: 'display.mojom.ColorTemperatureAdjustment',
       packedSize: 16,
       fields: [
-        { name: 'srgb_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'srgb_matrix', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -60,7 +60,7 @@ display.mojom.GammaAdjustmentSpec = {
       name: 'display.mojom.GammaAdjustment',
       packedSize: 16,
       fields: [
-        { name: 'curve', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'curve', packedOffset: 0, packedBitOffset: 0, type: display.mojom.GammaCurveSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

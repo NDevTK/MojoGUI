@@ -33,12 +33,12 @@ content.mojom.ResourceTypeStatsSpec = {
       name: 'content.mojom.ResourceTypeStats',
       packedSize: 56,
       fields: [
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'css_style_sheets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scripts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'xsl_style_sheets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'fonts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'other', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'css_style_sheets', packedOffset: 8, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'scripts', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'xsl_style_sheets', packedOffset: 24, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'fonts', packedOffset: 32, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
+        { name: 'other', packedOffset: 40, packedBitOffset: 0, type: content.mojom.ResourceTypeStatSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -54,7 +54,7 @@ content.mojom.ResourceUsageDataSpec = {
       fields: [
         { name: 'v8_bytes_allocated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'v8_bytes_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'web_cache_stats', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'web_cache_stats', packedOffset: 16, packedBitOffset: 0, type: content.mojom.ResourceTypeStatsSpec, nullable: true },
         { name: 'reports_v8_stats', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -137,7 +137,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
       name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceUsageDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

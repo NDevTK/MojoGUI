@@ -116,7 +116,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
       name: 'pdf.mojom.SaveDataBufferHandler.Read_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
       name: 'pdf.mojom.PdfListener.SetCaretPosition_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
       name: 'pdf.mojom.PdfListener.MoveRangeSelectionExtent_Params',
       packedSize: 16,
       fields: [
-        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,8 +273,8 @@ pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
       name: 'pdf.mojom.PdfListener.SetSelectionBounds_Params',
       packedSize: 24,
       fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,7 +301,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfListener.GetPdfBytes_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.GetPdfBytesStatusSpec, nullable: false },
         { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -330,7 +330,7 @@ pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfListener.GetPageText_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
       name: 'pdf.mojom.PdfListener.GetSaveDataBufferHandlerForDrive_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveRequestTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,7 +383,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfListener.GetSaveDataBufferHandlerForDrive_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveDataBufferHandlerGetResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -553,8 +553,8 @@ pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
       name: 'pdf.mojom.PdfHost.SaveUrlAs_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,8 +568,8 @@ pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
       name: 'pdf.mojom.PdfHost.SelectionChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'left_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'right_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

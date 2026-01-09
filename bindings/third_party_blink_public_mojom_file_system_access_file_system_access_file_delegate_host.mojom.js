@@ -113,8 +113,8 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
         { name: 'bytes_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -143,7 +143,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
         { name: 'bytes_written', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -170,7 +170,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.GetLength_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -198,7 +198,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

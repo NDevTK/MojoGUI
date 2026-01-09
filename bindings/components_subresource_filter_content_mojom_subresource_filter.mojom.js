@@ -73,7 +73,7 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
       packedSize: 24,
       fields: [
         { name: 'activation_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameAdEvidenceSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
       name: 'subresource_filter.mojom.SubresourceFilterHost.AdScriptDidCreateFencedFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

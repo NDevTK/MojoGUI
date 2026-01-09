@@ -16,7 +16,7 @@ attribution_reporting.mojom.SuitableOriginSpec = {
       name: 'attribution_reporting.mojom.SuitableOrigin',
       packedSize: 16,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -44,7 +44,7 @@ attribution_reporting.mojom.FilterConfigSpec = {
       name: 'attribution_reporting.mojom.FilterConfig',
       packedSize: 24,
       fields: [
-        { name: 'lookback_window', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'lookback_window', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
         { name: 'filter_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
@@ -88,9 +88,9 @@ attribution_reporting.mojom.AggregatableTriggerDataSpec = {
       name: 'attribution_reporting.mojom.AggregatableTriggerData',
       packedSize: 32,
       fields: [
-        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
         { name: 'source_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,7 +118,7 @@ attribution_reporting.mojom.EventReportWindowsSpec = {
       name: 'attribution_reporting.mojom.EventReportWindows',
       packedSize: 24,
       fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'end_times', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -147,7 +147,7 @@ attribution_reporting.mojom.AggregatableDebugReportingContributionSpec = {
       name: 'attribution_reporting.mojom.AggregatableDebugReportingContribution',
       packedSize: 24,
       fields: [
-        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -162,9 +162,9 @@ attribution_reporting.mojom.AggregatableDebugReportingConfigSpec = {
       name: 'attribution_reporting.mojom.AggregatableDebugReportingConfig',
       packedSize: 32,
       fields: [
-        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_piece', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
         { name: 'debug_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'aggregation_coordinator_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'aggregation_coordinator_origin', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec = {
       name: 'attribution_reporting.mojom.SourceAggregatableDebugReportingConfig',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, nullable: false },
         { name: 'budget', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -207,7 +207,7 @@ attribution_reporting.mojom.AttributionScopesDataSpec = {
       name: 'attribution_reporting.mojom.AttributionScopesData',
       packedSize: 24,
       fields: [
-        { name: 'attribution_scopes_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_scopes_set', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.AttributionScopesSetSpec, nullable: false },
         { name: 'attribution_scope_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'max_event_states', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -237,22 +237,22 @@ attribution_reporting.mojom.SourceRegistrationSpec = {
       name: 'attribution_reporting.mojom.SourceRegistration',
       packedSize: 152,
       fields: [
-        { name: 'destinations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destinations', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.DestinationSetSpec, nullable: false },
         { name: 'source_event_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'expiry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'trigger_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'event_report_windows', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'aggregatable_report_window', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expiry', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'trigger_data', packedOffset: 24, packedBitOffset: 0, type: attribution_reporting.mojom.TriggerDataSetSpec, nullable: false },
+        { name: 'event_report_windows', packedOffset: 32, packedBitOffset: 0, type: attribution_reporting.mojom.EventReportWindowsSpec, nullable: false },
+        { name: 'aggregatable_report_window', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'debug_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'filter_data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'aggregation_keys', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter_data', packedOffset: 64, packedBitOffset: 0, type: attribution_reporting.mojom.FilterDataSpec, nullable: false },
+        { name: 'aggregation_keys', packedOffset: 72, packedBitOffset: 0, type: attribution_reporting.mojom.AggregationKeysSpec, nullable: false },
         { name: 'trigger_data_matching', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_level_epsilon', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'aggregatable_debug_reporting_config', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aggregatable_debug_reporting_config', packedOffset: 96, packedBitOffset: 0, type: attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec, nullable: false },
         { name: 'destination_limit_priority', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'attribution_scopes_data', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'aggregatable_named_budget_defs', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_scopes_data', packedOffset: 112, packedBitOffset: 0, type: attribution_reporting.mojom.AttributionScopesDataSpec, nullable: true },
+        { name: 'aggregatable_named_budget_defs', packedOffset: 120, packedBitOffset: 0, type: attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec, nullable: false },
         { name: 'max_event_level_reports', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'debug_reporting', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -271,7 +271,7 @@ attribution_reporting.mojom.EventTriggerDataSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'dedup_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'filters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 24, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ attribution_reporting.mojom.AggregatableDedupKeySpec = {
       packedSize: 24,
       fields: [
         { name: 'dedup_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,7 +316,7 @@ attribution_reporting.mojom.AggregatableValuesSpec = {
       packedSize: 24,
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -331,7 +331,7 @@ attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -346,16 +346,16 @@ attribution_reporting.mojom.TriggerRegistrationSpec = {
       packedSize: 120,
       fields: [
         { name: 'event_triggers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.FilterPairSpec, nullable: false },
         { name: 'aggregatable_trigger_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'aggregatable_values', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'debug_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
         { name: 'aggregatable_dedup_keys', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'aggregation_coordinator_origin', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'aggregation_coordinator_origin', packedOffset: 48, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: true },
         { name: 'source_registration_time_config', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trigger_context_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'aggregatable_debug_reporting_config', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'attribution_scopes', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'aggregatable_debug_reporting_config', packedOffset: 72, packedBitOffset: 0, type: attribution_reporting.mojom.AggregatableDebugReportingConfigSpec, nullable: false },
+        { name: 'attribution_scopes', packedOffset: 80, packedBitOffset: 0, type: attribution_reporting.mojom.AttributionScopesSetSpec, nullable: false },
         { name: 'aggregatable_named_budget_candidates', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'aggregatable_filtering_id_max_bytes', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'debug_reporting', packedOffset: 97, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -372,7 +372,7 @@ attribution_reporting.mojom.OsRegistrationItemSpec = {
       name: 'attribution_reporting.mojom.OsRegistrationItem',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'debug_reporting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

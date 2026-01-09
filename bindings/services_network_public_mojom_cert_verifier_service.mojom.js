@@ -16,10 +16,10 @@ cert_verifier.mojom.RequestParamsSpec = {
       name: 'cert_verifier.mojom.RequestParams',
       packedSize: 48,
       fields: [
-        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
         { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ocsp_response', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'sct_list', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
         { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -223,8 +223,8 @@ cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.Verify_Params',
       packedSize: 32,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.RequestParamsSpec, nullable: false },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
         { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -241,8 +241,8 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
       fields: [
         { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
+        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -255,7 +255,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = 
       name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,7 +269,7 @@ cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.SetConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -418,7 +418,7 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierRequest.Complete_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false },
         { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

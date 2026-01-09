@@ -22,7 +22,7 @@ blink.mojom.ProximateCharacterRangeBoundsSpec = {
       name: 'blink.mojom.ProximateCharacterRangeBounds',
       packedSize: 24,
       fields: [
-        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
         { name: 'widget_bounds_in_dips', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -37,8 +37,8 @@ blink.mojom.StylusWritingFocusResultSpec = {
       name: 'blink.mojom.StylusWritingFocusResult',
       packedSize: 32,
       fields: [
-        { name: 'focused_edit_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'caret_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focused_edit_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'caret_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'proximate_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -281,8 +281,8 @@ blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec = {
       packedSize: 48,
       fields: [
         { name: 'drag_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'point_in_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_viewport', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'operations_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -297,7 +297,7 @@ blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec = {
       name: 'blink.mojom.FrameWidget.DragTargetDragEnter_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DragOperationSpec, nullable: false },
         { name: 'document_is_handling_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -312,8 +312,8 @@ blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.DragTargetDragOver_Params',
       packedSize: 40,
       fields: [
-        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'operations_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -328,7 +328,7 @@ blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec = {
       name: 'blink.mojom.FrameWidget.DragTargetDragOver_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DragOperationSpec, nullable: false },
         { name: 'document_is_handling_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -343,8 +343,8 @@ blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.DragTargetDragLeave_Params',
       packedSize: 24,
       fields: [
-        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,8 +359,8 @@ blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'drag_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'point_in_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_viewport', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'key_modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -375,9 +375,9 @@ blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.DragSourceEndedAt_Params',
       packedSize: 32,
       fields: [
-        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.DragOperationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec = {
       name: 'blink.mojom.FrameWidget.OnStartStylusWriting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'focus_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'focus_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingFocusResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -458,7 +458,7 @@ blink.mojom.FrameWidget_SetTextDirection_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.SetTextDirection_Params',
       packedSize: 16,
       fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -486,7 +486,7 @@ blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec =
       name: 'blink.mojom.FrameWidget.SetInheritedEffectiveTouchActionForSubFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.TouchActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -530,7 +530,7 @@ blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.GetStringAtPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'point_in_local_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point_in_local_root', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -543,8 +543,8 @@ blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec = {
       name: 'blink.mojom.FrameWidget.GetStringAtPoint_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'baseline_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'string', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AttributedStringSpec, nullable: true },
+        { name: 'baseline_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -559,7 +559,7 @@ blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'cache_behavior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cache_behavior', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceEmulationCacheBehaviorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -743,8 +743,8 @@ blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec = {
       name: 'blink.mojom.FrameWidgetHost.AnimateDoubleTapZoomInMainFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'tap_point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'rect_to_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tap_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'rect_to_zoom', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -758,7 +758,7 @@ blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec = {
       name: 'blink.mojom.FrameWidgetHost.ZoomToFindInPageRectInMainFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect_to_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rect_to_zoom', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -800,7 +800,7 @@ blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec = {
       name: 'blink.mojom.FrameWidgetHost.AutoscrollStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -814,7 +814,7 @@ blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec = {
       name: 'blink.mojom.FrameWidgetHost.AutoscrollFling_Params',
       packedSize: 16,
       fields: [
-        { name: 'velocity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'velocity', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -933,8 +933,8 @@ blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec = {
       name: 'blink.mojom.PopupWidgetHost.ShowPopup_Params',
       packedSize: 24,
       fields: [
-        { name: 'initial_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'anchor_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'anchor_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -948,7 +948,7 @@ blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec = {
       name: 'blink.mojom.PopupWidgetHost.SetPopupBounds_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

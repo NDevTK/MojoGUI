@@ -95,7 +95,7 @@ network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
       name: 'network_hints.mojom.NetworkHintsHandler.Preconnect_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
         { name: 'allow_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

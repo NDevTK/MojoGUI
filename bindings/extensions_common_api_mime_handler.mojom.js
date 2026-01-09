@@ -127,7 +127,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
       name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.StreamInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
       name: 'extensions.mime_handler.MimeHandlerService.SetPdfPluginAttributes_Params',
       packedSize: 16,
       fields: [
-        { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.PdfPluginAttributesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

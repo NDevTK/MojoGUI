@@ -32,7 +32,7 @@ origin_matcher.mojom.OriginMatcherRuleSpec = {
       name: 'origin_matcher.mojom.OriginMatcherRule',
       packedSize: 16,
       fields: [
-        { name: 'subdomain_matching_rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'subdomain_matching_rule', packedOffset: 0, packedBitOffset: 0, type: origin_matcher.mojom.SubdomainMatchingRuleSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

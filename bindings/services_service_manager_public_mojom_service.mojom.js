@@ -133,7 +133,7 @@ service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
       name: 'service_manager.mojom.Service.OnBindInterface_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.BindSourceInfoSpec, nullable: false },
         { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],

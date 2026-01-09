@@ -120,7 +120,7 @@ mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
       name: 'mojom.WebEngineMediaResourceProvider.CreateAudioConsumer_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

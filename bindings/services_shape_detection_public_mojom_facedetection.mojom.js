@@ -24,7 +24,7 @@ shape_detection.mojom.LandmarkSpec = {
       packedSize: 24,
       fields: [
         { name: 'locations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.LandmarkTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -38,7 +38,7 @@ shape_detection.mojom.FaceDetectionResultSpec = {
       name: 'shape_detection.mojom.FaceDetectionResult',
       packedSize: 24,
       fields: [
-        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'landmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -124,7 +124,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.FaceDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }

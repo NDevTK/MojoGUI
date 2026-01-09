@@ -103,7 +103,7 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
       name: 'ukm.mojom.SingularUkmInterface.Submit_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,7 +178,7 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderClientInterface.SetParameters_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmRecorderParametersSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

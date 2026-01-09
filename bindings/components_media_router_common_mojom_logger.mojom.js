@@ -107,7 +107,7 @@ media_router.mojom.Logger_LogInfo_ParamsSpec = {
       name: 'media_router.mojom.Logger.LogInfo_Params',
       packedSize: 56,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false },
         { name: 'component', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -126,7 +126,7 @@ media_router.mojom.Logger_LogWarning_ParamsSpec = {
       name: 'media_router.mojom.Logger.LogWarning_Params',
       packedSize: 56,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false },
         { name: 'component', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -145,7 +145,7 @@ media_router.mojom.Logger_LogError_ParamsSpec = {
       name: 'media_router.mojom.Logger.LogError_Params',
       packedSize: 56,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false },
         { name: 'component', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

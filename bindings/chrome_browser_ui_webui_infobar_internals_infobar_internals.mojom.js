@@ -20,7 +20,7 @@ infobar_internals.mojom.InfoBarEntrySpec = {
       name: 'infobar_internals.mojom.InfoBarEntry',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -179,7 +179,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: infobar_internals.mojom.InfoBarTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -38,7 +38,7 @@ blink.mojom.SubAppsServiceAddResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -52,7 +52,7 @@ blink.mojom.SubAppsServiceListResultSpec = {
       name: 'blink.mojom.SubAppsServiceListResult',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
         { name: 'sub_apps_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -83,7 +83,7 @@ blink.mojom.SubAppsServiceRemoveResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -210,7 +210,7 @@ blink.mojom.SubAppsService_List_ResponseParamsSpec = {
       name: 'blink.mojom.SubAppsService.List_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceListResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

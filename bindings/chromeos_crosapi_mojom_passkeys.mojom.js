@@ -41,7 +41,7 @@ crosapi.mojom.PasskeyCreationRequestSpec = {
         { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'user_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'user_display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UserVerificationRequirementSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,7 +73,7 @@ crosapi.mojom.PasskeyAssertionRequestSpec = {
         { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client_data_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UserVerificationRequirementSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

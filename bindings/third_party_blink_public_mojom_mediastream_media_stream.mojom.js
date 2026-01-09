@@ -145,16 +145,16 @@ blink.mojom.MediaStreamDeviceSpec = {
       name: 'blink.mojom.MediaStreamDevice',
       packedSize: 88,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'video_facing', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_facing', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false },
         { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'matched_output_device_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'input', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'session_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'display_media_info', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input', packedOffset: 56, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
+        { name: 'session_id', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'display_media_info', packedOffset: 72, packedBitOffset: 0, type: media.mojom.DisplayMediaInformationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ blink.mojom.TrackControlsSpec = {
       name: 'blink.mojom.TrackControls',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false },
         { name: 'device_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -183,10 +183,10 @@ blink.mojom.StreamControlsSpec = {
       name: 'blink.mojom.StreamControls',
       packedSize: 48,
       fields: [
-        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'video', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'window_audio_preference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'preferred_display_surface', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false },
+        { name: 'video', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false },
+        { name: 'window_audio_preference', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WindowAudioPreferenceSpec, nullable: false },
+        { name: 'preferred_display_surface', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PreferredDisplaySurfaceSpec, nullable: false },
         { name: 'hotword_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'disable_local_echo', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'suppress_local_audio_playback', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -211,7 +211,7 @@ blink.mojom.GetOpenDeviceResponseSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
         { name: 'pan_tilt_zoom_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -243,8 +243,8 @@ blink.mojom.StreamDevicesSpec = {
       name: 'blink.mojom.StreamDevices',
       packedSize: 24,
       fields: [
-        { name: 'audio_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'video_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_device', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: true },
+        { name: 'video_device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -374,7 +374,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -389,8 +389,8 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'old_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'new_device', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'old_device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
+        { name: 'new_device', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,8 +405,8 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'new_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
+        { name: 'new_state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamStateChangeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -421,7 +421,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsS
       packedSize: 24,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -436,7 +436,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
         { name: 'zoom_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -635,7 +635,7 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_Params',
       packedSize: 40,
       fields: [
-        { name: 'controls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'controls', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false },
         { name: 'audio_stream_selection_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'user_gesture', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -651,9 +651,9 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false },
         { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stream_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stream_devices', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamDevicesSetSpec, nullable: true },
         { name: 'pan_tilt_zoom_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -698,7 +698,7 @@ blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -713,7 +713,7 @@ blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -728,7 +728,7 @@ blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false },
         { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -757,8 +757,8 @@ blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.SetCapturingLinkSecured_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false },
         { name: 'is_secure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -773,9 +773,9 @@ blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_Params',
       packedSize: 40,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sub_capture_target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SubCaptureTargetTypeSpec, nullable: false },
+        { name: 'sub_capture_target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
         { name: 'sub_capture_target_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -789,7 +789,7 @@ blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec =
       name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ApplySubCaptureTargetResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -803,8 +803,8 @@ blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.SendWheel_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CapturedWheelActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -818,8 +818,8 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ZoomLevelActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -832,7 +832,7 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CapturedSurfaceControlResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -846,7 +846,7 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Pa
       name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -859,7 +859,7 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Re
       name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CapturedSurfaceControlResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -873,8 +873,8 @@ blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -888,8 +888,8 @@ blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetOpenDeviceResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -903,8 +903,8 @@ blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
       name: 'blink.mojom.MediaStreamDispatcherHost.KeepDeviceAliveForTransfer_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -79,7 +79,7 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: data_decoder.mojom.WhitespaceBehaviorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,7 +92,7 @@ data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
       name: 'data_decoder.mojom.XmlParser.Parse_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]

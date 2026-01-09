@@ -82,7 +82,7 @@ ax.mojom.TtsEventSpec = {
       name: 'ax.mojom.TtsEvent',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'char_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -100,7 +100,7 @@ ax.mojom.TtsSpeakResultSpec = {
       name: 'ax.mojom.TtsSpeakResult',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false },
         { name: 'utterance_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
@@ -171,7 +171,7 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
       name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,7 +292,7 @@ ax.mojom.Tts_Speak_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -305,7 +305,7 @@ ax.mojom.Tts_Speak_ResponseParamsSpec = {
       name: 'ax.mojom.Tts.Speak_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsSpeakResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -84,8 +84,8 @@ compose.mojom.ComposeStateSpec = {
       packedSize: 40,
       fields: [
         { name: 'webui_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.ComposeResponseSpec, nullable: true },
+        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: compose.mojom.UserFeedbackSpec, nullable: false },
         { name: 'has_pending_request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -117,8 +117,8 @@ compose.mojom.OpenMetadataSpec = {
       packedSize: 40,
       fields: [
         { name: 'initial_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'compose_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'configurable_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compose_state', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: false },
+        { name: 'configurable_params', packedOffset: 16, packedBitOffset: 0, type: compose.mojom.ConfigurableParamsSpec, nullable: false },
         { name: 'fre_complete', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'msbb_state', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'text_selected', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -426,7 +426,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: compose.mojom.InputModeSpec, nullable: false },
         { name: 'edited', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -441,7 +441,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Rewrite_Params',
       packedSize: 16,
       fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.StyleModifierSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,7 +520,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponsePar
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RequestInitialState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.OpenMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,7 +546,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Undo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'last_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -572,7 +572,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseP
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RecoverFromErrorState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_before_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'state_before_error', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -598,7 +598,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Redo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'next_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'next_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -677,7 +677,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
       name: 'compose.mojom.ComposeSessionUntrustedPageHandler.SetUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.UserFeedbackSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -819,7 +819,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
       name: 'compose.mojom.ComposeClientUntrustedPageHandler.CloseUI_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.CloseReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -929,7 +929,7 @@ compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
       name: 'compose.mojom.ComposeUntrustedDialog.ResponseReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -943,7 +943,7 @@ compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
       name: 'compose.mojom.ComposeUntrustedDialog.PartialResponseReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'partial_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'partial_response', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.PartialComposeResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -88,7 +88,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateWavFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: audio.mojom.DebugRecordingStreamTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -102,7 +102,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateWavFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -129,7 +129,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateAecdumpFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

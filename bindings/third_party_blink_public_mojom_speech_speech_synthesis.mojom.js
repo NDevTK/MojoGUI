@@ -259,7 +259,7 @@ blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnFinishedSpeaking_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -453,7 +453,7 @@ blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesis.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

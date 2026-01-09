@@ -16,10 +16,10 @@ on_device_internals.mojom.PageDataSpec = {
       name: 'on_device_internals.mojom.PageData',
       packedSize: 56,
       fields: [
-        { name: 'base_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'base_model', packedOffset: 0, packedBitOffset: 0, type: on_device_internals.mojom.BaseModelStateSpec, nullable: false },
         { name: 'supp_models', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'feature_adaptations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'performance_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'performance_info', packedOffset: 24, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false },
         { name: 'min_vram_mb', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'model_crash_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'max_model_crash_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -38,7 +38,7 @@ on_device_internals.mojom.BaseModelStateSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'registration_criteria', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: on_device_internals.mojom.BaseModelInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -307,8 +307,8 @@ on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.LoadModel_Params',
       packedSize: 32,
       fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'performance_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'performance_hint', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false },
         { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -322,8 +322,8 @@ on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.LoadModel_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -351,7 +351,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,8 +377,8 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParams
       name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.DeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -404,7 +404,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.GetPageData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: on_device_internals.mojom.PageDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -472,7 +472,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_Params',
       packedSize: 16,
       fields: [
-        { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,7 +485,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
       name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -582,7 +582,7 @@ on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       name: 'on_device_internals.mojom.Page.OnLogMessageAdded_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

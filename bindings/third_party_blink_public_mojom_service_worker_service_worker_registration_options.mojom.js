@@ -23,9 +23,9 @@ blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
       name: 'blink.mojom.ServiceWorkerRegistrationOptions',
       packedSize: 32,
       fields: [
-        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'update_via_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_via_cache', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerUpdateViaCacheSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -33,7 +33,7 @@ blink.mojom.ScriptToolSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'input_schema', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'annotations', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'annotations', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScriptToolAnnotationsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

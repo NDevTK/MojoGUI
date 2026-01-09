@@ -25,7 +25,7 @@ blink.mojom.BucketPoliciesSpec = {
       fields: [
         { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'expires', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'expires', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'persisted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_persisted', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'has_durability', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -298,7 +298,7 @@ blink.mojom.BucketHost_SetExpires_ParamsSpec = {
       name: 'blink.mojom.BucketHost.SetExpires_Params',
       packedSize: 16,
       fields: [
-        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ blink.mojom.BucketHost_Expires_ResponseParamsSpec = {
       name: 'blink.mojom.BucketHost.Expires_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -538,7 +538,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BucketPoliciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -551,7 +551,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = {
       name: 'blink.mojom.BucketManagerHost.OpenBucket_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BucketErrorSpec, nullable: false },
         { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]

@@ -72,8 +72,8 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
       name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'destination_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'destination_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

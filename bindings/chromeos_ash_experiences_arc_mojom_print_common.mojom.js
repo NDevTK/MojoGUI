@@ -109,11 +109,11 @@ arc.mojom.PrintAttributesSpec = {
       name: 'arc.mojom.PrintAttributes',
       packedSize: 48,
       fields: [
-        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'color_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'duplex_mode', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PrintMediaSizeSpec, nullable: true },
+        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrintResolutionSpec, nullable: true },
+        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrintMarginsSpec, nullable: true },
+        { name: 'color_mode', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PrintColorModeSpec, nullable: false },
+        { name: 'duplex_mode', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.PrintDuplexModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -128,7 +128,7 @@ arc.mojom.PrintDocumentRequestSpec = {
       packedSize: 24,
       fields: [
         { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,9 +147,9 @@ arc.mojom.PrintJobRequestSpec = {
         { name: 'printer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attributes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attributes', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false },
         { name: 'document_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_type', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.PrintContentTypeSpec, nullable: false },
         { name: 'data_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'copies', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'document_page_count', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -169,10 +169,10 @@ arc.mojom.PrinterCapabilitiesSpec = {
       fields: [
         { name: 'media_sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'resolutions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'color_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'duplex_modes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'defaults', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrintMarginsSpec, nullable: false },
+        { name: 'color_modes', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PrintColorModeSpec, nullable: false },
+        { name: 'duplex_modes', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.PrintDuplexModeSpec, nullable: false },
+        { name: 'defaults', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,10 +188,10 @@ arc.mojom.PrinterInfoSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrinterStatusSpec, nullable: false },
         { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'info_intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'capabilities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'capabilities', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrinterCapabilitiesSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

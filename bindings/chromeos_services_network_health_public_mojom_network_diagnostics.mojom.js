@@ -184,9 +184,9 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo
       packedSize: 40,
       fields: [
         { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timestamp_start', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'timestamp_end', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, nullable: false },
+        { name: 'timestamp_start', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'timestamp_end', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -200,9 +200,9 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError',
       packedSize: 32,
       fields: [
-        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec, nullable: false },
         { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -216,9 +216,9 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErro
       name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError',
       packedSize: 32,
       fields: [
-        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'problem_type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec, nullable: false },
         { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_info', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSp
       fields: [
         { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_details', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec = {
       name: 'chromeos.network_diagnostics.mojom.HttpsLatencyResultValue',
       packedSize: 16,
       fields: [
-        { name: 'latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'latency', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,9 +262,9 @@ chromeos.network_diagnostics.mojom.RoutineResultSpec = {
       name: 'chromeos.network_diagnostics.mojom.RoutineResult',
       packedSize: 32,
       fields: [
-        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineVerdictSpec, nullable: false },
         { name: 'problems', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

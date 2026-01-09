@@ -30,7 +30,7 @@ blink.mojom.MediaSessionSeekToDetailsSpec = {
       name: 'blink.mojom.MediaSessionSeekToDetails',
       packedSize: 24,
       fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'fast_seek', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -45,7 +45,7 @@ blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
       name: 'blink.mojom.MediaSessionEnterPictureInPictureDetails',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -59,9 +59,9 @@ blink.mojom.SpecMediaMetadataSpec = {
       name: 'blink.mojom.SpecMediaMetadata',
       packedSize: 48,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'artwork', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'chapterInfo', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -133,7 +133,7 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionClient.DidReceiveAction_Params',
       packedSize: 24,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -286,7 +286,7 @@ blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetPlaybackState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionPlaybackStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,7 +300,7 @@ blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetPositionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -314,7 +314,7 @@ blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpecMediaMetadataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetMicrophoneState_Params',
       packedSize: 16,
       fields: [
-        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MicrophoneStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetCameraState_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.CameraStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.EnableAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.DisableAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

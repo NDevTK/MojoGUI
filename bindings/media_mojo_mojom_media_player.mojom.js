@@ -225,7 +225,7 @@ media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekForward_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekBackward_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -729,7 +729,7 @@ media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPositionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -757,7 +757,7 @@ media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -826,7 +826,7 @@ media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnRemotePlaybackMetadataChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.RemotePlaybackMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

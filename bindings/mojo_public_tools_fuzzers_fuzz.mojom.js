@@ -294,8 +294,8 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgs_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -309,8 +309,8 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -324,8 +324,8 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsSyncResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

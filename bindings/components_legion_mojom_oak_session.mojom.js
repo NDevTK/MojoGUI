@@ -126,7 +126,7 @@ legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
       name: 'legion.mojom.OakSession.InitiateHandshake_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: legion.mojom.HandshakeMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
       name: 'legion.mojom.OakSession.CompleteHandshake_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: legion.mojom.HandshakeMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

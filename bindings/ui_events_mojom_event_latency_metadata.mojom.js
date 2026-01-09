@@ -16,9 +16,9 @@ ui.mojom.EventLatencyMetadataSpec = {
       name: 'ui.mojom.EventLatencyMetadata',
       packedSize: 32,
       fields: [
-        { name: 'arrived_in_browser_main_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrolls_blocking_touch_dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dispatched_to_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'arrived_in_browser_main_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'scrolls_blocking_touch_dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'dispatched_to_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

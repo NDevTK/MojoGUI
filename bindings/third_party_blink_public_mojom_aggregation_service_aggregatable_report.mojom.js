@@ -16,7 +16,7 @@ blink.mojom.AggregatableReportHistogramContributionSpec = {
       name: 'blink.mojom.AggregatableReportHistogramContribution',
       packedSize: 32,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
         { name: 'filtering_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

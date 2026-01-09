@@ -171,7 +171,7 @@ blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
       name: 'blink.mojom.DevToolsFrontendHost.DispatchEmbedderMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

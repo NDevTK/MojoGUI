@@ -72,7 +72,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSp
       name: 'blink.mojom.RendererAudioOutputStreamFactory.RequestDeviceAuthorization_Params',
       packedSize: 32,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stream_provider_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -87,8 +87,8 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Response
       name: 'blink.mojom.RendererAudioOutputStreamFactory.RequestDeviceAuthorization_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'output_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.OutputDeviceStatusSpec, nullable: false },
+        { name: 'output_params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
         { name: 'matched_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

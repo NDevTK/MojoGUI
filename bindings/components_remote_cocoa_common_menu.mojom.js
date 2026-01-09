@@ -16,8 +16,8 @@ remote_cocoa.mojom.MenuItemCommonFieldsSpec = {
       name: 'remote_cocoa.mojom.MenuItemCommonFields',
       packedSize: 40,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
         { name: 'command_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'may_have_mnemonics', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_checked', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -38,7 +38,7 @@ remote_cocoa.mojom.SubmenuMenuItemSpec = {
       name: 'remote_cocoa.mojom.SubmenuMenuItem',
       packedSize: 24,
       fields: [
-        { name: 'common', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'common', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.MenuItemCommonFieldsSpec, nullable: false },
         { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -54,9 +54,9 @@ remote_cocoa.mojom.MenuControllerParamsSpec = {
       packedSize: 56,
       fields: [
         { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'iph_dot_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'iph_dot_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'badge_horizontal_margin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'badge_internal_padding', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'badge_min_height', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -75,9 +75,9 @@ remote_cocoa.mojom.ContextMenuSpec = {
       packedSize: 40,
       fields: [
         { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
         { name: 'target_view_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: remote_cocoa.mojom.MenuControllerParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
       name: 'remote_cocoa.mojom.Menu.UpdateMenuItem_Params',
       packedSize: 32,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'visible', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

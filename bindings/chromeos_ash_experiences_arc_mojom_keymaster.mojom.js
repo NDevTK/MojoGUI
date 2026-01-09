@@ -79,7 +79,7 @@ arc.mojom.GetKeyCharacteristicsResultSpec = {
       name: 'arc.mojom.GetKeyCharacteristicsResult',
       packedSize: 24,
       fields: [
-        { name: 'key_characteristics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_characteristics', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -95,7 +95,7 @@ arc.mojom.GenerateKeyResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
         { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -111,7 +111,7 @@ arc.mojom.ImportKeyRequestSpec = {
       packedSize: 32,
       fields: [
         { name: 'key_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false },
         { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -127,7 +127,7 @@ arc.mojom.ImportKeyResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
         { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -142,7 +142,7 @@ arc.mojom.ExportKeyRequestSpec = {
       name: 'arc.mojom.ExportKeyRequest',
       packedSize: 40,
       fields: [
-        { name: 'key_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false },
         { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'app_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -234,7 +234,7 @@ arc.mojom.BeginRequestSpec = {
       name: 'arc.mojom.BeginRequest',
       packedSize: 32,
       fields: [
-        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyPurposeSpec, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'in_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],

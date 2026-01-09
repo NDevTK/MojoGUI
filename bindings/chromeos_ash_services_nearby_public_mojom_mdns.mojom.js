@@ -99,7 +99,7 @@ sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
       name: 'sharing.mojom.MdnsObserver.ServiceFound_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -113,7 +113,7 @@ sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
       name: 'sharing.mojom.MdnsObserver.ServiceLost_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

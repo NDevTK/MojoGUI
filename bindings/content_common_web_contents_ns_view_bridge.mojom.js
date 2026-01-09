@@ -30,9 +30,9 @@ remote_cocoa.mojom.DraggingInfoSpec = {
       name: 'remote_cocoa.mojom.DraggingInfo',
       packedSize: 40,
       fields: [
-        { name: 'location_in_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'location_in_screen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'location_in_view', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'location_in_screen', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'operation_mask', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -193,7 +193,7 @@ remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetBounds_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,10 +248,10 @@ remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.StartDrag_Params',
       packedSize: 56,
       fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
+        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'image_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
         { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'is_privileged', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -422,7 +422,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -436,7 +436,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnBecameFirstResponder_Params',
       packedSize: 16,
       fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -450,7 +450,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = 
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnWindowVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -464,7 +464,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.SetDropData_Params',
       packedSize: 16,
       fields: [
-        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -478,7 +478,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -518,7 +518,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -545,7 +545,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -572,10 +572,10 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_Params',
       packedSize: 40,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
+        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -588,7 +588,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec =
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -602,8 +602,8 @@ remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.EndDrag_Params',
       packedSize: 32,
       fields: [
-        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'local_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

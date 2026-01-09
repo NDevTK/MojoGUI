@@ -16,7 +16,7 @@ cc.mojom.SyncedScrollOffsetSpec = {
       name: 'cc.mojom.SyncedScrollOffset',
       packedSize: 16,
       fields: [
-        { name: 'scroll_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

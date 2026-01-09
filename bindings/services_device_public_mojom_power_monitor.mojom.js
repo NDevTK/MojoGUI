@@ -165,7 +165,7 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
       name: 'device.mojom.PowerMonitorClient.PowerStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

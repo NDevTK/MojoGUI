@@ -299,7 +299,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnFirstContentfulPaint_Params',
       packedSize: 16,
       fields: [
-        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: WebMemoryMeasurement.ModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -488,7 +488,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDetached_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -502,7 +502,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpe
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDestroyed_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -516,8 +516,8 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeAttached_Params',
       packedSize: 32,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
         { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -532,8 +532,8 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeDetached_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -620,8 +620,8 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -272,7 +272,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertManagementMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertManagementMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSp
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ViewCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
         { name: 'sha256_hash_hex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -340,7 +340,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Param
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ExportCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,7 +354,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -381,7 +381,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,7 +408,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
         { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sha256_hash_hex', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

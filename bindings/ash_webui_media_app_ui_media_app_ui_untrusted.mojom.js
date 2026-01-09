@@ -18,7 +18,7 @@ ash.media_app_ui.mojom.PageMetadataSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_Params',
       packedSize: 24,
       fields: [
-        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -307,7 +307,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedService.ViewportUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
@@ -414,7 +414,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedPage.RequestBitmap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -428,7 +428,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedPage.SetViewport_Params',
       packedSize: 16,
       fields: [
-        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -571,7 +571,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MahiUntrustedService.OnPdfContextMenuShow_Params',
       packedSize: 24,
       fields: [
-        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -829,7 +829,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = 
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.SegmentImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -859,7 +859,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParams
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.GenerativeFillImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -888,7 +888,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = 
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.InpaintImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -917,7 +917,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec =
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.OutpaintImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -944,7 +944,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParams
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.ClassifyImageSafety_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -971,7 +971,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponsePara
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.InferSegmentationMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

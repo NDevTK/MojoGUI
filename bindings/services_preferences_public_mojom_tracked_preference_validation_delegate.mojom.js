@@ -99,9 +99,9 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Par
       packedSize: 48,
       fields: [
         { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'value_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'external_validation_value_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'value_state', packedOffset: 16, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false },
+        { name: 'external_validation_value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false },
         { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -119,8 +119,8 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Para
         { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'invalid_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'external_validation_invalid_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'external_validation_value_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false },
+        { name: 'external_validation_value_state', packedOffset: 32, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false },
         { name: 'is_personal', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

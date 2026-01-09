@@ -16,7 +16,7 @@ blink.mojom.WindowFeaturesSpec = {
       name: 'blink.mojom.WindowFeatures',
       packedSize: 24,
       fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'has_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_y', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'has_width', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },

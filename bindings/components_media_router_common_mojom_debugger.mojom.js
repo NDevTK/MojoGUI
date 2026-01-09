@@ -116,7 +116,7 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
       name: 'media_router.mojom.Debugger.OnMirroringStats_Params',
       packedSize: 16,
       fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

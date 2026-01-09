@@ -62,10 +62,10 @@ discards.mojom.SiteDataValueSpec = {
       name: 'discards.mojom.SiteDataValue',
       packedSize: 48,
       fields: [
-        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
+        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true },
         { name: 'last_loaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -81,7 +81,7 @@ discards.mojom.SiteDataEntrySpec = {
       packedSize: 32,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true },
         { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -188,7 +188,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataArraySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataDatabaseSizeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

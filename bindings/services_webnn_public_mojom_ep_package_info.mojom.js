@@ -33,9 +33,9 @@ webnn.mojom.EpPackageInfoSpec = {
       name: 'webnn.mojom.EpPackageInfo',
       packedSize: 32,
       fields: [
-        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'library_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.PackageVersionSpec, nullable: false },
+        { name: 'library_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

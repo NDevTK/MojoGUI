@@ -16,7 +16,7 @@ viz.mojom.SubtreeCaptureIdSpec = {
       name: 'viz.mojom.SubtreeCaptureId',
       packedSize: 16,
       fields: [
-        { name: 'subtree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subtree_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -111,8 +111,8 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
       name: 'blink.mojom.FontAccessManager.EnumerateLocalFonts_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'enumeration_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'enumeration_table', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enumeration_status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FontEnumerationStatusSpec, nullable: false },
+        { name: 'enumeration_table', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

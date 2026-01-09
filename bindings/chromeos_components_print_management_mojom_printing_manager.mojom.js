@@ -54,7 +54,7 @@ chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = {
       name: 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo',
       packedSize: 16,
       fields: [
-        { name: 'completion_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'completion_status', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -68,7 +68,7 @@ chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = {
       name: 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo',
       packedSize: 24,
       fields: [
-        { name: 'active_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_state', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec, nullable: false },
         { name: 'printed_pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -84,14 +84,14 @@ chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
       packedSize: 88,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'printer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printer_uri', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printer_error_code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'completed_info', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'active_print_job_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'printer_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'printer_uri', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'printer_error_code', packedOffset: 48, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, nullable: false },
+        { name: 'completed_info', packedOffset: 56, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, nullable: true },
+        { name: 'active_print_job_info', packedOffset: 64, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, nullable: true },
         { name: 'number_of_pages', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -184,7 +184,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Para
       name: 'chromeos.printing.printing_manager.mojom.PrintJobsObserver.OnPrintJobUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'print_job', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'print_job', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,7 +520,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSet
       name: 'chromeos.printing.printing_manager.mojom.PrintManagementHandler.LaunchPrinterSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.LaunchSourceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

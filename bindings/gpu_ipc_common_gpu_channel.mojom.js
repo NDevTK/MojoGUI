@@ -53,8 +53,8 @@ gpu.mojom.GLESCreationAttribsSpec = {
       name: 'gpu.mojom.GLESCreationAttribs',
       packedSize: 32,
       fields: [
-        { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'context_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false },
+        { name: 'context_type', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ContextTypeSpec, nullable: false },
         { name: 'fail_if_major_perf_caveat', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'lose_context_when_out_of_memory', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -83,9 +83,9 @@ gpu.mojom.CreateCommandBufferParamsSpec = {
       name: 'gpu.mojom.CreateCommandBufferParams',
       packedSize: 48,
       fields: [
-        { name: 'stream_priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_priority', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SchedulingPrioritySpec, nullable: false },
         { name: 'attribs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'active_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stream_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -184,7 +184,7 @@ gpu.mojom.CreateSharedImageParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageInfoSpec, nullable: false },
         { name: 'pool_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -200,7 +200,7 @@ gpu.mojom.CreateSharedImageWithDataParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageInfoSpec, nullable: false },
         { name: 'pixel_data_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'pixel_data_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'done_with_shm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -218,8 +218,8 @@ gpu.mojom.CreateSharedImageWithBufferParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'si_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageInfoSpec, nullable: false },
+        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
         { name: 'pool_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -235,7 +235,7 @@ gpu.mojom.UpdateSharedImageParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'in_fence_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'in_fence_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -278,8 +278,8 @@ gpu.mojom.RegisterDxgiFenceParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'fence_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false },
+        { name: 'fence_handle', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ gpu.mojom.UpdateDxgiFenceParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false },
         { name: 'fence_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -310,7 +310,7 @@ gpu.mojom.UnregisterDxgiFenceParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dxgi_token', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -582,7 +582,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
       name: 'gpu.mojom.GpuChannel.GetChannelToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -621,7 +621,7 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
       name: 'gpu.mojom.GpuChannel.GetSharedMemoryForFlushId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'version_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'version_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -635,8 +635,8 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
       name: 'gpu.mojom.GpuChannel.CreateCommandBuffer_Params',
       packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shared_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CreateCommandBufferParamsSpec, nullable: false },
+        { name: 'shared_state', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
         { name: 'routing_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
@@ -697,9 +697,9 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
       name: 'gpu.mojom.GpuChannel.CreateGpuMemoryBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false },
+        { name: 'buffer_usage', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.BufferUsageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -712,7 +712,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
       name: 'gpu.mojom.GpuChannel.CreateGpuMemoryBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -754,7 +754,7 @@ gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
       name: 'gpu.mojom.GpuChannel.RegisterOverlayStateObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false },
         { name: 'promotion_hint_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -797,7 +797,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
       name: 'gpu.mojom.GpuChannel.WaitForTokenInRange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -827,7 +827,7 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
       name: 'gpu.mojom.GpuChannel.WaitForGetOffsetInRange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -843,8 +843,8 @@ gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
       fields: [
         { name: 'service_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'sysmem_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'usage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false },
+        { name: 'usage', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.BufferUsageSpec, nullable: false },
         { name: 'register_with_image_pipe', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -888,8 +888,8 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
       name: 'gpu.mojom.GpuChannel.CopyNativeGmbToSharedMemoryAsync_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shared_memory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'shared_memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1036,7 +1036,7 @@ gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
       name: 'gpu.mojom.CommandBuffer.RegisterTransferBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1051,7 +1051,7 @@ gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
       name: 'gpu.mojom.CommandBuffer.CreateGpuFenceFromHandle_Params',
       packedSize: 24,
       fields: [
-        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: false },
         { name: 'gpu_fence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1079,7 +1079,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
       name: 'gpu.mojom.CommandBuffer.GetGpuFenceHandle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1276,7 +1276,7 @@ gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
       name: 'gpu.mojom.CommandBufferClient.OnSignalAck_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false },
         { name: 'signal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1384,7 +1384,7 @@ gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
       name: 'gpu.mojom.DCOMPTexture.SetTextureSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1398,7 +1398,7 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
       name: 'gpu.mojom.DCOMPTexture.SetDCOMPSurfaceHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1509,7 +1509,7 @@ gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
       name: 'gpu.mojom.DCOMPTextureClient.OnOutputRectChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'output_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

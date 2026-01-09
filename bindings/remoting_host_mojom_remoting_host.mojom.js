@@ -24,9 +24,9 @@ remoting.mojom.TransportRouteSpec = {
       name: 'remoting.mojom.TransportRoute',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TransportRouteTypeSpec, nullable: false },
+        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,7 +114,7 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.ApplyHostConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -431,7 +431,7 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
       fields: [
         { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'route', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'route', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.TransportRouteSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

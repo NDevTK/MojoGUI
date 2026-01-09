@@ -172,7 +172,7 @@ watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
       name: 'watermark.mojom.PageHandler.SetWatermarkStyle_Params',
       packedSize: 16,
       fields: [
-        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

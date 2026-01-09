@@ -56,7 +56,7 @@ printing.mojom.PrintFrameContentParamsSpec = {
       name: 'printing.mojom.PrintFrameContentParams',
       packedSize: 24,
       fields: [
-        { name: 'printable_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printable_area', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -87,7 +87,7 @@ printing.mojom.DidPrintContentParamsSpec = {
       name: 'printing.mojom.DidPrintContentParams',
       packedSize: 24,
       fields: [
-        { name: 'metafile_data_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'metafile_data_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
         { name: 'subframe_content_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
@@ -103,7 +103,7 @@ printing.mojom.DidStartPreviewParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'pages_to_render', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false },
         { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'pages_per_sheet', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'fit_to_page_scaling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -120,7 +120,7 @@ printing.mojom.DidPreviewPageParamsSpec = {
       name: 'printing.mojom.DidPreviewPageParams',
       packedSize: 24,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'document_cookie', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -136,7 +136,7 @@ printing.mojom.DidPreviewDocumentParamsSpec = {
       name: 'printing.mojom.DidPreviewDocumentParams',
       packedSize: 24,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false },
         { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'expected_pages_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -152,17 +152,17 @@ printing.mojom.PrintParamsSpec = {
       name: 'printing.mojom.PrintParams',
       packedSize: 152,
       fields: [
-        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false },
+        { name: 'content_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false },
+        { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'page_orientation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dpi', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dpi', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'scale_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'print_scaling_option', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'title', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'header_template', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'footer_template', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'header_template', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'footer_template', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'printed_doc_type', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'generate_document_outline', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'margin_top', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -193,7 +193,7 @@ printing.mojom.PrintPagesParamsSpec = {
       name: 'printing.mojom.PrintPagesParams',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintParamsSpec, nullable: false },
         { name: 'pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -208,10 +208,10 @@ printing.mojom.DidPrintDocumentParamsSpec = {
       name: 'printing.mojom.DidPrintDocumentParams',
       packedSize: 48,
       fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_area', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'physical_offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'content_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'physical_offsets', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
         { name: 'document_cookie', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -244,8 +244,8 @@ printing.mojom.PrintWithParamsResultDataSpec = {
       name: 'printing.mojom.PrintWithParamsResultData',
       packedSize: 32,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'accessibility_tree', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintDocumentParamsSpec, nullable: false },
+        { name: 'accessibility_tree', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
         { name: 'generate_document_outline', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -316,7 +316,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
       name: 'printing.mojom.PrintRenderer.CreatePreviewDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'job_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'job_settings', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
       name: 'printing.mojom.PrintRenderer.CreatePreviewDocument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'preview_document_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'preview_document_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -476,7 +476,7 @@ printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
       name: 'printing.mojom.PrintPreviewUI.SetOptionsFromDocument_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.OptionsFromDocumentParamsSpec, nullable: false },
         { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -506,7 +506,7 @@ printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
       name: 'printing.mojom.PrintPreviewUI.DidPreviewPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPreviewPageParamsSpec, nullable: false },
         { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -521,7 +521,7 @@ printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
       name: 'printing.mojom.PrintPreviewUI.MetafileReadyForPrinting_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPreviewDocumentParamsSpec, nullable: false },
         { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -582,7 +582,7 @@ printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'page_layout_in_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printable_area_in_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printable_area_in_points', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'all_pages_have_custom_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'all_pages_have_custom_orientation', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -599,7 +599,7 @@ printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
       name: 'printing.mojom.PrintPreviewUI.DidStartPreview_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidStartPreviewParamsSpec, nullable: false },
         { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -778,7 +778,7 @@ printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
       name: 'printing.mojom.PrintRenderFrame.PrintWithParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintPagesParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -834,7 +834,7 @@ printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
       name: 'printing.mojom.PrintRenderFrame.PrintPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -861,7 +861,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
       name: 'printing.mojom.PrintRenderFrame.PrintFrameContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintFrameContentParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -874,7 +874,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
       name: 'printing.mojom.PrintRenderFrame.PrintFrameContent_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false },
         { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1125,7 +1125,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.GetDefaultPrintSettings_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'default_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'default_settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1152,7 +1152,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.DidPrintDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintDocumentParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1205,7 +1205,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.ScriptedPrint_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ScriptedPrintParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1218,7 +1218,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.ScriptedPrint_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintPagesParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1232,7 +1232,7 @@ printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.PrintingFailed_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintFailureReasonSpec, nullable: false },
         { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1247,7 +1247,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.UpdatePrintSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'job_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'job_settings', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1260,7 +1260,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.UpdatePrintSettings_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'current_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'current_settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintPagesParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1301,7 +1301,7 @@ printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.RequestPrintPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.RequestPrintPreviewParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1343,7 +1343,7 @@ printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
       name: 'printing.mojom.PrintManagerHost.SetAccessibilityTree_Params',
       packedSize: 24,
       fields: [
-        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
         { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

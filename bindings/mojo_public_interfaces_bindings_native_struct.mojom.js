@@ -25,7 +25,7 @@ mojo.native.SerializedHandleSpec = {
       name: 'mojo.native.SerializedHandle',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false },
         { name: 'the_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
       ],
       versions: [{version: 0}]

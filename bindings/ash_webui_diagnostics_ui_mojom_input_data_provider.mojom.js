@@ -29,7 +29,7 @@ ash.diagnostics.mojom.KeyEventSpec = {
       name: 'ash.diagnostics.mojom.KeyEvent',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyEventTypeSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'key_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'scan_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -48,7 +48,7 @@ ash.diagnostics.mojom.TouchDeviceInfoSpec = {
       packedSize: 48,
       fields: [
         { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false },
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'testable', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -154,7 +154,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
       name: 'ash.diagnostics.mojom.KeyboardObserver.OnKeyEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -535,7 +535,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnTouchDeviceConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_touch_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_touch_device', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -708,7 +708,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec =
       name: 'ash.diagnostics.mojom.InputDataProvider.GetConnectedDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectedDevicesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

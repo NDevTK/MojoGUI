@@ -88,7 +88,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstream
       name: 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.OnSupportedBitstreamAudioCodecsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -61,13 +61,13 @@ autofill_ml_internals.mojom.MlPredictionLogSpec = {
       packedSize: 72,
       fields: [
         { name: 'form_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'form_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'model_output_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'field_predictions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'duration', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'optimization_target', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'duration', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'optimization_target', packedOffset: 56, packedBitOffset: 0, type: autofill_ml_internals.mojom.OptimizationTargetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -137,7 +137,7 @@ autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
       name: 'autofill_ml_internals.mojom.Page.OnLogAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: autofill_ml_internals.mojom.MlPredictionLogSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

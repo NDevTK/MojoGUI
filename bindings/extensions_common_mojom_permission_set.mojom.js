@@ -17,7 +17,7 @@ extensions.mojom.APIPermissionSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -46,7 +46,7 @@ extensions.mojom.ManifestPermissionSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -74,8 +74,8 @@ extensions.mojom.PermissionSetSpec = {
       name: 'extensions.mojom.PermissionSet',
       packedSize: 40,
       fields: [
-        { name: 'apis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'manifest_permissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'apis', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.APIPermissionSetSpec, nullable: false },
+        { name: 'manifest_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ManifestPermissionSetSpec, nullable: false },
         { name: 'hosts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_script_hosts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],

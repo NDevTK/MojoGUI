@@ -44,7 +44,7 @@ chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = {
       name: 'chromeos.machine_learning.mojom.HeatmapProcessedEvent',
       packedSize: 24,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
         { name: 'is_palm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

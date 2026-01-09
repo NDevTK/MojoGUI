@@ -235,8 +235,8 @@ ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.CreateWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'initial_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'initial_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.DestroyWindow_Params',
       packedSize: 16,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,8 +264,8 @@ ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.SetWindowBounds_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,7 +357,7 @@ ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.AddGraphicsDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'fd_mojo_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -372,7 +372,7 @@ ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.RemoveGraphicsDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -414,7 +414,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'config_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'modeset_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modeset_flags', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ModesetFlagsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,8 +485,8 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
+        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
         { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -502,8 +502,8 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false },
+        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -532,7 +532,7 @@ ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'cta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cta', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ColorTemperatureAdjustmentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'calibration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'calibration', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ColorCalibrationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,7 +562,7 @@ ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'adjustment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'adjustment', packedOffset: 8, packedBitOffset: 0, type: display.mojom.GammaAdjustmentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

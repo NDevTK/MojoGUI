@@ -106,8 +106,8 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupPageConvert_Params',
       packedSize: 40,
       fields: [
-        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'pdf_page_regions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'pages_per_sheet', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -122,8 +122,8 @@ printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupPageConvert_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -137,9 +137,9 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_Params',
       packedSize: 40,
       fields: [
-        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'src_pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'printable_area', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'src_pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
         { name: 'pages_per_sheet', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -153,8 +153,8 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.SetWebContentsURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

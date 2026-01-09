@@ -109,9 +109,9 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
       name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'emoji_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'symbol_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'emoticon_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'emoji_results', packedOffset: 0, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
+        { name: 'symbol_results', packedOffset: 8, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
+        { name: 'emoticon_results', packedOffset: 16, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -298,7 +298,7 @@ arc.mojom.AppKillSpec = {
       name: 'arc.mojom.AppKill',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppKillTypeSpec, nullable: false },
         { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -313,7 +313,7 @@ arc.mojom.LowLatencyStylusLibPredictionTargetSpec = {
       name: 'arc.mojom.LowLatencyStylusLibPredictionTarget',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibraryTypeSpec, nullable: false },
         { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -328,7 +328,7 @@ arc.mojom.AppCategoryDataSizeSpec = {
       name: 'arc.mojom.AppCategoryDataSize',
       packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidAppCategorySpec, nullable: false },
         { name: 'data_size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -343,7 +343,7 @@ arc.mojom.DataDirectorySizeSpec = {
       name: 'arc.mojom.DataDirectorySize',
       packedSize: 24,
       fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidDataDirectorySpec, nullable: false },
         { name: 'size_in_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

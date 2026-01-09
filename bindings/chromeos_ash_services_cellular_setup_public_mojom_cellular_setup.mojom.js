@@ -32,7 +32,7 @@ ash.cellular_setup.mojom.CellularMetadataSpec = {
       name: 'ash.cellular_setup.mojom.CellularMetadata',
       packedSize: 56,
       fields: [
-        { name: 'payment_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payment_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'payment_post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'carrier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'meid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -107,7 +107,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params
       name: 'ash.cellular_setup.mojom.CarrierPortalHandler.OnCarrierPortalStatusChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CarrierPortalStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,7 +191,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CellularMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,7 +205,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ActivationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

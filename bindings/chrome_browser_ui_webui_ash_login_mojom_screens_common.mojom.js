@@ -408,8 +408,8 @@ ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPage.SetRequiredSpaceInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -580,7 +580,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.GaiaInfoPageHandler.OnNextClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.UserCreationFlowTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -747,7 +747,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = 
       name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnPageChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.GesturePagesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

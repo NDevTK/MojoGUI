@@ -72,7 +72,7 @@ chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
       name: 'chromecast.mojom.AssistantMessagePipe.SendMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
       name: 'chromecast.mojom.AssistantMessageClient.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

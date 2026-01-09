@@ -16,8 +16,8 @@ ui.mojom.ImeTextSpanInfoSpec = {
       name: 'ui.mojom.ImeTextSpanInfo',
       packedSize: 24,
       fields: [
-        { name: 'span', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'span', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ImeTextSpanSpec, nullable: false },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,14 +31,14 @@ ui.mojom.TextInputStateSpec = {
       name: 'ui.mojom.TextInputState',
       packedSize: 96,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'selection', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'composition', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'edit_context_control_bounds', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'edit_context_selection_bounds', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.TextInputModeSpec, nullable: false },
+        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.TextInputActionSpec, nullable: false },
+        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: true },
+        { name: 'selection', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
+        { name: 'composition', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true },
+        { name: 'edit_context_control_bounds', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'edit_context_selection_bounds', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
         { name: 'ime_text_spans_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'node_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'flags', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

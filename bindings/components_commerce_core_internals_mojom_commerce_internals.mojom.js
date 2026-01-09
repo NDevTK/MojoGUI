@@ -306,7 +306,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -319,7 +319,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec 
       name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -410,7 +410,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponsePa
       name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: commerce.mojom.ShoppingEligibilityDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

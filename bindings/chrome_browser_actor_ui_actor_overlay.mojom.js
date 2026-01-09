@@ -17,10 +17,10 @@ actor.ui.mojom.ThemeSpec = {
       name: 'actor.ui.mojom.Theme',
       packedSize: 40,
       fields: [
-        { name: 'border_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'border_glow_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'border_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'border_glow_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'scrim_colors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'magic_cursor_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'magic_cursor_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -340,7 +340,7 @@ actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: actor.ui.mojom.ThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,7 +354,7 @@ actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.MoveCursorTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

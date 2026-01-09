@@ -18,8 +18,8 @@ chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec = {
       name: 'chromeos.machine_learning.web_platform.mojom.HandwritingPoint',
       packedSize: 24,
       fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

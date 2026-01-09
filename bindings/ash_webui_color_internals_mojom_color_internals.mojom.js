@@ -17,8 +17,8 @@ ash.color_internals.mojom.WallpaperCalculatedColorsSpec = {
       name: 'ash.color_internals.mojom.WallpaperCalculatedColors',
       packedSize: 24,
       fields: [
-        { name: 'k_mean_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'celebi_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'k_mean_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'celebi_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,7 +88,7 @@ ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Param
       name: 'ash.color_internals.mojom.WallpaperColorsObserver.OnWallpaperColorsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: ash.color_internals.mojom.WallpaperCalculatedColorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

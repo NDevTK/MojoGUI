@@ -605,7 +605,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateLanguageModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -647,7 +647,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateSummarizer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -715,7 +715,7 @@ blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateWriter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -757,7 +757,7 @@ blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateRewriter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -799,7 +799,7 @@ blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateProofreader_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

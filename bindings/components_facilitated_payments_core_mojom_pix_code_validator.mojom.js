@@ -93,7 +93,7 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec =
       name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pix_qr_code_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pix_qr_code_type', packedOffset: 0, packedBitOffset: 0, type: payments.facilitated.mojom.PixQrCodeTypeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

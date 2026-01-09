@@ -16,11 +16,11 @@ viz.mojom.LayerContextSettingsSpec = {
       name: 'viz.mojom.LayerContextSettings',
       packedSize: 72,
       fields: [
-        { name: 'scrollbar_animator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrollbar_fade_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrollbar_fade_duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scrollbar_thinning_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'minimum_occlusion_tracking_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_animator', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ScrollbarAnimatorSpec, nullable: false },
+        { name: 'scrollbar_fade_delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'scrollbar_fade_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'scrollbar_thinning_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'minimum_occlusion_tracking_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'damaged_frame_limit', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'idle_thickness_scale', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'top_controls_show_threshold', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -170,7 +170,7 @@ viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SetParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorFrameSinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LayerContextSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

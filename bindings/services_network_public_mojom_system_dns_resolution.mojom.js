@@ -88,7 +88,7 @@ network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
       name: 'network.mojom.SystemDnsResolver.Resolve_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false },
         { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'net_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

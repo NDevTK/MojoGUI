@@ -128,7 +128,7 @@ blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
       name: 'blink.mojom.LockScreenService.SetData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

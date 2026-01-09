@@ -72,9 +72,9 @@ ash.os_feedback_ui.mojom.HelpContentSpec = {
       name: 'ash.os_feedback_ui.mojom.HelpContent',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.HelpContentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -88,7 +88,7 @@ ash.os_feedback_ui.mojom.SearchRequestSpec = {
       name: 'ash.os_feedback_ui.mojom.SearchRequest',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -120,7 +120,7 @@ ash.os_feedback_ui.mojom.FeedbackContextSpec = {
       fields: [
         { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'autofill_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'extra_diagnostics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'category_tag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -142,8 +142,8 @@ ash.os_feedback_ui.mojom.AttachedFileSpec = {
       name: 'ash.os_feedback_ui.mojom.AttachedFile',
       packedSize: 24,
       fields: [
-        { name: 'file_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,9 +157,9 @@ ash.os_feedback_ui.mojom.ReportSpec = {
       name: 'ash.os_feedback_ui.mojom.Report',
       packedSize: 40,
       fields: [
-        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'attached_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'attached_file', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.AttachedFileSpec, nullable: true },
         { name: 'include_system_logs_and_histograms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'include_screenshot', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'contact_user_consent_granted', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -235,7 +235,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec 
       name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponsePara
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetFeedbackContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -483,7 +483,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.ReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -496,7 +496,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec =
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SendReportStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -576,7 +576,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSp
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPostSubmitAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,7 +590,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpe
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPreSubmitAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordExitPath_Params',
       packedSize: 16,
       fields: [
-        { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -618,7 +618,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordHelpContentOutcome_Params',
       packedSize: 16,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

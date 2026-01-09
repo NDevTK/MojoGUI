@@ -23,7 +23,7 @@ font_data_service.mojom.TypefaceStyleSpec = {
       name: 'font_data_service.mojom.TypefaceStyle',
       packedSize: 24,
       fields: [
-        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.TypefaceSlantSpec, nullable: false },
         { name: 'weight', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'width', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
@@ -69,7 +69,7 @@ font_data_service.mojom.TypefaceFileSpec = {
       name: 'font_data_service.mojom.TypefaceFile',
       packedSize: 24,
       fields: [
-        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -85,7 +85,7 @@ font_data_service.mojom.MatchFamilyNameResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'typeface_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'variation_position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'variation_position', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.VariationPositionSpec, nullable: true },
         { name: 'ttc_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -184,7 +184,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.TypefaceStyleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
       name: 'font_data_service.mojom.FontDataService.MatchFamilyName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.TypefaceStyleSpec, nullable: false },
         { name: 'bcp47s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'character', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -227,7 +227,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsS
       name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.TypefaceStyleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = 
       name: 'font_data_service.mojom.FontDataService.LegacyMakeTypeface_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

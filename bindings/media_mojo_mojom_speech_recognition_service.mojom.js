@@ -226,7 +226,7 @@ media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec = {
       name: 'media.mojom.SpeechRecognitionService.SetSodaPaths_Params',
       packedSize: 32,
       fields: [
-        { name: 'binary_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'binary_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
         { name: 'config_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'primary_language_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
@@ -341,7 +341,7 @@ media.mojom.AudioSourceFetcher_Start_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'audio_parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_parameters', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
         { name: 'factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

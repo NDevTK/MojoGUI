@@ -54,7 +54,7 @@ actor.webui.mojom.CredentialSpec = {
       fields: [
         { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'source_site_or_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'display_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -87,8 +87,8 @@ actor.webui.mojom.SelectCredentialDialogResponseSpec = {
       name: 'actor.webui.mojom.SelectCredentialDialogResponse',
       packedSize: 32,
       fields: [
-        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'permission_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogErrorReasonSpec, nullable: true },
+        { name: 'permission_duration', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.UserGrantedPermissionDurationSpec, nullable: true },
         { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'selected_credential_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
@@ -107,7 +107,7 @@ actor.webui.mojom.AutofillSuggestionSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ actor.webui.mojom.UserConfirmationDialogPayloadSpec = {
       name: 'actor.webui.mojom.UserConfirmationDialogPayload',
       packedSize: 24,
       fields: [
-        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'for_blocklisted_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -195,7 +195,7 @@ actor.webui.mojom.UserConfirmationDialogRequestSpec = {
       name: 'actor.webui.mojom.UserConfirmationDialogRequest',
       packedSize: 16,
       fields: [
-        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogPayloadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ actor.webui.mojom.NavigationConfirmationRequestSpec = {
       name: 'actor.webui.mojom.NavigationConfirmationRequest',
       packedSize: 24,
       fields: [
-        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

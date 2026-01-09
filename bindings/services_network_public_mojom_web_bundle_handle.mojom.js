@@ -116,7 +116,7 @@ network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
       name: 'network.mojom.WebBundleHandle.OnWebBundleError_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

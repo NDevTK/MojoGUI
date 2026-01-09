@@ -59,7 +59,7 @@ ash.cfm.mojom.ControlMappingSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'menu_entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'menu_entries', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.MenuEntriesSpec, nullable: true },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'v4l2_type', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'data_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -207,7 +207,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mapping_ctrl', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mapping_ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.ControlMappingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'fn', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fn', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.GetFnSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -450,7 +450,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec =
       name: 'ash.eche_app.mojom.SystemInfoObserver.OnScreenBacklightStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ScreenBacklightStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -953,9 +953,9 @@ ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
       name: 'ash.eche_app.mojom.NotificationGenerator.ShowNotification_Params',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.eche_app.mojom.WebNotificationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -969,7 +969,7 @@ ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
       name: 'ash.eche_app.mojom.NotificationGenerator.ShowToast_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1075,7 +1075,7 @@ ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
       name: 'ash.eche_app.mojom.DisplayStreamHandler.OnStreamStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1164,7 +1164,7 @@ ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
       name: 'ash.eche_app.mojom.StreamActionObserver.OnStreamAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1314,7 +1314,7 @@ ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec
       name: 'ash.eche_app.mojom.ConnectionStatusObserver.OnConnectionStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ConnectionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

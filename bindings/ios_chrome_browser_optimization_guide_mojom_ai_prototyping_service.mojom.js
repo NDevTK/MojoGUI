@@ -81,7 +81,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
       name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'logging_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'logging_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
       name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -46,8 +46,8 @@ ash.babelorca.mojom.BabelOrcaMessageSpec = {
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'init_timestamp_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'order', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'previous_transcript', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'current_transcript', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'previous_transcript', packedOffset: 32, packedBitOffset: 0, type: ash.babelorca.mojom.TranscriptPartSpec, nullable: true },
+        { name: 'current_transcript', packedOffset: 40, packedBitOffset: 0, type: ash.babelorca.mojom.TranscriptPartSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,9 +145,9 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
       name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.babelorca.mojom.ParsingStateSpec, nullable: false },
         { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: ash.babelorca.mojom.StreamStatusSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

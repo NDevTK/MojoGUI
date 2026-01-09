@@ -32,7 +32,7 @@ blink.mojom.ServiceWorkerScriptInfoSpec = {
       name: 'blink.mojom.ServiceWorkerScriptInfo',
       packedSize: 64,
       fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -108,7 +108,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Para
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost.RequestInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManager.TransferInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

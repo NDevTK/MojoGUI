@@ -72,8 +72,8 @@ chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
       name: 'chrome.mojom.SingleFileExtractor.Extract_Params',
       packedSize: 32,
       fields: [
-        { name: 'src_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dst_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'src_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'dst_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -87,7 +87,7 @@ chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
       name: 'chrome.mojom.SingleFileExtractor.Extract_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chrome.file_util.mojom.ExtractionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

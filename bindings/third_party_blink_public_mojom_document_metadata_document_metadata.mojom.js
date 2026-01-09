@@ -16,7 +16,7 @@ blink.mojom.WebPageSpec = {
       name: 'blink.mojom.WebPage',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'entities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -100,7 +100,7 @@ blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
       name: 'blink.mojom.DocumentMetadata.GetEntities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPageSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

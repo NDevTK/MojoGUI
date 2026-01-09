@@ -93,7 +93,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponsePar
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
         { name: 'sync_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -120,7 +120,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -19,7 +19,7 @@ aim_eligibility.mojom.EligibilityStateSpec = {
         { name: 'server_response_base64_encoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'server_response_base64_url_encoded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'server_response_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_updated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_updated', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
         { name: 'is_eligible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_eligible_by_policy', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_eligible_by_dse', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -94,7 +94,7 @@ aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
       name: 'aim_eligibility.mojom.Page.OnEligibilityStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -199,7 +199,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
       name: 'aim_eligibility.mojom.PageHandler.GetEligibilityState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

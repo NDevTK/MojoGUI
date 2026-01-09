@@ -16,7 +16,7 @@ media.mojom.MediaEngagementScoreDetailsSpec = {
       name: 'media.mojom.MediaEngagementScoreDetails',
       packedSize: 48,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'last_media_playback_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'visits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -163,7 +163,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaEngagementConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

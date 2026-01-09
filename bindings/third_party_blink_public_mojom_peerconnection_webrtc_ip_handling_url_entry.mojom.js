@@ -16,7 +16,7 @@ blink.mojom.WebRtcIpHandlingUrlEntrySpec = {
       name: 'blink.mojom.WebRtcIpHandlingUrlEntry',
       packedSize: 24,
       fields: [
-        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
         { name: 'handling', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]

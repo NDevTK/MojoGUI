@@ -144,8 +144,8 @@ viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartFrameCounting_Params',
       packedSize: 24,
       fields: [
-        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameCountingDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,7 +213,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OverdrawDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

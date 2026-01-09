@@ -31,7 +31,7 @@ network.mojom.ParsedHeadersSpec = {
         { name: 'document_isolation_policy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'integrity_policy', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'integrity_policy_report_only', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'origin_agent_cluster', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_agent_cluster', packedOffset: 64, packedBitOffset: 0, type: network.mojom.OriginAgentClusterValueSpec, nullable: false },
         { name: 'accept_ch', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'critical_ch', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'xfo', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },

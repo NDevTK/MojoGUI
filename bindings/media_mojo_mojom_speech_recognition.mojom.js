@@ -49,7 +49,7 @@ media.mojom.HypothesisPartsSpec = {
       packedSize: 24,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hypothesis_part_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hypothesis_part_offset', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -63,8 +63,8 @@ media.mojom.MediaTimestampRangeSpec = {
       name: 'media.mojom.MediaTimestampRange',
       packedSize: 24,
       fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,8 +78,8 @@ media.mojom.TimingInformationSpec = {
       name: 'media.mojom.TimingInformation',
       packedSize: 40,
       fields: [
-        { name: 'audio_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'audio_end_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'audio_end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'hypothesis_parts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'originating_media_timestamps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
@@ -96,7 +96,7 @@ media.mojom.SpeechRecognitionResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'transcription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timing_information', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timing_information', packedOffset: 8, packedBitOffset: 0, type: media.mojom.TimingInformationSpec, nullable: true },
         { name: 'is_final', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -112,7 +112,7 @@ media.mojom.LanguageIdentificationEventSpec = {
       packedSize: 32,
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'confidence_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confidence_level', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ConfidenceLevelSpec, nullable: false },
         { name: 'asr_switch_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -127,7 +127,7 @@ media.mojom.SpeechRecognitionOptionsSpec = {
       name: 'media.mojom.SpeechRecognitionOptions',
       packedSize: 88,
       fields: [
-        { name: 'recognition_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'recognition_mode', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionModeSpec, nullable: false },
         { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'is_server_based', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'recognizer_client_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },

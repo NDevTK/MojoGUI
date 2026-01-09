@@ -59,7 +59,7 @@ screen_ai.mojom.LineBoxSpec = {
         { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'text_line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'block_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'paragraph_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'bounding_box_angle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -79,9 +79,9 @@ screen_ai.mojom.WordBoxSpec = {
       fields: [
         { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'whitespace_bounding_box', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'direction', packedOffset: 24, packedBitOffset: 0, type: screen_ai.mojom.DirectionSpec, nullable: false },
+        { name: 'whitespace_bounding_box', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'bounding_box_angle', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'whitespace_bounding_box_angle', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'confidence', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -199,7 +199,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,7 +226,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSp
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.VisualAnnotationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.SetClientType_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.OcrClientTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -421,7 +421,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -448,7 +448,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainNode_Params',
       packedSize: 16,
       fields: [
-        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -475,7 +475,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_Params',
       packedSize: 16,
       fields: [
-        { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -488,7 +488,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
         { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -503,7 +503,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.SetClientType_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.MceClientTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

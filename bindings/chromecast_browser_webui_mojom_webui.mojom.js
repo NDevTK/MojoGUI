@@ -72,7 +72,7 @@ chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
       name: 'chromecast.mojom.MessageCallback.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,7 +172,7 @@ chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
       name: 'chromecast.mojom.Resources.RequestResourceBytes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RefCountedMemorySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -209,7 +209,7 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponsePara
       name: 'ash.ime.mojom.InputMethodUserDataService.AddJapaneseDictionaryEntry_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponsePar
       name: 'ash.ime.mojom.InputMethodUserDataService.EditJapaneseDictionaryEntry_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -266,7 +266,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseP
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionaryEntry_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -293,7 +293,7 @@ ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParams
       name: 'ash.ime.mojom.InputMethodUserDataService.CreateJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,7 +321,7 @@ ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParams
       name: 'ash.ime.mojom.InputMethodUserDataService.RenameJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,7 +348,7 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParams
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -375,7 +375,7 @@ ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParams
       name: 'ash.ime.mojom.InputMethodUserDataService.ExportJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -390,7 +390,7 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'tsv_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tsv_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -403,7 +403,7 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParams
       name: 'ash.ime.mojom.InputMethodUserDataService.ImportJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -431,7 +431,7 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Respon
       name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

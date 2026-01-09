@@ -39,8 +39,8 @@ mojom.SiteInstanceInfoSpec = {
       name: 'mojom.SiteInstanceInfo',
       packedSize: 56,
       fields: [
-        { name: 'site_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'process_lock_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'site_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'process_lock_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'storage_partition', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'site_instance_group_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -64,8 +64,8 @@ mojom.FrameInfoSpec = {
       name: 'mojom.FrameInfo',
       packedSize: 56,
       fields: [
-        { name: 'site_instance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'site_instance', packedOffset: 0, packedBitOffset: 0, type: mojom.SiteInstanceInfoSpec, nullable: false },
+        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'kActive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'routing_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -85,7 +85,7 @@ mojom.WebContentsInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'root_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_frame', packedOffset: 8, packedBitOffset: 0, type: mojom.FrameInfoSpec, nullable: false },
         { name: 'bfcached_root_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'prerender_root_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -238,7 +238,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojom.ProcessCountInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

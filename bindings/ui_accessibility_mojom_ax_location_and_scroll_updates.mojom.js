@@ -16,7 +16,7 @@ ax.mojom.AXLocationChangeSpec = {
       name: 'ax.mojom.AXLocationChange',
       packedSize: 24,
       fields: [
-        { name: 'new_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_location', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

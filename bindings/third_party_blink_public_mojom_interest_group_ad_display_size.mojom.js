@@ -37,8 +37,8 @@ blink.mojom.AdDescriptorSpec = {
       name: 'blink.mojom.AdDescriptor',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdSizeSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

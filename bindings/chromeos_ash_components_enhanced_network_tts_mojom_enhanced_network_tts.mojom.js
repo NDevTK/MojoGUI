@@ -132,7 +132,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

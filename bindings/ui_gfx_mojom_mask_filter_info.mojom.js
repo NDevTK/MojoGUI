@@ -16,8 +16,8 @@ gfx.mojom.MaskFilterInfoSpec = {
       name: 'gfx.mojom.MaskFilterInfo',
       packedSize: 32,
       fields: [
-        { name: 'rounded_corner_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'gradient_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'rounded_corner_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false },
+        { name: 'gradient_mask', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.LinearGradientSpec, nullable: true },
         { name: 'clip_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]

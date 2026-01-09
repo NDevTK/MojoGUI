@@ -49,7 +49,7 @@ blink.mojom.PresentationInfoSpec = {
       name: 'blink.mojom.PresentationInfo',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -64,7 +64,7 @@ blink.mojom.PresentationErrorSpec = {
       name: 'blink.mojom.PresentationError',
       packedSize: 24,
       fields: [
-        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationErrorTypeSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -79,7 +79,7 @@ blink.mojom.PresentationConnectionResultSpec = {
       name: 'blink.mojom.PresentationConnectionResult',
       packedSize: 24,
       fields: [
-        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationInfoSpec, nullable: false },
         { name: 'connection_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'connection_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -183,7 +183,7 @@ blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
       name: 'blink.mojom.PresentationConnection.DidChangeState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
       name: 'blink.mojom.PresentationConnection.DidClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,7 +386,7 @@ blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
       name: 'blink.mojom.PresentationService.ListenForScreenAvailability_Params',
       packedSize: 16,
       fields: [
-        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -400,7 +400,7 @@ blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = 
       name: 'blink.mojom.PresentationService.StopListeningForScreenAvailability_Params',
       packedSize: 16,
       fields: [
-        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,8 +427,8 @@ blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
       name: 'blink.mojom.PresentationService.StartPresentation_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -456,8 +456,8 @@ blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
       name: 'blink.mojom.PresentationService.ReconnectPresentation_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationErrorSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -471,7 +471,7 @@ blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
       name: 'blink.mojom.PresentationService.CloseConnection_Params',
       packedSize: 24,
       fields: [
-        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -486,7 +486,7 @@ blink.mojom.PresentationService_Terminate_ParamsSpec = {
       name: 'blink.mojom.PresentationService.Terminate_Params',
       packedSize: 24,
       fields: [
-        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -589,8 +589,8 @@ blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
       name: 'blink.mojom.PresentationController.OnScreenAvailabilityUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'availability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'availability', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScreenAvailabilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
       name: 'blink.mojom.PresentationController.OnDefaultPresentationStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -618,8 +618,8 @@ blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
       name: 'blink.mojom.PresentationController.OnConnectionStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'newState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationInfoSpec, nullable: false },
+        { name: 'newState', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -633,8 +633,8 @@ blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
       name: 'blink.mojom.PresentationController.OnConnectionClosed_Params',
       packedSize: 32,
       fields: [
-        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationInfoSpec, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -710,7 +710,7 @@ blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
       name: 'blink.mojom.PresentationReceiver.OnReceiverConnectionAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

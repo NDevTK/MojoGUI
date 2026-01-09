@@ -128,7 +128,7 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
       name: 'network.mojom.ConnectionChangeObserverClient.OnNetworkEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

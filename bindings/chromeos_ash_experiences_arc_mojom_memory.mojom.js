@@ -22,7 +22,7 @@ arc.mojom.ReclaimRequestSpec = {
       name: 'arc.mojom.ReclaimRequest',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ReclaimTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

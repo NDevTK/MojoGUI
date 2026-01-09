@@ -355,7 +355,7 @@ ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnProgressUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: crostini.mojom.InstallerStateSpec, nullable: false },
         { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
@@ -370,7 +370,7 @@ ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnInstallFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crostini.mojom.InstallerErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

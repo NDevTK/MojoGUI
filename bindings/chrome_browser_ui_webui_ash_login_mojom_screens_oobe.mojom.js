@@ -285,7 +285,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetScreenStep_Params',
       packedSize: 16,
       fields: [
-        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.screens_oobe.mojom.ConsumerUpdateStepSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

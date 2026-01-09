@@ -24,13 +24,13 @@ network.mojom.ReportingApiReportSpec = {
       name: 'network.mojom.ReportingApiReport',
       packedSize: 72,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'group', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'body', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'body', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ReportingApiReportStatusSpec, nullable: false },
         { name: 'depth', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'attempts', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -46,11 +46,11 @@ network.mojom.ReportingApiEndpointSpec = {
       name: 'network.mojom.ReportingApiEndpoint',
       packedSize: 72,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'network_anonymization_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'reporting_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reporting_source', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'attempted_uploads', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'successful_uploads', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'attempted_reports', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -144,7 +144,7 @@ network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
       name: 'network.mojom.ReportingApiObserver.OnReportUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

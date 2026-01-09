@@ -170,7 +170,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
       name: 'ash.boca_receiver.mojom.UntrustedPage.OnInitReceiverInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver_info', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ReceiverInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
       name: 'ash.boca_receiver.mojom.UntrustedPage.OnFrameReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
       name: 'ash.boca_receiver.mojom.UntrustedPage.OnAudioPacket_Params',
       packedSize: 16,
       fields: [
-        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.DecodedAudioPacketSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,8 +225,8 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
       name: 'ash.boca_receiver.mojom.UntrustedPage.OnConnecting_Params',
       packedSize: 24,
       fields: [
-        { name: 'initiator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'presenter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initiator', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: false },
+        { name: 'presenter', packedOffset: 8, packedBitOffset: 0, type: ash.boca_receiver.mojom.UserInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -240,7 +240,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
       name: 'ash.boca_receiver.mojom.UntrustedPage.OnConnectionClosed_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.boca_receiver.mojom.ConnectionClosedReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

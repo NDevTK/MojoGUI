@@ -81,8 +81,8 @@ blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
       name: 'blink.mojom.ImageDownloader.DownloadImage_Params',
       packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'preferred_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'preferred_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'max_bitmap_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'is_favicon', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'bypass_cache', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -114,7 +114,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
       name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_Params',
       packedSize: 32,
       fields: [
-        { name: 'preferred_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preferred_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'ax_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'max_bitmap_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'bypass_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

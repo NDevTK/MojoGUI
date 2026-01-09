@@ -249,7 +249,7 @@ ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.ScreenStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -549,7 +549,7 @@ ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.LidStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -797,7 +797,7 @@ ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.StorageMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1384,7 +1384,7 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'intent_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -1507,7 +1507,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = 
       name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1602,7 +1602,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenUrlInBrowser_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1642,7 +1642,7 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'file_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileTypeSpec, nullable: false },
         { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1683,7 +1683,7 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileMonitorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1778,7 +1778,7 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
       fields: [
         { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.RotationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1831,7 +1831,7 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'initial_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1871,7 +1871,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenWifiDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.WifiConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1898,7 +1898,7 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2019,7 +2019,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_Params',
       packedSize: 16,
       fields: [
-        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

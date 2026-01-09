@@ -120,7 +120,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
       name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.CSVPasswordSequenceSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -57,7 +57,7 @@ chromeos.machine_learning.mojom.BuiltinModelSpecSpec = {
       name: 'chromeos.machine_learning.mojom.BuiltinModelSpec',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

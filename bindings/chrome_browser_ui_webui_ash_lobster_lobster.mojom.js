@@ -43,7 +43,7 @@ lobster.mojom.CandidateSpec = {
       name: 'lobster.mojom.Candidate',
       packedSize: 24,
       fields: [
-        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -72,7 +72,7 @@ lobster.mojom.FeedbackPreviewSpec = {
       packedSize: 24,
       fields: [
         { name: 'fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'preview_data_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preview_data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

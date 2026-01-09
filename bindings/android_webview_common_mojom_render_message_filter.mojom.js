@@ -72,8 +72,8 @@ android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
       name: 'android_webview.mojom.RenderMessageFilter.SubFrameCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

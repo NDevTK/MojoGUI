@@ -72,7 +72,7 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
       name: 'blink.mojom.WebPressureManager.AddClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -86,7 +86,7 @@ blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
       name: 'blink.mojom.WebPressureManager.AddClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -80,7 +80,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
       name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,7 +93,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
       name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.OpenUrlResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

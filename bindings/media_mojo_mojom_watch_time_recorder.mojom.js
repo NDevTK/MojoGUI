@@ -46,7 +46,7 @@ media.mojom.SecondaryPlaybackPropertiesSpec = {
         { name: 'video_decoder', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'audio_encryption_scheme', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'video_encryption_scheme', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'natural_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'natural_size', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'watch_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'watch_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
       name: 'media.mojom.WatchTimeRecorder.UpdateSecondaryProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'secondary_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secondary_properties', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SecondaryPlaybackPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
       name: 'media.mojom.WatchTimeRecorder.OnDurationChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -302,7 +302,7 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
       name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowDuration_Params',
       packedSize: 24,
       fields: [
-        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'total_completed_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

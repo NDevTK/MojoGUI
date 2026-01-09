@@ -33,8 +33,8 @@ device.mojom.InputDeviceInfoSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'subsystem', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subsystem', packedOffset: 16, packedBitOffset: 0, type: device.mojom.InputDeviceSubsystemSpec, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: device.mojom.InputDeviceTypeSpec, nullable: false },
         { name: 'is_accelerometer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_joystick', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_key', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -121,7 +121,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.InputDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

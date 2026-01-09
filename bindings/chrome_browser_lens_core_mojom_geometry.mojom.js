@@ -23,7 +23,7 @@ lens.mojom.CenterRotatedBoxSpec = {
       name: 'lens.mojom.CenterRotatedBox',
       packedSize: 32,
       fields: [
-        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
@@ -39,7 +39,7 @@ lens.mojom.GeometrySpec = {
       name: 'lens.mojom.Geometry',
       packedSize: 24,
       fields: [
-        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
         { name: 'segmentation_polygon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

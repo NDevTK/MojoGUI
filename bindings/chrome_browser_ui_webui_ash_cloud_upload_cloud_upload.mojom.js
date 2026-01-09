@@ -77,7 +77,7 @@ ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec = {
       name: 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs',
       packedSize: 16,
       fields: [
-        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.OperationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -91,7 +91,7 @@ ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec = {
       name: 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs',
       packedSize: 16,
       fields: [
-        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.OperationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -418,7 +418,7 @@ ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.DialogArgsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -536,7 +536,7 @@ ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.RespondWithUserActionAndClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.UserActionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -709,7 +709,7 @@ ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
       name: 'ash.cloud_upload.mojom.PageHandler.RecordCancel_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

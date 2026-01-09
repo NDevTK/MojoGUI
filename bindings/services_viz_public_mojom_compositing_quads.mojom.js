@@ -45,7 +45,7 @@ viz.mojom.DebugBorderQuadStateSpec = {
       name: 'viz.mojom.DebugBorderQuadState',
       packedSize: 24,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -62,11 +62,11 @@ viz.mojom.CompositorRenderPassQuadStateSpec = {
       fields: [
         { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mask_resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mask_uv_rect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mask_texture_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'filters_scale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'filters_origin', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'tex_coord_rect', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mask_uv_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'mask_texture_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'filters_scale', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
+        { name: 'filters_origin', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'tex_coord_rect', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'backdrop_filter_quality', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'force_anti_aliasing_off', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'intersects_damage_under', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -83,7 +83,7 @@ viz.mojom.SolidColorQuadStateSpec = {
       name: 'viz.mojom.SolidColorQuadState',
       packedSize: 24,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'force_anti_aliasing_off', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -99,9 +99,9 @@ viz.mojom.SurfaceQuadStateSpec = {
       packedSize: 48,
       fields: [
         { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'default_background_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'override_child_filter_quality', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'override_child_dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'default_background_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
+        { name: 'override_child_filter_quality', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.FilterQualitySpec, nullable: true },
+        { name: 'override_child_dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: true },
         { name: 'stretch_content_to_fill_bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_reflection', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'allow_merge', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -119,13 +119,13 @@ viz.mojom.TextureQuadStateSpec = {
       packedSize: 80,
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'tex_coord_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'protected_video_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'damage_rect', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'overlay_priority_hint', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'rounded_display_masks_info', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tex_coord_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
+        { name: 'dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: false },
+        { name: 'protected_video_type', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.ProtectedVideoStateSpec, nullable: false },
+        { name: 'damage_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'overlay_priority_hint', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.OverlayPrioritySpec, nullable: false },
+        { name: 'rounded_display_masks_info', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.RoundedDisplayMasksInfoSpec, nullable: false },
         { name: 'nearest_neighbor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'secure_output_only', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_video_frame', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -144,7 +144,7 @@ viz.mojom.TileQuadStateSpec = {
       name: 'viz.mojom.TileQuadState',
       packedSize: 32,
       fields: [
-        { name: 'tex_coord_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tex_coord_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'nearest_neighbor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'force_anti_aliasing_off', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -161,7 +161,7 @@ viz.mojom.VideoHoleQuadStateSpec = {
       name: 'viz.mojom.VideoHoleQuadState',
       packedSize: 16,
       fields: [
-        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,8 +189,8 @@ viz.mojom.DrawQuadSpec = {
       name: 'viz.mojom.DrawQuad',
       packedSize: 48,
       fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'visible_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'visible_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'sqs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'draw_quad_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'needs_blending', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

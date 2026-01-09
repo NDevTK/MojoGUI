@@ -105,7 +105,7 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
       packedSize: 40,
       fields: [
-        { name: 'registration_eligibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration_eligibility', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false },
         { name: 'reporting_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'data_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'is_for_background_requests', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

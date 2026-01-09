@@ -70,15 +70,15 @@ help_bubble.mojom.HelpBubbleParamsSpec = {
       packedSize: 96,
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleArrowPositionSpec, nullable: false },
         { name: 'title_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'body_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'close_button_alt_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'body_icon_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'body_icon_alt_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true },
         { name: 'buttons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timeout', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timeout', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
         { name: 'focus_on_show_hint', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
@@ -349,7 +349,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleClosedReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
       name: 'help_bubble.mojom.HelpBubbleClient.ShowHelpBubble_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

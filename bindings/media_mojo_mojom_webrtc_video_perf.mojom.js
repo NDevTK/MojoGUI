@@ -105,8 +105,8 @@ media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
       name: 'media.mojom.WebrtcVideoPerfRecorder.UpdateRecord_Params',
       packedSize: 24,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
+        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcVideoStatsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
       name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false },
         { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

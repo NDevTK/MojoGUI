@@ -90,7 +90,7 @@ pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.AddPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

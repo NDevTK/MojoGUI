@@ -23,8 +23,8 @@ blink.mojom.SharedWorkerExceptionDetailsSpec = {
       packedSize: 32,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'error_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_location', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false },
+        { name: 'error_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SharedWorkerErrorTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

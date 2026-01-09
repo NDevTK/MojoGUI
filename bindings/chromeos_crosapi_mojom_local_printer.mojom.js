@@ -330,7 +330,7 @@ crosapi.mojom.PrintJobUpdateSpec = {
       name: 'crosapi.mojom.PrintJobUpdate',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PrintJobStatusSpec, nullable: false },
         { name: 'pages_printed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

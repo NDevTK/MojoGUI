@@ -64,7 +64,7 @@ batch_upload.mojom.BatchUploadDataSpec = {
       name: 'batch_upload.mojom.BatchUploadData',
       packedSize: 32,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadAccountInfoSpec, nullable: false },
         { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'data_containers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -332,7 +332,7 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
       name: 'batch_upload.mojom.Page.SendBatchUploadData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

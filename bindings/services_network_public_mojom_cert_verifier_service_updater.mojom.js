@@ -16,8 +16,8 @@ cert_verifier.mojom.CIDRSpec = {
       name: 'cert_verifier.mojom.CIDR',
       packedSize: 24,
       fields: [
-        { name: 'ip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -142,7 +142,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Para
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.UpdateAdditionalCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierServiceUpdater.SetCTPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

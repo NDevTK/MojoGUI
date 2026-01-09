@@ -72,7 +72,7 @@ mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
       name: 'mirroring.mojom.AudioStreamCreatorClient.StreamCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
@@ -250,7 +250,7 @@ mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
       name: 'mirroring.mojom.ResourceProvider.CreateAudioStream_Params',
       packedSize: 24,
       fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'shared_memory_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],

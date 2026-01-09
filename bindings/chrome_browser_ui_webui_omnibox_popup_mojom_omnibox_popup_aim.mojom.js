@@ -170,7 +170,7 @@ omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.PageHandler.NavigateCurrentTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.Page.OnPopupShown_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.Page.AddContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

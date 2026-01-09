@@ -16,8 +16,8 @@ media.mojom.FrameTextureInfoSpec = {
       name: 'media.mojom.FrameTextureInfo',
       packedSize: 24,
       fields: [
-        { name: 'texture_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'texture_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -32,7 +32,7 @@ media.mojom.FramePoolInitializationParametersSpec = {
       packedSize: 24,
       fields: [
         { name: 'frame_textures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'texture_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'texture_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec 
       name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -236,7 +236,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

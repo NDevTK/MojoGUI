@@ -323,7 +323,7 @@ ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.SubmitForm_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],

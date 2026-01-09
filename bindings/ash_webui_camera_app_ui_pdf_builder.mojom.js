@@ -109,7 +109,7 @@ ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.AddPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -165,7 +165,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.PdfBuilder.Save_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -35,8 +35,8 @@ handwriting.mojom.HandwritingPointSpec = {
       name: 'handwriting.mojom.HandwritingPoint',
       packedSize: 24,
       fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
       name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
       packedSize: 24,
       fields: [
-        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false },
         { name: 'text_alternatives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'text_segmentation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -233,7 +233,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -330,7 +330,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_Params',
       packedSize: 16,
       fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Resp
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.CreateHandwritingRecognizerResultSpec, nullable: false },
         { name: 'handwriting_recognizer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -358,7 +358,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_Params',
       packedSize: 16,
       fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Respo
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.QueryHandwritingRecognizerResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -34,8 +34,8 @@ ash.settings.app_notification.mojom.AppSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'readiness', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'notification_permission', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'readiness', packedOffset: 16, packedBitOffset: 0, type: ash.settings.app_notification.mojom.ReadinessSpec, nullable: false },
+        { name: 'notification_permission', packedOffset: 24, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermi
       packedSize: 24,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppCh
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnNotificationAppChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_notification.mojom.AppSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

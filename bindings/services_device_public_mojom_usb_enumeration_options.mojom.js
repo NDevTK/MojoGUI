@@ -16,7 +16,7 @@ device.mojom.UsbDeviceFilterSpec = {
       name: 'device.mojom.UsbDeviceFilter',
       packedSize: 32,
       fields: [
-        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
         { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'product_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'class_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },

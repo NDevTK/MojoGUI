@@ -24,7 +24,7 @@ remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec = {
       name: 'remote_cocoa.mojom.ValidateUserInterfaceItemResult',
       packedSize: 24,
       fields: [
-        { name: 'new_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'new_title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
         { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'disable_if_has_no_key_equivalent', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'set_hidden_state', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -591,7 +591,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnViewSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -673,7 +673,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnScrollEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -687,7 +687,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -701,7 +701,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnGestureEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -715,7 +715,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec = 
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.DispatchKeyEventRemote_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -742,7 +742,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemo
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.DispatchKeyEventToMenuControllerRemote_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -770,7 +770,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.DispatchMonitorEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
         { name: 'target_is_this_window', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -824,7 +824,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetHitTestResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'location_in_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location_in_content', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -837,7 +837,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec 
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetHitTestResult_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hit_test_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit_test_result', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.HitTestResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -851,7 +851,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetTooltipTextAt_Params',
       packedSize: 16,
       fields: [
-        { name: 'location_in_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location_in_content', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -864,7 +864,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec 
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetTooltipTextAt_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'new_tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -930,8 +930,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec =
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnWindowGeometryChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'window_bounds_in_screen_dips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'content_bounds_in_screen_dips', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_bounds_in_screen_dips', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'content_bounds_in_screen_dips', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1027,7 +1027,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec = 
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.OnWindowDisplayChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: display.mojom.DisplaySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1165,7 +1165,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.DoDialogButtonAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DialogButtonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1179,7 +1179,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetDialogButtonInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DialogButtonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1192,7 +1192,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSp
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetDialogButtonInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'button_exists', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_button_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_button_default', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -1406,7 +1406,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_Respon
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.GetRootViewAccessibilityToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'host_pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
         { name: 'element_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1434,7 +1434,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponsePa
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.ValidateUserInterfaceItem_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1448,7 +1448,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.WillExecuteCommand_Params',
       packedSize: 32,
       fields: [
-        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
         { name: 'command', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_before_first_responder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -1477,7 +1477,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.ExecuteCommand_Params',
       packedSize: 32,
       fields: [
-        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_open_disposition', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false },
         { name: 'command', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_before_first_responder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -1506,7 +1506,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindowHost.HandleAccelerator_Params',
       packedSize: 24,
       fields: [
-        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: false },
         { name: 'require_priority_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

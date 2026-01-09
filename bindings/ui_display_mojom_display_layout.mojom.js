@@ -32,8 +32,8 @@ display.mojom.DisplayPlacementSpec = {
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'parent_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'offset_reference', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: display.mojom.PositionSpec, nullable: false },
+        { name: 'offset_reference', packedOffset: 24, packedBitOffset: 0, type: display.mojom.OffsetReferenceSpec, nullable: false },
         { name: 'offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

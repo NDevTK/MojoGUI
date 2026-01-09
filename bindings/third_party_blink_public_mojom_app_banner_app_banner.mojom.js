@@ -93,7 +93,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
       name: 'blink.mojom.AppBannerController.BannerPromptRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AppBannerPromptReplySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

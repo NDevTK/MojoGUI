@@ -173,7 +173,7 @@ blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.OnThermalStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceThermalStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -439,7 +439,7 @@ blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.AddPeerConnection_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PeerConnectionInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -630,7 +630,7 @@ blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.AddStandardStats_Params',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
         { name: 'lid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

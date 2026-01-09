@@ -187,7 +187,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
       name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: add_supervision.mojom.OAuthTokenFetchStatusSpec, nullable: false },
         { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

@@ -36,7 +36,7 @@ network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'allowed_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'self_if_matches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'self_if_matches', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'reporting_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'matches_all_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'matches_opaque_src', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -53,7 +53,7 @@ network.mojom.PermissionsPolicySpec = {
       name: 'network.mojom.PermissionsPolicy',
       packedSize: 40,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'declarations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'inherited_policies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'headerless', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

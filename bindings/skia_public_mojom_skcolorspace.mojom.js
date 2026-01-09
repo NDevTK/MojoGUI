@@ -50,8 +50,8 @@ skia.mojom.SkColorSpaceSpec = {
       name: 'skia.mojom.SkColorSpace',
       packedSize: 24,
       fields: [
-        { name: 'to_linear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'to_xyzd50', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'to_linear', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkcmsTransferFunctionSpec, nullable: true },
+        { name: 'to_xyzd50', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkcmsMatrix3x3Spec, nullable: true },
       ],
       versions: [{version: 0}]
     }

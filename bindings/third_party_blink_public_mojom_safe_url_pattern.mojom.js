@@ -32,7 +32,7 @@ blink.mojom.SafeUrlPatternSpec = {
         { name: 'pathname', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'search', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'hash', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'options', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -78,7 +78,7 @@ blink.mojom.SafeUrlPatternPartSpec = {
       packedSize: 24,
       fields: [
         { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModifierSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -67,7 +67,7 @@ gfx.mojom.DXGIHandleTokenSpec = {
       name: 'gfx.mojom.DXGIHandleToken',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -82,8 +82,8 @@ gfx.mojom.DXGIHandleSpec = {
       packedSize: 32,
       fields: [
         { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shared_memory_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false },
+        { name: 'shared_memory_handle', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -98,7 +98,7 @@ gfx.mojom.IOSurfaceHandleSpec = {
       packedSize: 40,
       fields: [
         { name: 'mach_send_right', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shared_memory_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shared_memory_handle', packedOffset: 8, packedBitOffset: 0, type: [EnableIf=is_ios] mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
         { name: 'plane_strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'plane_offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],

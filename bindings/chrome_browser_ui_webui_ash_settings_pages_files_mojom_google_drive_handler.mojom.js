@@ -20,7 +20,7 @@ ash.settings.google_drive.mojom.StatusSpec = {
       fields: [
         { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stage', packedOffset: 16, packedBitOffset: 0, type: drivefs.pinning_manager_types.mojom.StageSpec, nullable: false },
         { name: 'listed_files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'is_error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -343,7 +343,7 @@ ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
       name: 'ash.settings.google_drive.mojom.Page.OnProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.settings.google_drive.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

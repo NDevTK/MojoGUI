@@ -33,7 +33,7 @@ chromeos_camera.mojom.DmaBufVideoFrameSpec = {
       name: 'chromeos_camera.mojom.DmaBufVideoFrame',
       packedSize: 32,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false },
         { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'coded_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'coded_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

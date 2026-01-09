@@ -68,7 +68,7 @@ ash.ime.mojom.JapaneseDictionaryEntrySpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pos', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false },
         { name: 'comment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

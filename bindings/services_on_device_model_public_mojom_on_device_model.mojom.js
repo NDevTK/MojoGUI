@@ -46,8 +46,8 @@ on_device_model.mojom.AdaptationAssetsSpec = {
       name: 'on_device_model.mojom.AdaptationAssets',
       packedSize: 24,
       fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'weights_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'weights_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -77,7 +77,7 @@ on_device_model.mojom.SafetyInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'class_scores', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LanguageDetectionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -92,7 +92,7 @@ on_device_model.mojom.ResponseChunkSpec = {
       packedSize: 24,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -106,7 +106,7 @@ on_device_model.mojom.ResponseSummarySpec = {
       name: 'on_device_model.mojom.ResponseSummary',
       packedSize: 24,
       fields: [
-        { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true },
         { name: 'output_token_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -121,7 +121,7 @@ on_device_model.mojom.LoadAdaptationParamsSpec = {
       name: 'on_device_model.mojom.LoadAdaptationParams',
       packedSize: 16,
       fields: [
-        { name: 'assets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'assets', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.AdaptationAssetsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,7 +150,7 @@ on_device_model.mojom.SessionParamsSpec = {
       name: 'on_device_model.mojom.SessionParams',
       packedSize: 40,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false },
         { name: 'top_k', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'temperature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_tokens', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -181,7 +181,7 @@ on_device_model.mojom.AppendOptionsSpec = {
       name: 'on_device_model.mojom.AppendOptions',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.InputSpec, nullable: false },
         { name: 'max_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -257,7 +257,7 @@ on_device_model.mojom.DevicePerformanceInfoSpec = {
       name: 'on_device_model.mojom.DevicePerformanceInfo',
       packedSize: 24,
       fields: [
-        { name: 'performance_class', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'performance_class', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PerformanceClassSpec, nullable: false },
         { name: 'vram_mb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]

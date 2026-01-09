@@ -45,7 +45,7 @@ parent_access_ui.mojom.ParentAccessServerMessageSpec = {
       name: 'parent_access_ui.mojom.ParentAccessServerMessage',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -73,8 +73,8 @@ parent_access_ui.mojom.WebApprovalsParamsSpec = {
       name: 'parent_access_ui.mojom.WebApprovalsParams',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'child_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'child_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'favicon_png_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -89,9 +89,9 @@ parent_access_ui.mojom.ExtensionApprovalsParamsSpec = {
       name: 'parent_access_ui.mojom.ExtensionApprovalsParams',
       packedSize: 40,
       fields: [
-        { name: 'extension_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'icon_png_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'child_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'child_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -106,8 +106,8 @@ parent_access_ui.mojom.ExtensionPermissionSpec = {
       name: 'parent_access_ui.mojom.ExtensionPermission',
       packedSize: 24,
       fields: [
-        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = 
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetOauthToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.GetOauthTokenStatusSpec, nullable: false },
         { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -262,7 +262,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Resp
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,7 +288,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParam
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessParams_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessDone_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

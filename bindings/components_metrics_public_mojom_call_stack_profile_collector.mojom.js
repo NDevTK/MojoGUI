@@ -22,7 +22,7 @@ metrics.mojom.SampledProfileSpec = {
       name: 'metrics.mojom.SampledProfile',
       packedSize: 16,
       fields: [
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -92,9 +92,9 @@ metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
       name: 'metrics.mojom.CallStackProfileCollector.Collect_Params',
       packedSize: 32,
       fields: [
-        { name: 'start_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'profile_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'profile_type', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.ProfileTypeSpec, nullable: false },
+        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

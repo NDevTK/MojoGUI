@@ -81,7 +81,7 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
       name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
       packedSize: 16,
       fields: [
-        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

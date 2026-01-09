@@ -84,7 +84,7 @@ network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
       name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

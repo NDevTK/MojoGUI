@@ -24,7 +24,7 @@ guest_os.mojom.DiagnosticMessageSpec = {
       packedSize: 24,
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -53,7 +53,7 @@ guest_os.mojom.DiagnosticsSpec = {
       packedSize: 24,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

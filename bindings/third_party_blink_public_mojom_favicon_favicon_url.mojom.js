@@ -24,8 +24,8 @@ blink.mojom.FaviconURLSpec = {
       name: 'blink.mojom.FaviconURL',
       packedSize: 40,
       fields: [
-        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'icon_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'icon_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FaviconIconTypeSpec, nullable: false },
         { name: 'icon_sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'is_default_icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

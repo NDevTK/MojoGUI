@@ -103,7 +103,7 @@ content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
         { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -279,7 +279,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,8 +292,8 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
       name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GinJavaBridgeErrorSpec, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

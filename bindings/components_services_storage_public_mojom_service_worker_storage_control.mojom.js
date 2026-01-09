@@ -56,7 +56,7 @@ storage.mojom.ServiceWorkerUserDataSpec = {
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,8 +208,8 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = 
       name: 'storage.mojom.ServiceWorkerResourceReader.ReadResponseHead_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: true },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
         { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -347,7 +347,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteResponseHead_Params',
       packedSize: 16,
       fields: [
-        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -374,7 +374,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -462,7 +462,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerResourceMetadataWriter.WriteMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1007,8 +1007,8 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpe
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1022,7 +1022,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseP
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1037,8 +1037,8 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = 
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_Params',
       packedSize: 24,
       fields: [
-        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1052,7 +1052,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParam
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1067,7 +1067,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1081,7 +1081,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSp
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1095,7 +1095,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1123,7 +1123,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1178,8 +1178,8 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params
       name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1193,7 +1193,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Respon
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1238,7 +1238,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1253,7 +1253,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec 
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'storage_key_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_key_state', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1268,7 +1268,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1296,8 +1296,8 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec =
       packedSize: 32,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'last_update_check_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'last_update_check_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1325,7 +1325,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsS
       packedSize: 32,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1354,7 +1354,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSp
       packedSize: 32,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1383,8 +1383,8 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1412,7 +1412,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSp
       packedSize: 32,
       fields: [
         { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'updated_sha256_checksums', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1648,7 +1648,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
         { name: 'user_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

@@ -133,12 +133,12 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = {
       packedSize: 80,
       fields: [
         { name: 'dmabuf_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'hdr_metadata', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false },
+        { name: 'hdr_metadata', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false },
         { name: 'format', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'planes_count', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'buffer_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -157,7 +157,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = {
       fields: [
         { name: 'shm_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'buffer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -172,7 +172,7 @@ ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = {
       name: 'ui.ozone.mojom.WaylandBufferManagerHost.CreateSinglePixelBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -201,8 +201,8 @@ ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = {
       name: 'ui.ozone.mojom.WaylandBufferManagerHost.CommitOverlays_Params',
       packedSize: 40,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.FrameDataSpec, nullable: false },
         { name: 'overlays', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -317,9 +317,9 @@ ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = {
       name: 'ui.ozone.mojom.WaylandBufferManagerGpu.OnSubmission_Params',
       packedSize: 48,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'swap_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'release_fence_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
+        { name: 'swap_result', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SwapResultSpec, nullable: false },
+        { name: 'release_fence_handle', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true },
         { name: 'presentation_infos', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -335,7 +335,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = {
       name: 'ui.ozone.mojom.WaylandBufferManagerGpu.OnPresentation_Params',
       packedSize: 24,
       fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
         { name: 'presentation_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

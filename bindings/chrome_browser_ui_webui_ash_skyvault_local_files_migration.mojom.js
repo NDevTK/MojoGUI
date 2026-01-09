@@ -30,7 +30,7 @@ policy.local_user_files.mojom.TimeUnitAndValueSpec = {
       name: 'policy.local_user_files.mojom.TimeUnitAndValue',
       packedSize: 24,
       fields: [
-        { name: 'unit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'unit', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitSpec, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -207,8 +207,8 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpe
       name: 'policy.local_user_files.mojom.PageHandler.GetInitialDialogInfo_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cloud_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cloud_provider', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.CloudProviderSpec, nullable: false },
+        { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false },
         { name: 'start_date_and_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -310,7 +310,7 @@ policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
       name: 'policy.local_user_files.mojom.Page.UpdateRemainingTime_Params',
       packedSize: 16,
       fields: [
-        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

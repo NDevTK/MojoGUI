@@ -36,8 +36,8 @@ blink.mojom.NavigationDownloadPolicySpec = {
       name: 'blink.mojom.NavigationDownloadPolicy',
       packedSize: 24,
       fields: [
-        { name: 'observed_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'disallowed_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observed_types', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false },
+        { name: 'disallowed_types', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

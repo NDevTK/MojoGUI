@@ -23,8 +23,8 @@ page_load_metrics.mojom.DocumentTimingSpec = {
       name: 'page_load_metrics.mojom.DocumentTiming',
       packedSize: 24,
       fields: [
-        { name: 'dom_content_loaded_event_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'load_event_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dom_content_loaded_event_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'load_event_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -38,9 +38,9 @@ page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
       name: 'page_load_metrics.mojom.LcpResourceLoadTimings',
       packedSize: 32,
       fields: [
-        { name: 'discovery_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'load_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'load_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'discovery_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'load_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'load_end', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -54,14 +54,14 @@ page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
       name: 'page_load_metrics.mojom.LargestContentfulPaintTiming',
       packedSize: 80,
       fields: [
-        { name: 'largest_image_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_image_paint', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
         { name: 'largest_image_paint_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'largest_text_paint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'largest_text_paint', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
         { name: 'largest_text_paint_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'resource_load_timings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_load_timings', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.LcpResourceLoadTimingsSpec, nullable: false },
         { name: 'type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'image_bpp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'image_request_priority_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_request_priority_value', packedOffset: 56, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false },
         { name: 'image_request_priority_valid', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -76,14 +76,14 @@ page_load_metrics.mojom.PaintTimingSpec = {
       name: 'page_load_metrics.mojom.PaintTiming',
       packedSize: 72,
       fields: [
-        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_image_paint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_contentful_paint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_meaningful_paint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'largest_contentful_paint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'experimental_largest_contentful_paint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'first_eligible_to_paint', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_input_or_scroll_notified_timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_image_paint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_contentful_paint', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_meaningful_paint', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'largest_contentful_paint', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.LargestContentfulPaintTimingSpec, nullable: false },
+        { name: 'experimental_largest_contentful_paint', packedOffset: 40, packedBitOffset: 0, type: page_load_metrics.mojom.LargestContentfulPaintTimingSpec, nullable: false },
+        { name: 'first_eligible_to_paint', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_input_or_scroll_notified_timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -97,8 +97,8 @@ page_load_metrics.mojom.MonotonicPaintTimingSpec = {
       name: 'page_load_metrics.mojom.MonotonicPaintTiming',
       packedSize: 24,
       fields: [
-        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_contentful_paint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_paint', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
+        { name: 'first_contentful_paint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -112,12 +112,12 @@ page_load_metrics.mojom.ParseTimingSpec = {
       name: 'page_load_metrics.mojom.ParseTiming',
       packedSize: 56,
       fields: [
-        { name: 'parse_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'parse_stop', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'parse_blocked_on_script_load_duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'parse_blocked_on_script_load_from_document_write_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'parse_blocked_on_script_execution_duration', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'parse_blocked_on_script_execution_from_document_write_duration', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'parse_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'parse_stop', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'parse_blocked_on_script_load_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'parse_blocked_on_script_load_from_document_write_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'parse_blocked_on_script_execution_duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'parse_blocked_on_script_execution_from_document_write_duration', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -131,10 +131,10 @@ page_load_metrics.mojom.InteractiveTimingSpec = {
       name: 'page_load_metrics.mojom.InteractiveTiming',
       packedSize: 40,
       fields: [
-        { name: 'first_input_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_input_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_scroll_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'first_scroll_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_input_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_input_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_scroll_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'first_scroll_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ page_load_metrics.mojom.CustomUserTimingMarkSpec = {
       packedSize: 24,
       fields: [
         { name: 'mark_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,8 +163,8 @@ page_load_metrics.mojom.DomainLookupTimingSpec = {
       name: 'page_load_metrics.mojom.DomainLookupTiming',
       packedSize: 24,
       fields: [
-        { name: 'domain_lookup_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'domain_lookup_end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'domain_lookup_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'domain_lookup_end', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -178,22 +178,22 @@ page_load_metrics.mojom.PageLoadTimingSpec = {
       name: 'page_load_metrics.mojom.PageLoadTiming',
       packedSize: 136,
       fields: [
-        { name: 'navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'connect_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'connect_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'response_start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'document_timing', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'interactive_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'paint_timing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'parse_timing', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'domain_lookup_timing', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'connect_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'connect_end', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'response_start', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'document_timing', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.DocumentTimingSpec, nullable: false },
+        { name: 'interactive_timing', packedOffset: 40, packedBitOffset: 0, type: page_load_metrics.mojom.InteractiveTimingSpec, nullable: false },
+        { name: 'paint_timing', packedOffset: 48, packedBitOffset: 0, type: page_load_metrics.mojom.PaintTimingSpec, nullable: false },
+        { name: 'parse_timing', packedOffset: 56, packedBitOffset: 0, type: page_load_metrics.mojom.ParseTimingSpec, nullable: false },
+        { name: 'domain_lookup_timing', packedOffset: 64, packedBitOffset: 0, type: page_load_metrics.mojom.DomainLookupTimingSpec, nullable: false },
         { name: 'back_forward_cache_timings', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'activation_start', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'input_to_navigation_start', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'user_timing_mark_fully_loaded', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'user_timing_mark_fully_visible', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'user_timing_mark_interactive', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'monotonic_paint_timing', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'activation_start', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'input_to_navigation_start', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'user_timing_mark_fully_loaded', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'user_timing_mark_fully_visible', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'user_timing_mark_interactive', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'monotonic_paint_timing', packedOffset: 120, packedBitOffset: 0, type: page_load_metrics.mojom.MonotonicPaintTimingSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -207,10 +207,10 @@ page_load_metrics.mojom.FrameMetadataSpec = {
       name: 'page_load_metrics.mojom.FrameMetadata',
       packedSize: 48,
       fields: [
-        { name: 'main_frame_intersection_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'main_frame_viewport_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'main_frame_intersection_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'main_frame_viewport_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
         { name: 'main_frame_ad_rects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'framework_detection_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'framework_detection_result', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.JavaScriptFrameworkDetectionResultSpec, nullable: false },
         { name: 'behavior_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -225,7 +225,7 @@ page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
       name: 'page_load_metrics.mojom.SubresourceLoadMetrics',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_subresource_load_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'service_worker_subresource_load_metrics', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, nullable: true },
         { name: 'number_of_subresources_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'number_of_subresource_loads_handled_by_service_worker', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -241,8 +241,8 @@ page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
       name: 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics',
       packedSize: 56,
       fields: [
-        { name: 'total_router_evaluation_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'total_router_evaluation_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'matched_cache_router_source_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'matched_fetch_event_router_source_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'matched_network_router_source_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -291,11 +291,11 @@ page_load_metrics.mojom.ResourceDataUpdateSpec = {
       name: 'page_load_metrics.mojom.ResourceDataUpdate',
       packedSize: 72,
       fields: [
-        { name: 'delta_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'received_data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'encoded_body_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'decoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'cache_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'delta_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
+        { name: 'received_data_length', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
+        { name: 'encoded_body_length', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
+        { name: 'decoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false },
+        { name: 'cache_type', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.CacheTypeSpec, nullable: false },
         { name: 'mime_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'request_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_complete', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -317,7 +317,7 @@ page_load_metrics.mojom.LayoutShiftSpec = {
       name: 'page_load_metrics.mojom.LayoutShift',
       packedSize: 24,
       fields: [
-        { name: 'layout_shift_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'layout_shift_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'layout_shift_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
@@ -348,7 +348,7 @@ page_load_metrics.mojom.CpuTimingSpec = {
       name: 'page_load_metrics.mojom.CpuTiming',
       packedSize: 16,
       fields: [
-        { name: 'task_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -376,9 +376,9 @@ page_load_metrics.mojom.UserInteractionLatencySpec = {
       name: 'page_load_metrics.mojom.UserInteractionLatency',
       packedSize: 32,
       fields: [
-        { name: 'interaction_latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_latency', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'interaction_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'interaction_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interaction_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,9 +392,9 @@ page_load_metrics.mojom.BackForwardCacheTimingSpec = {
       name: 'page_load_metrics.mojom.BackForwardCacheTiming',
       packedSize: 32,
       fields: [
-        { name: 'first_paint_after_back_forward_cache_restore', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first_paint_after_back_forward_cache_restore', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'request_animation_frames_after_back_forward_cache_restore', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'first_input_delay_after_back_forward_cache_restore', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'first_input_delay_after_back_forward_cache_restore', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -409,9 +409,9 @@ page_load_metrics.mojom.SoftNavigationMetricsSpec = {
       packedSize: 48,
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'same_document_metrics_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'largest_contentful_paint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'same_document_metrics_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'largest_contentful_paint', packedOffset: 24, packedBitOffset: 0, type: page_load_metrics.mojom.LargestContentfulPaintTimingSpec, nullable: false },
         { name: 'navigation_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -500,15 +500,15 @@ page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
       name: 'page_load_metrics.mojom.PageLoadMetrics.UpdateTiming_Params',
       packedSize: 80,
       fields: [
-        { name: 'page_load_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'frame_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_load_timing', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.PageLoadTimingSpec, nullable: false },
+        { name: 'frame_metadata', packedOffset: 8, packedBitOffset: 0, type: page_load_metrics.mojom.FrameMetadataSpec, nullable: false },
         { name: 'new_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'render_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'cpu_load_timing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'input_timing_delta', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_data', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.FrameRenderDataUpdateSpec, nullable: false },
+        { name: 'cpu_load_timing', packedOffset: 40, packedBitOffset: 0, type: page_load_metrics.mojom.CpuTimingSpec, nullable: false },
+        { name: 'input_timing_delta', packedOffset: 48, packedBitOffset: 0, type: page_load_metrics.mojom.InputTimingSpec, nullable: false },
+        { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: page_load_metrics.mojom.SubresourceLoadMetricsSpec, nullable: true },
+        { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: page_load_metrics.mojom.SoftNavigationMetricsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -522,7 +522,7 @@ page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params
       name: 'page_load_metrics.mojom.PageLoadMetrics.SetUpSharedMemoryForDroppedFrames_Params',
       packedSize: 16,
       fields: [
-        { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -536,7 +536,7 @@ page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
       name: 'page_load_metrics.mojom.PageLoadMetrics.AddCustomUserTiming_Params',
       packedSize: 16,
       fields: [
-        { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.CustomUserTimingMarkSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

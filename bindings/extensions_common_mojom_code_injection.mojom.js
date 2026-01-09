@@ -23,7 +23,7 @@ extensions.mojom.JSSourceSpec = {
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -55,9 +55,9 @@ extensions.mojom.JSInjectionSpec = {
         { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'world', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'world_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wants_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'wait_for_promise', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wants_result', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false },
+        { name: 'user_gesture', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.UserActivationOptionSpec, nullable: false },
+        { name: 'wait_for_promise', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PromiseResultOptionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

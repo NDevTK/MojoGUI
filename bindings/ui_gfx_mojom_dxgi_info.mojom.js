@@ -16,8 +16,8 @@ gfx.mojom.DXGIOutputDescSpec = {
       name: 'gfx.mojom.DXGIOutputDesc',
       packedSize: 48,
       fields: [
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false },
+        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
         { name: 'min_luminance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'max_luminance', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'max_full_frame_luminance', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },

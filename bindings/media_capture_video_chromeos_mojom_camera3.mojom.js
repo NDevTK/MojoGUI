@@ -105,7 +105,7 @@ cros.mojom.CropRotateScaleInfoSpec = {
       name: 'cros.mojom.CropRotateScaleInfo',
       packedSize: 16,
       fields: [
-        { name: 'crop_rotate_scale_degrees', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'crop_rotate_scale_degrees', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamRotationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -120,9 +120,9 @@ cros.mojom.Camera3StreamSpec = {
       packedSize: 64,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'rotation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamTypeSpec, nullable: false },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false },
+        { name: 'rotation', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.Camera3StreamRotationSpec, nullable: false },
         { name: 'width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'height', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'usage', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -142,7 +142,7 @@ cros.mojom.Camera3StreamConfigurationSpec = {
       packedSize: 24,
       fields: [
         { name: 'streams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'operation_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'operation_mode', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ cros.mojom.CameraBufferHandleSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'fds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hal_pixel_format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hal_pixel_format', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false },
         { name: 'strides', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'offsets', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'drm_format', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -179,7 +179,7 @@ cros.mojom.Camera3StreamBufferSpec = {
       fields: [
         { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3BufferStatusSpec, nullable: false },
         { name: 'acquire_fence', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true },
         { name: 'release_fence', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true },
       ],
@@ -196,7 +196,7 @@ cros.mojom.Camera3ErrorMsgSpec = {
       packedSize: 32,
       fields: [
         { name: 'error_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3ErrorMsgCodeSpec, nullable: false },
         { name: 'frame_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -226,7 +226,7 @@ cros.mojom.Camera3NotifyMsgSpec = {
       name: 'cros.mojom.Camera3NotifyMsg',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3MsgTypeSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
@@ -257,7 +257,7 @@ cros.mojom.Camera3StreamBufferRetSpec = {
       packedSize: 32,
       fields: [
         { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferReqStatusSpec, nullable: false },
         { name: 'output_buffers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -288,7 +288,7 @@ cros.mojom.Camera3CaptureRequestSpec = {
       packedSize: 40,
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'input_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_buffer', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferSpec, nullable: true },
         { name: 'output_buffers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'frame_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -306,7 +306,7 @@ cros.mojom.Camera3CaptureResultSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'input_buffer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'input_buffer', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferSpec, nullable: true },
         { name: 'frame_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'partial_result', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],

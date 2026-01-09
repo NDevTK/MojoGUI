@@ -72,7 +72,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

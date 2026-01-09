@@ -172,7 +172,7 @@ chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContentsObserver.PageStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContentsObserver.PageStopped_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.PageStateSpec, nullable: false },
         { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -243,7 +243,7 @@ chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContentsObserver.UpdateFaviconURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -505,7 +505,7 @@ chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'app_web_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'app_web_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'feature_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'additional_feature_permission_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'is_audio_app', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -538,7 +538,7 @@ chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContents.AddRendererFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -566,7 +566,7 @@ chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContents.LoadUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

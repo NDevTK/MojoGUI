@@ -264,7 +264,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
       name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -339,7 +339,7 @@ enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
       name: 'enterprise_reporting.mojom.Page.SetErpHistoryData_Params',
       packedSize: 16,
       fields: [
-        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

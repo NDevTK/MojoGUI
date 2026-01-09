@@ -17,7 +17,7 @@ new_tab_page.mojom.AccessTokenSpec = {
       packedSize: 24,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec =
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.SetAccessToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: new_tab_page.mojom.AccessTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

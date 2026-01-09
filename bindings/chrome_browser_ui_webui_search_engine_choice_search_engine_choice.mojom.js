@@ -244,7 +244,7 @@ search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
       name: 'search_engine_choice.mojom.PageHandler.RecordScrollState_Params',
       packedSize: 16,
       fields: [
-        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: search_engine_choice.mojom.ScrollStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -100,7 +100,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: language_detection.mojom.LanguageDetectionModelStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

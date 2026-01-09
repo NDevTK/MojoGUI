@@ -254,7 +254,7 @@ remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = {
       name: 'remote_cocoa.mojom.Application.ForwardCutCopyPaste_Params',
       packedSize: 16,
       fields: [
-        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.CutCopyPasteCommandSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

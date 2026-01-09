@@ -81,7 +81,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
