@@ -110,7 +110,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec,
       null,
-      null,
       [method_name, stringified_details],
       undefined,
       undefined
@@ -122,7 +121,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec,
-      null,
       null,
       [address],
       undefined,
@@ -136,7 +134,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec,
       null,
-      null,
       [shipping_option_id],
       undefined,
       undefined
@@ -148,7 +145,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec,
-      null,
       null,
       [detail],
       undefined,
@@ -162,7 +158,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec,
       null,
-      null,
       [response],
       undefined,
       undefined
@@ -174,7 +169,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       payments.mojom.PaymentRequestClient_OnError_ParamsSpec,
-      null,
       null,
       [error, error_message],
       undefined,
@@ -188,7 +182,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec,
       null,
-      null,
       [],
       undefined,
       undefined
@@ -200,7 +193,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       7,  // ordinal
       payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec,
-      null,
       null,
       [aborted_successfully],
       undefined,
@@ -214,7 +206,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec,
       null,
-      null,
       [result],
       undefined,
       undefined
@@ -226,7 +217,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       9,  // ordinal
       payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec,
-      null,
       null,
       [result],
       undefined,
@@ -240,7 +230,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       10,  // ordinal
       payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec,
       null,
-      null,
       [],
       undefined,
       undefined
@@ -253,7 +242,6 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       11,  // ordinal
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec,
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
-      payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
       [url, url_before_redirects, did_follow_redirect],
       undefined,
       undefined
@@ -262,7 +250,7 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
 
 };
 
-payments.mojom.PaymentRequestClient.getRemote = function() {
+payments.mojom.PaymentRequestClient.getRemote = function () {
   let remote = new payments.mojom.PaymentRequestClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
@@ -282,7 +270,7 @@ payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec = {
         { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{ version: 0, packedSize: 24 }]
     }
   }
 };
@@ -296,7 +284,7 @@ payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -310,7 +298,7 @@ payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec = {
       fields: [
         { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -324,7 +312,7 @@ payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec = {
       fields: [
         { name: 'detail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -338,7 +326,7 @@ payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -353,7 +341,7 @@ payments.mojom.PaymentRequestClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{ version: 0, packedSize: 24 }]
     }
   }
 };
@@ -366,7 +354,7 @@ payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
@@ -380,7 +368,7 @@ payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec = {
       fields: [
         { name: 'aborted_successfully', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -394,7 +382,7 @@ payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -408,7 +396,7 @@ payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -421,7 +409,7 @@ payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
@@ -437,7 +425,7 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec = {
         { name: 'url_before_redirects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'did_follow_redirect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{ version: 0, packedSize: 32 }]
     }
   }
 };
@@ -450,7 +438,7 @@ payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec = {
       fields: [
         { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -501,7 +489,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequest_Init_ParamsSpec,
       null,
-      null,
       [client, method_data, details, options],
       undefined,
       undefined
@@ -513,7 +500,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       payments.mojom.PaymentRequest_Show_ParamsSpec,
-      null,
       null,
       [wait_for_updated_details, had_user_activation],
       undefined,
@@ -527,7 +513,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequest_UpdateWith_ParamsSpec,
       null,
-      null,
       [details],
       undefined,
       undefined
@@ -539,7 +524,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec,
-      null,
       null,
       [],
       undefined,
@@ -553,7 +537,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequest_Abort_ParamsSpec,
       null,
-      null,
       [],
       undefined,
       undefined
@@ -565,7 +548,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       payments.mojom.PaymentRequest_Complete_ParamsSpec,
-      null,
       null,
       [result],
       undefined,
@@ -579,7 +561,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequest_Retry_ParamsSpec,
       null,
-      null,
       [errors],
       undefined,
       undefined
@@ -591,7 +572,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       7,  // ordinal
       payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec,
-      null,
       null,
       [],
       undefined,
@@ -605,7 +585,6 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec,
       null,
-      null,
       [],
       undefined,
       undefined
@@ -614,7 +593,7 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
 
 };
 
-payments.mojom.PaymentRequest.getRemote = function() {
+payments.mojom.PaymentRequest.getRemote = function () {
   let remote = new payments.mojom.PaymentRequestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
@@ -636,7 +615,7 @@ payments.mojom.PaymentRequest_Init_ParamsSpec = {
         { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{ version: 0, packedSize: 40 }]
     }
   }
 };
@@ -651,7 +630,7 @@ payments.mojom.PaymentRequest_Show_ParamsSpec = {
         { name: 'wait_for_updated_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'had_user_activation', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -665,7 +644,7 @@ payments.mojom.PaymentRequest_UpdateWith_ParamsSpec = {
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -678,7 +657,7 @@ payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
@@ -691,7 +670,7 @@ payments.mojom.PaymentRequest_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
@@ -705,7 +684,7 @@ payments.mojom.PaymentRequest_Complete_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -719,7 +698,7 @@ payments.mojom.PaymentRequest_Retry_ParamsSpec = {
       fields: [
         { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{ version: 0, packedSize: 16 }]
     }
   }
 };
@@ -732,7 +711,7 @@ payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
@@ -745,7 +724,7 @@ payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{ version: 0, packedSize: 8 }]
     }
   }
 };
