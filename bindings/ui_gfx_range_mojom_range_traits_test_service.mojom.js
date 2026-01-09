@@ -81,9 +81,9 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRange_Params',
       packedSize: 16,
       fields: [
-        { name: 'p', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
+        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
 gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRange_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_Params',
       packedSize: 16,
       fields: [
-        { name: 'p', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false },
+        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
 gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

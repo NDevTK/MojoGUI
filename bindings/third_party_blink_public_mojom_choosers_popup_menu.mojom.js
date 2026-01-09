@@ -17,6 +17,7 @@ blink.mojom.Type = {
   kSeparator: 3,
   kSubMenu: 4,
 };
+blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MenuItem
 blink.mojom.MenuItemSpec = {
@@ -25,9 +26,9 @@ blink.mojom.MenuItemSpec = {
       name: 'blink.mojom.MenuItem',
       packedSize: 16,
       fields: [
-        { name: 'kOption', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kOption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -104,9 +105,9 @@ blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
       name: 'blink.mojom.PopupMenuClient.DidAcceptIndices_Params',
       packedSize: 16,
       fields: [
-        { name: 'indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +120,7 @@ blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

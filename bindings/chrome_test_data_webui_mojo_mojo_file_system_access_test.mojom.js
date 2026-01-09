@@ -72,9 +72,9 @@ test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
       name: 'test.mojom.MojoFileSystemAccessTest.ResolveTransferToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'h', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
+        { name: 'h', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

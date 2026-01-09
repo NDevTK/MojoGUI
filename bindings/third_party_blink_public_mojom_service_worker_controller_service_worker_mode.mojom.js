@@ -15,3 +15,4 @@ blink.mojom.ControllerServiceWorkerMode = {
   kNoFetchEventHandler: 1,
   kControlled: 2,
 };
+blink.mojom.ControllerServiceWorkerModeSpec = { $: mojo.internal.Enum() };

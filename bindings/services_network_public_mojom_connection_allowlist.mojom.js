@@ -17,6 +17,7 @@ network.mojom.ConnectionAllowlistIssue = {
   kInvalidAllowlistItemType: 3,
   kReportingEndpointNotToken: 4,
 };
+network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionAllowlist
 network.mojom.ConnectionAllowlistSpec = {
@@ -25,11 +26,11 @@ network.mojom.ConnectionAllowlistSpec = {
       name: 'network.mojom.ConnectionAllowlist',
       packedSize: 32,
       fields: [
-        { name: 'allowlist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'issues', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowlist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ConnectionAllowlistIssueSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -41,10 +42,10 @@ network.mojom.ConnectionAllowlistsSpec = {
       name: 'network.mojom.ConnectionAllowlists',
       packedSize: 24,
       fields: [
-        { name: 'enforced', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
-        { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true },
+        { name: 'enforced', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true, minVersion: 0 },
+        { name: 'report_only', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

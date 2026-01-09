@@ -16,9 +16,9 @@ mojo_base.mojom.ByteCountSpec = {
       name: 'mojo_base.mojom.ByteCount',
       packedSize: 16,
       fields: [
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

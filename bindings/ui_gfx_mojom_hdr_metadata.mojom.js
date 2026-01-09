@@ -16,10 +16,10 @@ gfx.mojom.HdrMetadataCta861_3Spec = {
       name: 'gfx.mojom.HdrMetadataCta861_3',
       packedSize: 16,
       fields: [
-        { name: 'max_content_light_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'max_frame_average_light_level', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'max_content_light_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_frame_average_light_level', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -31,11 +31,11 @@ gfx.mojom.HdrMetadataSmpteSt2086Spec = {
       name: 'gfx.mojom.HdrMetadataSmpteSt2086',
       packedSize: 24,
       fields: [
-        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
-        { name: 'luminance_max', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'luminance_min', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'primaries', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false, minVersion: 0 },
+        { name: 'luminance_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'luminance_min', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -47,9 +47,9 @@ gfx.mojom.HdrMetadataNdwlSpec = {
       name: 'gfx.mojom.HdrMetadataNdwl',
       packedSize: 16,
       fields: [
-        { name: 'nits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'nits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -61,10 +61,10 @@ gfx.mojom.HdrMetadataExtendedRangeSpec = {
       name: 'gfx.mojom.HdrMetadataExtendedRange',
       packedSize: 16,
       fields: [
-        { name: 'current_headroom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'desired_headroom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'current_headroom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'desired_headroom', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -76,13 +76,13 @@ gfx.mojom.HDRMetadataSpec = {
       name: 'gfx.mojom.HDRMetadata',
       packedSize: 48,
       fields: [
-        { name: 'smpte_st_2086', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.HdrMetadataSmpteSt2086Spec, nullable: true },
-        { name: 'cta_861_3', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.HdrMetadataCta861_3Spec, nullable: true },
-        { name: 'ndwl', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.HdrMetadataNdwlSpec, nullable: true },
-        { name: 'extended_range', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.HdrMetadataExtendedRangeSpec, nullable: true },
-        { name: 'agtm_serialized', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'smpte_st_2086', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.HdrMetadataSmpteSt2086Spec, nullable: true, minVersion: 0 },
+        { name: 'cta_861_3', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.HdrMetadataCta861_3Spec, nullable: true, minVersion: 0 },
+        { name: 'ndwl', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.HdrMetadataNdwlSpec, nullable: true, minVersion: 0 },
+        { name: 'extended_range', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.HdrMetadataExtendedRangeSpec, nullable: true, minVersion: 0 },
+        { name: 'agtm_serialized', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

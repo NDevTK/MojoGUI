@@ -17,6 +17,7 @@ ash.secure_channel.mojom.FileTransferStatus = {
   kInProgress: 2,
   kCanceled: 3,
 };
+ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PayloadFiles
 ash.secure_channel.mojom.PayloadFilesSpec = {
@@ -25,10 +26,10 @@ ash.secure_channel.mojom.PayloadFilesSpec = {
       name: 'ash.secure_channel.mojom.PayloadFiles',
       packedSize: 24,
       fields: [
-        { name: 'input_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -40,12 +41,12 @@ ash.secure_channel.mojom.FileTransferUpdateSpec = {
       name: 'ash.secure_channel.mojom.FileTransferUpdate',
       packedSize: 40,
       fields: [
-        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferStatusSpec, nullable: false },
-        { name: 'total_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'bytes_transferred', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'total_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'bytes_transferred', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -113,9 +114,9 @@ ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
       name: 'ash.secure_channel.mojom.FilePayloadListener.OnFileTransferUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferUpdateSpec, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferUpdateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

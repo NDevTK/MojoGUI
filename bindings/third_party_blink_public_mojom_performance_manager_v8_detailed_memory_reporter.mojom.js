@@ -15,19 +15,20 @@ blink.mojom.Mode = {
   EAGER: 1,
   LAZY: 2,
 };
+blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerContextV8MemoryUsage
 blink.mojom.PerContextV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextV8MemoryUsage',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false },
-        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -37,12 +38,12 @@ blink.mojom.PerContextCanvasMemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextCanvasMemoryUsage',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false },
-        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -54,14 +55,14 @@ blink.mojom.PerIsolateV8MemoryUsageSpec = {
       name: 'blink.mojom.PerIsolateV8MemoryUsage',
       packedSize: 56,
       fields: [
-        { name: 'num_detached_contexts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'detached_memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false },
-        { name: 'shared_memory_used', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false },
-        { name: 'blink_memory_used', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false },
-        { name: 'contexts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'canvas_contexts', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'num_detached_contexts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'detached_memory_used', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'blink_memory_used', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'contexts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerContextV8MemoryUsageSpec, false), nullable: false, minVersion: 0 },
+        { name: 'canvas_contexts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerContextCanvasMemoryUsageSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -73,9 +74,9 @@ blink.mojom.PerProcessV8MemoryUsageSpec = {
       name: 'blink.mojom.PerProcessV8MemoryUsage',
       packedSize: 16,
       fields: [
-        { name: 'isolates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'isolates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerIsolateV8MemoryUsageSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,9 +144,9 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
       name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -153,12 +154,12 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
 blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'memory_usage', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PerProcessV8MemoryUsageSpec, nullable: false },
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PerProcessV8MemoryUsageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -19,6 +19,7 @@ network.mojom.HashAlgorithm = {
   HASH_ALGO_SHA384: 5,
   HASH_ALGO_SHA512: 6,
 };
+network.mojom.HashAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: SignatureAlgorithm
 network.mojom.SignatureAlgorithm = {
@@ -27,19 +28,20 @@ network.mojom.SignatureAlgorithm = {
   SIG_ALGO_DSA: 2,
   SIG_ALGO_ECDSA: 3,
 };
+network.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Struct: DigitallySigned
 network.mojom.DigitallySignedSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DigitallySigned',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'hash_algorithm', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HashAlgorithmSpec, nullable: false },
-        { name: 'signature_algorithm', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SignatureAlgorithmSpec, nullable: false },
-        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hash_algorithm', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HashAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'signature_algorithm', packedOffset: 4, packedBitOffset: 0, type: network.mojom.SignatureAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

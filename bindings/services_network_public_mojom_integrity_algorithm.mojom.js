@@ -16,3 +16,4 @@ network.mojom.IntegrityAlgorithm = {
   kSha512: 2,
   kEd25519: 3,
 };
+network.mojom.IntegrityAlgorithmSpec = { $: mojo.internal.Enum() };

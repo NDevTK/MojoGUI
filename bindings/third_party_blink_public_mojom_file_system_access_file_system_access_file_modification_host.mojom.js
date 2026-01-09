@@ -81,9 +81,9 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpe
       name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'capacity_delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpe
 blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileModificationHost.RequestCapacityChange_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'granted_capacity_delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'granted_capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +109,7 @@ blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

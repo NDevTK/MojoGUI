@@ -15,6 +15,7 @@ media.mojom.VideoDecoderSecureMemoryMode = {
   SECURE: 1,
   SECURE_OUTPUT: 2,
 };
+media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CdmRequest
 media.mojom.CdmRequestSpec = {
@@ -23,9 +24,9 @@ media.mojom.CdmRequestSpec = {
       name: 'media.mojom.CdmRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -37,9 +38,9 @@ media.mojom.StreamProcessorRequestSpec = {
       name: 'media.mojom.StreamProcessorRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -107,10 +108,10 @@ media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
       name: 'media.mojom.FuchsiaMediaCdmProvider.CreateCdm_Params',
       packedSize: 24,
       fields: [
-        { name: 'key_system', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cdm_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false },
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,11 +193,11 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
       name: 'media.mojom.FuchsiaMediaCodecProvider.CreateVideoDecoder_Params',
       packedSize: 32,
       fields: [
-        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false },
-        { name: 'secure_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false },
-        { name: 'stream_processor_request', packedOffset: 24, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false, minVersion: 0 },
+        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false, minVersion: 0 },
+        { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -209,7 +210,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,12 +218,12 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec
 media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported_configs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

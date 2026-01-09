@@ -44,6 +44,15 @@ arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setBackupEnabled(enabled, managed) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
+      null,
+      [enabled, managed]);
+  }
+
 };
 
 arc.mojom.BackupSettingsInstance.getRemote = function() {
@@ -54,6 +63,21 @@ arc.mojom.BackupSettingsInstance.getRemote = function() {
     'arc.mojom.BackupSettingsInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetBackupEnabled
+arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BackupSettingsInstance.SetBackupEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

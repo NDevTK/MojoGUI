@@ -14,17 +14,17 @@ blink.mojom.SerialPortInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortInfo',
-      packedSize: 56,
+      packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'usb_vendor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'has_usb_vendor_id', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'usb_product_id', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'has_usb_product_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'bluetooth_service_class_id', packedOffset: 40, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true },
-        { name: 'connected', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'usb_vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_usb_vendor_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'usb_product_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_usb_product_id', packedOffset: 10, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bluetooth_service_class_id', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'connected', packedOffset: 10, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -34,15 +34,15 @@ blink.mojom.SerialPortFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortFilter',
-      packedSize: 40,
+      packedSize: 24,
       fields: [
-        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_vendor_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'product_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'has_product_id', packedOffset: 22, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'bluetooth_service_class_id', packedOffset: 32, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true },
+        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_vendor_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_product_id', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bluetooth_service_class_id', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -146,9 +146,9 @@ blink.mojom.SerialService_SetClient_ParamsSpec = {
       name: 'blink.mojom.SerialService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +161,7 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -169,12 +169,12 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
 blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SerialService.GetPorts_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerialPortInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -186,10 +186,10 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.RequestPort_Params',
       packedSize: 24,
       fields: [
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'allowed_bluetooth_service_class_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerialPortFilterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'allowed_bluetooth_service_class_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -197,12 +197,12 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
 blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SerialService.RequestPort_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerialPortInfoSpec, nullable: true },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerialPortInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,11 +214,11 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.OpenPort_Params',
       packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SerialConnectionOptionsSpec, nullable: false },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SerialConnectionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -226,12 +226,12 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
 blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SerialService.OpenPort_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -243,9 +243,9 @@ blink.mojom.SerialService_ForgetPort_ParamsSpec = {
       name: 'blink.mojom.SerialService.ForgetPort_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -318,9 +318,9 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
       name: 'blink.mojom.SerialServiceClient.OnPortConnectedStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'port_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerialPortInfoSpec, nullable: false },
+        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerialPortInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

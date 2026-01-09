@@ -70,15 +70,15 @@ blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerConnector.Connect_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'creation_context_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SharedWorkerCreationContextTypeSpec, nullable: false },
-        { name: 'message_port', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false },
-        { name: 'blob_url_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'creation_context_type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.SharedWorkerCreationContextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'message_port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
+        { name: 'blob_url_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

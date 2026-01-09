@@ -16,10 +16,10 @@ blink.mojom.SharedFileSpec = {
       name: 'blink.mojom.SharedFile',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
-        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -87,12 +87,12 @@ blink.mojom.ShareService_Share_ParamsSpec = {
       name: 'blink.mojom.ShareService.Share_Params',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'files', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SharedFileSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -100,12 +100,12 @@ blink.mojom.ShareService_Share_ParamsSpec = {
 blink.mojom.ShareService_Share_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.ShareService.Share_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

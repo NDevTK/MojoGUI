@@ -72,9 +72,9 @@ viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
       name: 'viz.mojom.BeginFrameObserver.OnStandaloneBeginFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

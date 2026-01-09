@@ -17,6 +17,7 @@ ash.office_fallback.mojom.DialogChoice = {
   kQuickOffice: 2,
   kTryAgain: 3,
 };
+ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
 ash.office_fallback.mojom.PageHandlerFactory = {};
@@ -81,9 +82,9 @@ ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.office_fallback.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,9 +157,9 @@ ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
       name: 'ash.office_fallback.mojom.PageHandler.Close_Params',
       packedSize: 16,
       fields: [
-        { name: 'choice', packedOffset: 8, packedBitOffset: 0, type: ash.office_fallback.mojom.DialogChoiceSpec, nullable: false },
+        { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: ash.office_fallback.mojom.DialogChoiceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

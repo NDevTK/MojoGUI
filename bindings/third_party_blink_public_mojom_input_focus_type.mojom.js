@@ -20,3 +20,4 @@ blink.mojom.FocusType = {
   kAccessKey: 6,
   kPage: 7,
 };
+blink.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };

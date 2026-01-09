@@ -9,16 +9,30 @@ var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
 
+// Union: TransformData
+gfx.mojom.TransformDataSpec = { $: mojo.internal.Union(
+    'gfx.mojom.TransformData', {
+      'axis_2d': {
+        'ordinal': 0,
+        'type': gfx.mojom.AxisTransform2dSpec,
+      }},
+      'matrix': {
+        'ordinal': 1,
+        'type': mojo.internal.Array(mojo.internal.Pointer, false),
+      }},
+    })
+};
+
 // Struct: Transform
 gfx.mojom.TransformSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Transform',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformDataSpec, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

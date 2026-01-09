@@ -122,3 +122,4 @@ network.mojom.PermissionsPolicyFeature = {
   kLocalNetwork: 108,
   kLoopbackNetwork: 109,
 };
+network.mojom.PermissionsPolicyFeatureSpec = { $: mojo.internal.Enum() };

@@ -15,6 +15,7 @@ lens.mojom.VertexOrdering = {
   kClockwise: 1,
   kCounterClockwise: 2,
 };
+lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CoordinateType
 lens.mojom.CoordinateType = {
@@ -22,6 +23,7 @@ lens.mojom.CoordinateType = {
   kNormalized: 1,
   kImage: 2,
 };
+lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Polygon
 lens.mojom.PolygonSpec = {
@@ -30,10 +32,10 @@ lens.mojom.PolygonSpec = {
       name: 'lens.mojom.Polygon',
       packedSize: 24,
       fields: [
-        { name: 'vertex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'kUnspecified', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'vertex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.VertexSpec, false), nullable: false, minVersion: 0 },
+        { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -45,10 +47,10 @@ lens.mojom.VertexSpec = {
       name: 'lens.mojom.Vertex',
       packedSize: 16,
       fields: [
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

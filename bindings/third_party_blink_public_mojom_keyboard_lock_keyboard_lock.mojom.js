@@ -17,6 +17,7 @@ blink.mojom.KeyboardLockRequestResult = {
   kChildFrameError: 3,
   kRequestFailedError: 4,
 };
+blink.mojom.KeyboardLockRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetKeyboardLayoutMapStatus
 blink.mojom.GetKeyboardLayoutMapStatus = {
@@ -24,6 +25,7 @@ blink.mojom.GetKeyboardLayoutMapStatus = {
   kFail: 1,
   kDenied: 2,
 };
+blink.mojom.GetKeyboardLayoutMapStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GetKeyboardLayoutMapResult
 blink.mojom.GetKeyboardLayoutMapResultSpec = {
@@ -32,10 +34,10 @@ blink.mojom.GetKeyboardLayoutMapResultSpec = {
       name: 'blink.mojom.GetKeyboardLayoutMapResult',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapStatusSpec, nullable: false },
-        { name: 'layout_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'layout_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -121,9 +123,9 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -131,12 +133,12 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
 blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.KeyboardLockRequestResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.KeyboardLockRequestResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +151,7 @@ blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -162,7 +164,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,12 +172,12 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
 blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

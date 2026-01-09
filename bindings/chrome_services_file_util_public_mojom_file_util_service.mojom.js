@@ -99,9 +99,9 @@ chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
       name: 'chrome.mojom.FileUtilService.BindZipFileCreator_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -113,9 +113,9 @@ chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
       name: 'chrome.mojom.FileUtilService.BindSafeArchiveAnalyzer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,9 +127,9 @@ chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
       name: 'chrome.mojom.FileUtilService.BindSingleFileTarFileExtractor_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +141,9 @@ chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
       name: 'chrome.mojom.FileUtilService.BindSingleFileTarXzFileExtractor_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

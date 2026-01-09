@@ -24,3 +24,4 @@ drivefs.pinning_manager_types.mojom.Stage = {
   kCannotListFiles: 9,
   kCannotEnableDocsOffline: 10,
 };
+drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum() };

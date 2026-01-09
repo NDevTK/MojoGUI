@@ -17,6 +17,21 @@ media.mojom.VideoCaptureState = {
   STOPPED: 3,
   ENDED: 4,
 };
+media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
+
+// Union: VideoCaptureResult
+media.mojom.VideoCaptureResultSpec = { $: mojo.internal.Union(
+    'media.mojom.VideoCaptureResult', {
+      'state': {
+        'ordinal': 0,
+        'type': media.mojom.VideoCaptureStateSpec,
+      }},
+      'error_code': {
+        'ordinal': 1,
+        'type': media.mojom.VideoCaptureErrorSpec,
+      }},
+    })
+};
 
 // Interface: VideoCaptureObserver
 media.mojom.VideoCaptureObserver = {};
@@ -124,11 +139,11 @@ media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnStateChanged_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -138,12 +153,12 @@ media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnNewBuffer_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -155,9 +170,9 @@ media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
       name: 'media.mojom.VideoCaptureObserver.OnBufferReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadyBufferSpec, nullable: false },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadyBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,9 +184,9 @@ media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
       name: 'media.mojom.VideoCaptureObserver.OnBufferDestroyed_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,9 +198,9 @@ media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
       name: 'media.mojom.VideoCaptureObserver.OnFrameDropped_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureFrameDropReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFrameDropReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -197,9 +212,9 @@ media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
       name: 'media.mojom.VideoCaptureObserver.OnNewCaptureVersion_Params',
       packedSize: 16,
       fields: [
-        { name: 'capture_version', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false },
+        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -344,12 +359,12 @@ media.mojom.VideoCaptureHost_Start_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.Start_Params',
       packedSize: 40,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
-        { name: 'observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -361,9 +376,9 @@ media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -375,9 +390,9 @@ media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.Pause_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -389,11 +404,11 @@ media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.Resume_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -405,9 +420,9 @@ media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.RequestRefreshFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -419,11 +434,11 @@ media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.ReleaseBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'feedback', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -435,10 +450,10 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -446,12 +461,12 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
 media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'formats_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'formats_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -463,10 +478,10 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -474,12 +489,12 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
 media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'formats_in_use', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'formats_in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -491,10 +506,10 @@ media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
       name: 'media.mojom.VideoCaptureHost.OnLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

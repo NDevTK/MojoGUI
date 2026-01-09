@@ -14,6 +14,7 @@ blink.mojom.CodeCacheType = {
   kJavascript: 0,
   kWebAssembly: 1,
 };
+blink.mojom.CodeCacheTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: CodeCacheHost
 blink.mojom.CodeCacheHost = {};
@@ -114,9 +115,9 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
       name: 'blink.mojom.CodeCacheHost.GetPendingBackend_Params',
       packedSize: 16,
       fields: [
-        { name: 'cache_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false },
+        { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,12 +125,12 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
 blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CodeCacheHost.GetPendingBackend_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending_backend', packedOffset: 8, packedBitOffset: 0, type: persistent_cache.mojom.PendingReadOnlyBackendSpec, nullable: true },
+        { name: 'pending_backend', packedOffset: 0, packedBitOffset: 0, type: persistent_cache.mojom.PendingReadOnlyBackendSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -139,14 +140,14 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CodeCacheHost.DidGenerateCacheableMetadata_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'cache_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'expected_response_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_response_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -158,10 +159,10 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
       name: 'blink.mojom.CodeCacheHost.FetchCachedCode_Params',
       packedSize: 24,
       fields: [
-        { name: 'cache_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -169,13 +170,13 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
 blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CodeCacheHost.FetchCachedCode_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'response_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'response_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -187,10 +188,10 @@ blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec = {
       name: 'blink.mojom.CodeCacheHost.ClearCodeCacheEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'cache_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CodeCacheTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -200,14 +201,14 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec 
   $: {
     structSpec: {
       name: 'blink.mojom.CodeCacheHost.DidGenerateCacheableMetadataInCacheStorage_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'expected_response_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
-        { name: 'cache_storage_cache_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_response_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'cache_storage_cache_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

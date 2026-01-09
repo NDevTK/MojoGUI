@@ -79,12 +79,12 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessObserverHost.Observe_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'is_recursive', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'is_recursive', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -92,13 +92,13 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
 blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessObserverHost.Observe_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'observer_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'observer_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,9 +110,9 @@ blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessObserverHost.Unobserve_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

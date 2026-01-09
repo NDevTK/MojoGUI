@@ -16,6 +16,7 @@ chromecast.mojom.BackgroundColor = {
   BLACK: 2,
   TRANSPARENT: 3,
 };
+chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererType
 chromecast.mojom.RendererType = {
@@ -23,12 +24,14 @@ chromecast.mojom.RendererType = {
   MOJO_RENDERER: 1,
   REMOTING_RENDERER: 2,
 };
+chromecast.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererPool
 chromecast.mojom.RendererPool = {
   NONE: 0,
   OVERLAY: 1,
 };
+chromecast.mojom.RendererPoolSpec = { $: mojo.internal.Enum() };
 
 // Enum: GesturePriority
 chromecast.mojom.GesturePriority = {
@@ -37,44 +40,45 @@ chromecast.mojom.GesturePriority = {
   MAIN_ACTIVITY: 2,
   SETTINGS_UI: 3,
 };
+chromecast.mojom.GesturePrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: CastWebViewParams
 chromecast.mojom.CastWebViewParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebViewParams',
-      packedSize: 144,
+      packedSize: 88,
       fields: [
-        { name: 'activity_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'sdk_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'allow_media_access', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_720p_resolution', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'managed', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'log_js_console_messages', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'log_prefix', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shutdown_delay', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'renderer_pool', packedOffset: 56, packedBitOffset: 0, type: chromecast.mojom.RendererPoolSpec, nullable: false },
-        { name: 'prelaunch_url', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'enabled_for_dev', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'renderer_type', packedOffset: 80, packedBitOffset: 0, type: chromecast.mojom.RendererTypeSpec, nullable: false },
-        { name: 'is_root_window', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'handle_inner_contents', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_media_blocker', packedOffset: 88, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'background_color', packedOffset: 96, packedBitOffset: 0, type: chromecast.mojom.BackgroundColorSpec, nullable: false },
-        { name: 'enable_websql', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_mixer_audio', packedOffset: 104, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'url_filters', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'webrtc_allow_legacy_tls_protocols', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_touch_input', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_remote_control_mode', packedOffset: 120, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'turn_on_screen', packedOffset: 120, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'keep_screen_on', packedOffset: 120, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'gesture_priority', packedOffset: 128, packedBitOffset: 0, type: chromecast.mojom.GesturePrioritySpec, nullable: false },
-        { name: 'enable_webui_bindings_permission', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_url_rewrite_rules', packedOffset: 136, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'activity_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sdk_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'allow_media_access', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_720p_resolution', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'managed', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'log_js_console_messages', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'log_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'shutdown_delay', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_pool', packedOffset: 28, packedBitOffset: 0, type: chromecast.mojom.RendererPoolSpec, nullable: false, minVersion: 0 },
+        { name: 'prelaunch_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'enabled_for_dev', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'renderer_type', packedOffset: 56, packedBitOffset: 0, type: chromecast.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_root_window', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'handle_inner_contents', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_media_blocker', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_color', packedOffset: 60, packedBitOffset: 0, type: chromecast.mojom.BackgroundColorSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_websql', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_mixer_audio', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url_filters', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'webrtc_allow_legacy_tls_protocols', packedOffset: 25, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_touch_input', packedOffset: 25, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_remote_control_mode', packedOffset: 25, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'turn_on_screen', packedOffset: 25, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keep_screen_on', packedOffset: 25, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'gesture_priority', packedOffset: 72, packedBitOffset: 0, type: chromecast.mojom.GesturePrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'enable_webui_bindings_permission', packedOffset: 25, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_url_rewrite_rules', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -169,11 +173,11 @@ chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
       name: 'chromecast.mojom.CastWebService.CreateWebView_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.CastWebViewParamsSpec, nullable: false },
-        { name: 'web_contents', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'window', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.CastWebViewParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'web_contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'window', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -185,10 +189,10 @@ chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
       name: 'chromecast.mojom.CastWebService.RegisterWebUiClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'hosts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -201,7 +205,7 @@ chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,7 +218,7 @@ chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

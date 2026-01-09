@@ -9,17 +9,31 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Union: BundledFrameSubmissionData
+viz.mojom.BundledFrameSubmissionDataSpec = { $: mojo.internal.Union(
+    'viz.mojom.BundledFrameSubmissionData', {
+      'frame': {
+        'ordinal': 0,
+        'type': viz.mojom.BundledCompositorFrameSpec,
+      }},
+      'did_not_produce_frame': {
+        'ordinal': 1,
+        'type': viz.mojom.BeginFrameAckSpec,
+      }},
+    })
+};
+
 // Struct: BundledFrameSubmission
 viz.mojom.BundledFrameSubmissionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BundledFrameSubmission',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.BundledFrameSubmissionDataSpec, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BundledFrameSubmissionDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -31,12 +45,12 @@ viz.mojom.BundledCompositorFrameSpec = {
       name: 'viz.mojom.BundledCompositorFrame',
       packedSize: 40,
       fields: [
-        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
-        { name: 'frame', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false },
-        { name: 'hit_test_region_list', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true },
-        { name: 'submit_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
+        { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -48,10 +62,10 @@ viz.mojom.BundledReturnedResourcesSpec = {
       name: 'viz.mojom.BundledReturnedResources',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -63,12 +77,12 @@ viz.mojom.BeginFrameInfoSpec = {
       name: 'viz.mojom.BeginFrameInfo',
       packedSize: 40,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
-        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'resources', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -152,12 +166,12 @@ viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkBundle.SetNeedsBeginFrame_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'needs_begin_frame', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'needs_begin_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,9 +183,9 @@ viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundle.Submit_Params',
       packedSize: 16,
       fields: [
-        { name: 'submissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,10 +197,10 @@ viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundle.SetThreads_Params',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'threads', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ThreadSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -277,11 +291,11 @@ viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundleClient.FlushNotifications_Params',
       packedSize: 32,
       fields: [
-        { name: 'acks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'begin_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reclaimed_resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
+        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BeginFrameInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -291,12 +305,12 @@ viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkBundleClient.OnBeginFramePausedChanged_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'paused', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'paused', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -308,10 +322,10 @@ viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Pa
       name: 'viz.mojom.FrameSinkBundleClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'sequence_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sequence_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

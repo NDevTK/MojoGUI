@@ -16,10 +16,10 @@ blink.mojom.ServiceWorkerStreamHandleSpec = {
       name: 'blink.mojom.ServiceWorkerStreamHandle',
       packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'callback_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'callback_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +97,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -110,7 +110,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

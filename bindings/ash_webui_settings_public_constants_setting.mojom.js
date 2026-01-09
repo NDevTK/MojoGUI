@@ -279,3 +279,4 @@ chromeos.settings.mojom.Setting = {
   kSetActiveKerberosTicketV2: 264,
   kSnapWindowSuggestions: 265,
 };
+chromeos.settings.mojom.SettingSpec = { $: mojo.internal.Enum() };

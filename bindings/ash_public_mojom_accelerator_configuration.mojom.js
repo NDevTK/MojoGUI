@@ -28,3 +28,4 @@ ash.mojom.AcceleratorConfigResult = {
   kNonStandardWithSearch: 14,
   kBlockQuickInsert: 15,
 };
+ash.mojom.AcceleratorConfigResultSpec = { $: mojo.internal.Enum() };

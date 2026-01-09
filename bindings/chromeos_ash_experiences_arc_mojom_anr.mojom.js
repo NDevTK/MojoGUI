@@ -20,6 +20,7 @@ arc.mojom.AnrType = {
   PROCESS: 6,
   BACKGROUND_SERVICE: 7,
 };
+arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnrSource
 arc.mojom.AnrSource = {
@@ -32,18 +33,19 @@ arc.mojom.AnrSource = {
   ARC_OTHER: 6,
   ARC_APP_LAUNCHER: 7,
 };
+arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Anr
 arc.mojom.AnrSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Anr',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.AnrSourceSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.AnrSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

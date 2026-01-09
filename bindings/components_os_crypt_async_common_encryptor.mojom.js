@@ -16,10 +16,10 @@ os_crypt_async.mojom.KeySpec = {
       name: 'os_crypt_async.mojom.Key',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ os_crypt_async.mojom.EncryptorSpec = {
       name: 'os_crypt_async.mojom.Encryptor',
       packedSize: 24,
       fields: [
-        { name: 'provider_for_encryption', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'provider_for_encryption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, os_crypt_async.mojom.KeySpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

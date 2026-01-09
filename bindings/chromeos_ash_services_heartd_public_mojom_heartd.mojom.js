@@ -16,11 +16,13 @@ ash.heartd.mojom.HeartbeatResponse = {
   kRateLimit: 1,
   kNotAllowed: 2,
 };
+ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceName
 ash.heartd.mojom.ServiceName = {
   kKiosk: 0,
 };
+ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionType
 ash.heartd.mojom.ActionType = {
@@ -29,16 +31,19 @@ ash.heartd.mojom.ActionType = {
   kForceReboot: 2,
   kSyncData: 3,
 };
+ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HeartbeatServiceArgument
 ash.heartd.mojom.HeartbeatServiceArgumentSpec = {
   $: {
     structSpec: {
       name: 'ash.heartd.mojom.HeartbeatServiceArgument',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.heartd.mojom.ActionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'verification_window_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -48,10 +53,12 @@ ash.heartd.mojom.ActionSpec = {
   $: {
     structSpec: {
       name: 'ash.heartd.mojom.Action',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'failure_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 4, packedBitOffset: 0, type: ash.heartd.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,6 +98,33 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  enableNormalRebootAction() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
+      null,
+      []);
+  }
+
+  enableForceRebootAction() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
+      null,
+      []);
+  }
+
+  runAction(action) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
+      ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
+      [action]);
+  }
+
 };
 
 ash.heartd.mojom.HeartdControl.getRemote = function() {
@@ -101,6 +135,59 @@ ash.heartd.mojom.HeartdControl.getRemote = function() {
     'ash.heartd.mojom.HeartdControl',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for EnableNormalRebootAction
+ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.HeartdControl.EnableNormalRebootAction_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for EnableForceRebootAction
+ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.HeartdControl.EnableForceRebootAction_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for RunAction
+ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.HeartdControl.RunAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.heartd.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -143,6 +230,15 @@ ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  register(name, argument, receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
+      ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
+      [name, argument, receiver]);
+  }
+
 };
 
 ash.heartd.mojom.HeartbeatService.getRemote = function() {
@@ -153,6 +249,35 @@ ash.heartd.mojom.HeartbeatService.getRemote = function() {
     'ash.heartd.mojom.HeartbeatService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Register
+ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.HeartbeatService.Register_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: ash.heartd.mojom.ServiceNameSpec, nullable: false, minVersion: 0 },
+        { name: 'argument', packedOffset: 8, packedBitOffset: 0, type: ash.heartd.mojom.HeartbeatServiceArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -195,6 +320,24 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  sendHeartbeat() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
+      ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
+      []);
+  }
+
+  stopMonitor() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 ash.heartd.mojom.Pacemaker.getRemote = function() {
@@ -205,6 +348,45 @@ ash.heartd.mojom.Pacemaker.getRemote = function() {
     'ash.heartd.mojom.Pacemaker',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SendHeartbeat
+ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.Pacemaker.SendHeartbeat_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.heartd.mojom.HeartbeatResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for StopMonitor
+ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.heartd.mojom.Pacemaker.StopMonitor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

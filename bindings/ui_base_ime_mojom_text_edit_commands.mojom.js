@@ -75,3 +75,4 @@ ui.mojom.TextEditCommand = {
   kUnselect: 61,
   kInvalidCommand: 62,
 };
+ui.mojom.TextEditCommandSpec = { $: mojo.internal.Enum() };

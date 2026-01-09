@@ -18,3 +18,4 @@ extensions.mojom.RunLocation = {
   kRunDeferred: 4,
   kBrowserDriven: 5,
 };
+extensions.mojom.RunLocationSpec = { $: mojo.internal.Enum() };

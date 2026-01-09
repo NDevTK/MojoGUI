@@ -18,6 +18,7 @@ blink.mojom.FontEnumerationStatus = {
   kNotVisible: 4,
   kPermissionDenied: 5,
 };
+blink.mojom.FontEnumerationStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FontData
 blink.mojom.FontDataSpec = {
@@ -26,12 +27,12 @@ blink.mojom.FontDataSpec = {
       name: 'blink.mojom.FontData',
       packedSize: 40,
       fields: [
-        { name: 'postscript_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'full_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'family', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'style', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'postscript_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'full_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'family', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -100,7 +101,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -108,13 +109,13 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
 blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FontAccessManager.EnumerateLocalFonts_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'enumeration_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FontEnumerationStatusSpec, nullable: false },
-        { name: 'enumeration_table', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'enumeration_status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FontEnumerationStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'enumeration_table', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -81,10 +81,10 @@ blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
       name: 'blink.mojom.BlobReaderClient.OnCalculatedSize_Params',
       packedSize: 24,
       fields: [
-        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'expected_content_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'expected_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,10 +96,10 @@ blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
       name: 'blink.mojom.BlobReaderClient.OnComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'data_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -235,9 +235,9 @@ blink.mojom.Blob_Clone_ParamsSpec = {
       name: 'blink.mojom.Blob.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,9 +249,9 @@ blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
       name: 'blink.mojom.Blob.AsDataPipeGetter_Params',
       packedSize: 16,
       fields: [
-        { name: 'data_pipe_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'data_pipe_getter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -263,10 +263,10 @@ blink.mojom.Blob_ReadAll_ParamsSpec = {
       name: 'blink.mojom.Blob.ReadAll_Params',
       packedSize: 24,
       fields: [
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -278,12 +278,12 @@ blink.mojom.Blob_ReadRange_ParamsSpec = {
       name: 'blink.mojom.Blob.ReadRange_Params',
       packedSize: 40,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -293,14 +293,14 @@ blink.mojom.Blob_Load_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.Load_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'loader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'request_method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false },
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'request_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -313,7 +313,7 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -321,12 +321,12 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
 blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.Blob.ReadSideData_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -339,7 +339,7 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -347,13 +347,13 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
 blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.Blob.CaptureSnapshot_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'modification_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -366,7 +366,7 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -374,12 +374,12 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
 blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.Blob.GetInternalUUID_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

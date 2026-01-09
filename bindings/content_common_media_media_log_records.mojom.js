@@ -72,9 +72,9 @@ content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
       name: 'content.mojom.MediaInternalLogRecords.Log_Params',
       packedSize: 16,
       fields: [
-        { name: 'events', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

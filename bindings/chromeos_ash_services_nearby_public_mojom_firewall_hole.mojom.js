@@ -124,9 +124,9 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
       name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_Params',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,12 +134,12 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
 sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'firewall_hole', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'firewall_hole', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

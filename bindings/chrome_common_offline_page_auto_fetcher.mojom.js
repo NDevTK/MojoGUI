@@ -16,6 +16,7 @@ chrome.mojom.OfflinePageAutoFetcherScheduleResult = {
   kAlreadyScheduled: 2,
   kScheduled: 3,
 };
+chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: OfflinePageAutoFetcher
 chrome.mojom.OfflinePageAutoFetcher = {};
@@ -89,9 +90,9 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
       name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_requested', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -99,12 +100,12 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
 chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,7 +118,7 @@ chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

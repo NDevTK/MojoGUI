@@ -72,10 +72,10 @@ math.mojom.MathService_Divide_ParamsSpec = {
       name: 'math.mojom.MathService.Divide_Params',
       packedSize: 16,
       fields: [
-        { name: 'dividend', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'divisor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'divisor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,12 +83,12 @@ math.mojom.MathService_Divide_ParamsSpec = {
 math.mojom.MathService_Divide_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'math.mojom.MathService.Divide_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'quotient', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,3 +15,4 @@ cc.mojom.MissingTileReason = {
   kResourceNotReady: 1,
   kTileDeleted: 2,
 };
+cc.mojom.MissingTileReasonSpec = { $: mojo.internal.Enum() };

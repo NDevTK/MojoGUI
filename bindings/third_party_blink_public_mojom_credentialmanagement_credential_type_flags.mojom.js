@@ -16,3 +16,4 @@ blink.mojom.CredentialTypeFlags = {
   kPublicKey: 2,
   kAll: 3,
 };
+blink.mojom.CredentialTypeFlagsSpec = { $: mojo.internal.Enum() };

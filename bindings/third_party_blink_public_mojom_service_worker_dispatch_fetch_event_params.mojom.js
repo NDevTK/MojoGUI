@@ -16,13 +16,13 @@ blink.mojom.DispatchFetchEventParamsSpec = {
       name: 'blink.mojom.DispatchFetchEventParams',
       packedSize: 40,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resulting_client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'preload_url_loader_client_receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'race_network_request_loader_factory', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'resulting_client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'preload_url_loader_client_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'race_network_request_loader_factory', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

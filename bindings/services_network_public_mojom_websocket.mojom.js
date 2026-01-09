@@ -16,6 +16,7 @@ network.mojom.WebSocketMessageType = {
   BINARY: 2,
   LAST: 3,
 };
+network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HttpHeader
 network.mojom.HttpHeaderSpec = {
@@ -24,10 +25,10 @@ network.mojom.HttpHeaderSpec = {
       name: 'network.mojom.HttpHeader',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -39,11 +40,11 @@ network.mojom.WebSocketHandshakeRequestSpec = {
       name: 'network.mojom.WebSocketHandshakeRequest',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'headers_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
+        { name: 'headers_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -55,17 +56,17 @@ network.mojom.WebSocketHandshakeResponseSpec = {
       name: 'network.mojom.WebSocketHandshakeResponse',
       packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'http_version', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpVersionSpec, nullable: false },
-        { name: 'status_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'status_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'remote_endpoint', packedOffset: 40, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'headers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'headers_text', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'selected_protocol', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'extensions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'http_version', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'status_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'remote_endpoint', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
+        { name: 'headers_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'selected_protocol', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extensions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -133,11 +134,11 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
       name: 'network.mojom.WebSocketAuthenticationHandler.OnAuthRequired_Params',
       packedSize: 32,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: false },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
-        { name: 'remote_endpoint', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_endpoint', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -145,12 +146,12 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
 network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebSocketAuthenticationHandler.OnAuthRequired_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,9 +242,9 @@ network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
       name: 'network.mojom.WebSocketHandshakeClient.OnOpeningHandshakeStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -255,11 +256,11 @@ network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
       name: 'network.mojom.WebSocketHandshakeClient.OnFailure_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'response_code', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'response_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -271,13 +272,13 @@ network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       name: 'network.mojom.WebSocketHandshakeClient.OnConnectionEstablished_Params',
       packedSize: 40,
       fields: [
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'response', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeResponseSpec, nullable: false },
-        { name: 'readable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'writable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'readable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'writable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -366,13 +367,13 @@ network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketClient.OnDataFrame_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'fin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false },
-        { name: 'data_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'fin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -382,13 +383,13 @@ network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketClient.OnDropChannel_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'was_clean', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'reason', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'was_clean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -401,7 +402,7 @@ network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -492,10 +493,10 @@ network.mojom.WebSocket_SendMessage_ParamsSpec = {
       name: 'network.mojom.WebSocket.SendMessage_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false },
-        { name: 'data_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -508,7 +509,7 @@ network.mojom.WebSocket_StartReceiving_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -520,10 +521,10 @@ network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
       name: 'network.mojom.WebSocket.StartClosingHandshake_Params',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -18,18 +18,19 @@ blink.mojom.MediaPlayerActionType = {
   kPictureInPicture: 4,
   kDefaultActionType: 5,
 };
+blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaPlayerAction
 blink.mojom.MediaPlayerActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaPlayerAction',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaPlayerActionTypeSpec, nullable: false },
-        { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaPlayerActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'enable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

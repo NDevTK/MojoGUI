@@ -17,6 +17,7 @@ viz.mojom.PlaneConfig = {
   kY_UV_A: 3,
   kY_U_V_A: 4,
 };
+viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
 
 // Enum: Subsampling
 viz.mojom.Subsampling = {
@@ -24,6 +25,7 @@ viz.mojom.Subsampling = {
   k422: 1,
   k444: 2,
 };
+viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelFormat
 viz.mojom.ChannelFormat = {
@@ -32,20 +34,35 @@ viz.mojom.ChannelFormat = {
   k16: 2,
   k16F: 3,
 };
+viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
+
+// Union: SharedImageFormat
+viz.mojom.SharedImageFormatSpec = { $: mojo.internal.Union(
+    'viz.mojom.SharedImageFormat', {
+      'singleplanar_format': {
+        'ordinal': 0,
+        'type': viz.mojom.SingleplanarFormatSpec,
+      }},
+      'multiplanar_format': {
+        'ordinal': 1,
+        'type': viz.mojom.MultiplanarFormatSpec,
+      }},
+    })
+};
 
 // Struct: MultiplanarFormat
 viz.mojom.MultiplanarFormatSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MultiplanarFormat',
-      packedSize: 40,
+      packedSize: 24,
       fields: [
-        { name: 'plane_config', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.PlaneConfigSpec, nullable: false },
-        { name: 'subsampling', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SubsamplingSpec, nullable: false },
-        { name: 'channel_format', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.ChannelFormatSpec, nullable: false },
-        { name: 'prefers_external_sampler', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'plane_config', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.PlaneConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'subsampling', packedOffset: 4, packedBitOffset: 0, type: viz.mojom.SubsamplingSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_format', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ChannelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'prefers_external_sampler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

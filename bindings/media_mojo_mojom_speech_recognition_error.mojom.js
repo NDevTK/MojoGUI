@@ -14,18 +14,19 @@ media.mojom.SpeechAudioErrorDetails = {
   kNone: 0,
   kNoMic: 1,
 };
+media.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechRecognitionError
 media.mojom.SpeechRecognitionErrorSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionError',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SpeechRecognitionErrorCodeSpec, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SpeechAudioErrorDetailsSpec, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionErrorCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 4, packedBitOffset: 0, type: media.mojom.SpeechAudioErrorDetailsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

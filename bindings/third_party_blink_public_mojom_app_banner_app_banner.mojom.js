@@ -14,6 +14,7 @@ blink.mojom.AppBannerPromptReply = {
   NONE: 0,
   CANCEL: 1,
 };
+blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum() };
 
 // Interface: AppBannerController
 blink.mojom.AppBannerController = {};
@@ -78,11 +79,11 @@ blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
       name: 'blink.mojom.AppBannerController.BannerPromptRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'event_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'event_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'platform', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -90,12 +91,12 @@ blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
 blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.AppBannerController.BannerPromptRequest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'reply', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AppBannerPromptReplySpec, nullable: false },
+        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AppBannerPromptReplySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,9 +178,9 @@ blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
       name: 'blink.mojom.AppBannerEvent.BannerAccepted_Params',
       packedSize: 16,
       fields: [
-        { name: 'platform', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,7 +193,7 @@ blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -266,7 +267,7 @@ blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

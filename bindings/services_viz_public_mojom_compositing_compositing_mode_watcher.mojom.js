@@ -73,7 +73,7 @@ viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -146,9 +146,9 @@ viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
       name: 'viz.mojom.CompositingModeReporter.AddCompositingModeWatcher_Params',
       packedSize: 16,
       fields: [
-        { name: 'watcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

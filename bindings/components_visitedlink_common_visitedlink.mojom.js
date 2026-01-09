@@ -99,9 +99,9 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'table_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -113,9 +113,9 @@ visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.AddVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'link_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,9 +127,9 @@ visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.ResetVisitedLinks_Params',
       packedSize: 16,
       fields: [
-        { name: 'invalidate_cached_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +141,9 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateOriginSalts_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_salts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Union: DeviceIdFilter
+blink.mojom.DeviceIdFilterSpec = { $: mojo.internal.Union(
+    'blink.mojom.DeviceIdFilter', {
+      'vendor': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint16,
+      }},
+      'vendor_and_product': {
+        'ordinal': 1,
+        'type': blink.mojom.VendorAndProductSpec,
+      }},
+    })
+};
+
+// Union: UsageFilter
+blink.mojom.UsageFilterSpec = { $: mojo.internal.Union(
+    'blink.mojom.UsageFilter', {
+      'page': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint16,
+      }},
+      'usage_and_page': {
+        'ordinal': 1,
+        'type': device.mojom.HidUsageAndPageSpec,
+      }},
+    })
+};
+
 // Struct: VendorAndProduct
 blink.mojom.VendorAndProductSpec = {
   $: {
@@ -16,10 +44,10 @@ blink.mojom.VendorAndProductSpec = {
       name: 'blink.mojom.VendorAndProduct',
       packedSize: 16,
       fields: [
-        { name: 'vendor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'product', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'product', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -29,12 +57,12 @@ blink.mojom.HidDeviceFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HidDeviceFilter',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'device_ids', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeviceIdFilterSpec, nullable: true },
-        { name: 'usage', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.UsageFilterSpec, nullable: true },
+        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceIdFilterSpec, nullable: true, minVersion: 0 },
+        { name: 'usage', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.UsageFilterSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -138,9 +166,9 @@ blink.mojom.HidService_RegisterClient_ParamsSpec = {
       name: 'blink.mojom.HidService.RegisterClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -153,7 +181,7 @@ blink.mojom.HidService_GetDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -161,12 +189,12 @@ blink.mojom.HidService_GetDevices_ParamsSpec = {
 blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.HidService.GetDevices_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,10 +206,10 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
       name: 'blink.mojom.HidService.RequestDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'exclusion_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.HidDeviceFilterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -189,12 +217,12 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
 blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.HidService.RequestDevice_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,10 +234,10 @@ blink.mojom.HidService_Connect_ParamsSpec = {
       name: 'blink.mojom.HidService.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -217,12 +245,12 @@ blink.mojom.HidService_Connect_ParamsSpec = {
 blink.mojom.HidService_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.HidService.Connect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,9 +262,9 @@ blink.mojom.HidService_Forget_ParamsSpec = {
       name: 'blink.mojom.HidService.Forget_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

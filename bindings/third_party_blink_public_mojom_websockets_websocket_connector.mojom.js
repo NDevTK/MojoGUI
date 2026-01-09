@@ -70,17 +70,17 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebSocketConnector.Connect_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'requested_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'site_for_cookies', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false },
-        { name: 'user_agent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'storage_access_api_status', packedOffset: 40, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false },
-        { name: 'handshake_client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'throttling_profile_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'requested_protocols', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
+        { name: 'user_agent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'storage_access_api_status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'handshake_client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'throttling_profile_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

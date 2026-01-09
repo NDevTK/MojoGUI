@@ -16,10 +16,10 @@ webnn.mojom.CreateGraphSuccessSpec = {
       name: 'webnn.mojom.CreateGraphSuccess',
       packedSize: 24,
       fields: [
-        { name: 'graph_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'graph_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(webnn.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,13 +103,13 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraphBuilder.CreatePendingConstant_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'constant_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false },
-        { name: 'data_type', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.DataTypeSpec, nullable: false },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'constant_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.DataTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -121,9 +121,9 @@ webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraphBuilder.CreateGraph_Params',
       packedSize: 16,
       fields: [
-        { name: 'graph_info', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false },
+        { name: 'graph_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -135,10 +135,10 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraphBuilder.IsValidGraphForTesting_Params',
       packedSize: 24,
       fields: [
-        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
-        { name: 'graph_info', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false },
+        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'graph_info', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -146,12 +146,12 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
 webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webnn.mojom.WebNNGraphBuilder.IsValidGraphForTesting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_valid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

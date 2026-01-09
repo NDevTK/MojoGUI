@@ -30,6 +30,7 @@ tabs.mojom.TabAlertState = {
   kVideoRecording: 16,
   kVrPresentingInHeadset: 17,
 };
+tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabNetworkState
 tabs.mojom.TabNetworkState = {
@@ -38,3 +39,4 @@ tabs.mojom.TabNetworkState = {
   kLoading: 2,
   kError: 3,
 };
+tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };

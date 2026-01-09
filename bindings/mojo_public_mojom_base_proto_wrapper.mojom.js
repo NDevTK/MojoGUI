@@ -14,12 +14,12 @@ mojo_base.mojom.ProtoWrapperSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ProtoWrapper',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'proto_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'smuggled', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'proto_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'smuggled', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

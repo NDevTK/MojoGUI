@@ -16,3 +16,4 @@ blink.mojom.MixedContentContextType = {
   kOptionallyBlockable: 2,
   kShouldBeBlockable: 3,
 };
+blink.mojom.MixedContentContextTypeSpec = { $: mojo.internal.Enum() };

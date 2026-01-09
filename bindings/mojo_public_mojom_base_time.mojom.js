@@ -16,9 +16,9 @@ mojo_base.mojom.TimeSpec = {
       name: 'mojo_base.mojom.Time',
       packedSize: 16,
       fields: [
-        { name: 'internal_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -30,9 +30,9 @@ mojo_base.mojom.JSTimeSpec = {
       name: 'mojo_base.mojom.JSTime',
       packedSize: 16,
       fields: [
-        { name: 'msec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'msec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -44,9 +44,9 @@ mojo_base.mojom.TimeDeltaSpec = {
       name: 'mojo_base.mojom.TimeDelta',
       packedSize: 16,
       fields: [
-        { name: 'microseconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'microseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -58,9 +58,9 @@ mojo_base.mojom.TimeTicksSpec = {
       name: 'mojo_base.mojom.TimeTicks',
       packedSize: 16,
       fields: [
-        { name: 'internal_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'internal_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

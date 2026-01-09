@@ -16,11 +16,11 @@ persistent_cache.mojom.PendingReadOnlyBackendSpec = {
       name: 'persistent_cache.mojom.PendingReadOnlyBackend',
       packedSize: 32,
       fields: [
-        { name: 'db_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'journal_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'shared_lock', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'db_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'journal_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_lock', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,12 +32,12 @@ persistent_cache.mojom.PendingReadWriteBackendSpec = {
       name: 'persistent_cache.mojom.PendingReadWriteBackend',
       packedSize: 40,
       fields: [
-        { name: 'db_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'journal_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'wal_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'shared_lock', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'db_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'journal_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'wal_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
+        { name: 'shared_lock', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

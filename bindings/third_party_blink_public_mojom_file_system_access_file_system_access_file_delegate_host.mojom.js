@@ -99,10 +99,10 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_Params',
       packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'bytes_to_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'bytes_to_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,14 +110,14 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'bytes_read', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'bytes_read', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -129,10 +129,10 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_Params',
       packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,13 +140,13 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'bytes_written', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'bytes_written', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -159,7 +159,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -167,13 +167,13 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileDelegateHost.GetLength_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -185,9 +185,9 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_Params',
       packedSize: 16,
       fields: [
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,12 +195,12 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

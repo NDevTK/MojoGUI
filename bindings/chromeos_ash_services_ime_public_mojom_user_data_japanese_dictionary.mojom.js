@@ -58,6 +58,7 @@ ash.ime.mojom.JpPosType = {
   kFreeStandingWord: 43,
   kSuppressionWord: 44,
 };
+ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: JapaneseDictionaryEntry
 ash.ime.mojom.JapaneseDictionaryEntrySpec = {
@@ -66,12 +67,12 @@ ash.ime.mojom.JapaneseDictionaryEntrySpec = {
       name: 'ash.ime.mojom.JapaneseDictionaryEntry',
       packedSize: 40,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pos', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false },
-        { name: 'comment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pos', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'comment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -83,11 +84,11 @@ ash.ime.mojom.JapaneseDictionarySpec = {
       name: 'ash.ime.mojom.JapaneseDictionary',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'entries', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.JapaneseDictionaryEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -145,7 +145,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,12 +153,12 @@ chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
 chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromecast.mojom.GestureHandler.OnBackGesture_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'was_handled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,9 +170,9 @@ chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnBackGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,9 +184,9 @@ chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnTopDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +199,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -211,9 +211,9 @@ chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
       name: 'chromecast.mojom.GestureHandler.OnRightDragGestureProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'touch_location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'touch_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -226,7 +226,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +239,7 @@ chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -252,7 +252,7 @@ chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,7 +265,7 @@ chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -365,9 +365,9 @@ chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.Subscribe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -379,9 +379,9 @@ chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanGoBack_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_go_back', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -393,9 +393,9 @@ chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanTopDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_top_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,9 +407,9 @@ chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
       name: 'chromecast.mojom.GestureSource.SetCanRightDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_top_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_top_drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

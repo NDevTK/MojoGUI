@@ -20,6 +20,7 @@ network.mojom.ReferrerPolicy = {
   kSameOrigin: 6,
   kStrictOrigin: 7,
 };
+network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: URLRequestReferrerPolicy
 network.mojom.URLRequestReferrerPolicy = {
@@ -32,3 +33,4 @@ network.mojom.URLRequestReferrerPolicy = {
   kOriginClearOnTransitionFromSecureToInsecure: 6,
   kNoReferrer: 7,
 };
+network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };

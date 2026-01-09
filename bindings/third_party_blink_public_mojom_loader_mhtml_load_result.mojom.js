@@ -17,3 +17,4 @@ blink.mojom.MHTMLLoadResult = {
   kInvalidArchive: 3,
   kMissingMainResource: 4,
 };
+blink.mojom.MHTMLLoadResultSpec = { $: mojo.internal.Enum() };

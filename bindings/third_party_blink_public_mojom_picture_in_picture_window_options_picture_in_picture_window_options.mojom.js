@@ -16,12 +16,12 @@ blink.mojom.PictureInPictureWindowOptionsSpec = {
       name: 'blink.mojom.PictureInPictureWindowOptions',
       packedSize: 32,
       fields: [
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'disallow_return_to_opener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'prefer_initial_window_placement', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'disallow_return_to_opener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'prefer_initial_window_placement', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

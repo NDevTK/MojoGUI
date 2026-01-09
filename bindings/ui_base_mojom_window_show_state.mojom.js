@@ -17,3 +17,4 @@ ui.mojom.WindowShowState = {
   kInactive: 3,
   kFullscreen: 4,
 };
+ui.mojom.WindowShowStateSpec = { $: mojo.internal.Enum() };

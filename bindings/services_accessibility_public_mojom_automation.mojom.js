@@ -115,11 +115,11 @@ ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Automation.DispatchTreeDestroyedEvent_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -131,10 +131,10 @@ ax.mojom.Automation_DispatchActionResult_ParamsSpec = {
       name: 'ax.mojom.Automation.DispatchActionResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -144,14 +144,14 @@ ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Automation.DispatchAccessibilityEvents_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mouse_location', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'events', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'mouse_location', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'events', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXEventSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -161,13 +161,13 @@ ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Automation.DispatchAccessibilityLocationChange_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'bounds', packedOffset: 24, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 24, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -177,14 +177,14 @@ ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Automation.DispatchAccessibilityScrollChange_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'scroll_x', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'scroll_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scroll_x', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scroll_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -196,10 +196,10 @@ ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = {
       name: 'ax.mojom.Automation.DispatchGetTextLocationResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

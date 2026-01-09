@@ -47,3 +47,4 @@ attribution_reporting.mojom.TriggerRegistrationError = {
   kAggregatableNamedBudgetWrongType: 33,
   kAggregatableNamedBudgetNameInvalid: 34,
 };
+attribution_reporting.mojom.TriggerRegistrationErrorSpec = { $: mojo.internal.Enum() };

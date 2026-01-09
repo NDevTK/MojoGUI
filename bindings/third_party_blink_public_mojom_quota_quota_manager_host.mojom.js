@@ -73,7 +73,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,15 +81,15 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
 blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false },
-        { name: 'current_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'current_quota', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'usage_breakdown', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.UsageBreakdownSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'current_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'current_quota', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'usage_breakdown', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.UsageBreakdownSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

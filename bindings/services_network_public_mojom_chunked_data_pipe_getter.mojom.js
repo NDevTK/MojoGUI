@@ -82,7 +82,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -90,13 +90,13 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
 network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter.GetSize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -108,9 +108,9 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
       name: 'network.mojom.ChunkedDataPipeGetter.StartReading_Params',
       packedSize: 16,
       fields: [
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

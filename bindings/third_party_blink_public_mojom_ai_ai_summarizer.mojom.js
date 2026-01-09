@@ -16,12 +16,14 @@ blink.mojom.AISummarizerType = {
   kTeaser: 2,
   kHeadline: 3,
 };
+blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AISummarizerFormat
 blink.mojom.AISummarizerFormat = {
   kPlainText: 0,
   kMarkDown: 1,
 };
+blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: AISummarizerLength
 blink.mojom.AISummarizerLength = {
@@ -29,23 +31,24 @@ blink.mojom.AISummarizerLength = {
   kMedium: 1,
   kLong: 2,
 };
+blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
 
 // Struct: AISummarizerCreateOptions
 blink.mojom.AISummarizerCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AISummarizerCreateOptions',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'shared_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AISummarizerTypeSpec, nullable: false },
-        { name: 'format', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AISummarizerFormatSpec, nullable: false },
-        { name: 'length', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AISummarizerLengthSpec, nullable: false },
-        { name: 'expected_input_languages', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'expected_context_languages', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'output_language', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false },
+        { name: 'shared_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AISummarizerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.AISummarizerFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AISummarizerLengthSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_input_languages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'expected_context_languages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'output_language', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -122,11 +125,11 @@ blink.mojom.AISummarizer_Summarize_ParamsSpec = {
       name: 'blink.mojom.AISummarizer.Summarize_Params',
       packedSize: 32,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -138,10 +141,10 @@ blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
       name: 'blink.mojom.AISummarizer.MeasureUsage_Params',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,12 +152,13 @@ blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
 blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.AISummarizer.MeasureUsage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'number_of_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'number_of_tokens_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'number_of_tokens_$value', originalFieldName: 'number_of_tokens' } },
+        { name: 'number_of_tokens_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'number_of_tokens_$flag', originalFieldName: 'number_of_tokens' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

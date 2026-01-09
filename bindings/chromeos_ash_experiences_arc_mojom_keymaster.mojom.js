@@ -18,6 +18,7 @@ arc.mojom.KeyPurpose = {
   DERIVE_KEY: 4,
   WRAP_KEY: 5,
 };
+arc.mojom.KeyPurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyFormat
 arc.mojom.KeyFormat = {
@@ -25,18 +26,45 @@ arc.mojom.KeyFormat = {
   PKCS8: 1,
   RAW: 2,
 };
+arc.mojom.KeyFormatSpec = { $: mojo.internal.Enum() };
+
+// Union: IntegerKeyParam
+arc.mojom.IntegerKeyParamSpec = { $: mojo.internal.Union(
+    'arc.mojom.IntegerKeyParam', {
+      'boolean_value': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'integer': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint32,
+      }},
+      'long_integer': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint64,
+      }},
+      'date_time': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint64,
+      }},
+      'blob': {
+        'ordinal': 4,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+      }},
+    })
+};
 
 // Struct: KeyParameter
 arc.mojom.KeyParameterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeyParameter',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'param', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.IntegerKeyParamSpec, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'param', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.IntegerKeyParamSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -48,10 +76,10 @@ arc.mojom.KeyCharacteristicsSpec = {
       name: 'arc.mojom.KeyCharacteristics',
       packedSize: 24,
       fields: [
-        { name: 'software_enforced', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'tee_enforced', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'software_enforced', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'tee_enforced', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -63,11 +91,11 @@ arc.mojom.GetKeyCharacteristicsRequestSpec = {
       name: 'arc.mojom.GetKeyCharacteristicsRequest',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'app_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'app_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -79,10 +107,10 @@ arc.mojom.GetKeyCharacteristicsResultSpec = {
       name: 'arc.mojom.GetKeyCharacteristicsResult',
       packedSize: 24,
       fields: [
-        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_characteristics', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -94,11 +122,11 @@ arc.mojom.GenerateKeyResultSpec = {
       name: 'arc.mojom.GenerateKeyResult',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_characteristics', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -110,11 +138,11 @@ arc.mojom.ImportKeyRequestSpec = {
       name: 'arc.mojom.ImportKeyRequest',
       packedSize: 32,
       fields: [
-        { name: 'key_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_format', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false },
-        { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -126,11 +154,11 @@ arc.mojom.ImportKeyResultSpec = {
       name: 'arc.mojom.ImportKeyResult',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_characteristics', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyCharacteristicsSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -142,12 +170,12 @@ arc.mojom.ExportKeyRequestSpec = {
       name: 'arc.mojom.ExportKeyRequest',
       packedSize: 40,
       fields: [
-        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false },
-        { name: 'key_blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'app_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'app_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -159,10 +187,10 @@ arc.mojom.ExportKeyResultSpec = {
       name: 'arc.mojom.ExportKeyResult',
       packedSize: 24,
       fields: [
-        { name: 'key_material', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'key_material', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,10 +202,10 @@ arc.mojom.AttestKeyRequestSpec = {
       name: 'arc.mojom.AttestKeyRequest',
       packedSize: 24,
       fields: [
-        { name: 'key_to_attest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attest_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_to_attest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attest_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -189,10 +217,10 @@ arc.mojom.AttestKeyResultSpec = {
       name: 'arc.mojom.AttestKeyResult',
       packedSize: 24,
       fields: [
-        { name: 'cert_chain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cert_chain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -204,10 +232,10 @@ arc.mojom.UpgradeKeyRequestSpec = {
       name: 'arc.mojom.UpgradeKeyRequest',
       packedSize: 24,
       fields: [
-        { name: 'key_blob_to_upgrade', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'upgrade_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob_to_upgrade', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'upgrade_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -219,10 +247,10 @@ arc.mojom.UpgradeKeyResultSpec = {
       name: 'arc.mojom.UpgradeKeyResult',
       packedSize: 24,
       fields: [
-        { name: 'upgraded_key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'upgraded_key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -234,11 +262,11 @@ arc.mojom.BeginRequestSpec = {
       name: 'arc.mojom.BeginRequest',
       packedSize: 32,
       fields: [
-        { name: 'purpose', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyPurposeSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'in_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyPurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'in_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -250,11 +278,11 @@ arc.mojom.BeginResultSpec = {
       name: 'arc.mojom.BeginResult',
       packedSize: 32,
       fields: [
-        { name: 'out_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'op_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'out_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'op_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -266,11 +294,11 @@ arc.mojom.UpdateRequestSpec = {
       name: 'arc.mojom.UpdateRequest',
       packedSize: 32,
       fields: [
-        { name: 'op_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'in_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'input', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'in_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -280,14 +308,14 @@ arc.mojom.UpdateResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UpdateResult',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'input_consumed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'out_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'output', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'input_consumed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'out_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'output', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -299,12 +327,12 @@ arc.mojom.FinishRequestSpec = {
       name: 'arc.mojom.FinishRequest',
       packedSize: 40,
       fields: [
-        { name: 'op_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'in_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'input', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'signature', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'in_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -316,11 +344,11 @@ arc.mojom.FinishResultSpec = {
       name: 'arc.mojom.FinishResult',
       packedSize: 32,
       fields: [
-        { name: 'out_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'output', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'out_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -360,6 +388,15 @@ arc.mojom.KeymasterHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getServer() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.KeymasterHost_GetServer_ParamsSpec,
+      arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.KeymasterHost.getRemote = function() {
@@ -370,6 +407,32 @@ arc.mojom.KeymasterHost.getRemote = function() {
     'arc.mojom.KeymasterHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetServer
+arc.mojom.KeymasterHost_GetServer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterHost.GetServer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -412,6 +475,15 @@ arc.mojom.KeymasterInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.KeymasterInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.KeymasterInstance.getRemote = function() {
@@ -422,6 +494,20 @@ arc.mojom.KeymasterInstance.getRemote = function() {
     'arc.mojom.KeymasterInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.KeymasterInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -464,6 +550,132 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setSystemVersion(os_version, os_patchlevel) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
+      null,
+      [os_version, os_patchlevel]);
+  }
+
+  addRngEntropy(data) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
+      arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
+      [data]);
+  }
+
+  getKeyCharacteristics(request) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
+      arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
+      [request]);
+  }
+
+  generateKey(key_params) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.KeymasterServer_GenerateKey_ParamsSpec,
+      arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
+      [key_params]);
+  }
+
+  importKey(request) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      arc.mojom.KeymasterServer_ImportKey_ParamsSpec,
+      arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  exportKey(request) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      arc.mojom.KeymasterServer_ExportKey_ParamsSpec,
+      arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  attestKey(request) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      arc.mojom.KeymasterServer_AttestKey_ParamsSpec,
+      arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  upgradeKey(request) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
+      arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  deleteKey(key_blob) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      arc.mojom.KeymasterServer_DeleteKey_ParamsSpec,
+      arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
+      [key_blob]);
+  }
+
+  deleteAllKeys() {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
+      arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
+      []);
+  }
+
+  begin(request) {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      arc.mojom.KeymasterServer_Begin_ParamsSpec,
+      arc.mojom.KeymasterServer_Begin_ResponseParamsSpec,
+      [request]);
+  }
+
+  update(request) {
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      arc.mojom.KeymasterServer_Update_ParamsSpec,
+      arc.mojom.KeymasterServer_Update_ResponseParamsSpec,
+      [request]);
+  }
+
+  finish(request) {
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      arc.mojom.KeymasterServer_Finish_ParamsSpec,
+      arc.mojom.KeymasterServer_Finish_ResponseParamsSpec,
+      [request]);
+  }
+
+  abort(op_handle) {
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      arc.mojom.KeymasterServer_Abort_ParamsSpec,
+      arc.mojom.KeymasterServer_Abort_ResponseParamsSpec,
+      [op_handle]);
+  }
+
 };
 
 arc.mojom.KeymasterServer.getRemote = function() {
@@ -474,6 +686,371 @@ arc.mojom.KeymasterServer.getRemote = function() {
     'arc.mojom.KeymasterServer',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetSystemVersion
+arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.SetSystemVersion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'os_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'os_patchlevel', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddRngEntropy
+arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.AddRngEntropy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetKeyCharacteristics
+arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.GetKeyCharacteristics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetKeyCharacteristicsRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetKeyCharacteristicsResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GenerateKey
+arc.mojom.KeymasterServer_GenerateKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.GenerateKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GenerateKeyResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ImportKey
+arc.mojom.KeymasterServer_ImportKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.ImportKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ImportKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ImportKeyResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ExportKey
+arc.mojom.KeymasterServer_ExportKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.ExportKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ExportKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ExportKeyResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AttestKey
+arc.mojom.KeymasterServer_AttestKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.AttestKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AttestKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AttestKeyResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for UpgradeKey
+arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.UpgradeKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpgradeKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpgradeKeyResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DeleteKey
+arc.mojom.KeymasterServer_DeleteKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.DeleteKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DeleteAllKeys
+arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.DeleteAllKeys_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Begin
+arc.mojom.KeymasterServer_Begin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.Begin_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BeginRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_Begin_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BeginResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Update
+arc.mojom.KeymasterServer_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpdateRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_Update_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpdateResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Finish
+arc.mojom.KeymasterServer_Finish_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.Finish_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FinishRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_Finish_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FinishResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Abort
+arc.mojom.KeymasterServer_Abort_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeymasterServer.Abort_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.KeymasterServer_Abort_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -15,28 +15,40 @@ content.optional_numerics_unittest.mojom.RegularEnum = {
   kFoo: 0,
   kBar: 1,
 };
+content.optional_numerics_unittest.mojom.RegularEnumSpec = { $: mojo.internal.Enum() };
 
 // Struct: OptionalNumericsStruct
 content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.OptionalNumericsStruct',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
-        { name: 'optional_bool', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'optional_uint8', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
-        { name: 'optional_int8', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
-        { name: 'optional_uint16', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
-        { name: 'optional_int16', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
-        { name: 'optional_uint32', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'optional_int32', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'optional_uint64', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'optional_int64', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
-        { name: 'optional_float', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
-        { name: 'optional_double', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'optional_enum', packedOffset: 64, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true },
+        { name: 'optional_bool_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_bool_$value', originalFieldName: 'optional_bool' } },
+        { name: 'optional_bool_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_bool_$flag', originalFieldName: 'optional_bool' } },
+        { name: 'optional_uint8_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint8_$value', originalFieldName: 'optional_uint8' } },
+        { name: 'optional_uint8_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint8_$flag', originalFieldName: 'optional_uint8' } },
+        { name: 'optional_int8_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int8_$value', originalFieldName: 'optional_int8' } },
+        { name: 'optional_int8_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int8_$flag', originalFieldName: 'optional_int8' } },
+        { name: 'optional_uint16_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint16_$value', originalFieldName: 'optional_uint16' } },
+        { name: 'optional_uint16_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint16_$flag', originalFieldName: 'optional_uint16' } },
+        { name: 'optional_int16_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int16_$value', originalFieldName: 'optional_int16' } },
+        { name: 'optional_int16_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int16_$flag', originalFieldName: 'optional_int16' } },
+        { name: 'optional_uint32_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint32_$value', originalFieldName: 'optional_uint32' } },
+        { name: 'optional_uint32_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint32_$flag', originalFieldName: 'optional_uint32' } },
+        { name: 'optional_int32_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int32_$value', originalFieldName: 'optional_int32' } },
+        { name: 'optional_int32_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int32_$flag', originalFieldName: 'optional_int32' } },
+        { name: 'optional_uint64_$flag', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint64_$value', originalFieldName: 'optional_uint64' } },
+        { name: 'optional_uint64_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint64_$flag', originalFieldName: 'optional_uint64' } },
+        { name: 'optional_int64_$flag', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int64_$value', originalFieldName: 'optional_int64' } },
+        { name: 'optional_int64_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int64_$flag', originalFieldName: 'optional_int64' } },
+        { name: 'optional_float_$flag', packedOffset: 3, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_float_$value', originalFieldName: 'optional_float' } },
+        { name: 'optional_float_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_float_$flag', originalFieldName: 'optional_float' } },
+        { name: 'optional_double_$flag', packedOffset: 3, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_double_$value', originalFieldName: 'optional_double' } },
+        { name: 'optional_double_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_double_$flag', originalFieldName: 'optional_double' } },
+        { name: 'optional_enum', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -49,7 +61,7 @@ content.optional_numerics_unittest.mojom.VersionedStructV0Spec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -59,10 +71,33 @@ content.optional_numerics_unittest.mojom.VersionedStructV2Spec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.VersionedStructV2',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'bool_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'bool_value_$value', originalFieldName: 'bool_value' } },
+        { name: 'bool_value_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'bool_value_$flag', originalFieldName: 'bool_value' } },
+        { name: 'uint8_value_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint8_value_$value', originalFieldName: 'uint8_value' } },
+        { name: 'uint8_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint8_value_$flag', originalFieldName: 'uint8_value' } },
+        { name: 'int8_value_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int8_value_$value', originalFieldName: 'int8_value' } },
+        { name: 'int8_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int8_value_$flag', originalFieldName: 'int8_value' } },
+        { name: 'uint16_value_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint16_value_$value', originalFieldName: 'uint16_value' } },
+        { name: 'uint16_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint16_value_$flag', originalFieldName: 'uint16_value' } },
+        { name: 'int16_value_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int16_value_$value', originalFieldName: 'int16_value' } },
+        { name: 'int16_value_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int16_value_$flag', originalFieldName: 'int16_value' } },
+        { name: 'uint32_value_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint32_value_$value', originalFieldName: 'uint32_value' } },
+        { name: 'uint32_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint32_value_$flag', originalFieldName: 'uint32_value' } },
+        { name: 'int32_value_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int32_value_$value', originalFieldName: 'int32_value' } },
+        { name: 'int32_value_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int32_value_$flag', originalFieldName: 'int32_value' } },
+        { name: 'uint64_value_$flag', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint64_value_$value', originalFieldName: 'uint64_value' } },
+        { name: 'uint64_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint64_value_$flag', originalFieldName: 'uint64_value' } },
+        { name: 'int64_value_$flag', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int64_value_$value', originalFieldName: 'int64_value' } },
+        { name: 'int64_value_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int64_value_$flag', originalFieldName: 'int64_value' } },
+        { name: 'float_value_$flag', packedOffset: 3, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'float_value_$value', originalFieldName: 'float_value' } },
+        { name: 'float_value_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' } },
+        { name: 'double_value_$flag', packedOffset: 3, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' } },
+        { name: 'double_value_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' } },
+        { name: 'enum_value', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 2, packedSize: 56}]
     }
   }
 };
@@ -508,9 +543,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bool', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'optional_bool_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_bool_$value', originalFieldName: 'optional_bool' } },
+        { name: 'optional_bool_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_bool_$flag', originalFieldName: 'optional_bool' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -522,9 +558,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint8', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'optional_uint8_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint8_$value', originalFieldName: 'optional_uint8' } },
+        { name: 'optional_uint8_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint8_$flag', originalFieldName: 'optional_uint8' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -536,9 +573,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int8', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
+        { name: 'optional_int8_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int8_$value', originalFieldName: 'optional_int8' } },
+        { name: 'optional_int8_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int8_$flag', originalFieldName: 'optional_int8' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -550,9 +588,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint16', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'optional_uint16_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint16_$value', originalFieldName: 'optional_uint16' } },
+        { name: 'optional_uint16_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint16_$flag', originalFieldName: 'optional_uint16' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -564,9 +603,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'optional_int16_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int16_$value', originalFieldName: 'optional_int16' } },
+        { name: 'optional_int16_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int16_$flag', originalFieldName: 'optional_int16' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -578,9 +618,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'optional_uint32_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint32_$value', originalFieldName: 'optional_uint32' } },
+        { name: 'optional_uint32_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint32_$flag', originalFieldName: 'optional_uint32' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -592,9 +633,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'optional_int32_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int32_$value', originalFieldName: 'optional_int32' } },
+        { name: 'optional_int32_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int32_$flag', originalFieldName: 'optional_int32' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -604,11 +646,12 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint64_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_uint64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'optional_uint64_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint64_$value', originalFieldName: 'optional_uint64' } },
+        { name: 'optional_uint64_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint64_$flag', originalFieldName: 'optional_uint64' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -618,11 +661,12 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt64_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_int64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'optional_int64_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int64_$value', originalFieldName: 'optional_int64' } },
+        { name: 'optional_int64_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int64_$flag', originalFieldName: 'optional_int64' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -634,9 +678,10 @@ content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_float', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'optional_float_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_float_$value', originalFieldName: 'optional_float' } },
+        { name: 'optional_float_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_float_$flag', originalFieldName: 'optional_float' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -646,11 +691,12 @@ content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDouble_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_double', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'optional_double_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_double_$value', originalFieldName: 'optional_double' } },
+        { name: 'optional_double_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_double_$flag', originalFieldName: 'optional_double' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -662,9 +708,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enum', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true },
+        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -676,9 +722,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_bools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -690,9 +736,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16s', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -704,9 +750,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32s', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -718,9 +764,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_doubles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -732,9 +778,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -746,9 +792,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBoolMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -760,9 +806,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDoubleMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -774,9 +820,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnumMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -788,9 +834,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bool', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'optional_bool_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_bool_$value', originalFieldName: 'optional_bool' } },
+        { name: 'optional_bool_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_bool_$flag', originalFieldName: 'optional_bool' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -798,12 +845,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBool_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -815,9 +862,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint8', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'optional_uint8_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint8_$value', originalFieldName: 'optional_uint8' } },
+        { name: 'optional_uint8_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint8_$flag', originalFieldName: 'optional_uint8' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -825,12 +873,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -842,9 +890,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int8', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
+        { name: 'optional_int8_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int8_$value', originalFieldName: 'optional_int8' } },
+        { name: 'optional_int8_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int8_$flag', originalFieldName: 'optional_int8' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -852,12 +901,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -869,9 +918,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint16', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'optional_uint16_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint16_$value', originalFieldName: 'optional_uint16' } },
+        { name: 'optional_uint16_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint16_$flag', originalFieldName: 'optional_uint16' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -879,12 +929,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -896,9 +946,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'optional_int16_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int16_$value', originalFieldName: 'optional_int16' } },
+        { name: 'optional_int16_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int16_$flag', originalFieldName: 'optional_int16' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -906,12 +957,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -923,9 +974,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'optional_uint32_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint32_$value', originalFieldName: 'optional_uint32' } },
+        { name: 'optional_uint32_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint32_$flag', originalFieldName: 'optional_uint32' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -933,12 +985,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -950,9 +1002,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'optional_int32_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int32_$value', originalFieldName: 'optional_int32' } },
+        { name: 'optional_int32_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int32_$flag', originalFieldName: 'optional_int32' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -960,12 +1013,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -975,11 +1028,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = 
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint64_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_uint64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'optional_uint64_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_uint64_$value', originalFieldName: 'optional_uint64' } },
+        { name: 'optional_uint64_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_uint64_$flag', originalFieldName: 'optional_uint64' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -987,12 +1041,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = 
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint64_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1002,11 +1056,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt64_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_int64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'optional_int64_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_int64_$value', originalFieldName: 'optional_int64' } },
+        { name: 'optional_int64_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_int64_$flag', originalFieldName: 'optional_int64' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1014,12 +1069,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt64_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1031,9 +1086,10 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_float', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'optional_float_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_float_$value', originalFieldName: 'optional_float' } },
+        { name: 'optional_float_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_float_$flag', originalFieldName: 'optional_float' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1041,12 +1097,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalFloat_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1056,11 +1112,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = 
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDouble_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'optional_double', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'optional_double_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_double_$value', originalFieldName: 'optional_double' } },
+        { name: 'optional_double_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_double_$flag', originalFieldName: 'optional_double' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1068,12 +1125,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = 
 content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDouble_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1085,9 +1142,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enum', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true },
+        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1095,12 +1152,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnum_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1112,9 +1169,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1122,12 +1179,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBools_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1139,9 +1196,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16s', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1149,12 +1206,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = 
 content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1166,9 +1223,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32s', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1176,12 +1233,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec =
 content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1193,9 +1250,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_doubles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1203,12 +1260,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec =
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubles_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1220,9 +1277,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1230,12 +1287,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnums_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1247,9 +1304,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBoolMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1257,12 +1314,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec =
 content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBoolMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1274,9 +1331,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubleMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1284,12 +1341,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec
 content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubleMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1301,9 +1358,9 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnumMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1311,12 +1368,12 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec =
 content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnumMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1328,9 +1385,9 @@ content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumeri
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullStructWithOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1342,9 +1399,9 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumeri
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithNullOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1356,9 +1413,9 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_P
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1366,23 +1423,23 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_P
 content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithOptionalNumerics_ResponseParams',
-      packedSize: 72,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 56,
       fields: [
-        { name: 'bool_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'uint8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'int8_value', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'uint16_value', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'int16_value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'uint32_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'int32_value', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'uint64_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'int64_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'float_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'double_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'enum_value', packedOffset: 64, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'uint8_value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'int8_value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'uint16_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'int16_value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'uint32_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'int32_value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'uint64_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'int64_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'float_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'double_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'enum_value', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -1834,7 +1891,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1842,12 +1899,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec =
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBool_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1860,7 +1918,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1868,12 +1926,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1886,7 +1945,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1894,12 +1953,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec =
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1912,7 +1972,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1920,12 +1980,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1938,7 +1999,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1946,12 +2007,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1964,7 +2026,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1972,12 +2034,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1990,7 +2053,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1998,12 +2061,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2016,7 +2080,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2024,12 +2088,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint64_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2042,7 +2107,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2050,12 +2115,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt64_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2068,7 +2134,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2076,12 +2142,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullFloat_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2094,7 +2161,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2102,12 +2169,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullDouble_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2120,7 +2188,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2128,12 +2196,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec =
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnum_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2146,7 +2214,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2154,12 +2222,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBools_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2172,7 +2240,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2180,12 +2248,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt16s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2198,7 +2266,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2206,12 +2274,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpe
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint32s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2224,7 +2292,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2232,12 +2300,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpe
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullDoubles_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2250,7 +2318,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2258,12 +2326,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec 
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnums_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2276,7 +2344,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2284,12 +2352,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpe
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBoolMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2302,7 +2370,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2310,12 +2378,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSp
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt32Map_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, mojo.internal.Int32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2328,7 +2396,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2336,12 +2404,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpe
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnumMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2353,9 +2421,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2363,12 +2431,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSp
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBool_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2380,9 +2449,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2390,12 +2459,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2407,9 +2477,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2417,12 +2487,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSp
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt8_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2434,9 +2505,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2444,12 +2515,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2461,9 +2533,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2471,12 +2543,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2488,9 +2561,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2498,12 +2571,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2515,9 +2589,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2525,12 +2599,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt32_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2542,9 +2617,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint64_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2552,12 +2627,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint64_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2569,9 +2645,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt64_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2579,12 +2655,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt64_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2596,9 +2673,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2606,12 +2683,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloat_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2623,9 +2701,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDouble_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2633,12 +2711,13 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDouble_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'optional_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'optional_value_$value', originalFieldName: 'optional_value' } },
+        { name: 'optional_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'optional_value_$flag', originalFieldName: 'optional_value' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2650,9 +2729,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2660,12 +2739,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSp
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnum_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2677,9 +2756,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2687,12 +2766,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBools_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2704,9 +2783,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2714,12 +2793,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int16, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2731,9 +2810,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2741,12 +2820,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Param
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32s_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2758,9 +2837,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2768,12 +2847,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Param
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDoubles_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2785,9 +2864,9 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2795,12 +2874,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsS
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnums_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2810,12 +2889,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBoolMap_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2823,12 +2902,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBoolMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2840,10 +2919,10 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloatMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2851,12 +2930,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloatMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, mojo.internal.Float, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2866,12 +2945,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnumMap_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2879,12 +2958,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
 content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnumMap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2897,7 +2976,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2905,12 +2984,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
 content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullStructWithOptionalNumerics_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2923,7 +3002,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2931,12 +3010,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithNullOptionalNumerics_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2946,22 +3025,22 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
   $: {
     structSpec: {
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithOptionalNumerics_Params',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
-        { name: 'bool_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'uint8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'int8_value', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'uint16_value', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'int16_value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'uint32_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'int32_value', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'uint64_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'int64_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'float_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'double_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'enum_value', packedOffset: 64, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false },
+        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'uint8_value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'int8_value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'uint16_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'int16_value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'uint32_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'int32_value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'uint64_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'int64_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'float_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'double_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'enum_value', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -2969,12 +3048,12 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
 content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithOptionalNumerics_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 8, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3019,6 +3098,24 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  methodWithVersionedParams() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec,
+      null,
+      []);
+  }
+
+  methodWithVersionedStruct(s) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec,
+      content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec,
+      [s]);
+  }
+
 };
 
 content.optional_numerics_unittest.mojom.InterfaceV0.getRemote = function() {
@@ -3029,6 +3126,46 @@ content.optional_numerics_unittest.mojom.InterfaceV0.getRemote = function() {
     'content.optional_numerics_unittest.mojom.InterfaceV0',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for MethodWithVersionedParams
+content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.InterfaceV0.MethodWithVersionedParams_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for MethodWithVersionedStruct
+content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.InterfaceV0.MethodWithVersionedStruct_Params',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.VersionedStructV0Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.VersionedStructV0Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -3071,6 +3208,24 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  methodWithVersionedParams(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec,
+      content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec,
+      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value]);
+  }
+
+  methodWithVersionedStruct(s) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec,
+      content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec,
+      [s]);
+  }
+
 };
 
 content.optional_numerics_unittest.mojom.InterfaceV2.getRemote = function() {
@@ -3081,6 +3236,104 @@ content.optional_numerics_unittest.mojom.InterfaceV2.getRemote = function() {
     'content.optional_numerics_unittest.mojom.InterfaceV2',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for MethodWithVersionedParams
+content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.InterfaceV2.MethodWithVersionedParams_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'bool_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'bool_value_$value', originalFieldName: 'bool_value' } },
+        { name: 'bool_value_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'bool_value_$flag', originalFieldName: 'bool_value' } },
+        { name: 'uint8_value_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint8_value_$value', originalFieldName: 'uint8_value' } },
+        { name: 'uint8_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint8_value_$flag', originalFieldName: 'uint8_value' } },
+        { name: 'int8_value_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int8_value_$value', originalFieldName: 'int8_value' } },
+        { name: 'int8_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int8_value_$flag', originalFieldName: 'int8_value' } },
+        { name: 'uint16_value_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint16_value_$value', originalFieldName: 'uint16_value' } },
+        { name: 'uint16_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint16_value_$flag', originalFieldName: 'uint16_value' } },
+        { name: 'int16_value_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int16_value_$value', originalFieldName: 'int16_value' } },
+        { name: 'int16_value_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int16_value_$flag', originalFieldName: 'int16_value' } },
+        { name: 'uint32_value_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint32_value_$value', originalFieldName: 'uint32_value' } },
+        { name: 'uint32_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint32_value_$flag', originalFieldName: 'uint32_value' } },
+        { name: 'int32_value_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int32_value_$value', originalFieldName: 'int32_value' } },
+        { name: 'int32_value_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int32_value_$flag', originalFieldName: 'int32_value' } },
+        { name: 'uint64_value_$flag', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint64_value_$value', originalFieldName: 'uint64_value' } },
+        { name: 'uint64_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint64_value_$flag', originalFieldName: 'uint64_value' } },
+        { name: 'int64_value_$flag', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int64_value_$value', originalFieldName: 'int64_value' } },
+        { name: 'int64_value_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int64_value_$flag', originalFieldName: 'int64_value' } },
+        { name: 'float_value_$flag', packedOffset: 3, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'float_value_$value', originalFieldName: 'float_value' } },
+        { name: 'float_value_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' } },
+        { name: 'double_value_$flag', packedOffset: 3, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' } },
+        { name: 'double_value_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' } },
+        { name: 'enum_value', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 56}]
+    }
+  }
+};
+
+content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 56,
+      fields: [
+        { name: 'bool_value_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'bool_value_$value', originalFieldName: 'bool_value' } },
+        { name: 'bool_value_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'bool_value_$flag', originalFieldName: 'bool_value' } },
+        { name: 'uint8_value_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint8_value_$value', originalFieldName: 'uint8_value' } },
+        { name: 'uint8_value_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint8_value_$flag', originalFieldName: 'uint8_value' } },
+        { name: 'int8_value_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int8_value_$value', originalFieldName: 'int8_value' } },
+        { name: 'int8_value_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int8_value_$flag', originalFieldName: 'int8_value' } },
+        { name: 'uint16_value_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint16_value_$value', originalFieldName: 'uint16_value' } },
+        { name: 'uint16_value_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint16_value_$flag', originalFieldName: 'uint16_value' } },
+        { name: 'int16_value_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int16_value_$value', originalFieldName: 'int16_value' } },
+        { name: 'int16_value_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int16_value_$flag', originalFieldName: 'int16_value' } },
+        { name: 'uint32_value_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint32_value_$value', originalFieldName: 'uint32_value' } },
+        { name: 'uint32_value_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint32_value_$flag', originalFieldName: 'uint32_value' } },
+        { name: 'int32_value_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int32_value_$value', originalFieldName: 'int32_value' } },
+        { name: 'int32_value_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int32_value_$flag', originalFieldName: 'int32_value' } },
+        { name: 'uint64_value_$flag', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'uint64_value_$value', originalFieldName: 'uint64_value' } },
+        { name: 'uint64_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'uint64_value_$flag', originalFieldName: 'uint64_value' } },
+        { name: 'int64_value_$flag', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'int64_value_$value', originalFieldName: 'int64_value' } },
+        { name: 'int64_value_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'int64_value_$flag', originalFieldName: 'int64_value' } },
+        { name: 'float_value_$flag', packedOffset: 3, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'float_value_$value', originalFieldName: 'float_value' } },
+        { name: 'float_value_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' } },
+        { name: 'double_value_$flag', packedOffset: 3, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' } },
+        { name: 'double_value_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' } },
+        { name: 'enum_value', packedOffset: 36, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.RegularEnumSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 2, packedSize: 56}]
+    }
+  }
+};
+
+// ParamsSpec for MethodWithVersionedStruct
+content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.InterfaceV2.MethodWithVersionedStruct_Params',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.VersionedStructV2Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: content.optional_numerics_unittest.mojom.VersionedStructV2Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

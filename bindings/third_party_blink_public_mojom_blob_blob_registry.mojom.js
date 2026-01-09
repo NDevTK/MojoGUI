@@ -72,9 +72,9 @@ blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
       name: 'blink.mojom.ProgressClient.OnProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,13 +156,13 @@ blink.mojom.BlobRegistry_Register_ParamsSpec = {
       name: 'blink.mojom.BlobRegistry.Register_Params',
       packedSize: 48,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_disposition', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'elements', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'elements', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DataElementSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -174,13 +174,13 @@ blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
       name: 'blink.mojom.BlobRegistry.RegisterFromStream_Params',
       packedSize: 48,
       fields: [
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_disposition', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'length_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'progress_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_disposition', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'length_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'progress_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -188,12 +188,12 @@ blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
 blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.BlobRegistry.RegisterFromStream_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ network.mojom.HostResolverEndpointResultSpec = {
       name: 'network.mojom.HostResolverEndpointResult',
       packedSize: 24,
       fields: [
-        { name: 'ip_endpoints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionEndpointMetadataSpec, nullable: false },
+        { name: 'ip_endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPEndPointSpec, false), nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionEndpointMetadataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -91,7 +91,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -99,12 +99,12 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
 file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(file_suggestion.mojom.FileSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,7 +117,7 @@ file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -130,7 +130,7 @@ file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

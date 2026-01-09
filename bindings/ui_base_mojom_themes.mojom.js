@@ -17,3 +17,4 @@ ui.mojom.BrowserColorVariant = {
   kVibrant: 3,
   kExpressive: 4,
 };
+ui.mojom.BrowserColorVariantSpec = { $: mojo.internal.Enum() };

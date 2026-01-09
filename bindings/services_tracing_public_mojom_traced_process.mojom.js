@@ -16,9 +16,9 @@ tracing.mojom.ConnectToTracingRequestSpec = {
       name: 'tracing.mojom.ConnectToTracingRequest',
       packedSize: 16,
       fields: [
-        { name: 'perfetto_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'perfetto_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -86,9 +86,9 @@ tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
       name: 'tracing.mojom.TracedProcess.ConnectToTracingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.ConnectToTracingRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ConnectToTracingRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

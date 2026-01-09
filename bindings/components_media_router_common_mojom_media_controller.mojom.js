@@ -127,7 +127,7 @@ media_router.mojom.MediaController_Play_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +140,7 @@ media_router.mojom.MediaController_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -152,9 +152,9 @@ media_router.mojom.MediaController_SetMute_ParamsSpec = {
       name: 'media_router.mojom.MediaController.SetMute_Params',
       packedSize: 16,
       fields: [
-        { name: 'mute', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -166,9 +166,9 @@ media_router.mojom.MediaController_SetVolume_ParamsSpec = {
       name: 'media_router.mojom.MediaController.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,9 +180,9 @@ media_router.mojom.MediaController_Seek_ParamsSpec = {
       name: 'media_router.mojom.MediaController.Seek_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,7 +195,7 @@ media_router.mojom.MediaController_NextTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -208,7 +208,7 @@ media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

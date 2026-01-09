@@ -44,6 +44,24 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  enableAudioFocus(service) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec,
+      null,
+      [service]);
+  }
+
+  disableAudioFocus() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.MediaSessionInstance.getRemote = function() {
@@ -54,6 +72,33 @@ arc.mojom.MediaSessionInstance.getRemote = function() {
     'arc.mojom.MediaSessionInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for EnableAudioFocus
+arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MediaSessionInstance.EnableAudioFocus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DisableAudioFocus
+arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MediaSessionInstance.DisableAudioFocus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

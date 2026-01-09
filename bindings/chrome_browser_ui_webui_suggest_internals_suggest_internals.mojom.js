@@ -17,6 +17,7 @@ suggest_internals.mojom.RequestStatus = {
   kSucceeded: 3,
   kFailed: 4,
 };
+suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: Request
 suggest_internals.mojom.RequestSpec = {
@@ -25,15 +26,15 @@ suggest_internals.mojom.RequestSpec = {
       name: 'suggest_internals.mojom.Request',
       packedSize: 64,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: suggest_internals.mojom.RequestStatusSpec, nullable: false },
-        { name: 'start_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'end_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'response', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: suggest_internals.mojom.RequestStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -110,9 +111,9 @@ suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'suggest_internals.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,10 +125,10 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
       name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -135,12 +136,12 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
 suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,9 +232,9 @@ suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,9 +246,9 @@ suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -259,9 +260,9 @@ suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestCompleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

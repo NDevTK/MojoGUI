@@ -17,6 +17,7 @@ arc.mojom.TtsEventType = {
   ERROR: 3,
   WORD: 4,
 };
+arc.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsUtterance
 arc.mojom.TtsUtteranceSpec = {
@@ -25,12 +26,13 @@ arc.mojom.TtsUtteranceSpec = {
       name: 'arc.mojom.TtsUtterance',
       packedSize: 40,
       fields: [
-        { name: 'utteranceId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'pitch', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'utteranceId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'pitch', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'voice_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 40}]
     }
   }
 };
@@ -40,14 +42,14 @@ arc.mojom.TtsVoiceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TtsVoice',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'locale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_network_connection_required', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'locale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_network_connection_required', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -87,6 +89,24 @@ arc.mojom.TtsHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onVoicesChanged(voices) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec,
+      null,
+      [voices]);
+  }
+
+  onTtsEvent(utteranceId, event_type, char_index, length, error_msg) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.TtsHost_OnTtsEvent_ParamsSpec,
+      null,
+      [utteranceId, event_type, char_index, length, error_msg]);
+  }
+
 };
 
 arc.mojom.TtsHost.getRemote = function() {
@@ -97,6 +117,38 @@ arc.mojom.TtsHost.getRemote = function() {
     'arc.mojom.TtsHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnVoicesChanged
+arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsHost.OnVoicesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.TtsVoiceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnTtsEvent
+arc.mojom.TtsHost_OnTtsEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsHost.OnTtsEvent_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'utteranceId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'event_type', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -139,6 +191,42 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.TtsInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
+  speak(utterance) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.TtsInstance_Speak_ParamsSpec,
+      null,
+      [utterance]);
+  }
+
+  stop() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.TtsInstance_Stop_ParamsSpec,
+      null,
+      []);
+  }
+
+  refreshVoices() {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      arc.mojom.TtsInstance_RefreshVoices_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.TtsInstance.getRemote = function() {
@@ -149,6 +237,60 @@ arc.mojom.TtsInstance.getRemote = function() {
     'arc.mojom.TtsInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.TtsInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Speak
+arc.mojom.TtsInstance_Speak_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance.Speak_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TtsUtteranceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Stop
+arc.mojom.TtsInstance_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance.Stop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for RefreshVoices
+arc.mojom.TtsInstance_RefreshVoices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.TtsInstance.RefreshVoices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

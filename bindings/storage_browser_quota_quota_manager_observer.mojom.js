@@ -81,9 +81,9 @@ storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
       name: 'storage.mojom.QuotaManagerObserver.OnCreateOrUpdateBucket_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_info', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketInfoSpec, nullable: false },
+        { name: 'bucket_info', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,9 +95,9 @@ storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
       name: 'storage.mojom.QuotaManagerObserver.OnDeleteBucket_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

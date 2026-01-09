@@ -73,7 +73,7 @@ content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -303,7 +303,7 @@ content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

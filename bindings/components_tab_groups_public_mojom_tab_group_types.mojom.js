@@ -20,3 +20,4 @@ tab_groups.mojom.Color = {
   kCyan: 6,
   kOrange: 7,
 };
+tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum() };

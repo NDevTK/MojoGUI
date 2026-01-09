@@ -16,11 +16,11 @@ foo.mojom.FooDataItemSpec = {
       name: 'foo.mojom.FooDataItem',
       packedSize: 32,
       fields: [
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'imageUrl', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'imageUrl', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,7 +89,7 @@ foo.mojom.FooHandler_GetData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,12 +97,12 @@ foo.mojom.FooHandler_GetData_ParamsSpec = {
 foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'foo.mojom.FooHandler.GetData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(foo.mojom.FooDataItemSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

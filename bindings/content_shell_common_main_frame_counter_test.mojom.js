@@ -73,7 +73,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
 content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.MainFrameCounterTest.HasMainFrame_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_main_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -9,6 +9,17 @@ var zero_state_promo = zero_state_promo || {};
 zero_state_promo.mojom = zero_state_promo.mojom || {};
 
 
+zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https:
+const string kCouponWebStoreUrl = "https:
+const string kWritingWebStoreUrl = "https:
+const string kProductivityWebStoreUrl = "https:
+const string kAiWebStoreUrl = "https:
+
+
+interface PageHandlerFactory {
+  
+  CreatePageHandler(pending_receiver<PageHandler> handler);
+
 // Enum: WebStoreLinkClicked
 zero_state_promo.mojom.WebStoreLinkClicked = {
   kDiscoverExtension: 0,
@@ -17,6 +28,7 @@ zero_state_promo.mojom.WebStoreLinkClicked = {
   kProductivity: 3,
   kAi: 4,
 };
+zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
 zero_state_promo.mojom.PageHandlerFactory = {};
@@ -81,9 +93,9 @@ zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'zero_state_promo.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,9 +168,9 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
       name: 'zero_state_promo.mojom.PageHandler.LaunchWebStoreLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'link', packedOffset: 8, packedBitOffset: 0, type: zero_state_promo.mojom.WebStoreLinkClickedSpec, nullable: false },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: zero_state_promo.mojom.WebStoreLinkClickedSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

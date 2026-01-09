@@ -14,25 +14,25 @@ device.mojom.MtpStorageInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpStorageInfo',
-      packedSize: 112,
+      packedSize: 104,
       fields: [
-        { name: 'storage_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'vendor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'vendor_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'product', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'product_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'device_flags', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'storage_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'filesystem_type', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'access_capability', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'max_capacity', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'free_space_in_bytes', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'free_space_in_objects', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'storage_description', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'volume_identifier', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'serial_number', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'storage_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'product', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'device_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'storage_type', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'filesystem_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'access_capability', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_capacity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'free_space_in_bytes', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'free_space_in_objects', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'storage_description', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'volume_identifier', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 104}]
     }
   }
 };

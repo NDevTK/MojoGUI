@@ -72,9 +72,9 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
       name: 'blink.mojom.WebSensorProvider.GetSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,13 +82,13 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
 blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebSensorProvider.GetSensor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false },
-        { name: 'init_params', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

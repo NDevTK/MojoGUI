@@ -126,10 +126,10 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
       name: 'media.mojom.Renderer.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'streams', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'streams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -137,12 +137,12 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
 media.mojom.Renderer_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Renderer.Initialize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,7 +155,7 @@ media.mojom.Renderer_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -167,9 +167,9 @@ media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
       name: 'media.mojom.Renderer.StartPlayingFrom_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -181,9 +181,9 @@ media.mojom.Renderer_SetPlaybackRate_ParamsSpec = {
       name: 'media.mojom.Renderer.SetPlaybackRate_Params',
       packedSize: 16,
       fields: [
-        { name: 'playback_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'playback_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,9 +195,9 @@ media.mojom.Renderer_SetVolume_ParamsSpec = {
       name: 'media.mojom.Renderer.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,9 +209,9 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
       name: 'media.mojom.Renderer.SetCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,12 +219,12 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
 media.mojom.Renderer_SetCdm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Renderer.SetCdm_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -236,9 +236,9 @@ media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
       name: 'media.mojom.Renderer.SetLatencyHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'latency_hint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -392,11 +392,11 @@ media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnTimeUpdate_Params',
       packedSize: 32,
       fields: [
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'max_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'capture_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -408,10 +408,10 @@ media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnBufferingStateChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BufferingStateSpec, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: media.mojom.BufferingStateChangeReasonSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BufferingStateSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BufferingStateChangeReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -424,7 +424,7 @@ media.mojom.RendererClient_OnEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -436,9 +436,9 @@ media.mojom.RendererClient_OnError_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -450,9 +450,9 @@ media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnAudioConfigChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -464,9 +464,9 @@ media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoConfigChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,9 +478,9 @@ media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoNaturalSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -492,9 +492,9 @@ media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoOpacityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'opaque', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -506,9 +506,9 @@ media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnStatisticsUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -520,9 +520,9 @@ media.mojom.RendererClient_OnWaiting_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnWaiting_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WaitingReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WaitingReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

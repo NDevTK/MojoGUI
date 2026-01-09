@@ -834,3 +834,4 @@ blink.mojom.CSSSampleId = {
   kTimelineTriggerEntryRange: 820,
   kTimelineTriggerActiveRange: 821,
 };
+blink.mojom.CSSSampleIdSpec = { $: mojo.internal.Enum() };

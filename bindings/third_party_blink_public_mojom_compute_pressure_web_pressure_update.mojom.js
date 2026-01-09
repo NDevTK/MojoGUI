@@ -14,14 +14,14 @@ blink.mojom.WebPressureUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureUpdate',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false },
-        { name: 'own_contribution_estimate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: device.mojom.PressureStateSpec, nullable: false, minVersion: 0 },
+        { name: 'own_contribution_estimate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

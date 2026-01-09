@@ -15,6 +15,7 @@ guest_os.mojom.Status = {
   kFail: 1,
   kNotApplicable: 2,
 };
+guest_os.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DiagnosticMessage
 guest_os.mojom.DiagnosticMessageSpec = {
@@ -23,10 +24,10 @@ guest_os.mojom.DiagnosticMessageSpec = {
       name: 'guest_os.mojom.DiagnosticMessage',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'learn_more_link', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'learn_more_link', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,9 +39,9 @@ guest_os.mojom.DiagnosticEntrySpec = {
       name: 'guest_os.mojom.DiagnosticEntry',
       packedSize: 16,
       fields: [
-        { name: 'kPass', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kPass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -52,10 +53,10 @@ guest_os.mojom.DiagnosticsSpec = {
       name: 'guest_os.mojom.Diagnostics',
       packedSize: 24,
       fields: [
-        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'top_error', packedOffset: 16, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(guest_os.mojom.DiagnosticEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'top_error', packedOffset: 8, packedBitOffset: 0, type: guest_os.mojom.DiagnosticMessageSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

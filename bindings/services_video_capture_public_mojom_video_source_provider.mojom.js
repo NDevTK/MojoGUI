@@ -14,6 +14,7 @@ video_capture.mojom.GetSourceInfosResult = {
   kSuccess: 0,
   kErrorDroppedRequest: 1,
 };
+video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: VideoSourceProvider
 video_capture.mojom.VideoSourceProvider = {};
@@ -133,7 +134,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -141,13 +142,13 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
 video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: video_capture.mojom.GetSourceInfosResultSpec, nullable: false },
-        { name: 'source_infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.GetSourceInfosResultSpec, nullable: false, minVersion: 0 },
+        { name: 'source_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -159,10 +160,10 @@ video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.GetVideoSource_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,11 +175,11 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false },
-        { name: 'producer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'virtual_device_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -190,10 +191,10 @@ video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.AddTextureVirtualDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false },
-        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -203,12 +204,12 @@ video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Pa
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.RegisterVirtualDevicesChangedObserver_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,9 +221,9 @@ video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpe
       name: 'video_capture.mojom.VideoSourceProvider.RegisterDevicesChangedObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -235,7 +236,7 @@ video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

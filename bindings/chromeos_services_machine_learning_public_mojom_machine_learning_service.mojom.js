@@ -18,6 +18,7 @@ chromeos.machine_learning.mojom.LoadModelResult = {
   FEATURE_NOT_SUPPORTED_ERROR: 3,
   LANGUAGE_NOT_SUPPORTED_ERROR: 4,
 };
+chromeos.machine_learning.mojom.LoadModelResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: MachineLearningService
 chromeos.machine_learning.mojom.MachineLearningService = {};
@@ -54,6 +55,123 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     this.proxy = proxy;
   }
 
+  clone(receiver) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec,
+      null,
+      [receiver]);
+  }
+
+  loadBuiltinModel(spec, receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
+      [spec, receiver]);
+  }
+
+  loadFlatBufferModel(spec, receiver) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
+      [spec, receiver]);
+  }
+
+  loadTextClassifier(receiver) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
+      [receiver]);
+  }
+
+  loadHandwritingModel(spec, receiver) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
+      [spec, receiver]);
+  }
+
+  loadSpeechRecognizer(config, soda_client, soda_recognizer) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
+      [config, soda_client, soda_recognizer]);
+  }
+
+  loadGrammarChecker(receiver) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
+      [receiver]);
+  }
+
+  loadTextSuggester(receiver, spec) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
+      [receiver, spec]);
+  }
+
+  loadWebPlatformHandwritingModel(constraint, receiver) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
+      [constraint, receiver]);
+  }
+
+  loadDocumentScanner(receiver, config) {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
+      [receiver, config]);
+  }
+
+  loadImageAnnotator(config, receiver) {
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
+      [config, receiver]);
+  }
+
+  loadHeatmapPalmRejection(config, client) {
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
+      [config, client]);
+  }
+
+  rEMOVED_4(spec, receiver) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
+      chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
+      [spec, receiver]);
+  }
+
 };
 
 chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
@@ -64,6 +182,355 @@ chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
     'chromeos.machine_learning.mojom.MachineLearningService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Clone
+chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadBuiltinModel
+chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadBuiltinModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelSpecSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadFlatBufferModel
+chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadFlatBufferModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.FlatBufferModelSpecSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadTextClassifier
+chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextClassifier_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadHandwritingModel
+chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHandwritingModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadSpeechRecognizer
+chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadSpeechRecognizer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'soda_recognizer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadGrammarChecker
+chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadGrammarChecker_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadTextSuggester
+chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextSuggester_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'spec', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterSpecSpec, nullable: true, minVersion: 3 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 3, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadWebPlatformHandwritingModel
+chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadWebPlatformHandwritingModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.web_platform.mojom.HandwritingModelConstraintSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadDocumentScanner
+chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadDocumentScanner_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerConfigSpec, nullable: true, minVersion: 6 },
+      ],
+      versions: [{version: 0, packedSize: 16}, {version: 6, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadImageAnnotator
+chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadImageAnnotator_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for LoadHeatmapPalmRejection
+chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHeatmapPalmRejection_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for REMOVED_4
+chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.REMOVED_4_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

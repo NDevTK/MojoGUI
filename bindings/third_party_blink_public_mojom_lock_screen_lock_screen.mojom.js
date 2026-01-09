@@ -15,6 +15,7 @@ blink.mojom.LockScreenServiceStatus = {
   kNotAllowedFromContext: 1,
   kWriteError: 2,
 };
+blink.mojom.LockScreenServiceStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: LockScreenService
 blink.mojom.LockScreenService = {};
@@ -89,7 +90,7 @@ blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,12 +98,12 @@ blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
 blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.LockScreenService.GetKeys_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,10 +115,10 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
       name: 'blink.mojom.LockScreenService.SetData_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -125,12 +126,12 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
 blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.LockScreenService.SetData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

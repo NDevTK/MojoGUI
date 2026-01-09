@@ -81,9 +81,9 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
       name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,13 +91,13 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
 ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'logging_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'logging_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,9 +109,9 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
       name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,12 +119,12 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
 ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

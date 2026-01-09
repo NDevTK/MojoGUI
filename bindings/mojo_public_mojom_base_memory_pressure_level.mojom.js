@@ -15,3 +15,4 @@ mojo_base.mojom.MemoryPressureLevel = {
   MODERATE: 1,
   CRITICAL: 2,
 };
+mojo_base.mojom.MemoryPressureLevelSpec = { $: mojo.internal.Enum() };

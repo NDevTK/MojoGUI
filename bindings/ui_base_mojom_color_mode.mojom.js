@@ -14,3 +14,4 @@ ui.mojom.ColorMode = {
   kLight: 0,
   kDark: 1,
 };
+ui.mojom.ColorModeSpec = { $: mojo.internal.Enum() };

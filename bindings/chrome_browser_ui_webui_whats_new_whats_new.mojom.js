@@ -17,6 +17,7 @@ whats_new.mojom.ScrollDepth = {
   k75: 3,
   k100: 4,
 };
+whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModulePosition
 whats_new.mojom.ModulePosition = {
@@ -32,6 +33,7 @@ whats_new.mojom.ModulePosition = {
   kExploreMore6: 9,
   kUndefined: 10,
 };
+whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
 whats_new.mojom.PageHandlerFactory = {};
@@ -96,10 +98,10 @@ whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'whats_new.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -361,9 +363,9 @@ whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.GetServerUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_staging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_staging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -371,12 +373,12 @@ whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
 whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'whats_new.mojom.PageHandler.GetServerUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -388,9 +390,9 @@ whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordTimeToLoadContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -402,9 +404,9 @@ whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordVersionPageLoaded_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_auto_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -416,10 +418,10 @@ whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordEditionPageLoaded_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_uid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_auto_open', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'page_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -431,10 +433,10 @@ whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModuleImpression_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -446,9 +448,9 @@ whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordExploreMoreToggled_Params',
       packedSize: 16,
       fields: [
-        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,9 +462,9 @@ whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordScrollDepth_Params',
       packedSize: 16,
       fields: [
-        { name: 'depth', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false },
+        { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: whats_new.mojom.ScrollDepthSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -474,9 +476,9 @@ whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordTimeOnPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -488,10 +490,10 @@ whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModuleLinkClicked_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -503,10 +505,10 @@ whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModuleVideoStarted_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -518,10 +520,10 @@ whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModuleVideoEnded_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -533,10 +535,10 @@ whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModulePlayClicked_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -548,10 +550,10 @@ whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModulePauseClicked_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -563,10 +565,10 @@ whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordModuleRestartClicked_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: whats_new.mojom.ModulePositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -579,7 +581,7 @@ whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -591,9 +593,9 @@ whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordQrCodeToggled_Params',
       packedSize: 16,
       fields: [
-        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -606,7 +608,7 @@ whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -619,7 +621,7 @@ whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -632,7 +634,7 @@ whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -644,10 +646,10 @@ whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
       name: 'whats_new.mojom.PageHandler.RecordExpandMediaToggled_Params',
       packedSize: 24,
       fields: [
-        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'expanded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -660,7 +662,7 @@ whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -673,7 +675,7 @@ whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

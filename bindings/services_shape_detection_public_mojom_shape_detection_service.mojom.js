@@ -9,6 +9,12 @@ var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
 
 
+shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kShapeDetection;
+
+shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kUtility;
+
+shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kGpu;
+
 // Interface: ShapeDetectionService
 shape_detection.mojom.ShapeDetectionService = {};
 
@@ -90,9 +96,9 @@ shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsS
       name: 'shape_detection.mojom.ShapeDetectionService.BindBarcodeDetectionProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -104,9 +110,9 @@ shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec
       name: 'shape_detection.mojom.ShapeDetectionService.BindFaceDetectionProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,9 +124,9 @@ shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
       name: 'shape_detection.mojom.ShapeDetectionService.BindTextDetection_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

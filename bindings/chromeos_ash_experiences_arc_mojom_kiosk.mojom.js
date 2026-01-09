@@ -44,6 +44,24 @@ arc.mojom.KioskHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onMaintenanceSessionCreated(session_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
+      null,
+      [session_id]);
+  }
+
+  onMaintenanceSessionFinished(session_id, succeeded) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
+      null,
+      [session_id, succeeded]);
+  }
+
 };
 
 arc.mojom.KioskHost.getRemote = function() {
@@ -54,6 +72,35 @@ arc.mojom.KioskHost.getRemote = function() {
     'arc.mojom.KioskHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnMaintenanceSessionCreated
+arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KioskHost.OnMaintenanceSessionCreated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnMaintenanceSessionFinished
+arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KioskHost.OnMaintenanceSessionFinished_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'succeeded', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +143,15 @@ arc.mojom.KioskInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.KioskInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.KioskInstance.getRemote = function() {
@@ -106,6 +162,20 @@ arc.mojom.KioskInstance.getRemote = function() {
     'arc.mojom.KioskInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.KioskInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KioskInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

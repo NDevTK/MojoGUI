@@ -73,7 +73,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsS
 media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaFoundationPreferences.IsHardwareSecureDecryptionAllowed_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,12 +16,12 @@ site_engagement.mojom.SiteEngagementDetailsSpec = {
       name: 'site_engagement.mojom.SiteEngagementDetails',
       packedSize: 40,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'total_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'base_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'installed_bonus', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'base_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'installed_bonus', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -99,7 +99,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -107,12 +107,12 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
 site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,10 +124,10 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.SetSiteEngagementBaseScoreForUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

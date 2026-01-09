@@ -18,6 +18,7 @@ network.mojom.ProxyScheme = {
   kHttps: 4,
   kQuic: 5,
 };
+network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AuthChallengeInfo
 network.mojom.AuthChallengeInfoSpec = {
@@ -26,14 +27,14 @@ network.mojom.AuthChallengeInfoSpec = {
       name: 'network.mojom.AuthChallengeInfo',
       packedSize: 56,
       fields: [
-        { name: 'is_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'challenger', packedOffset: 16, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
-        { name: 'scheme', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'realm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'challenge', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'path', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_proxy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'challenger', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
+        { name: 'scheme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'realm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'challenge', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -45,10 +46,10 @@ network.mojom.HttpVersionSpec = {
       name: 'network.mojom.HttpVersion',
       packedSize: 16,
       fields: [
-        { name: 'major_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'minor_value', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'major_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'minor_value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -60,10 +61,10 @@ network.mojom.HostPortPairSpec = {
       name: 'network.mojom.HostPortPair',
       packedSize: 24,
       fields: [
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -75,10 +76,10 @@ network.mojom.ProxyServerSpec = {
       name: 'network.mojom.ProxyServer',
       packedSize: 24,
       fields: [
-        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxySchemeSpec, nullable: false },
-        { name: 'host_and_port', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: true },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxySchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -90,10 +91,10 @@ network.mojom.ProxyChainSpec = {
       name: 'network.mojom.ProxyChain',
       packedSize: 24,
       fields: [
-        { name: 'proxy_servers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'ip_protection_chain_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'proxy_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ProxyServerSpec, false), nullable: true, minVersion: 0 },
+        { name: 'ip_protection_chain_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,12 +104,12 @@ network.mojom.ResolveErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveErrorInfo',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_secure_network_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_secure_network_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,12 +121,12 @@ network.mojom.SSLCertRequestInfoSpec = {
       name: 'network.mojom.SSLCertRequestInfo',
       packedSize: 40,
       fields: [
-        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
-        { name: 'is_proxy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cert_authorities', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'signature_algorithms', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'is_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cert_authorities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'signature_algorithms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -137,11 +138,11 @@ network.mojom.NetLogSourceSpec = {
       name: 'network.mojom.NetLogSource',
       packedSize: 24,
       fields: [
-        { name: 'source_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'source_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'start_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'source_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

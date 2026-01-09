@@ -17,3 +17,4 @@ blink.mojom.PerformanceTier = {
   kHigh: 3,
   kUltra: 4,
 };
+blink.mojom.PerformanceTierSpec = { $: mojo.internal.Enum() };

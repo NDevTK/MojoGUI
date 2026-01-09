@@ -16,12 +16,12 @@ network.mojom.WebTransportErrorSpec = {
       name: 'network.mojom.WebTransportError',
       packedSize: 32,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'quic_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'safe_to_report_details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'quic_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'safe_to_report_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -33,10 +33,10 @@ network.mojom.WebTransportCertificateFingerprintSpec = {
       name: 'network.mojom.WebTransportCertificateFingerprint',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fingerprint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fingerprint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -48,10 +48,10 @@ network.mojom.WebTransportCloseInfoSpec = {
       name: 'network.mojom.WebTransportCloseInfo',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -63,15 +63,15 @@ network.mojom.WebTransportStatsSpec = {
       name: 'network.mojom.WebTransportStats',
       packedSize: 64,
       fields: [
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'min_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'smoothed_rtt', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'rtt_variation', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'estimated_send_rate_bps', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'datagrams_expired_outgoing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'datagrams_lost_outgoing', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'min_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'smoothed_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'rtt_variation', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'estimated_send_rate_bps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'datagrams_expired_outgoing', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'datagrams_lost_outgoing', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -220,9 +220,9 @@ network.mojom.WebTransport_SendDatagram_ParamsSpec = {
       name: 'network.mojom.WebTransport.SendDatagram_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,12 +230,12 @@ network.mojom.WebTransport_SendDatagram_ParamsSpec = {
 network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebTransport.SendDatagram_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -247,10 +247,10 @@ network.mojom.WebTransport_CreateStream_ParamsSpec = {
       name: 'network.mojom.WebTransport.CreateStream_Params',
       packedSize: 24,
       fields: [
-        { name: 'readable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'writable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'readable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'writable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -258,13 +258,13 @@ network.mojom.WebTransport_CreateStream_ParamsSpec = {
 network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebTransport.CreateStream_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'stream_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'stream_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +277,7 @@ network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -285,14 +285,14 @@ network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
 network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebTransport.AcceptBidirectionalStream_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'readable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'writable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'readable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'writable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -305,7 +305,7 @@ network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,13 +313,13 @@ network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
 network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'readable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'readable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -331,9 +331,9 @@ network.mojom.WebTransport_SendFin_ParamsSpec = {
       name: 'network.mojom.WebTransport.SendFin_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -345,10 +345,10 @@ network.mojom.WebTransport_AbortStream_ParamsSpec = {
       name: 'network.mojom.WebTransport.AbortStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -360,10 +360,10 @@ network.mojom.WebTransport_StopSending_ParamsSpec = {
       name: 'network.mojom.WebTransport.StopSending_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -375,9 +375,9 @@ network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = {
       name: 'network.mojom.WebTransport.SetOutgoingDatagramExpirationDuration_Params',
       packedSize: 16,
       fields: [
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -390,7 +390,7 @@ network.mojom.WebTransport_GetStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -398,12 +398,12 @@ network.mojom.WebTransport_GetStats_ParamsSpec = {
 network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.WebTransport.GetStats_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: true },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,9 +415,9 @@ network.mojom.WebTransport_Close_ParamsSpec = {
       name: 'network.mojom.WebTransport.Close_Params',
       packedSize: 16,
       fields: [
-        { name: 'close_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true },
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -535,9 +535,9 @@ network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnDatagramReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -547,12 +547,12 @@ network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportClient.OnIncomingStreamClosed_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fin_received', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fin_received', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -564,9 +564,9 @@ network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnOutgoingStreamClosed_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -578,10 +578,10 @@ network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnReceivedStopSending_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'stream_error_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -593,10 +593,10 @@ network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnReceivedResetStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'stream_error_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stream_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -608,10 +608,10 @@ network.mojom.WebTransportClient_OnClosed_ParamsSpec = {
       name: 'network.mojom.WebTransportClient.OnClosed_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true },
-        { name: 'final_stats', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false },
+        { name: 'close_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportCloseInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'final_stats', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -702,9 +702,9 @@ network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnBeforeConnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'server_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -716,13 +716,13 @@ network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnConnectionEstablished_Params',
       packedSize: 40,
       fields: [
-        { name: 'transport', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
-        { name: 'selected_application_protocol', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'initial_stats', packedOffset: 32, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false },
+        { name: 'transport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_application_protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'initial_stats', packedOffset: 24, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -734,9 +734,9 @@ network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnHandshakeFailed_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportErrorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

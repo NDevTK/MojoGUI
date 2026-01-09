@@ -15,3 +15,4 @@ blink.mojom.ScrollbarMode = {
   kAlwaysOff: 1,
   kAlwaysOn: 2,
 };
+blink.mojom.ScrollbarModeSpec = { $: mojo.internal.Enum() };

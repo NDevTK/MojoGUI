@@ -16,10 +16,10 @@ mojo_base.mojom.Int128Spec = {
       name: 'mojo_base.mojom.Int128',
       packedSize: 24,
       fields: [
-        { name: 'high', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'low', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ mojo_base.mojom.Uint128Spec = {
       name: 'mojo_base.mojom.Uint128',
       packedSize: 24,
       fields: [
-        { name: 'high', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'low', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

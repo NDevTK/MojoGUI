@@ -16,6 +16,7 @@ ash.os_feedback_ui.mojom.HelpContentType = {
   kArticle: 1,
   kForum: 2,
 };
+ash.os_feedback_ui.mojom.HelpContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SendReportStatus
 ash.os_feedback_ui.mojom.SendReportStatus = {
@@ -23,6 +24,7 @@ ash.os_feedback_ui.mojom.SendReportStatus = {
   kSuccess: 1,
   kDelayed: 2,
 };
+ash.os_feedback_ui.mojom.SendReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppPostSubmitAction
 ash.os_feedback_ui.mojom.FeedbackAppPostSubmitAction = {
@@ -33,6 +35,7 @@ ash.os_feedback_ui.mojom.FeedbackAppPostSubmitAction = {
   kOpenChromebookCommunity: 4,
   kCloseFeedbackApp: 5,
 };
+ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppPreSubmitAction
 ash.os_feedback_ui.mojom.FeedbackAppPreSubmitAction = {
@@ -43,6 +46,7 @@ ash.os_feedback_ui.mojom.FeedbackAppPreSubmitAction = {
   kViewedAutofillMetadata: 4,
   kViewedMetrics: 5,
 };
+ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppExitPath
 ash.os_feedback_ui.mojom.FeedbackAppExitPath = {
@@ -54,6 +58,7 @@ ash.os_feedback_ui.mojom.FeedbackAppExitPath = {
   kSuccessHelpContentClicked: 5,
   kSuccessNoHelpContentClicked: 6,
 };
+ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppHelpContentOutcome
 ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
@@ -64,6 +69,7 @@ ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
   kQuitNoHelpContentClicked: 4,
   kQuitNoHelpContentDisplayed: 5,
 };
+ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HelpContent
 ash.os_feedback_ui.mojom.HelpContentSpec = {
@@ -72,11 +78,11 @@ ash.os_feedback_ui.mojom.HelpContentSpec = {
       name: 'ash.os_feedback_ui.mojom.HelpContent',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'content_type', packedOffset: 24, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.HelpContentTypeSpec, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.HelpContentTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -88,10 +94,10 @@ ash.os_feedback_ui.mojom.SearchRequestSpec = {
       name: 'ash.os_feedback_ui.mojom.SearchRequest',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'max_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,10 +109,10 @@ ash.os_feedback_ui.mojom.SearchResponseSpec = {
       name: 'ash.os_feedback_ui.mojom.SearchResponse',
       packedSize: 24,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'total_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.os_feedback_ui.mojom.HelpContentSpec, false), nullable: false, minVersion: 0 },
+        { name: 'total_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -116,21 +122,21 @@ ash.os_feedback_ui.mojom.FeedbackContextSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.FeedbackContext',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wifi_debug_logs_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_linked_cross_device_phone', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_internal_account', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'settings_search_do_not_record_metrics', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'from_autofill', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'autofill_metadata', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'extra_diagnostics', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'category_tag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'trace_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'wifi_debug_logs_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_linked_cross_device_phone', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_internal_account', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'settings_search_do_not_record_metrics', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'from_autofill', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'autofill_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'page_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'extra_diagnostics', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'category_tag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'trace_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -140,12 +146,12 @@ ash.os_feedback_ui.mojom.AttachedFileSpec = {
   $: {
     structSpec: {
       name: 'ash.os_feedback_ui.mojom.AttachedFile',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'file_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
-        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
+        { name: 'file_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -157,17 +163,17 @@ ash.os_feedback_ui.mojom.ReportSpec = {
       name: 'ash.os_feedback_ui.mojom.Report',
       packedSize: 40,
       fields: [
-        { name: 'feedback_context', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'attached_file', packedOffset: 24, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.AttachedFileSpec, nullable: true },
-        { name: 'include_system_logs_and_histograms', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_screenshot', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'contact_user_consent_granted', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'send_bluetooth_logs', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'send_wifi_debug_logs', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_autofill_metadata', packedOffset: 32, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'attached_file', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.AttachedFileSpec, nullable: true, minVersion: 0 },
+        { name: 'include_system_logs_and_histograms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_screenshot', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'contact_user_consent_granted', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'send_bluetooth_logs', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'send_wifi_debug_logs', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_autofill_metadata', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -235,9 +241,9 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,12 +251,12 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
 ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -432,7 +438,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -440,12 +446,12 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec =
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetFeedbackContext_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feedback_context', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false },
+        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -458,7 +464,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -466,12 +472,12 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetScreenshotPng_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -483,9 +489,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.ReportSpec, nullable: false },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.ReportSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -493,12 +499,12 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
 ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SendReportStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SendReportStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -511,7 +517,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -524,7 +530,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -537,7 +543,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -550,7 +556,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -562,9 +568,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec =
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenAutofillDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'autofill_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -576,9 +582,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSp
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPostSubmitAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -590,9 +596,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpe
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPreSubmitAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -604,9 +610,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordExitPath_Params',
       packedSize: 16,
       fields: [
-        { name: 'exit_path', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, nullable: false },
+        { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -618,9 +624,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordHelpContentOutcome_Params',
       packedSize: 16,
       fields: [
-        { name: 'outcome', packedOffset: 8, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, nullable: false },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -632,9 +638,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCo
       name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordHelpContentSearchResultCount_Params',
       packedSize: 16,
       fields: [
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,11 +16,11 @@ password_manager.mojom.DomainInfoSpec = {
       name: 'password_manager.mojom.DomainInfo',
       packedSize: 32,
       fields: [
-        { name: 'human_readable_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'signon_realm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'human_readable_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'signon_realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,11 +32,11 @@ password_manager.mojom.ActorLoginPermissionSpec = {
       name: 'password_manager.mojom.ActorLoginPermission',
       packedSize: 32,
       fields: [
-        { name: 'domain_info', packedOffset: 8, packedBitOffset: 0, type: password_manager.mojom.DomainInfoSpec, nullable: false },
-        { name: 'favicon_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'username', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'domain_info', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.DomainInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -104,10 +104,10 @@ password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'password_manager.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -289,7 +289,7 @@ password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -302,7 +302,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -310,12 +310,12 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
 password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.DeleteAllPasswordManagerData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,9 +327,9 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
       name: 'password_manager.mojom.PageHandler.CopyPlaintextBackupPassword_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -337,12 +337,12 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
 password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.CopyPlaintextBackupPassword_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -354,9 +354,9 @@ password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
       name: 'password_manager.mojom.PageHandler.RemoveBackupPassword_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -369,7 +369,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -377,12 +377,12 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
 password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.GetActorLoginPermissions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -394,9 +394,9 @@ password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
       name: 'password_manager.mojom.PageHandler.RevokeActorLoginPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: password_manager.mojom.ActorLoginPermissionSpec, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.ActorLoginPermissionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -409,7 +409,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -417,12 +417,12 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
 password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.ChangePasswordManagerPin_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -435,7 +435,7 @@ password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -448,7 +448,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -456,12 +456,12 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
 password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsAccountStorageEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -473,9 +473,9 @@ password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
       name: 'password_manager.mojom.PageHandler.SetAccountStorageEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -488,7 +488,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -496,12 +496,12 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsS
 password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.ShouldShowAccountStorageSettingToggle_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -514,7 +514,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -522,12 +522,12 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
 password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.IsPasswordManagerPinAvailable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -540,7 +540,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -548,12 +548,12 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsS
 password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'password_manager.mojom.PageHandler.SwitchBiometricAuthBeforeFillingState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

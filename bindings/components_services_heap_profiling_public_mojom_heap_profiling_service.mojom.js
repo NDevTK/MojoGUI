@@ -17,6 +17,7 @@ heap_profiling.mojom.ProcessType = {
   GPU: 3,
   LAST: 4,
 };
+heap_profiling.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ProfilingService
 heap_profiling.mojom.ProfilingService = {};
@@ -88,14 +89,14 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'process_type', packedOffset: 24, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false },
-        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'process_type', packedOffset: 12, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -103,12 +104,12 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
 heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,7 +122,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -129,12 +130,12 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
 heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'heap_profiling.mojom.ProfilingService.GetProfiledPids_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -18,6 +18,7 @@ device.mojom.NDEFErrorType = {
   OPERATION_CANCELLED: 4,
   IO_ERROR: 5,
 };
+device.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NDEFRecordTypeCategory
 device.mojom.NDEFRecordTypeCategory = {
@@ -25,6 +26,7 @@ device.mojom.NDEFRecordTypeCategory = {
   kExternal: 1,
   kLocal: 2,
 };
+device.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: NSRawTypeNameFormat
 device.mojom.NSRawTypeNameFormat = {
@@ -36,6 +38,7 @@ device.mojom.NSRawTypeNameFormat = {
   kUnchanged: 5,
   kUnknown: 6,
 };
+device.mojom.NSRawTypeNameFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: NDEFError
 device.mojom.NDEFErrorSpec = {
@@ -44,10 +47,10 @@ device.mojom.NDEFErrorSpec = {
       name: 'device.mojom.NDEFError',
       packedSize: 24,
       fields: [
-        { name: 'error_type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorTypeSpec, nullable: false },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -59,16 +62,16 @@ device.mojom.NDEFRecordSpec = {
       name: 'device.mojom.NDEFRecord',
       packedSize: 72,
       fields: [
-        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFRecordTypeCategorySpec, nullable: false },
-        { name: 'record_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'media_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'encoding', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'lang', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'payload_message', packedOffset: 64, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: true },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFRecordTypeCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'record_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'media_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'encoding', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'payload_message', packedOffset: 56, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -80,9 +83,9 @@ device.mojom.NDEFMessageSpec = {
       name: 'device.mojom.NDEFMessage',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.NDEFRecordSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -94,12 +97,12 @@ device.mojom.NDEFRawRecordSpec = {
       name: 'device.mojom.NDEFRawRecord',
       packedSize: 40,
       fields: [
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type_name_format', packedOffset: 32, packedBitOffset: 0, type: device.mojom.NSRawTypeNameFormatSpec, nullable: false },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'type_name_format', packedOffset: 24, packedBitOffset: 0, type: device.mojom.NSRawTypeNameFormatSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -111,9 +114,9 @@ device.mojom.NDEFRawMessageSpec = {
       name: 'device.mojom.NDEFRawMessage',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.NDEFRawRecordSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,9 +128,9 @@ device.mojom.NDEFWriteOptionsSpec = {
       name: 'device.mojom.NDEFWriteOptions',
       packedSize: 16,
       fields: [
-        { name: 'overwrite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'overwrite', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,9 +252,9 @@ device.mojom.NFC_SetClient_ParamsSpec = {
       name: 'device.mojom.NFC.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -263,10 +266,10 @@ device.mojom.NFC_Push_ParamsSpec = {
       name: 'device.mojom.NFC.Push_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: device.mojom.NDEFWriteOptionsSpec, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFWriteOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -274,12 +277,12 @@ device.mojom.NFC_Push_ParamsSpec = {
 device.mojom.NFC_Push_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.NFC.Push_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,7 +295,7 @@ device.mojom.NFC_CancelPush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,7 +308,7 @@ device.mojom.NFC_MakeReadOnly_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,12 +316,12 @@ device.mojom.NFC_MakeReadOnly_ParamsSpec = {
 device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.NFC.MakeReadOnly_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -331,7 +334,7 @@ device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -343,9 +346,9 @@ device.mojom.NFC_Watch_ParamsSpec = {
       name: 'device.mojom.NFC.Watch_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -353,12 +356,12 @@ device.mojom.NFC_Watch_ParamsSpec = {
 device.mojom.NFC_Watch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.NFC.Watch_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -370,9 +373,9 @@ device.mojom.NFC_CancelWatch_ParamsSpec = {
       name: 'device.mojom.NFC.CancelWatch_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -454,11 +457,11 @@ device.mojom.NFCClient_OnWatch_ParamsSpec = {
       name: 'device.mojom.NFCClient.OnWatch_Params',
       packedSize: 32,
       fields: [
-        { name: 'watch_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'serial_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false },
+        { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: device.mojom.NDEFMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -470,9 +473,9 @@ device.mojom.NFCClient_OnError_ParamsSpec = {
       name: 'device.mojom.NFCClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -554,10 +557,10 @@ device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
       name: 'device.mojom.RawNFCClient.OnWatch_Params',
       packedSize: 24,
       fields: [
-        { name: 'watch_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: device.mojom.NDEFRawMessageSpec, nullable: false },
+        { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFRawMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -569,9 +572,9 @@ device.mojom.RawNFCClient_OnError_ParamsSpec = {
       name: 'device.mojom.RawNFCClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -17,6 +17,7 @@ ash.hotspot_config.mojom.HotspotState = {
   kEnabling: 2,
   kDisabling: 3,
 };
+ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WiFiSecurityMode
 ash.hotspot_config.mojom.WiFiSecurityMode = {
@@ -24,12 +25,14 @@ ash.hotspot_config.mojom.WiFiSecurityMode = {
   kWpa3: 1,
   kWpa2Wpa3: 2,
 };
+ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WiFiBand
 ash.hotspot_config.mojom.WiFiBand = {
   k2_4GHz: 0,
   kAutoChoose: 1,
 };
+ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum() };
 
 // Enum: SetHotspotConfigResult
 ash.hotspot_config.mojom.SetHotspotConfigResult = {
@@ -38,6 +41,7 @@ ash.hotspot_config.mojom.SetHotspotConfigResult = {
   kFailedInvalidConfiguration: 2,
   kFailedShillOperation: 3,
 };
+ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: HotspotAllowStatus
 ash.hotspot_config.mojom.HotspotAllowStatus = {
@@ -49,6 +53,7 @@ ash.hotspot_config.mojom.HotspotAllowStatus = {
   kDisallowedByPolicy: 5,
   kAllowed: 6,
 };
+ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: HotspotControlResult
 ash.hotspot_config.mojom.HotspotControlResult = {
@@ -70,6 +75,7 @@ ash.hotspot_config.mojom.HotspotControlResult = {
   kOperationFailure: 15,
   kUnknownFailure: 16,
 };
+ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisableReason
 ash.hotspot_config.mojom.DisableReason = {
@@ -89,22 +95,23 @@ ash.hotspot_config.mojom.DisableReason = {
   kResourceBusy: 13,
   kUnknownError: 14,
 };
+ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: HotspotConfig
 ash.hotspot_config.mojom.HotspotConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.hotspot_config.mojom.HotspotConfig',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'auto_disable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiSecurityModeSpec, nullable: false },
-        { name: 'band', packedOffset: 24, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiBandSpec, nullable: false },
-        { name: 'ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'passphrase', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bssid_randomization', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'auto_disable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'security', packedOffset: 4, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiSecurityModeSpec, nullable: false, minVersion: 0 },
+        { name: 'band', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.WiFiBandSpec, nullable: false, minVersion: 0 },
+        { name: 'ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'passphrase', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bssid_randomization', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -114,15 +121,15 @@ ash.hotspot_config.mojom.HotspotInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.hotspot_config.mojom.HotspotInfo',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotStateSpec, nullable: false },
-        { name: 'client_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'allow_status', packedOffset: 24, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotAllowStatusSpec, nullable: false },
-        { name: 'allowed_wifi_security_modes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'config', packedOffset: 40, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotStateSpec, nullable: false, minVersion: 0 },
+        { name: 'client_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'allow_status', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotAllowStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'allowed_wifi_security_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 24, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -235,9 +242,9 @@ ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
       name: 'ash.hotspot_config.mojom.CrosHotspotConfig.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,9 +256,9 @@ ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec
       name: 'ash.hotspot_config.mojom.CrosHotspotConfig.ObserveEnabledStateChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -264,7 +271,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -272,12 +279,12 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.GetHotspotInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hotspot_info', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotInfoSpec, nullable: false },
+        { name: 'hotspot_info', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -289,9 +296,9 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
       name: 'ash.hotspot_config.mojom.CrosHotspotConfig.SetHotspotConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,12 +306,12 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.SetHotspotConfig_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.SetHotspotConfigResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.SetHotspotConfigResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,7 +324,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -325,12 +332,12 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.EnableHotspot_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,7 +350,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -351,12 +358,12 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.DisableHotspot_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -430,7 +437,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -513,7 +520,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -525,9 +532,9 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSp
       name: 'ash.hotspot_config.mojom.HotspotEnabledStateObserver.OnHotspotTurnedOff_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: ash.hotspot_config.mojom.DisableReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.DisableReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

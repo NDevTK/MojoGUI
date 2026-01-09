@@ -16,11 +16,11 @@ display.mojom.ScreenInfosSpec = {
       name: 'display.mojom.ScreenInfos',
       packedSize: 32,
       fields: [
-        { name: 'screen_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'system_cursor_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'screen_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.ScreenInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'system_cursor_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

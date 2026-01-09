@@ -91,7 +91,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -99,16 +99,16 @@ viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
 viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.Gpu.EstablishGpuChannel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'channel_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'gpu_info', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
-        { name: 'gpu_feature_info', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
-        { name: 'shared_image_capabilities', packedOffset: 40, packedBitOffset: 0, type: gpu.mojom.SharedImageCapabilitiesSpec, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'channel_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'gpu_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'gpu_feature_info', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_image_capabilities', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.SharedImageCapabilitiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -120,9 +120,9 @@ viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.Gpu.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,9 +134,9 @@ viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       name: 'viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'vea_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

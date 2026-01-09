@@ -19,3 +19,4 @@ viz.mojom.ContextLostReason = {
   GPU_CHANNEL_LOST: 5,
   INVALID_GPU_MESSAGE: 6,
 };
+viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };

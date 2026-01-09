@@ -15,6 +15,7 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
   kRequireCorp: 1,
   kCredentialless: 2,
 };
+network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginEmbedderPolicy
 network.mojom.CrossOriginEmbedderPolicySpec = {
@@ -23,11 +24,11 @@ network.mojom.CrossOriginEmbedderPolicySpec = {
       name: 'network.mojom.CrossOriginEmbedderPolicy',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicyValueSpec, nullable: false },
-        { name: 'reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'report_only_reporting_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicyValueSpec, nullable: false, minVersion: 0 },
+        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'report_only_reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -102,13 +103,13 @@ network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsS
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginEmbedderPolicyReporter.QueueCorpViolationReport_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'blocked_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
-        { name: 'report_only', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
+        { name: 'report_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -120,9 +121,9 @@ network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
       name: 'network.mojom.CrossOriginEmbedderPolicyReporter.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

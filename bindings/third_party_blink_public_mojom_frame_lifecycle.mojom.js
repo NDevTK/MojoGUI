@@ -15,6 +15,7 @@ blink.mojom.FrameVisibility = {
   kRenderedInViewport: 1,
   kNotRendered: 2,
 };
+blink.mojom.FrameVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: FrameLifecycleState
 blink.mojom.FrameLifecycleState = {
@@ -22,3 +23,4 @@ blink.mojom.FrameLifecycleState = {
   kPaused: 1,
   kFrozen: 2,
 };
+blink.mojom.FrameLifecycleStateSpec = { $: mojo.internal.Enum() };

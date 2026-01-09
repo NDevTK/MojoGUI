@@ -9,6 +9,12 @@ var on_device_translation = on_device_translation || {};
 on_device_translation.mojom = on_device_translation.mojom || {};
 
 
+on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kOnDeviceTranslation;
+
+on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kService;
+
+on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+
 // Enum: CreateTranslatorResult
 on_device_translation.mojom.CreateTranslatorResult = {
   kSuccess: 0,
@@ -18,6 +24,7 @@ on_device_translation.mojom.CreateTranslatorResult = {
   kErrorFailedToCreateTranslator: 4,
   kErrorInvalidVersion: 5,
 };
+on_device_translation.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: OnDeviceTranslationLanguagePackage
 on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
@@ -26,10 +33,10 @@ on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
       name: 'on_device_translation.mojom.OnDeviceTranslationLanguagePackage',
       packedSize: 24,
       fields: [
-        { name: 'language1', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'language2', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language1', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'language2', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -41,10 +48,10 @@ on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = {
       name: 'on_device_translation.mojom.OnDeviceTranslationServiceConfig',
       packedSize: 24,
       fields: [
-        { name: 'packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'file_operation_proxy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec, false), nullable: false, minVersion: 0 },
+        { name: 'file_operation_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -121,10 +128,10 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
       name: 'on_device_translation.mojom.FileOperationProxy.FileExists_Params',
       packedSize: 24,
       fields: [
-        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'relative_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -132,13 +139,13 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
 on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.FileOperationProxy.FileExists_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'exists', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_directory', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_directory', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -150,10 +157,10 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
       name: 'on_device_translation.mojom.FileOperationProxy.Open_Params',
       packedSize: 24,
       fields: [
-        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'relative_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -161,12 +168,12 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
 on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.FileOperationProxy.Open_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,9 +264,9 @@ on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSp
       name: 'on_device_translation.mojom.OnDeviceTranslationService.SetServiceConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -271,11 +278,11 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CreateTranslator_Params',
       packedSize: 32,
       fields: [
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -283,12 +290,12 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
 on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.OnDeviceTranslationService.CreateTranslator_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: on_device_translation.mojom.CreateTranslatorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_translation.mojom.CreateTranslatorResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,10 +307,10 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CanTranslate_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -311,12 +318,12 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
 on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.OnDeviceTranslationService.CanTranslate_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_stranslate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_stranslate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

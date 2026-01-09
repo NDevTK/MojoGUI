@@ -16,6 +16,7 @@ payments.facilitated.mojom.PixQrCodeType = {
   kDynamic: 1,
   kStatic: 2,
 };
+payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PixCodeValidator
 payments.facilitated.mojom.PixCodeValidator = {};
@@ -80,9 +81,9 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
       name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -90,12 +91,12 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
 payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.facilitated.mojom.PixCodeValidator.ValidatePixCode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pix_qr_code_type', packedOffset: 8, packedBitOffset: 0, type: payments.facilitated.mojom.PixQrCodeTypeSpec, nullable: true },
+        { name: 'pix_qr_code_type', packedOffset: 0, packedBitOffset: 0, type: payments.facilitated.mojom.PixQrCodeTypeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

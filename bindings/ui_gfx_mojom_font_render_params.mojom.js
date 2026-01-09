@@ -16,6 +16,7 @@ gfx.mojom.Hinting = {
   kMedium: 2,
   kFull: 3,
 };
+gfx.mojom.HintingSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubpixelRendering
 gfx.mojom.SubpixelRendering = {
@@ -25,3 +26,4 @@ gfx.mojom.SubpixelRendering = {
   kVRGB: 3,
   kVBGR: 4,
 };
+gfx.mojom.SubpixelRenderingSpec = { $: mojo.internal.Enum() };

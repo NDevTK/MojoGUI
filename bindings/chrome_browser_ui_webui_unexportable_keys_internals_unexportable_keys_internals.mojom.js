@@ -16,9 +16,9 @@ unexportable_keys_internals.mojom.UnexportableKeyIdSpec = {
       name: 'unexportable_keys_internals.mojom.UnexportableKeyId',
       packedSize: 16,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -30,13 +30,13 @@ unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
       name: 'unexportable_keys_internals.mojom.UnexportableKeyInfo',
       packedSize: 48,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false },
-        { name: 'wrapped_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'algorithm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_tag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'creation_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
+        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key_tag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'creation_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -104,10 +104,10 @@ unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInter
       name: 'unexportable_keys_internals.mojom.PageHandlerFactory.CreateUnexportableKeysInternalsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -190,7 +190,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -198,12 +198,12 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
 unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -215,9 +215,9 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
       name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,12 +225,12 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
 unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

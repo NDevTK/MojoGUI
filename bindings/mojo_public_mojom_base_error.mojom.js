@@ -28,6 +28,7 @@ mojo_base.mojom.Code = {
   kDataLoss: 14,
   kUnauthenticated: 15,
 };
+mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
 mojo_base.mojom.ErrorSpec = {
@@ -36,10 +37,10 @@ mojo_base.mojom.ErrorSpec = {
       name: 'mojo_base.mojom.Error',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.CodeSpec, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.CodeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

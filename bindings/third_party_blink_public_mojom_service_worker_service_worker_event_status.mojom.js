@@ -17,9 +17,11 @@ blink.mojom.ServiceWorkerEventStatus = {
   TIMEOUT: 3,
   MAX: 4,
 };
+blink.mojom.ServiceWorkerEventStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerStartStatus
 blink.mojom.ServiceWorkerStartStatus = {
   kNormalCompletion: 0,
   kAbruptCompletion: 1,
 };
+blink.mojom.ServiceWorkerStartStatusSpec = { $: mojo.internal.Enum() };

@@ -26,6 +26,7 @@ arc.mojom.TimedCloudDpcOp = {
   SETUP_CHECK_REGISTRATION_TOKEN: 12,
   SETUP_THIRD_PARTY_SIGNIN: 13,
 };
+arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum() };
 
 // Interface: EnterpriseReportingHost
 arc.mojom.EnterpriseReportingHost = {};
@@ -62,6 +63,15 @@ arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  reportCloudDpcOperationTime(time_ms, op, success) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
+      null,
+      [time_ms, op, success]);
+  }
+
 };
 
 arc.mojom.EnterpriseReportingHost.getRemote = function() {
@@ -72,6 +82,22 @@ arc.mojom.EnterpriseReportingHost.getRemote = function() {
     'arc.mojom.EnterpriseReportingHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ReportCloudDpcOperationTime
+arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingHost.ReportCloudDpcOperationTime_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'op', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.TimedCloudDpcOpSpec, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -114,6 +140,24 @@ arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
+  getStatus() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
+      arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.EnterpriseReportingInstance.getRemote = function() {
@@ -124,6 +168,47 @@ arc.mojom.EnterpriseReportingInstance.getRemote = function() {
     'arc.mojom.EnterpriseReportingInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetStatus
+arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.EnterpriseReportingInstance.GetStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'droid_guard_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility

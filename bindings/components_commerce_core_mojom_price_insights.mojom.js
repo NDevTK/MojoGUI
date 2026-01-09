@@ -83,7 +83,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,7 +96,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -169,9 +169,9 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHan
       name: 'commerce.price_insights.mojom.PriceInsightsHandlerFactory.CreatePriceInsightsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -14,6 +14,7 @@ blink.mojom.SubAppsServiceResultCode = {
   kSuccess: 0,
   kFailure: 1,
 };
+blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SubAppsServiceAddParameters
 blink.mojom.SubAppsServiceAddParametersSpec = {
@@ -22,10 +23,10 @@ blink.mojom.SubAppsServiceAddParametersSpec = {
       name: 'blink.mojom.SubAppsServiceAddParameters',
       packedSize: 24,
       fields: [
-        { name: 'manifest_id_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'install_url_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'install_url_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -37,10 +38,10 @@ blink.mojom.SubAppsServiceAddResultSpec = {
       name: 'blink.mojom.SubAppsServiceAddResult',
       packedSize: 24,
       fields: [
-        { name: 'manifest_id_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'result_code', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
+        { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -52,10 +53,10 @@ blink.mojom.SubAppsServiceListResultSpec = {
       name: 'blink.mojom.SubAppsServiceListResult',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
-        { name: 'sub_apps_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'sub_apps_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -67,10 +68,10 @@ blink.mojom.SubAppsServiceListResultEntrySpec = {
       name: 'blink.mojom.SubAppsServiceListResultEntry',
       packedSize: 24,
       fields: [
-        { name: 'manifest_id_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -82,10 +83,10 @@ blink.mojom.SubAppsServiceRemoveResultSpec = {
       name: 'blink.mojom.SubAppsServiceRemoveResult',
       packedSize: 24,
       fields: [
-        { name: 'manifest_id_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'result_code', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false },
+        { name: 'manifest_id_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -171,9 +172,9 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
       name: 'blink.mojom.SubAppsService.Add_Params',
       packedSize: 16,
       fields: [
-        { name: 'sub_apps_to_add', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sub_apps_to_add', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceAddParametersSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -181,12 +182,12 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
 blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SubAppsService.Add_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceAddResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +200,7 @@ blink.mojom.SubAppsService_List_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -207,12 +208,12 @@ blink.mojom.SubAppsService_List_ParamsSpec = {
 blink.mojom.SubAppsService_List_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SubAppsService.List_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceListResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceListResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,9 +225,9 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
       name: 'blink.mojom.SubAppsService.Remove_Params',
       packedSize: 16,
       fields: [
-        { name: 'manifest_id_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'manifest_id_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,12 +235,12 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
 blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SubAppsService.Remove_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceRemoveResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

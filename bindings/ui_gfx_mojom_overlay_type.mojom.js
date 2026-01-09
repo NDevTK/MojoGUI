@@ -16,3 +16,4 @@ gfx.mojom.OverlayType = {
   kSingleOnTop: 2,
   kFullScreen: 3,
 };
+gfx.mojom.OverlayTypeSpec = { $: mojo.internal.Enum() };

@@ -10,6 +10,8 @@ ash.enhanced_network_tts = ash.enhanced_network_tts || {};
 ash.enhanced_network_tts.mojom = ash.enhanced_network_tts.mojom || {};
 
 
+ash.enhanced_network_tts.mojom.kEnhancedNetworkTtsMaxCharacterSize = 1000;
+
 // Enum: TtsRequestError
 ash.enhanced_network_tts.mojom.TtsRequestError = {
   kEmptyUtterance: 0,
@@ -17,6 +19,21 @@ ash.enhanced_network_tts.mojom.TtsRequestError = {
   kServerError: 2,
   kReceivedUnexpectedData: 3,
   kRequestOverride: 4,
+};
+ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
+
+// Union: TtsResponse
+ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: mojo.internal.Union(
+    'ash.enhanced_network_tts.mojom.TtsResponse', {
+      'error_code': {
+        'ordinal': 0,
+        'type': ash.enhanced_network_tts.mojom.TtsRequestErrorSpec,
+      }},
+      'data': {
+        'ordinal': 1,
+        'type': ash.enhanced_network_tts.mojom.TtsDataSpec,
+      }},
+    })
 };
 
 // Struct: TtsRequest
@@ -26,12 +43,12 @@ ash.enhanced_network_tts.mojom.TtsRequestSpec = {
       name: 'ash.enhanced_network_tts.mojom.TtsRequest',
       packedSize: 40,
       fields: [
-        { name: 'utterance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'voice', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'lang', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'voice', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -43,12 +60,12 @@ ash.enhanced_network_tts.mojom.TimingInfoSpec = {
       name: 'ash.enhanced_network_tts.mojom.TimingInfo',
       packedSize: 40,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'time_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'duration', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'text_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'time_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -60,11 +77,11 @@ ash.enhanced_network_tts.mojom.TtsDataSpec = {
       name: 'ash.enhanced_network_tts.mojom.TtsData',
       packedSize: 32,
       fields: [
-        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'time_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'last_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'time_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.enhanced_network_tts.mojom.TimingInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'last_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -132,9 +149,9 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -142,12 +159,12 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
 ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -218,11 +235,11 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.AudioDataObserver.OnAudioDataReceived_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

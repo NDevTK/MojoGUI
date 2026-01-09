@@ -45,6 +45,15 @@ ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  translateVideoDeviceId(hashed_device_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
+      ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
+      [hashed_device_id]);
+  }
+
 };
 
 ash.cfm.mojom.MeetBrowser.getRemote = function() {
@@ -55,6 +64,33 @@ ash.cfm.mojom.MeetBrowser.getRemote = function() {
     'ash.cfm.mojom.MeetBrowser',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for TranslateVideoDeviceId
+ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

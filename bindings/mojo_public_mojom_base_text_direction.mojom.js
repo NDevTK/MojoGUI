@@ -15,3 +15,4 @@ mojo_base.mojom.TextDirection = {
   RIGHT_TO_LEFT: 1,
   LEFT_TO_RIGHT: 2,
 };
+mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };

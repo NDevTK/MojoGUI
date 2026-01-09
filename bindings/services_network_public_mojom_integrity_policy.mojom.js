@@ -13,11 +13,13 @@ network.mojom = network.mojom || {};
 network.mojom.Destination = {
   kScript: 0,
 };
+network.mojom.DestinationSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
 network.mojom.Source = {
   kInline: 0,
 };
+network.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: IntegrityPolicy
 network.mojom.IntegrityPolicySpec = {
@@ -26,9 +28,9 @@ network.mojom.IntegrityPolicySpec = {
       name: 'network.mojom.IntegrityPolicy',
       packedSize: 16,
       fields: [
-        { name: 'kScript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kScript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

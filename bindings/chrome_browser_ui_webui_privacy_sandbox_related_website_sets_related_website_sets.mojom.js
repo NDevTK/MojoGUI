@@ -15,6 +15,21 @@ related_website_sets.mojom.SiteType = {
   kAssociated: 1,
   kService: 2,
 };
+related_website_sets.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: GetRelatedWebsiteSetsResponse
+related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec = { $: mojo.internal.Union(
+    'related_website_sets.mojom.GetRelatedWebsiteSetsResponse', {
+      'related_website_sets': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(related_website_sets.mojom.RelatedWebsiteSetSpec, false),
+      }},
+      'error_message': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
 
 // Struct: Member
 related_website_sets.mojom.MemberSpec = {
@@ -23,10 +38,10 @@ related_website_sets.mojom.MemberSpec = {
       name: 'related_website_sets.mojom.Member',
       packedSize: 24,
       fields: [
-        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: related_website_sets.mojom.SiteTypeSpec, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: related_website_sets.mojom.SiteTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,11 +53,11 @@ related_website_sets.mojom.RelatedWebsiteSetSpec = {
       name: 'related_website_sets.mojom.RelatedWebsiteSet',
       packedSize: 32,
       fields: [
-        { name: 'primary_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'member_sites', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'managed_by_enterprise', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'member_sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(related_website_sets.mojom.MemberSpec, false), nullable: false, minVersion: 0 },
+        { name: 'managed_by_enterprise', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -111,7 +126,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -119,12 +134,12 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_P
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'related_website_sets_info', packedOffset: 8, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false },
+        { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

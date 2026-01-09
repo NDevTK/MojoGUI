@@ -74,7 +74,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -82,12 +82,12 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
 ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 8, packedBitOffset: 0, type: guest_os.mojom.DiagnosticsSpec, nullable: false },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: guest_os.mojom.DiagnosticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

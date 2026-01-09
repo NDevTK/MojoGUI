@@ -14,6 +14,7 @@ customize_buttons.mojom.SidePanelOpenTrigger = {
   kNewTabPage: 0,
   kNewTabFooter: 1,
 };
+customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomizeButtonsHandlerFactory
 customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
@@ -78,10 +79,10 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHan
       name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory.CreateCustomizeButtonsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -173,7 +174,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,7 +187,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonSh
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -196,13 +197,13 @@ customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisib
   $: {
     structSpec: {
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.SetCustomizeChromeSidePanelVisible_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'section', packedOffset: 16, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false },
-        { name: 'trigger', packedOffset: 24, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'section', packedOffset: 4, packedBitOffset: 0, type: side_panel.mojom.CustomizeChromeSectionSpec, nullable: false, minVersion: 0 },
+        { name: 'trigger', packedOffset: 8, packedBitOffset: 0, type: customize_buttons.mojom.SidePanelOpenTriggerSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -275,9 +276,9 @@ customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisi
       name: 'customize_buttons.mojom.CustomizeButtonsDocument.SetCustomizeChromeSidePanelVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

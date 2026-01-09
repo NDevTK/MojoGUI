@@ -19,3 +19,4 @@ blink.mojom.ServiceWorkerFetchHandlerBypassOption = {
   kSyntheticResponse: 5,
   kSyntheticResponseDryRunMode: 6,
 };
+blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };

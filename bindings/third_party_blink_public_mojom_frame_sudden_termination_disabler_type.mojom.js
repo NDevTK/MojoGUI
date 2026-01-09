@@ -16,3 +16,4 @@ blink.mojom.SuddenTerminationDisablerType = {
   kUnloadHandler: 2,
   kVisibilityChangeHandler: 3,
 };
+blink.mojom.SuddenTerminationDisablerTypeSpec = { $: mojo.internal.Enum() };

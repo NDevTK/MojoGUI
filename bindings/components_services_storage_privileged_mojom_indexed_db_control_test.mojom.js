@@ -17,6 +17,7 @@ storage.mojom.FailClass = {
   LEVELDB_TRANSACTION: 3,
   LEVELDB_DATABASE: 4,
 };
+storage.mojom.FailClassSpec = { $: mojo.internal.Enum() };
 
 // Enum: FailMethod
 storage.mojom.FailMethod = {
@@ -28,6 +29,7 @@ storage.mojom.FailMethod = {
   SEEK: 5,
   WRITE: 6,
 };
+storage.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
 
 // Interface: MockFailureInjector
 storage.mojom.MockFailureInjector = {};
@@ -90,14 +92,14 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.MockFailureInjector.FailOperation_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'failure_class', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.FailClassSpec, nullable: false },
-        { name: 'failure_method', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.FailMethodSpec, nullable: false },
-        { name: 'instance_num', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'call_num', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.FailClassSpec, nullable: false, minVersion: 0 },
+        { name: 'failure_method', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.FailMethodSpec, nullable: false, minVersion: 0 },
+        { name: 'instance_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'call_num', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -243,7 +245,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -251,12 +253,12 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,10 +270,10 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_Params',
       packedSize: 24,
       fields: [
-        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
-        { name: 'for_sqlite', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
+        { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -279,12 +281,12 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,7 +299,7 @@ storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,11 +311,11 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_Params',
       packedSize: 32,
       fields: [
-        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
-        { name: 'database_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'blob_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
+        { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -321,12 +323,12 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -338,9 +340,9 @@ storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.FlushBackingStoreForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -352,9 +354,9 @@ storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.FlushBucketSequenceForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -367,7 +369,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -375,12 +377,12 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'total_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -392,9 +394,9 @@ storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec
       name: 'storage.mojom.IndexedDBControlTest.BindMockFailureSingletonForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,7 +409,7 @@ storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

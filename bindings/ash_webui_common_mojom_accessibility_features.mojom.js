@@ -73,9 +73,9 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisible
       name: 'ash.common.mojom.ForceHiddenElementsVisibleObserver.OnForceHiddenElementsVisibleChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'forceVisible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'forceVisible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,9 +148,9 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
       name: 'ash.common.mojom.AccessibilityFeatures.ObserveForceHiddenElementsVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,12 +158,12 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
 ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.common.mojom.AccessibilityFeatures.ObserveForceHiddenElementsVisible_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'forceVisible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'forceVisible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

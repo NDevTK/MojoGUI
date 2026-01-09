@@ -14,6 +14,7 @@ blink.mojom.EntryType = {
   kMark: 0,
   kMeasure: 1,
 };
+blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerformanceMarkOrMeasure
 blink.mojom.PerformanceMarkOrMeasureSpec = {
@@ -22,9 +23,9 @@ blink.mojom.PerformanceMarkOrMeasureSpec = {
       name: 'blink.mojom.PerformanceMarkOrMeasure',
       packedSize: 16,
       fields: [
-        { name: 'kMark', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kMark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

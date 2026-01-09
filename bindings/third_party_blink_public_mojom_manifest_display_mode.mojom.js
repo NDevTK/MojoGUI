@@ -21,3 +21,4 @@ blink.mojom.DisplayMode = {
   kBorderless: 7,
   kPictureInPicture: 8,
 };
+blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };

@@ -15,3 +15,4 @@ network.mojom.AddressFamily = {
   IPV4: 1,
   IPV6: 2,
 };
+network.mojom.AddressFamilySpec = { $: mojo.internal.Enum() };

@@ -82,10 +82,10 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = 
       name: 'ash.common.mojom.ShortcutInputObserver.OnShortcutInputEventPressed_Params',
       packedSize: 24,
       fields: [
-        { name: 'prerewritten_key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false },
-        { name: 'key_event', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true },
+        { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
+        { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,10 +97,10 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec =
       name: 'ash.common.mojom.ShortcutInputObserver.OnShortcutInputEventReleased_Params',
       packedSize: 24,
       fields: [
-        { name: 'prerewritten_key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false },
-        { name: 'key_event', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true },
+        { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: false, minVersion: 0 },
+        { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.KeyEventSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -182,9 +182,9 @@ ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = 
       name: 'ash.common.mojom.ShortcutInputProvider.StartObservingShortcutInput_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -197,7 +197,7 @@ ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -127,7 +127,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -139,10 +139,10 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec =
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceRedirectReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'redirect_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false },
-        { name: 'redirect_response', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
+        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'redirect_response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -152,15 +152,15 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec =
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceResponseReceived_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'final_response_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
-        { name: 'head', packedOffset: 24, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
-        { name: 'request_destination', packedOffset: 32, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
-        { name: 'is_ad_resource', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'final_response_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
+        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+        { name: 'request_destination', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
+        { name: 'is_ad_resource', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -172,10 +172,10 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpe
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceTransferSizeUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'transfer_size_diff', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'transfer_size_diff', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -187,10 +187,10 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCompleted_Params',
       packedSize: 24,
       fields: [
-        { name: 'resource_load_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ResourceLoadInfoSpec, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false },
+        { name: 'resource_load_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ResourceLoadInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -202,9 +202,9 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCanceled_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,9 +216,9 @@ blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
       name: 'blink.mojom.ResourceLoadInfoNotifier.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'pending_resource_load_info_notifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'pending_resource_load_info_notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

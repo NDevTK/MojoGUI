@@ -15,6 +15,7 @@ ash.camera_app.mojom.WordDirection = {
   kLeftToRight: 0,
   kRightToLeft: 1,
 };
+ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };
 
 // Struct: OcrResult
 ash.camera_app.mojom.OcrResultSpec = {
@@ -23,9 +24,9 @@ ash.camera_app.mojom.OcrResultSpec = {
       name: 'ash.camera_app.mojom.OcrResult',
       packedSize: 16,
       fields: [
-        { name: 'lines', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.LineSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -35,16 +36,16 @@ ash.camera_app.mojom.LineSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.Line',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'words', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'bounding_box_angle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'language', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'confidence', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WordSpec, false), nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'bounding_box_angle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'confidence', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -54,14 +55,14 @@ ash.camera_app.mojom.WordSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.Word',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'bounding_box_angle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'direction', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.WordDirectionSpec, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'bounding_box_angle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'direction', packedOffset: 20, packedBitOffset: 0, type: ash.camera_app.mojom.WordDirectionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

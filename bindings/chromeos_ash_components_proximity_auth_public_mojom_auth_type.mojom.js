@@ -17,3 +17,4 @@ proximity_auth.mojom.AuthType = {
   EXPAND_THEN_USER_CLICK: 3,
   FORCE_OFFLINE_PASSWORD: 4,
 };
+proximity_auth.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };

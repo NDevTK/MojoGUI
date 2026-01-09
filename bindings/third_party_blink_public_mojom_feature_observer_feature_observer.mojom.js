@@ -14,6 +14,7 @@ blink.mojom.ObservedFeatureType = {
   kWebLock: 0,
   kBlockingIndexedDBLock: 1,
 };
+blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ObservedFeature
 blink.mojom.ObservedFeature = {};
@@ -128,12 +129,12 @@ blink.mojom.FeatureObserver_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FeatureObserver.Register_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

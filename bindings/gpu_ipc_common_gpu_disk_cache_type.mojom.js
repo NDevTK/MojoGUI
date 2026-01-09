@@ -15,6 +15,25 @@ gpu.mojom.GpuDiskCacheType = {
   kDawnWebGPU: 1,
   kDawnGraphite: 2,
 };
+gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: GpuDiskCacheHandle
+gpu.mojom.GpuDiskCacheHandleSpec = { $: mojo.internal.Union(
+    'gpu.mojom.GpuDiskCacheHandle', {
+      'gl_shader_handle': {
+        'ordinal': 0,
+        'type': gpu.mojom.GpuDiskCacheGlShaderHandleSpec,
+      }},
+      'dawn_webgpu_handle': {
+        'ordinal': 1,
+        'type': gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec,
+      }},
+      'dawn_graphite_handle': {
+        'ordinal': 2,
+        'type': gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec,
+      }},
+    })
+};
 
 // Struct: GpuDiskCacheGlShaderHandle
 gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
@@ -23,9 +42,9 @@ gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheGlShaderHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -37,9 +56,9 @@ gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -51,9 +70,9 @@ gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
       name: 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ mojo_base.mojom.FilePathSpec = {
       name: 'mojo_base.mojom.FilePath',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ mojo_base.mojom.RelativeFilePathSpec = {
       name: 'mojo_base.mojom.RelativeFilePath',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

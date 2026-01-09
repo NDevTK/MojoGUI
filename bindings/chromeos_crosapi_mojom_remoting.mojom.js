@@ -44,6 +44,24 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getSupportHostDetails() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
+      crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
+      []);
+  }
+
+  startSupportSession(params) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      crosapi.mojom.Remoting_StartSupportSession_ParamsSpec,
+      crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
+      [params]);
+  }
+
 };
 
 crosapi.mojom.Remoting.getRemote = function() {
@@ -54,6 +72,59 @@ crosapi.mojom.Remoting.getRemote = function() {
     'crosapi.mojom.Remoting',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetSupportHostDetails
+crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Remoting.GetSupportHostDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'host_details', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportHostDetailsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for StartSupportSession
+crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Remoting.StartSupportSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportSessionParamsSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.StartSupportSessionResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility

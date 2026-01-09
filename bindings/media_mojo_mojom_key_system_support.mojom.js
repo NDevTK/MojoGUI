@@ -25,6 +25,7 @@ media.mojom.CdmCapabilityQueryStatus = {
   kNoMediaDrmSupport: 11,
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
+media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoCodecInfo
 media.mojom.VideoCodecInfoSpec = {
@@ -33,10 +34,10 @@ media.mojom.VideoCodecInfoSpec = {
       name: 'media.mojom.VideoCodecInfo',
       packedSize: 24,
       fields: [
-        { name: 'supported_profiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'supports_clear_lead', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supported_profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCodecProfileSpec, false), nullable: false, minVersion: 0 },
+        { name: 'supports_clear_lead', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -48,13 +49,13 @@ media.mojom.CdmCapabilitySpec = {
       name: 'media.mojom.CdmCapability',
       packedSize: 48,
       fields: [
-        { name: 'audio_codecs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'video_codecs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'encryption_schemes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'session_types', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'version', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false },
+        { name: 'audio_codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.AudioCodecSpec, false), nullable: false, minVersion: 0 },
+        { name: 'video_codecs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(media.mojom.VideoCodecSpec, media.mojom.VideoCodecInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'encryption_schemes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.EncryptionSchemeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'session_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.CdmSessionTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -64,14 +65,14 @@ media.mojom.KeySystemCapabilitySpec = {
   $: {
     structSpec: {
       name: 'media.mojom.KeySystemCapability',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'sw_secure_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true },
-        { name: 'hw_secure_capability', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true },
-        { name: 'sw_secure_capability_query_status', packedOffset: 24, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true },
-        { name: 'hw_secure_capability_query_status', packedOffset: 32, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true },
+        { name: 'sw_secure_capability', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true, minVersion: 0 },
+        { name: 'hw_secure_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmCapabilitySpec, nullable: true, minVersion: 0 },
+        { name: 'sw_secure_capability_query_status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true, minVersion: 0 },
+        { name: 'hw_secure_capability_query_status', packedOffset: 20, packedBitOffset: 0, type: media.mojom.CdmCapabilityQueryStatusSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -139,9 +140,9 @@ media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
       name: 'media.mojom.KeySystemSupportObserver.OnKeySystemSupportUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_systems', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, media.mojom.KeySystemCapabilitySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,9 +215,9 @@ media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
       name: 'media.mojom.KeySystemSupport.SetObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

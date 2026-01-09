@@ -14,14 +14,14 @@ blink.mojom.FramePolicySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FramePolicy',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'sandbox_flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false },
-        { name: 'container_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'required_document_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'deferred_fetch_policy', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.DeferredFetchPolicySpec, nullable: false },
+        { name: 'sandbox_flags', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false, minVersion: 0 },
+        { name: 'container_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'required_document_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.DocumentPolicyFeatureSpec, blink.mojom.PolicyValueSpec, false), nullable: false, minVersion: 0 },
+        { name: 'deferred_fetch_policy', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.DeferredFetchPolicySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

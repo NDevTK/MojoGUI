@@ -52,3 +52,4 @@ attribution_reporting.mojom.DebugDataType = {
   kSourceMaxEventStatesLimit: 38,
   kTriggerAggregateInsufficientNamedBudget: 39,
 };
+attribution_reporting.mojom.DebugDataTypeSpec = { $: mojo.internal.Enum() };

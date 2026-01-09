@@ -55,6 +55,7 @@ printing.mojom.ColorModel = {
   kHpPjlColorAsGrayNo: 41,
   kHpPjlColorAsGrayYes: 42,
 };
+printing.mojom.ColorModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Quality
 printing.mojom.Quality = {
@@ -63,6 +64,7 @@ printing.mojom.Quality = {
   kNormal: 2,
   kHigh: 3,
 };
+printing.mojom.QualitySpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexMode
 printing.mojom.DuplexMode = {
@@ -71,6 +73,7 @@ printing.mojom.DuplexMode = {
   kLongEdge: 2,
   kShortEdge: 3,
 };
+printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintScalingType
 printing.mojom.PrintScalingType = {
@@ -81,6 +84,7 @@ printing.mojom.PrintScalingType = {
   kFill: 4,
   kNone: 5,
 };
+printing.mojom.PrintScalingTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageOrientation
 printing.mojom.PageOrientation = {
@@ -88,6 +92,7 @@ printing.mojom.PageOrientation = {
   kRotateLeft: 1,
   kRotateRight: 2,
 };
+printing.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintScalingOption
 printing.mojom.PrintScalingOption = {
@@ -97,23 +102,27 @@ printing.mojom.PrintScalingOption = {
   kFitToPaper: 3,
   kCenterShrinkToFitPaper: 4,
 };
+printing.mojom.PrintScalingOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkiaDocumentType
 printing.mojom.SkiaDocumentType = {
   kPDF: 0,
   kMSKP: 1,
 };
+printing.mojom.SkiaDocumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetafileDataType
 printing.mojom.MetafileDataType = {
   kPDF: 0,
 };
+printing.mojom.MetafileDataTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GenerateDocumentOutline
 printing.mojom.GenerateDocumentOutline = {
   kNone: 0,
   kFromAccessibilityTreeHeaders: 1,
 };
+printing.mojom.GenerateDocumentOutlineSpec = { $: mojo.internal.Enum() };
 
 // Enum: MarginType
 printing.mojom.MarginType = {
@@ -122,6 +131,7 @@ printing.mojom.MarginType = {
   kPrintableAreaMargins: 2,
   kCustomMargins: 3,
 };
+printing.mojom.MarginTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorModeRestriction
 printing.mojom.ColorModeRestriction = {
@@ -129,6 +139,7 @@ printing.mojom.ColorModeRestriction = {
   kMonochrome: 1,
   kColor: 2,
 };
+printing.mojom.ColorModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexModeRestriction
 printing.mojom.DuplexModeRestriction = {
@@ -138,6 +149,7 @@ printing.mojom.DuplexModeRestriction = {
   kShortEdge: 3,
   kDuplex: 4,
 };
+printing.mojom.DuplexModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: PinModeRestriction
 printing.mojom.PinModeRestriction = {
@@ -145,6 +157,7 @@ printing.mojom.PinModeRestriction = {
   kPin: 1,
   kNoPin: 2,
 };
+printing.mojom.PinModeRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResultCode
 printing.mojom.ResultCode = {
@@ -153,6 +166,7 @@ printing.mojom.ResultCode = {
   kAccessDenied: 2,
   kCanceled: 3,
 };
+printing.mojom.ResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterType
 printing.mojom.PrinterType = {
@@ -160,6 +174,7 @@ printing.mojom.PrinterType = {
   kPdf: 1,
   kLocal: 2,
 };
+printing.mojom.PrinterTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterLanguageType
 printing.mojom.PrinterLanguageType = {
@@ -169,6 +184,7 @@ printing.mojom.PrinterLanguageType = {
   kPostscriptLevel2: 3,
   kPostscriptLevel3: 4,
 };
+printing.mojom.PrinterLanguageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClientType
 printing.mojom.ClientType = {
@@ -177,6 +193,7 @@ printing.mojom.ClientType = {
   kDriver: 2,
   kOther: 3,
 };
+printing.mojom.ClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PageSizeMargins
 printing.mojom.PageSizeMarginsSpec = {
@@ -185,14 +202,14 @@ printing.mojom.PageSizeMarginsSpec = {
       name: 'printing.mojom.PageSizeMargins',
       packedSize: 56,
       fields: [
-        { name: 'content_width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'content_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'margin_top', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'margin_right', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'margin_bottom', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'margin_left', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'content_width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'content_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'margin_top', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'margin_right', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'margin_bottom', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'margin_left', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -204,10 +221,10 @@ printing.mojom.PageRangeSpec = {
       name: 'printing.mojom.PageRange',
       packedSize: 16,
       fields: [
-        { name: 'from', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'to', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'from', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'to', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,9 +236,9 @@ printing.mojom.IppClientInfoSpec = {
       name: 'printing.mojom.IppClientInfo',
       packedSize: 16,
       fields: [
-        { name: 'kApplication', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kApplication', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

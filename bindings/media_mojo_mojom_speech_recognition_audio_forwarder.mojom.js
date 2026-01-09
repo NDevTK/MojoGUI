@@ -44,6 +44,15 @@ media.mojom.SpeechRecognitionAudioForwarderRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  addAudioFromRenderer(buffer) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec,
+      null,
+      [buffer]);
+  }
+
 };
 
 media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
@@ -54,6 +63,20 @@ media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
     'media.mojom.SpeechRecognitionAudioForwarder',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AddAudioFromRenderer
+media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SpeechRecognitionAudioForwarder.AddAudioFromRenderer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDataS16Spec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

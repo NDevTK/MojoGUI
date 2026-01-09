@@ -14,3 +14,4 @@ blink.mojom.PolicyDisposition = {
   kEnforce: 0,
   kReport: 1,
 };
+blink.mojom.PolicyDispositionSpec = { $: mojo.internal.Enum() };

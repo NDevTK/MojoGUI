@@ -14,6 +14,21 @@ video_capture.mojom.CreatePushSubscriptionSuccessCode = {
   kCreatedWithRequestedSettings: 0,
   kCreatedWithDifferentSettings: 1,
 };
+video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
+
+// Union: CreatePushSubscriptionResultCode
+video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: mojo.internal.Union(
+    'video_capture.mojom.CreatePushSubscriptionResultCode', {
+      'success_code': {
+        'ordinal': 0,
+        'type': video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec,
+      }},
+      'error_code': {
+        'ordinal': 1,
+        'type': media.mojom.VideoCaptureErrorSpec,
+      }},
+    })
+};
 
 // Interface: PushVideoStreamSubscription
 video_capture.mojom.PushVideoStreamSubscription = {};
@@ -142,7 +157,7 @@ video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -155,7 +170,7 @@ video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -168,7 +183,7 @@ video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -181,7 +196,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -189,12 +204,12 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,9 +221,9 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
       name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,12 +231,12 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,7 +249,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,12 +257,12 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,7 +275,7 @@ video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -272,9 +287,9 @@ video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
       name: 'video_capture.mojom.PushVideoStreamSubscription.ProcessFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -345,14 +360,14 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'subscriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'requested_settings', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
-        { name: 'force_reopen_with_new_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'subscription', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'force_reopen_with_new_settings', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -360,13 +375,13 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
 video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false },
-        { name: 'settings_source_was_opened_with', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'settings_source_was_opened_with', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

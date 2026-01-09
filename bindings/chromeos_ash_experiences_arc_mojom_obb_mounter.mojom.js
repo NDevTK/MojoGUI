@@ -44,6 +44,24 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  mountObb(obb_file, target_path, owner_gid) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ObbMounterHost_MountObb_ParamsSpec,
+      arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec,
+      [obb_file, target_path, owner_gid]);
+  }
+
+  unmountObb(target_path) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec,
+      arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec,
+      [target_path]);
+  }
+
 };
 
 arc.mojom.ObbMounterHost.getRemote = function() {
@@ -54,6 +72,62 @@ arc.mojom.ObbMounterHost.getRemote = function() {
     'arc.mojom.ObbMounterHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for MountObb
+arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ObbMounterHost.MountObb_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'obb_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'target_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'owner_gid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for UnmountObb
+arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ObbMounterHost.UnmountObb_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'target_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +170,15 @@ arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.ObbMounterInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.ObbMounterInstance.getRemote = function() {
@@ -106,6 +189,20 @@ arc.mojom.ObbMounterInstance.getRemote = function() {
     'arc.mojom.ObbMounterInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.ObbMounterInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ObbMounterInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

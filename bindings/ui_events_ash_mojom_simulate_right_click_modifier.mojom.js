@@ -15,3 +15,4 @@ ui.mojom.SimulateRightClickModifier = {
   kAlt: 1,
   kSearch: 2,
 };
+ui.mojom.SimulateRightClickModifierSpec = { $: mojo.internal.Enum() };

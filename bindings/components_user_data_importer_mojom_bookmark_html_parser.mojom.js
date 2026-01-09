@@ -14,17 +14,17 @@ user_data_importer.mojom.ImportedBookmarkEntrySpec = {
   $: {
     structSpec: {
       name: 'user_data_importer.mojom.ImportedBookmarkEntry',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'is_folder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'creation_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_visit_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'in_toolbar', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_folder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'creation_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'last_visit_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'in_toolbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -36,11 +36,11 @@ user_data_importer.mojom.SearchEngineInfoSpec = {
       name: 'user_data_importer.mojom.SearchEngineInfo',
       packedSize: 32,
       fields: [
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'keyword', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'keyword', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -52,11 +52,11 @@ user_data_importer.mojom.FaviconUsageDataSpec = {
       name: 'user_data_importer.mojom.FaviconUsageData',
       packedSize: 32,
       fields: [
-        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'png_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'urls', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'favicon_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -68,12 +68,12 @@ user_data_importer.mojom.ParsedBookmarksSpec = {
       name: 'user_data_importer.mojom.ParsedBookmarks',
       packedSize: 40,
       fields: [
-        { name: 'bookmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reading_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'search_engines', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'favicons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'reading_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'search_engines', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.SearchEngineInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'favicons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.FaviconUsageDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -141,9 +141,9 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
       name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_Params',
       packedSize: 16,
       fields: [
-        { name: 'raw_html', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -151,12 +151,12 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
 user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: user_data_importer.mojom.ParsedBookmarksSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: user_data_importer.mojom.ParsedBookmarksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

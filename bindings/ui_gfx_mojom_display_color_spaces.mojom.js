@@ -15,6 +15,7 @@ gfx.mojom.ContentColorUsage = {
   kWideColorGamut: 1,
   kHDR: 2,
 };
+gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayColorSpaces
 gfx.mojom.DisplayColorSpacesSpec = {
@@ -23,13 +24,13 @@ gfx.mojom.DisplayColorSpacesSpec = {
       name: 'gfx.mojom.DisplayColorSpaces',
       packedSize: 40,
       fields: [
-        { name: 'color_spaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'formats', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'primaries', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false },
-        { name: 'sdr_max_luminance_nits', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'hdr_max_luminance_relative', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'color_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.ColorSpace, 6Spec, false), nullable: false, minVersion: 0 },
+        { name: 'formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.SharedImageFormat, 6Spec, false), nullable: false, minVersion: 0 },
+        { name: 'primaries', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false, minVersion: 0 },
+        { name: 'sdr_max_luminance_nits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'hdr_max_luminance_relative', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

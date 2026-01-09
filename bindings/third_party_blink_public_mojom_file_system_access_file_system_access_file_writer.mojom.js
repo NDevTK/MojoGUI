@@ -99,10 +99,10 @@ blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Write_Params',
       packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,13 +110,13 @@ blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
 blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileWriter.Write_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'bytes_written', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'bytes_written', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -128,9 +128,9 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Truncate_Params',
       packedSize: 16,
       fields: [
-        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,12 +138,12 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
 blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileWriter.Truncate_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,7 +156,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -164,12 +164,12 @@ blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
 blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileWriter.Close_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,7 +182,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,12 +190,12 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
 blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessFileWriter.Abort_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

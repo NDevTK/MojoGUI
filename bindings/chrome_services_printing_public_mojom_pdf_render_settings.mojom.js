@@ -13,22 +13,18 @@ printing.mojom = printing.mojom || {};
 printing.mojom.Mode = {
   NORMAL: 0,
 };
+printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PdfRenderSettings
 printing.mojom.PdfRenderSettingsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfRenderSettings',
-      packedSize: 56,
+      packedSize: 16,
       fields: [
-        { name: 'NORMAL', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'TEXTONLY', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'POSTSCRIPT_LEVEL2', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'POSTSCRIPT_LEVEL3', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'EMF_WITH_REDUCED_RASTERIZATION', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'POSTSCRIPT_LEVEL3_WITH_TYPE42_FONTS', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

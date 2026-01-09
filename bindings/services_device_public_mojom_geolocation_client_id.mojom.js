@@ -16,3 +16,4 @@ device.mojom.GeolocationClientId = {
   kGeoLanguageProvider: 2,
   kFingerprintDataLoader: 3,
 };
+device.mojom.GeolocationClientIdSpec = { $: mojo.internal.Enum() };

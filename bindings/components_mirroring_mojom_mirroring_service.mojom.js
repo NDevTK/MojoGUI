@@ -9,6 +9,12 @@ var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
 
 
+mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
+
+mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
+
+mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
+
 // Interface: MirroringService
 mirroring.mojom.MirroringService = {};
 
@@ -90,14 +96,14 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
       name: 'mirroring.mojom.MirroringService.Start_Params',
       packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false },
-        { name: 'max_resolution', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'resource_provider', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'inbound_channel', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'resource_provider', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'outbound_channel', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'inbound_channel', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -110,7 +116,7 @@ mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +129,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -131,12 +137,12 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
 mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mirroring.mojom.MirroringService.GetMirroringStats_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'json_stats', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

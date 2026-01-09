@@ -16,6 +16,7 @@ ash.camera_app.mojom.ScreenState = {
   kOff: 1,
   kOffAuto: 2,
 };
+ash.camera_app.mojom.ScreenStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LidState
 ash.camera_app.mojom.LidState = {
@@ -23,6 +24,7 @@ ash.camera_app.mojom.LidState = {
   kClosed: 1,
   kNotPresent: 2,
 };
+ash.camera_app.mojom.LidStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WindowStateType
 ash.camera_app.mojom.WindowStateType = {
@@ -31,6 +33,7 @@ ash.camera_app.mojom.WindowStateType = {
   kFullscreen: 2,
   kRegular: 3,
 };
+ash.camera_app.mojom.WindowStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileMonitorResult
 ash.camera_app.mojom.FileMonitorResult = {
@@ -38,6 +41,7 @@ ash.camera_app.mojom.FileMonitorResult = {
   kCanceled: 1,
   kError: 2,
 };
+ash.camera_app.mojom.FileMonitorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: StorageMonitorStatus
 ash.camera_app.mojom.StorageMonitorStatus = {
@@ -47,6 +51,7 @@ ash.camera_app.mojom.StorageMonitorStatus = {
   kCanceled: 3,
   kError: 4,
 };
+ash.camera_app.mojom.StorageMonitorStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AspectRatio
 ash.camera_app.mojom.AspectRatio = {
@@ -54,6 +59,7 @@ ash.camera_app.mojom.AspectRatio = {
   k4To3: 1,
   k16To9: 2,
 };
+ash.camera_app.mojom.AspectRatioSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileType
 ash.camera_app.mojom.FileType = {
@@ -61,23 +67,38 @@ ash.camera_app.mojom.FileType = {
   kVideo: 1,
   kGif: 2,
 };
+ash.camera_app.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: CaptureDestination
+ash.camera_app.mojom.CaptureDestinationSpec = { $: mojo.internal.Union(
+    'ash.camera_app.mojom.CaptureDestination', {
+      'cloud_upload': {
+        'ordinal': 0,
+        'type': ash.camera_app.mojom.CloudUploadSpec,
+      }},
+      'local_file': {
+        'ordinal': 1,
+        'type': ash.camera_app.mojom.LocalFileSpec,
+      }},
+    })
+};
 
 // Struct: WifiConfig
 ash.camera_app.mojom.WifiConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.WifiConfig',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false },
-        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'eap_method', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapMethodSpec, nullable: true },
-        { name: 'eap_phase2_method', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapPhase2MethodSpec, nullable: true },
-        { name: 'eap_identity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'eap_anonymous_identity', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'security', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'eap_method', packedOffset: 12, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapMethodSpec, nullable: true, minVersion: 0 },
+        { name: 'eap_phase2_method', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapPhase2MethodSpec, nullable: true, minVersion: 0 },
+        { name: 'eap_identity', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'eap_anonymous_identity', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -89,10 +110,10 @@ ash.camera_app.mojom.CloudUploadSpec = {
       name: 'ash.camera_app.mojom.CloudUpload',
       packedSize: 24,
       fields: [
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'thumbnail', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -104,9 +125,9 @@ ash.camera_app.mojom.LocalFileSpec = {
       name: 'ash.camera_app.mojom.LocalFile',
       packedSize: 16,
       fields: [
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,9 +195,9 @@ ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.TabletModeMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,9 +270,9 @@ ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.ScreenStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -324,9 +345,9 @@ ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.ScreenLockedMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_screen_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -399,9 +420,9 @@ ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.ExternalScreenMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_external_screen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_external_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -474,9 +495,9 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_P
       name: 'ash.camera_app.mojom.CameraUsageOwnershipMonitor.OnCameraUsageOwnershipChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -549,9 +570,9 @@ ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.LidStateMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'lid_status', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false },
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -624,9 +645,9 @@ ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.SWPrivacySwitchMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_sw_privacy_switch_on', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sw_privacy_switch_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -708,9 +729,9 @@ ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = {
       name: 'ash.camera_app.mojom.WindowStateMonitor.OnWindowStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -722,9 +743,9 @@ ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = {
       name: 'ash.camera_app.mojom.WindowStateMonitor.OnWindowFocusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_focus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -797,9 +818,9 @@ ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = {
       name: 'ash.camera_app.mojom.StorageMonitor.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -926,9 +947,9 @@ ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -936,12 +957,12 @@ ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
 ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -954,7 +975,7 @@ ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -962,12 +983,12 @@ ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
 ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.WindowStateController.GetWindowState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -980,7 +1001,7 @@ ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -993,7 +1014,7 @@ ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1006,7 +1027,7 @@ ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1019,7 +1040,7 @@ ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1032,7 +1053,7 @@ ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1382,13 +1403,13 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'intent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1396,12 +1417,12 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1414,7 +1435,7 @@ ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1422,12 +1443,12 @@ ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.IsTabletMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1439,9 +1460,9 @@ ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.StartPerfEventTrace_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1453,9 +1474,9 @@ ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.StopPerfEventTrace_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1467,9 +1488,9 @@ ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1477,12 +1498,12 @@ ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1494,9 +1515,9 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1504,12 +1525,12 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_state', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false },
+        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1522,7 +1543,7 @@ ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1530,12 +1551,12 @@ ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpe
 ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.IsMetricsAndCrashReportingEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1547,9 +1568,9 @@ ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1557,12 +1578,12 @@ ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_external_screen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_external_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1574,9 +1595,9 @@ ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenFileInGallery_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1588,9 +1609,9 @@ ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenFeedbackDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'placeholder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1602,9 +1623,9 @@ ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenUrlInBrowser_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1617,7 +1638,7 @@ ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1625,12 +1646,12 @@ ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.GetWindowStateController_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1640,12 +1661,12 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'file_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.FileTypeSpec, nullable: false },
-        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDestinationSpec, nullable: false },
+        { name: 'file_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDestinationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1653,12 +1674,12 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1670,9 +1691,9 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1680,12 +1701,12 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.FileMonitorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileMonitorResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1698,7 +1719,7 @@ ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1706,12 +1727,12 @@ ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.IsDocumentScannerSupported_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1724,7 +1745,7 @@ ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1732,12 +1753,12 @@ ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.CheckDocumentModeReadiness_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1749,9 +1770,9 @@ ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.ScanDocumentCorners_Params',
       packedSize: 16,
       fields: [
-        { name: 'jpeg_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1759,12 +1780,12 @@ ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.ScanDocumentCorners_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1776,11 +1797,11 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.ConvertToDocument_Params',
       packedSize: 32,
       fields: [
-        { name: 'jpeg_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'corners', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'rotation', packedOffset: 24, packedBitOffset: 0, type: chromeos.machine_learning.mojom.RotationSpec, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointF, 4Spec, false), nullable: false, minVersion: 0 },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.RotationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1788,12 +1809,12 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.ConvertToDocument_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'doc_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'doc_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1806,7 +1827,7 @@ ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1818,9 +1839,9 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1828,12 +1849,12 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_status', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false },
+        { name: 'initial_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1846,7 +1867,7 @@ ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1859,7 +1880,7 @@ ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1871,9 +1892,9 @@ ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.OpenWifiDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.WifiConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.WifiConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1885,9 +1906,9 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1895,12 +1916,12 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'lid_status', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false },
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1912,9 +1933,9 @@ ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1922,12 +1943,12 @@ ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_sw_privacy_switch_on', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_sw_privacy_switch_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1940,7 +1961,7 @@ ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1948,12 +1969,12 @@ ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.GetEventsSender_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events_sender', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'events_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1965,9 +1986,9 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1975,12 +1996,12 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_screen_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1992,9 +2013,9 @@ ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.RenderPdfAsJpeg_Params',
       packedSize: 16,
       fields: [
-        { name: 'pdf_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pdf_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2002,12 +2023,12 @@ ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.RenderPdfAsJpeg_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'jpeg_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2017,11 +2038,11 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'jpeg_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2029,12 +2050,12 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ocr_result', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false },
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2046,9 +2067,9 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_Params',
       packedSize: 16,
       fields: [
-        { name: 'jpeg_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2056,12 +2077,12 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ocr_result', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false },
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2073,9 +2094,9 @@ ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.CreatePdfBuilder_Params',
       packedSize: 16,
       fields: [
-        { name: 'builder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'builder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2088,7 +2109,7 @@ ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2096,12 +2117,12 @@ ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.camera_app.mojom.CameraAppHelper.GetAspectRatioOrder_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'order', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.AspectRatioSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

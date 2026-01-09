@@ -16,14 +16,14 @@ arc.mojom.MidisDeviceInfoSpec = {
       name: 'arc.mojom.MidisDeviceInfo',
       packedSize: 40,
       fields: [
-        { name: 'card', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'device_num', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_subdevices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'flags', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'manufacturer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'card', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'device_num', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_subdevices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'manufacturer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -35,11 +35,11 @@ arc.mojom.MidisRequestSpec = {
       name: 'arc.mojom.MidisRequest',
       packedSize: 24,
       fields: [
-        { name: 'card', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'device_num', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'subdevice_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'card', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'device_num', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'subdevice_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -79,6 +79,24 @@ arc.mojom.MidisClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onDeviceAdded(device) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec,
+      null,
+      [device]);
+  }
+
+  onDeviceRemoved(device) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec,
+      null,
+      [device]);
+  }
+
 };
 
 arc.mojom.MidisClient.getRemote = function() {
@@ -89,6 +107,34 @@ arc.mojom.MidisClient.getRemote = function() {
     'arc.mojom.MidisClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnDeviceAdded
+arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisClient.OnDeviceAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnDeviceRemoved
+arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisClient.OnDeviceRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -131,6 +177,33 @@ arc.mojom.MidisServerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  listDevices() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.MidisServer_ListDevices_ParamsSpec,
+      arc.mojom.MidisServer_ListDevices_ResponseParamsSpec,
+      []);
+  }
+
+  requestPort(request) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.MidisServer_RequestPort_ParamsSpec,
+      arc.mojom.MidisServer_RequestPort_ResponseParamsSpec,
+      [request]);
+  }
+
+  closeDevice(request) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.MidisServer_CloseDevice_ParamsSpec,
+      null,
+      [request]);
+  }
+
 };
 
 arc.mojom.MidisServer.getRemote = function() {
@@ -141,6 +214,73 @@ arc.mojom.MidisServer.getRemote = function() {
     'arc.mojom.MidisServer',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ListDevices
+arc.mojom.MidisServer_ListDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisServer.ListDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.MidisDeviceInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for RequestPort
+arc.mojom.MidisServer_RequestPort_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisServer.RequestPort_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'port_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for CloseDevice
+arc.mojom.MidisServer_CloseDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisServer.CloseDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -183,6 +323,15 @@ arc.mojom.MidisHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  connect(server, client) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.MidisHost_Connect_ParamsSpec,
+      null,
+      [server, client]);
+  }
+
 };
 
 arc.mojom.MidisHost.getRemote = function() {
@@ -193,6 +342,21 @@ arc.mojom.MidisHost.getRemote = function() {
     'arc.mojom.MidisHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Connect
+arc.mojom.MidisHost_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisHost.Connect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'server', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -235,6 +399,15 @@ arc.mojom.MidisInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.MidisInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.MidisInstance.getRemote = function() {
@@ -245,6 +418,20 @@ arc.mojom.MidisInstance.getRemote = function() {
     'arc.mojom.MidisInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.MidisInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MidisInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

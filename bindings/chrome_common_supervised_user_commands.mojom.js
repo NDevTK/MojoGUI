@@ -100,7 +100,7 @@ supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -113,7 +113,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -121,12 +121,12 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec =
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessRemote_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request_issued', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -139,7 +139,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,12 +147,12 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = 
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessLocal_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request_issued', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +165,7 @@ supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

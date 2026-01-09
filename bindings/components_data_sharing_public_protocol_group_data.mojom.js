@@ -17,6 +17,7 @@ data_sharing.mojom.MemberRole = {
   kInvitee: 3,
   kFormerMember: 4,
 };
+data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
 
 // Struct: GroupMember
 data_sharing.mojom.GroupMemberSpec = {
@@ -25,16 +26,16 @@ data_sharing.mojom.GroupMemberSpec = {
       name: 'data_sharing.mojom.GroupMember',
       packedSize: 72,
       fields: [
-        { name: 'gaia_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'email', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'role', packedOffset: 32, packedBitOffset: 0, type: data_sharing.mojom.MemberRoleSpec, nullable: false },
-        { name: 'avatar_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'given_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'creation_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
-        { name: 'last_updated_time', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
+        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'role', packedOffset: 24, packedBitOffset: 0, type: data_sharing.mojom.MemberRoleSpec, nullable: false, minVersion: 0 },
+        { name: 'avatar_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'given_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'creation_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
+        { name: 'last_updated_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -46,13 +47,13 @@ data_sharing.mojom.GroupDataSpec = {
       name: 'data_sharing.mojom.GroupData',
       packedSize: 48,
       fields: [
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'members', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'former_members', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'access_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'members', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), nullable: false, minVersion: 0 },
+        { name: 'former_members', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), nullable: false, minVersion: 0 },
+        { name: 'access_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

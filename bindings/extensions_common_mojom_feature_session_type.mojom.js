@@ -17,3 +17,4 @@ extensions.mojom.FeatureSessionType = {
   kKiosk: 3,
   kAutolaunchedKiosk: 4,
 };
+extensions.mojom.FeatureSessionTypeSpec = { $: mojo.internal.Enum() };

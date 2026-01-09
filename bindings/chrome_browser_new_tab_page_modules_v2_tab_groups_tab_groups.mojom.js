@@ -15,18 +15,18 @@ ntp.tab_groups.mojom.TabGroupSpec = {
   $: {
     structSpec: {
       name: 'ntp.tab_groups.mojom.TabGroup',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'update_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'total_tab_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'color', packedOffset: 48, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false },
-        { name: 'favicon_urls', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_shared_tab_group', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'total_tab_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 36, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false, minVersion: 0 },
+        { name: 'favicon_urls', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_shared_tab_group', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -131,7 +131,7 @@ ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -144,7 +144,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -152,13 +152,13 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
 ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'tab_groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'showZeroState', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec, false), nullable: true, minVersion: 0 },
+        { name: 'showZeroState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -170,9 +170,9 @@ ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
       name: 'ntp.tab_groups.mojom.PageHandler.OpenTabGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +185,7 @@ ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -198,7 +198,7 @@ ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

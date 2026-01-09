@@ -14,25 +14,25 @@ viz.mojom.LayerContextSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContextSettings',
-      packedSize: 88,
+      packedSize: 64,
       fields: [
-        { name: 'draw_mode_is_gpu', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_early_damage_check', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'damaged_frame_limit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'scrollbar_animator', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.ScrollbarAnimatorSpec, nullable: false },
-        { name: 'scrollbar_fade_delay', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'scrollbar_fade_duration', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'scrollbar_thinning_duration', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'idle_thickness_scale', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'top_controls_show_threshold', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'top_controls_hide_threshold', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'minimum_occlusion_tracking_size', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'enable_edge_anti_aliasing', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_backface_visibility_interop', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_fluent_scrollbar', packedOffset: 80, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 80, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'draw_mode_is_gpu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_early_damage_check', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'damaged_frame_limit', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_animator', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.ScrollbarAnimatorSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_fade_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_fade_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_thinning_duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'idle_thickness_scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_show_threshold', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_hide_threshold', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'minimum_occlusion_tracking_size', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_edge_anti_aliasing', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_backface_visibility_interop', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_fluent_scrollbar', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -44,11 +44,11 @@ viz.mojom.CompositorFrameSinkParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkParams',
       packedSize: 16,
       fields: [
-        { name: 'wants_animate_only_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'auto_needs_begin_frame', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'no_compositor_frame_acks', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'wants_animate_only_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'auto_needs_begin_frame', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'no_compositor_frame_acks', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,9 +170,9 @@ viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SetParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSinkParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorFrameSinkParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,9 +184,9 @@ viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SetNeedsBeginFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'needs_begin_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'needs_begin_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -198,12 +198,12 @@ viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SubmitCompositorFrame_Params',
       packedSize: 40,
       fields: [
-        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
-        { name: 'frame', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false },
-        { name: 'hit_test_region_list', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true },
-        { name: 'submit_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
+        { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -215,9 +215,9 @@ viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.DidNotProduceFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'ack', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false },
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +230,7 @@ viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,10 +242,10 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.BindLayerContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.PendingLayerContextSpec, nullable: false },
-        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.LayerContextSettingsSpec, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.PendingLayerContextSpec, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LayerContextSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -257,9 +257,9 @@ viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SetThreads_Params',
       packedSize: 16,
       fields: [
-        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ThreadSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,9 +377,9 @@ viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.DidReceiveCompositorFrameAck_Params',
       packedSize: 16,
       fields: [
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,11 +391,11 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFrame_Params',
       packedSize: 32,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -407,9 +407,9 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFramePausedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'paused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -421,9 +421,9 @@ viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.ReclaimResources_Params',
       packedSize: 16,
       fields: [
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -435,9 +435,9 @@ viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcesse
       name: 'viz.mojom.CompositorFrameSinkClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sequence_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -449,9 +449,9 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.OnSurfaceEvicted_Params',
       packedSize: 16,
       fields: [
-        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

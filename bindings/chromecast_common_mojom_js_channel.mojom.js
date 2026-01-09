@@ -72,9 +72,9 @@ chromecast.mojom.JsChannel_PostMessage_ParamsSpec = {
       name: 'chromecast.mojom.JsChannel.PostMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,10 +156,10 @@ chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = {
       name: 'chromecast.mojom.JsChannelClient.CreateChannel_Params',
       packedSize: 24,
       fields: [
-        { name: 'channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -171,9 +171,9 @@ chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = {
       name: 'chromecast.mojom.JsChannelClient.RemoveChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,10 +246,10 @@ chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = {
       name: 'chromecast.mojom.JsChannelBindingProvider.Register_Params',
       packedSize: 16,
       fields: [
-        { name: 'routing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

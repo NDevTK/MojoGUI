@@ -9,6 +9,32 @@ var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
 
+// Union: GpuMemoryBufferPlatformHandle
+gfx.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
+    'gfx.mojom.GpuMemoryBufferPlatformHandle', {
+      'shared_memory_handle': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.UnsafeSharedMemoryRegionSpec,
+      }},
+      'native_pixmap_handle': {
+        'ordinal': 1,
+        'type': gfx.mojom.NativePixmapHandleSpec,
+      }},
+      'io_surface_handle': {
+        'ordinal': 2,
+        'type': gfx.mojom.IOSurfaceHandleSpec,
+      }},
+      'dxgi_handle': {
+        'ordinal': 3,
+        'type': gfx.mojom.DXGIHandleSpec,
+      }},
+      'android_hardware_buffer_handle': {
+        'ordinal': 4,
+        'type': gfx.mojom.AHardwareBufferHandleSpec,
+      }},
+    })
+};
+
 // Struct: NativePixmapPlane
 gfx.mojom.NativePixmapPlaneSpec = {
   $: {
@@ -16,12 +42,12 @@ gfx.mojom.NativePixmapPlaneSpec = {
       name: 'gfx.mojom.NativePixmapPlane',
       packedSize: 40,
       fields: [
-        { name: 'stride', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'buffer_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -31,16 +57,16 @@ gfx.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapHandle',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'supports_zero_copy_webgpu_import', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer_collection_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ram_coherency', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.NativePixmapPlaneSpec, false), nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'supports_zero_copy_webgpu_import', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buffer_collection_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'buffer_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'ram_coherency', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -52,10 +78,10 @@ gfx.mojom.AHardwareBufferHandleSpec = {
       name: 'gfx.mojom.AHardwareBufferHandle',
       packedSize: 24,
       fields: [
-        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'tracking_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'tracking_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -67,9 +93,9 @@ gfx.mojom.DXGIHandleTokenSpec = {
       name: 'gfx.mojom.DXGIHandleToken',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -81,11 +107,11 @@ gfx.mojom.DXGIHandleSpec = {
       name: 'gfx.mojom.DXGIHandle',
       packedSize: 32,
       fields: [
-        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false },
-        { name: 'shared_memory_handle', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIHandleTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_handle', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -97,12 +123,12 @@ gfx.mojom.IOSurfaceHandleSpec = {
       name: 'gfx.mojom.IOSurfaceHandle',
       packedSize: 40,
       fields: [
-        { name: 'mach_send_right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'shared_memory_handle', packedOffset: 16, packedBitOffset: 0, type: [EnableIf=is_ios] mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
-        { name: 'plane_strides', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'plane_offsets', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mach_send_right', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_handle', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'plane_strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'plane_offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

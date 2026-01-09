@@ -99,9 +99,9 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
       name: 'payments.mojom.DigitalGoods.GetDetails_Params',
       packedSize: 16,
       fields: [
-        { name: 'item_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,13 +109,13 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
 payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false },
-        { name: 'item_details_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'item_details_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -128,7 +128,7 @@ payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,13 +136,13 @@ payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
 payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false },
-        { name: 'purchase_reference_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -155,7 +155,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -163,13 +163,13 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
 payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false },
-        { name: 'purchase_reference_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -181,9 +181,9 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
       name: 'payments.mojom.DigitalGoods.Consume_Params',
       packedSize: 16,
       fields: [
-        { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,12 +191,12 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
 payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,9 +269,9 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_Params',
       packedSize: 16,
       fields: [
-        { name: 'payment_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,13 +279,13 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
 payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false },
-        { name: 'digital_goods', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'digital_goods', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

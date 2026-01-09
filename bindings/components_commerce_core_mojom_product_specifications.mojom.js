@@ -15,12 +15,14 @@ commerce.product_specifications.mojom.DisclosureVersion = {
   kUnknown: 0,
   kV1: 1,
 };
+commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShowSetDisposition
 commerce.product_specifications.mojom.ShowSetDisposition = {
   kInNewTabs: 0,
   kInNewWindow: 1,
 };
+commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: ProductSpecificationsHandler
 commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
@@ -157,9 +159,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDi
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.SetAcceptedDisclosureVersion_Params',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: commerce.product_specifications.mojom.DisclosureVersionSpec, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: commerce.product_specifications.mojom.DisclosureVersionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,11 +173,11 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_Params',
       packedSize: 32,
       fields: [
-        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'set_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'set_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -183,12 +185,12 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
 commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'disclosure_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disclosure_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -201,7 +203,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,7 +216,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetup
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -226,9 +228,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -236,12 +238,12 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -253,10 +255,10 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetForUuid_Params',
       packedSize: 24,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
-        { name: 'in_new_tab', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
+        { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -268,10 +270,10 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetsForUuids_Params',
       packedSize: 24,
       fields: [
-        { name: 'uuids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'disposition', packedOffset: 16, packedBitOffset: 0, type: commerce.product_specifications.mojom.ShowSetDispositionSpec, nullable: false },
+        { name: 'uuids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.UuidSpec, false), nullable: false, minVersion: 0 },
+        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: commerce.product_specifications.mojom.ShowSetDispositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -283,9 +285,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePa
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowComparePage_Params',
       packedSize: 16,
       fields: [
-        { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_new_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,9 +299,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,12 +309,12 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -412,9 +414,9 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Param
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'set', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false },
+        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -426,9 +428,9 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Par
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'set', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false },
+        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -440,9 +442,9 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Par
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,7 +457,7 @@ commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -528,10 +530,10 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_Create
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.CreateProductSpecificationsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

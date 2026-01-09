@@ -72,9 +72,9 @@ content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
       name: 'content.mojom.WebTestBluetoothFakeAdapterSetter.Set_Params',
       packedSize: 16,
       fields: [
-        { name: 'adapter_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'adapter_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

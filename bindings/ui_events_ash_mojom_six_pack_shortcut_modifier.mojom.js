@@ -15,3 +15,4 @@ ui.mojom.SixPackShortcutModifier = {
   kAlt: 1,
   kSearch: 2,
 };
+ui.mojom.SixPackShortcutModifierSpec = { $: mojo.internal.Enum() };

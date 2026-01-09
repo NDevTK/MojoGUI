@@ -144,12 +144,12 @@ media.mojom.Decryptor_Initialize_ParamsSpec = {
       name: 'media.mojom.Decryptor.Initialize_Params',
       packedSize: 40,
       fields: [
-        { name: 'audio_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'video_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'decrypt_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'decrypted_pipe', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'decrypt_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'decrypted_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -159,12 +159,12 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Decryptor.Decrypt_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
-        { name: 'encrypted', packedOffset: 16, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -172,13 +172,13 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
 media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Decryptor.Decrypt_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'buffer', packedOffset: 16, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -190,9 +190,9 @@ media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
       name: 'media.mojom.Decryptor.CancelDecrypt_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,9 +204,9 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeAudioDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,12 +214,12 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
 media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Decryptor.InitializeAudioDecoder_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,9 +231,9 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeVideoDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,12 +241,12 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
 media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Decryptor.InitializeVideoDecoder_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -256,11 +256,11 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -268,13 +268,13 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
 media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'audio_buffers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'audio_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.AudioBufferSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -284,11 +284,11 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -296,14 +296,14 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
 media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'video_frame', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameSpec, nullable: true },
-        { name: 'releaser', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'releaser', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -315,9 +315,9 @@ media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.ResetDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -329,9 +329,9 @@ media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.DeinitializeDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

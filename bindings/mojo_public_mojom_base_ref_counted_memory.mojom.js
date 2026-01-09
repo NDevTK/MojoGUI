@@ -14,11 +14,11 @@ mojo_base.mojom.RefCountedMemorySpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.RefCountedMemory',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

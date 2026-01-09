@@ -14,6 +14,7 @@ cros.mojom.Effect = {
   kNoEffect: 0,
   kPortraitMode: 1,
 };
+cros.mojom.EffectSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamType
 cros.mojom.StreamType = {
@@ -23,12 +24,14 @@ cros.mojom.StreamType = {
   kRecordingOutput: 3,
   kUnknown: 4,
 };
+cros.mojom.StreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetCameraAppDeviceStatus
 cros.mojom.GetCameraAppDeviceStatus = {
   kSuccess: 0,
   kErrorInvalidId: 1,
 };
+cros.mojom.GetCameraAppDeviceStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptureIntent
 cros.mojom.CaptureIntent = {
@@ -37,6 +40,7 @@ cros.mojom.CaptureIntent = {
   kStillCapture: 2,
   kPortraitCapture: 3,
 };
+cros.mojom.CaptureIntentSpec = { $: mojo.internal.Enum() };
 
 // Interface: CameraAppDeviceProvider
 cros.mojom.CameraAppDeviceProvider = {};
@@ -119,9 +123,9 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceProvider.GetCameraAppDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,13 +133,13 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceProvider.GetCameraAppDevice_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false },
-        { name: 'device', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'device', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,7 +152,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -156,12 +160,12 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceProvider.IsSupported_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -173,9 +177,9 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceProvider.IsDeviceInUse_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,12 +187,12 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceProvider.IsDeviceInUse_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'in_use', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -288,9 +292,9 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceBridge.GetCameraAppDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -298,13 +302,13 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceBridge.GetCameraAppDevice_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false },
-        { name: 'device', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'device', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,7 +321,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -325,12 +329,12 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceBridge.IsSupported_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,10 +346,10 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceBridge.SetVirtualDeviceEnabled_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -353,12 +357,12 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceBridge.SetVirtualDeviceEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -370,9 +374,9 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
       name: 'cros.mojom.CameraAppDeviceBridge.IsDeviceInUse_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -380,12 +384,12 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDeviceBridge.IsDeviceInUse_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'in_use', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -566,9 +570,9 @@ cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.TakePortraitModePhoto_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -580,9 +584,9 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetFpsRange_Params',
       packedSize: 16,
       fields: [
-        { name: 'fps_range', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
+        { name: 'fps_range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -590,12 +594,12 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
 cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDevice.SetFpsRange_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -607,9 +611,9 @@ cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetStillCaptureResolution_Params',
       packedSize: 16,
       fields: [
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'resolution', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -621,9 +625,9 @@ cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetCaptureIntent_Params',
       packedSize: 16,
       fields: [
-        { name: 'intent', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CaptureIntentSpec, nullable: false },
+        { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CaptureIntentSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -633,12 +637,12 @@ cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraAppDevice.AddResultMetadataObserver_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'stream_type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.StreamTypeSpec, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'stream_type', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.StreamTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -650,9 +654,9 @@ cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.AddCameraEventObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -664,9 +668,9 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetCameraFrameRotationEnabledAtSource_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -674,12 +678,12 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
 cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDevice.SetCameraFrameRotationEnabledAtSource_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -692,7 +696,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -700,12 +704,12 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
 cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cros.mojom.CameraAppDevice.GetCameraFrameRotation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'rotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -717,9 +721,9 @@ cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.RegisterDocumentCornersObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -731,9 +735,9 @@ cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetMultipleStreamsEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -745,9 +749,9 @@ cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.RegisterCameraInfoObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -759,9 +763,9 @@ cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec = {
       name: 'cros.mojom.CameraAppDevice.SetCropRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'crop_region', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'crop_region', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -774,7 +778,7 @@ cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -847,9 +851,9 @@ cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = {
       name: 'cros.mojom.ResultMetadataObserver.OnMetadataAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_metadata', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false },
+        { name: 'camera_metadata', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -923,7 +927,7 @@ cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -996,9 +1000,9 @@ cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec = {
       name: 'cros.mojom.DocumentCornersObserver.OnDocumentCornersUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1071,9 +1075,9 @@ cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = {
       name: 'cros.mojom.CameraInfoObserver.OnCameraInfoUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_info', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraInfoSpec, nullable: false },
+        { name: 'camera_info', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1144,13 +1148,13 @@ cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.StillCaptureResultObserver.OnStillCaptureDone_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'effect', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.EffectSpec, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'blob', packedOffset: 24, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true },
+        { name: 'effect', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -91,7 +91,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -99,12 +99,12 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
 media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_fetch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_fetch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,11 +114,11 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Debugger.OnMirroringStats_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'json_stats', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -130,9 +130,9 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
       name: 'media_router.mojom.Debugger.BindReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

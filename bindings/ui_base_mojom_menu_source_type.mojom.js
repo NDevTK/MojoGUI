@@ -22,3 +22,4 @@ ui.mojom.MenuSourceType = {
   kAdjustSelection: 8,
   kAdjustSelectionReset: 9,
 };
+ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };

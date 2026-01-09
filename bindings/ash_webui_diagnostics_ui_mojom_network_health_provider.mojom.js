@@ -15,6 +15,7 @@ ash.diagnostics.mojom.AuthenticationType = {
   kNone: 0,
   k8021x: 1,
 };
+ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkState
 ash.diagnostics.mojom.NetworkState = {
@@ -25,6 +26,7 @@ ash.diagnostics.mojom.NetworkState = {
   kNotConnected: 4,
   kDisabled: 5,
 };
+ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkType
 ash.diagnostics.mojom.NetworkType = {
@@ -33,6 +35,7 @@ ash.diagnostics.mojom.NetworkType = {
   kWiFi: 2,
   kUnsupported: 3,
 };
+ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoamingState
 ash.diagnostics.mojom.RoamingState = {
@@ -40,6 +43,7 @@ ash.diagnostics.mojom.RoamingState = {
   kRoaming: 1,
   kHome: 2,
 };
+ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LockType
 ash.diagnostics.mojom.LockType = {
@@ -48,6 +52,7 @@ ash.diagnostics.mojom.LockType = {
   kSimPuk: 2,
   kNetworkPin: 3,
 };
+ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityType
 ash.diagnostics.mojom.SecurityType = {
@@ -57,6 +62,25 @@ ash.diagnostics.mojom.SecurityType = {
   kWpaEap: 3,
   kWpaPsk: 4,
 };
+ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: NetworkTypeProperties
+ash.diagnostics.mojom.NetworkTypePropertiesSpec = { $: mojo.internal.Union(
+    'ash.diagnostics.mojom.NetworkTypeProperties', {
+      'cellular': {
+        'ordinal': 0,
+        'type': ash.diagnostics.mojom.CellularStatePropertiesSpec,
+      }},
+      'ethernet': {
+        'ordinal': 1,
+        'type': ash.diagnostics.mojom.EthernetStatePropertiesSpec,
+      }},
+      'wifi': {
+        'ordinal': 2,
+        'type': ash.diagnostics.mojom.WiFiStatePropertiesSpec,
+      }},
+    })
+};
 
 // Struct: IPConfigProperties
 ash.diagnostics.mojom.IPConfigPropertiesSpec = {
@@ -65,12 +89,12 @@ ash.diagnostics.mojom.IPConfigPropertiesSpec = {
       name: 'ash.diagnostics.mojom.IPConfigProperties',
       packedSize: 40,
       fields: [
-        { name: 'name_servers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'routing_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'gateway', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ip_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'routing_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'gateway', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'ip_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -80,18 +104,18 @@ ash.diagnostics.mojom.CellularStatePropertiesSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.CellularStateProperties',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
-        { name: 'iccid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'eid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'network_technology', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'roaming', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'roaming_state', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.RoamingStateSpec, nullable: false },
-        { name: 'signal_strength', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sim_locked', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'lock_type', packedOffset: 64, packedBitOffset: 0, type: ash.diagnostics.mojom.LockTypeSpec, nullable: false },
+        { name: 'iccid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'network_technology', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'roaming', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'roaming_state', packedOffset: 28, packedBitOffset: 0, type: ash.diagnostics.mojom.RoamingStateSpec, nullable: false, minVersion: 0 },
+        { name: 'signal_strength', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sim_locked', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'lock_type', packedOffset: 36, packedBitOffset: 0, type: ash.diagnostics.mojom.LockTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -103,9 +127,9 @@ ash.diagnostics.mojom.EthernetStatePropertiesSpec = {
       name: 'ash.diagnostics.mojom.EthernetStateProperties',
       packedSize: 16,
       fields: [
-        { name: 'authentication', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.AuthenticationTypeSpec, nullable: false },
+        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.AuthenticationTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,13 +141,13 @@ ash.diagnostics.mojom.WiFiStatePropertiesSpec = {
       name: 'ash.diagnostics.mojom.WiFiStateProperties',
       packedSize: 40,
       fields: [
-        { name: 'signal_strength', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frequency', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bssid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.SecurityTypeSpec, nullable: false },
+        { name: 'signal_strength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frequency', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'security', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -135,15 +159,15 @@ ash.diagnostics.mojom.NetworkSpec = {
       name: 'ash.diagnostics.mojom.Network',
       packedSize: 64,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkStateSpec, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypeSpec, nullable: false },
-        { name: 'type_properties', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypePropertiesSpec, nullable: true },
-        { name: 'observer_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mac_address', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ip_config', packedOffset: 56, packedBitOffset: 0, type: ash.diagnostics.mojom.IPConfigPropertiesSpec, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type_properties', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypePropertiesSpec, nullable: true, minVersion: 0 },
+        { name: 'observer_guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mac_address', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'ip_config', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.IPConfigPropertiesSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -211,10 +235,10 @@ ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkListObserver.OnNetworkListChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'network_guids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'active_guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -287,9 +311,9 @@ ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkStateObserver.OnNetworkStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'network', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkSpec, nullable: false },
+        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -371,9 +395,9 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetworkList_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -385,10 +409,10 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

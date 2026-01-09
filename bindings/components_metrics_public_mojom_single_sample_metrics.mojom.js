@@ -72,14 +72,14 @@ metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec =
       name: 'metrics.mojom.SingleSampleMetricsProvider.AcquireSingleSampleMetric_Params',
       packedSize: 40,
       fields: [
-        { name: 'histogram_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'max', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'bucket_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'flags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'histogram_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'max', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bucket_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -152,9 +152,9 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
       name: 'metrics.mojom.SingleSampleMetric.SetSample_Params',
       packedSize: 16,
       fields: [
-        { name: 'sample', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -45,6 +45,15 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class 
     this.proxy = proxy;
   }
 
+  getController(receiver, client) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
+      null,
+      [receiver, client]);
+  }
+
 };
 
 chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
@@ -55,6 +64,21 @@ chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
     'chromeos.media_perception.mojom.MediaPerceptionService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetController
+chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.media_perception.mojom.MediaPerceptionService.GetController_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -97,6 +121,15 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = cla
     this.proxy = proxy;
   }
 
+  activateMediaPerception(receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
+      null,
+      [receiver]);
+  }
+
 };
 
 chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function() {
@@ -107,6 +140,20 @@ chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function()
     'chromeos.media_perception.mojom.MediaPerceptionController',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ActivateMediaPerception
+chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.media_perception.mojom.MediaPerceptionController.ActivateMediaPerception_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -149,6 +196,15 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler
     this.proxy = proxy;
   }
 
+  connectToVideoCaptureService(receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
+      null,
+      [receiver]);
+  }
+
 };
 
 chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = function() {
@@ -159,6 +215,20 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = func
     'chromeos.media_perception.mojom.MediaPerceptionControllerClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ConnectToVideoCaptureService
+chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.media_perception.mojom.MediaPerceptionControllerClient.ConnectToVideoCaptureService_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -22,6 +22,7 @@ blink.mojom.CanCreateTranslatorResult = {
   kNoExceedsServiceCountLimitation: 8,
   kNoInvalidStoragePartition: 9,
 };
+blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateTranslatorError
 blink.mojom.CreateTranslatorError = {
@@ -36,6 +37,21 @@ blink.mojom.CreateTranslatorError = {
   kInvalidVersion: 8,
   kInvalidStoragePartition: 9,
 };
+blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum() };
+
+// Union: CreateTranslatorResult
+blink.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Union(
+    'blink.mojom.CreateTranslatorResult', {
+      'translator': {
+        'ordinal': 0,
+        'type': mojo.internal.InterfaceProxy,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': blink.mojom.CreateTranslatorErrorSpec,
+      }},
+    })
+};
 
 // Struct: TranslatorLanguageCode
 blink.mojom.TranslatorLanguageCodeSpec = {
@@ -44,9 +60,9 @@ blink.mojom.TranslatorLanguageCodeSpec = {
       name: 'blink.mojom.TranslatorLanguageCode',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -58,11 +74,11 @@ blink.mojom.TranslatorCreateOptionsSpec = {
       name: 'blink.mojom.TranslatorCreateOptions',
       packedSize: 32,
       fields: [
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'observer_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'observer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -128,13 +144,13 @@ blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TranslationManagerCreateTranslatorClient.OnResult_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false },
-        { name: 'source_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
-        { name: 'target_lang', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false, minVersion: 0 },
+        { name: 'source_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -216,10 +232,10 @@ blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
       name: 'blink.mojom.TranslationManager.CreateTranslator_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -231,10 +247,10 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
       name: 'blink.mojom.TranslationManager.TranslationAvailable_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
-        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false },
+        { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -242,12 +258,12 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
 blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.TranslationManager.TranslationAvailable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CanCreateTranslatorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CanCreateTranslatorResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

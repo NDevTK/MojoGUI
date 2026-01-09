@@ -16,18 +16,18 @@ content.mojom.MemoryConsumerTraitsSpec = {
       name: 'content.mojom.MemoryConsumerTraits',
       packedSize: 24,
       fields: [
-        { name: 'supports_memory_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'in_process', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'estimated_memory_usage', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'release_memory_cost', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'recreate_memory_cost', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'information_retention', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'memory_release_behavior', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'execution_type', packedOffset: 15, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'release_gc_references', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'garbage_collects_v8_heap', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'supports_memory_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'in_process', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'estimated_memory_usage', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'release_memory_cost', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'recreate_memory_cost', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'information_retention', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'memory_release_behavior', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'execution_type', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'release_gc_references', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'garbage_collects_v8_heap', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -105,7 +105,7 @@ content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -117,9 +117,9 @@ content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
       name: 'content.mojom.ChildMemoryConsumer.NotifyUpdateMemoryLimit_Params',
       packedSize: 16,
       fields: [
-        { name: 'percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,11 +192,11 @@ content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSp
       name: 'content.mojom.BrowserMemoryConsumerRegistry.RegisterChildMemoryConsumer_Params',
       packedSize: 32,
       fields: [
-        { name: 'consumer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'traits', packedOffset: 16, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false },
-        { name: 'child_consumer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'consumer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
+        { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

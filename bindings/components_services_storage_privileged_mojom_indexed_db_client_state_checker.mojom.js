@@ -16,6 +16,7 @@ storage.mojom.DisallowInactiveClientReason = {
   kTransactionIsStartingWhileBlockingOthers: 2,
   kTransactionIsOngoingAndBlockingOthers: 3,
 };
+storage.mojom.DisallowInactiveClientReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: IndexedDBClientStateChecker
 storage.mojom.IndexedDBClientStateChecker = {};
@@ -87,13 +88,13 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false },
-        { name: 'keep_active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'keep_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -101,12 +102,12 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
 storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'was_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,9 +119,9 @@ storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
       name: 'storage.mojom.IndexedDBClientStateChecker.MakeClone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

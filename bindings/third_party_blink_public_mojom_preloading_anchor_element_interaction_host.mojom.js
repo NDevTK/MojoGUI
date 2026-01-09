@@ -16,11 +16,11 @@ blink.mojom.AnchorElementPointerDataSpec = {
       name: 'blink.mojom.AnchorElementPointerData',
       packedSize: 32,
       fields: [
-        { name: 'is_mouse_pointer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'mouse_velocity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'mouse_acceleration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'is_mouse_pointer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mouse_velocity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'mouse_acceleration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -124,9 +124,9 @@ blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerDown_Params',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,10 +138,10 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverEager_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'mouse_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -153,10 +153,10 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
       name: 'blink.mojom.AnchorElementInteractionHost.OnPointerHoverModerate_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'mouse_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,9 +168,9 @@ blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Pa
       name: 'blink.mojom.AnchorElementInteractionHost.OnModerateViewportHeuristicTriggered_Params',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,9 +182,9 @@ blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Param
       name: 'blink.mojom.AnchorElementInteractionHost.OnEagerViewportHeuristicTriggered_Params',
       packedSize: 16,
       fields: [
-        { name: 'targets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

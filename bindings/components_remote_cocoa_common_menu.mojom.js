@@ -9,24 +9,42 @@ var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
+// Union: MenuItem
+remote_cocoa.mojom.MenuItemSpec = { $: mojo.internal.Union(
+    'remote_cocoa.mojom.MenuItem', {
+      'separator': {
+        'ordinal': 0,
+        'type': remote_cocoa.mojom.MenuItemCommonFieldsSpec,
+      }},
+      'regular': {
+        'ordinal': 1,
+        'type': remote_cocoa.mojom.MenuItemCommonFieldsSpec,
+      }},
+      'submenu': {
+        'ordinal': 2,
+        'type': remote_cocoa.mojom.SubmenuMenuItemSpec,
+      }},
+    })
+};
+
 // Struct: MenuItemCommonFields
 remote_cocoa.mojom.MenuItemCommonFieldsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.MenuItemCommonFields',
-      packedSize: 48,
+      packedSize: 32,
       fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'may_have_mnemonics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_checked', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
-        { name: 'is_enabled', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_visible', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_alerted', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_new_feature', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'may_have_mnemonics', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_checked', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+        { name: 'is_enabled', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_visible', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_alerted', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_new_feature', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -38,10 +56,10 @@ remote_cocoa.mojom.SubmenuMenuItemSpec = {
       name: 'remote_cocoa.mojom.SubmenuMenuItem',
       packedSize: 24,
       fields: [
-        { name: 'common', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.MenuItemCommonFieldsSpec, nullable: false },
-        { name: 'children', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'common', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.MenuItemCommonFieldsSpec, nullable: false, minVersion: 0 },
+        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -53,16 +71,16 @@ remote_cocoa.mojom.MenuControllerParamsSpec = {
       name: 'remote_cocoa.mojom.MenuControllerParams',
       packedSize: 56,
       fields: [
-        { name: 'badge_font', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.FontSpec, nullable: false },
-        { name: 'badge_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'badge_text_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'badge_horizontal_margin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'badge_internal_padding', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'badge_min_height', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'badge_radius', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'iph_dot_color', packedOffset: 48, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.FontSpec, nullable: false, minVersion: 0 },
+        { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'badge_horizontal_margin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'badge_internal_padding', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'badge_min_height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'badge_radius', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'iph_dot_color', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -74,12 +92,12 @@ remote_cocoa.mojom.ContextMenuSpec = {
       name: 'remote_cocoa.mojom.ContextMenu',
       packedSize: 40,
       fields: [
-        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'anchor', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'target_view_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: remote_cocoa.mojom.MenuControllerParamsSpec, nullable: false },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), nullable: false, minVersion: 0 },
+        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'target_view_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: remote_cocoa.mojom.MenuControllerParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -156,10 +174,10 @@ remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
       name: 'remote_cocoa.mojom.MenuHost.CommandActivated_Params',
       packedSize: 16,
       fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'event_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event_flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +190,7 @@ remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -255,7 +273,7 @@ remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,14 +283,14 @@ remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Menu.UpdateMenuItem_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'visible', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

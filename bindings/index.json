@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T22:52:22.742228Z",
+  "generated_at": "2026-01-09T23:56:56.623227Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -2613,7 +2613,18 @@
       "name": "UntrustedLobsterPageHandler",
       "module": "lobster.mojom",
       "file": "chrome_browser_ui_webui_ash_lobster_lobster.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestCandidates",
+        "DownloadCandidate",
+        "CommitAsInsert",
+        "CommitAsDownload",
+        "PreviewFeedback",
+        "SubmitFeedback",
+        "ShowUI",
+        "CloseUI",
+        "EmitMetricEvent",
+        "OpenUrlInNewWindow"
+      ]
     },
     {
       "name": "AiIntroPageHandler",
@@ -5381,7 +5392,10 @@
       "name": "EnterpriseCompanion",
       "module": "enterprise_companion.mojom",
       "file": "chrome_enterprise_companion_mojom_enterprise_companion.mojom.js",
-      "methods": []
+      "methods": [
+        "Shutdown",
+        "FetchPolicies"
+      ]
     },
     {
       "name": "DocumentAnalysisService",
@@ -5754,13 +5768,31 @@
       "name": "UpdateService",
       "module": "updater.mojom",
       "file": "chrome_updater_mojom_updater_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetVersion",
+        "FetchPolicies",
+        "RegisterApp",
+        "GetAppStates",
+        "RunPeriodicTasks",
+        "UpdateAll",
+        "Update",
+        "Install",
+        "CancelInstalls",
+        "RunInstaller",
+        "CheckForUpdate",
+        "GetUpdaterState",
+        "GetUpdaterPolicies",
+        "GetAppPolicies"
+      ]
     },
     {
       "name": "StateChangeObserver",
       "module": "updater.mojom",
       "file": "chrome_updater_mojom_updater_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnStateChange",
+        "OnComplete"
+      ]
     },
     {
       "name": "UpdateServiceInternal",
@@ -6423,13 +6455,21 @@
       "name": "LanguagePacksObserver",
       "module": "ash.language.mojom",
       "file": "chromeos_ash_components_language_packs_public_mojom_language_packs.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPackStateChanged"
+      ]
     },
     {
       "name": "LanguagePacks",
       "module": "ash.language.mojom",
       "file": "chromeos_ash_components_language_packs_public_mojom_language_packs.mojom.js",
-      "methods": []
+      "methods": [
+        "GetPackInfo",
+        "InstallPack",
+        "InstallBasePack",
+        "UninstallPack",
+        "AddObserver"
+      ]
     },
     {
       "name": "Index",
@@ -6465,19 +6505,31 @@
       "name": "MantisProcessor",
       "module": "mantis.mojom",
       "file": "chromeos_ash_components_mantis_mojom_mantis_processor.mojom.js",
-      "methods": []
+      "methods": [
+        "Inpainting",
+        "GenerativeFill",
+        "Segmentation",
+        "ClassifyImageSafety",
+        "Outpainting",
+        "InferSegmentationMode"
+      ]
     },
     {
       "name": "PlatformModelProgressObserver",
       "module": "mantis.mojom",
       "file": "chromeos_ash_components_mantis_mojom_mantis_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Progress"
+      ]
     },
     {
       "name": "MantisService",
       "module": "mantis.mojom",
       "file": "chromeos_ash_components_mantis_mojom_mantis_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetMantisFeatureStatus",
+        "Initialize"
+      ]
     },
     {
       "name": "UserspaceSwapInitialization",
@@ -6501,19 +6553,28 @@
       "name": "ServiceManager",
       "module": "chromeos.mojo_service_manager.mojom",
       "file": "chromeos_ash_components_mojo_service_manager_mojom_mojo_service_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "Register",
+        "Request",
+        "Query",
+        "AddServiceObserver"
+      ]
     },
     {
       "name": "ServiceProvider",
       "module": "chromeos.mojo_service_manager.mojom",
       "file": "chromeos_ash_components_mojo_service_manager_mojom_mojo_service_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "Request"
+      ]
     },
     {
       "name": "ServiceObserver",
       "module": "chromeos.mojo_service_manager.mojom",
       "file": "chromeos_ash_components_mojo_service_manager_mojom_mojo_service_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "OnServiceEvent"
+      ]
     },
     {
       "name": "SmbFsBootstrap",
@@ -6552,409 +6613,940 @@
       "name": "AdbdMonitorHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_adbd.mojom.js",
-      "methods": []
+      "methods": [
+        "AdbdStarted",
+        "AdbdStopped"
+      ]
     },
     {
       "name": "AdbdMonitorInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_adbd.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "AppHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_app.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAppAddedDeprecated",
+        "OnAppListRefreshed",
+        "OnPackageAdded",
+        "OnPackageAppListRefreshed",
+        "OnPackageListRefreshed",
+        "OnPackageModified",
+        "OnPackageRemoved",
+        "OnTaskCreated",
+        "OnTaskDescriptionUpdated",
+        "OnTaskDescriptionChanged",
+        "OnTaskDestroyed",
+        "OnTaskSetActive",
+        "OnNotificationsEnabledChanged",
+        "OnInstallShortcut",
+        "OnInstallationStarted",
+        "OnInstallationFinished",
+        "OnUninstallShortcut",
+        "OnInstallationProgressChanged",
+        "OnInstallationActiveChanged"
+      ]
     },
     {
       "name": "AppInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_app.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "CloseTask",
+        "InstallPackage",
+        "LaunchAppWithWindowInfo",
+        "LaunchAppShortcutItem",
+        "LaunchIntentWithWindowInfo",
+        "UpdateWindowInfo",
+        "RequestAppIcon",
+        "GetAppIcon",
+        "RequestShortcutIcon",
+        "GetAppShortcutIcon",
+        "RequestPackageIcon",
+        "GetPackageIcon",
+        "RemoveCachedIcon",
+        "SetTaskActive",
+        "ShowPackageInfoDeprecated",
+        "ShowPackageInfoOnPageDeprecated",
+        "ShowPackageInfoOnPage",
+        "SetNotificationsEnabled",
+        "StartPaiFlow",
+        "StartFastAppReinstallFlow",
+        "UninstallPackage",
+        "UpdateAppDetails",
+        "GetAndroidId",
+        "GetAppShortcutGlobalQueryItems",
+        "GetAppShortcutItems",
+        "GetRecentAndSuggestedAppsFromPlayStore",
+        "IsInstallable",
+        "GetAppCategory",
+        "SetAppLocale"
+      ]
     },
     {
       "name": "AppPermissionsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_app_permissions.mojom.js",
-      "methods": []
+      "methods": [
+        "GrantPermission",
+        "RevokePermission"
+      ]
     },
     {
       "name": "AppfuseHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_appfuse.mojom.js",
-      "methods": []
+      "methods": [
+        "Mount",
+        "Unmount",
+        "OpenFile"
+      ]
     },
     {
       "name": "AppfuseInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_appfuse.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "ArcBridgeHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_arc_bridge.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAccessibilityHelperInstanceReady",
+        "OnAdbdMonitorInstanceReady",
+        "OnAppInstanceReady",
+        "OnAppPermissionsInstanceReady",
+        "OnAppfuseInstanceReady",
+        "OnArcShellExecutionInstanceReady",
+        "OnArcWifiInstanceReady",
+        "OnAudioInstanceReady",
+        "OnAuthInstanceReady",
+        "OnBackupSettingsInstanceReady",
+        "OnBluetoothInstanceReady",
+        "OnBootPhaseMonitorInstanceReady",
+        "OnCameraInstanceReady",
+        "OnChromeFeatureFlagsInstanceReady",
+        "OnCompatibilityModeInstanceReady",
+        "OnCrashCollectorInstanceReady",
+        "OnOnDeviceSafetyInstanceReady",
+        "OnDigitalGoodsInstanceReady",
+        "OnDiskSpaceInstanceReady",
+        "OnEnterpriseReportingInstanceReady",
+        "OnErrorNotificationInstanceReady",
+        "OnFileSystemInstanceReady",
+        "OnIioSensorInstanceReady",
+        "OnImeInstanceReady",
+        "OnInputMethodManagerInstanceReady",
+        "OnIntentHelperInstanceReady",
+        "OnKeymasterInstanceReady",
+        "OnKeyMintInstanceReady",
+        "OnKioskInstanceReady",
+        "OnMediaSessionInstanceReady",
+        "OnMemoryInstanceReady",
+        "OnMetricsInstanceReady",
+        "OnMidisInstanceReady",
+        "OnNearbyShareInstanceReady",
+        "OnNetInstanceReady",
+        "OnNotificationsInstanceReady",
+        "OnObbMounterInstanceReady",
+        "OnOemCryptoInstanceReady",
+        "OnPaymentAppInstanceReady",
+        "OnPipInstanceReady",
+        "OnPolicyInstanceReady",
+        "OnPowerInstanceReady",
+        "OnPrintSpoolerInstanceReady",
+        "OnPrivacyItemsInstanceReady",
+        "OnProcessInstanceReady",
+        "OnScreenCaptureInstanceReady",
+        "OnSharesheetInstanceReady",
+        "OnSystemStateInstanceReady",
+        "OnSystemUiInstanceReady",
+        "OnTimerInstanceReady",
+        "OnTracingInstanceReady",
+        "OnTtsInstanceReady",
+        "OnUsbHostInstanceReady",
+        "OnVideoInstanceReady",
+        "OnVolumeMounterInstanceReady",
+        "OnWakeLockInstanceReady",
+        "OnWallpaperInstanceReady",
+        "OnWebApkInstanceReady"
+      ]
     },
     {
       "name": "ArcWifiHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_arc_wifi.mojom.js",
-      "methods": []
+      "methods": [
+        "GetWifiEnabledState",
+        "SetWifiEnabledState",
+        "StartScan",
+        "GetScanResults"
+      ]
     },
     {
       "name": "ArcWifiInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_arc_wifi.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "WifiEnabledStateChanged",
+        "ScanCompleted"
+      ]
     },
     {
       "name": "AudioHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_audio.mojom.js",
-      "methods": []
+      "methods": [
+        "ShowVolumeControls",
+        "OnSystemVolumeUpdateRequest"
+      ]
     },
     {
       "name": "AudioInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_audio.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "NotifySwitchState",
+        "NotifyVolumeState",
+        "NotifySpatialAudioState",
+        "NotifyOutputDeviceInfo"
+      ]
     },
     {
       "name": "AuthHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_auth.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAuthorizationResult",
+        "ReportMetrics",
+        "ReportAccountCheckStatus",
+        "ReportManagementChangeStatus",
+        "RequestPrimaryAccount",
+        "RequestPrimaryAccountInfo",
+        "RequestAccountInfo",
+        "IsAccountManagerAvailable",
+        "HandleAddAccountRequest",
+        "HandleRemoveAccountRequest",
+        "HandleUpdateCredentialsRequest",
+        "ReportAccountReauthReason"
+      ]
     },
     {
       "name": "AuthInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_auth.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnAccountUpdated",
+        "GetGoogleAccounts",
+        "GetMainAccountResolutionStatus",
+        "SetAccounts"
+      ]
     },
     {
       "name": "BackupSettingsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_backup_settings.mojom.js",
-      "methods": []
+      "methods": [
+        "SetBackupEnabled"
+      ]
     },
     {
       "name": "RfcommListeningSocketClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAccepted"
+      ]
     },
     {
       "name": "RfcommConnectingSocketClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "OnConnected",
+        "OnConnectFailed"
+      ]
     },
     {
       "name": "BluetoothListenSocketClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAccepted"
+      ]
     },
     {
       "name": "BluetoothConnectSocketClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "OnConnected",
+        "OnConnectFailed"
+      ]
     },
     {
       "name": "BluetoothHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "EnableAdapter",
+        "DisableAdapter",
+        "GetAdapterProperty",
+        "SetAdapterProperty",
+        "StartDiscovery",
+        "CancelDiscovery",
+        "CreateBond",
+        "RemoveBond",
+        "CancelBond",
+        "GetConnectionState",
+        "StartLEScan",
+        "StopLEScan",
+        "ConnectLEDevice",
+        "DisconnectLEDevice",
+        "SearchService",
+        "GetGattDB",
+        "ReadGattCharacteristic",
+        "WriteGattCharacteristic",
+        "ReadGattDescriptor",
+        "WriteGattDescriptor",
+        "ExecuteWrite",
+        "RegisterForGattNotification",
+        "DeregisterForGattNotification",
+        "ReadRemoteRssi",
+        "AddService",
+        "AddCharacteristic",
+        "AddDescriptor",
+        "StartService",
+        "StopService",
+        "DeleteService",
+        "SendIndication",
+        "GetSdpRecords",
+        "CreateSdpRecord",
+        "RemoveSdpRecord",
+        "ReserveAdvertisementHandle",
+        "EnableAdvertisement",
+        "ReleaseAdvertisementHandle",
+        "DisableAdvertisement",
+        "BluetoothSocketListen",
+        "BluetoothSocketConnect"
+      ]
     },
     {
       "name": "BluetoothInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnAdapterProperties",
+        "OnDeviceFound",
+        "OnDevicePropertiesChanged",
+        "OnDiscoveryStateChanged",
+        "OnBondStateChanged",
+        "OnConnectionStateChanged",
+        "OnLEDeviceFound",
+        "OnLEConnectionStateChange",
+        "OnLEDeviceAddressChange",
+        "OnSearchComplete",
+        "OnGetGattDB",
+        "OnGattNotify",
+        "OnServiceChanged",
+        "RequestGattRead",
+        "RequestGattWrite",
+        "RequestGattExecuteWrite",
+        "OnMTUReceived",
+        "OnGetSdpRecords"
+      ]
     },
     {
       "name": "BootPhaseMonitorHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_boot_phase_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnBootCompleted"
+      ]
     },
     {
       "name": "BootPhaseMonitorInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_boot_phase_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "CameraService",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_camera.mojom.js",
-      "methods": []
+      "methods": [
+        "Connect",
+        "Disconnect",
+        "StreamOn",
+        "StreamOff",
+        "GetNextFrameBuffer",
+        "ReuseFrameBuffer",
+        "GetDeviceSupportedFormats",
+        "GetCameraDeviceInfos"
+      ]
     },
     {
       "name": "CameraHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_camera.mojom.js",
-      "methods": []
+      "methods": [
+        "StartCameraService",
+        "RegisterCameraHalClientLegacy",
+        "RegisterCameraHalClient"
+      ]
     },
     {
       "name": "CameraInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_camera.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "ChromeFeatureFlagsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_chrome_feature_flags.mojom.js",
-      "methods": []
+      "methods": [
+        "NotifyFeatureFlags"
+      ]
     },
     {
       "name": "CompatibilityModeInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_compatibility_mode.mojom.js",
-      "methods": []
+      "methods": [
+        "SetResizeLockState",
+        "IsOptimizedForCrosApp"
+      ]
     },
     {
       "name": "CrashCollectorHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_crash_collector.mojom.js",
-      "methods": []
+      "methods": [
+        "DumpCrash",
+        "SetBuildProperties",
+        "DumpNativeCrash",
+        "DumpKernelCrash"
+      ]
     },
     {
       "name": "CrashCollectorInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_crash_collector.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "ArcShellExecutionInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_crosh.mojom.js",
-      "methods": []
+      "methods": [
+        "Exec"
+      ]
     },
     {
       "name": "DigitalGoodsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_digital_goods.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDetails",
+        "Acknowledge",
+        "DeprecatedListPurchases",
+        "ListPurchases",
+        "ListPurchaseHistory",
+        "Consume"
+      ]
     },
     {
       "name": "DiskSpaceHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_disk_space.mojom.js",
-      "methods": []
+      "methods": [
+        "IsQuotaSupported",
+        "GetQuotaCurrentSpaceForUid",
+        "GetQuotaCurrentSpaceForGid",
+        "GetQuotaCurrentSpaceForProjectId",
+        "GetQuotaCurrentSpacesForIds",
+        "GetFreeDiskSpace"
+      ]
     },
     {
       "name": "DiskSpaceInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_disk_space.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "GetApplicationsSize",
+        "ResizeStorageBalloon"
+      ]
     },
     {
       "name": "EnterpriseReportingHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_enterprise_reporting.mojom.js",
-      "methods": []
+      "methods": [
+        "ReportCloudDpcOperationTime"
+      ]
     },
     {
       "name": "EnterpriseReportingInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_enterprise_reporting.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "GetStatus"
+      ]
     },
     {
       "name": "ErrorNotificationHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_error_notification.mojom.js",
-      "methods": []
+      "methods": [
+        "SendErrorDetails"
+      ]
     },
     {
       "name": "ErrorNotificationInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_error_notification.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "ErrorNotificationItem",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_error_notification.mojom.js",
-      "methods": []
+      "methods": [
+        "CloseErrorNotification"
+      ]
     },
     {
       "name": "ErrorNotificationActionHandler",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_error_notification.mojom.js",
-      "methods": []
+      "methods": [
+        "OnNotificationButtonClicked",
+        "OnNotificationClosed"
+      ]
     },
     {
       "name": "FileSystemHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_file_system.mojom.js",
-      "methods": []
+      "methods": [
+        "GetFileName",
+        "GetFileSize",
+        "GetLastModified",
+        "GetFileType",
+        "OnDocumentChanged",
+        "OnRootsChanged",
+        "GetVirtualFileId",
+        "HandleIdReleased",
+        "OpenFileToRead",
+        "SelectFiles",
+        "OnFileSelectorEvent",
+        "GetFileSelectorElements",
+        "OnMediaStoreUriAdded",
+        "CreateMoniker",
+        "DestroyMoniker"
+      ]
     },
     {
       "name": "FileSystemInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_file_system.mojom.js",
-      "methods": []
+      "methods": [
+        "AddWatcher",
+        "GetChildDocuments",
+        "GetDocument",
+        "GetFileSize",
+        "GetMimeType",
+        "GetRecentDocuments",
+        "GetRoots",
+        "GetRootSize",
+        "DeleteDocument",
+        "RenameDocument",
+        "CreateDocument",
+        "CopyDocument",
+        "MoveDocument",
+        "Init",
+        "OpenThumbnail",
+        "CloseFileSession",
+        "OpenFileSessionToWrite",
+        "OpenFileSessionToRead",
+        "RemoveWatcher",
+        "RequestMediaScan",
+        "ReindexDirectory",
+        "RequestFileRemovalScan",
+        "OpenUrlsWithPermissionAndWindowInfo"
+      ]
     },
     {
       "name": "IioSensorHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_iio_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "RegisterSensorHalClient"
+      ]
     },
     {
       "name": "IioSensorInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_iio_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnTabletModeChanged"
+      ]
     },
     {
       "name": "ImeHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_ime.mojom.js",
-      "methods": []
+      "methods": [
+        "OnTextInputTypeChanged",
+        "OnCursorRectChanged",
+        "OnCancelComposition",
+        "ShowVirtualKeyboardIfEnabled",
+        "OnCursorRectChangedWithSurroundingText",
+        "SendKeyEvent"
+      ]
     },
     {
       "name": "ImeInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_ime.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "SetCompositionText",
+        "SetSelectionText",
+        "ConfirmCompositionText",
+        "InsertText",
+        "OnKeyboardAppearanceChanging",
+        "ExtendSelectionAndDelete",
+        "SetComposingRegion"
+      ]
     },
     {
       "name": "InputConnection",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_input_method_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "CommitText",
+        "DeleteSurroundingText",
+        "FinishComposingText",
+        "RequestTextInputState",
+        "SetComposingText",
+        "SetSelection",
+        "SendKeyEvent",
+        "SetCompositionRange"
+      ]
     },
     {
       "name": "InputMethodManagerHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_input_method_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "OnActiveImeChanged",
+        "OnImeDisabled",
+        "OnImeInfoChanged"
+      ]
     },
     {
       "name": "InputMethodManagerInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_input_method_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "EnableIme",
+        "SwitchImeTo",
+        "Focus",
+        "UpdateTextInputState",
+        "ShowVirtualKeyboard",
+        "HideVirtualKeyboard"
+      ]
     },
     {
       "name": "CustomTabSession",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_intent_helper.mojom.js",
-      "methods": []
+      "methods": [
+        "OnOpenInChromeClicked"
+      ]
     },
     {
       "name": "IntentHelperHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_intent_helper.mojom.js",
-      "methods": []
+      "methods": [
+        "OnIconInvalidated",
+        "OnIntentFiltersUpdated",
+        "OnOpenDownloads",
+        "OnOpenUrl",
+        "OnOpenCustomTab",
+        "OpenWallpaperPicker",
+        "OpenVolumeControl",
+        "OnOpenChromePage",
+        "OnOpenWebApp",
+        "FactoryResetArc",
+        "LaunchCameraApp",
+        "OnIntentFiltersUpdatedForPackage",
+        "CloseCameraApp",
+        "IsChromeAppEnabled",
+        "OnSupportedLinksChanged",
+        "OnDownloadAddedDeprecated",
+        "OnOpenAppWithIntent",
+        "OnOpenGlobalActions",
+        "OnCloseSystemDialogs",
+        "OnAndroidSettingChange"
+      ]
     },
     {
       "name": "IntentHelperInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_intent_helper.mojom.js",
-      "methods": []
+      "methods": [
+        "AddPreferredPackage",
+        "SetVerifiedLinks",
+        "HandleIntent",
+        "HandleIntentWithWindowInfo",
+        "HandleUrl",
+        "Init",
+        "RequestActivityIcons",
+        "RequestIntentHandlerList",
+        "RequestUrlHandlerList",
+        "RequestUrlListHandlerList",
+        "SendBroadcast",
+        "RequestTextSelectionActions",
+        "HandleCameraResult",
+        "RequestDomainVerificationStatusUpdate",
+        "SetCaptionStyle",
+        "EnableAccessibilityFeatures"
+      ]
     },
     {
       "name": "KeymasterHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_keymaster.mojom.js",
-      "methods": []
+      "methods": [
+        "GetServer"
+      ]
     },
     {
       "name": "KeymasterInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_keymaster.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "KeymasterServer",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_keymaster.mojom.js",
-      "methods": []
+      "methods": [
+        "SetSystemVersion",
+        "AddRngEntropy",
+        "GetKeyCharacteristics",
+        "GenerateKey",
+        "ImportKey",
+        "ExportKey",
+        "AttestKey",
+        "UpgradeKey",
+        "DeleteKey",
+        "DeleteAllKeys",
+        "Begin",
+        "Update",
+        "Finish",
+        "Abort"
+      ]
     },
     {
       "name": "KeyMintHost",
       "module": "arc.mojom.keymint",
       "file": "chromeos_ash_experiences_arc_mojom_keymint.mojom.js",
-      "methods": []
+      "methods": [
+        "GetServer"
+      ]
     },
     {
       "name": "KeyMintInstance",
       "module": "arc.mojom.keymint",
       "file": "chromeos_ash_experiences_arc_mojom_keymint.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "KeyMintServer",
       "module": "arc.mojom.keymint",
       "file": "chromeos_ash_experiences_arc_mojom_keymint.mojom.js",
-      "methods": []
+      "methods": [
+        "SetSystemVersion",
+        "AddRngEntropy",
+        "GenerateKey",
+        "ImportKey",
+        "ImportWrappedKey",
+        "UpgradeKey",
+        "DeleteKey",
+        "DeleteAllKeys",
+        "DestroyAttestationIds",
+        "Begin",
+        "DeviceLocked",
+        "EarlyBootEnded",
+        "ConvertStorageKeyToEphemeral",
+        "GetKeyCharacteristics",
+        "GetRootOfTrustChallenge",
+        "GetRootOfTrust",
+        "SendRootOfTrust",
+        "UpdateAad",
+        "Update",
+        "Finish",
+        "Abort",
+        "GetSharedSecretParameters",
+        "ComputeSharedSecret",
+        "GenerateTimeStamp",
+        "GenerateEcdsaP256KeyPair",
+        "GenerateCertificateRequest",
+        "SetVendorPatchLevel"
+      ]
     },
     {
       "name": "KioskHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_kiosk.mojom.js",
-      "methods": []
+      "methods": [
+        "OnMaintenanceSessionCreated",
+        "OnMaintenanceSessionFinished"
+      ]
     },
     {
       "name": "KioskInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_kiosk.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "MediaSessionInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_media_session.mojom.js",
-      "methods": []
+      "methods": [
+        "EnableAudioFocus",
+        "DisableAudioFocus"
+      ]
     },
     {
       "name": "MemoryInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_memory.mojom.js",
-      "methods": []
+      "methods": [
+        "DropCaches",
+        "Reclaim"
+      ]
     },
     {
       "name": "MetricsHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_metrics.mojom.js",
-      "methods": []
+      "methods": [
+        "ReportBootProgress",
+        "ReportNativeBridge",
+        "ReportCompanionLibApiUsage",
+        "ReportAppKill",
+        "ReportArcCorePriAbiMigEvent",
+        "ReportArcCorePriAbiMigFailedTries",
+        "ReportArcCorePriAbiMigDowngradeDelay",
+        "ReportArcCorePriAbiMigBootTime",
+        "ReportAnr",
+        "ReportArcSystemHealthUpgrade",
+        "ReportLowLatencyStylusLibApiUsage",
+        "ReportLowLatencyStylusLibPredictionTarget",
+        "ReportDnsQueryResult",
+        "ReportMainAccountHashMigrationMetrics",
+        "ReportArcNetworkEvent",
+        "ReportArcNetworkError",
+        "ReportAppPrimaryAbi",
+        "ReportDataRestore",
+        "ReportMemoryPressure",
+        "ReportProvisioningPreSignIn",
+        "ReportWaylandLateTimingEvent",
+        "ReportWebViewProcessStarted",
+        "ReportVpnServiceBuilderCompatApiUsage",
+        "ReportNewQosSocketCount",
+        "ReportQosSocketPercentage",
+        "ReportArcKeyMintError",
+        "ReportDragResizeLatency",
+        "ReportAppErrorDialogType",
+        "ReportApkCacheHit",
+        "ReportAppCategoryDataSizeList",
+        "ReportDataDirectorySizeList",
+        "ReportArcKeyMintErrorForOperation",
+        "ReportCertificateSigningResult"
+      ]
     },
     {
       "name": "MetricsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_metrics.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "GetGfxMetrics"
+      ]
     },
     {
       "name": "MidisClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_midis.mojom.js",
-      "methods": []
+      "methods": [
+        "OnDeviceAdded",
+        "OnDeviceRemoved"
+      ]
     },
     {
       "name": "MidisServer",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_midis.mojom.js",
-      "methods": []
+      "methods": [
+        "ListDevices",
+        "RequestPort",
+        "CloseDevice"
+      ]
     },
     {
       "name": "MidisHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_midis.mojom.js",
-      "methods": []
+      "methods": [
+        "Connect"
+      ]
     },
     {
       "name": "MidisInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_midis.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "NearbyShareSessionHost",
@@ -6966,121 +7558,315 @@
       "name": "NearbyShareSessionInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_nearby_share.mojom.js",
-      "methods": []
+      "methods": [
+        "OnNearbyShareViewClosed"
+      ]
     },
     {
       "name": "NearbyShareHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_nearby_share.mojom.js",
-      "methods": []
+      "methods": [
+        "StartNearbyShare"
+      ]
     },
     {
       "name": "NearbyShareInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_nearby_share.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "NetHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_net.mojom.js",
-      "methods": []
+      "methods": [
+        "GetWifiEnabledState",
+        "StartScan",
+        "SetWifiEnabledState",
+        "CreateNetwork",
+        "ForgetNetwork",
+        "UpdateWifiNetwork",
+        "StartConnect",
+        "StartDisconnect",
+        "GetNetworks",
+        "AndroidVpnConnected",
+        "AndroidVpnUpdated",
+        "DEPRECATED_AndroidVpnStateChanged",
+        "AndroidVpnDisconnected",
+        "SetAlwaysOnVpn",
+        "RequestPasspointAppApproval",
+        "AddPasspointCredentials",
+        "RemovePasspointCredentials",
+        "DisconnectHostVpn",
+        "StartLohs",
+        "StopLohs",
+        "NotifyAndroidWifiMulticastLockChange",
+        "NotifySocketConnectionEvent",
+        "NotifyARCVPNSocketConnectionEvent"
+      ]
     },
     {
       "name": "NetInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_net.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "ScanCompleted",
+        "WifiEnabledStateChanged",
+        "DisconnectAndroidVpn",
+        "ConfigureAndroidVpn",
+        "ActiveNetworksChanged",
+        "DnsResolutionTest",
+        "HttpTest",
+        "PingTest",
+        "SetUpFlag"
+      ]
     },
     {
       "name": "NotificationsHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_notifications.mojom.js",
-      "methods": []
+      "methods": [
+        "OnDoNotDisturbStatusUpdated",
+        "OnNotificationPosted",
+        "OnNotificationRemoved",
+        "OnNotificationUpdated",
+        "OpenMessageCenter",
+        "CloseMessageCenter",
+        "ProcessUserAction",
+        "OnLockScreenSettingUpdated",
+        "LogInlineReplySent"
+      ]
     },
     {
       "name": "NotificationsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_notifications.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "SendNotificationEventToAndroid",
+        "CreateNotificationWindow",
+        "CloseNotificationWindow",
+        "OpenNotificationSettings",
+        "OpenNotificationSnoozeSettings",
+        "SetDoNotDisturbStatusOnAndroid",
+        "CancelPress",
+        "PerformDeferredUserAction",
+        "CancelDeferredUserAction",
+        "SetLockScreenSettingOnAndroid",
+        "SetNotificationConfiguration",
+        "OnMessageCenterVisibilityChanged",
+        "SendNotificationButtonClickToAndroid",
+        "PopUpAppNotificationSettings"
+      ]
     },
     {
       "name": "ObbMounterHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_obb_mounter.mojom.js",
-      "methods": []
+      "methods": [
+        "MountObb",
+        "UnmountObb"
+      ]
     },
     {
       "name": "ObbMounterInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_obb_mounter.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "OemCryptoService",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_oemcrypto.mojom.js",
-      "methods": []
+      "methods": [
+        "InitializeDeprecated",
+        "Initialize",
+        "Terminate",
+        "OpenSession",
+        "CloseSession",
+        "GenerateDerivedKeys",
+        "GenerateNonce",
+        "GenerateSignature",
+        "LoadKeysV11OrV12",
+        "RefreshKeysV14",
+        "QueryKeyControl",
+        "SelectKeyV13",
+        "DecryptCencV15",
+        "GenericEncrypt",
+        "GenericDecrypt",
+        "GenericSign",
+        "GenericVerify",
+        "CopyBufferV14",
+        "LoadTestKeyboxV13",
+        "IsRootKeyCertificateValid",
+        "GetDeviceId",
+        "GetKeyData",
+        "GetRandom",
+        "GetNumberOfOpenSessions",
+        "GetMaxNumberOfSessions",
+        "RewrapDeviceRsaKey",
+        "LoadDeviceRsaKey",
+        "GenerateRsaSignature",
+        "DeriveKeysFromSessionKey",
+        "SecurityPatchLevel",
+        "GetHdcpCapability",
+        "UpdateUsageTable",
+        "DeactivateUsageEntryV12",
+        "ReportUsage",
+        "DeleteUsageEntry",
+        "ForceDeleteUsageEntry",
+        "DeleteOldUsageTable",
+        "GetProvisioningMethod",
+        "SupportedCertificates",
+        "IsSrmUpdateSupported",
+        "GetCurrentSrmVersion",
+        "LoadSrm",
+        "RemoveSrm",
+        "CreateUsageTableHeader",
+        "LoadUsageTableHeader",
+        "CreateNewUsageEntry",
+        "LoadUsageEntry",
+        "UpdateUsageEntry",
+        "DeactivateUsageEntry",
+        "ShrinkUsageTableHeader",
+        "MoveEntry",
+        "CopyOldUsageEntry",
+        "CreateOldUsageEntry",
+        "GetAnalogOutputFlags",
+        "LoadTestKeybox",
+        "LoadEntitledContentKeysV14",
+        "SelectKey",
+        "LoadKeysV14",
+        "LoadKeys",
+        "ResourceRatingTier",
+        "BuildInformation",
+        "RefreshKeys",
+        "LoadEntitledContentKeys",
+        "GetOemPublicCertificate",
+        "MaximumUsageTableHeaderSize",
+        "IsAntiRollbackHwPresent",
+        "MinorApiVersion",
+        "PrepAndSignLicenseRequest",
+        "PrepAndSignRenewalRequest",
+        "PrepAndSignProvisioningRequest",
+        "LoadLicense",
+        "LoadRenewal",
+        "LoadProvisioning",
+        "LoadOemPrivateKey",
+        "LoadDrmPrivateKey",
+        "DecryptCenc",
+        "CopyBuffer"
+      ]
     },
     {
       "name": "OemCryptoHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_oemcrypto.mojom.js",
-      "methods": []
+      "methods": [
+        "Connect"
+      ]
     },
     {
       "name": "OemCryptoInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_oemcrypto.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "OnDeviceSafetyHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_on_device_safety.mojom.js",
-      "methods": []
+      "methods": [
+        "IsCrosSafetyServiceEnabled"
+      ]
     },
     {
       "name": "OnDeviceSafetyInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_on_device_safety.mojom.js",
-      "methods": []
+      "methods": [
+        "GetArcSafetySession",
+        "Init"
+      ]
     },
     {
       "name": "PipHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_pip.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPipEvent"
+      ]
     },
     {
       "name": "PipInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_pip.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "ClosePip",
+        "SetPipSuppressionStatus"
+      ]
     },
     {
       "name": "PolicyHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_policy.mojom.js",
-      "methods": []
+      "methods": [
+        "GetPolicies",
+        "ReportCompliance",
+        "ReportDPCVersion",
+        "ReportPlayStoreLocalPolicySet"
+      ]
     },
     {
       "name": "PolicyInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_policy.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnPolicyUpdated",
+        "OnCommandReceived"
+      ]
     },
     {
       "name": "PowerHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_power.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAcquireDisplayWakeLock",
+        "OnReleaseDisplayWakeLock",
+        "OnWakefulnessChanged",
+        "IsDisplayOn",
+        "OnScreenBrightnessUpdateRequest",
+        "OnPreAnr",
+        "OnAnrRecoveryFailed",
+        "GetBatterySaverModeState"
+      ]
     },
     {
       "name": "PowerInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_power.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "SetInteractiveDeprecated",
+        "Suspend",
+        "Resume",
+        "UpdateScreenBrightnessSettings",
+        "PowerSupplyInfoChanged",
+        "GetWakefulnessMode",
+        "OnCpuRestrictionChanged",
+        "OnBatterySaverModeStateChanged",
+        "SetIdleState"
+      ]
     },
     {
       "name": "PrintSessionHost",
@@ -7092,67 +7878,105 @@
       "name": "PrintSessionInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_print_spooler.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPrintPreviewClosed",
+        "CreatePreviewDocument"
+      ]
     },
     {
       "name": "PrintSpoolerHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_print_spooler.mojom.js",
-      "methods": []
+      "methods": [
+        "StartPrintInCustomTab"
+      ]
     },
     {
       "name": "PrintSpoolerInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_print_spooler.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "PrivacyItemsHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_privacy_items.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPrivacyItemsChanged",
+        "OnMicCameraIndicatorRequirementChanged",
+        "OnLocationIndicatorRequirementChanged"
+      ]
     },
     {
       "name": "PrivacyItemsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_privacy_items.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnStaticPrivacyIndicatorBoundsChanged"
+      ]
     },
     {
       "name": "ProcessInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_process.mojom.js",
-      "methods": []
+      "methods": [
+        "KillProcess",
+        "RequestProcessList",
+        "RequestApplicationProcessMemoryInfo",
+        "RequestSystemProcessMemoryInfo",
+        "ApplyHostMemoryPressureDeprecated",
+        "ApplyHostMemoryPressure",
+        "RequestLowMemoryKillCounts"
+      ]
     },
     {
       "name": "ProtectedBufferManager",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_protected_buffer_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "DeprecatedGetProtectedSharedMemoryFromHandle",
+        "GetProtectedSharedMemoryFromHandle",
+        "GetProtectedNativePixmapHandleFromHandle",
+        "IsProtectedNativePixmapHandle"
+      ]
     },
     {
       "name": "ScreenCaptureHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_screen_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestPermission",
+        "TestModeAcceptPermission",
+        "OpenSession"
+      ]
     },
     {
       "name": "ScreenCaptureSession",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_screen_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "SetOutputBufferDeprecated",
+        "SetOutputBuffer"
+      ]
     },
     {
       "name": "ScreenCaptureInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_screen_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "ScreenCaptureSessionNotifier",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_screen_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "ForceUpdate"
+      ]
     },
     {
       "name": "SharesheetHost",
@@ -7164,181 +7988,290 @@
       "name": "SharesheetInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_sharesheet.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "SystemStateHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_system_state.mojom.js",
-      "methods": []
+      "methods": [
+        "UpdateAppRunningState"
+      ]
     },
     {
       "name": "SystemStateInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_system_state.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "SystemUiInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_system_ui.mojom.js",
-      "methods": []
+      "methods": [
+        "SetDarkThemeStatus",
+        "SetOverlayColor"
+      ]
     },
     {
       "name": "TimerHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_timer.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateTimers",
+        "StartTimer",
+        "SetTime"
+      ]
     },
     {
       "name": "TimerInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_timer.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "TracingInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_tracing.mojom.js",
-      "methods": []
+      "methods": [
+        "QueryAvailableCategories",
+        "StartTracing",
+        "StopTracing"
+      ]
     },
     {
       "name": "TtsHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_tts.mojom.js",
-      "methods": []
+      "methods": [
+        "OnVoicesChanged",
+        "OnTtsEvent"
+      ]
     },
     {
       "name": "TtsInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_tts.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "Speak",
+        "Stop",
+        "RefreshVoices"
+      ]
     },
     {
       "name": "UsbHostHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_usb_host.mojom.js",
-      "methods": []
+      "methods": [
+        "OpenDevice",
+        "GetDeviceInfo",
+        "RequestPermission"
+      ]
     },
     {
       "name": "UsbHostInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_usb_host.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnDeviceAdded",
+        "OnDeviceRemoved"
+      ]
     },
     {
       "name": "VideoHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video.mojom.js",
-      "methods": []
+      "methods": [
+        "OnBootstrapVideoAcceleratorFactory",
+        "CreateVideoAcceleratorFactory"
+      ]
     },
     {
       "name": "VideoInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "VideoAcceleratorFactory",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateEncodeAccelerator",
+        "CreateDecodeAccelerator",
+        "CreateVideoDecoder",
+        "CreateProtectedBufferAllocator"
+      ]
     },
     {
       "name": "VideoDecodeAccelerator",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_decode_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "Initialize",
+        "Decode",
+        "AssignPictureBuffers",
+        "ImportBufferForPicture",
+        "ReusePictureBuffer",
+        "Reset",
+        "Flush"
+      ]
     },
     {
       "name": "VideoDecodeClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_decode_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "PictureReady",
+        "NotifyEndOfBitstreamBuffer",
+        "NotifyError",
+        "ProvidePictureBuffers"
+      ]
     },
     {
       "name": "VideoDecoder",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_decoder.mojom.js",
-      "methods": []
+      "methods": [
+        "Initialize",
+        "Decode",
+        "Reset",
+        "ReleaseVideoFrame"
+      ]
     },
     {
       "name": "VideoDecoderClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_decoder.mojom.js",
-      "methods": []
+      "methods": [
+        "OnVideoFrameDecoded",
+        "OnError"
+      ]
     },
     {
       "name": "VideoEncodeAccelerator",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_encode_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "GetSupportedProfiles",
+        "Initialize",
+        "Encode",
+        "UseBitstreamBuffer",
+        "RequestEncodingParametersChange",
+        "RequestEncodingParametersChangeDeprecated",
+        "Flush"
+      ]
     },
     {
       "name": "VideoEncodeClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_encode_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "RequireBitstreamBuffers",
+        "NotifyError"
+      ]
     },
     {
       "name": "VideoFramePool",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_frame_pool.mojom.js",
-      "methods": []
+      "methods": [
+        "Initialize",
+        "AddVideoFrame"
+      ]
     },
     {
       "name": "VideoFramePoolClient",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_frame_pool.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestVideoFrames"
+      ]
     },
     {
       "name": "VideoProtectedBufferAllocator",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_video_protected_buffer_allocator.mojom.js",
-      "methods": []
+      "methods": [
+        "AllocateProtectedSharedMemory",
+        "AllocateProtectedNativePixmap",
+        "ReleaseProtectedBuffer"
+      ]
     },
     {
       "name": "VolumeMounterHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_volume_mounter.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestAllMountPoints",
+        "SetUpExternalStorageMountPoints",
+        "OnReadyToSuspend"
+      ]
     },
     {
       "name": "VolumeMounterInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_volume_mounter.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnMountEvent",
+        "PrepareForRemovableMediaUnmount"
+      ]
     },
     {
       "name": "WakeLockHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_wake_lock.mojom.js",
-      "methods": []
+      "methods": [
+        "AcquirePartialWakeLock",
+        "ReleasePartialWakeLock"
+      ]
     },
     {
       "name": "WakeLockInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_wake_lock.mojom.js",
-      "methods": []
+      "methods": [
+        "Init"
+      ]
     },
     {
       "name": "WallpaperHost",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_wallpaper.mojom.js",
-      "methods": []
+      "methods": [
+        "GetWallpaper",
+        "SetWallpaper",
+        "SetDefaultWallpaper"
+      ]
     },
     {
       "name": "WallpaperInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_wallpaper.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "OnWallpaperChanged"
+      ]
     },
     {
       "name": "WebApkInstance",
       "module": "arc.mojom",
       "file": "chromeos_ash_experiences_arc_mojom_webapk.mojom.js",
-      "methods": []
+      "methods": [
+        "InstallWebApk",
+        "GetWebApkInfo"
+      ]
     },
     {
       "name": "FactorObserver",
@@ -7579,121 +8512,244 @@
       "name": "TitleObserver",
       "module": "coral.mojom",
       "file": "chromeos_ash_services_coral_public_mojom_coral_service.mojom.js",
-      "methods": []
+      "methods": [
+        "TitleUpdated"
+      ]
     },
     {
       "name": "CoralProcessor",
       "module": "coral.mojom",
       "file": "chromeos_ash_services_coral_public_mojom_coral_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Group",
+        "CacheEmbeddings"
+      ]
     },
     {
       "name": "CoralService",
       "module": "coral.mojom",
       "file": "chromeos_ash_services_coral_public_mojom_coral_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GroupDeprecated",
+        "CacheEmbeddingsDeprecated",
+        "PrepareResource",
+        "Initialize"
+      ]
     },
     {
       "name": "ChromiumDataCollector",
       "module": "ash.cros_healthd.internal.mojom",
       "file": "chromeos_ash_services_cros_healthd_private_mojom_cros_healthd_internal.mojom.js",
-      "methods": []
+      "methods": [
+        "GetTouchscreenDevices",
+        "GetTouchpadLibraryName",
+        "SetPrivacyScreenState",
+        "DEPRECATED_SetAudioOutputMute"
+      ]
     },
     {
       "name": "CrosHealthdDiagnosticsService",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd.mojom.js",
-      "methods": []
+      "methods": [
+        "GetAvailableRoutines",
+        "GetRoutineUpdate",
+        "RunUrandomRoutine",
+        "RunBatteryCapacityRoutine",
+        "RunBatteryHealthRoutine",
+        "RunSmartctlCheckRoutine",
+        "RunAcPowerRoutine",
+        "RunCpuCacheRoutine",
+        "RunCpuStressRoutine",
+        "RunFloatingPointAccuracyRoutine",
+        "DEPRECATED_RunNvmeWearLevelRoutineWithThreshold",
+        "DEPRECATED_RunNvmeWearLevelRoutine",
+        "RunNvmeSelfTestRoutine",
+        "RunDiskReadRoutine",
+        "RunPrimeSearchRoutine",
+        "RunBatteryDischargeRoutine",
+        "RunBatteryChargeRoutine",
+        "RunMemoryRoutine",
+        "RunLanConnectivityRoutine",
+        "RunSignalStrengthRoutine",
+        "RunGatewayCanBePingedRoutine",
+        "RunHasSecureWiFiConnectionRoutine",
+        "RunDnsResolverPresentRoutine",
+        "RunDnsLatencyRoutine",
+        "RunDnsResolutionRoutine",
+        "RunCaptivePortalRoutine",
+        "RunHttpFirewallRoutine",
+        "RunHttpsFirewallRoutine",
+        "RunHttpsLatencyRoutine",
+        "RunVideoConferencingRoutine",
+        "RunArcHttpRoutine",
+        "RunArcPingRoutine",
+        "RunArcDnsResolutionRoutine",
+        "RunSensitiveSensorRoutine",
+        "RunFingerprintRoutine",
+        "RunFingerprintAliveRoutine",
+        "RunPrivacyScreenRoutine",
+        "DEPRECATED_RunLedLitUpRoutine",
+        "RunEmmcLifetimeRoutine",
+        "DEPRECATED_RunAudioSetVolumeRoutine",
+        "DEPRECATED_RunAudioSetGainRoutine",
+        "RunBluetoothPowerRoutine",
+        "RunBluetoothDiscoveryRoutine",
+        "RunBluetoothScanningRoutine",
+        "RunBluetoothPairingRoutine",
+        "RunPowerButtonRoutine",
+        "RunAudioDriverRoutine",
+        "RunUfsLifetimeRoutine",
+        "RunFanRoutine"
+      ]
     },
     {
       "name": "CrosHealthdEventService",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd.mojom.js",
-      "methods": []
+      "methods": [
+        "DEPRECATED_AddBluetoothObserver",
+        "DEPRECATED_AddLidObserver",
+        "DEPRECATED_AddPowerObserver",
+        "AddNetworkObserver",
+        "DEPRECATED_AddAudioObserver",
+        "DEPRECATED_AddThunderboltObserver",
+        "DEPRECATED_AddUsbObserver",
+        "AddEventObserver",
+        "IsEventSupported"
+      ]
     },
     {
       "name": "CrosHealthdProbeService",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd.mojom.js",
-      "methods": []
+      "methods": [
+        "ProbeProcessInfo",
+        "ProbeTelemetryInfo",
+        "ProbeMultipleProcessInfo"
+      ]
     },
     {
       "name": "DEPRECATED_LedLitUpRoutineReplier",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_diagnostics.mojom.js",
-      "methods": []
+      "methods": [
+        "GetColorMatched"
+      ]
     },
     {
       "name": "AshEventReporter",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_event_reporters.mojom.js",
-      "methods": []
+      "methods": [
+        "SendKeyboardDiagnosticEvent"
+      ]
     },
     {
       "name": "CrosHealthdBluetoothObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAdapterAdded",
+        "OnAdapterRemoved",
+        "OnAdapterPropertyChanged",
+        "OnDeviceAdded",
+        "OnDeviceRemoved",
+        "OnDevicePropertyChanged"
+      ]
     },
     {
       "name": "CrosHealthdLidObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnLidClosed",
+        "OnLidOpened"
+      ]
     },
     {
       "name": "CrosHealthdPowerObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAcInserted",
+        "OnAcRemoved",
+        "OnOsSuspend",
+        "OnOsResume"
+      ]
     },
     {
       "name": "CrosHealthdAudioObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnUnderrun",
+        "OnSevereUnderrun"
+      ]
     },
     {
       "name": "CrosHealthdThunderboltObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAdd",
+        "OnRemove",
+        "OnAuthorized",
+        "OnUnAuthorized"
+      ]
     },
     {
       "name": "CrosHealthdUsbObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAdd",
+        "OnRemove"
+      ]
     },
     {
       "name": "CrosHealthdSdCardObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAdd",
+        "OnRemove"
+      ]
     },
     {
       "name": "EventObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_events.mojom.js",
-      "methods": []
+      "methods": [
+        "OnEvent"
+      ]
     },
     {
       "name": "CrosHealthdRoutinesService",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_routines.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateRoutine",
+        "IsRoutineArgumentSupported"
+      ]
     },
     {
       "name": "RoutineControl",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_routines.mojom.js",
-      "methods": []
+      "methods": [
+        "GetState",
+        "Start",
+        "ReplyInquiry"
+      ]
     },
     {
       "name": "RoutineObserver",
       "module": "ash.cros_healthd.mojom",
       "file": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_routines.mojom.js",
-      "methods": []
+      "methods": [
+        "OnRoutineStateChange"
+      ]
     },
     {
       "name": "State",
@@ -7718,19 +8774,28 @@
       "name": "CloudSafetySession",
       "module": "ash.cros_safety.mojom",
       "file": "chromeos_ash_services_cros_safety_public_mojom_cros_safety.mojom.js",
-      "methods": []
+      "methods": [
+        "ClassifyTextSafety",
+        "ClassifyImageSafety"
+      ]
     },
     {
       "name": "OnDeviceSafetySession",
       "module": "ash.cros_safety.mojom",
       "file": "chromeos_ash_services_cros_safety_public_mojom_cros_safety.mojom.js",
-      "methods": []
+      "methods": [
+        "ClassifyTextSafety",
+        "ClassifyImageSafety"
+      ]
     },
     {
       "name": "CrosSafetyService",
       "module": "ash.cros_safety.mojom",
       "file": "chromeos_ash_services_cros_safety_public_mojom_cros_safety_service.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateOnDeviceSafetySession",
+        "CreateCloudSafetySession"
+      ]
     },
     {
       "name": "DeviceSyncObserver",
@@ -7765,19 +8830,28 @@
       "name": "HeartdControl",
       "module": "ash.heartd.mojom",
       "file": "chromeos_ash_services_heartd_public_mojom_heartd.mojom.js",
-      "methods": []
+      "methods": [
+        "EnableNormalRebootAction",
+        "EnableForceRebootAction",
+        "RunAction"
+      ]
     },
     {
       "name": "HeartbeatService",
       "module": "ash.heartd.mojom",
       "file": "chromeos_ash_services_heartd_public_mojom_heartd.mojom.js",
-      "methods": []
+      "methods": [
+        "Register"
+      ]
     },
     {
       "name": "Pacemaker",
       "module": "ash.heartd.mojom",
       "file": "chromeos_ash_services_heartd_public_mojom_heartd.mojom.js",
-      "methods": []
+      "methods": [
+        "SendHeartbeat",
+        "StopMonitor"
+      ]
     },
     {
       "name": "CrosHotspotConfig",
@@ -7813,7 +8887,10 @@
       "name": "ConnectionFactory",
       "module": "ash.ime.mojom",
       "file": "chromeos_ash_services_ime_public_mojom_connection_factory.mojom.js",
-      "methods": []
+      "methods": [
+        "ConnectToInputMethod",
+        "Unused"
+      ]
     },
     {
       "name": "InputEngineManager",
@@ -7854,13 +8931,42 @@
       "name": "InputMethod",
       "module": "ash.ime.mojom",
       "file": "chromeos_ash_services_ime_public_mojom_input_method.mojom.js",
-      "methods": []
+      "methods": [
+        "OnFocusDeprecated",
+        "OnFocus",
+        "OnBlur",
+        "ProcessKeyEvent",
+        "OnSurroundingTextChanged",
+        "OnCompositionCanceledBySystem",
+        "OnCandidateSelected",
+        "OnQuickSettingsUpdated",
+        "IsReadyForTesting",
+        "OnAssistiveWindowChanged"
+      ]
     },
     {
       "name": "InputMethodHost",
       "module": "ash.ime.mojom",
       "file": "chromeos_ash_services_ime_public_mojom_input_method_host.mojom.js",
-      "methods": []
+      "methods": [
+        "CommitText",
+        "DEPRECATED_SetComposition",
+        "SetComposition",
+        "SetCompositionRange",
+        "FinishComposition",
+        "DeleteSurroundingText",
+        "ReplaceSurroundingText",
+        "HandleAutocorrect",
+        "DisplaySuggestions",
+        "UpdateCandidatesWindow",
+        "RequestSuggestions",
+        "UpdateQuickSettings",
+        "RecordUkm",
+        "DEPRECATED_ReportKoreanAction",
+        "DEPRECATED_ReportKoreanSettings",
+        "DEPRECATED_ReportSuggestionOpportunity",
+        "DEPRECATED_ReportHistogramSample"
+      ]
     },
     {
       "name": "InputMethodUserDataService",
@@ -7883,19 +8989,26 @@
       "name": "JpUnused",
       "module": "ash.ime.mojom",
       "file": "chromeos_ash_services_ime_public_mojom_japanese_settings.mojom.js",
-      "methods": []
+      "methods": [
+        "Unused"
+      ]
     },
     {
       "name": "CertStoreInstance",
       "module": "arc.keymaster.mojom",
       "file": "chromeos_ash_services_keymaster_public_mojom_cert_store.mojom.js",
-      "methods": []
+      "methods": [
+        "UpdatePlaceholderKeys"
+      ]
     },
     {
       "name": "CertStoreInstance",
       "module": "arc.keymint.mojom",
       "file": "chromeos_ash_services_keymint_public_mojom_cert_store.mojom.js",
-      "methods": []
+      "methods": [
+        "UpdatePlaceholderKeys",
+        "SetSerialNumber"
+      ]
     },
     {
       "name": "AccountStatusChangeDelegate",
@@ -8242,37 +9355,72 @@
       "name": "EditorClient",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetPresetTextQueries",
+        "RequestPresetRewrite",
+        "RequestFreeformRewrite",
+        "RequestFreeformWrite",
+        "InsertText",
+        "ApproveConsent",
+        "DeclineConsent",
+        "DismissConsent",
+        "OpenUrlInNewWindow",
+        "ShowUI",
+        "CloseUI",
+        "AppendText",
+        "PreviewFeedback",
+        "SubmitFeedback",
+        "OnTrigger",
+        "EmitMetricEvent"
+      ]
     },
     {
       "name": "EditorClientConnector",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "BindEditorClient"
+      ]
     },
     {
       "name": "EditorEventSink",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnContextUpdated"
+      ]
     },
     {
       "name": "SystemActuator",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "InsertText",
+        "ApproveConsent",
+        "DeclineConsent",
+        "OpenUrlInNewWindow",
+        "ShowUI",
+        "CloseUI",
+        "SubmitFeedback",
+        "OnTrigger",
+        "EmitMetricEvent"
+      ]
     },
     {
       "name": "TextQueryProvider",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Process"
+      ]
     },
     {
       "name": "OrcaService",
       "module": "ash.orca.mojom",
       "file": "chromeos_ash_services_orca_public_mojom_orca_service.mojom.js",
-      "methods": []
+      "methods": [
+        "BindEditor"
+      ]
     },
     {
       "name": "FastPairDataParser",
@@ -8452,79 +9600,147 @@
       "name": "BrowserCdmFactory",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_browser_cdm_factory.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateFactory",
+        "GetOutputProtection",
+        "GetHwConfigData",
+        "GetScreenResolutions",
+        "GetAndroidHwKeyData",
+        "AllocateSecureBuffer",
+        "ParseEncryptedSliceHeader"
+      ]
     },
     {
       "name": "CdmFactory",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_cdm_factory_daemon.mojom.js",
-      "methods": []
+      "methods": [
+        "DEPRECATED_1",
+        "CreateCdmDeprecated",
+        "CreateCdm"
+      ]
     },
     {
       "name": "CdmFactoryDaemon",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_cdm_factory_daemon.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateFactory",
+        "RemovedMethod1",
+        "ConnectOemCrypto",
+        "RemovedMethod3",
+        "GetHwConfigData",
+        "RemovedMethod5",
+        "GetHdcp14Key",
+        "GetAndroidHwKeyData",
+        "AllocateSecureBuffer",
+        "ParseEncryptedSliceHeader"
+      ]
     },
     {
       "name": "CdmStorage",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_cdm_storage.mojom.js",
-      "methods": []
+      "methods": [
+        "Read",
+        "Write",
+        "Exists",
+        "GetSize",
+        "Remove"
+      ]
     },
     {
       "name": "ContentDecryptionModule",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_content_decryption_module.mojom.js",
-      "methods": []
+      "methods": [
+        "SetServerCertificate",
+        "GetStatusForPolicy",
+        "CreateSessionAndGenerateRequest",
+        "LoadSession",
+        "UpdateSession",
+        "CloseSession",
+        "RemoveSession",
+        "DecryptDeprecated",
+        "GetHwKeyData",
+        "Decrypt"
+      ]
     },
     {
       "name": "ContentDecryptionModuleClient",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_content_decryption_module.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSessionMessage",
+        "OnSessionClosed",
+        "OnSessionKeysChange",
+        "OnSessionExpirationUpdate"
+      ]
     },
     {
       "name": "OutputProtection",
       "module": "chromeos.cdm.mojom",
       "file": "chromeos_components_cdm_factory_daemon_mojom_output_protection.mojom.js",
-      "methods": []
+      "methods": [
+        "QueryStatus",
+        "EnableProtection"
+      ]
     },
     {
       "name": "NativeMessagingPort",
       "module": "drivefs.mojom",
       "file": "chromeos_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
-      "methods": []
+      "methods": [
+        "PostMessageToExtension"
+      ]
     },
     {
       "name": "NativeMessagingHost",
       "module": "drivefs.mojom",
       "file": "chromeos_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
-      "methods": []
+      "methods": [
+        "HandleMessageFromExtension"
+      ]
     },
     {
       "name": "InSessionAuth",
       "module": "chromeos.auth.mojom",
       "file": "chromeos_components_in_session_auth_mojom_in_session_auth.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestToken",
+        "CheckToken",
+        "InvalidateToken",
+        "RequestLegacyWebAuthn"
+      ]
     },
     {
       "name": "ContentExtractionService",
       "module": "mahi.mojom",
       "file": "chromeos_components_mahi_public_mojom_content_extraction.mojom.js",
-      "methods": []
+      "methods": [
+        "ExtractContent",
+        "GetContentSize"
+      ]
     },
     {
       "name": "ContentExtractionServiceFactory",
       "module": "mahi.mojom",
       "file": "chromeos_components_mahi_public_mojom_content_extraction.mojom.js",
-      "methods": []
+      "methods": [
+        "BindContentExtractionService",
+        "OnScreen2xReady"
+      ]
     },
     {
       "name": "PaymentAppInstance",
       "module": "chromeos.payments.mojom",
       "file": "chromeos_components_payments_mojom_payment_app.mojom.js",
-      "methods": []
+      "methods": [
+        "IsPaymentImplemented",
+        "IsReadyToPay",
+        "InvokePaymentApp",
+        "AbortPaymentApp"
+      ]
     },
     {
       "name": "PrintJobsObserver",
@@ -8577,259 +9793,493 @@
       "name": "RemoteApps",
       "module": "chromeos.remote_apps.mojom",
       "file": "chromeos_components_remote_apps_mojom_remote_apps.mojom.js",
-      "methods": []
+      "methods": [
+        "AddFolder",
+        "AddApp",
+        "DeleteApp",
+        "SortLauncherWithRemoteAppsFirst",
+        "SetPinnedApps"
+      ]
     },
     {
       "name": "RemoteAppsFactory",
       "module": "chromeos.remote_apps.mojom",
       "file": "chromeos_components_remote_apps_mojom_remote_apps.mojom.js",
-      "methods": []
+      "methods": [
+        "BindRemoteAppsAndAppLaunchObserver"
+      ]
     },
     {
       "name": "RemoteAppLaunchObserver",
       "module": "chromeos.remote_apps.mojom",
       "file": "chromeos_components_remote_apps_mojom_remote_apps.mojom.js",
-      "methods": []
+      "methods": [
+        "OnRemoteAppLaunched"
+      ]
     },
     {
       "name": "SensorHalServer",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_cros_sensor_service.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateChannel"
+      ]
     },
     {
       "name": "SensorHalClient",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_cros_sensor_service.mojom.js",
-      "methods": []
+      "methods": [
+        "SetUpChannel"
+      ]
     },
     {
       "name": "SensorService",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDeviceIds",
+        "GetAllDeviceIds",
+        "GetDevice"
+      ]
     },
     {
       "name": "SensorDevice",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "SetTimeout",
+        "GetAttributes",
+        "SetFrequency",
+        "StartReadingSamples",
+        "StopReadingSamples",
+        "GetAllChannelIds",
+        "GetChannelsEnabled",
+        "GetChannelsAttributes"
+      ]
     },
     {
       "name": "SensorDeviceSamplesObserver",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSampleUpdated",
+        "OnErrorOccurred"
+      ]
     },
     {
       "name": "SensorServiceNewDevicesObserver",
       "module": "chromeos.sensors.mojom",
       "file": "chromeos_components_sensors_mojom_sensor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnNewDeviceAdded"
+      ]
     },
     {
       "name": "AccountManagerObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "OnTokenUpserted",
+        "OnAccountRemoved",
+        "OnAuthErrorChanged",
+        "OnSigninDialogClosed"
+      ]
     },
     {
       "name": "AccountManager",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "IsInitialized",
+        "AddObserver",
+        "GetAccounts",
+        "ShowAddAccountDialog",
+        "ShowReauthAccountDialog",
+        "ShowManageAccountsSettings",
+        "GetPersistentErrorForAccount",
+        "CreateAccessTokenFetcher",
+        "ReportAuthError"
+      ]
     },
     {
       "name": "AccessTokenFetcher",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "Start"
+      ]
     },
     {
       "name": "ChromeKioskLaunchController",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_chrome_app_kiosk_service.mojom.js",
-      "methods": []
+      "methods": [
+        "InstallKioskApp",
+        "LaunchKioskApp"
+      ]
     },
     {
       "name": "ChromeAppKioskService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_chrome_app_kiosk_service.mojom.js",
-      "methods": []
+      "methods": [
+        "BindLaunchController"
+      ]
     },
     {
       "name": "CrosDisplayConfigController",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": []
+      "methods": [
+        "AddObserver",
+        "GetDisplayLayoutInfo",
+        "SetDisplayLayoutInfo",
+        "GetDisplayUnitInfoList",
+        "SetDisplayProperties",
+        "SetUnifiedDesktopEnabled",
+        "OverscanCalibration",
+        "TouchCalibration",
+        "HighlightDisplay",
+        "DragDisplayDelta"
+      ]
     },
     {
       "name": "CrosDisplayConfigObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": []
+      "methods": [
+        "OnDisplayConfigChanged"
+      ]
     },
     {
       "name": "Crosapi",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_crosapi.mojom.js",
-      "methods": []
+      "methods": [
+        "BindAccountManager",
+        "BindBrowserCdmFactory",
+        "BindCfmServiceContext",
+        "BindCrosDisplayConfigController",
+        "BindDiagnosticsService",
+        "BindDocumentScan",
+        "BindInSessionAuth",
+        "BindKeystoreService",
+        "BindLocalPrinter",
+        "BindMachineLearningService",
+        "BindSensorHalClient",
+        "BindHidManager",
+        "BindMediaSessionController",
+        "BindMediaSessionAudioFocus",
+        "BindMediaSessionAudioFocusDebug",
+        "BindTelemetryDiagnosticRoutinesService",
+        "BindTelemetryManagementService",
+        "BindTelemetryProbeService",
+        "BindVideoCaptureDeviceFactory",
+        "BindGuestOsSkForwarderFactory"
+      ]
     },
     {
       "name": "DiagnosticsService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_diagnostics_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetAvailableRoutines",
+        "GetRoutineUpdate",
+        "RunBatteryCapacityRoutine",
+        "RunBatteryHealthRoutine",
+        "RunSmartctlCheckRoutine",
+        "RunAcPowerRoutine",
+        "RunCpuCacheRoutine",
+        "RunCpuStressRoutine",
+        "RunFloatingPointAccuracyRoutine",
+        "DEPRECATED_RunNvmeWearLevelRoutine",
+        "RunNvmeSelfTestRoutine",
+        "RunDiskReadRoutine",
+        "RunPrimeSearchRoutine",
+        "RunBatteryDischargeRoutine",
+        "RunBatteryChargeRoutine",
+        "RunMemoryRoutine",
+        "RunLanConnectivityRoutine",
+        "RunDnsResolutionRoutine",
+        "RunSignalStrengthRoutine",
+        "RunGatewayCanBePingedRoutine",
+        "RunDnsResolverPresentRoutine",
+        "RunSensitiveSensorRoutine",
+        "RunFingerprintAliveRoutine",
+        "RunEmmcLifetimeRoutine",
+        "RunBluetoothPowerRoutine",
+        "RunUfsLifetimeRoutine",
+        "RunPowerButtonRoutine",
+        "RunAudioDriverRoutine",
+        "RunBluetoothDiscoveryRoutine",
+        "RunBluetoothScanningRoutine",
+        "RunBluetoothPairingRoutine",
+        "RunFanRoutine"
+      ]
     },
     {
       "name": "DocumentScan",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_document_scan.mojom.js",
-      "methods": []
+      "methods": [
+        "OpenScanner",
+        "CloseScanner",
+        "StartPreparedScan",
+        "ReadScanData",
+        "SetOptions",
+        "GetOptionGroups",
+        "CancelScan"
+      ]
     },
     {
       "name": "GuestOsSkForwarderFactory",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_guest_os_sk_forwarder.mojom.js",
-      "methods": []
+      "methods": [
+        "BindGuestOsSkForwarder"
+      ]
     },
     {
       "name": "GuestOsSkForwarder",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_guest_os_sk_forwarder.mojom.js",
-      "methods": []
+      "methods": [
+        "ForwardRequest"
+      ]
     },
     {
       "name": "KeystoreService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_keystore_service.mojom.js",
-      "methods": []
+      "methods": [
+        "ChallengeAttestationOnlyKeystore",
+        "GetKeyStores",
+        "SelectClientCertificates",
+        "GetCertificates",
+        "AddCertificate",
+        "RemoveCertificate",
+        "GetPublicKey",
+        "GenerateKey",
+        "RemoveKey",
+        "Sign",
+        "GetKeyTags",
+        "AddKeyTags",
+        "CanUserGrantPermissionForKey",
+        "SetAttributeForKey",
+        "DEPRECATED_ExtensionGenerateKey",
+        "DEPRECATED_ExtensionSign",
+        "DEPRECATED_GetPublicKey",
+        "DEPRECATED_GetKeyStores",
+        "DEPRECATED_GetCertificates",
+        "DEPRECATED_AddCertificate",
+        "DEPRECATED_RemoveCertificate",
+        "DEPRECATED_ChallengeAttestationOnlyKeystore"
+      ]
     },
     {
       "name": "SearchResultsPublisher",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_launcher_search.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSearchResultsReceived"
+      ]
     },
     {
       "name": "SearchController",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_launcher_search.mojom.js",
-      "methods": []
+      "methods": [
+        "Search"
+      ]
     },
     {
       "name": "SearchResultConsumer",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_launcher_search.mojom.js",
-      "methods": []
+      "methods": [
+        "OnFaviconReceived"
+      ]
     },
     {
       "name": "PrintServerObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPrintServersChanged",
+        "OnServerPrintersChanged"
+      ]
     },
     {
       "name": "PrintJobObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPrintJobUpdateDeprecated",
+        "OnPrintJobUpdate"
+      ]
     },
     {
       "name": "LocalPrintersObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": []
+      "methods": [
+        "OnLocalPrintersUpdated"
+      ]
     },
     {
       "name": "LocalPrinter",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": []
+      "methods": [
+        "GetPrinters",
+        "GetCapability",
+        "GetEulaUrl",
+        "GetStatus",
+        "ShowSystemPrintSettings",
+        "CreatePrintJob",
+        "CancelPrintJob",
+        "GetPrintServersConfig",
+        "ChoosePrintServers",
+        "AddPrintServerObserver",
+        "GetPolicies",
+        "GetUsernamePerPolicy",
+        "GetPrinterTypeDenyList",
+        "AddPrintJobObserver",
+        "GetOAuthAccessToken",
+        "GetIppClientInfo",
+        "AddLocalPrintersObserver"
+      ]
     },
     {
       "name": "ExternalLogoutRequestObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_login.mojom.js",
-      "methods": []
+      "methods": [
+        "OnRequestExternalLogout"
+      ]
     },
     {
       "name": "Login",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_login.mojom.js",
-      "methods": []
+      "methods": [
+        "AddExternalLogoutRequestObserver",
+        "NotifyOnExternalLogoutDone",
+        "REMOVED_0",
+        "REMOVED_4",
+        "REMOVED_5",
+        "REMOVED_6",
+        "REMOVED_7",
+        "REMOVED_10",
+        "REMOVED_12"
+      ]
     },
     {
       "name": "PasskeyAuthenticator",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_passkeys.mojom.js",
-      "methods": []
+      "methods": [
+        "Create",
+        "Assert"
+      ]
     },
     {
       "name": "PrintPreviewCrosDelegate",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_print_preview_cros.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestPrintPreview",
+        "PrintPreviewDone"
+      ]
     },
     {
       "name": "PrintPreviewCrosClient",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_print_preview_cros.mojom.js",
-      "methods": []
+      "methods": [
+        "GeneratePrintPreview",
+        "HandleDialogClosed"
+      ]
     },
     {
       "name": "TelemetryProbeService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_probe_service.mojom.js",
-      "methods": []
+      "methods": [
+        "ProbeTelemetryInfo",
+        "GetOemData"
+      ]
     },
     {
       "name": "Remoting",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_remoting.mojom.js",
-      "methods": []
+      "methods": [
+        "GetSupportHostDetails",
+        "StartSupportSession"
+      ]
     },
     {
       "name": "StructuredMetricsService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_structured_metrics_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Record"
+      ]
     },
     {
       "name": "TelemetryDiagnosticRoutineControl",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetState",
+        "Start",
+        "ReplyToInquiry"
+      ]
     },
     {
       "name": "TelemetryDiagnosticRoutineObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnRoutineStateChange"
+      ]
     },
     {
       "name": "TelemetryDiagnosticRoutinesService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateRoutine",
+        "IsRoutineArgumentSupported"
+      ]
     },
     {
       "name": "TelemetryEventObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnEvent"
+      ]
     },
     {
       "name": "TelemetryEventService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
-      "methods": []
+      "methods": [
+        "AddEventObserver",
+        "IsEventSupported"
+      ]
     },
     {
       "name": "TelemetryManagementService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_management_service.mojom.js",
-      "methods": []
+      "methods": [
+        "SetAudioGain",
+        "SetAudioVolume"
+      ]
     },
     {
       "name": "ScopedAccessPermission",
@@ -8841,31 +10291,67 @@
       "name": "VideoFrameHandler",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "OnCaptureConfigurationChanged",
+        "OnNewBuffer",
+        "DEPRECATED_OnFrameReadyInBuffer",
+        "OnFrameReadyInBuffer",
+        "OnBufferRetired",
+        "OnError",
+        "OnFrameDropped",
+        "DEPRECATED_OnNewCropVersion",
+        "DEPRECATED_OnNewSubCaptureTargetVersion",
+        "OnNewCaptureVersion",
+        "OnFrameWithEmptyRegionCapture",
+        "OnLog",
+        "OnStarted",
+        "OnStartedUsingGpuDecode",
+        "OnStopped"
+      ]
     },
     {
       "name": "VideoCaptureDevice",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "Start",
+        "MaybeSuspend",
+        "Resume",
+        "GetPhotoState",
+        "SetPhotoOptions",
+        "TakePhoto",
+        "ProcessFeedback",
+        "RequestRefreshFrame"
+      ]
     },
     {
       "name": "VideoCaptureDeviceFactory",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDeviceInfos",
+        "CreateDevice"
+      ]
     },
     {
       "name": "VideoConferenceManagerClient",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_video_conference.mojom.js",
-      "methods": []
+      "methods": [
+        "GetMediaApps",
+        "ReturnToApp",
+        "SetSystemMediaDeviceStatus",
+        "StopAllScreenShare"
+      ]
     },
     {
       "name": "CfmBrowser",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
-      "methods": []
+      "methods": [
+        "GetVariationsData",
+        "GetMemoryDetails"
+      ]
     },
     {
       "name": "DisconnectReason",
@@ -8877,73 +10363,110 @@
       "name": "CfmServiceContext",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_service_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "ProvideAdaptor",
+        "RequestBindService"
+      ]
     },
     {
       "name": "CfmServiceAdaptor",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_service_manager.mojom.js",
-      "methods": []
+      "methods": [
+        "OnBindService"
+      ]
     },
     {
       "name": "ExternalDisplayBrightness",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_external_display_brightness.mojom.js",
-      "methods": []
+      "methods": [
+        "SetExternalDisplayALSBrightness",
+        "GetExternalDisplayALSBrightness",
+        "SetExternalDisplayBrightnessPercent",
+        "GetExternalDisplayBrightnessPercent"
+      ]
     },
     {
       "name": "MeetBrowser",
       "module": "ash.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_browser.mojom.js",
-      "methods": []
+      "methods": [
+        "TranslateVideoDeviceId"
+      ]
     },
     {
       "name": "DataWatchDog",
       "module": "ash.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_data_aggregator.mojom.js",
-      "methods": []
+      "methods": [
+        "OnNotify"
+      ]
     },
     {
       "name": "DataSource",
       "module": "ash.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_data_aggregator.mojom.js",
-      "methods": []
+      "methods": [
+        "Fetch",
+        "AddWatchDog",
+        "Flush"
+      ]
     },
     {
       "name": "DataAggregator",
       "module": "ash.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_data_aggregator.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDataSourceNames",
+        "AddDataSource",
+        "AddWatchDog"
+      ]
     },
     {
       "name": "MeetDevicesDiagnostics",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_diagnostics.mojom.js",
-      "methods": []
+      "methods": [
+        "GetCrosHealthdTelemetry",
+        "GetCrosHealthdProcessInfo"
+      ]
     },
     {
       "name": "MeetDevicesInfo",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_info.mojom.js",
-      "methods": []
+      "methods": [
+        "AddDeviceSettingsObserver",
+        "GetPolicyInfo",
+        "GetSysInfo",
+        "GetMachineStatisticsInfo"
+      ]
     },
     {
       "name": "PolicyInfoObserver",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_info.mojom.js",
-      "methods": []
+      "methods": [
+        "OnPolicyInfoChange"
+      ]
     },
     {
       "name": "LoggerStateObserver",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_logger.mojom.js",
-      "methods": []
+      "methods": [
+        "OnNotifyState"
+      ]
     },
     {
       "name": "MeetDevicesLogger",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_logger.mojom.js",
-      "methods": []
+      "methods": [
+        "Enqueue",
+        "AddStateObserver"
+      ]
     },
     {
       "name": "XuCamera",
@@ -8960,79 +10483,128 @@
       "name": "DocumentScanner",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_document_scanner.mojom.js",
-      "methods": []
+      "methods": [
+        "DetectCornersFromNV12Image",
+        "DetectCornersFromJPEGImage",
+        "DoPostProcessing"
+      ]
     },
     {
       "name": "GrammarChecker",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_grammar_checker.mojom.js",
-      "methods": []
+      "methods": [
+        "Check"
+      ]
     },
     {
       "name": "GraphExecutor",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_graph_executor.mojom.js",
-      "methods": []
+      "methods": [
+        "Execute"
+      ]
     },
     {
       "name": "HandwritingRecognizer",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_handwriting_recognizer.mojom.js",
-      "methods": []
+      "methods": [
+        "Recognize"
+      ]
     },
     {
       "name": "HeatmapPalmRejectionClient",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_heatmap_palm_rejection.mojom.js",
-      "methods": []
+      "methods": [
+        "OnHeatmapProcessedEvent"
+      ]
     },
     {
       "name": "ImageContentAnnotator",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_image_content_annotation.mojom.js",
-      "methods": []
+      "methods": [
+        "AnnotateRawImage",
+        "AnnotateEncodedImage"
+      ]
     },
     {
       "name": "MachineLearningService",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_machine_learning_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Clone",
+        "LoadBuiltinModel",
+        "LoadFlatBufferModel",
+        "LoadTextClassifier",
+        "LoadHandwritingModel",
+        "LoadSpeechRecognizer",
+        "LoadGrammarChecker",
+        "LoadTextSuggester",
+        "LoadWebPlatformHandwritingModel",
+        "LoadDocumentScanner",
+        "LoadImageAnnotator",
+        "LoadHeatmapPalmRejection",
+        "REMOVED_4"
+      ]
     },
     {
       "name": "Model",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_model.mojom.js",
-      "methods": []
+      "methods": [
+        "REMOVED_0",
+        "CreateGraphExecutor"
+      ]
     },
     {
       "name": "SodaClient",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_soda.mojom.js",
-      "methods": []
+      "methods": [
+        "OnStart",
+        "OnStop",
+        "OnSpeechRecognizerEvent"
+      ]
     },
     {
       "name": "SodaRecognizer",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_soda.mojom.js",
-      "methods": []
+      "methods": [
+        "AddAudio",
+        "Stop",
+        "Start",
+        "MarkDone"
+      ]
     },
     {
       "name": "TextClassifier",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_text_classifier.mojom.js",
-      "methods": []
+      "methods": [
+        "Annotate",
+        "FindLanguages",
+        "REMOVED_1"
+      ]
     },
     {
       "name": "TextSuggester",
       "module": "chromeos.machine_learning.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_text_suggester.mojom.js",
-      "methods": []
+      "methods": [
+        "Suggest"
+      ]
     },
     {
       "name": "HandwritingRecognizer",
       "module": "chromeos.machine_learning.web_platform.mojom",
       "file": "chromeos_services_machine_learning_public_mojom_web_platform_handwriting.mojom.js",
-      "methods": []
+      "methods": [
+        "GetPrediction"
+      ]
     },
     {
       "name": "MediaPerception",
@@ -9044,19 +10616,25 @@
       "name": "MediaPerceptionService",
       "module": "chromeos.media_perception.mojom",
       "file": "chromeos_services_media_perception_public_mojom_media_perception_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetController"
+      ]
     },
     {
       "name": "MediaPerceptionController",
       "module": "chromeos.media_perception.mojom",
       "file": "chromeos_services_media_perception_public_mojom_media_perception_service.mojom.js",
-      "methods": []
+      "methods": [
+        "ActivateMediaPerception"
+      ]
     },
     {
       "name": "MediaPerceptionControllerClient",
       "module": "chromeos.media_perception.mojom",
       "file": "chromeos_services_media_perception_public_mojom_media_perception_service.mojom.js",
-      "methods": []
+      "methods": [
+        "ConnectToVideoCaptureService"
+      ]
     },
     {
       "name": "CrosNetworkConfig",
@@ -9111,19 +10689,47 @@
       "name": "NetworkDiagnosticsRoutines",
       "module": "chromeos.network_diagnostics.mojom",
       "file": "chromeos_services_network_health_public_mojom_network_diagnostics.mojom.js",
-      "methods": []
+      "methods": [
+        "GetResult",
+        "GetAllResults",
+        "RunLanConnectivity",
+        "RunSignalStrength",
+        "RunGatewayCanBePinged",
+        "RunHasSecureWiFiConnection",
+        "RunDnsResolverPresent",
+        "RunDnsLatency",
+        "RunDnsResolution",
+        "RunCaptivePortal",
+        "RunHttpFirewall",
+        "RunHttpsFirewall",
+        "RunHttpsLatency",
+        "RunVideoConferencing",
+        "RunArcHttp",
+        "RunArcPing",
+        "RunArcDnsResolution",
+        "RunGoogleServicesConnectivity"
+      ]
     },
     {
       "name": "NetworkEventsObserver",
       "module": "chromeos.network_health.mojom",
       "file": "chromeos_services_network_health_public_mojom_network_health.mojom.js",
-      "methods": []
+      "methods": [
+        "OnConnectionStateChanged",
+        "OnSignalStrengthChanged",
+        "OnNetworkListChanged"
+      ]
     },
     {
       "name": "NetworkHealthService",
       "module": "chromeos.network_health.mojom",
       "file": "chromeos_services_network_health_public_mojom_network_health.mojom.js",
-      "methods": []
+      "methods": [
+        "AddObserver",
+        "GetNetworkList",
+        "GetHealthSnapshot",
+        "GetRecentlyActiveNetworks"
+      ]
     },
     {
       "name": "TtsService",
@@ -9465,7 +11071,12 @@
       "name": "MjpegDecodeAccelerator",
       "module": "chromeos_camera.mojom",
       "file": "components_chromeos_camera_common_mjpeg_decode_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "Initialize",
+        "Decode",
+        "DecodeWithDmaBuf",
+        "Uninitialize"
+      ]
     },
     {
       "name": "CommerceInternalsHandlerFactory",
@@ -9775,31 +11386,55 @@
       "name": "DeviceListHost",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
-      "methods": []
+      "methods": [
+        "SelectDevice"
+      ]
     },
     {
       "name": "DeviceListClient",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnDevicesUpdated",
+        "OnPermissionRejected"
+      ]
     },
     {
       "name": "DeviceService",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDeviceListHostForSession",
+        "GetDeviceListHostForPresentation",
+        "SetDevicePickerProvider"
+      ]
     },
     {
       "name": "DevicePickerProvider",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateItem",
+        "DeleteItem",
+        "ShowItem",
+        "HideItem",
+        "OnMetadataChanged",
+        "OnArtworkImageChanged",
+        "OnFaviconImageChanged",
+        "AddObserver",
+        "HideMediaUI"
+      ]
     },
     {
       "name": "DevicePickerObserver",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnMediaUIOpened",
+        "OnMediaUIClosed",
+        "OnMediaUIUpdated",
+        "OnPickerDismissed"
+      ]
     },
     {
       "name": "GuestContentsHost",
@@ -12455,13 +14090,19 @@
       "name": "InterfaceV0",
       "module": "content.optional_numerics_unittest.mojom",
       "file": "content_web_test_common_mojo_optional_numerics_unittest.mojom.js",
-      "methods": []
+      "methods": [
+        "MethodWithVersionedParams",
+        "MethodWithVersionedStruct"
+      ]
     },
     {
       "name": "InterfaceV2",
       "module": "content.optional_numerics_unittest.mojom",
       "file": "content_web_test_common_mojo_optional_numerics_unittest.mojom.js",
-      "methods": []
+      "methods": [
+        "MethodWithVersionedParams",
+        "MethodWithVersionedStruct"
+      ]
     },
     {
       "name": "WebTestRenderFrame",
@@ -13333,13 +14974,31 @@
       "name": "Camera3CallbackOps",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_camera3.mojom.js",
-      "methods": []
+      "methods": [
+        "ProcessCaptureResult",
+        "Notify",
+        "RequestStreamBuffers",
+        "ReturnStreamBuffers"
+      ]
     },
     {
       "name": "Camera3DeviceOps",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_camera3.mojom.js",
-      "methods": []
+      "methods": [
+        "Initialize",
+        "ConfigureStreams",
+        "ConstructDefaultRequestSettings",
+        "ProcessCaptureRequest",
+        "Dump",
+        "Flush",
+        "RegisterBuffer",
+        "Close",
+        "ConfigureStreamsAndGetAllocatedBuffers",
+        "SignalStreamFlush",
+        "OnNewBuffer",
+        "OnBufferRetired"
+      ]
     },
     {
       "name": "CameraAppDeviceProvider",
@@ -13426,97 +15085,160 @@
       "name": "CameraModuleCallbacks",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_camera_common.mojom.js",
-      "methods": []
+      "methods": [
+        "CameraDeviceStatusChange",
+        "TorchModeStatusChange"
+      ]
     },
     {
       "name": "VendorTagOps",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_camera_common.mojom.js",
-      "methods": []
+      "methods": [
+        "GetTagCount",
+        "GetAllTags",
+        "GetSectionName",
+        "GetTagName",
+        "GetTagType"
+      ]
     },
     {
       "name": "CameraModule",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_camera_common.mojom.js",
-      "methods": []
+      "methods": [
+        "OpenDevice",
+        "GetNumberOfCameras",
+        "GetCameraInfo",
+        "SetCallbacks",
+        "SetTorchMode",
+        "Init",
+        "GetVendorTagOps",
+        "SetCallbacksAssociated"
+      ]
     },
     {
       "name": "CameraHalClient",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_cros_camera_client.mojom.js",
-      "methods": []
+      "methods": [
+        "SetUpChannel"
+      ]
     },
     {
       "name": "KioskVisionObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_cros_camera_service.mojom.js",
-      "methods": []
+      "methods": [
+        "OnFrameProcessed",
+        "OnTrackCompleted",
+        "OnError"
+      ]
     },
     {
       "name": "CameraHalDispatcher",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_cros_camera_service.mojom.js",
-      "methods": []
+      "methods": [
+        "RegisterClientWithToken"
+      ]
     },
     {
       "name": "CrosCameraServiceObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_cros_camera_service.mojom.js",
-      "methods": []
+      "methods": [
+        "CameraDeviceActivityChange",
+        "CameraPrivacySwitchStateChange",
+        "CameraSWPrivacySwitchStateChange",
+        "CameraEffectChange",
+        "AutoFramingStateChange"
+      ]
     },
     {
       "name": "CrosCameraService",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_cros_camera_service.mojom.js",
-      "methods": []
+      "methods": [
+        "GetCameraModule",
+        "SetTracingEnabled",
+        "SetAutoFramingState",
+        "GetCameraSWPrivacySwitchState",
+        "SetCameraSWPrivacySwitchState",
+        "GetAutoFramingSupported",
+        "SetCameraEffect",
+        "AddCrosCameraServiceObserver",
+        "StartKioskVisionDetection"
+      ]
     },
     {
       "name": "CrosDocumentScanner",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_document_scanner.mojom.js",
-      "methods": []
+      "methods": [
+        "DetectCornersFromNV12Image"
+      ]
     },
     {
       "name": "JpegAcceleratorProvider",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_jpeg_accelerator.mojom.js",
-      "methods": []
+      "methods": [
+        "GetJpegEncodeAccelerator",
+        "GetMjpegDecodeAccelerator"
+      ]
     },
     {
       "name": "CrosDisplayObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_system_event_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnDisplayRotationChanged"
+      ]
     },
     {
       "name": "CrosLidObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_system_event_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnLidStateChanged"
+      ]
     },
     {
       "name": "CrosPowerObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_system_event_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSystemSuspend",
+        "OnSystemResume"
+      ]
     },
     {
       "name": "CrosSystemEventMonitor",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_system_event_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "AddDisplayObserver",
+        "AddLidObserver",
+        "AddPowerObserver",
+        "NotifyDeviceChanged"
+      ]
     },
     {
       "name": "VideoCaptureDeviceInfoObserver",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_video_capture_device_info_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "OnGetCameraIdToDeviceIdMapping"
+      ]
     },
     {
       "name": "VideoCaptureDeviceInfoMonitor",
       "module": "cros.mojom",
       "file": "media_capture_video_chromeos_mojom_video_capture_device_info_monitor.mojom.js",
-      "methods": []
+      "methods": [
+        "AddVideoCaptureDeviceInfoObserver"
+      ]
     },
     {
       "name": "MidiSessionClient",
@@ -14304,49 +16026,79 @@
       "name": "SpeechRecognitionContext",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "BindRecognizer",
+        "BindWebSpeechRecognizer"
+      ]
     },
     {
       "name": "SpeechRecognitionRecognizer",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "SendAudioToSpeechRecognitionService",
+        "MarkDone",
+        "OnLanguageChanged",
+        "OnMaskOffensiveWordsChanged",
+        "UpdateRecognitionContext"
+      ]
     },
     {
       "name": "SpeechRecognitionRecognizerClient",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSpeechRecognitionRecognitionEvent",
+        "OnSpeechRecognitionStopped",
+        "OnSpeechRecognitionError",
+        "OnLanguageIdentificationEvent"
+      ]
     },
     {
       "name": "SpeechRecognitionBrowserObserver",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "SpeechRecognitionAvailabilityChanged",
+        "SpeechRecognitionLanguageChanged",
+        "SpeechRecognitionMaskOffensiveWordsChanged"
+      ]
     },
     {
       "name": "SpeechRecognitionSurface",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "Activate",
+        "GetBounds"
+      ]
     },
     {
       "name": "SpeechRecognitionSurfaceClient",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "OnSessionEnded",
+        "OnFullscreenToggled"
+      ]
     },
     {
       "name": "SpeechRecognitionClientBrowserInterface",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
-      "methods": []
+      "methods": [
+        "BindSpeechRecognitionBrowserObserver",
+        "REMOVED_1",
+        "REMOVED_2"
+      ]
     },
     {
       "name": "SpeechRecognitionAudioForwarder",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognition_audio_forwarder.mojom.js",
-      "methods": []
+      "methods": [
+        "AddAudioFromRenderer"
+      ]
     },
     {
       "name": "AudioSourceSpeechRecognitionContext",
@@ -14398,13 +16150,26 @@
       "name": "SpeechRecognitionSession",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognizer.mojom.js",
-      "methods": []
+      "methods": [
+        "Abort",
+        "StopCapture",
+        "UpdateRecognitionContext"
+      ]
     },
     {
       "name": "SpeechRecognitionSessionClient",
       "module": "media.mojom",
       "file": "media_mojo_mojom_speech_recognizer.mojom.js",
-      "methods": []
+      "methods": [
+        "ResultRetrieved",
+        "ErrorOccurred",
+        "Started",
+        "AudioStarted",
+        "SoundStarted",
+        "SoundEnded",
+        "AudioEnded",
+        "Ended"
+      ]
     },
     {
       "name": "VideoDecodePerfHistory",
@@ -14551,7 +16316,9 @@
       "name": "Binder",
       "module": "mojo_base.mojom",
       "file": "mojo_public_mojom_base_binder.mojom.js",
-      "methods": []
+      "methods": [
+        "Bind"
+      ]
     },
     {
       "name": "GenericAssociatedInterface",
@@ -14782,7 +16549,18 @@
       "name": "SupportHostObserver",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_remote_support.mojom.js",
-      "methods": []
+      "methods": [
+        "OnHostStateStarting",
+        "OnHostStateRequestedAccessCode",
+        "OnHostStateReceivedAccessCode",
+        "OnHostStateConnecting",
+        "OnHostStateConnected",
+        "OnHostStateDisconnected",
+        "OnNatPolicyChanged",
+        "OnHostStateError",
+        "OnPolicyError",
+        "OnInvalidDomainError"
+      ]
     },
     {
       "name": "RemoteUrlOpener",
@@ -14855,13 +16633,25 @@
       "name": "AccessibilityHelperHost",
       "module": "ax.android.mojom",
       "file": "services_accessibility_android_public_mojom_accessibility_helper.mojom.js",
-      "methods": []
+      "methods": [
+        "OnAccessibilityEvent",
+        "OnNotificationStateChanged",
+        "OnToggleNativeChromeVoxArcSupport"
+      ]
     },
     {
       "name": "AccessibilityHelperInstance",
       "module": "ax.android.mojom",
       "file": "services_accessibility_android_public_mojom_accessibility_helper.mojom.js",
-      "methods": []
+      "methods": [
+        "Init",
+        "SetFilter",
+        "PerformAction",
+        "SetExploreByTouchEnabled",
+        "RefreshWithExtraData",
+        "RequestSendAccessibilityTree",
+        "SetNativeChromeVoxArcSupportForFocusedWindow"
+      ]
     },
     {
       "name": "AssistiveTechnologyController",
@@ -15286,25 +17076,41 @@
       "name": "HidManagerClient",
       "module": "device.mojom",
       "file": "services_device_public_mojom_hid.mojom.js",
-      "methods": []
+      "methods": [
+        "DeviceAdded",
+        "DeviceRemoved",
+        "DeviceChanged"
+      ]
     },
     {
       "name": "HidManager",
       "module": "device.mojom",
       "file": "services_device_public_mojom_hid.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDevicesAndSetClient",
+        "GetDevices",
+        "Connect",
+        "AddReceiver"
+      ]
     },
     {
       "name": "HidConnection",
       "module": "device.mojom",
       "file": "services_device_public_mojom_hid.mojom.js",
-      "methods": []
+      "methods": [
+        "Read",
+        "Write",
+        "GetFeatureReport",
+        "SendFeatureReport"
+      ]
     },
     {
       "name": "HidConnectionClient",
       "module": "device.mojom",
       "file": "services_device_public_mojom_hid.mojom.js",
-      "methods": []
+      "methods": [
+        "OnInputReport"
+      ]
     },
     {
       "name": "HidConnectionWatcher",
@@ -15760,67 +17566,166 @@
       "name": "AudioFocusObserver",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_audio_focus.mojom.js",
-      "methods": []
+      "methods": [
+        "OnFocusGained",
+        "OnFocusLost",
+        "OnRequestIdReleased"
+      ]
     },
     {
       "name": "AudioFocusRequestClient",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_audio_focus.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestAudioFocus",
+        "AbandonAudioFocus",
+        "MediaSessionInfoChanged"
+      ]
     },
     {
       "name": "AudioFocusManager",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_audio_focus.mojom.js",
-      "methods": []
+      "methods": [
+        "RequestAudioFocus",
+        "RequestGroupedAudioFocus",
+        "GetFocusRequests",
+        "AddObserver",
+        "SetSource",
+        "SetEnforcementMode",
+        "AddSourceObserver",
+        "GetSourceFocusRequests",
+        "RequestIdReleased",
+        "StartDuckingAllAudio",
+        "StopDuckingAllAudio",
+        "FlushForTesting"
+      ]
     },
     {
       "name": "AudioFocusManagerDebug",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_audio_focus.mojom.js",
-      "methods": []
+      "methods": [
+        "GetDebugInfoForRequest"
+      ]
     },
     {
       "name": "MediaControllerManager",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_controller.mojom.js",
-      "methods": []
+      "methods": [
+        "CreateMediaControllerForSession",
+        "CreateActiveMediaController",
+        "SuspendAllSessions"
+      ]
     },
     {
       "name": "MediaController",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_controller.mojom.js",
-      "methods": []
+      "methods": [
+        "Suspend",
+        "Resume",
+        "Stop",
+        "ToggleSuspendResume",
+        "AddObserver",
+        "PreviousTrack",
+        "NextTrack",
+        "Seek",
+        "ObserveImages",
+        "SeekTo",
+        "ScrubTo",
+        "EnterPictureInPicture",
+        "ExitPictureInPicture",
+        "SetAudioSinkId",
+        "ToggleMicrophone",
+        "ToggleCamera",
+        "HangUp",
+        "Raise",
+        "SetMute",
+        "RequestMediaRemoting",
+        "EnterAutoPictureInPicture",
+        "SkipAd"
+      ]
     },
     {
       "name": "MediaControllerObserver",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_controller.mojom.js",
-      "methods": []
+      "methods": [
+        "MediaSessionInfoChanged",
+        "MediaSessionMetadataChanged",
+        "MediaSessionActionsChanged",
+        "MediaSessionChanged",
+        "MediaSessionPositionChanged"
+      ]
     },
     {
       "name": "MediaControllerImageObserver",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_controller.mojom.js",
-      "methods": []
+      "methods": [
+        "MediaControllerImageChanged",
+        "MediaControllerChapterImageChanged"
+      ]
     },
     {
       "name": "MediaSessionObserver",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_session.mojom.js",
-      "methods": []
+      "methods": [
+        "MediaSessionInfoChanged",
+        "MediaSessionMetadataChanged",
+        "MediaSessionActionsChanged",
+        "MediaSessionImagesChanged",
+        "MediaSessionPositionChanged"
+      ]
     },
     {
       "name": "MediaSession",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_session.mojom.js",
-      "methods": []
+      "methods": [
+        "GetMediaSessionInfo",
+        "GetDebugInfo",
+        "StartDucking",
+        "StopDucking",
+        "Suspend",
+        "Resume",
+        "AddObserver",
+        "PreviousTrack",
+        "NextTrack",
+        "Seek",
+        "Stop",
+        "SkipAd",
+        "GetMediaImageBitmap",
+        "SeekTo",
+        "ScrubTo",
+        "EnterPictureInPicture",
+        "ExitPictureInPicture",
+        "SetAudioSinkId",
+        "ToggleMicrophone",
+        "ToggleCamera",
+        "HangUp",
+        "Raise",
+        "SetMute",
+        "RequestMediaRemoting",
+        "PreviousSlide",
+        "NextSlide",
+        "EnterAutoPictureInPicture",
+        "GetVisibility"
+      ]
     },
     {
       "name": "MediaSessionService",
       "module": "media_session.mojom",
       "file": "services_media_session_public_mojom_media_session_service.mojom.js",
-      "methods": []
+      "methods": [
+        "BindAudioFocusManager",
+        "BindAudioFocusManagerDebug",
+        "BindMediaControllerManager",
+        "Bind"
+      ]
     },
     {
       "name": "SingularUkmInterface",
@@ -17009,55 +18914,86 @@
       "name": "StreamingResponder",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "OnResponse",
+        "OnComplete"
+      ]
     },
     {
       "name": "ContextClient",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "OnComplete"
+      ]
     },
     {
       "name": "Session",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "Append",
+        "Generate",
+        "GetSizeInTokens",
+        "Score",
+        "Clone",
+        "GetProbabilitiesBlocking",
+        "SetPriority",
+        "AsrStream"
+      ]
     },
     {
       "name": "OnDeviceModel",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "StartSession",
+        "ClassifyTextSafety",
+        "DetectLanguage",
+        "LoadAdaptation"
+      ]
     },
     {
       "name": "TextSafetySession",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "ClassifyTextSafety",
+        "DetectLanguage",
+        "Clone"
+      ]
     },
     {
       "name": "TextSafetyModel",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "StartSession"
+      ]
     },
     {
       "name": "AsrStreamResponder",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "OnResponse"
+      ]
     },
     {
       "name": "AsrStreamInput",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
-      "methods": []
+      "methods": [
+        "AddAudioChunk"
+      ]
     },
     {
       "name": "PlatformModelProgressObserver",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model_service.mojom.js",
-      "methods": []
+      "methods": [
+        "Progress"
+      ]
     },
     {
       "name": "OnDeviceModelService",
@@ -17074,7 +19010,13 @@
       "name": "OnDeviceModelPlatformService",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model_service.mojom.js",
-      "methods": []
+      "methods": [
+        "LoadPlatformModel",
+        "GetPlatformModelState",
+        "GetEstimatedPerformanceClass",
+        "FormatInput",
+        "ValidateSafetyResult"
+      ]
     },
     {
       "name": "PassageEmbedder",
@@ -32570,12 +34512,26 @@
       ]
     },
     {
+      "filename": "services_network_public_mojom_timing_allow_origin.mojom.js",
+      "source": "services/network/public/mojom/timing_allow_origin.mojom",
+      "module": "network.mojom",
+      "imports": []
+    },
+    {
       "filename": "services_network_public_mojom_tls_socket.mojom.js",
       "source": "services/network/public/mojom/tls_socket.mojom",
       "module": "network.mojom",
       "imports": [
         "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/ssl_config.mojom"
+      ]
+    },
+    {
+      "filename": "services_network_public_mojom_transferable_directory.mojom.js",
+      "source": "services/network/public/mojom/transferable_directory.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "mojo/public/mojom/base/file_path.mojom"
       ]
     },
     {
@@ -37626,6 +39582,15 @@
       "imports": [
         "ui/accessibility/ax_enums.mojom",
         "ui/accessibility/mojom/ax_tree_id.mojom"
+      ]
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_tree_id.mojom.js",
+      "source": "ui/accessibility/mojom/ax_tree_id.mojom",
+      "module": "ax.mojom",
+      "imports": [
+        "ui/accessibility/ax_enums.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {

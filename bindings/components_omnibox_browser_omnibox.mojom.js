@@ -15,6 +15,7 @@ omnibox.mojom.NavigationPredictor = {
   kUpOrDownArrowButton: 1,
   kTouchDown: 2,
 };
+omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageClassification
 omnibox.mojom.PageClassification = {
@@ -44,3 +45,4 @@ omnibox.mojom.PageClassification = {
   SEARCH_RESULT_PAGE_ON_CCT: 23,
   OTHER_ON_CCT: 24,
 };
+omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };

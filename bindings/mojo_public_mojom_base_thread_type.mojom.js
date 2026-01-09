@@ -18,3 +18,4 @@ mojo_base.mojom.ThreadType = {
   kInteractive: 4,
   kRealtimeAudio: 5,
 };
+mojo_base.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };

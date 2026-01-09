@@ -16,10 +16,10 @@ media.mojom.SpeechRecognitionHypothesisSpec = {
       name: 'media.mojom.SpeechRecognitionHypothesis',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'confidence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ media.mojom.WebSpeechRecognitionResultSpec = {
       name: 'media.mojom.WebSpeechRecognitionResult',
       packedSize: 24,
       fields: [
-        { name: 'hypotheses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_provisional', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hypotheses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SpeechRecognitionHypothesisSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_provisional', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

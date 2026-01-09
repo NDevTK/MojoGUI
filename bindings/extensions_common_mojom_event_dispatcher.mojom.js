@@ -14,17 +14,17 @@ extensions.mojom.EventFilteringInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.EventFilteringInfo',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'service_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'instance_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'window_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_window_exposed_by_default', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'window_exposed_by_default', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'has_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'instance_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'window_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'has_window_exposed_by_default', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'window_exposed_by_default', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -34,16 +34,16 @@ extensions.mojom.DispatchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.DispatchEventParams',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'worker_thread_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'host_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false },
-        { name: 'event_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'event_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_user_gesture', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'filtering_info', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false },
+        { name: 'worker_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'host_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false, minVersion: 0 },
+        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'event_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_user_gesture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'filtering_info', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -111,10 +111,10 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
       name: 'extensions.mojom.EventDispatcher.DispatchEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false },
-        { name: 'event_args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.DispatchEventParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -122,12 +122,12 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
 extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mojom.EventDispatcher.DispatchEvent_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

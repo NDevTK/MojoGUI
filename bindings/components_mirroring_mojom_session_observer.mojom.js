@@ -26,6 +26,7 @@ mirroring.mojom.SessionError = {
   CAST_TRANSPORT_ERROR: 12,
   OPENSCREEN_SESSION_ERROR: 13,
 };
+mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: SessionObserver
 mirroring.mojom.SessionObserver = {};
@@ -144,9 +145,9 @@ mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -159,7 +160,7 @@ mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -172,7 +173,7 @@ mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,9 +185,9 @@ mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.LogInfoMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -198,9 +199,9 @@ mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.LogErrorMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,7 +214,7 @@ mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -225,9 +226,9 @@ mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
       name: 'mirroring.mojom.SessionObserver.OnRemotingStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_remoting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_remoting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

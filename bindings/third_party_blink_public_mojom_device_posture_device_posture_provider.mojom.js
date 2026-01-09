@@ -14,6 +14,7 @@ blink.mojom.DevicePostureType = {
   kContinuous: 0,
   kFolded: 1,
 };
+blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: DevicePostureProvider
 blink.mojom.DevicePostureProvider = {};
@@ -96,9 +97,9 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
       name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,12 +107,12 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
 blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,9 +124,9 @@ blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec =
       name: 'blink.mojom.DevicePostureProvider.OverrideDevicePostureForEmulation_Params',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +139,7 @@ blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -211,9 +212,9 @@ blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
       name: 'blink.mojom.DevicePostureClient.OnPostureChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'posture', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false },
+        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

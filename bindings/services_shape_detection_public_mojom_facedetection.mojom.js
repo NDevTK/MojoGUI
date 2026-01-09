@@ -15,6 +15,7 @@ shape_detection.mojom.LandmarkType = {
   EYE: 1,
   NOSE: 2,
 };
+shape_detection.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Landmark
 shape_detection.mojom.LandmarkSpec = {
@@ -23,10 +24,10 @@ shape_detection.mojom.LandmarkSpec = {
       name: 'shape_detection.mojom.Landmark',
       packedSize: 24,
       fields: [
-        { name: 'locations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: shape_detection.mojom.LandmarkTypeSpec, nullable: false },
+        { name: 'locations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.LandmarkTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,10 +39,10 @@ shape_detection.mojom.FaceDetectionResultSpec = {
       name: 'shape_detection.mojom.FaceDetectionResult',
       packedSize: 24,
       fields: [
-        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'landmarks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'landmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.LandmarkSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -51,12 +52,12 @@ shape_detection.mojom.FaceDetectorOptionsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetectorOptions',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'max_detected_faces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fast_mode', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_detected_faces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fast_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,9 +125,9 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.FaceDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,12 +135,12 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
 shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'shape_detection.mojom.FaceDetection.Detect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.FaceDetectionResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

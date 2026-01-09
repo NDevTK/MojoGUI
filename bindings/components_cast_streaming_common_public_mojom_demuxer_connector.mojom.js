@@ -9,6 +9,34 @@ var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
 
 
+// Union: GetAudioBufferResponse
+cast_streaming.mojom.GetAudioBufferResponseSpec = { $: mojo.internal.Union(
+    'cast_streaming.mojom.GetAudioBufferResponse', {
+      'stream_info': {
+        'ordinal': 0,
+        'type': cast_streaming.mojom.AudioStreamInfoSpec,
+      }},
+      'buffer': {
+        'ordinal': 1,
+        'type': media.mojom.DecoderBufferSpec,
+      }},
+    })
+};
+
+// Union: GetVideoBufferResponse
+cast_streaming.mojom.GetVideoBufferResponseSpec = { $: mojo.internal.Union(
+    'cast_streaming.mojom.GetVideoBufferResponse', {
+      'stream_info': {
+        'ordinal': 0,
+        'type': cast_streaming.mojom.VideoStreamInfoSpec,
+      }},
+      'buffer': {
+        'ordinal': 1,
+        'type': media.mojom.DecoderBufferSpec,
+      }},
+    })
+};
+
 // Struct: AudioStreamInfo
 cast_streaming.mojom.AudioStreamInfoSpec = {
   $: {
@@ -16,10 +44,10 @@ cast_streaming.mojom.AudioStreamInfoSpec = {
       name: 'cast_streaming.mojom.AudioStreamInfo',
       packedSize: 24,
       fields: [
-        { name: 'decoder_config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +59,10 @@ cast_streaming.mojom.VideoStreamInfoSpec = {
       name: 'cast_streaming.mojom.VideoStreamInfo',
       packedSize: 24,
       fields: [
-        { name: 'decoder_config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -46,10 +74,10 @@ cast_streaming.mojom.AudioStreamInitializationInfoSpec = {
       name: 'cast_streaming.mojom.AudioStreamInitializationInfo',
       packedSize: 24,
       fields: [
-        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'stream_initialization_info', packedOffset: 16, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInfoSpec, nullable: false },
+        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -61,10 +89,10 @@ cast_streaming.mojom.VideoStreamInitializationInfoSpec = {
       name: 'cast_streaming.mojom.VideoStreamInitializationInfo',
       packedSize: 24,
       fields: [
-        { name: 'buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'stream_initialization_info', packedOffset: 16, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInfoSpec, nullable: false },
+        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -142,7 +170,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -150,12 +178,12 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
 cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'buffer_response', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.GetAudioBufferResponseSpec, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetAudioBufferResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,7 +196,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -176,12 +204,12 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = 
 cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -264,7 +292,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -272,12 +300,12 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
 cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'buffer_response', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.GetVideoBufferResponseSpec, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetVideoBufferResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -290,7 +318,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -298,12 +326,12 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = 
 cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -386,7 +414,7 @@ cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -398,10 +426,10 @@ cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
       name: 'cast_streaming.mojom.DemuxerConnector.OnStreamsInitialized_Params',
       packedSize: 24,
       fields: [
-        { name: 'audio_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInitializationInfoSpec, nullable: true },
-        { name: 'video_buffer_requester', packedOffset: 16, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInitializationInfoSpec, nullable: true },
+        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

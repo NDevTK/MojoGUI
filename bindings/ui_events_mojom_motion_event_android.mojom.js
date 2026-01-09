@@ -16,10 +16,10 @@ ui.mojom.PointerCoordinatesSpec = {
       name: 'ui.mojom.PointerCoordinates',
       packedSize: 24,
       fields: [
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'touch_major', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_major', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,16 +31,16 @@ ui.mojom.MotionEventAndroidCachedPointerSpec = {
       name: 'ui.mojom.MotionEventAndroidCachedPointer',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'pointer_data', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.PointerCoordinatesSpec, nullable: false },
-        { name: 'touch_minor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'pressure', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'orientation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tilt_x', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tilt_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tool_type', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pointer_data', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.PointerCoordinatesSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_minor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'pressure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'orientation', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tilt_x', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tilt_y', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tool_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -52,10 +52,10 @@ ui.mojom.HistoricalCachedPointerSpec = {
       name: 'ui.mojom.HistoricalCachedPointer',
       packedSize: 24,
       fields: [
-        { name: 'pointers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'event_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
+        { name: 'pointers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.PointerCoordinatesSpec, false), nullable: false, minVersion: 0 },
+        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -65,27 +65,27 @@ ui.mojom.CachedMotionEventAndroidSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.CachedMotionEventAndroid',
-      packedSize: 104,
+      packedSize: 96,
       fields: [
-        { name: 'pix_to_dip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'ticks_x', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'ticks_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'tick_multiplier', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'for_touch_handle', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'latest_event_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'down_time_ms', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'action', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'action_index', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'action_button', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'gesture_classification', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'button_state', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'flags', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'raw_position_offset', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
-        { name: 'pointers', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'historical_events', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pix_to_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'ticks_x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'ticks_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tick_multiplier', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'for_touch_handle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'latest_event_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'down_time_ms', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'action_index', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'action_button', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'gesture_classification', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'button_state', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'raw_position_offset', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
+        { name: 'pointers', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.MotionEventAndroidCachedPointerSpec, false), nullable: false, minVersion: 0 },
+        { name: 'historical_events', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.HistoricalCachedPointerSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 96}]
     }
   }
 };

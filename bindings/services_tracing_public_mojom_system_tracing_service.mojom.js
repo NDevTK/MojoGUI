@@ -73,7 +73,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
 tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'tracing.mojom.SystemTracingService.OpenProducerSocket_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'traced_socket', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

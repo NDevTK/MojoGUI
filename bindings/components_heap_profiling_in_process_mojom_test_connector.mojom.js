@@ -90,9 +90,9 @@ heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
       name: 'heap_profiling.mojom.TestConnector.ConnectSnapshotController_Params',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -104,9 +104,9 @@ heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
       name: 'heap_profiling.mojom.TestConnector.ConnectProfileCollector_Params',
       packedSize: 16,
       fields: [
-        { name: 'collector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'collector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +119,7 @@ heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

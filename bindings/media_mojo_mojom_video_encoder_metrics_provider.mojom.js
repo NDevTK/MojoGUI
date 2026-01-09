@@ -16,6 +16,7 @@ media.mojom.VideoEncoderUseCase = {
   kWebCodecs: 2,
   kWebRTC: 3,
 };
+media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum() };
 
 // Interface: VideoEncoderMetricsProvider
 media.mojom.VideoEncoderMetricsProvider = {};
@@ -105,16 +106,16 @@ media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoEncoderMetricsProvider.Initialize_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'encoder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'encoder_use_case', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoEncoderUseCaseSpec, nullable: false },
-        { name: 'profile', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false },
-        { name: 'encode_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'is_hardware_encoder', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'svc_mode', packedOffset: 48, packedBitOffset: 0, type: media.mojom.SVCScalabilityModeSpec, nullable: false },
+        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'encoder_use_case', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoEncoderUseCaseSpec, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'encode_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_hardware_encoder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'svc_mode', packedOffset: 32, packedBitOffset: 0, type: media.mojom.SVCScalabilityModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -126,10 +127,10 @@ media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
       name: 'media.mojom.VideoEncoderMetricsProvider.SetEncodedFrameCount_Params',
       packedSize: 24,
       fields: [
-        { name: 'encoder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'num_encoded_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'num_encoded_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -141,10 +142,10 @@ media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
       name: 'media.mojom.VideoEncoderMetricsProvider.SetError_Params',
       packedSize: 24,
       fields: [
-        { name: 'encoder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
+        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -156,9 +157,9 @@ media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
       name: 'media.mojom.VideoEncoderMetricsProvider.Complete_Params',
       packedSize: 16,
       fields: [
-        { name: 'encoder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

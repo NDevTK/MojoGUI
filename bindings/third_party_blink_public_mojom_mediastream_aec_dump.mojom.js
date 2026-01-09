@@ -81,9 +81,9 @@ blink.mojom.AecDumpAgent_Start_ParamsSpec = {
       name: 'blink.mojom.AecDumpAgent.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -169,9 +169,9 @@ blink.mojom.AecDumpManager_Add_ParamsSpec = {
       name: 'blink.mojom.AecDumpManager.Add_Params',
       packedSize: 16,
       fields: [
-        { name: 'agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

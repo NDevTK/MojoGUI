@@ -22,3 +22,4 @@ media.mojom.SpeechRecognitionErrorCode = {
   kLanguageNotSupported: 8,
   kNoMatch: 9,
 };
+media.mojom.SpeechRecognitionErrorCodeSpec = { $: mojo.internal.Enum() };

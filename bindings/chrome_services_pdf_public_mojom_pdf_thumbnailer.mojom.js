@@ -9,6 +9,10 @@ var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
 
 
+pdf.mojom.kMaxWidthPixels = 512;
+
+pdf.mojom.kMaxHeightPixels = 512;
+
 // Struct: ThumbParams
 pdf.mojom.ThumbParamsSpec = {
   $: {
@@ -16,12 +20,12 @@ pdf.mojom.ThumbParamsSpec = {
       name: 'pdf.mojom.ThumbParams',
       packedSize: 32,
       fields: [
-        { name: 'size_px', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'dpi', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'stretch', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'keep_aspect', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'size_px', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'dpi', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'stretch', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keep_aspect', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -98,10 +102,10 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: pdf.mojom.ThumbParamsSpec, nullable: false },
-        { name: 'pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.ThumbParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,12 +113,12 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
 pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,9 +130,9 @@ pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

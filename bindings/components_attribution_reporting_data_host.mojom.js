@@ -14,6 +14,7 @@ attribution_reporting.mojom.DataAvailableCallsite = {
   kBlink: 0,
   kBrowser: 1,
 };
+attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
 
 // Interface: DataHost
 attribution_reporting.mojom.DataHost = {};
@@ -114,11 +115,11 @@ attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
       name: 'attribution_reporting.mojom.DataHost.SourceDataAvailable_Params',
       packedSize: 32,
       fields: [
-        { name: 'reporting_origin', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.SourceRegistrationSpec, nullable: false },
-        { name: 'was_fetched_via_service_worker', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SourceRegistrationSpec, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -130,11 +131,11 @@ attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
       name: 'attribution_reporting.mojom.DataHost.TriggerDataAvailable_Params',
       packedSize: 32,
       fields: [
-        { name: 'reporting_origin', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.TriggerRegistrationSpec, nullable: false },
-        { name: 'was_fetched_via_service_worker', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.TriggerRegistrationSpec, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -146,10 +147,10 @@ attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
       name: 'attribution_reporting.mojom.DataHost.OsSourceDataAvailable_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -161,10 +162,10 @@ attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
       name: 'attribution_reporting.mojom.DataHost.OsTriggerDataAvailable_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,10 +177,10 @@ attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = 
       name: 'attribution_reporting.mojom.DataHost.ReportRegistrationHeaderError_Params',
       packedSize: 24,
       fields: [
-        { name: 'reporting_origin', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorSpec, nullable: false },
+        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

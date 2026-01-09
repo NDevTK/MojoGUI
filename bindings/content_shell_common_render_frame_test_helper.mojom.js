@@ -73,7 +73,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
 content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

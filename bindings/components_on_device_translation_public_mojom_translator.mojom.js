@@ -81,9 +81,9 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
       name: 'on_device_translation.mojom.Translator.Translate_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
 on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.Translator.Translate_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
       name: 'on_device_translation.mojom.Translator.SplitSentences_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
 on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'on_device_translation.mojom.Translator.SplitSentences_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sentences', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

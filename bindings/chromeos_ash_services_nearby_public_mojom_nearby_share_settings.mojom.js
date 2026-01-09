@@ -16,6 +16,7 @@ nearby_share.mojom.DataUsage = {
   kOnline: 2,
   kWifiOnly: 3,
 };
+nearby_share.mojom.DataUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: Visibility
 nearby_share.mojom.Visibility = {
@@ -25,6 +26,7 @@ nearby_share.mojom.Visibility = {
   kSelectedContacts: 3,
   kYourDevices: 4,
 };
+nearby_share.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceNameValidationResult
 nearby_share.mojom.DeviceNameValidationResult = {
@@ -33,12 +35,32 @@ nearby_share.mojom.DeviceNameValidationResult = {
   kErrorTooLong: 2,
   kErrorNotValidUtf8: 3,
 };
+nearby_share.mojom.DeviceNameValidationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FastInitiationNotificationState
 nearby_share.mojom.FastInitiationNotificationState = {
   kEnabled: 0,
   kDisabledByUser: 1,
   kDisabledByFeature: 2,
+};
+nearby_share.mojom.FastInitiationNotificationStateSpec = { $: mojo.internal.Enum() };
+
+// Union: ContactIdentifier
+nearby_share.mojom.ContactIdentifierSpec = { $: mojo.internal.Union(
+    'nearby_share.mojom.ContactIdentifier', {
+      'obfuscated_gaia': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'phone_number': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+      'account_name': {
+        'ordinal': 2,
+        'type': mojo.internal.String,
+      }},
+    })
 };
 
 // Struct: ContactRecord
@@ -48,12 +70,12 @@ nearby_share.mojom.ContactRecordSpec = {
       name: 'nearby_share.mojom.ContactRecord',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'person_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'identifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'person_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'identifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(nearby_share.mojom.ContactIdentifierSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -184,9 +206,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -198,9 +220,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationState
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnFastInitiationNotificationStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,9 +234,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupport
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnIsFastInitiationHardwareSupportedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -226,9 +248,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec = 
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnDeviceNameChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -240,9 +262,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnDataUsageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'data_usage', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false },
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -254,9 +276,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec = 
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,9 +290,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSp
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnAllowedContactsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible_contact_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'visible_contact_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -282,9 +304,9 @@ nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_Par
       name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnIsOnboardingCompleteChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_complete', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,9 +523,9 @@ nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.AddSettingsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -516,7 +538,7 @@ nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -524,12 +546,12 @@ nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -541,9 +563,9 @@ nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -556,7 +578,7 @@ nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -564,12 +586,12 @@ nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.IsOnboardingComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -581,9 +603,9 @@ nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetIsOnboardingComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -596,7 +618,7 @@ nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -604,12 +626,12 @@ nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_Params
 nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetFastInitiationNotificationState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -621,9 +643,9 @@ nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_Params
       name: 'nearby_share.mojom.NearbyShareSettings.SetFastInitiationNotificationState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.FastInitiationNotificationStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -636,7 +658,7 @@ nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -644,12 +666,12 @@ nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_Para
 nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetIsFastInitiationHardwareSupported_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -662,7 +684,7 @@ nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -670,12 +692,12 @@ nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetDeviceName_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -687,9 +709,9 @@ nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.ValidateDeviceName_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -697,12 +719,12 @@ nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.ValidateDeviceName_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.DeviceNameValidationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.DeviceNameValidationResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -714,9 +736,9 @@ nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetDeviceName_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -724,12 +746,12 @@ nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.SetDeviceName_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.DeviceNameValidationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.DeviceNameValidationResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -742,7 +764,7 @@ nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -750,12 +772,12 @@ nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetDataUsage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data_usage', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false },
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -767,9 +789,9 @@ nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetDataUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'data_usage', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false },
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.DataUsageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -782,7 +804,7 @@ nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -790,12 +812,12 @@ nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetVisibility_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -807,9 +829,9 @@ nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -822,7 +844,7 @@ nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -830,12 +852,12 @@ nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec = {
 nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'nearby_share.mojom.NearbyShareSettings.GetAllowedContacts_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed_contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -847,9 +869,9 @@ nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.SetAllowedContacts_Params',
       packedSize: 16,
       fields: [
-        { name: 'allowed_contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -931,11 +953,11 @@ nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec = {
       name: 'nearby_share.mojom.DownloadContactsObserver.OnContactsDownloaded_Params',
       packedSize: 32,
       fields: [
-        { name: 'allowed_contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'contacts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'num_unreachable_contacts_filtered_out', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(nearby_share.mojom.ContactRecordSpec, false), nullable: false, minVersion: 0 },
+        { name: 'num_unreachable_contacts_filtered_out', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -948,7 +970,7 @@ nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1039,9 +1061,9 @@ nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec = {
       name: 'nearby_share.mojom.ContactManager.AddDownloadContactsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1054,7 +1076,7 @@ nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1066,9 +1088,9 @@ nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec = {
       name: 'nearby_share.mojom.ContactManager.SetAllowedContacts_Params',
       packedSize: 16,
       fields: [
-        { name: 'allowed_contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

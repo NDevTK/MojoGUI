@@ -9,6 +9,8 @@ var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
 
+service_manager.mojom.kServiceManager_ConnectorSpec = "service_manager:connector";
+
 // Struct: InterfaceSet
 service_manager.mojom.InterfaceSetSpec = {
   $: {
@@ -16,9 +18,9 @@ service_manager.mojom.InterfaceSetSpec = {
       name: 'service_manager.mojom.InterfaceSet',
       packedSize: 16,
       fields: [
-        { name: 'interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -30,9 +32,9 @@ service_manager.mojom.CapabilitySetSpec = {
       name: 'service_manager.mojom.CapabilitySet',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -44,10 +46,10 @@ service_manager.mojom.InterfaceProviderSpecSpec = {
       name: 'service_manager.mojom.InterfaceProviderSpec',
       packedSize: 24,
       fields: [
-        { name: 'provides', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'needs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'provides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, service_manager.mojom.InterfaceSetSpec, false), nullable: false, minVersion: 0 },
+        { name: 'needs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, service_manager.mojom.CapabilitySetSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -18,3 +18,4 @@ network.mojom.SourceType = {
   kNone: 4,
   kUnknown: 5,
 };
+network.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };

@@ -14,6 +14,7 @@ network.mojom.CorsPortMatchMode = {
   kAllowAnyPort: 0,
   kAllowOnlySpecifiedPort: 1,
 };
+network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsDomainMatchMode
 network.mojom.CorsDomainMatchMode = {
@@ -21,6 +22,7 @@ network.mojom.CorsDomainMatchMode = {
   kAllowRegistrableDomains: 1,
   kDisallowSubdomains: 2,
 };
+network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsOriginAccessMatchPriority
 network.mojom.CorsOriginAccessMatchPriority = {
@@ -31,22 +33,23 @@ network.mojom.CorsOriginAccessMatchPriority = {
   kHighPriority: 4,
   kMaxPriority: 5,
 };
+network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsOriginPattern
 network.mojom.CorsOriginPatternSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CorsOriginPattern',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'domain_match_mode', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CorsDomainMatchModeSpec, nullable: false },
-        { name: 'port_match_mode', packedOffset: 40, packedBitOffset: 0, type: network.mojom.CorsPortMatchModeSpec, nullable: false },
-        { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: network.mojom.CorsOriginAccessMatchPrioritySpec, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'domain_match_mode', packedOffset: 20, packedBitOffset: 0, type: network.mojom.CorsDomainMatchModeSpec, nullable: false, minVersion: 0 },
+        { name: 'port_match_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CorsPortMatchModeSpec, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 28, packedBitOffset: 0, type: network.mojom.CorsOriginAccessMatchPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -58,11 +61,11 @@ network.mojom.CorsOriginAccessPatternsSpec = {
       name: 'network.mojom.CorsOriginAccessPatterns',
       packedSize: 32,
       fields: [
-        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'allow_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'block_patterns', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'allow_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
+        { name: 'block_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -14,6 +14,7 @@ media.mojom.BackgroundBlurMode = {
   OFF: 0,
   BLUR: 1,
 };
+media.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EyeGazeCorrectionMode
 media.mojom.EyeGazeCorrectionMode = {
@@ -21,6 +22,7 @@ media.mojom.EyeGazeCorrectionMode = {
   ON: 1,
   STARE: 2,
 };
+media.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MeteringMode
 media.mojom.MeteringMode = {
@@ -29,6 +31,7 @@ media.mojom.MeteringMode = {
   SINGLE_SHOT: 2,
   CONTINUOUS: 3,
 };
+media.mojom.MeteringModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RedEyeReduction
 media.mojom.RedEyeReduction = {
@@ -36,6 +39,7 @@ media.mojom.RedEyeReduction = {
   ALWAYS: 1,
   CONTROLLABLE: 2,
 };
+media.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FillLightMode
 media.mojom.FillLightMode = {
@@ -43,6 +47,7 @@ media.mojom.FillLightMode = {
   AUTO: 1,
   FLASH: 2,
 };
+media.mojom.FillLightModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Range
 media.mojom.RangeSpec = {
@@ -51,12 +56,12 @@ media.mojom.RangeSpec = {
       name: 'media.mojom.Range',
       packedSize: 40,
       fields: [
-        { name: 'max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'current', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'step', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'min', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'current', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'step', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -66,43 +71,43 @@ media.mojom.PhotoStateSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoState',
-      packedSize: 264,
+      packedSize: 224,
       fields: [
-        { name: 'supported_white_balance_modes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_white_balance_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'supported_exposure_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_exposure_mode', packedOffset: 32, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'supported_focus_modes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_focus_mode', packedOffset: 48, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'points_of_interest', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'exposure_compensation', packedOffset: 64, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'exposure_time', packedOffset: 72, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'color_temperature', packedOffset: 80, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'iso', packedOffset: 88, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'brightness', packedOffset: 96, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'contrast', packedOffset: 104, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'saturation', packedOffset: 112, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'sharpness', packedOffset: 120, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'focus_distance', packedOffset: 128, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'pan', packedOffset: 136, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'tilt', packedOffset: 144, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'zoom', packedOffset: 152, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'supports_torch', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'torch', packedOffset: 160, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'red_eye_reduction', packedOffset: 168, packedBitOffset: 0, type: media.mojom.RedEyeReductionSpec, nullable: false },
-        { name: 'height', packedOffset: 176, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'width', packedOffset: 184, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false },
-        { name: 'fill_light_mode', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'supported_background_blur_modes', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'background_blur_mode', packedOffset: 208, packedBitOffset: 0, type: media.mojom.BackgroundBlurModeSpec, nullable: false },
-        { name: 'supported_face_framing_modes', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_face_framing_mode', packedOffset: 224, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'supported_eye_gaze_correction_modes', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_eye_gaze_correction_mode', packedOffset: 240, packedBitOffset: 0, type: media.mojom.EyeGazeCorrectionModeSpec, nullable: false },
-        { name: 'supported_background_segmentation_mask_states', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'current_background_segmentation_mask_state', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'supported_white_balance_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MeteringModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_white_balance_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_exposure_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MeteringModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_exposure_mode', packedOffset: 12, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_focus_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MeteringModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_focus_mode', packedOffset: 32, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'points_of_interest', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.Point2DSpec, false), nullable: false, minVersion: 0 },
+        { name: 'exposure_compensation', packedOffset: 48, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'exposure_time', packedOffset: 56, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'color_temperature', packedOffset: 64, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'iso', packedOffset: 72, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'brightness', packedOffset: 80, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'contrast', packedOffset: 88, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'saturation', packedOffset: 96, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'sharpness', packedOffset: 104, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'focus_distance', packedOffset: 112, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'pan', packedOffset: 120, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'tilt', packedOffset: 128, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'zoom', packedOffset: 136, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'supports_torch', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'torch', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'red_eye_reduction', packedOffset: 144, packedBitOffset: 0, type: media.mojom.RedEyeReductionSpec, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 152, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'width', packedOffset: 160, packedBitOffset: 0, type: media.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'fill_light_mode', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.FillLightModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'supported_background_blur_modes', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.BackgroundBlurModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'background_blur_mode', packedOffset: 148, packedBitOffset: 0, type: media.mojom.BackgroundBlurModeSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_face_framing_modes', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MeteringModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_face_framing_mode', packedOffset: 192, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_eye_gaze_correction_modes', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.EyeGazeCorrectionModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'current_eye_gaze_correction_mode', packedOffset: 196, packedBitOffset: 0, type: media.mojom.EyeGazeCorrectionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_background_segmentation_mask_states', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
+        { name: 'current_background_segmentation_mask_state', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 224}]
     }
   }
 };
@@ -114,10 +119,10 @@ media.mojom.Point2DSpec = {
       name: 'media.mojom.Point2D',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -127,57 +132,58 @@ media.mojom.PhotoSettingsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PhotoSettings',
-      packedSize: 352,
+      packedSize: 160,
       fields: [
-        { name: 'has_white_balance_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'white_balance_mode', packedOffset: 16, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'has_exposure_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'exposure_mode', packedOffset: 32, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'has_focus_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'focus_mode', packedOffset: 48, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'points_of_interest', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'has_exposure_compensation', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'exposure_compensation', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_exposure_time', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'exposure_time', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_color_temperature', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'color_temperature', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_iso', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'iso', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_brightness', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'brightness', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_contrast', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'contrast', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_saturation', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'saturation', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_sharpness', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'sharpness', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_focus_distance', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'focus_distance', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_pan', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'pan', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_tilt', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'tilt', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_zoom', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'zoom', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_torch', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'torch', packedOffset: 256, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_fill_light_mode', packedOffset: 256, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'fill_light_mode', packedOffset: 264, packedBitOffset: 0, type: media.mojom.FillLightModeSpec, nullable: false },
-        { name: 'has_width', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'width', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_height', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'height', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_red_eye_reduction', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'red_eye_reduction', packedOffset: 304, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_background_blur_mode', packedOffset: 304, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'background_blur_mode', packedOffset: 312, packedBitOffset: 0, type: media.mojom.BackgroundBlurModeSpec, nullable: false },
-        { name: 'has_face_framing_mode', packedOffset: 320, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'face_framing_mode', packedOffset: 328, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false },
-        { name: 'eye_gaze_correction_mode', packedOffset: 336, packedBitOffset: 0, type: media.mojom.EyeGazeCorrectionModeSpec, nullable: true },
-        { name: 'background_segmentation_mask_state', packedOffset: 344, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'has_white_balance_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'white_balance_mode', packedOffset: 4, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_exposure_mode', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exposure_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_focus_mode', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'focus_mode', packedOffset: 12, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'points_of_interest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.Point2DSpec, false), nullable: false, minVersion: 0 },
+        { name: 'has_exposure_compensation', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exposure_compensation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_exposure_time', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exposure_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_color_temperature', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'color_temperature', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_iso', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'iso', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_brightness', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'brightness', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_contrast', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'contrast', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_saturation', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'saturation', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_sharpness', packedOffset: 1, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'sharpness', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_focus_distance', packedOffset: 1, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'focus_distance', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_pan', packedOffset: 1, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'pan', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_tilt', packedOffset: 1, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tilt', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_zoom', packedOffset: 1, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'zoom', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_torch', packedOffset: 1, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'torch', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_fill_light_mode', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'fill_light_mode', packedOffset: 120, packedBitOffset: 0, type: media.mojom.FillLightModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_width', packedOffset: 2, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'width', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_height', packedOffset: 2, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_red_eye_reduction', packedOffset: 2, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'red_eye_reduction', packedOffset: 2, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_background_blur_mode', packedOffset: 2, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_blur_mode', packedOffset: 124, packedBitOffset: 0, type: media.mojom.BackgroundBlurModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_face_framing_mode', packedOffset: 2, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'face_framing_mode', packedOffset: 144, packedBitOffset: 0, type: media.mojom.MeteringModeSpec, nullable: false, minVersion: 0 },
+        { name: 'eye_gaze_correction_mode', packedOffset: 148, packedBitOffset: 0, type: media.mojom.EyeGazeCorrectionModeSpec, nullable: true, minVersion: 0 },
+        { name: 'background_segmentation_mask_state_$flag', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'background_segmentation_mask_state_$value', originalFieldName: 'background_segmentation_mask_state' } },
+        { name: 'background_segmentation_mask_state_$value', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'background_segmentation_mask_state_$flag', originalFieldName: 'background_segmentation_mask_state' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 160}]
     }
   }
 };
@@ -189,10 +195,10 @@ media.mojom.BlobSpec = {
       name: 'media.mojom.Blob',
       packedSize: 24,
       fields: [
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -278,9 +284,9 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
       name: 'media.mojom.ImageCapture.GetPhotoState_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -288,12 +294,12 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
 media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.ImageCapture.GetPhotoState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -305,10 +311,10 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
       name: 'media.mojom.ImageCapture.SetPhotoOptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -316,12 +322,12 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
 media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.ImageCapture.SetPhotoOptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -333,9 +339,9 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
       name: 'media.mojom.ImageCapture.TakePhoto_Params',
       packedSize: 16,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,12 +349,12 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
 media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.ImageCapture.TakePhoto_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: false },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

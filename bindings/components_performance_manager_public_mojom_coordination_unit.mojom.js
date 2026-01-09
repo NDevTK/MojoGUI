@@ -16,6 +16,7 @@ performance_manager.mojom.CoordinationUnitType = {
   kProcess: 2,
   kSystem: 3,
 };
+performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: DocumentCoordinationUnit
 performance_manager.mojom.DocumentCoordinationUnit = {};
@@ -180,7 +181,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -192,9 +193,9 @@ performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec 
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetLifecycleState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.LifecycleStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.LifecycleStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,9 +207,9 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Pa
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetHasNonEmptyBeforeUnload_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_nonempty_beforeunload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -221,7 +222,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,7 +235,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -247,7 +248,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,7 +261,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -272,9 +273,9 @@ performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetIsAdFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_ad_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,7 +288,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -299,9 +300,9 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnFirstContentfulPaint_Params',
       packedSize: 16,
       fields: [
-        { name: 'time_since_navigation_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,9 +314,9 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: WebMemoryMeasurement.ModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: WebMemoryMeasurement.ModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -323,12 +324,12 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
 performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'measurement', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.WebMemoryMeasurementSpec, nullable: false },
+        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.WebMemoryMeasurementSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -341,7 +342,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -459,9 +460,9 @@ performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Par
       name: 'performance_manager.mojom.ProcessCoordinationUnit.SetMainThreadTaskLoadIsLow_Params',
       packedSize: 16,
       fields: [
-        { name: 'main_thread_task_load_is_low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -473,10 +474,10 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec 
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.V8ContextDescriptionSpec, nullable: false },
-        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: true },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.V8ContextDescriptionSpec, nullable: false, minVersion: 0 },
+        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -488,9 +489,9 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDetached_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -502,9 +503,9 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpe
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDestroyed_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.V8ContextTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -516,11 +517,11 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeAttached_Params',
       packedSize: 32,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'remote_frame_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
-        { name: 'iframe_attribution_data', packedOffset: 24, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: false },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -532,10 +533,10 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeDetached_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'remote_frame_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -609,7 +610,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -617,13 +618,13 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
 performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'global_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
-        { name: 'process_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

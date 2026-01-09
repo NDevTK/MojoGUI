@@ -15,3 +15,4 @@ web_app.mojom.UserDisplayMode = {
   kStandalone: 1,
   kTabbed: 2,
 };
+web_app.mojom.UserDisplayModeSpec = { $: mojo.internal.Enum() };

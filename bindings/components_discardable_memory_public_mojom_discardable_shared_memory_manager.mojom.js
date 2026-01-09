@@ -81,10 +81,10 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -92,12 +92,12 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
 discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,9 +109,9 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableShared
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.DeletedDiscardableSharedMemory_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

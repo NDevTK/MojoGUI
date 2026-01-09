@@ -73,7 +73,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
 device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.BatteryMonitor.QueryNextStatus_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: device.mojom.BatteryStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BatteryStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,3 +15,4 @@ content.mojom.WindowContainerType = {
   BACKGROUND: 1,
   PERSISTENT: 2,
 };
+content.mojom.WindowContainerTypeSpec = { $: mojo.internal.Enum() };

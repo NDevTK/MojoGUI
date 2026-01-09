@@ -16,12 +16,14 @@ crosapi.mojom.TelemetryKeyboardConnectionType = {
   kBluetooth: 2,
   kUnknown: 3,
 };
+crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardPhysicalLayout
 crosapi.mojom.TelemetryKeyboardPhysicalLayout = {
   kUnknown: 0,
   kChromeOS: 1,
 };
+crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardMechanicalLayout
 crosapi.mojom.TelemetryKeyboardMechanicalLayout = {
@@ -30,6 +32,7 @@ crosapi.mojom.TelemetryKeyboardMechanicalLayout = {
   kIso: 2,
   kJis: 3,
 };
+crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardNumberPadPresence
 crosapi.mojom.TelemetryKeyboardNumberPadPresence = {
@@ -37,6 +40,7 @@ crosapi.mojom.TelemetryKeyboardNumberPadPresence = {
   kPresent: 1,
   kNotPresent: 2,
 };
+crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRowKey
 crosapi.mojom.TelemetryKeyboardTopRowKey = {
@@ -64,6 +68,7 @@ crosapi.mojom.TelemetryKeyboardTopRowKey = {
   kScreenMirror: 21,
   kDelete: 22,
 };
+crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRightKey
 crosapi.mojom.TelemetryKeyboardTopRightKey = {
@@ -72,16 +77,27 @@ crosapi.mojom.TelemetryKeyboardTopRightKey = {
   kLock: 2,
   kControlPanel: 3,
 };
+crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
 
 // Struct: TelemetryKeyboardInfo
 crosapi.mojom.TelemetryKeyboardInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardInfo',
-      packedSize: 8,
+      packedSize: 72,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'connection_type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'physical_layout', packedOffset: 12, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'mechanical_layout', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'region_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'number_pad_present', packedOffset: 28, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, nullable: false, minVersion: 0 },
+        { name: 'top_row_keys', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), nullable: true, minVersion: 0 },
+        { name: 'top_right_key', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardTopRightKeySpec, nullable: false, minVersion: 0 },
+        { name: 'has_assistant_key', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.BoolValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -91,10 +107,13 @@ crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardDiagnosticEventInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'keyboard_info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'tested_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
+        { name: 'tested_top_row_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

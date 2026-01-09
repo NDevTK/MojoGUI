@@ -76,6 +76,21 @@ remoting.mojom.LayoutKeyFunction = {
   kCommand: 62,
   kSearch: 63,
 };
+remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
+
+// Union: KeyAction
+remoting.mojom.KeyActionSpec = { $: mojo.internal.Union(
+    'remoting.mojom.KeyAction', {
+      'function': {
+        'ordinal': 0,
+        'type': remoting.mojom.LayoutKeyFunctionSpec,
+      }},
+      'character': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
 
 // Struct: KeyBehavior
 remoting.mojom.KeyBehaviorSpec = {
@@ -84,9 +99,9 @@ remoting.mojom.KeyBehaviorSpec = {
       name: 'remoting.mojom.KeyBehavior',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyActionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,9 +113,9 @@ remoting.mojom.KeyboardLayoutSpec = {
       name: 'remoting.mojom.KeyboardLayout',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyBehaviorSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

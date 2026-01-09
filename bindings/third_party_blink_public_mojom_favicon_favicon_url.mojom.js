@@ -16,20 +16,21 @@ blink.mojom.FaviconIconType = {
   kTouchIcon: 2,
   kTouchPrecomposedIcon: 3,
 };
+blink.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FaviconURL
 blink.mojom.FaviconURLSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FaviconURL',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'icon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'icon_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FaviconIconTypeSpec, nullable: false },
-        { name: 'icon_sizes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_default_icon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'icon_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FaviconIconTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'icon_sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_default_icon', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

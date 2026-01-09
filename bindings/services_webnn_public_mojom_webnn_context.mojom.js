@@ -9,6 +9,20 @@ var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
 
+// Union: CreateTensorResult
+webnn.mojom.CreateTensorResultSpec = { $: mojo.internal.Union(
+    'webnn.mojom.CreateTensorResult', {
+      'success': {
+        'ordinal': 0,
+        'type': webnn.mojom.CreateTensorSuccessSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': webnn.mojom.ErrorSpec,
+      }},
+    })
+};
+
 // Struct: CreateTensorSuccess
 webnn.mojom.CreateTensorSuccessSpec = {
   $: {
@@ -16,10 +30,10 @@ webnn.mojom.CreateTensorSuccessSpec = {
       name: 'webnn.mojom.CreateTensorSuccess',
       packedSize: 24,
       fields: [
-        { name: 'tensor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'tensor_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false },
+        { name: 'tensor_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'tensor_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -105,9 +119,9 @@ webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateGraphBuilder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,12 +131,12 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContext.CreateTensor_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'tensor_info', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false },
-        { name: 'tensor_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'tensor_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -130,12 +144,12 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
 webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webnn.mojom.WebNNContext.CreateTensor_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -147,11 +161,11 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_Params',
       packedSize: 32,
       fields: [
-        { name: 'tensor_info', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false },
-        { name: 'mailbox', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false },
-        { name: 'fence', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
+        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
+        { name: 'fence', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -159,12 +173,12 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
 webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

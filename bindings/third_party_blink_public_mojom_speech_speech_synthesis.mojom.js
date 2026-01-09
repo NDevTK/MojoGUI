@@ -9,6 +9,14 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+blink.mojom.kSpeechSynthesisDefaultRate = 1.0;
+
+blink.mojom.kSpeechSynthesisDefaultPitch = 1.0;
+
+blink.mojom.kSpeechSynthesisDefaultVolume = 1.0;
+
+blink.mojom.kSpeechSynthesisDoublePrefNotSet = -1.0;
+
 // Enum: SpeechSynthesisErrorCode
 blink.mojom.SpeechSynthesisErrorCode = {
   kCancelled: 0,
@@ -16,6 +24,7 @@ blink.mojom.SpeechSynthesisErrorCode = {
   kErrorOccurred: 2,
   kNoError: 3,
 };
+blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechSynthesisUtterance
 blink.mojom.SpeechSynthesisUtteranceSpec = {
@@ -24,14 +33,14 @@ blink.mojom.SpeechSynthesisUtteranceSpec = {
       name: 'blink.mojom.SpeechSynthesisUtterance',
       packedSize: 56,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'voice', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'volume', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'rate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'pitch', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'voice', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'volume', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'pitch', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -43,13 +52,13 @@ blink.mojom.SpeechSynthesisVoiceSpec = {
       name: 'blink.mojom.SpeechSynthesisVoice',
       packedSize: 40,
       fields: [
-        { name: 'voice_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_local_service', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_default', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'voice_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_local_service', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_default', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -117,9 +126,9 @@ blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisVoiceListObserver.OnSetVoiceList_Params',
       packedSize: 16,
       fields: [
-        { name: 'voice_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -247,7 +256,7 @@ blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -259,9 +268,9 @@ blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnFinishedSpeaking_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -274,7 +283,7 @@ blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -287,7 +296,7 @@ blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -299,10 +308,10 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredWordBoundary_Params',
       packedSize: 16,
       fields: [
-        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'char_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -314,10 +323,10 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSentenceBoundary_Params',
       packedSize: 16,
       fields: [
-        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'char_length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'char_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -330,7 +339,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -439,9 +448,9 @@ blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesis.AddVoiceListObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -453,10 +462,10 @@ blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesis.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpeechSynthesisUtteranceSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -469,7 +478,7 @@ blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -482,7 +491,7 @@ blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -495,7 +504,7 @@ blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

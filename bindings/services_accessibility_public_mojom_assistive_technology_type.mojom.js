@@ -18,3 +18,4 @@ ax.mojom.AssistiveTechnologyType = {
   kMagnifier: 4,
   kDictation: 5,
 };
+ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };

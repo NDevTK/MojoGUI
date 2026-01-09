@@ -16,14 +16,14 @@ blink.mojom.NavigationApiHistoryEntrySpec = {
       name: 'blink.mojom.NavigationApiHistoryEntry',
       packedSize: 56,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'item_sequence_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'document_sequence_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'item_sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'document_sequence_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -35,11 +35,11 @@ blink.mojom.NavigationApiHistoryEntryArraysSpec = {
       name: 'blink.mojom.NavigationApiHistoryEntryArrays',
       packedSize: 32,
       fields: [
-        { name: 'back_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'forward_entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'previous_entry', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.NavigationApiHistoryEntrySpec, nullable: true },
+        { name: 'back_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'forward_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'previous_entry', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NavigationApiHistoryEntrySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

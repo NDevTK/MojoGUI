@@ -16,19 +16,19 @@ blink.mojom.LeakDetectionResultSpec = {
       name: 'blink.mojom.LeakDetectionResult',
       packedSize: 56,
       fields: [
-        { name: 'number_of_live_audio_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_documents', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_nodes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_layout_objects', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_context_lifecycle_state_observers', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_frames', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_v8_per_context_data', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_worker_global_scopes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_ua_css_resources', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'number_of_live_resource_fetchers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'number_of_live_audio_nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_documents', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_layout_objects', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_context_lifecycle_state_observers', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_v8_per_context_data', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_worker_global_scopes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_ua_css_resources', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_live_resource_fetchers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -97,7 +97,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -105,12 +105,12 @@ blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
 blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LeakDetectionResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LeakDetectionResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,9 +16,9 @@ smbfs.mojom.FilePathSpec = {
       name: 'smbfs.mojom.FilePath',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -14,10 +14,16 @@ arc.mojom.VideoFrameSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFrame',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'planes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -57,6 +63,24 @@ arc.mojom.VideoFramePoolRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  initialize(client) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.VideoFramePool_Initialize_ParamsSpec,
+      null,
+      [client]);
+  }
+
+  addVideoFrame(video_frame) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec,
+      arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec,
+      [video_frame]);
+  }
+
 };
 
 arc.mojom.VideoFramePool.getRemote = function() {
@@ -67,6 +91,47 @@ arc.mojom.VideoFramePool.getRemote = function() {
     'arc.mojom.VideoFramePool',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Initialize
+arc.mojom.VideoFramePool_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFramePool.Initialize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddVideoFrame
+arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFramePool.AddVideoFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'video_frame', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoFrameSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -109,6 +174,15 @@ arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  requestVideoFrames(format, coded_size, visible_rect, num_frames) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec,
+      null,
+      [format, coded_size, visible_rect, num_frames]);
+  }
+
 };
 
 arc.mojom.VideoFramePoolClient.getRemote = function() {
@@ -119,6 +193,23 @@ arc.mojom.VideoFramePoolClient.getRemote = function() {
     'arc.mojom.VideoFramePoolClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for RequestVideoFrames
+arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFramePoolClient.RequestVideoFrames_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_rect', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'num_frames', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
 };
 
 // Legacy compatibility

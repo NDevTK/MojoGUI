@@ -72,9 +72,9 @@ web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
       name: 'web_ui_test.mojom.TestRunner.TestComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'failureMessage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'failureMessage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

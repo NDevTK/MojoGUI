@@ -16,12 +16,12 @@ batch_upload.mojom.DataItemSpec = {
       name: 'batch_upload.mojom.DataItem',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'icon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'subtitle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'icon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'subtitle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,11 +33,11 @@ batch_upload.mojom.DataContainerSpec = {
       name: 'batch_upload.mojom.DataContainer',
       packedSize: 32,
       fields: [
-        { name: 'section_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data_items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_theme', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'section_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data_items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(batch_upload.mojom.DataItemSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_theme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -49,10 +49,10 @@ batch_upload.mojom.BatchUploadAccountInfoSpec = {
       name: 'batch_upload.mojom.BatchUploadAccountInfo',
       packedSize: 24,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data_picture_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data_picture_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -64,11 +64,11 @@ batch_upload.mojom.BatchUploadDataSpec = {
       name: 'batch_upload.mojom.BatchUploadData',
       packedSize: 32,
       fields: [
-        { name: 'account_info', packedOffset: 8, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadAccountInfoSpec, nullable: false },
-        { name: 'dialog_subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data_containers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadAccountInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data_containers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(batch_upload.mojom.DataContainerSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -136,10 +136,10 @@ batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandlerFactory.CreateBatchUploadHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,9 +230,9 @@ batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandler.UpdateViewHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,9 +244,9 @@ batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandler.SaveToAccount_Params',
       packedSize: 16,
       fields: [
-        { name: 'idsToMove', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Int32, false), false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -259,7 +259,7 @@ batch_upload.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -332,9 +332,9 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
       name: 'batch_upload.mojom.Page.SendBatchUploadData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadDataSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: batch_upload.mojom.BatchUploadDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

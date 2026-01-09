@@ -81,10 +81,10 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'accept_ch_frame', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -92,12 +92,12 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
 network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,9 +109,9 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
       name: 'network.mojom.AcceptCHFrameObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

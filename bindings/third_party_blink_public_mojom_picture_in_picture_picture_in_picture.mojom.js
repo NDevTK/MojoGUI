@@ -81,9 +81,9 @@ blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
       name: 'blink.mojom.PictureInPictureSessionObserver.OnWindowSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -187,13 +187,13 @@ blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
       name: 'blink.mojom.PictureInPictureSession.Update_Params',
       packedSize: 40,
       fields: [
-        { name: 'player_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'player_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
-        { name: 'natural_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'show_play_pause_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'player_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'player_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'show_play_pause_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -206,7 +206,7 @@ blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -218,9 +218,9 @@ blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
       name: 'blink.mojom.PictureInPictureSession.UpdateMediaPosition_Params',
       packedSize: 16,
       fields: [
-        { name: 'media_position', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false },
+        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -291,17 +291,17 @@ blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PictureInPictureService.StartSession_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'player_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'player_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false },
-        { name: 'natural_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'show_play_pause_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'source_bounds', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'player_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'player_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'show_play_pause_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'source_bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -309,13 +309,13 @@ blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
 blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.PictureInPictureService.StartSession_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

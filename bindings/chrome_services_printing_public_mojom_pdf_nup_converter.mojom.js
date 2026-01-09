@@ -15,6 +15,7 @@ printing.mojom.Status = {
   CONVERSION_FAILURE: 1,
   HANDLE_MAP_ERROR: 2,
 };
+printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: PdfNupConverter
 printing.mojom.PdfNupConverter = {};
@@ -106,12 +107,12 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupPageConvert_Params',
       packedSize: 40,
       fields: [
-        { name: 'pages_per_sheet', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'page_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'printable_area', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'pdf_page_regions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pages_per_sheet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_page_regions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -119,13 +120,13 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
 printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfNupConverter.NupPageConvert_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
-        { name: 'pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -137,12 +138,12 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_Params',
       packedSize: 40,
       fields: [
-        { name: 'pages_per_sheet', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'page_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'printable_area', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'src_pdf_region', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'pages_per_sheet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'src_pdf_region', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -150,13 +151,13 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
 printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false },
-        { name: 'pdf_region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,9 +169,9 @@ printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.SetWebContentsURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,9 +183,9 @@ printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfNupConverter.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

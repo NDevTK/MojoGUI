@@ -16,13 +16,13 @@ viz.mojom.HitTestRegionSpec = {
       name: 'viz.mojom.HitTestRegion',
       packedSize: 40,
       fields: [
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'async_hit_test_reasons', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'transform', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'async_hit_test_reasons', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'transform', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -34,13 +34,13 @@ viz.mojom.HitTestRegionListSpec = {
       name: 'viz.mojom.HitTestRegionList',
       packedSize: 40,
       fields: [
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'async_hit_test_reasons', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'transform', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
-        { name: 'regions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'async_hit_test_reasons', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
+        { name: 'regions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.HitTestRegionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

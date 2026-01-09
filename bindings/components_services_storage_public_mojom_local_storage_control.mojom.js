@@ -135,10 +135,10 @@ storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.BindStorageArea_Params',
       packedSize: 24,
       fields: [
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +151,7 @@ storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -159,12 +159,12 @@ storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
 storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.LocalStorageControl.GetUsage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StorageUsageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -176,9 +176,9 @@ storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.DeleteStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,7 +191,7 @@ storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -204,7 +204,7 @@ storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,7 +217,7 @@ storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -229,9 +229,9 @@ storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       name: 'storage.mojom.LocalStorageControl.ApplyPolicyUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'policy_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +244,7 @@ storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

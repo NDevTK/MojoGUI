@@ -26,3 +26,4 @@ nearby_share.mojom.ShareType = {
   kUnknownFile: 12,
   kWifiCredentials: 13,
 };
+nearby_share.mojom.ShareTypeSpec = { $: mojo.internal.Enum() };

@@ -14,10 +14,12 @@ mojo_base.mojom.GenericPendingReceiverSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.GenericPendingReceiver',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'receiving_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

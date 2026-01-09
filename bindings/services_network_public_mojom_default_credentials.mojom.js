@@ -14,3 +14,4 @@ network.mojom.DefaultCredentials = {
   DISALLOW_DEFAULT_CREDENTIALS: 0,
   ALLOW_DEFAULT_CREDENTIALS: 1,
 };
+network.mojom.DefaultCredentialsSpec = { $: mojo.internal.Enum() };

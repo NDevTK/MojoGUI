@@ -27,12 +27,14 @@ access_code_cast.mojom.AddSinkResultCode = {
   PROFILE_SYNC_ERROR: 13,
   INTERNAL_MEDIA_ROUTER_ERROR: 14,
 };
+access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CastDiscoveryMethod
 access_code_cast.mojom.CastDiscoveryMethod = {
   QR_CODE: 0,
   INPUT_ACCESS_CODE: 1,
 };
+access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
 access_code_cast.mojom.PageHandlerFactory = {};
@@ -97,10 +99,10 @@ access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'access_code_cast.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,10 +184,10 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
       name: 'access_code_cast.mojom.PageHandler.AddSink_Params',
       packedSize: 24,
       fields: [
-        { name: 'access_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'discovery_method', packedOffset: 16, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false },
+        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.CastDiscoveryMethodSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -193,12 +195,12 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
 access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -211,7 +213,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -219,12 +221,12 @@ access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
 access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

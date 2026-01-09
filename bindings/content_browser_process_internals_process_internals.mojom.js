@@ -14,6 +14,7 @@ mojom.Type = {
   kBackForwardCache: 1,
   kPrerender: 2,
 };
+mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProcessCountInfo
 mojom.ProcessCountInfoSpec = {
@@ -22,12 +23,12 @@ mojom.ProcessCountInfoSpec = {
       name: 'mojom.ProcessCountInfo',
       packedSize: 40,
       fields: [
-        { name: 'renderer_process_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'renderer_process_count_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'live_renderer_processes_count_total', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'renderer_process_count_for_limit', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'renderer_process_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'renderer_process_count_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'live_renderer_processes_count_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'renderer_process_count_for_limit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -37,22 +38,22 @@ mojom.SiteInstanceInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.SiteInstanceInfo',
-      packedSize: 64,
+      packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'site_instance_group_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'browsing_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'locked', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'site_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'process_lock_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'requires_origin_keyed_process', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_sandbox_for_iframes', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_guest', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_pdf', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'are_javascript_optimizers_enabled', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'storage_partition', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'site_instance_group_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'browsing_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'locked', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'site_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'process_lock_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'requires_origin_keyed_process', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_sandbox_for_iframes', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_guest', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_pdf', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'are_javascript_optimizers_enabled', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'storage_partition', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -64,15 +65,15 @@ mojom.FrameInfoSpec = {
       name: 'mojom.FrameInfo',
       packedSize: 56,
       fields: [
-        { name: 'routing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'agent_scheduling_group_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'site_instance', packedOffset: 24, packedBitOffset: 0, type: mojom.SiteInstanceInfoSpec, nullable: false },
-        { name: 'last_committed_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'subframes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'kActive', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'agent_scheduling_group_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'process_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'site_instance', packedOffset: 16, packedBitOffset: 0, type: mojom.SiteInstanceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'last_committed_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'subframes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'kActive', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -84,12 +85,12 @@ mojom.WebContentsInfoSpec = {
       name: 'mojom.WebContentsInfo',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'root_frame', packedOffset: 16, packedBitOffset: 0, type: mojom.FrameInfoSpec, nullable: false },
-        { name: 'bfcached_root_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'prerender_root_frames', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'root_frame', packedOffset: 8, packedBitOffset: 0, type: mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'bfcached_root_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'prerender_root_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -101,10 +102,10 @@ mojom.IsolatedOriginInfoSpec = {
       name: 'mojom.IsolatedOriginInfo',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -227,7 +228,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -235,12 +236,12 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojom.ProcessCountInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojom.ProcessCountInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -253,7 +254,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -261,12 +262,12 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetIsolationMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,7 +280,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -287,12 +288,12 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessPerSiteMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -305,7 +306,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,12 +314,12 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetUserTriggeredIsolatedOrigins_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -331,7 +332,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -339,12 +340,12 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetWebTriggeredIsolatedOrigins_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,7 +358,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -365,12 +366,12 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetGloballyIsolatedOrigins_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.IsolatedOriginInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -383,7 +384,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -391,12 +392,12 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetAllWebContentsInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.WebContentsInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

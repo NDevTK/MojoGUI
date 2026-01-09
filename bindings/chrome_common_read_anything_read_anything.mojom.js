@@ -15,6 +15,7 @@ read_anything.mojom.InstallationState = {
   kInstalling: 1,
   kInstalled: 2,
 };
+read_anything.mojom.InstallationStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorCode
 read_anything.mojom.ErrorCode = {
@@ -24,6 +25,7 @@ read_anything.mojom.ErrorCode = {
   kAllocation: 3,
   kUnsupportedPlatform: 4,
 };
+read_anything.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReadAnythingPresentationState
 read_anything.mojom.ReadAnythingPresentationState = {
@@ -32,6 +34,7 @@ read_anything.mojom.ReadAnythingPresentationState = {
   kInSidePanel: 2,
   kInImmersiveOverlay: 3,
 };
+read_anything.mojom.ReadAnythingPresentationStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Colors
 read_anything.mojom.Colors = {
@@ -39,6 +42,7 @@ read_anything.mojom.Colors = {
   kDark: 1,
   kYellow: 2,
 };
+read_anything.mojom.ColorsSpec = { $: mojo.internal.Enum() };
 
 // Enum: LetterSpacing
 read_anything.mojom.LetterSpacing = {
@@ -46,6 +50,7 @@ read_anything.mojom.LetterSpacing = {
   kWide: 1,
   kVeryWide: 2,
 };
+read_anything.mojom.LetterSpacingSpec = { $: mojo.internal.Enum() };
 
 // Enum: LineSpacing
 read_anything.mojom.LineSpacing = {
@@ -53,11 +58,13 @@ read_anything.mojom.LineSpacing = {
   kStandard: 1,
   kVeryLoose: 2,
 };
+read_anything.mojom.LineSpacingSpec = { $: mojo.internal.Enum() };
 
 // Enum: HighlightGranularity
 read_anything.mojom.HighlightGranularity = {
   kOff: 0,
 };
+read_anything.mojom.HighlightGranularitySpec = { $: mojo.internal.Enum() };
 
 // Enum: LineFocus
 read_anything.mojom.LineFocus = {
@@ -67,6 +74,7 @@ read_anything.mojom.LineFocus = {
   kLineStatic: 3,
   kLineCursor: 4,
 };
+read_anything.mojom.LineFocusSpec = { $: mojo.internal.Enum() };
 
 // Enum: DistillationStatus
 read_anything.mojom.DistillationStatus = {
@@ -75,18 +83,33 @@ read_anything.mojom.DistillationStatus = {
   kStillRunning: 2,
   kRestarted: 3,
 };
+read_anything.mojom.DistillationStatusSpec = { $: mojo.internal.Enum() };
+
+// Union: VoicePackInstallationState
+read_anything.mojom.VoicePackInstallationStateSpec = { $: mojo.internal.Union(
+    'read_anything.mojom.VoicePackInstallationState', {
+      'installation_state': {
+        'ordinal': 0,
+        'type': read_anything.mojom.InstallationStateSpec,
+      }},
+      'error_code': {
+        'ordinal': 1,
+        'type': read_anything.mojom.ErrorCodeSpec,
+      }},
+    })
+};
 
 // Struct: VoicePackInfo
 read_anything.mojom.VoicePackInfoSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.VoicePackInfo',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.VoicePackInstallationStateSpec, nullable: false },
-        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.VoicePackInstallationStateSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -163,10 +186,10 @@ read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Param
       name: 'read_anything.mojom.UntrustedPageHandlerFactory.CreateUntrustedPageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +202,7 @@ read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -532,7 +555,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -540,12 +563,12 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
 read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'read_anything.mojom.UntrustedPageHandler.GetDependencyParserModel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
+        { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -558,7 +581,7 @@ read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -570,9 +593,9 @@ read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.GetVoicePackInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -584,9 +607,9 @@ read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.InstallVoicePack_Params',
       packedSize: 16,
       fields: [
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -598,9 +621,9 @@ read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.UninstallVoice_Params',
       packedSize: 16,
       fields: [
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -613,7 +636,7 @@ read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -625,9 +648,9 @@ read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLineSpaceChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'line_spacing', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.LineSpacingSpec, nullable: false },
+        { name: 'line_spacing', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.LineSpacingSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -639,9 +662,9 @@ read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLetterSpaceChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'letter_spacing', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.LetterSpacingSpec, nullable: false },
+        { name: 'letter_spacing', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.LetterSpacingSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -653,9 +676,9 @@ read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnFontChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'font', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -667,9 +690,9 @@ read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnFontSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'font_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -681,9 +704,9 @@ read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLinksEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -695,9 +718,9 @@ read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnImagesEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -709,9 +732,9 @@ read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnColorChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -723,9 +746,9 @@ read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnSpeechRateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -737,10 +760,10 @@ read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnVoiceChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'voice', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'voice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -752,10 +775,10 @@ read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLanguagePrefChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -768,7 +791,7 @@ read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -780,9 +803,9 @@ read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpe
       name: 'read_anything.mojom.UntrustedPageHandler.OnHighlightGranularityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'granularity', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false },
+        { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -794,9 +817,9 @@ read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLineFocusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'granularity', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false },
+        { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -808,9 +831,9 @@ read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec 
       name: 'read_anything.mojom.UntrustedPageHandler.OnReadAloudAudioStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'playing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -820,12 +843,12 @@ read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPageHandler.OnLinkClicked_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'target_tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -835,12 +858,12 @@ read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPageHandler.OnImageDataRequested_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'target_tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -850,15 +873,15 @@ read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPageHandler.OnSelectionChange_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'target_tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'anchor_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'anchor_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'focus_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'focus_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'anchor_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'focus_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'focus_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -871,7 +894,7 @@ read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -884,7 +907,7 @@ read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -894,12 +917,12 @@ read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPageHandler.OnDistillationStatus_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.DistillationStatusSpec, nullable: false },
-        { name: 'word_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.DistillationStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'word_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -909,12 +932,12 @@ read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPageHandler.ScrollToTargetNode_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'target_tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'target_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -927,7 +950,7 @@ read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -940,7 +963,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -953,7 +976,7 @@ read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -966,7 +989,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -979,7 +1002,7 @@ read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1194,13 +1217,13 @@ read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.AccessibilityEventReceived_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'events', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'events', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXEventSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1212,9 +1235,9 @@ read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.OnGetPresentationState_Params',
       packedSize: 16,
       fields: [
-        { name: 'presentation_state', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.ReadAnythingPresentationStateSpec, nullable: false },
+        { name: 'presentation_state', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.ReadAnythingPresentationStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1226,9 +1249,9 @@ read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.OnGetVoicePackInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'voice_pack_info', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.VoicePackInfoSpec, nullable: false },
+        { name: 'voice_pack_info', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.VoicePackInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1238,12 +1261,12 @@ read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpe
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.AccessibilityLocationChangesReceived_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXLocationAndScrollUpdatesSpec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXLocationAndScrollUpdatesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1253,13 +1276,13 @@ read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.OnActiveAXTreeIDChanged_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'ukm_source_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'is_pdf', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'ukm_source_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'is_pdf', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1269,11 +1292,11 @@ read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.OnAXTreeDestroyed_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1285,9 +1308,9 @@ read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.SetLanguageCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1300,7 +1323,7 @@ read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1313,7 +1336,7 @@ read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1325,9 +1348,9 @@ read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.SetDefaultLanguageCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1337,22 +1360,22 @@ read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.OnSettingsRestoredFromPrefs_Params',
-      packedSize: 96,
+      packedSize: 72,
       fields: [
-        { name: 'line_spacing', packedOffset: 8, packedBitOffset: 0, type: read_anything.mojom.LineSpacingSpec, nullable: false },
-        { name: 'letter_spacing', packedOffset: 16, packedBitOffset: 0, type: read_anything.mojom.LetterSpacingSpec, nullable: false },
-        { name: 'font', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'font_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'links_enabled', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'images_enabled', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'color', packedOffset: 48, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false },
-        { name: 'speech_rate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'voices', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'languages_enabled_in_pref', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'granularity', packedOffset: 80, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false },
-        { name: 'line_focus', packedOffset: 88, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false },
+        { name: 'line_spacing', packedOffset: 0, packedBitOffset: 0, type: read_anything.mojom.LineSpacingSpec, nullable: false, minVersion: 0 },
+        { name: 'letter_spacing', packedOffset: 4, packedBitOffset: 0, type: read_anything.mojom.LetterSpacingSpec, nullable: false, minVersion: 0 },
+        { name: 'font', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'font_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'links_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'images_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 28, packedBitOffset: 0, type: read_anything.mojom.ColorsSpec, nullable: false, minVersion: 0 },
+        { name: 'speech_rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'voices', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'languages_enabled_in_pref', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'granularity', packedOffset: 56, packedBitOffset: 0, type: read_anything.mojom.HighlightGranularitySpec, nullable: false, minVersion: 0 },
+        { name: 'line_focus', packedOffset: 60, packedBitOffset: 0, type: read_anything.mojom.LineFocusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -1365,7 +1388,7 @@ read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1377,9 +1400,9 @@ read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.OnReadingModeHidden_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1392,7 +1415,7 @@ read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1404,9 +1427,9 @@ read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.OnTabMuteStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1416,13 +1439,13 @@ read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'read_anything.mojom.UntrustedPage.OnImageDataDownloaded_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
-        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'image', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
+        { name: 'node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1434,9 +1457,9 @@ read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = {
       name: 'read_anything.mojom.UntrustedPage.OnPinStatusReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_pin_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'new_pin_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

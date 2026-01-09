@@ -72,11 +72,11 @@ offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = 
       name: 'offline_pages.mojom.MhtmlPageNotifier.NotifyMhtmlPageLoadAttempted_Params',
       packedSize: 32,
       fields: [
-        { name: 'load_result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MHTMLLoadResultSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'date', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'load_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MHTMLLoadResultSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

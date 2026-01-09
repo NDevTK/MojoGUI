@@ -17,3 +17,4 @@ media_router.mojom.MediaRouteProviderId = {
   ANDROID_CAF: 3,
   TEST: 4,
 };
+media_router.mojom.MediaRouteProviderIdSpec = { $: mojo.internal.Enum() };

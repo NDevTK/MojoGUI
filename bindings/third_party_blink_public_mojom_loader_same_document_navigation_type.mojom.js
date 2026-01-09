@@ -16,3 +16,4 @@ blink.mojom.SameDocumentNavigationType = {
   kNavigationApiIntercept: 2,
   kPrerenderNoVarySearchActivation: 3,
 };
+blink.mojom.SameDocumentNavigationTypeSpec = { $: mojo.internal.Enum() };

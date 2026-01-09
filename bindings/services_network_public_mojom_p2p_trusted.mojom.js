@@ -82,7 +82,7 @@ network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -94,11 +94,11 @@ network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
       name: 'network.mojom.P2PTrustedSocketManagerClient.DumpPacket_Params',
       packedSize: 32,
       fields: [
-        { name: 'packet_header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'packet_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'incoming', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'packet_header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'packet_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'incoming', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -198,10 +198,10 @@ network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
       name: 'network.mojom.P2PTrustedSocketManager.StartRtpDump_Params',
       packedSize: 16,
       fields: [
-        { name: 'incoming', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'outgoing', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,10 +213,10 @@ network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
       name: 'network.mojom.P2PTrustedSocketManager.StopRtpDump_Params',
       packedSize: 16,
       fields: [
-        { name: 'incoming', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'outgoing', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -229,7 +229,7 @@ network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,7 +242,7 @@ network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

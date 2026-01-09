@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Union: LocalResourceValue
+blink.mojom.LocalResourceValueSpec = { $: mojo.internal.Union(
+    'blink.mojom.LocalResourceValue', {
+      'resource_id': {
+        'ordinal': 0,
+        'type': mojo.internal.Int32,
+      }},
+      'response_body': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
 // Struct: LocalResourceSource
 blink.mojom.LocalResourceSourceSpec = {
   $: {
@@ -16,12 +30,12 @@ blink.mojom.LocalResourceSourceSpec = {
       name: 'blink.mojom.LocalResourceSource',
       packedSize: 40,
       fields: [
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'should_replace_i18n_in_js', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'path_to_resource_map', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'replacement_strings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'should_replace_i18n_in_js', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'path_to_resource_map', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), nullable: false, minVersion: 0 },
+        { name: 'replacement_strings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,9 +47,9 @@ blink.mojom.LocalResourceLoaderConfigSpec = {
       name: 'blink.mojom.LocalResourceLoaderConfig',
       packedSize: 16,
       fields: [
-        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, blink.mojom.LocalResourceSourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

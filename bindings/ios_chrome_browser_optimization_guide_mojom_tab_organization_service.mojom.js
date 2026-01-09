@@ -72,9 +72,9 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
       name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
 ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -91,7 +91,7 @@ chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -103,9 +103,9 @@ chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpe
       name: 'chrome.mojom.NetErrorPageSupport.SetIsShowingDownloadButtonInErrorPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'showing_download_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +118,7 @@ chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

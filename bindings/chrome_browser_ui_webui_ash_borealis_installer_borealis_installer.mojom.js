@@ -73,10 +73,10 @@ ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.borealis_installer.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,7 +195,7 @@ ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -208,7 +208,7 @@ ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -221,7 +221,7 @@ ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,7 +234,7 @@ ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -247,7 +247,7 @@ ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,7 +260,7 @@ ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -351,10 +351,10 @@ ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       name: 'ash.borealis_installer.mojom.Page.OnProgressUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'progress_fraction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -366,9 +366,9 @@ ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       name: 'ash.borealis_installer.mojom.Page.OnInstallFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: borealis.mojom.InstallResultSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: borealis.mojom.InstallResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -381,7 +381,7 @@ ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

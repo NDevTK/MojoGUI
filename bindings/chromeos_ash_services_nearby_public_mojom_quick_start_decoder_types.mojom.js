@@ -19,6 +19,7 @@ ash.quick_start.mojom.WifiSecurityType = {
   kOWE: 4,
   kSAE: 5,
 };
+ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserVerificationResult
 ash.quick_start.mojom.UserVerificationResult = {
@@ -26,6 +27,7 @@ ash.quick_start.mojom.UserVerificationResult = {
   kUserNotVerified: 1,
   kLSKFNotSet: 2,
 };
+ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: QuickStartDecoderError
 ash.quick_start.mojom.QuickStartDecoderError = {
@@ -36,6 +38,41 @@ ash.quick_start.mojom.QuickStartDecoderError = {
   kUnknownPayload: 4,
   kUnableToReadAsBase64: 5,
 };
+ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
+
+// Union: QuickStartMessage
+ash.quick_start.mojom.QuickStartMessageSpec = { $: mojo.internal.Union(
+    'ash.quick_start.mojom.QuickStartMessage', {
+      'bootstrap_configurations': {
+        'ordinal': 0,
+        'type': ash.quick_start.mojom.BootstrapConfigurationsSpec,
+      }},
+      'wifi_credentials': {
+        'ordinal': 1,
+        'type': ash.quick_start.mojom.WifiCredentialsSpec,
+      }},
+      'notify_source_of_update_response': {
+        'ordinal': 2,
+        'type': ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec,
+      }},
+      'fido_assertion_response': {
+        'ordinal': 3,
+        'type': ash.quick_start.mojom.FidoAssertionResponseSpec,
+      }},
+      'user_verification_requested': {
+        'ordinal': 4,
+        'type': ash.quick_start.mojom.UserVerificationRequestedSpec,
+      }},
+      'user_verification_response': {
+        'ordinal': 5,
+        'type': ash.quick_start.mojom.UserVerificationResponseSpec,
+      }},
+      'user_verification_method': {
+        'ordinal': 6,
+        'type': ash.quick_start.mojom.UserVerificationMethodSpec,
+      }},
+    })
+};
 
 // Struct: BootstrapConfigurations
 ash.quick_start.mojom.BootstrapConfigurationsSpec = {
@@ -44,11 +81,11 @@ ash.quick_start.mojom.BootstrapConfigurationsSpec = {
       name: 'ash.quick_start.mojom.BootstrapConfigurations',
       packedSize: 32,
       fields: [
-        { name: 'instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_supervised_account', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'email', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_supervised_account', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -60,9 +97,9 @@ ash.quick_start.mojom.UserVerificationMethodSpec = {
       name: 'ash.quick_start.mojom.UserVerificationMethod',
       packedSize: 16,
       fields: [
-        { name: 'use_source_lock_screen_prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_source_lock_screen_prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -72,12 +109,12 @@ ash.quick_start.mojom.UserVerificationResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.UserVerificationResponse',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.quick_start.mojom.UserVerificationResultSpec, nullable: false },
-        { name: 'is_first_user_verification', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.quick_start.mojom.UserVerificationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'is_first_user_verification', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -89,9 +126,9 @@ ash.quick_start.mojom.UserVerificationRequestedSpec = {
       name: 'ash.quick_start.mojom.UserVerificationRequested',
       packedSize: 16,
       fields: [
-        { name: 'is_awaiting_user_verification', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_awaiting_user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -101,14 +138,14 @@ ash.quick_start.mojom.WifiCredentialsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.WifiCredentials',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security_type', packedOffset: 16, packedBitOffset: 0, type: ash.quick_start.mojom.WifiSecurityTypeSpec, nullable: false },
-        { name: 'is_hidden', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'security_type', packedOffset: 8, packedBitOffset: 0, type: ash.quick_start.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_hidden', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -120,12 +157,12 @@ ash.quick_start.mojom.FidoAssertionResponseSpec = {
       name: 'ash.quick_start.mojom.FidoAssertionResponse',
       packedSize: 40,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'credential_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'auth_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'signature', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'auth_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -137,9 +174,9 @@ ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = {
       name: 'ash.quick_start.mojom.NotifySourceOfUpdateResponse',
       packedSize: 16,
       fields: [
-        { name: 'ack_received', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ack_received', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

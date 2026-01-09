@@ -83,7 +83,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -91,12 +91,12 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
 ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'logs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +109,7 @@ ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

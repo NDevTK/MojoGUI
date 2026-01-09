@@ -24,3 +24,4 @@ sandbox.mojom.Sandbox = {
   kRenderer: 10,
   kSpeechRecognition: 11,
 };
+sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum() };

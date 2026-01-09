@@ -17,10 +17,10 @@ ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = {
       name: 'ash.mojom.scanner_feedback_ui.FeedbackInfo',
       packedSize: 24,
       fields: [
-        { name: 'action_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'screenshot_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'action_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'screenshot_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -107,7 +107,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -115,12 +115,12 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
 ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feedback_info', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, nullable: false },
+        { name: 'feedback_info', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -133,7 +133,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -145,9 +145,9 @@ ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
       name: 'ash.mojom.scanner_feedback_ui.PageHandler.SendFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

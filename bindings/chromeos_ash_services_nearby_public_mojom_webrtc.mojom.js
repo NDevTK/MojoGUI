@@ -16,11 +16,11 @@ sharing.mojom.IceServerSpec = {
       name: 'sharing.mojom.IceServer',
       packedSize: 32,
       fields: [
-        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'credential', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'credential', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,12 +32,12 @@ sharing.mojom.WebRtcDependenciesSpec = {
       name: 'sharing.mojom.WebRtcDependencies',
       packedSize: 24,
       fields: [
-        { name: 'socket_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'mdns_responder_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'ice_config_fetcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'messenger', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'socket_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'mdns_responder_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'ice_config_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'messenger', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -106,7 +106,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,12 +114,12 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
 sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.IceConfigFetcher.GetIceServers_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ice_servers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sharing.mojom.IceServerSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,9 +192,9 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
       name: 'sharing.mojom.MdnsResponderFactory.CreateMdnsResponder_Params',
       packedSize: 16,
       fields: [
-        { name: 'responder_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

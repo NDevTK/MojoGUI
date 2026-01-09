@@ -72,9 +72,9 @@ chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
       name: 'chrome.mojom.NetworkDiagnostics.RunNetworkDiagnostics_Params',
       packedSize: 16,
       fields: [
-        { name: 'failed_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,9 +156,9 @@ chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsS
       name: 'chrome.mojom.NetworkDiagnosticsClient.SetCanShowNetworkDiagnosticsDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_show', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,9 +170,9 @@ chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
       name: 'chrome.mojom.NetworkDiagnosticsClient.DNSProbeStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

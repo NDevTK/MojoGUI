@@ -17,3 +17,4 @@ gfx.mojom.OverlayPriorityHint = {
   kHardwareProtection: 3,
   kVideo: 4,
 };
+gfx.mojom.OverlayPriorityHintSpec = { $: mojo.internal.Enum() };

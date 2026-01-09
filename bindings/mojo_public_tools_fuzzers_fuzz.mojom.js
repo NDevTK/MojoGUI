@@ -15,6 +15,94 @@ fuzz.mojom.FuzzEnum = {
   FUZZ_VALUE1: 1,
   FUZZ_VALUE2: 2,
 };
+fuzz.mojom.FuzzEnumSpec = { $: mojo.internal.Enum() };
+
+// Union: FuzzUnion
+fuzz.mojom.FuzzUnionSpec = { $: mojo.internal.Union(
+    'fuzz.mojom.FuzzUnion', {
+      'fuzz_bool': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'fuzz_int8': {
+        'ordinal': 1,
+        'type': mojo.internal.Int8,
+      }},
+      'fuzz_uint8': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint8,
+      }},
+      'fuzz_int16': {
+        'ordinal': 3,
+        'type': mojo.internal.Int16,
+      }},
+      'fuzz_uint16': {
+        'ordinal': 4,
+        'type': mojo.internal.Uint16,
+      }},
+      'fuzz_int32': {
+        'ordinal': 5,
+        'type': mojo.internal.Int32,
+      }},
+      'fuzz_uint32': {
+        'ordinal': 6,
+        'type': mojo.internal.Uint32,
+      }},
+      'fuzz_int64': {
+        'ordinal': 7,
+        'type': mojo.internal.Int64,
+      }},
+      'fuzz_uint64': {
+        'ordinal': 8,
+        'type': mojo.internal.Uint64,
+      }},
+      'fuzz_float': {
+        'ordinal': 9,
+        'type': mojo.internal.Float,
+      }},
+      'fuzz_double': {
+        'ordinal': 10,
+        'type': mojo.internal.Double,
+      }},
+      'fuzz_string': {
+        'ordinal': 11,
+        'type': mojo.internal.String,
+      }},
+      'fuzz_bool_array': {
+        'ordinal': 12,
+        'type': mojo.internal.Array(mojo.internal.Bool, false),
+      }},
+      'fuzz_primitive_array': {
+        'ordinal': 13,
+        'type': mojo.internal.Array(mojo.internal.Int8, false),
+      }},
+      'fuzz_struct_array': {
+        'ordinal': 14,
+        'type': mojo.internal.Array(fuzz.mojom.FuzzDummyStructSpec, false),
+      }},
+      'fuzz_primitive_map': {
+        'ordinal': 15,
+        'type': mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false),
+      }},
+      'fuzz_array_map': {
+        'ordinal': 16,
+        'type': mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false),
+      }},
+      'fuzz_struct_map': {
+        'ordinal': 17,
+        'type': mojo.internal.Map(mojo.internal.String, fuzz.mojom.FuzzDummyStructSpec, false),
+      }},
+      'fuzz_union_map': {
+        'ordinal': 18,
+        'type': mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false),
+      }},
+      'fuzz_complex': {
+        'ordinal': 19,
+        'type': mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), false), false), false),
+        'nullable': true,
+      }},
+    })
+};
 
 // Struct: FuzzDummyStruct
 fuzz.mojom.FuzzDummyStructSpec = {
@@ -23,9 +111,9 @@ fuzz.mojom.FuzzDummyStructSpec = {
       name: 'fuzz.mojom.FuzzDummyStruct',
       packedSize: 16,
       fields: [
-        { name: 'dummy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'dummy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -35,31 +123,31 @@ fuzz.mojom.FuzzStructSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzStruct',
-      packedSize: 144,
+      packedSize: 136,
       fields: [
-        { name: 'fuzz_bool', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'fuzz_int8', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'fuzz_uint8', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'fuzz_int16', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
-        { name: 'fuzz_uint16', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'fuzz_int32', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'fuzz_uint32', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'fuzz_int64', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'fuzz_uint64', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'fuzz_float', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'fuzz_double', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'fuzz_string', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fuzz_bool_array', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'fuzz_primitive_array', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'fuzz_primitive_map', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'fuzz_array_map', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'fuzz_union_map', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'fuzz_union_array', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'fuzz_struct_array', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'fuzz_nullable_array', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'fuzz_complex', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'fuzz_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int8', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint8', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int16', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint16', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint32', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int64', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint64', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'fuzz_float', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'fuzz_double', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'fuzz_string', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fuzz_bool_array', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_primitive_array', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_primitive_map', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_array_map', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_union_map', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_union_array', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_struct_array', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_nullable_array', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: true, minVersion: 0 },
+        { name: 'fuzz_complex', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), false), false), false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 136}]
     }
   }
 };
@@ -128,7 +216,7 @@ fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -256,7 +344,7 @@ fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -269,7 +357,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -282,7 +370,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -294,10 +382,10 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgs_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
-        { name: 'b', packedOffset: 16, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false, minVersion: 0 },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -309,10 +397,10 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
-        { name: 'b', packedOffset: 16, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false, minVersion: 0 },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -324,10 +412,10 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsSyncResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false },
-        { name: 'b', packedOffset: 16, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: false, minVersion: 0 },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: fuzz.mojom.FuzzStructSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -339,9 +427,9 @@ fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzAssociated_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

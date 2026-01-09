@@ -16,9 +16,9 @@ network.mojom.CookieSettingOverridesSpec = {
       name: 'network.mojom.CookieSettingOverrides',
       packedSize: 16,
       fields: [
-        { name: 'overrides_bitmask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'overrides_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

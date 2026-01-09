@@ -17,6 +17,21 @@ cros.mojom.PortraitModeSegResult = {
   kNoFaces: 3,
   kUnknown: 4,
 };
+cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
+
+// Union: Camera3StreamEffect
+cros.mojom.Camera3StreamEffectSpec = { $: mojo.internal.Union(
+    'cros.mojom.Camera3StreamEffect', {
+      'unknown_config': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint8,
+      }},
+      'portrait_mode_config': {
+        'ordinal': 1,
+        'type': cros.mojom.PortraitModeConfigSpec,
+      }},
+    })
+};
 
 // Struct: PortraitModeConfig
 cros.mojom.PortraitModeConfigSpec = {
@@ -25,9 +40,9 @@ cros.mojom.PortraitModeConfigSpec = {
       name: 'cros.mojom.PortraitModeConfig',
       packedSize: 16,
       fields: [
-        { name: 'enable_rectiface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_rectiface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

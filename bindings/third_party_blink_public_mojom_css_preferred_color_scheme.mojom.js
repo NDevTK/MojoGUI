@@ -14,3 +14,4 @@ blink.mojom.PreferredColorScheme = {
   kDark: 0,
   kLight: 1,
 };
+blink.mojom.PreferredColorSchemeSpec = { $: mojo.internal.Enum() };

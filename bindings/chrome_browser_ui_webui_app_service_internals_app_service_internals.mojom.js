@@ -16,11 +16,11 @@ mojom.app_service_internals.AppInfoSpec = {
       name: 'mojom.app_service_internals.AppInfo',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'debug_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,11 +32,11 @@ mojom.app_service_internals.PreferredAppInfoSpec = {
       name: 'mojom.app_service_internals.PreferredAppInfo',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'preferred_filters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'preferred_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -48,10 +48,10 @@ mojom.app_service_internals.PromiseAppInfoSpec = {
       name: 'mojom.app_service_internals.PromiseAppInfo',
       packedSize: 24,
       fields: [
-        { name: 'package_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -63,10 +63,10 @@ mojom.app_service_internals.AppCapabilityInfoSpec = {
       name: 'mojom.app_service_internals.AppCapabilityInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -78,12 +78,12 @@ mojom.app_service_internals.DebugInfoSpec = {
       name: 'mojom.app_service_internals.DebugInfo',
       packedSize: 40,
       fields: [
-        { name: 'app_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'preferred_app_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'promise_app_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'app_capability_list', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.AppInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'preferred_app_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.PreferredAppInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'promise_app_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.PromiseAppInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'app_capability_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.AppCapabilityInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -152,7 +152,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -160,12 +160,12 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
 mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojom.app_service_internals.DebugInfoSpec, nullable: true },
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojom.app_service_internals.DebugInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

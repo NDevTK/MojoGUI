@@ -72,10 +72,10 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
       name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -83,13 +83,13 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
 safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'proceed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'showed_interstitial', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'showed_interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

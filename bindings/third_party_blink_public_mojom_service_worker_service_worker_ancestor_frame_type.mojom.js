@@ -14,3 +14,4 @@ blink.mojom.AncestorFrameType = {
   kNormalFrame: 0,
   kFencedFrame: 1,
 };
+blink.mojom.AncestorFrameTypeSpec = { $: mojo.internal.Enum() };

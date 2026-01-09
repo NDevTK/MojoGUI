@@ -15,3 +15,4 @@ cc.mojom.HitTestOpaqueness = {
   kMixed: 1,
   kOpaque: 2,
 };
+cc.mojom.HitTestOpaquenessSpec = { $: mojo.internal.Enum() };

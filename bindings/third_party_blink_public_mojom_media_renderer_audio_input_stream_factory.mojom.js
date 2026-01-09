@@ -79,16 +79,16 @@ blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioInputStreamFactory.CreateStream_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'automatic_gain_control', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'shared_memory_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'processing_config', packedOffset: 48, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'automatic_gain_control', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'processing_config', packedOffset: 32, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -100,10 +100,10 @@ blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params
       name: 'blink.mojom.RendererAudioInputStreamFactory.AssociateInputAndOutputForAec_Params',
       packedSize: 24,
       fields: [
-        { name: 'input_stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'output_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,13 +176,13 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
       name: 'blink.mojom.RendererAudioInputStreamFactoryClient.StreamCreated_Params',
       packedSize: 40,
       fields: [
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'client_request', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
-        { name: 'initially_muted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'stream_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_request', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
+        { name: 'initially_muted', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'stream_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

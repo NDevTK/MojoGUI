@@ -79,12 +79,12 @@ video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.Producer.OnNewBuffer_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -96,9 +96,9 @@ video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
       name: 'video_capture.mojom.Producer.OnBufferRetired_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

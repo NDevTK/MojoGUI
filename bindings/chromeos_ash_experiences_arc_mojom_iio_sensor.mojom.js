@@ -44,6 +44,15 @@ arc.mojom.IioSensorHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  registerSensorHalClient(client) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec,
+      null,
+      [client]);
+  }
+
 };
 
 arc.mojom.IioSensorHost.getRemote = function() {
@@ -54,6 +63,20 @@ arc.mojom.IioSensorHost.getRemote = function() {
     'arc.mojom.IioSensorHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for RegisterSensorHalClient
+arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IioSensorHost.RegisterSensorHalClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +119,24 @@ arc.mojom.IioSensorInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.IioSensorInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
+  onTabletModeChanged(is_tablet_mode_on) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec,
+      null,
+      [is_tablet_mode_on]);
+  }
+
 };
 
 arc.mojom.IioSensorInstance.getRemote = function() {
@@ -106,6 +147,34 @@ arc.mojom.IioSensorInstance.getRemote = function() {
     'arc.mojom.IioSensorInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.IioSensorInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IioSensorInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnTabletModeChanged
+arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.IioSensorInstance.OnTabletModeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

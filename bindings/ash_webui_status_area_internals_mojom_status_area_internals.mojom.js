@@ -18,6 +18,7 @@ ash.mojom.status_area_internals.BatteryIcon = {
   kBoltIcon: 3,
   kBatterySaverPlusIcon: 4,
 };
+ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandler
 ash.mojom.status_area_internals.PageHandler = {};
@@ -181,9 +182,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleImeTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,9 +196,9 @@ ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.TogglePaletteTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,9 +210,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleLogoutTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,9 +224,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleVirtualKeyboardTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,9 +238,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleDictationTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -251,9 +252,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleVideoConferenceTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,9 +266,9 @@ ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleAnnotationTray_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,9 +280,9 @@ ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec =
       name: 'ash.mojom.status_area_internals.PageHandler.SetIsInUserChildSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'in_child_session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'in_child_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -293,12 +294,12 @@ ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec 
       name: 'ash.mojom.status_area_internals.PageHandler.TriggerPrivacyIndicators_Params',
       packedSize: 32,
       fields: [
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_camera_used', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_microphone_used', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_camera_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_microphone_used', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -311,7 +312,7 @@ ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -323,9 +324,9 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.SetBatteryIcon_Params',
       packedSize: 16,
       fields: [
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.status_area_internals.BatteryIconSpec, nullable: false },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.status_area_internals.BatteryIconSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -337,9 +338,9 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
       name: 'ash.mojom.status_area_internals.PageHandler.SetBatteryPercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,11 +16,11 @@ blink.mojom.WebPageSpec = {
       name: 'blink.mojom.WebPage',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'entities', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'entities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(schema_org.mojom.EntitySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,7 +89,7 @@ blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,12 +97,12 @@ blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
 blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.DocumentMetadata.GetEntities_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPageSpec, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPageSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

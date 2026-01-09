@@ -96,6 +96,15 @@ arc.mojom.SharesheetInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.SharesheetInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.SharesheetInstance.getRemote = function() {
@@ -106,6 +115,20 @@ arc.mojom.SharesheetInstance.getRemote = function() {
     'arc.mojom.SharesheetInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.SharesheetInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SharesheetInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

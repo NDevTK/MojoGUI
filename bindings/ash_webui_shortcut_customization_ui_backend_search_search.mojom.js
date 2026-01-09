@@ -17,11 +17,11 @@ ash.shortcut_customization.mojom.SearchResultSpec = {
       name: 'ash.shortcut_customization.mojom.SearchResult',
       packedSize: 32,
       fields: [
-        { name: 'accelerator_layout_info', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutInfoSpec, nullable: false },
-        { name: 'accelerator_infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'relevance_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'accelerator_layout_info', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'accelerator_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'relevance_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -90,7 +90,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResul
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -172,10 +172,10 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
       name: 'ash.shortcut_customization.mojom.SearchHandler.Search_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -183,12 +183,12 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
 ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler.Search_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,9 +200,9 @@ ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObser
       name: 'ash.shortcut_customization.mojom.SearchHandler.AddSearchResultsAvailabilityObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

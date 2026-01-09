@@ -16,6 +16,7 @@ network.mojom.UnencodedDigestIssue = {
   kIncorrectDigestType: 2,
   kIncorrectDigestLength: 3,
 };
+network.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: UnencodedDigests
 network.mojom.UnencodedDigestsSpec = {
@@ -24,10 +25,10 @@ network.mojom.UnencodedDigestsSpec = {
       name: 'network.mojom.UnencodedDigests',
       packedSize: 24,
       fields: [
-        { name: 'digests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'issues', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.UnencodedDigestIssueSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

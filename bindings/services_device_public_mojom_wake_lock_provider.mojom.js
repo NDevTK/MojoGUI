@@ -99,10 +99,10 @@ device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
       name: 'device.mojom.WakeLockProvider.GetWakeLockContextForID_Params',
       packedSize: 16,
       fields: [
-        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'context', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,14 +112,14 @@ device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.GetWakeLockWithoutContext_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'wake_lock', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: device.mojom.WakeLockReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'wake_lock', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -129,12 +129,12 @@ device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WakeLockProvider.NotifyOnWakeLockDeactivation_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,9 +146,9 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
       name: 'device.mojom.WakeLockProvider.GetActiveWakeLocksForTests_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,12 +156,12 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
 device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.WakeLockProvider.GetActiveWakeLocksForTests_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,9 +234,9 @@ device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
       name: 'device.mojom.WakeLockObserver.OnWakeLockDeactivated_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ viz.mojom.SurfaceIdSpec = {
       name: 'viz.mojom.SurfaceId',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'local_surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

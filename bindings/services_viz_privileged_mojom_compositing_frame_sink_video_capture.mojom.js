@@ -15,18 +15,33 @@ viz.mojom.BufferFormatPreference = {
   kPreferGpuMemoryBuffer: 1,
   kPreferSharedImageWithNativeHandle: 2,
 };
+viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum() };
+
+// Union: VideoCaptureSubTarget
+viz.mojom.VideoCaptureSubTargetSpec = { $: mojo.internal.Union(
+    'viz.mojom.VideoCaptureSubTarget', {
+      'subtree_capture_id': {
+        'ordinal': 0,
+        'type': viz.mojom.SubtreeCaptureIdSpec,
+      }},
+      'region_capture_crop_id': {
+        'ordinal': 1,
+        'type': mojo_base.mojom.TokenSpec,
+      }},
+    })
+};
 
 // Struct: VideoCaptureTarget
 viz.mojom.VideoCaptureTargetSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VideoCaptureTarget',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'sub_target', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.VideoCaptureSubTargetSpec, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'sub_target', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.VideoCaptureSubTargetSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -104,7 +119,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -116,9 +131,9 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks.ProvideFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,14 +240,14 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnFrameCaptured_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false },
-        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
-        { name: 'content_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'callbacks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'content_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'callbacks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -244,9 +259,9 @@ viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnNewCaptureVersion_Params',
       packedSize: 16,
       fields: [
-        { name: 'capture_version', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false },
+        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -259,7 +274,7 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -272,7 +287,7 @@ viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -284,9 +299,9 @@ viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoConsumer.OnLog_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -449,9 +464,9 @@ viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetFormat_Params',
       packedSize: 16,
       fields: [
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -463,9 +478,9 @@ viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinCapturePeriod_Params',
       packedSize: 16,
       fields: [
-        { name: 'min_period', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -477,9 +492,9 @@ viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetMinSizeChangePeriod_Params',
       packedSize: 16,
       fields: [
-        { name: 'min_period', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -491,11 +506,11 @@ viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetResolutionConstraints_Params',
       packedSize: 32,
       fields: [
-        { name: 'min_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'max_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'use_fixed_aspect_ratio', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'use_fixed_aspect_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -507,9 +522,9 @@ viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetAutoThrottlingEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -519,12 +534,12 @@ viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.SetAnimationFpsLockIn_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'majority_damaged_pixel_min_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'majority_damaged_pixel_min_ratio', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -536,10 +551,10 @@ viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.ChangeTarget_Params',
       packedSize: 24,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.VideoCaptureTargetSpec, nullable: true },
-        { name: 'sub_capture_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.VideoCaptureTargetSpec, nullable: true, minVersion: 0 },
+        { name: 'sub_capture_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -549,12 +564,12 @@ viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.Start_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'buffer_format_preference', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false },
+        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'buffer_format_preference', packedOffset: 4, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -567,7 +582,7 @@ viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -580,7 +595,7 @@ viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -592,10 +607,10 @@ viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCapturer.CreateOverlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'stacking_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stacking_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -686,10 +701,10 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetImageAndBounds_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -701,9 +716,9 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.SetBounds_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -715,9 +730,9 @@ viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
       name: 'viz.mojom.FrameSinkVideoCaptureOverlay.OnCapturedMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'coordinates', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

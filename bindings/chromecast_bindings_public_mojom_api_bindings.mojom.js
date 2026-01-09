@@ -16,9 +16,9 @@ chromecast.mojom.ApiBindingSpec = {
       name: 'chromecast.mojom.ApiBinding',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,12 +104,12 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
 chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromecast.mojom.ApiBindings.GetAll_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bindings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.mojom.ApiBindingSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,10 +121,10 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
       name: 'chromecast.mojom.ApiBindings.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'port_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false },
+        { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

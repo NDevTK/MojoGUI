@@ -14,3 +14,4 @@ attribution_reporting.mojom.SourceType = {
   kNavigation: 0,
   kEvent: 1,
 };
+attribution_reporting.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };

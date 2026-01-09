@@ -15,6 +15,7 @@ language_detection.mojom.LanguageDetectionModelStatus = {
   kAfterDownload: 1,
   kNotAvailable: 2,
 };
+language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: ContentLanguageDetectionDriver
 language_detection.mojom.ContentLanguageDetectionDriver = {};
@@ -89,7 +90,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,12 +98,12 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -115,7 +116,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,12 +124,12 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: language_detection.mojom.LanguageDetectionModelStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: language_detection.mojom.LanguageDetectionModelStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

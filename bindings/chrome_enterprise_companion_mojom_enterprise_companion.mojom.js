@@ -14,10 +14,13 @@ enterprise_companion.mojom.StatusSpec = {
   $: {
     structSpec: {
       name: 'enterprise_companion.mojom.Status',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -57,6 +60,24 @@ enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  shutdown() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec,
+      enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec,
+      []);
+  }
+
+  fetchPolicies(reason) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec,
+      enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec,
+      [reason]);
+  }
+
 };
 
 enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
@@ -67,6 +88,59 @@ enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
     'enterprise_companion.mojom.EnterpriseCompanion',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Shutdown
+enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_companion.mojom.EnterpriseCompanion.Shutdown_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for FetchPolicies
+enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'enterprise_companion.mojom.EnterpriseCompanion.FetchPolicies_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.PolicyFetchReasonSpec, nullable: false, minVersion: 1 },
+      ],
+      versions: [{version: 1, packedSize: 16}]
+    }
+  }
+};
+
+enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

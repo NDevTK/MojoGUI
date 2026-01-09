@@ -99,10 +99,10 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
-        { name: 'force', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,12 +110,12 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
 viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ack', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false },
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,9 +127,9 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec =
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrameNoAck_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +141,9 @@ viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalVSync_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,10 +155,10 @@ viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.SetSupportedDisplayLinkId_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'is_supported', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -249,9 +249,9 @@ viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetNeedsBeginFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -263,10 +263,10 @@ viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = 
       name: 'viz.mojom.ExternalBeginFrameControllerClient.NeedsBeginFrameWithId_Params',
       packedSize: 24,
       fields: [
-        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'needs_begin_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -278,9 +278,9 @@ viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameControllerClient.SetPreferredInterval_Params',
       packedSize: 16,
       fields: [
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

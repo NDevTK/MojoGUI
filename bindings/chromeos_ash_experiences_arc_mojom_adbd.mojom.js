@@ -44,6 +44,24 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  adbdStarted() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec,
+      null,
+      []);
+  }
+
+  adbdStopped() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.AdbdMonitorHost.getRemote = function() {
@@ -54,6 +72,32 @@ arc.mojom.AdbdMonitorHost.getRemote = function() {
     'arc.mojom.AdbdMonitorHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AdbdStarted
+arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AdbdMonitorHost.AdbdStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for AdbdStopped
+arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AdbdMonitorHost.AdbdStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +140,15 @@ arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.AdbdMonitorInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.AdbdMonitorInstance.getRemote = function() {
@@ -106,6 +159,20 @@ arc.mojom.AdbdMonitorInstance.getRemote = function() {
     'arc.mojom.AdbdMonitorInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AdbdMonitorInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

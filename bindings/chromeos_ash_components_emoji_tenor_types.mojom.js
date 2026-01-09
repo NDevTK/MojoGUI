@@ -15,6 +15,7 @@ tenor.mojom.Status = {
   kNetError: 1,
   kHttpError: 2,
 };
+tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GifUrls
 tenor.mojom.GifUrlsSpec = {
@@ -23,11 +24,11 @@ tenor.mojom.GifUrlsSpec = {
       name: 'tenor.mojom.GifUrls',
       packedSize: 32,
       fields: [
-        { name: 'full', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'preview', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'preview_image', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'full', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'preview', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'preview_image', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -39,13 +40,13 @@ tenor.mojom.GifResponseSpec = {
       name: 'tenor.mojom.GifResponse',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'content_description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: tenor.mojom.GifUrlsSpec, nullable: false },
-        { name: 'preview_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'full_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: tenor.mojom.GifUrlsSpec, nullable: false, minVersion: 0 },
+        { name: 'preview_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'full_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -57,10 +58,10 @@ tenor.mojom.PaginatedGifResponsesSpec = {
       name: 'tenor.mojom.PaginatedGifResponses',
       packedSize: 24,
       fields: [
-        { name: 'next', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(tenor.mojom.GifResponseSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

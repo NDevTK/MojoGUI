@@ -81,9 +81,9 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
       name: 'gl.mojom.TraitsTestService.EchoGpuPreference_Params',
       packedSize: 16,
       fields: [
-        { name: 'g', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false },
+        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
 gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGpuPreference_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
       name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_Params',
       packedSize: 16,
       fields: [
-        { name: 'impl', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false },
+        { name: 'impl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
 gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

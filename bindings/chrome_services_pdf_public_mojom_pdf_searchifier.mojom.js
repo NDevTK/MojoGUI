@@ -72,9 +72,9 @@ pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
       name: 'pdf.mojom.PdfSearchifier.Searchify_Params',
       packedSize: 16,
       fields: [
-        { name: 'pdf', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
 pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'pdf.mojom.PdfSearchifier.Searchify_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'searchified_pdf', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

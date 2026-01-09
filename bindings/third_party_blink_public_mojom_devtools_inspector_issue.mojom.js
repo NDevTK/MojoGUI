@@ -28,12 +28,14 @@ blink.mojom.InspectorIssueCode = {
   kPartitioningBlobURLIssue: 14,
   kUserReidentificationIssue: 15,
 };
+blink.mojom.InspectorIssueCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HeavyAdResolutionStatus
 blink.mojom.HeavyAdResolutionStatus = {
   kHeavyAdBlocked: 0,
   kHeavyAdWarning: 1,
 };
+blink.mojom.HeavyAdResolutionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: HeavyAdReason
 blink.mojom.HeavyAdReason = {
@@ -41,6 +43,7 @@ blink.mojom.HeavyAdReason = {
   kCpuTotalLimit: 1,
   kCpuPeakLimit: 2,
 };
+blink.mojom.HeavyAdReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttributionReportingIssueType
 blink.mojom.AttributionReportingIssueType = {
@@ -66,6 +69,7 @@ blink.mojom.AttributionReportingIssueType = {
   kNoRegisterOsTriggerHeader: 19,
   kNavigationRegistrationUniqueScopeAlreadySet: 20,
 };
+blink.mojom.AttributionReportingIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MixedContentResolutionStatus
 blink.mojom.MixedContentResolutionStatus = {
@@ -73,6 +77,7 @@ blink.mojom.MixedContentResolutionStatus = {
   kMixedContentAutomaticallyUpgraded: 1,
   kMixedContentWarning: 2,
 };
+blink.mojom.MixedContentResolutionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentSecurityPolicyViolationType
 blink.mojom.ContentSecurityPolicyViolationType = {
@@ -84,12 +89,14 @@ blink.mojom.ContentSecurityPolicyViolationType = {
   kTrustedTypesPolicyViolation: 5,
   kWasmEvalViolation: 6,
 };
+blink.mojom.ContentSecurityPolicyViolationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieOperation
 blink.mojom.CookieOperation = {
   kSetCookie: 0,
   kReadCookie: 1,
 };
+blink.mojom.CookieOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieExclusionReason
 blink.mojom.CookieExclusionReason = {
@@ -102,6 +109,7 @@ blink.mojom.CookieExclusionReason = {
   kExcludePortMismatch: 6,
   kExcludeSchemeMismatch: 7,
 };
+blink.mojom.CookieExclusionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CookieWarningReason
 blink.mojom.CookieWarningReason = {
@@ -118,12 +126,14 @@ blink.mojom.CookieWarningReason = {
   kWarnThirdPartyPhaseout: 10,
   kWarnCrossSiteRedirectDowngradeChangesInclusion: 11,
 };
+blink.mojom.CookieWarningReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SharedArrayBufferIssueType
 blink.mojom.SharedArrayBufferIssueType = {
   kTransferIssue: 0,
   kCreationIssue: 1,
 };
+blink.mojom.SharedArrayBufferIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FederatedAuthRequestResult
 blink.mojom.FederatedAuthRequestResult = {
@@ -174,6 +184,7 @@ blink.mojom.FederatedAuthRequestResult = {
   kCorsError: 44,
   kSuppressedBySegmentationPlatform: 45,
 };
+blink.mojom.FederatedAuthRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FederatedAuthUserInfoRequestResult
 blink.mojom.FederatedAuthUserInfoRequestResult = {
@@ -189,12 +200,14 @@ blink.mojom.FederatedAuthUserInfoRequestResult = {
   kNoReturningUserFromFetchedAccounts: 9,
   kUnhandledRequest: 10,
 };
+blink.mojom.FederatedAuthUserInfoRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PartitioningBlobURLInfo
 blink.mojom.PartitioningBlobURLInfo = {
   kBlockedCrossPartitionFetching: 0,
   kEnforceNoopenerForNavigation: 1,
 };
+blink.mojom.PartitioningBlobURLInfoSpec = { $: mojo.internal.Enum() };
 
 // Enum: GenericIssueErrorType
 blink.mojom.GenericIssueErrorType = {
@@ -214,12 +227,14 @@ blink.mojom.GenericIssueErrorType = {
   kAutofillPolicyControlledFeatureInfo: 13,
   kManualTextPolicyControlledFeatureInfo: 14,
 };
+blink.mojom.GenericIssueErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeprecationIssueType
 blink.mojom.DeprecationIssueType = {
   kExampleBrowserProcessDeprecation: 0,
   kRelatedWebsiteSets: 1,
 };
+blink.mojom.DeprecationIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserReidentificationIssueType
 blink.mojom.UserReidentificationIssueType = {
@@ -227,6 +242,7 @@ blink.mojom.UserReidentificationIssueType = {
   kBlockedSubresource: 1,
   kNoisedCanvasReadback: 2,
 };
+blink.mojom.UserReidentificationIssueTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AffectedCookie
 blink.mojom.AffectedCookieSpec = {
@@ -235,11 +251,11 @@ blink.mojom.AffectedCookieSpec = {
       name: 'blink.mojom.AffectedCookie',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'domain', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -251,10 +267,10 @@ blink.mojom.AffectedRequestSpec = {
       name: 'blink.mojom.AffectedRequest',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -266,9 +282,9 @@ blink.mojom.AffectedFrameSpec = {
       name: 'blink.mojom.AffectedFrame',
       packedSize: 16,
       fields: [
-        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,12 +296,12 @@ blink.mojom.AffectedLocationSpec = {
       name: 'blink.mojom.AffectedLocation',
       packedSize: 32,
       fields: [
-        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'column', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'column', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -297,12 +313,12 @@ blink.mojom.BlockedByResponseIssueDetailsSpec = {
       name: 'blink.mojom.BlockedByResponseIssueDetails',
       packedSize: 40,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: false },
-        { name: 'parentFrame', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
-        { name: 'blockedFrame', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
-        { name: 'reason', packedOffset: 32, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'parentFrame', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'blockedFrame', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'reason', packedOffset: 24, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -312,13 +328,13 @@ blink.mojom.HeavyAdIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HeavyAdIssueDetails',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.HeavyAdResolutionStatusSpec, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.HeavyAdReasonSpec, nullable: false },
-        { name: 'frame', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: false },
+        { name: 'resolution', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HeavyAdResolutionStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.HeavyAdReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -330,11 +346,11 @@ blink.mojom.AttributionReportingIssueDetailsSpec = {
       name: 'blink.mojom.AttributionReportingIssueDetails',
       packedSize: 32,
       fields: [
-        { name: 'violation_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionReportingIssueTypeSpec, nullable: false },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true },
-        { name: 'invalid_parameter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'violation_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionReportingIssueTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true, minVersion: 0 },
+        { name: 'invalid_parameter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -344,16 +360,16 @@ blink.mojom.MixedContentIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MixedContentIssueDetails',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'request_context', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestContextTypeSpec, nullable: false },
-        { name: 'resolution_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MixedContentResolutionStatusSpec, nullable: false },
-        { name: 'insecure_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'main_resource_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true },
-        { name: 'frame', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
+        { name: 'request_context', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestContextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'resolution_status', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.MixedContentResolutionStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'insecure_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'main_resource_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true, minVersion: 0 },
+        { name: 'frame', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -363,17 +379,17 @@ blink.mojom.ContentSecurityPolicyIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentSecurityPolicyIssueDetails',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'blocked_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'violated_directive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_report_only', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'content_security_policy_violation_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyViolationTypeSpec, nullable: false },
-        { name: 'frame_ancestor', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true },
-        { name: 'affected_location', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
-        { name: 'violating_node_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'violated_directive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'content_security_policy_violation_type', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyViolationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_ancestor', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'affected_location', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true, minVersion: 0 },
+        { name: 'violating_node_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -385,15 +401,15 @@ blink.mojom.CookieIssueDetailsSpec = {
       name: 'blink.mojom.CookieIssueDetails',
       packedSize: 64,
       fields: [
-        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedCookieSpec, nullable: false },
-        { name: 'exclusion_reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'warning_reason', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'operation', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false },
-        { name: 'site_for_cookies', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'cookie_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'request', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true },
+        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AffectedCookieSpec, nullable: false, minVersion: 0 },
+        { name: 'exclusion_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieExclusionReasonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'warning_reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieWarningReasonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'operation', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'site_for_cookies', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'cookie_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'request', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -403,13 +419,13 @@ blink.mojom.SharedArrayBufferIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedArrayBufferIssueDetails',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'affected_location', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
-        { name: 'is_warning', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueTypeSpec, nullable: false },
+        { name: 'affected_location', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true, minVersion: 0 },
+        { name: 'is_warning', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -419,17 +435,17 @@ blink.mojom.LowTextContrastIssueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LowTextContrastIssue',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'violating_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'violating_node_selector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'contrast_ratio', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'threshold_aa', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'threshold_aaa', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'font_size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'font_weight', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'violating_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'violating_node_selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'contrast_ratio', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'threshold_aa', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'threshold_aaa', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'font_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'font_weight', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -441,9 +457,9 @@ blink.mojom.FederatedAuthRequestIssueDetailsSpec = {
       name: 'blink.mojom.FederatedAuthRequestIssueDetails',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FederatedAuthRequestResultSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FederatedAuthRequestResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,9 +471,9 @@ blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = {
       name: 'blink.mojom.FederatedAuthUserInfoRequestIssueDetails',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FederatedAuthUserInfoRequestResultSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FederatedAuthUserInfoRequestResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -469,9 +485,9 @@ blink.mojom.BounceTrackingIssueDetailsSpec = {
       name: 'blink.mojom.BounceTrackingIssueDetails',
       packedSize: 16,
       fields: [
-        { name: 'tracking_sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tracking_sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -483,10 +499,10 @@ blink.mojom.PartitioningBlobURLIssueDetailsSpec = {
       name: 'blink.mojom.PartitioningBlobURLIssueDetails',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'partitioning_blob_url_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PartitioningBlobURLInfoSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'partitioning_blob_url_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PartitioningBlobURLInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -496,14 +512,14 @@ blink.mojom.CookieDeprecationMetadataIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieDeprecationMetadataIssueDetails',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'allowed_sites', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'opt_out_percentage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_opt_out_top_level', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'operation', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false },
+        { name: 'allowed_sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'opt_out_percentage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'is_opt_out_top_level', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'operation', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CookieOperationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -513,14 +529,14 @@ blink.mojom.GenericIssueDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GenericIssueDetails',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'error_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GenericIssueErrorTypeSpec, nullable: false },
-        { name: 'frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'violating_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'violating_node_attribute', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GenericIssueErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'violating_node_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'violating_node_attribute', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -532,10 +548,10 @@ blink.mojom.DeprecationIssueDetailsSpec = {
       name: 'blink.mojom.DeprecationIssueDetails',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DeprecationIssueTypeSpec, nullable: false },
-        { name: 'affected_location', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeprecationIssueTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'affected_location', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -547,11 +563,11 @@ blink.mojom.UserReidentificationIssueDetailsSpec = {
       name: 'blink.mojom.UserReidentificationIssueDetails',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserReidentificationIssueTypeSpec, nullable: false },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true },
-        { name: 'sourceCodeLocation', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UserReidentificationIssueTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AffectedRequestSpec, nullable: true, minVersion: 0 },
+        { name: 'sourceCodeLocation', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AffectedLocationSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -563,25 +579,25 @@ blink.mojom.InspectorIssueDetailsSpec = {
       name: 'blink.mojom.InspectorIssueDetails',
       packedSize: 144,
       fields: [
-        { name: 'cookie_issue_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CookieIssueDetailsSpec, nullable: true },
-        { name: 'mixed_content_issue_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MixedContentIssueDetailsSpec, nullable: true },
-        { name: 'blocked_by_response_issue_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.BlockedByResponseIssueDetailsSpec, nullable: true },
-        { name: 'csp_issue_details', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyIssueDetailsSpec, nullable: true },
-        { name: 'sab_issue_details', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueDetailsSpec, nullable: true },
-        { name: 'heavy_ad_issue_details', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.HeavyAdIssueDetailsSpec, nullable: true },
-        { name: 'attribution_reporting_issue_details', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.AttributionReportingIssueDetailsSpec, nullable: true },
-        { name: 'low_text_contrast_details', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.LowTextContrastIssueSpec, nullable: true },
-        { name: 'federated_auth_request_details', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.FederatedAuthRequestIssueDetailsSpec, nullable: true },
-        { name: 'bounce_tracking_issue_details', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.BounceTrackingIssueDetailsSpec, nullable: true },
-        { name: 'partitioning_blob_url_issue_details', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.PartitioningBlobURLIssueDetailsSpec, nullable: true },
-        { name: 'cookie_deprecation_metadata_issue_details', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.CookieDeprecationMetadataIssueDetailsSpec, nullable: true },
-        { name: 'generic_issue_details', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.GenericIssueDetailsSpec, nullable: true },
-        { name: 'deprecation_issue_details', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.DeprecationIssueDetailsSpec, nullable: true },
-        { name: 'federated_auth_user_info_request_details', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec, nullable: true },
-        { name: 'user_reidentification_issue_details', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.UserReidentificationIssueDetailsSpec, nullable: true },
-        { name: 'issue_id', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'cookie_issue_details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CookieIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'mixed_content_issue_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MixedContentIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'blocked_by_response_issue_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.BlockedByResponseIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'csp_issue_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ContentSecurityPolicyIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'sab_issue_details', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedArrayBufferIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'heavy_ad_issue_details', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.HeavyAdIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'attribution_reporting_issue_details', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AttributionReportingIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'low_text_contrast_details', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.LowTextContrastIssueSpec, nullable: true, minVersion: 0 },
+        { name: 'federated_auth_request_details', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.FederatedAuthRequestIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'bounce_tracking_issue_details', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.BounceTrackingIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'partitioning_blob_url_issue_details', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.PartitioningBlobURLIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'cookie_deprecation_metadata_issue_details', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.CookieDeprecationMetadataIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'generic_issue_details', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.GenericIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'deprecation_issue_details', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.DeprecationIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'federated_auth_user_info_request_details', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'user_reidentification_issue_details', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.UserReidentificationIssueDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'issue_id', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 144}]
     }
   }
 };
@@ -593,10 +609,10 @@ blink.mojom.InspectorIssueInfoSpec = {
       name: 'blink.mojom.InspectorIssueInfo',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InspectorIssueCodeSpec, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.InspectorIssueDetailsSpec, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InspectorIssueCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InspectorIssueDetailsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

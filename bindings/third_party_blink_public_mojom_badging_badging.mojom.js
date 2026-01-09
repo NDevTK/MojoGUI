@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Union: BadgeValue
+blink.mojom.BadgeValueSpec = { $: mojo.internal.Union(
+    'blink.mojom.BadgeValue', {
+      'flag': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint8,
+      }},
+      'number': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint64,
+      }},
+    })
+};
+
 // Interface: BadgeService
 blink.mojom.BadgeService = {};
 
@@ -79,11 +93,11 @@ blink.mojom.BadgeService_SetBadge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BadgeService.SetBadge_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BadgeValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,7 +110,7 @@ blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

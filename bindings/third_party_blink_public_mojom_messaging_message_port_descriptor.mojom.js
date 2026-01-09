@@ -16,11 +16,11 @@ blink.mojom.MessagePortDescriptorSpec = {
       name: 'blink.mojom.MessagePortDescriptor',
       packedSize: 32,
       fields: [
-        { name: 'pipe_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'pipe_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'sequence_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

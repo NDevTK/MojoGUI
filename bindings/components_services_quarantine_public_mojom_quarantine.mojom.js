@@ -19,6 +19,7 @@ quarantine.mojom.QuarantineFileResult = {
   SECURITY_CHECK_FAILED: 5,
   VIRUS_INFECTED: 6,
 };
+quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: Quarantine
 quarantine.mojom.Quarantine = {};
@@ -83,13 +84,13 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
       name: 'quarantine.mojom.Quarantine.QuarantineFile_Params',
       packedSize: 48,
       fields: [
-        { name: 'full_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'referrer_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'request_initiator', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'client_guid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'full_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'referrer_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
+        { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -97,12 +98,12 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
 quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'quarantine.mojom.Quarantine.QuarantineFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: quarantine.mojom.QuarantineFileResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: quarantine.mojom.QuarantineFileResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

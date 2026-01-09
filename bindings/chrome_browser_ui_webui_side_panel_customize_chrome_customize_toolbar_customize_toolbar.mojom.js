@@ -39,6 +39,7 @@ side_panel.customize_chrome.mojom.ActionId = {
   kSplitTab: 24,
   kContextualTasks: 25,
 };
+side_panel.customize_chrome.mojom.ActionIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: CategoryId
 side_panel.customize_chrome.mojom.CategoryId = {
@@ -46,22 +47,23 @@ side_panel.customize_chrome.mojom.CategoryId = {
   kYourChrome: 1,
   kTools: 2,
 };
+side_panel.customize_chrome.mojom.CategoryIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: Action
 side_panel.customize_chrome.mojom.ActionSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Action',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pinned', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'category', packedOffset: 32, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
-        { name: 'icon_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pinned', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_enterprise_controlled_pinned_state', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'category', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false, minVersion: 0 },
+        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -73,10 +75,10 @@ side_panel.customize_chrome.mojom.CategorySpec = {
       name: 'side_panel.customize_chrome.mojom.Category',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.CategoryIdSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -144,10 +146,10 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomize
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.CreateCustomizeToolbarHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,7 +259,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,12 +267,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.ActionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +285,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -291,12 +293,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsS
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.CategorySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -306,12 +308,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec =
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.PinAction_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'pinned', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -324,7 +326,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -332,12 +334,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Params
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'customized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -350,7 +352,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -430,12 +432,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsS
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarClient.SetActionPinned_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false },
-        { name: 'pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.ActionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'pinned', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -448,7 +450,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

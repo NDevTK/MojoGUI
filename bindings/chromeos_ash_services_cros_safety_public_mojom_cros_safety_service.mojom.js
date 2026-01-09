@@ -14,11 +14,13 @@ ash.cros_safety.mojom = ash.cros_safety.mojom || {};
 ash.cros_safety.mojom.GetCloudSafetySessionResult = {
   kOk: 0,
 };
+ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetOnDeviceSafetySessionResult
 ash.cros_safety.mojom.GetOnDeviceSafetySessionResult = {
   kOk: 0,
 };
+ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: CrosSafetyService
 ash.cros_safety.mojom.CrosSafetyService = {};
@@ -55,6 +57,24 @@ ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  createOnDeviceSafetySession(session) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec,
+      ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec,
+      [session]);
+  }
+
+  createCloudSafetySession(session) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec,
+      ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec,
+      [session]);
+  }
+
 };
 
 ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
@@ -65,6 +85,60 @@ ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
     'ash.cros_safety.mojom.CrosSafetyService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for CreateOnDeviceSafetySession
+ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CrosSafetyService.CreateOnDeviceSafetySession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for CreateCloudSafetySession
+ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CrosSafetyService.CreateCloudSafetySession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.GetCloudSafetySessionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

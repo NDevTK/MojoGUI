@@ -16,11 +16,11 @@ arc.mojom.ApplicationsSizeSpec = {
       name: 'arc.mojom.ApplicationsSize',
       packedSize: 32,
       fields: [
-        { name: 'total_code_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'total_data_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'total_cache_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'total_code_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'total_data_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'total_cache_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,9 +32,9 @@ arc.mojom.DiskSpaceSpec = {
       name: 'arc.mojom.DiskSpace',
       packedSize: 16,
       fields: [
-        { name: 'space_in_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'space_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -46,11 +46,11 @@ arc.mojom.QuotaSpacesSpec = {
       name: 'arc.mojom.QuotaSpaces',
       packedSize: 32,
       fields: [
-        { name: 'curspaces_for_uids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'curspaces_for_gids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'curspaces_for_project_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'curspaces_for_uids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'curspaces_for_gids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'curspaces_for_project_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -90,6 +90,60 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  isQuotaSupported() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
+      arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
+      []);
+  }
+
+  getQuotaCurrentSpaceForUid(uid) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
+      [uid]);
+  }
+
+  getQuotaCurrentSpaceForGid(gid) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
+      [gid]);
+  }
+
+  getQuotaCurrentSpaceForProjectId(project_id) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
+      [project_id]);
+  }
+
+  getQuotaCurrentSpacesForIds(uids, gids, project_ids) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
+      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
+      [uids, gids, project_ids]);
+  }
+
+  getFreeDiskSpace() {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
+      arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.DiskSpaceHost.getRemote = function() {
@@ -100,6 +154,168 @@ arc.mojom.DiskSpaceHost.getRemote = function() {
     'arc.mojom.DiskSpaceHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for IsQuotaSupported
+arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.IsQuotaSupported_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetQuotaCurrentSpaceForUid
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForUid_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetQuotaCurrentSpaceForGid
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForGid_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'gid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetQuotaCurrentSpaceForProjectId
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForProjectId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'project_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetQuotaCurrentSpacesForIds
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpacesForIds_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'uids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'gids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'project_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'quota_spaces', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.QuotaSpacesSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetFreeDiskSpace
+arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceHost.GetFreeDiskSpace_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'free_space', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DiskSpaceSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -142,6 +358,33 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.DiskSpaceInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
+  getApplicationsSize() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
+      arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
+      []);
+  }
+
+  resizeStorageBalloon(free_space_bytes) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
+      null,
+      [free_space_bytes]);
+  }
+
 };
 
 arc.mojom.DiskSpaceInstance.getRemote = function() {
@@ -152,6 +395,61 @@ arc.mojom.DiskSpaceInstance.getRemote = function() {
     'arc.mojom.DiskSpaceInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.DiskSpaceInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetApplicationsSize
+arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceInstance.GetApplicationsSize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'applications_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ApplicationsSizeSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for ResizeStorageBalloon
+arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpaceInstance.ResizeStorageBalloon_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'free_space_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

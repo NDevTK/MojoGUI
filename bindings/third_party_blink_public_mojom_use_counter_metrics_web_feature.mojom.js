@@ -4962,3 +4962,4 @@ blink.mojom.WebFeature = {
   kSetCookieWithEmptyNameAndAmbiguousValue: 4948,
   kStorageAccessAPI_requestStorageAccessFor_Method_AsyncSuccess: 4949,
 };
+blink.mojom.WebFeatureSpec = { $: mojo.internal.Enum() };

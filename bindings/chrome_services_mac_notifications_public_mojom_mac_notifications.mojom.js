@@ -15,6 +15,7 @@ mac_notifications.mojom.NotificationOperation = {
   kClose: 1,
   kSettings: 2,
 };
+mac_notifications.mojom.NotificationOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestPermissionResult
 mac_notifications.mojom.RequestPermissionResult = {
@@ -24,6 +25,7 @@ mac_notifications.mojom.RequestPermissionResult = {
   kPermissionPreviouslyDenied: 3,
   kPermissionPreviouslyGranted: 4,
 };
+mac_notifications.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PermissionStatus
 mac_notifications.mojom.PermissionStatus = {
@@ -32,6 +34,7 @@ mac_notifications.mojom.PermissionStatus = {
   kDenied: 2,
   kGranted: 3,
 };
+mac_notifications.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileIdentifier
 mac_notifications.mojom.ProfileIdentifierSpec = {
@@ -40,10 +43,10 @@ mac_notifications.mojom.ProfileIdentifierSpec = {
       name: 'mac_notifications.mojom.ProfileIdentifier',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'incognito', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'incognito', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -55,10 +58,10 @@ mac_notifications.mojom.NotificationIdentifierSpec = {
       name: 'mac_notifications.mojom.NotificationIdentifier',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -70,12 +73,12 @@ mac_notifications.mojom.NotificationMetadataSpec = {
       name: 'mac_notifications.mojom.NotificationMetadata',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'origin_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'user_data_dir', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'origin_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'user_data_dir', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -85,14 +88,14 @@ mac_notifications.mojom.NotificationActionInfoSpec = {
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.NotificationActionInfo',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'meta', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false },
-        { name: 'operation', packedOffset: 16, packedBitOffset: 0, type: mac_notifications.mojom.NotificationOperationSpec, nullable: false },
-        { name: 'button_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'reply', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'button_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -104,10 +107,10 @@ mac_notifications.mojom.NotificationActionButtonSpec = {
       name: 'mac_notifications.mojom.NotificationActionButton',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'placeholder', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'placeholder', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -119,16 +122,16 @@ mac_notifications.mojom.NotificationSpec = {
       name: 'mac_notifications.mojom.Notification',
       packedSize: 64,
       fields: [
-        { name: 'meta', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'subtitle', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'body', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'renotify', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_settings_button', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'buttons', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'icon', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'meta', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'renotify', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'show_settings_button', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buttons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mac_notifications.mojom.NotificationActionButtonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -241,9 +244,9 @@ mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = 
       name: 'mac_notifications.mojom.MacNotificationService.DisplayNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationSpec, nullable: false },
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -255,10 +258,10 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_Params',
       packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: true },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: true, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -266,12 +269,12 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
 mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'notifications', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mac_notifications.mojom.NotificationIdentifierSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,9 +286,9 @@ mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationIdentifierSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,9 +300,9 @@ mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Para
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotificationsForProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.ProfileIdentifierSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -312,7 +315,7 @@ mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -325,7 +328,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -333,12 +336,12 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec
 mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mac_notifications.mojom.MacNotificationService.OkayToTerminateService_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_terminate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_terminate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -411,9 +414,9 @@ mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params
       name: 'mac_notifications.mojom.MacNotificationActionHandler.OnNotificationAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mac_notifications.mojom.NotificationActionInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.NotificationActionInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -486,10 +489,10 @@ mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSp
       name: 'mac_notifications.mojom.MacNotificationProvider.BindNotificationService_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

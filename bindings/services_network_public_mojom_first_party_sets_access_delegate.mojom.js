@@ -16,9 +16,9 @@ network.mojom.FirstPartySetsAccessDelegateParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegateParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -30,10 +30,10 @@ network.mojom.FirstPartySetsReadyEventSpec = {
       name: 'network.mojom.FirstPartySetsReadyEvent',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false },
-        { name: 'cache_filter', packedOffset: 16, packedBitOffset: 0, type: network.mojom.FirstPartySetsCacheFilterSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'cache_filter', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetsCacheFilterSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,9 +110,9 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegate.NotifyReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'ready_event', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetsReadyEventSpec, nullable: false },
+        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsReadyEventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,9 +124,9 @@ network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegate.SetEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -81,9 +81,9 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateTcpSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false },
+        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,13 +91,13 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
 network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.SocketBroker.CreateTcpSocket_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'created_socket', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false },
-        { name: 'rv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },
+        { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,9 +109,9 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateUdpSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false },
+        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,13 +119,13 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
 network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.SocketBroker.CreateUdpSocket_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'created_socket', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false },
-        { name: 'rv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },
+        { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

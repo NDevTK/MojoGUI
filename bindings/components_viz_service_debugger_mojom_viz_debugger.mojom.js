@@ -70,11 +70,11 @@ viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizDebugOutput.LogFrame_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'frameData', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'frameData', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

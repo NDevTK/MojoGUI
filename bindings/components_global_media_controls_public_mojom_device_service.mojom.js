@@ -19,16 +19,21 @@ global_media_controls.mojom.IconType = {
   kSpeakerGroup: 5,
   kInput: 6,
 };
+global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Device
 global_media_controls.mojom.DeviceSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.Device',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: global_media_controls.mojom.IconTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -68,6 +73,15 @@ global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  selectDevice(device_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec,
+      null,
+      [device_id]);
+  }
+
 };
 
 global_media_controls.mojom.DeviceListHost.getRemote = function() {
@@ -78,6 +92,20 @@ global_media_controls.mojom.DeviceListHost.getRemote = function() {
     'global_media_controls.mojom.DeviceListHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SelectDevice
+global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceListHost.SelectDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -120,6 +148,24 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onDevicesUpdated(devices) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec,
+      null,
+      [devices]);
+  }
+
+  onPermissionRejected() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 global_media_controls.mojom.DeviceListClient.getRemote = function() {
@@ -130,6 +176,33 @@ global_media_controls.mojom.DeviceListClient.getRemote = function() {
     'global_media_controls.mojom.DeviceListClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnDevicesUpdated
+global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceListClient.OnDevicesUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(global_media_controls.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnPermissionRejected
+global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceListClient.OnPermissionRejected_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -172,6 +245,33 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getDeviceListHostForSession(session_id, host_receiver, client_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec,
+      null,
+      [session_id, host_receiver, client_remote]);
+  }
+
+  getDeviceListHostForPresentation(host_receiver, client_remote) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec,
+      null,
+      [host_receiver, client_remote]);
+  }
+
+  setDevicePickerProvider(provider_remote) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec,
+      null,
+      [provider_remote]);
+  }
+
 };
 
 global_media_controls.mojom.DeviceService.getRemote = function() {
@@ -182,6 +282,51 @@ global_media_controls.mojom.DeviceService.getRemote = function() {
     'global_media_controls.mojom.DeviceService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetDeviceListHostForSession
+global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GetDeviceListHostForPresentation
+global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForPresentation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetDevicePickerProvider
+global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DeviceService.SetDevicePickerProvider_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'provider_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -224,6 +369,87 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  createItem(source_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec,
+      null,
+      [source_id]);
+  }
+
+  deleteItem() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec,
+      null,
+      []);
+  }
+
+  showItem() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec,
+      null,
+      []);
+  }
+
+  hideItem() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec,
+      null,
+      []);
+  }
+
+  onMetadataChanged(metadata) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec,
+      null,
+      [metadata]);
+  }
+
+  onArtworkImageChanged(artwork_image) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec,
+      null,
+      [artwork_image]);
+  }
+
+  onFaviconImageChanged(favicon_image) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec,
+      null,
+      [favicon_image]);
+  }
+
+  addObserver(observer) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec,
+      null,
+      [observer]);
+  }
+
+  hideMediaUI() {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
@@ -234,6 +460,128 @@ global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
     'global_media_controls.mojom.DevicePickerProvider',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for CreateItem
+global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.CreateItem_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DeleteItem
+global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.DeleteItem_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for ShowItem
+global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.ShowItem_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for HideItem
+global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.HideItem_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for OnMetadataChanged
+global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.OnMetadataChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaMetadataSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnArtworkImageChanged
+global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.OnArtworkImageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'artwork_image', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnFaviconImageChanged
+global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.OnFaviconImageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon_image', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddObserver
+global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for HideMediaUI
+global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerProvider.HideMediaUI_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -276,6 +624,42 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onMediaUIOpened() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec,
+      null,
+      []);
+  }
+
+  onMediaUIClosed() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec,
+      null,
+      []);
+  }
+
+  onMediaUIUpdated() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec,
+      null,
+      []);
+  }
+
+  onPickerDismissed() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
@@ -286,6 +670,58 @@ global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
     'global_media_controls.mojom.DevicePickerObserver',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnMediaUIOpened
+global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIOpened_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for OnMediaUIClosed
+global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for OnMediaUIUpdated
+global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIUpdated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for OnPickerDismissed
+global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.DevicePickerObserver.OnPickerDismissed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

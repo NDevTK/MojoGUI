@@ -16,11 +16,11 @@ blink.mojom.TextAutosizerPageInfoSpec = {
       name: 'blink.mojom.TextAutosizerPageInfo',
       packedSize: 24,
       fields: [
-        { name: 'main_frame_width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'main_frame_layout_width', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'device_scale_adjustment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'main_frame_width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'main_frame_layout_width', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_scale_adjustment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

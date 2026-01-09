@@ -73,7 +73,7 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
 wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'boarding_passes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'boarding_passes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

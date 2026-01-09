@@ -39,3 +39,4 @@ network.mojom.WebClientHintsType = {
   kUAFormFactors: 25,
   kPrefersReducedTransparency: 26,
 };
+network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };

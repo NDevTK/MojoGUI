@@ -16,10 +16,10 @@ media.mojom.FrameTextureInfoSpec = {
       name: 'media.mojom.FrameTextureInfo',
       packedSize: 24,
       fields: [
-        { name: 'texture_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'texture_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ media.mojom.FramePoolInitializationParametersSpec = {
       name: 'media.mojom.FramePoolInitializationParameters',
       packedSize: 24,
       fields: [
-        { name: 'frame_textures', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'texture_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'frame_textures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.FrameTextureInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'texture_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -102,9 +102,9 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
       name: 'media.mojom.FlingingRendererClientExtension.OnRemotePlayStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaStatusStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStatusStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +196,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -204,13 +204,13 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
 media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -222,9 +222,9 @@ media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = 
       name: 'media.mojom.MediaFoundationRendererExtension.SetVideoStreamEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -236,9 +236,9 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,12 +246,12 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
 media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -376,9 +376,9 @@ media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Param
       name: 'media.mojom.MediaFoundationRendererNotifier.MediaFoundationRendererCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

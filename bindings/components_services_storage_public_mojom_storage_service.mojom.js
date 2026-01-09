@@ -9,6 +9,10 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
 
+storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kUtility;
+
+storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
+
 // Interface: StorageService
 storage.mojom.StorageService = {};
 
@@ -109,7 +113,7 @@ storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -121,10 +125,10 @@ storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
       name: 'storage.mojom.StorageService.SetDataDirectory_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -136,10 +140,10 @@ storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
       name: 'storage.mojom.StorageService.BindSessionStorageControl_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,10 +155,10 @@ storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
       name: 'storage.mojom.StorageService.BindLocalStorageControl_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -166,9 +170,9 @@ storage.mojom.StorageService_BindTestApi_ParamsSpec = {
       name: 'storage.mojom.StorageService.BindTestApi_Params',
       packedSize: 16,
       fields: [
-        { name: 'test_api_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'test_api_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

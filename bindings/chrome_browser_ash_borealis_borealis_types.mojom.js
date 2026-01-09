@@ -26,3 +26,4 @@ borealis.mojom.InstallResult = {
   kStartupFailed: 12,
   kMainAppNotPresent: 13,
 };
+borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum() };

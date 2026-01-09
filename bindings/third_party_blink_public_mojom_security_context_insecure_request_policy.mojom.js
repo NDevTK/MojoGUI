@@ -16,3 +16,4 @@ blink.mojom.InsecureRequestPolicy = {
   kBlockAllMixedContent: 2,
   kMaxInsecureRequestPolicy: 3,
 };
+blink.mojom.InsecureRequestPolicySpec = { $: mojo.internal.Enum() };

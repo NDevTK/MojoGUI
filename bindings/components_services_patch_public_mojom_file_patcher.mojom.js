@@ -23,6 +23,7 @@ patch.mojom.ZucchiniStatus = {
   kStatusIoError: 9,
   kStatusFatal: 10,
 };
+patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: FilePatcher
 patch.mojom.FilePatcher = {};
@@ -96,11 +97,11 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_Params',
       packedSize: 32,
       fields: [
-        { name: 'input_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'patch_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -108,12 +109,12 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
 patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,11 +126,11 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
       name: 'patch.mojom.FilePatcher.PatchFileZucchini_Params',
       packedSize: 32,
       fields: [
-        { name: 'input_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'patch_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -137,12 +138,12 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
 patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFileZucchini_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: patch.mojom.ZucchiniStatusSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: patch.mojom.ZucchiniStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

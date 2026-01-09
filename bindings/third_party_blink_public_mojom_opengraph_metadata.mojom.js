@@ -16,9 +16,9 @@ blink.mojom.OpenGraphMetadataSpec = {
       name: 'blink.mojom.OpenGraphMetadata',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

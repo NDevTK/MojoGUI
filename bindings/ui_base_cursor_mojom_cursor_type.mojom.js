@@ -67,3 +67,4 @@ ui.mojom.CursorType = {
   kNorthEastSouthWestNoResize: 53,
   kNorthWestSouthEastNoResize: 54,
 };
+ui.mojom.CursorTypeSpec = { $: mojo.internal.Enum() };

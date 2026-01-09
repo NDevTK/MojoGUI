@@ -14,23 +14,23 @@ theme_color_picker.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'theme_color_picker.mojom.Theme',
-      packedSize: 96,
+      packedSize: 64,
       fields: [
-        { name: 'has_background_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_third_party_theme', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'background_image_main_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'is_dark_mode', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'seed_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'seed_color_hue', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'background_color', packedOffset: 48, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'foreground_color', packedOffset: 56, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'color_picker_icon_color', packedOffset: 64, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'colors_managed_by_policy', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_grey_baseline', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'browser_color_variant', packedOffset: 80, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
-        { name: 'follow_device_theme', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_background_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_third_party_theme', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_image_main_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
+        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'seed_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'seed_color_hue', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'background_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'foreground_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
+        { name: 'color_picker_icon_color', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'colors_managed_by_policy', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_grey_baseline', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'browser_color_variant', packedOffset: 48, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
+        { name: 'follow_device_theme', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -42,14 +42,14 @@ theme_color_picker.mojom.ChromeColorSpec = {
       name: 'theme_color_picker.mojom.ChromeColor',
       packedSize: 56,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'background', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'foreground', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'base', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'variant', packedOffset: 48, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'background', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'foreground', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'base', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'variant', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -117,10 +117,10 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHa
       name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory.CreateThemeColorPickerHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -247,9 +247,9 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_dark_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,12 +257,12 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
 theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'colors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(theme_color_picker.mojom.ChromeColorSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -275,7 +275,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -288,7 +288,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -301,7 +301,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,10 +313,10 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColor_Params',
       packedSize: 24,
       fields: [
-        { name: 'seed_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
-        { name: 'variant', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false },
+        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -328,9 +328,9 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec 
       name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColorFromHue_Params',
       packedSize: 16,
       fields: [
-        { name: 'hue', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,7 +343,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -416,9 +416,9 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
       name: 'theme_color_picker.mojom.ThemeColorPickerClient.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 8, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

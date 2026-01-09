@@ -78,3 +78,4 @@ color.mojom.RendererColorId = {
   kColorWebNativeControlSliderHovered: 64,
   kColorWebNativeControlSliderPressed: 65,
 };
+color.mojom.RendererColorIdSpec = { $: mojo.internal.Enum() };

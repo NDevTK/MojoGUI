@@ -94,3 +94,4 @@ ash.settings.mojom.SearchResultIcon = {
   kWifi: 79,
   kZoomIn: 80,
 };
+ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };

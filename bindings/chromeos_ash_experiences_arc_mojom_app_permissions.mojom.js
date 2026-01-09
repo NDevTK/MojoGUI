@@ -18,6 +18,7 @@ arc.mojom.AppPermission = {
   CONTACTS: 4,
   STORAGE: 5,
 };
+arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppPermissionGroup
 arc.mojom.AppPermissionGroup = {
@@ -25,18 +26,21 @@ arc.mojom.AppPermissionGroup = {
   MICROPHONE: 1,
   LOCATION: 2,
 };
+arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
 
 // Struct: PermissionState
 arc.mojom.PermissionStateSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PermissionState',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'granted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'managed', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'one_time', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}, {version: 2, packedSize: 24}]
     }
   }
 };
@@ -76,6 +80,24 @@ arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  grantPermission(package_name, permission) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
+      null,
+      [package_name, permission]);
+  }
+
+  revokePermission(package_name, permission) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
+      null,
+      [package_name, permission]);
+  }
+
 };
 
 arc.mojom.AppPermissionsInstance.getRemote = function() {
@@ -86,6 +108,36 @@ arc.mojom.AppPermissionsInstance.getRemote = function() {
     'arc.mojom.AppPermissionsInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GrantPermission
+arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppPermissionsInstance.GrantPermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for RevokePermission
+arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppPermissionsInstance.RevokePermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility

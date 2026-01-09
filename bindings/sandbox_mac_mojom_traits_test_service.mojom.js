@@ -73,9 +73,9 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
       name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,12 +83,12 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
 sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

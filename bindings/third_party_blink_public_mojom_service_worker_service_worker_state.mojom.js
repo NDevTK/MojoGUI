@@ -18,3 +18,4 @@ blink.mojom.ServiceWorkerState = {
   kActivated: 4,
   kRedundant: 5,
 };
+blink.mojom.ServiceWorkerStateSpec = { $: mojo.internal.Enum() };

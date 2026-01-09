@@ -73,9 +73,9 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +158,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,9 +170,9 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
       name: 'ash.mojom.demo_mode.UntrustedPageHandler.LaunchApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

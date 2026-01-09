@@ -16,9 +16,9 @@ viz.mojom.PaintFilterSpec = {
       name: 'viz.mojom.PaintFilter',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

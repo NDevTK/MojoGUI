@@ -72,9 +72,9 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
       name: 'blink.mojom.GpuDataManager.Are3DAPIsBlockedForUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
 blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.GpuDataManager.Are3DAPIsBlockedForUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

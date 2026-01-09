@@ -81,9 +81,9 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
       name: 'url.mojom.UrlTest.BounceUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
 url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'url.mojom.UrlTest.BounceUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
       name: 'url.mojom.UrlTest.BounceOrigin_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
 url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'url.mojom.UrlTest.BounceOrigin_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

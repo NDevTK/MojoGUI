@@ -72,10 +72,10 @@ omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +158,7 @@ omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,9 +170,9 @@ omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.PageHandler.NavigateCurrentTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -272,9 +272,9 @@ omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.Page.OnPopupShown_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -286,9 +286,9 @@ omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.Page.AddContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.SearchContextSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -301,7 +301,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,12 +309,12 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
 omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -326,9 +326,9 @@ omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
       name: 'omnibox_popup_aim.mojom.Page.SetPreserveContextOnClose_Params',
       packedSize: 16,
       fields: [
-        { name: 'preserve_context_on_close', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'preserve_context_on_close', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

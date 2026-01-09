@@ -9,6 +9,8 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+blink.mojom.kWritingAssistanceMaxInputTokenSize = 6000;
+
 // Enum: AIManagerCreateClientError
 blink.mojom.AIManagerCreateClientError = {
   kUnableToCreateSession: 0,
@@ -16,6 +18,7 @@ blink.mojom.AIManagerCreateClientError = {
   kInitialInputTooLarge: 2,
   kUnsupportedLanguage: 3,
 };
+blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: AILanguageCode
 blink.mojom.AILanguageCodeSpec = {
@@ -24,9 +27,9 @@ blink.mojom.AILanguageCodeSpec = {
       name: 'blink.mojom.AILanguageCode',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -38,10 +41,10 @@ blink.mojom.QuotaErrorInfoSpec = {
       name: 'blink.mojom.QuotaErrorInfo',
       packedSize: 16,
       fields: [
-        { name: 'requested', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'quota', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'quota', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

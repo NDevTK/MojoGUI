@@ -72,11 +72,11 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
       name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_Params',
       packedSize: 32,
       fields: [
-        { name: 'related_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'manifest_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'add_saved_related_applications', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'related_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'add_saved_related_applications', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -84,12 +84,12 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
 blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'installed_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'installed_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

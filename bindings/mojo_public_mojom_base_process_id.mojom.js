@@ -16,9 +16,9 @@ mojo_base.mojom.ProcessIdSpec = {
       name: 'mojo_base.mojom.ProcessId',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -17,3 +17,4 @@ blink.mojom.ServiceWorkerContainerType = {
   kForSharedWorker: 3,
   kForServiceWorker: 4,
 };
+blink.mojom.ServiceWorkerContainerTypeSpec = { $: mojo.internal.Enum() };

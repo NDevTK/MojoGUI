@@ -17,6 +17,7 @@ bookmark_bar.mojom.BookmarkType = {
   OTHER_NODE: 3,
   MOBILE: 4,
 };
+bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BookmarkData
 bookmark_bar.mojom.BookmarkDataSpec = {
@@ -25,12 +26,12 @@ bookmark_bar.mojom.BookmarkDataSpec = {
       name: 'bookmark_bar.mojom.BookmarkData',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false },
-        { name: 'page_url_for_favicon', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -98,10 +99,10 @@ bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'bookmark_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +185,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -192,12 +193,12 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
 bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bookmarks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,9 +210,9 @@ bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
       name: 'bookmark_bar.mojom.PageHandler.OpenInNewTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -312,7 +313,7 @@ bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -324,9 +325,9 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
       name: 'bookmark_bar.mojom.Page.FavIconChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_data', packedOffset: 8, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false },
+        { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -339,7 +340,7 @@ bookmark_bar.mojom.Page_Show_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -352,7 +353,7 @@ bookmark_bar.mojom.Page_Hide_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

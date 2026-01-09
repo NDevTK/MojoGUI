@@ -20,12 +20,14 @@ chromeos.machine_learning.mojom.BuiltinModelId = {
   SMART_DIM_20190521: 5,
   UNSUPPORTED_SEARCH_RANKER_20190923: 6,
 };
+chromeos.machine_learning.mojom.BuiltinModelIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: GpuDelegateApi
 chromeos.machine_learning.mojom.GpuDelegateApi = {
   OPENGL: 0,
   OPENCL: 1,
 };
+chromeos.machine_learning.mojom.GpuDelegateApiSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateGraphExecutorResult
 chromeos.machine_learning.mojom.CreateGraphExecutorResult = {
@@ -35,6 +37,7 @@ chromeos.machine_learning.mojom.CreateGraphExecutorResult = {
   NNAPI_UNAVAILABLE: 3,
   NNAPI_USE_ERROR: 4,
 };
+chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: GraphExecutorOptions
 chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = {
@@ -43,9 +46,11 @@ chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = {
       name: 'chromeos.machine_learning.mojom.GraphExecutorOptions',
       packedSize: 16,
       fields: [
-        { name: 'use_nnapi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_nnapi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_gpu', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'gpu_delegate_api', packedOffset: 4, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GpuDelegateApiSpec, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 16}, {version: 2, packedSize: 16}]
     }
   }
 };
@@ -57,9 +62,9 @@ chromeos.machine_learning.mojom.BuiltinModelSpecSpec = {
       name: 'chromeos.machine_learning.mojom.BuiltinModelSpec',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelIdSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -71,12 +76,12 @@ chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = {
       name: 'chromeos.machine_learning.mojom.FlatBufferModelSpec',
       packedSize: 40,
       fields: [
-        { name: 'model_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'inputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'outputs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'metrics_model_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'inputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'outputs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'metrics_model_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -116,6 +121,24 @@ chromeos.machine_learning.mojom.ModelRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  rEMOVED_0(receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec,
+      chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec,
+      [receiver]);
+  }
+
+  createGraphExecutor(options, receiver) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec,
+      chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec,
+      [options, receiver]);
+  }
+
 };
 
 chromeos.machine_learning.mojom.Model.getRemote = function() {
@@ -126,6 +149,61 @@ chromeos.machine_learning.mojom.Model.getRemote = function() {
     'chromeos.machine_learning.mojom.Model',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for REMOVED_0
+chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.Model.REMOVED_0_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for CreateGraphExecutor
+chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.Model.CreateGraphExecutor_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

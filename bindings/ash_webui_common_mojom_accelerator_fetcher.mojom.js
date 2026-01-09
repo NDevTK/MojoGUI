@@ -73,10 +73,10 @@ ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
       name: 'ash.common.mojom.AcceleratorFetcherObserver.OnAcceleratorsUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'actionId', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorActionSpec, nullable: false },
-        { name: 'accelerators', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'actionId', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorActionSpec, nullable: false, minVersion: 0 },
+        { name: 'accelerators', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -158,10 +158,10 @@ ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
       name: 'ash.common.mojom.AcceleratorFetcher.ObserveAcceleratorChanges_Params',
       packedSize: 24,
       fields: [
-        { name: 'actionIds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,7 +174,7 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -182,12 +182,12 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
 ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.common.mojom.AcceleratorFetcher.GetMetaKeyToDisplay_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'meta_key', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false },
+        { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

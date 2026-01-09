@@ -16,10 +16,10 @@ extensions.mojom.URLPatternSpec = {
       name: 'extensions.mojom.URLPattern',
       packedSize: 24,
       fields: [
-        { name: 'valid_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'pattern', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'valid_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,9 +31,9 @@ extensions.mojom.URLPatternSetSpec = {
       name: 'extensions.mojom.URLPatternSet',
       packedSize: 16,
       fields: [
-        { name: 'patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

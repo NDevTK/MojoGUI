@@ -23,6 +23,7 @@ chromeos.machine_learning.mojom.ExecuteResult = {
   DUPLICATE_OUTPUT_ERROR: 8,
   EXECUTION_ERROR: 9,
 };
+chromeos.machine_learning.mojom.ExecuteResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: GraphExecutor
 chromeos.machine_learning.mojom.GraphExecutor = {};
@@ -59,6 +60,15 @@ chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  execute(inputs, output_names) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec,
+      chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec,
+      [inputs, output_names]);
+  }
+
 };
 
 chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
@@ -69,6 +79,35 @@ chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
     'chromeos.machine_learning.mojom.GraphExecutor',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Execute
+chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GraphExecutor.Execute_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, chromeos.machine_learning.mojom.TensorSpec, false), nullable: false, minVersion: 0 },
+        { name: 'output_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ExecuteResultSpec, nullable: false, minVersion: 0 },
+        { name: 'outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TensorSpec, false), nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility

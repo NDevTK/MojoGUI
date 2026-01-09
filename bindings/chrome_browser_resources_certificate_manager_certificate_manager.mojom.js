@@ -20,10 +20,26 @@ certificate_manager.mojom.CertificateSource = {
   kUserIntermediateCerts: 6,
   kUserDistrustedCerts: 7,
 };
+certificate_manager.mojom.CertificateSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: SuccessResult
 certificate_manager.mojom.SuccessResult = {
   kSuccess: 0,
+};
+certificate_manager.mojom.SuccessResultSpec = { $: mojo.internal.Enum() };
+
+// Union: ActionResult
+certificate_manager.mojom.ActionResultSpec = { $: mojo.internal.Union(
+    'certificate_manager.mojom.ActionResult', {
+      'error': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'success': {
+        'ordinal': 1,
+        'type': certificate_manager.mojom.SuccessResultSpec,
+      }},
+    })
 };
 
 // Struct: SummaryCertInfo
@@ -33,11 +49,11 @@ certificate_manager.mojom.SummaryCertInfoSpec = {
       name: 'certificate_manager.mojom.SummaryCertInfo',
       packedSize: 32,
       fields: [
-        { name: 'sha256hash_hex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_deletable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'sha256hash_hex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_deletable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -47,16 +63,16 @@ certificate_manager.mojom.CertManagementMetadataSpec = {
   $: {
     structSpec: {
       name: 'certificate_manager.mojom.CertManagementMetadata',
-      packedSize: 48,
+      packedSize: 16,
       fields: [
-        { name: 'include_system_trust_store', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'num_user_added_system_certs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'is_include_system_trust_store_managed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'num_policy_certs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'num_user_certs', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'show_user_certs_ui', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include_system_trust_store', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'num_user_added_system_certs', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'is_include_system_trust_store_managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'num_policy_certs', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'num_user_certs', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'show_user_certs_ui', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,10 +140,10 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificate
       name: 'certificate_manager.mojom.CertificateManagerPageHandlerFactory.CreateCertificateManagerPageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -272,9 +288,9 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -282,12 +298,12 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'certs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'certs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(certificate_manager.mojom.SummaryCertInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,7 +316,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -308,12 +324,12 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertManagementMetadata_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertManagementMetadataSpec, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertManagementMetadataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,10 +341,10 @@ certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSp
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ViewCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
-        { name: 'sha256_hash_hex', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash_hex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -340,9 +356,9 @@ certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Param
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ExportCertificates_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -354,9 +370,9 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,12 +380,12 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
 certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -381,9 +397,9 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,12 +407,12 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -408,11 +424,11 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'sha256_hash_hex', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertificateSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash_hex', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -420,12 +436,12 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
 certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -438,7 +454,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertific
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -450,9 +466,9 @@ certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustSto
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.SetIncludeSystemTrustStore_Params',
       packedSize: 16,
       fields: [
-        { name: 'include', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'include', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -553,7 +569,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -561,12 +577,12 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec
 certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPage.AskForImportPassword_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -578,10 +594,10 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec =
       name: 'certificate_manager.mojom.CertificateManagerPage.AskForConfirmation_Params',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -589,12 +605,12 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec =
 certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'certificate_manager.mojom.CertificateManagerPage.AskForConfirmation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -606,9 +622,9 @@ certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
       name: 'certificate_manager.mojom.CertificateManagerPage.TriggerReload_Params',
       packedSize: 16,
       fields: [
-        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(certificate_manager.mojom.CertificateSourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -621,7 +637,7 @@ certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

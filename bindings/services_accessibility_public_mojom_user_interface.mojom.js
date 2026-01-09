@@ -15,29 +15,31 @@ ax.mojom.FocusType = {
   kSolid: 1,
   kDashed: 2,
 };
+ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusRingStackingOrder
 ax.mojom.FocusRingStackingOrder = {
   kAboveAccessibilityBubbles: 0,
   kBelowAccessibilityBubbles: 1,
 };
+ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum() };
 
 // Struct: FocusRingInfo
 ax.mojom.FocusRingInfoSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.FocusRingInfo',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'rects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.FocusTypeSpec, nullable: false },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'secondary_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'background_color', packedOffset: 40, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true },
-        { name: 'stacking_order', packedOffset: 48, packedBitOffset: 0, type: ax.mojom.FocusRingStackingOrderSpec, nullable: true },
-        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.FocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
+        { name: 'secondary_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
+        { name: 'background_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
+        { name: 'stacking_order', packedOffset: 12, packedBitOffset: 0, type: ax.mojom.FocusRingStackingOrderSpec, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -150,9 +152,9 @@ ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
       name: 'ax.mojom.UserInterface.DarkenScreen_Params',
       packedSize: 16,
       fields: [
-        { name: 'darken', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'darken', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,9 +166,9 @@ ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
       name: 'ax.mojom.UserInterface.OpenSettingsSubpage_Params',
       packedSize: 16,
       fields: [
-        { name: 'subpage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'subpage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,11 +180,11 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
       name: 'ax.mojom.UserInterface.ShowConfirmationDialog_Params',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cancelName', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cancelName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -190,12 +192,12 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
 ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.UserInterface.ShowConfirmationDialog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'confirmed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -207,10 +209,10 @@ ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
       name: 'ax.mojom.UserInterface.SetFocusRings_Params',
       packedSize: 24,
       fields: [
-        { name: 'focus_rings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'at_type', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
+        { name: 'focus_rings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.FocusRingInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -222,10 +224,10 @@ ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
       name: 'ax.mojom.UserInterface.SetHighlights_Params',
       packedSize: 24,
       fields: [
-        { name: 'rects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
+        { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -237,9 +239,9 @@ ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
       name: 'ax.mojom.UserInterface.SetVirtualKeyboardVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

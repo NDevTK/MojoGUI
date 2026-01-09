@@ -16,3 +16,4 @@ blink.mojom.UserActivationUpdateType = {
   kConsumeTransientActivation: 2,
   kClearActivation: 3,
 };
+blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };

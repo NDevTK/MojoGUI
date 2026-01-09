@@ -73,7 +73,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
 webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'web_page_metadata', packedOffset: 8, packedBitOffset: 0, type: webapps.mojom.WebPageMetadataSpec, nullable: false },
+        { name: 'web_page_metadata', packedOffset: 0, packedBitOffset: 0, type: webapps.mojom.WebPageMetadataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

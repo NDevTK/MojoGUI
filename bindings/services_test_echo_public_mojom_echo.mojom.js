@@ -16,6 +16,7 @@ echo.mojom.LoadStatus = {
   kFailedGetProcAddress: 2,
   kFailedCallingDelayLoad: 3,
 };
+echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: EchoService
 echo.mojom.EchoService = {};
@@ -134,9 +135,9 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
       name: 'echo.mojom.EchoService.EchoString_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -144,12 +145,12 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
 echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'echo.mojom.EchoService.EchoString_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'echoed_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'echoed_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,10 +162,10 @@ echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
       name: 'echo.mojom.EchoService.EchoStringToSharedMemory_Params',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -177,7 +178,7 @@ echo.mojom.EchoService_Quit_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,7 +191,7 @@ echo.mojom.EchoService_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -203,7 +204,7 @@ echo.mojom.EchoService_DelayLoad_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -215,10 +216,10 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
       name: 'echo.mojom.EchoService.LoadNativeLibrary_Params',
       packedSize: 24,
       fields: [
-        { name: 'library', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'call_winmm_delayload', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'call_winmm_delayload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -226,13 +227,13 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
 echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'echo.mojom.EchoService.LoadNativeLibrary_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: echo.mojom.LoadStatusSpec, nullable: false },
-        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: echo.mojom.LoadStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,10 +245,10 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
       name: 'echo.mojom.EchoService.DecryptEncrypt_Params',
       packedSize: 24,
       fields: [
-        { name: 'encryptor', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
-        { name: 'input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -255,12 +256,12 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
 echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'echo.mojom.EchoService.DecryptEncrypt_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

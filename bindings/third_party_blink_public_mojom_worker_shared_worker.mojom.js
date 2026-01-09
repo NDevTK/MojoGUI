@@ -81,10 +81,10 @@ blink.mojom.SharedWorker_Connect_ParamsSpec = {
       name: 'blink.mojom.SharedWorker.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'message_port', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false },
+        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'message_port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +97,7 @@ blink.mojom.SharedWorker_Terminate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

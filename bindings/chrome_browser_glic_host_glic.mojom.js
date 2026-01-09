@@ -17,6 +17,7 @@ glic.mojom.ProfileReadyState = {
   kIneligible: 3,
   kDisabledByAdmin: 4,
 };
+glic.mojom.ProfileReadyStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUiState
 glic.mojom.WebUiState = {
@@ -34,12 +35,14 @@ glic.mojom.WebUiState = {
   kGuestError: 11,
   kDisabledByAdmin: 12,
 };
+glic.mojom.WebUiStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricUserInputReactionType
 glic.mojom.MetricUserInputReactionType = {
   kCanned: 0,
   kModel: 1,
 };
+glic.mojom.MetricUserInputReactionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrepareForClientResult
 glic.mojom.PrepareForClientResult = {
@@ -47,15 +50,18 @@ glic.mojom.PrepareForClientResult = {
   kErrorResyncingCookies: 1,
   kRequiresSignIn: 2,
 };
+glic.mojom.PrepareForClientResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PerformActionsErrorReason
 glic.mojom.PerformActionsErrorReason = {
 };
+glic.mojom.PerformActionsErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateTaskErrorReason
 glic.mojom.CreateTaskErrorReason = {
   kTaskSystemUnavailable: 0,
 };
+glic.mojom.CreateTaskErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskState
 glic.mojom.ActorTaskState = {
@@ -64,22 +70,26 @@ glic.mojom.ActorTaskState = {
   kPaused: 2,
   kStopped: 3,
 };
+glic.mojom.ActorTaskStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskPauseReason
 glic.mojom.ActorTaskPauseReason = {
   kPausedByUser: 0,
 };
+glic.mojom.ActorTaskPauseReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActorTaskStopReason
 glic.mojom.ActorTaskStopReason = {
   kStoppedByUser: 0,
 };
+glic.mojom.ActorTaskStopReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptureScreenshotErrorReason
 glic.mojom.CaptureScreenshotErrorReason = {
   kScreenCaptureRequestThrottled: 0,
   kUserCancelledScreenPickerDialog: 1,
 };
+glic.mojom.CaptureScreenshotErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: Platform
 glic.mojom.Platform = {
@@ -89,16 +99,19 @@ glic.mojom.Platform = {
   kLinux: 3,
   kChromeOS: 4,
 };
+glic.mojom.PlatformSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollToErrorReason
 glic.mojom.ScrollToErrorReason = {
 };
+glic.mojom.ScrollToErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkillSource
 glic.mojom.SkillSource = {
   kFirstParty: 0,
   kUserCreated: 1,
 };
+glic.mojom.SkillSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PinTrigger
 glic.mojom.PinTrigger = {
@@ -106,6 +119,7 @@ glic.mojom.PinTrigger = {
   kAtMention: 1,
   kActuation: 2,
 };
+glic.mojom.PinTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: UnpinTrigger
 glic.mojom.UnpinTrigger = {
@@ -113,6 +127,7 @@ glic.mojom.UnpinTrigger = {
   kChip: 1,
   kActuation: 2,
 };
+glic.mojom.UnpinTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: CancelActionsResult
 glic.mojom.CancelActionsResult = {
@@ -120,15 +135,18 @@ glic.mojom.CancelActionsResult = {
   kTaskNotFound: 1,
   kFailed: 2,
 };
+glic.mojom.CancelActionsResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: SwitchConversationErrorReason
 glic.mojom.SwitchConversationErrorReason = {
 };
+glic.mojom.SwitchConversationErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegisterConversationErrorReason
 glic.mojom.RegisterConversationErrorReason = {
   kInstanceAlreadyHasConversationId: 0,
 };
+glic.mojom.RegisterConversationErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PanelStateKind
 glic.mojom.PanelStateKind = {
@@ -136,6 +154,7 @@ glic.mojom.PanelStateKind = {
   kDetached: 1,
   kAttached: 2,
 };
+glic.mojom.PanelStateKindSpec = { $: mojo.internal.Enum() };
 
 // Enum: InvocationSource
 glic.mojom.InvocationSource = {
@@ -148,17 +167,20 @@ glic.mojom.InvocationSource = {
   kNudge: 6,
   kThreeDotsMenu: 7,
 };
+glic.mojom.InvocationSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebClientMode
 glic.mojom.WebClientMode = {
   kText: 0,
   kAudio: 1,
 };
+glic.mojom.WebClientModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebClientModel
 glic.mojom.WebClientModel = {
   kActor: 0,
 };
+glic.mojom.WebClientModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUseCounter
 glic.mojom.WebUseCounter = {
@@ -166,23 +188,27 @@ glic.mojom.WebUseCounter = {
   kTaskInterruptedForUserConfirmation: 1,
   kTaskInterruptedForUserClarification: 2,
 };
+glic.mojom.WebUseCounterSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResponseStopCause
 glic.mojom.ResponseStopCause = {
   kUser: 0,
   kOther: 1,
 };
+glic.mojom.ResponseStopCauseSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptureRegionErrorReason
 glic.mojom.CaptureRegionErrorReason = {
   kNoFocusableTab: 0,
 };
+glic.mojom.CaptureRegionErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SettingsPageField
 glic.mojom.SettingsPageField = {
   kOsHotkey: 0,
   kOsEntrypointToggle: 1,
 };
+glic.mojom.SettingsPageFieldSpec = { $: mojo.internal.Enum() };
 
 // Enum: HostCapability
 glic.mojom.HostCapability = {
@@ -194,11 +220,131 @@ glic.mojom.HostCapability = {
   kTrustFirstOnboardingArm2: 5,
   kShareAdditionalImageContext: 6,
 };
+glic.mojom.HostCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: CurrentView
 glic.mojom.CurrentView = {
   kConversation: 0,
   kActuation: 1,
+};
+glic.mojom.CurrentViewSpec = { $: mojo.internal.Enum() };
+
+// Union: GetContextResult
+glic.mojom.GetContextResultSpec = { $: mojo.internal.Union(
+    'glic.mojom.GetContextResult', {
+      'error_reason': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'tab_context': {
+        'ordinal': 1,
+        'type': glic.mojom.TabContextSpec,
+      }},
+    })
+};
+
+// Union: CaptureScreenshotResult
+glic.mojom.CaptureScreenshotResultSpec = { $: mojo.internal.Union(
+    'glic.mojom.CaptureScreenshotResult', {
+      'error_reason': {
+        'ordinal': 0,
+        'type': glic.mojom.CaptureScreenshotErrorReasonSpec,
+      }},
+      'screenshot': {
+        'ordinal': 1,
+        'type': glic.mojom.ScreenshotSpec,
+      }},
+    })
+};
+
+// Union: ScrollToSelector
+glic.mojom.ScrollToSelectorSpec = { $: mojo.internal.Union(
+    'glic.mojom.ScrollToSelector', {
+      'exact_text_selector': {
+        'ordinal': 0,
+        'type': glic.mojom.ScrollToTextSelectorSpec,
+      }},
+      'text_fragment_selector': {
+        'ordinal': 1,
+        'type': glic.mojom.ScrollToTextFragmentSelectorSpec,
+      }},
+      'node_selector': {
+        'ordinal': 2,
+        'type': glic.mojom.ScrollToNodeSelectorSpec,
+      }},
+    })
+};
+
+// Union: AdditionalContextPart
+glic.mojom.AdditionalContextPartSpec = { $: mojo.internal.Union(
+    'glic.mojom.AdditionalContextPart', {
+      'data': {
+        'ordinal': 0,
+        'type': glic.mojom.ContextDataSpec,
+      }},
+      'screenshot': {
+        'ordinal': 1,
+        'type': glic.mojom.ScreenshotSpec,
+      }},
+      'web_page_data': {
+        'ordinal': 2,
+        'type': glic.mojom.WebPageDataSpec,
+      }},
+      'annotated_page_data': {
+        'ordinal': 3,
+        'type': glic.mojom.AnnotatedPageDataSpec,
+      }},
+      'pdf_document_data': {
+        'ordinal': 4,
+        'type': glic.mojom.PdfDocumentDataSpec,
+      }},
+      'tab_context': {
+        'ordinal': 5,
+        'type': glic.mojom.TabContextSpec,
+      }},
+      'region': {
+        'ordinal': 6,
+        'type': glic.mojom.CapturedRegionSpec,
+      }},
+    })
+};
+
+// Union: FocusedTabData
+glic.mojom.FocusedTabDataSpec = { $: mojo.internal.Union(
+    'glic.mojom.FocusedTabData', {
+      'focused_tab': {
+        'ordinal': 0,
+        'type': glic.mojom.TabDataSpec,
+      }},
+      'no_focused_tab_data': {
+        'ordinal': 1,
+        'type': glic.mojom.NoFocusedTabDataSpec,
+      }},
+    })
+};
+
+// Union: CapturedRegion
+glic.mojom.CapturedRegionSpec = { $: mojo.internal.Union(
+    'glic.mojom.CapturedRegion', {
+      'rect': {
+        'ordinal': 0,
+        'type': gfx.mojom.RectSpec,
+      }},
+    })
+};
+
+// Union: ViewChangeRequestDetails
+glic.mojom.ViewChangeRequestDetailsSpec = { $: mojo.internal.Union(
+    'glic.mojom.ViewChangeRequestDetails', {
+      'actuation': {
+        'ordinal': 0,
+        'type': glic.mojom.ViewChangeRequestActuationSpec,
+      }},
+      'conversation': {
+        'ordinal': 1,
+        'type': glic.mojom.ViewChangeRequestConversationSpec,
+      }},
+    })
 };
 
 // Struct: ProfileEnablement
@@ -208,16 +354,16 @@ glic.mojom.ProfileEnablementSpec = {
       name: 'glic.mojom.ProfileEnablement',
       packedSize: 16,
       fields: [
-        { name: 'feature_disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'not_regular_profile', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'not_rolled_out', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'primary_account_not_capable', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'disallowed_by_chrome_policy', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'disallowed_by_remote_admin', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'disallowed_by_remote_other', packedOffset: 8, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'not_consented', packedOffset: 8, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature_disabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'not_regular_profile', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'not_rolled_out', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_account_not_capable', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disallowed_by_chrome_policy', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disallowed_by_remote_admin', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disallowed_by_remote_other', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'not_consented', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,12 +373,13 @@ glic.mojom.GetContextResultWithActionResultCodeSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetContextResultWithActionResultCode',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'get_context_result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
-        { name: 'action_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'get_context_result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
+        { name: 'action_result_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'action_result_$value', originalFieldName: 'action_result' } },
+        { name: 'action_result_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'action_result_$flag', originalFieldName: 'action_result' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -244,14 +391,14 @@ glic.mojom.UserProfileInfoSpec = {
       name: 'glic.mojom.UserProfileInfo',
       packedSize: 56,
       fields: [
-        { name: 'avatar_icon', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'local_profile_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'email', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'given_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_managed', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'avatar_icon', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'local_profile_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'email', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'given_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_managed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -261,49 +408,49 @@ glic.mojom.WebClientInitialStateSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientInitialState',
-      packedSize: 88,
+      packedSize: 72,
       fields: [
-        { name: 'panel_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false },
-        { name: 'focused_tab_data', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false },
-        { name: 'microphone_permission_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'location_permission_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'tab_context_permission_enabled', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'os_location_permission_enabled', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'hotkey', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'chrome_version', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false },
-        { name: 'platform', packedOffset: 48, packedBitOffset: 0, type: glic.mojom.PlatformSpec, nullable: false },
-        { name: 'can_attach', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'panel_is_active', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'browser_is_open', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'instance_is_active', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'always_detached_mode', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_zero_state_suggestions', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_act_in_focused_tab', packedOffset: 56, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_scroll_to', packedOffset: 56, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_default_tab_context_setting_feature', packedOffset: 56, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
-        { name: 'default_tab_context_setting_enabled', packedOffset: 56, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_closed_captioning_feature', packedOffset: 56, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
-        { name: 'closed_captioning_setting_enabled', packedOffset: 56, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_maybe_refresh_user_status', packedOffset: 56, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_multi_tab', packedOffset: 56, packedBitOffset: 13, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_get_context_actor', packedOffset: 56, packedBitOffset: 14, type: mojo.internal.Bool, nullable: false },
-        { name: 'host_capabilities', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'enable_get_page_metadata', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_api_activation_gating', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_capture_region', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_web_actuation_setting_feature', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'actuation_on_web_setting_enabled', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_act_on_web', packedOffset: 72, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_activate_tab', packedOffset: 72, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_get_tab_by_id', packedOffset: 72, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_open_password_manager_settings_page', packedOffset: 72, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_load_and_extract_content', packedOffset: 72, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_trust_first_onboarding', packedOffset: 72, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
-        { name: 'onboarding_completed', packedOffset: 72, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_skills', packedOffset: 72, packedBitOffset: 12, type: mojo.internal.Bool, nullable: false },
-        { name: 'skill_previews', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false, minVersion: 0 },
+        { name: 'focused_tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false, minVersion: 0 },
+        { name: 'microphone_permission_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'location_permission_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tab_context_permission_enabled', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'os_location_permission_enabled', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hotkey', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'chrome_version', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false, minVersion: 0 },
+        { name: 'platform', packedOffset: 28, packedBitOffset: 0, type: glic.mojom.PlatformSpec, nullable: false, minVersion: 0 },
+        { name: 'can_attach', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'panel_is_active', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'browser_is_open', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'instance_is_active', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'always_detached_mode', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_zero_state_suggestions', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_act_in_focused_tab', packedOffset: 25, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_scroll_to', packedOffset: 25, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_default_tab_context_setting_feature', packedOffset: 25, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'default_tab_context_setting_enabled', packedOffset: 25, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_closed_captioning_feature', packedOffset: 25, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'closed_captioning_setting_enabled', packedOffset: 25, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_maybe_refresh_user_status', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_multi_tab', packedOffset: 26, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_get_context_actor', packedOffset: 26, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'host_capabilities', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.HostCapabilitySpec, false), nullable: false, minVersion: 0 },
+        { name: 'enable_get_page_metadata', packedOffset: 26, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_api_activation_gating', packedOffset: 26, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_capture_region', packedOffset: 26, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_web_actuation_setting_feature', packedOffset: 26, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'actuation_on_web_setting_enabled', packedOffset: 26, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'can_act_on_web', packedOffset: 27, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_activate_tab', packedOffset: 27, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_get_tab_by_id', packedOffset: 27, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_open_password_manager_settings_page', packedOffset: 27, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_load_and_extract_content', packedOffset: 27, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_trust_first_onboarding', packedOffset: 27, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'onboarding_completed', packedOffset: 27, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_skills', packedOffset: 27, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'skill_previews', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.SkillPreviewSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -313,18 +460,18 @@ glic.mojom.GetTabContextOptionsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.GetTabContextOptions',
-      packedSize: 48,
+      packedSize: 32,
       fields: [
-        { name: 'include_inner_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'inner_text_bytes_limit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'include_viewport_screenshot', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'include_annotated_page_content', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'max_meta_tags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'include_pdf', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'pdf_size_limit', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'annotated_page_content_mode', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'include_inner_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'inner_text_bytes_limit', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'include_viewport_screenshot', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_annotated_page_content', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'max_meta_tags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'include_pdf', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'pdf_size_limit', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'annotated_page_content_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -336,10 +483,10 @@ glic.mojom.GetPinCandidatesOptionsSpec = {
       name: 'glic.mojom.GetPinCandidatesOptions',
       packedSize: 24,
       fields: [
-        { name: 'max_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'query', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -349,14 +496,14 @@ glic.mojom.ScrollToParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ScrollToParams',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'selector', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ScrollToSelectorSpec, nullable: false },
-        { name: 'highlight', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'document_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToSelectorSpec, nullable: false, minVersion: 0 },
+        { name: 'highlight', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'document_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -368,10 +515,11 @@ glic.mojom.ScrollToTextSelectorSpec = {
       name: 'glic.mojom.ScrollToTextSelector',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'search_range_start_node_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'search_range_start_node_id_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' } },
+        { name: 'search_range_start_node_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -383,11 +531,12 @@ glic.mojom.ScrollToTextFragmentSelectorSpec = {
       name: 'glic.mojom.ScrollToTextFragmentSelector',
       packedSize: 32,
       fields: [
-        { name: 'text_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'text_end', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'search_range_start_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'text_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'text_end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'search_range_start_node_id_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' } },
+        { name: 'search_range_start_node_id_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -399,9 +548,9 @@ glic.mojom.ScrollToNodeSelectorSpec = {
       name: 'glic.mojom.ScrollToNodeSelector',
       packedSize: 16,
       fields: [
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -413,9 +562,9 @@ glic.mojom.SuggestionContentSpec = {
       name: 'glic.mojom.SuggestionContent',
       packedSize: 16,
       fields: [
-        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -427,12 +576,12 @@ glic.mojom.SkillPreviewSpec = {
       name: 'glic.mojom.SkillPreview',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.SkillSourceSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: glic.mojom.SkillSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -444,10 +593,10 @@ glic.mojom.SkillSpec = {
       name: 'glic.mojom.Skill',
       packedSize: 24,
       fields: [
-        { name: 'preview', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SkillPreviewSpec, nullable: false },
-        { name: 'prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillPreviewSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -459,9 +608,9 @@ glic.mojom.CreateSkillRequestSpec = {
       name: 'glic.mojom.CreateSkillRequest',
       packedSize: 16,
       fields: [
-        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -473,9 +622,9 @@ glic.mojom.UpdateSkillRequestSpec = {
       name: 'glic.mojom.UpdateSkillRequest',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -487,11 +636,11 @@ glic.mojom.ZeroStateSuggestionsSpec = {
       name: 'glic.mojom.ZeroStateSuggestions',
       packedSize: 32,
       fields: [
-        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tab_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.SuggestionContentSpec, false), nullable: false, minVersion: 0 },
+        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'tab_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -503,10 +652,10 @@ glic.mojom.ZeroStateSuggestionsV2Spec = {
       name: 'glic.mojom.ZeroStateSuggestionsV2',
       packedSize: 24,
       fields: [
-        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_pending', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.SuggestionContentSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_pending', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -518,10 +667,10 @@ glic.mojom.ZeroStateSuggestionsOptionsSpec = {
       name: 'glic.mojom.ZeroStateSuggestionsOptions',
       packedSize: 24,
       fields: [
-        { name: 'is_first_run', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'supported_tools', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_first_run', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supported_tools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -533,9 +682,9 @@ glic.mojom.PinCandidateSpec = {
       name: 'glic.mojom.PinCandidate',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -547,9 +696,9 @@ glic.mojom.PinTabsOptionsSpec = {
       name: 'glic.mojom.PinTabsOptions',
       packedSize: 16,
       fields: [
-        { name: 'pin_trigger', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PinTriggerSpec, nullable: false },
+        { name: 'pin_trigger', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PinTriggerSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -561,9 +710,9 @@ glic.mojom.UnpinTabsOptionsSpec = {
       name: 'glic.mojom.UnpinTabsOptions',
       packedSize: 16,
       fields: [
-        { name: 'unpin_trigger', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UnpinTriggerSpec, nullable: false },
+        { name: 'unpin_trigger', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UnpinTriggerSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -575,11 +724,11 @@ glic.mojom.ConversationInfoSpec = {
       name: 'glic.mojom.ConversationInfo',
       packedSize: 32,
       fields: [
-        { name: 'conversation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'conversation_title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'client_data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true },
+        { name: 'conversation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'conversation_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'client_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -591,14 +740,14 @@ glic.mojom.PanelOpeningDataSpec = {
       name: 'glic.mojom.PanelOpeningData',
       packedSize: 56,
       fields: [
-        { name: 'panel_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false },
-        { name: 'invocation_source', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.InvocationSourceSpec, nullable: false },
-        { name: 'prompt_suggestion', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'skill_to_invoke', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: true },
-        { name: 'recently_active_conversations', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'conversation_info', packedOffset: 48, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false },
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false, minVersion: 0 },
+        { name: 'invocation_source', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.InvocationSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt_suggestion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'skill_to_invoke', packedOffset: 24, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: true, minVersion: 0 },
+        { name: 'recently_active_conversations', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.ConversationInfoSpec, false), nullable: true, minVersion: 0 },
+        { name: 'conversation_info', packedOffset: 40, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -610,10 +759,11 @@ glic.mojom.PanelStateSpec = {
       name: 'glic.mojom.PanelState',
       packedSize: 24,
       fields: [
-        { name: 'kind', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelStateKindSpec, nullable: false },
-        { name: 'window_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'kind', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateKindSpec, nullable: false, minVersion: 0 },
+        { name: 'window_id_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' } },
+        { name: 'window_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -625,9 +775,9 @@ glic.mojom.OnResponseStoppedDetailsSpec = {
       name: 'glic.mojom.OnResponseStoppedDetails',
       packedSize: 16,
       fields: [
-        { name: 'cause', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ResponseStopCauseSpec, nullable: false },
+        { name: 'cause', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ResponseStopCauseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -637,14 +787,14 @@ glic.mojom.OpenPanelInfoSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.OpenPanelInfo',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'web_client_mode', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false },
-        { name: 'panelSize', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true },
-        { name: 'resizeDuration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'can_user_resize', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'web_client_mode', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false, minVersion: 0 },
+        { name: 'panelSize', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
+        { name: 'resizeDuration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'can_user_resize', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -654,12 +804,12 @@ glic.mojom.ContextDataSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ContextData',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -671,13 +821,14 @@ glic.mojom.AdditionalContextSpec = {
       name: 'glic.mojom.AdditionalContext',
       packedSize: 48,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
-        { name: 'frameUrl', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'parts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'tab_id_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' } },
+        { name: 'tab_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' } },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
+        { name: 'frameUrl', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'parts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.AdditionalContextPartSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -689,13 +840,13 @@ glic.mojom.TabContextSpec = {
       name: 'glic.mojom.TabContext',
       packedSize: 48,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false },
-        { name: 'web_page_data', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.WebPageDataSpec, nullable: true },
-        { name: 'viewport_screenshot', packedOffset: 24, packedBitOffset: 0, type: glic.mojom.ScreenshotSpec, nullable: true },
-        { name: 'pdf_document_data', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.PdfDocumentDataSpec, nullable: true },
-        { name: 'annotated_page_data', packedOffset: 40, packedBitOffset: 0, type: glic.mojom.AnnotatedPageDataSpec, nullable: true },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
+        { name: 'web_page_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebPageDataSpec, nullable: true, minVersion: 0 },
+        { name: 'viewport_screenshot', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ScreenshotSpec, nullable: true, minVersion: 0 },
+        { name: 'pdf_document_data', packedOffset: 24, packedBitOffset: 0, type: glic.mojom.PdfDocumentDataSpec, nullable: true, minVersion: 0 },
+        { name: 'annotated_page_data', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.AnnotatedPageDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -707,9 +858,9 @@ glic.mojom.WebPageDataSpec = {
       name: 'glic.mojom.WebPageData',
       packedSize: 16,
       fields: [
-        { name: 'main_document', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.DocumentDataSpec, nullable: false },
+        { name: 'main_document', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.DocumentDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -721,11 +872,11 @@ glic.mojom.DocumentDataSpec = {
       name: 'glic.mojom.DocumentData',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'inner_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'inner_text_truncated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'inner_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'inner_text_truncated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -737,11 +888,11 @@ glic.mojom.PdfDocumentDataSpec = {
       name: 'glic.mojom.PdfDocumentData',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'pdf_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'size_limit_exceeded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'size_limit_exceeded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -753,20 +904,25 @@ glic.mojom.TabDataSpec = {
       name: 'glic.mojom.TabData',
       packedSize: 64,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'window_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'favicon', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'favicon_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'document_mime_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_observable', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_media_active', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_tab_content_captured', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_active_in_window', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: true },
-        { name: 'is_window_active', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'window_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'favicon', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'favicon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'document_mime_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_observable_$flag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_observable_$value', originalFieldName: 'is_observable' } },
+        { name: 'is_observable_$value', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_observable_$flag', originalFieldName: 'is_observable' } },
+        { name: 'is_media_active_$flag', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_media_active_$value', originalFieldName: 'is_media_active' } },
+        { name: 'is_media_active_$value', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_media_active_$flag', originalFieldName: 'is_media_active' } },
+        { name: 'is_tab_content_captured_$flag', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_tab_content_captured_$value', originalFieldName: 'is_tab_content_captured' } },
+        { name: 'is_tab_content_captured_$value', packedOffset: 48, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_tab_content_captured_$flag', originalFieldName: 'is_tab_content_captured' } },
+        { name: 'is_active_in_window_$flag', packedOffset: 48, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_active_in_window_$value', originalFieldName: 'is_active_in_window' } },
+        { name: 'is_active_in_window_$value', packedOffset: 48, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_active_in_window_$flag', originalFieldName: 'is_active_in_window' } },
+        { name: 'is_window_active_$flag', packedOffset: 49, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_window_active_$value', originalFieldName: 'is_window_active' } },
+        { name: 'is_window_active_$value', packedOffset: 49, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_window_active_$flag', originalFieldName: 'is_window_active' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -778,10 +934,10 @@ glic.mojom.NoFocusedTabDataSpec = {
       name: 'glic.mojom.NoFocusedTabData',
       packedSize: 24,
       fields: [
-        { name: 'active_tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true },
-        { name: 'no_focus_reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'active_tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true, minVersion: 0 },
+        { name: 'no_focus_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -793,10 +949,10 @@ glic.mojom.AnnotatedPageDataSpec = {
       name: 'glic.mojom.AnnotatedPageData',
       packedSize: 24,
       fields: [
-        { name: 'annotated_page_content', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PageMetadataSpec, nullable: true },
+        { name: 'annotated_page_content', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PageMetadataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -809,7 +965,7 @@ glic.mojom.ImageOriginAnnotationsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -821,9 +977,9 @@ glic.mojom.JournalSpec = {
       name: 'glic.mojom.Journal',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -833,12 +989,12 @@ glic.mojom.CaptureRegionResultSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.CaptureRegionResult',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'region', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.CapturedRegionSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CapturedRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -850,13 +1006,13 @@ glic.mojom.ScreenshotSpec = {
       name: 'glic.mojom.Screenshot',
       packedSize: 40,
       fields: [
-        { name: 'width_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'height_pixels', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'origin_annotations', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.ImageOriginAnnotationsSpec, nullable: false },
+        { name: 'width_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'height_pixels', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'origin_annotations', packedOffset: 24, packedBitOffset: 0, type: glic.mojom.ImageOriginAnnotationsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -868,9 +1024,9 @@ glic.mojom.OpenSettingsOptionsSpec = {
       name: 'glic.mojom.OpenSettingsOptions',
       packedSize: 16,
       fields: [
-        { name: 'highlightField', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SettingsPageFieldSpec, nullable: false },
+        { name: 'highlightField', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SettingsPageFieldSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -883,7 +1039,7 @@ glic.mojom.ViewChangeRequestActuationSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -896,7 +1052,7 @@ glic.mojom.ViewChangeRequestConversationSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -906,11 +1062,11 @@ glic.mojom.ViewChangeRequestSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.ViewChangeRequest',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestDetailsSpec, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestDetailsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -922,9 +1078,9 @@ glic.mojom.ViewChangedNotificationSpec = {
       name: 'glic.mojom.ViewChangedNotification',
       packedSize: 16,
       fields: [
-        { name: 'current_view', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CurrentViewSpec, nullable: false },
+        { name: 'current_view', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CurrentViewSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -992,9 +1148,9 @@ glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec = {
       name: 'glic.mojom.PreloadPage.SetProfileReadyState_Params',
       packedSize: 16,
       fields: [
-        { name: 'ready_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false },
+        { name: 'ready_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1086,7 +1242,7 @@ glic.mojom.Page_IntentToShow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1098,9 +1254,9 @@ glic.mojom.Page_SetProfileReadyState_ParamsSpec = {
       name: 'glic.mojom.Page.SetProfileReadyState_Params',
       packedSize: 16,
       fields: [
-        { name: 'ready_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false },
+        { name: 'ready_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileReadyStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1112,9 +1268,9 @@ glic.mojom.Page_UpdatePageState_ParamsSpec = {
       name: 'glic.mojom.Page.UpdatePageState_Params',
       packedSize: 16,
       fields: [
-        { name: 'panelStateKind', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelStateKindSpec, nullable: false },
+        { name: 'panelStateKind', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateKindSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1188,7 +1344,7 @@ glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1196,12 +1352,12 @@ glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
 glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.GlicPreloadHandler.PrepareForClient_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1274,10 +1430,10 @@ glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec = {
       name: 'glic.mojom.GlicPreloadHandlerFactory.CreatePreloadHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1350,10 +1506,10 @@ glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'glic.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1516,9 +1672,9 @@ glic.mojom.PageHandler_CreateWebClient_ParamsSpec = {
       name: 'glic.mojom.PageHandler.CreateWebClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'web_client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'web_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1531,7 +1687,7 @@ glic.mojom.PageHandler_PrepareForClient_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1539,12 +1695,12 @@ glic.mojom.PageHandler_PrepareForClient_ParamsSpec = {
 glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.PageHandler.PrepareForClient_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1556,9 +1712,9 @@ glic.mojom.PageHandler_WebviewCommitted_ParamsSpec = {
       name: 'glic.mojom.PageHandler.WebviewCommitted_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1571,7 +1727,7 @@ glic.mojom.PageHandler_ClosePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1584,7 +1740,7 @@ glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1597,7 +1753,7 @@ glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1610,7 +1766,7 @@ glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1622,10 +1778,10 @@ glic.mojom.PageHandler_ResizeWidget_ParamsSpec = {
       name: 'glic.mojom.PageHandler.ResizeWidget_Params',
       packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1637,9 +1793,9 @@ glic.mojom.PageHandler_EnableDragResize_ParamsSpec = {
       name: 'glic.mojom.PageHandler.EnableDragResize_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1651,9 +1807,9 @@ glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec = {
       name: 'glic.mojom.PageHandler.WebUiStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebUiStateSpec, nullable: false },
+        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebUiStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1666,7 +1822,7 @@ glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1674,12 +1830,12 @@ glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
 glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.PageHandler.GetProfileEnablement_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enablement', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ProfileEnablementSpec, nullable: false },
+        { name: 'enablement', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileEnablementSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1752,9 +1908,9 @@ glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec = {
       name: 'glic.mojom.PinCandidatesObserver.OnPinCandidatesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.PinCandidateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2592,9 +2748,9 @@ glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.WebClientCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'web_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'web_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2602,12 +2758,12 @@ glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
 glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.WebClientCreated_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'initial_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientInitialStateSpec, nullable: false },
+        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientInitialStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2620,7 +2776,7 @@ glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2633,7 +2789,7 @@ glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2643,13 +2799,14 @@ glic.mojom.WebClientHandler_CreateTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateTab_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'open_in_background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'window_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'open_in_background', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'window_id_$flag', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' } },
+        { name: 'window_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2657,12 +2814,12 @@ glic.mojom.WebClientHandler_CreateTab_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.CreateTab_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2674,11 +2831,11 @@ glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OpenLinkInPopup_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'popup_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'popup_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'popup_width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'popup_height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2690,9 +2847,9 @@ glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OpenGlicSettingsPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.OpenSettingsOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OpenSettingsOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2705,7 +2862,7 @@ glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2718,7 +2875,7 @@ glic.mojom.WebClientHandler_ClosePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2731,7 +2888,7 @@ glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2744,7 +2901,7 @@ glic.mojom.WebClientHandler_AttachPanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2757,7 +2914,7 @@ glic.mojom.WebClientHandler_DetachPanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2769,9 +2926,9 @@ glic.mojom.WebClientHandler_OnModeChange_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnModeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_mode', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false },
+        { name: 'new_mode', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2784,7 +2941,7 @@ glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2797,7 +2954,7 @@ glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2805,12 +2962,12 @@ glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
 glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetModelQualityClientId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'model_quality_client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'model_quality_client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2822,9 +2979,9 @@ glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2832,12 +2989,12 @@ glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2849,10 +3006,10 @@ glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextFromTab_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2860,12 +3017,12 @@ glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetContextFromTab_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2877,10 +3034,10 @@ glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2888,12 +3045,12 @@ glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2905,9 +3062,9 @@ glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetMaximumNumberOfPinnedTabs_Params',
       packedSize: 16,
       fields: [
-        { name: 'requested_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'requested_max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2915,12 +3072,12 @@ glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.SetMaximumNumberOfPinnedTabs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'effective_max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'effective_max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2932,10 +3089,10 @@ glic.mojom.WebClientHandler_PinTabs_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.PinTabs_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.PinTabsOptionsSpec, nullable: true },
+        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PinTabsOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2943,12 +3100,12 @@ glic.mojom.WebClientHandler_PinTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.PinTabs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pinned_all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pinned_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2960,10 +3117,10 @@ glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.UnpinTabs_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true },
+        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2971,12 +3128,12 @@ glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.UnpinTabs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'unpinned_all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'unpinned_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2988,9 +3145,9 @@ glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.UnpinAllTabs_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UnpinTabsOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3002,9 +3159,9 @@ glic.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.CreateSkill_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CreateSkillRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CreateSkillRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3012,12 +3169,12 @@ glic.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.CreateSkill_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'modal_opened', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'modal_opened', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3029,9 +3186,9 @@ glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.UpdateSkill_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UpdateSkillRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UpdateSkillRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3039,12 +3196,12 @@ glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.UpdateSkill_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'modal_opened', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'modal_opened', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3056,9 +3213,9 @@ glic.mojom.WebClientHandler_GetSkill_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetSkill_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3066,12 +3223,12 @@ glic.mojom.WebClientHandler_GetSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetSkill_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'skill', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: true },
+        { name: 'skill', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3083,10 +3240,10 @@ glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SubscribeToPinCandidates_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetPinCandidatesOptionsSpec, nullable: false },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetPinCandidatesOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3098,9 +3255,9 @@ glic.mojom.WebClientHandler_CreateTask_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.CreateTask_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_options', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.TaskOptionsSpec, nullable: true },
+        { name: 'task_options', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.TaskOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3112,9 +3269,9 @@ glic.mojom.WebClientHandler_PerformActions_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.PerformActions_Params',
       packedSize: 16,
       fields: [
-        { name: 'actions_proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'actions_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3126,9 +3283,9 @@ glic.mojom.WebClientHandler_CancelActions_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.CancelActions_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3136,12 +3293,12 @@ glic.mojom.WebClientHandler_CancelActions_ParamsSpec = {
 glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.CancelActions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CancelActionsResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CancelActionsResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3151,12 +3308,12 @@ glic.mojom.WebClientHandler_StopActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.StopActorTask_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'stop_reason', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ActorTaskStopReasonSpec, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'stop_reason', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskStopReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3166,13 +3323,14 @@ glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.PauseActorTask_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'pause_reason', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ActorTaskPauseReasonSpec, nullable: false },
-        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pause_reason', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskPauseReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'tab_id_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' } },
+        { name: 'tab_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3184,10 +3342,10 @@ glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.ResumeActorTask_Params',
       packedSize: 24,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'context_options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'context_options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetTabContextOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3195,12 +3353,12 @@ glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
 glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.ResumeActorTask_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.GetContextResultWithActionResultCodeSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultWithActionResultCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3212,9 +3370,9 @@ glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.InterruptActorTask_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3226,9 +3384,9 @@ glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.UninterruptActorTask_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3238,14 +3396,16 @@ glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClientHandler.CreateActorTab_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'open_in_background', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'initiator_tab_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
-        { name: 'initiator_window_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'open_in_background', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'initiator_tab_id_$flag', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'initiator_tab_id_$value', originalFieldName: 'initiator_tab_id' } },
+        { name: 'initiator_tab_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'initiator_tab_id_$flag', originalFieldName: 'initiator_tab_id' } },
+        { name: 'initiator_window_id_$flag', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'initiator_window_id_$value', originalFieldName: 'initiator_window_id' } },
+        { name: 'initiator_window_id_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'initiator_window_id_$flag', originalFieldName: 'initiator_window_id' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3253,12 +3413,12 @@ glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.CreateActorTab_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3270,9 +3430,9 @@ glic.mojom.WebClientHandler_ActivateTab_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.ActivateTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3284,10 +3444,10 @@ glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.ResizeWidget_Params',
       packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3300,7 +3460,7 @@ glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3308,12 +3468,12 @@ glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
 glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.CaptureScreenshot_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CaptureScreenshotResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CaptureScreenshotResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3325,9 +3485,9 @@ glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.CaptureRegion_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3339,9 +3499,9 @@ glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetAudioDucking_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3349,12 +3509,12 @@ glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
 glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.SetAudioDucking_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3366,9 +3526,9 @@ glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetPanelDraggableAreas_Params',
       packedSize: 16,
       fields: [
-        { name: 'draggable_areas', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'draggable_areas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3380,9 +3540,9 @@ glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetMinimumPanelSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3394,9 +3554,9 @@ glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetMicrophonePermissionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3408,9 +3568,9 @@ glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetLocationPermissionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3422,9 +3582,9 @@ glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetTabContextPermissionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3436,9 +3596,9 @@ glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetClosedCaptioningSetting_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3450,9 +3610,9 @@ glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetActuationOnWebSetting_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3465,7 +3625,7 @@ glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3473,12 +3633,12 @@ glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
 glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.ShouldAllowMediaPermissionRequest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3491,7 +3651,7 @@ glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3499,12 +3659,12 @@ glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec =
 glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.ShouldAllowGeolocationPermissionRequest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3516,9 +3676,9 @@ glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetContextAccessIndicator_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3531,7 +3691,7 @@ glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3539,12 +3699,12 @@ glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
 glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetUserProfileInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profile_info', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.UserProfileInfoSpec, nullable: true },
+        { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UserProfileInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3557,7 +3717,7 @@ glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3565,12 +3725,12 @@ glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
 glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.SyncCookies_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3582,12 +3742,12 @@ glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.LogBeginAsyncEvent_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_async_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'details', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_async_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -3599,10 +3759,10 @@ glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.LogEndAsyncEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event_async_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_async_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3614,11 +3774,11 @@ glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.LogInstantEvent_Params',
       packedSize: 32,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -3631,7 +3791,7 @@ glic.mojom.WebClientHandler_JournalClear_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3643,9 +3803,9 @@ glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.JournalSnapshot_Params',
       packedSize: 16,
       fields: [
-        { name: 'clear_journal', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'clear_journal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3653,12 +3813,12 @@ glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
 glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.JournalSnapshot_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'journal', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.JournalSpec, nullable: false },
+        { name: 'journal', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.JournalSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3670,10 +3830,10 @@ glic.mojom.WebClientHandler_JournalStart_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.JournalStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'max_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'capture_screenshots', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'max_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'capture_screenshots', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3686,7 +3846,7 @@ glic.mojom.WebClientHandler_JournalStop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3698,10 +3858,10 @@ glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.JournalRecordFeedback_Params',
       packedSize: 24,
       fields: [
-        { name: 'positive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'positive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3713,9 +3873,9 @@ glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnUserInputSubmitted_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3728,7 +3888,7 @@ glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3741,7 +3901,7 @@ glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3753,9 +3913,9 @@ glic.mojom.WebClientHandler_OnReaction_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnReaction_Params',
       packedSize: 16,
       fields: [
-        { name: 'reactionType', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.MetricUserInputReactionTypeSpec, nullable: false },
+        { name: 'reactionType', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.MetricUserInputReactionTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3768,7 +3928,7 @@ glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3780,9 +3940,9 @@ glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnResponseStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.OnResponseStoppedDetailsSpec, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OnResponseStoppedDetailsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3795,7 +3955,7 @@ glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3807,10 +3967,10 @@ glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnTurnCompleted_Params',
       packedSize: 24,
       fields: [
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3822,9 +3982,9 @@ glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnModelChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false },
+        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientModelSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3836,9 +3996,9 @@ glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnRecordUseCounter_Params',
       packedSize: 16,
       fields: [
-        { name: 'counter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'counter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3850,9 +4010,9 @@ glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnResponseRated_Params',
       packedSize: 16,
       fields: [
-        { name: 'positive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'positive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3865,7 +4025,7 @@ glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3877,9 +4037,9 @@ glic.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.ScrollTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ScrollToParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3887,12 +4047,12 @@ glic.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
 glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.ScrollTo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_reason', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ScrollToErrorReasonSpec, nullable: true },
+        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToErrorReasonSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3905,7 +4065,7 @@ glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3917,10 +4077,10 @@ glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SetSyntheticExperimentState_Params',
       packedSize: 24,
       fields: [
-        { name: 'trial_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3932,9 +4092,9 @@ glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OpenOsPermissionSettingsMenu_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3947,7 +4107,7 @@ glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3955,12 +4115,12 @@ glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
 glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetOsMicrophonePermissionStatus_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3972,10 +4132,10 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsAndSubscribe_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_live', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false },
+        { name: 'is_live', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3983,12 +4143,12 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
 glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsAndSubscribe_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'zero_state_suggestions', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true },
+        { name: 'zero_state_suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4000,9 +4160,10 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsForFocusedTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_first_run', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_first_run_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_first_run_$value', originalFieldName: 'is_first_run' } },
+        { name: 'is_first_run_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_first_run_$flag', originalFieldName: 'is_first_run' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4010,12 +4171,12 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsForFocusedTab_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsSpec, nullable: true },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4028,7 +4189,7 @@ glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -4041,7 +4202,7 @@ glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -4049,12 +4210,12 @@ glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
 glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.IsDebuggerAttached_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_attached_to_webview', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_attached_to_webview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4066,9 +4227,9 @@ glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.OnViewChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ViewChangedNotificationSpec, nullable: false },
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangedNotificationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4080,10 +4241,10 @@ glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SubscribeToPageMetadata_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'names', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -4091,12 +4252,12 @@ glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
 glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.SubscribeToPageMetadata_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4108,9 +4269,9 @@ glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SwitchConversation_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4118,12 +4279,12 @@ glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
 glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.SwitchConversation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_reason', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SwitchConversationErrorReasonSpec, nullable: true },
+        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SwitchConversationErrorReasonSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4135,9 +4296,9 @@ glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.RegisterConversation_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ConversationInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4145,12 +4306,12 @@ glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
 glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClientHandler.RegisterConversation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_reason', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.RegisterConversationErrorReasonSpec, nullable: true },
+        { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.RegisterConversationErrorReasonSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4163,7 +4324,7 @@ glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -4175,10 +4336,10 @@ glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec = {
       name: 'glic.mojom.WebClientHandler.SubscribeToTabData_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4251,9 +4412,9 @@ glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec = {
       name: 'glic.mojom.TabDataHandler.OnTabDataChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4614,9 +4775,9 @@ glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPanelWillOpen_Params',
       packedSize: 16,
       fields: [
-        { name: 'panel_opening_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelOpeningDataSpec, nullable: false },
+        { name: 'panel_opening_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelOpeningDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4624,12 +4785,12 @@ glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
 glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClient.NotifyPanelWillOpen_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'openPanelInfo', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.OpenPanelInfoSpec, nullable: false },
+        { name: 'openPanelInfo', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OpenPanelInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4642,7 +4803,7 @@ glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -4654,9 +4815,9 @@ glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPanelStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'panel_state', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false },
+        { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4668,9 +4829,9 @@ glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPanelActiveChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'panel_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'panel_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4682,9 +4843,9 @@ glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPanelCanAttachChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_attach', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_attach', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4696,9 +4857,9 @@ glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyMicrophonePermissionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4710,9 +4871,9 @@ glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyLocationPermissionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4724,9 +4885,9 @@ glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyTabContextPermissionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4738,9 +4899,9 @@ glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyOsLocationPermissionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4750,11 +4911,11 @@ glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyFocusedTabChanged_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'focused_tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false },
+        { name: 'focused_tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -4766,9 +4927,9 @@ glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyManualResizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'resizing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'resizing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4780,9 +4941,9 @@ glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyOsHotkeyStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'hotkey', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hotkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4794,9 +4955,9 @@ glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyBrowserIsOpenChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_is_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'browser_is_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4808,9 +4969,9 @@ glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyInstanceActivationChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'instance_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4822,9 +4983,9 @@ glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyClosedCaptioningSettingChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4836,9 +4997,9 @@ glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPinnedTabsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.TabDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4850,9 +5011,9 @@ glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPinnedTabDataChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false },
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4864,9 +5025,9 @@ glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifySkillPreviewsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'skill_previews', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'skill_previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(glic.mojom.SkillPreviewSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4878,9 +5039,9 @@ glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifySkillPreviewChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'skill_preview', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SkillPreviewSpec, nullable: false },
+        { name: 'skill_preview', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillPreviewSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4892,9 +5053,9 @@ glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifySkillToInvokeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'skill', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: false },
+        { name: 'skill', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4906,10 +5067,10 @@ glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyZeroStateSuggestionsChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'suggestions', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false },
+        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -4919,12 +5080,12 @@ glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.WebClient.NotifyActorTaskStateChanged_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.ActorTaskStateSpec, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: glic.mojom.ActorTaskStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4936,9 +5097,9 @@ glic.mojom.WebClient_RequestViewChange_ParamsSpec = {
       name: 'glic.mojom.WebClient.RequestViewChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4950,10 +5111,10 @@ glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyPageMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PageMetadataSpec, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PageMetadataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -4965,9 +5126,9 @@ glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec = 
       name: 'glic.mojom.WebClient.NotifyDefaultTabContextPermissionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4979,9 +5140,9 @@ glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
       name: 'glic.mojom.WebClient.RequestToShowCredentialSelectionDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -4989,12 +5150,12 @@ glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClient.RequestToShowCredentialSelectionDialog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5006,9 +5167,9 @@ glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
       name: 'glic.mojom.WebClient.RequestToShowAutofillSuggestionsDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5016,12 +5177,12 @@ glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClient.RequestToShowAutofillSuggestionsDialog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5033,9 +5194,9 @@ glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
       name: 'glic.mojom.WebClient.RequestToShowUserConfirmationDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5043,12 +5204,12 @@ glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClient.RequestToShowUserConfirmationDialog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5060,9 +5221,9 @@ glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
       name: 'glic.mojom.WebClient.RequestToConfirmNavigation_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5070,12 +5231,12 @@ glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
 glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'glic.mojom.WebClient.RequestToConfirmNavigation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5087,9 +5248,9 @@ glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyAdditionalContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.AdditionalContextSpec, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.AdditionalContextSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5101,9 +5262,9 @@ glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyActuationOnWebSettingChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5115,9 +5276,9 @@ glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyActOnWebCapabilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_act_on_web', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_act_on_web', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5129,9 +5290,9 @@ glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyOnboardingCompletedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -5204,10 +5365,10 @@ glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec = {
       name: 'glic.mojom.CaptureRegionObserver.OnUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CaptureRegionResultSpec, nullable: true },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: glic.mojom.CaptureRegionErrorReasonSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CaptureRegionResultSpec, nullable: true, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.CaptureRegionErrorReasonSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

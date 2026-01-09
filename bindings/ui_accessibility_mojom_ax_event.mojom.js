@@ -14,16 +14,16 @@ ax.mojom.AXEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXEvent',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.EventSpec, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'event_from', packedOffset: 24, packedBitOffset: 0, type: ax.mojom.EventFromSpec, nullable: false },
-        { name: 'event_from_action', packedOffset: 32, packedBitOffset: 0, type: ax.mojom.ActionSpec, nullable: false },
-        { name: 'event_intents', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'action_request_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.EventSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'event_from', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.EventFromSpec, nullable: false, minVersion: 0 },
+        { name: 'event_from_action', packedOffset: 12, packedBitOffset: 0, type: ax.mojom.ActionSpec, nullable: false, minVersion: 0 },
+        { name: 'event_intents', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.EventIntentSpec, false), nullable: false, minVersion: 0 },
+        { name: 'action_request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

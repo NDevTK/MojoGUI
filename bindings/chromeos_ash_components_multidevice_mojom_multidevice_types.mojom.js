@@ -29,6 +29,7 @@ ash.multidevice.mojom.SoftwareFeature = {
   PHONE_HUB_CAMERA_ROLL_HOST: 14,
   PHONE_HUB_CAMERA_ROLL_CLIENT: 15,
 };
+ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: SoftwareFeatureState
 ash.multidevice.mojom.SoftwareFeatureState = {
@@ -36,6 +37,7 @@ ash.multidevice.mojom.SoftwareFeatureState = {
   kSupported: 1,
   kEnabled: 2,
 };
+ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeaconSeed
 ash.multidevice.mojom.BeaconSeedSpec = {
@@ -44,11 +46,11 @@ ash.multidevice.mojom.BeaconSeedSpec = {
       name: 'ash.multidevice.mojom.BeaconSeed',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -60,18 +62,18 @@ ash.multidevice.mojom.RemoteDeviceSpec = {
       name: 'ash.multidevice.mojom.RemoteDevice',
       packedSize: 88,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'user_email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'instance_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'device_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pii_free_device_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'persistent_symmetric_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_update_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'software_features', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'beacon_seeds', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'bluetooth_public_address', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'user_email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pii_free_device_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'persistent_symmetric_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'last_update_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'software_features', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(ash.multidevice.mojom.SoftwareFeatureSpec, ash.multidevice.mojom.SoftwareFeatureStateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'beacon_seeds', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(ash.multidevice.mojom.BeaconSeedSpec, false), nullable: false, minVersion: 0 },
+        { name: 'bluetooth_public_address', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };

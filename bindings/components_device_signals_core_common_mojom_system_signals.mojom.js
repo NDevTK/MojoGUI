@@ -16,6 +16,7 @@ device_signals.mojom.PresenceValue = {
   kNotFound: 2,
   kFound: 3,
 };
+device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: AntiVirusProductState
 device_signals.mojom.AntiVirusProductState = {
@@ -24,22 +25,23 @@ device_signals.mojom.AntiVirusProductState = {
   kSnoozed: 2,
   kExpired: 3,
 };
+device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExecutableMetadata
 device_signals.mojom.ExecutableMetadataSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.ExecutableMetadata',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'is_running', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'public_keys_hashes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'product_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_os_verified', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'subject_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_running', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'public_keys_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: true, minVersion: 0 },
+        { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_os_verified', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'subject_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -51,12 +53,12 @@ device_signals.mojom.FileSystemItemSpec = {
       name: 'device_signals.mojom.FileSystemItem',
       packedSize: 40,
       fields: [
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'presence', packedOffset: 16, packedBitOffset: 0, type: device_signals.mojom.PresenceValueSpec, nullable: false },
-        { name: 'sha256_hash', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true },
-        { name: 'executable_metadata', packedOffset: 32, packedBitOffset: 0, type: device_signals.mojom.ExecutableMetadataSpec, nullable: true },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'presence', packedOffset: 8, packedBitOffset: 0, type: device_signals.mojom.PresenceValueSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
+        { name: 'executable_metadata', packedOffset: 24, packedBitOffset: 0, type: device_signals.mojom.ExecutableMetadataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -68,11 +70,11 @@ device_signals.mojom.FileSystemItemRequestSpec = {
       name: 'device_signals.mojom.FileSystemItemRequest',
       packedSize: 24,
       fields: [
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'compute_sha256', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'compute_executable_metadata', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'compute_sha256', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'compute_executable_metadata', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -84,10 +86,10 @@ device_signals.mojom.AntiVirusSignalSpec = {
       name: 'device_signals.mojom.AntiVirusSignal',
       packedSize: 24,
       fields: [
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: device_signals.mojom.AntiVirusProductStateSpec, nullable: false },
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: device_signals.mojom.AntiVirusProductStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,9 +101,9 @@ device_signals.mojom.HotfixSignalSpec = {
       name: 'device_signals.mojom.HotfixSignal',
       packedSize: 16,
       fields: [
-        { name: 'hotfix_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hotfix_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -187,9 +189,9 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
       name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_Params',
       packedSize: 16,
       fields: [
-        { name: 'requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.FileSystemItemRequestSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -197,12 +199,12 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.FileSystemItemSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -215,7 +217,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -223,12 +225,12 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device_signals.mojom.SystemSignalsService.GetAntiVirusSignals_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'av_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'av_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.AntiVirusSignalSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +243,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -249,12 +251,12 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device_signals.mojom.SystemSignalsService.GetHotfixSignals_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hotfix_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hotfix_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.HotfixSignalSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

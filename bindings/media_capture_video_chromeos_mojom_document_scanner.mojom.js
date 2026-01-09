@@ -16,10 +16,10 @@ cros.mojom.DetectCornersResultSpec = {
       name: 'cros.mojom.DetectCornersResult',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'corners', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -59,6 +59,15 @@ cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  detectCornersFromNV12Image(nv12_image) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
+      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
+      [nv12_image]);
+  }
+
 };
 
 cros.mojom.CrosDocumentScanner.getRemote = function() {
@@ -69,6 +78,33 @@ cros.mojom.CrosDocumentScanner.getRemote = function() {
     'cros.mojom.CrosDocumentScanner',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for DetectCornersFromNV12Image
+cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'nv12_image', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.DetectCornersResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -16,6 +16,7 @@ ash.projector.mojom.NewScreencastPreconditionState = {
   kEnabled: 1,
   kHidden: 2,
 };
+ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NewScreencastPreconditionReason
 ash.projector.mojom.NewScreencastPreconditionReason = {
@@ -35,6 +36,7 @@ ash.projector.mojom.NewScreencastPreconditionReason = {
   kEnabledBySoda: 13,
   kEnabledByServerSideSpeechRecognition: 14,
 };
+ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefsThatProjectorCanAskFor
 ash.projector.mojom.PrefsThatProjectorCanAskFor = {
@@ -43,6 +45,7 @@ ash.projector.mojom.PrefsThatProjectorCanAskFor = {
   kProjectorViewerOnboardingShowCount: 2,
   kProjectorGalleryOnboardingShowCount: 3,
 };
+ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
 
 // Enum: XhrResponseCode
 ash.projector.mojom.XhrResponseCode = {
@@ -52,6 +55,7 @@ ash.projector.mojom.XhrResponseCode = {
   kUnsupportedURL: 3,
   kInvalidAccountEmail: 4,
 };
+ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: JsNetErrorCode
 ash.projector.mojom.JsNetErrorCode = {
@@ -66,6 +70,7 @@ ash.projector.mojom.JsNetErrorCode = {
   kTimeout: 8,
   kOffline: 9,
 };
+ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestType
 ash.projector.mojom.RequestType = {
@@ -73,6 +78,21 @@ ash.projector.mojom.RequestType = {
   kGet: 1,
   kPatch: 2,
   kDelete: 3,
+};
+ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: GetVideoResult
+ash.projector.mojom.GetVideoResultSpec = { $: mojo.internal.Union(
+    'ash.projector.mojom.GetVideoResult', {
+      'video': {
+        'ordinal': 0,
+        'type': ash.projector.mojom.VideoInfoSpec,
+      }},
+      'error_message': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
 };
 
 // Struct: NewScreencastPrecondition
@@ -82,10 +102,10 @@ ash.projector.mojom.NewScreencastPreconditionSpec = {
       name: 'ash.projector.mojom.NewScreencastPrecondition',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false },
-        { name: 'reasons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false, minVersion: 0 },
+        { name: 'reasons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -95,14 +115,14 @@ ash.projector.mojom.PendingScreencastSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.PendingScreencast',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'upload_progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'created_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'upload_failed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'upload_progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'created_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'upload_failed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -112,13 +132,13 @@ ash.projector.mojom.XhrResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.XhrResponse',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseCodeSpec, nullable: false },
-        { name: 'net_error_code', packedOffset: 24, packedBitOffset: 0, type: ash.projector.mojom.JsNetErrorCodeSpec, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'net_error_code', packedOffset: 12, packedBitOffset: 0, type: ash.projector.mojom.JsNetErrorCodeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -130,10 +150,10 @@ ash.projector.mojom.AccountSpec = {
       name: 'ash.projector.mojom.Account',
       packedSize: 24,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_primary_user', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_primary_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -145,10 +165,10 @@ ash.projector.mojom.VideoInfoSpec = {
       name: 'ash.projector.mojom.VideoInfo',
       packedSize: 24,
       fields: [
-        { name: 'duration_millis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'file_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'duration_millis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

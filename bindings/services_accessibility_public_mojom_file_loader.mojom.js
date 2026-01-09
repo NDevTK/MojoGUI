@@ -72,9 +72,9 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
       name: 'ax.mojom.AccessibilityFileLoader.Load_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.RelativeFilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RelativeFilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
 ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.AccessibilityFileLoader.Load_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

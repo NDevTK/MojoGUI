@@ -14,12 +14,14 @@ actor.mojom.Type = {
   kLeft: 0,
   kRight: 1,
 };
+actor.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Count
 actor.mojom.Count = {
   kSingle: 0,
   kDouble: 1,
 };
+actor.mojom.CountSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
 actor.mojom.Mode = {
@@ -27,6 +29,7 @@ actor.mojom.Mode = {
   kPrepend: 1,
   kAppend: 2,
 };
+actor.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollDirection
 actor.mojom.ScrollDirection = {
@@ -35,6 +38,7 @@ actor.mojom.ScrollDirection = {
   kUp: 2,
   kDown: 3,
 };
+actor.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionResultCode
 actor.mojom.ActionResultCode = {
@@ -126,12 +130,66 @@ actor.mojom.ActionResultCode = {
   kScriptToolInvocationFailed: 85,
   kActorUiError: 86,
 };
+actor.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: JournalEntryType
 actor.mojom.JournalEntryType = {
   kBegin: 0,
   kEnd: 1,
   kInstant: 2,
+};
+actor.mojom.JournalEntryTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: ToolTarget
+actor.mojom.ToolTargetSpec = { $: mojo.internal.Union(
+    'actor.mojom.ToolTarget', {
+      'dom_node_id': {
+        'ordinal': 0,
+        'type': mojo.internal.Int32,
+      }},
+      'coordinate_dip': {
+        'ordinal': 1,
+        'type': gfx.mojom.PointSpec,
+      }},
+    })
+};
+
+// Union: ToolAction
+actor.mojom.ToolActionSpec = { $: mojo.internal.Union(
+    'actor.mojom.ToolAction', {
+      'click': {
+        'ordinal': 0,
+        'type': actor.mojom.ClickActionSpec,
+      }},
+      'drag_and_release': {
+        'ordinal': 1,
+        'type': actor.mojom.DragAndReleaseActionSpec,
+      }},
+      'mouse_move': {
+        'ordinal': 2,
+        'type': actor.mojom.MouseMoveActionSpec,
+      }},
+      'scroll': {
+        'ordinal': 3,
+        'type': actor.mojom.ScrollActionSpec,
+      }},
+      'select': {
+        'ordinal': 4,
+        'type': actor.mojom.SelectActionSpec,
+      }},
+      'type': {
+        'ordinal': 5,
+        'type': actor.mojom.TypeActionSpec,
+      }},
+      'script_tool': {
+        'ordinal': 6,
+        'type': actor.mojom.ScriptToolActionSpec,
+      }},
+      'scroll_to': {
+        'ordinal': 7,
+        'type': actor.mojom.ScrollToActionSpec,
+      }},
+    })
 };
 
 // Struct: ObservedToolTarget
@@ -141,9 +199,9 @@ actor.mojom.ObservedToolTargetSpec = {
       name: 'actor.mojom.ObservedToolTarget',
       packedSize: 16,
       fields: [
-        { name: 'node_attribute', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIPageContentAttributesSpec, nullable: false },
+        { name: 'node_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentAttributesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,9 +213,9 @@ actor.mojom.ClickActionSpec = {
       name: 'actor.mojom.ClickAction',
       packedSize: 16,
       fields: [
-        { name: 'kLeft', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kLeft', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,7 +228,7 @@ actor.mojom.MouseMoveActionSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -183,7 +241,7 @@ actor.mojom.ScrollToActionSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -195,9 +253,9 @@ actor.mojom.TypeActionSpec = {
       name: 'actor.mojom.TypeAction',
       packedSize: 16,
       fields: [
-        { name: 'kDeleteExisting', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kDeleteExisting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,9 +267,9 @@ actor.mojom.ScrollActionSpec = {
       name: 'actor.mojom.ScrollAction',
       packedSize: 16,
       fields: [
-        { name: 'kLeft', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kLeft', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,9 +281,9 @@ actor.mojom.SelectActionSpec = {
       name: 'actor.mojom.SelectAction',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -235,11 +293,11 @@ actor.mojom.DragAndReleaseActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.DragAndReleaseAction',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'to_target', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false },
+        { name: 'to_target', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -251,10 +309,10 @@ actor.mojom.ScriptToolActionSpec = {
       name: 'actor.mojom.ScriptToolAction',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'input_arguments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input_arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -266,9 +324,9 @@ actor.mojom.TaskIdSpec = {
       name: 'actor.mojom.TaskId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -278,14 +336,14 @@ actor.mojom.ToolInvocationSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ToolInvocation',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: actor.mojom.ToolActionSpec, nullable: false },
-        { name: 'target', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false },
-        { name: 'observed_target', packedOffset: 32, packedBitOffset: 0, type: actor.mojom.ObservedToolTargetSpec, nullable: true },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ToolActionSpec, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false, minVersion: 0 },
+        { name: 'observed_target', packedOffset: 40, packedBitOffset: 0, type: actor.mojom.ObservedToolTargetSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -295,15 +353,15 @@ actor.mojom.ActionResultSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ActionResult',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false },
-        { name: 'requires_page_stabilization', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'script_tool_response', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'execution_end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'requires_page_stabilization', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'script_tool_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -315,10 +373,10 @@ actor.mojom.JournalDetailsSpec = {
       name: 'actor.mojom.JournalDetails',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -330,14 +388,14 @@ actor.mojom.JournalEntrySpec = {
       name: 'actor.mojom.JournalEntry',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.JournalEntryTypeSpec, nullable: false },
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'event', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'track_uuid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'details', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.JournalEntryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'track_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(actor.mojom.JournalDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -405,9 +463,9 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
       name: 'actor.mojom.JournalClient.AddEntriesToJournal_Params',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(actor.mojom.JournalEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -480,9 +538,9 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       name: 'actor.mojom.PageStabilityMonitor.NotifyWhenStable_Params',
       packedSize: 16,
       fields: [
-        { name: 'observation_delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

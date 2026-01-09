@@ -16,10 +16,10 @@ feed.mojom.RssLinksSpec = {
       name: 'feed.mojom.RssLinks',
       packedSize: 24,
       fields: [
-        { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'links', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,7 +88,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,12 +96,12 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
 feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'rss_links', packedOffset: 8, packedBitOffset: 0, type: feed.mojom.RssLinksSpec, nullable: false },
+        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: feed.mojom.RssLinksSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

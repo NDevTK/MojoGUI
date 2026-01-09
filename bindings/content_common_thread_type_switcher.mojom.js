@@ -70,12 +70,12 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ThreadTypeSwitcher.SetThreadType_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'platform_thread_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'thread_type', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ThreadTypeSpec, nullable: false },
+        { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'thread_type', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.ThreadTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,3 +15,4 @@ webnn.mojom.Device = {
   kGpu: 1,
   kNpu: 2,
 };
+webnn.mojom.DeviceSpec = { $: mojo.internal.Enum() };

@@ -28,3 +28,4 @@ blink.mojom.UserActivationNotificationType = {
   kExtensionMessagingReceiverPrivileged: 14,
   kExtensionMessagingNeitherPrivileged: 15,
 };
+blink.mojom.UserActivationNotificationTypeSpec = { $: mojo.internal.Enum() };

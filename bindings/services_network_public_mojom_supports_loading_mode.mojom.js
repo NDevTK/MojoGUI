@@ -18,6 +18,7 @@ network.mojom.LoadingMode = {
   kFencedFrame: 4,
   kPrerenderCrossOriginFrames: 5,
 };
+network.mojom.LoadingModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportsLoadingMode
 network.mojom.SupportsLoadingModeSpec = {
@@ -26,9 +27,9 @@ network.mojom.SupportsLoadingModeSpec = {
       name: 'network.mojom.SupportsLoadingMode',
       packedSize: 16,
       fields: [
-        { name: 'supported_modes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.LoadingModeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

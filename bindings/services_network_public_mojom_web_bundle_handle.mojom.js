@@ -20,6 +20,7 @@ network.mojom.WebBundleErrorType = {
   kWebBundleRedirected: 6,
   kDeprecationWarning: 7,
 };
+network.mojom.WebBundleErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: WebBundleHandle
 network.mojom.WebBundleHandle = {};
@@ -102,9 +103,9 @@ network.mojom.WebBundleHandle_Clone_ParamsSpec = {
       name: 'network.mojom.WebBundleHandle.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,10 +117,10 @@ network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
       name: 'network.mojom.WebBundleHandle.OnWebBundleError_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebBundleErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -131,9 +132,9 @@ network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
       name: 'network.mojom.WebBundleHandle.OnWebBundleLoadFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

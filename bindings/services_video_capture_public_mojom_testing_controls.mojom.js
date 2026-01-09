@@ -73,7 +73,7 @@ video_capture.mojom.TestingControls_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

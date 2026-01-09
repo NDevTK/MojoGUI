@@ -9,6 +9,10 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
+tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kUtility;
+
+tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
+
 // Struct: ClientInfo
 tracing.mojom.ClientInfoSpec = {
   $: {
@@ -16,10 +20,10 @@ tracing.mojom.ClientInfoSpec = {
       name: 'tracing.mojom.ClientInfo',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'process', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'process', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,9 +109,9 @@ tracing.mojom.TracingService_Initialize_ParamsSpec = {
       name: 'tracing.mojom.TracingService.Initialize_Params',
       packedSize: 16,
       fields: [
-        { name: 'clients', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tracing.mojom.ClientInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,9 +123,9 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
       name: 'tracing.mojom.TracingService.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: tracing.mojom.ClientInfoSpec, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ClientInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -133,9 +137,9 @@ tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
       name: 'tracing.mojom.TracingService.BindConsumerHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

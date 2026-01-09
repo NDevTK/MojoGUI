@@ -16,11 +16,11 @@ ukm.mojom.UkmEntrySpec = {
       name: 'ukm.mojom.UkmEntry',
       packedSize: 32,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'event_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'metrics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'event_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,10 +32,10 @@ ukm.mojom.UkmRecorderParametersSpec = {
       name: 'ukm.mojom.UkmRecorderParameters',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'event_hash_bypass_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'event_hash_bypass_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,9 +103,9 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
       name: 'ukm.mojom.SingularUkmInterface.Submit_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,9 +178,9 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderClientInterface.SetParameters_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: ukm.mojom.UkmRecorderParametersSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmRecorderParametersSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,9 +262,9 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ukm.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -276,10 +276,10 @@ ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderInterface.UpdateSourceURL_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -352,10 +352,10 @@ ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderFactory.CreateUkmRecorder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

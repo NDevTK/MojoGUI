@@ -24,3 +24,4 @@ device.mojom.OpenXrInteractionProfileType = {
   kMetaHandAim: 10,
   kInvalid: 11,
 };
+device.mojom.OpenXrInteractionProfileTypeSpec = { $: mojo.internal.Enum() };

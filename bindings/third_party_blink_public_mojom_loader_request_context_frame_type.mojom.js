@@ -16,3 +16,4 @@ blink.mojom.RequestContextFrameType = {
   kNone: 2,
   kTopLevel: 3,
 };
+blink.mojom.RequestContextFrameTypeSpec = { $: mojo.internal.Enum() };

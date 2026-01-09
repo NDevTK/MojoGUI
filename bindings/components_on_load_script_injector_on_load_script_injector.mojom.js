@@ -81,9 +81,9 @@ on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = 
       name: 'on_load_script_injector.mojom.OnLoadScriptInjector.AddOnLoadScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

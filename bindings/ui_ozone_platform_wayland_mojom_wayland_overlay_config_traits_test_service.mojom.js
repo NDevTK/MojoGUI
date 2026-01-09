@@ -70,11 +70,11 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
   $: {
     structSpec: {
       name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false },
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -82,12 +82,12 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
 wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'pass', packedOffset: 8, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

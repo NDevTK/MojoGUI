@@ -20,6 +20,7 @@ history_embeddings.mojom.AnswerStatus = {
   kExecutionCanceled: 6,
   kFiltered: 7,
 };
+history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
 history_embeddings.mojom.UserFeedback = {
@@ -27,6 +28,7 @@ history_embeddings.mojom.UserFeedback = {
   kUserFeedbackNegative: 1,
   kUserFeedbackPositive: 2,
 };
+history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Struct: AnswerData
 history_embeddings.mojom.AnswerDataSpec = {
@@ -35,9 +37,9 @@ history_embeddings.mojom.AnswerDataSpec = {
       name: 'history_embeddings.mojom.AnswerData',
       packedSize: 16,
       fields: [
-        { name: 'answer_text_directives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'answer_text_directives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -49,17 +51,17 @@ history_embeddings.mojom.SearchResultItemSpec = {
       name: 'history_embeddings.mojom.SearchResultItem',
       packedSize: 80,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'url_for_display', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'relative_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'short_date_time', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_url_visit_timestamp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'source_passage', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'answer_data', packedOffset: 64, packedBitOffset: 0, type: history_embeddings.mojom.AnswerDataSpec, nullable: true },
-        { name: 'is_url_known_to_sync', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'url_for_display', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'relative_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'short_date_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'last_url_visit_timestamp', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'source_passage', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'answer_data', packedOffset: 56, packedBitOffset: 0, type: history_embeddings.mojom.AnswerDataSpec, nullable: true, minVersion: 0 },
+        { name: 'is_url_known_to_sync', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -71,10 +73,10 @@ history_embeddings.mojom.SearchQuerySpec = {
       name: 'history_embeddings.mojom.SearchQuery',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time_range_start', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'time_range_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -86,12 +88,12 @@ history_embeddings.mojom.SearchResultSpec = {
       name: 'history_embeddings.mojom.SearchResult',
       packedSize: 40,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'answer_status', packedOffset: 16, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false },
-        { name: 'answer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'items', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'answer_status', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'answer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -213,9 +215,9 @@ history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,9 +229,9 @@ history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.Search_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.SearchQuerySpec, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchQuerySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,10 +243,10 @@ history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SendQualityLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'selected_indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'num_entered_chars', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'num_entered_chars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -254,16 +256,16 @@ history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.RecordSearchResultsMetrics_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'nonEmptyResults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'userClickedResult', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'answerShown', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'answerCitationClicked', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'otherHistoryResultClicked', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'queryWordCount', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'nonEmptyResults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'userClickedResult', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'answerShown', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'answerCitationClicked', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'otherHistoryResultClicked', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'queryWordCount', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -275,9 +277,9 @@ history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SetUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.UserFeedbackSpec, nullable: false },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,7 +292,7 @@ history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -303,7 +305,7 @@ history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -376,9 +378,9 @@ history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
       name: 'history_embeddings.mojom.Page.SearchResultChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.SearchResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: history_embeddings.mojom.SearchResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

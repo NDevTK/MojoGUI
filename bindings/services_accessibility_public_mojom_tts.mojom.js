@@ -22,6 +22,7 @@ ax.mojom.TtsEventType = {
   kPause: 8,
   kResume: 9,
 };
+ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TtsError
 ax.mojom.TtsError = {
@@ -35,6 +36,7 @@ ax.mojom.TtsError = {
   kErrorUndeclaredEventType: 7,
   kErrorUtteranceTooLong: 8,
 };
+ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsVoice
 ax.mojom.TtsVoiceSpec = {
@@ -43,13 +45,13 @@ ax.mojom.TtsVoiceSpec = {
       name: 'ax.mojom.TtsVoice',
       packedSize: 48,
       fields: [
-        { name: 'voice_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'engine_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'event_types', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'engine_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'event_types', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -59,18 +61,18 @@ ax.mojom.TtsOptionsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsOptions',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
-        { name: 'pitch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'volume', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'enqueue', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'voice_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'engine_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'lang', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'on_event', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'pitch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'volume', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'enqueue', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'voice_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'engine_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'on_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -80,15 +82,15 @@ ax.mojom.TtsEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsEvent',
-      packedSize: 48,
+      packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false },
-        { name: 'char_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'error_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'length', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_final', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'char_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_final', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -98,12 +100,12 @@ ax.mojom.TtsSpeakResultSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsSpeakResult',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false },
-        { name: 'utterance_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'utterance_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,9 +173,9 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
       name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -291,10 +293,10 @@ ax.mojom.Tts_Speak_ParamsSpec = {
       name: 'ax.mojom.Tts.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -302,12 +304,12 @@ ax.mojom.Tts_Speak_ParamsSpec = {
 ax.mojom.Tts_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.Tts.Speak_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsSpeakResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsSpeakResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -320,7 +322,7 @@ ax.mojom.Tts_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -333,7 +335,7 @@ ax.mojom.Tts_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -346,7 +348,7 @@ ax.mojom.Tts_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -359,7 +361,7 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -367,12 +369,12 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
 ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'speaking', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -385,7 +387,7 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -393,12 +395,12 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
 ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.Tts.GetVoices_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'voices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsVoiceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

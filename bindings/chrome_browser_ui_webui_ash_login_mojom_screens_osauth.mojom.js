@@ -101,7 +101,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,7 +114,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -127,7 +127,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +140,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

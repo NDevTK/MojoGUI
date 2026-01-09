@@ -15,3 +15,4 @@ attribution_reporting.mojom.RegistrationEligibility = {
   kSource: 1,
   kTrigger: 2,
 };
+attribution_reporting.mojom.RegistrationEligibilitySpec = { $: mojo.internal.Enum() };

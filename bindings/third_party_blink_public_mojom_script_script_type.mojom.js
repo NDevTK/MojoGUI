@@ -14,3 +14,4 @@ blink.mojom.ScriptType = {
   kClassic: 0,
   kModule: 1,
 };
+blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };

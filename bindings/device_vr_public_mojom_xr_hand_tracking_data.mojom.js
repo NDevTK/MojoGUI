@@ -37,19 +37,20 @@ device.mojom.XRHandJoint = {
   kPinkyFingerPhalanxDistal: 23,
   kPinkyFingerTip: 24,
 };
+device.mojom.XRHandJointSpec = { $: mojo.internal.Enum() };
 
 // Struct: XRHandJointData
 device.mojom.XRHandJointDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandJointData',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'joint', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRHandJointSpec, nullable: false },
-        { name: 'mojo_from_joint', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true },
-        { name: 'radius', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'joint', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRHandJointSpec, nullable: false, minVersion: 0 },
+        { name: 'mojo_from_joint', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
+        { name: 'radius', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -61,9 +62,9 @@ device.mojom.XRHandTrackingDataSpec = {
       name: 'device.mojom.XRHandTrackingData',
       packedSize: 16,
       fields: [
-        { name: 'hand_joint_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hand_joint_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRHandJointDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

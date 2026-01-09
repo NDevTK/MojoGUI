@@ -23,3 +23,4 @@ ui.mojom.ModifierKey = {
   kFunction: 9,
   kQuickInsert: 10,
 };
+ui.mojom.ModifierKeySpec = { $: mojo.internal.Enum() };

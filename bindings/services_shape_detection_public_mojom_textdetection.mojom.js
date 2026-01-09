@@ -16,11 +16,11 @@ shape_detection.mojom.TextDetectionResultSpec = {
       name: 'shape_detection.mojom.TextDetectionResult',
       packedSize: 32,
       fields: [
-        { name: 'raw_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'corner_points', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'raw_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'corner_points', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -88,9 +88,9 @@ shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.TextDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,12 +98,12 @@ shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
 shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'shape_detection.mojom.TextDetection.Detect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

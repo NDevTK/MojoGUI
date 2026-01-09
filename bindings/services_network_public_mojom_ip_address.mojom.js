@@ -16,9 +16,9 @@ network.mojom.IPAddressSpec = {
       name: 'network.mojom.IPAddress',
       packedSize: 16,
       fields: [
-        { name: 'address_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

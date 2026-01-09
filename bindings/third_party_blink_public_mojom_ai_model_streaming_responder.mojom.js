@@ -28,6 +28,7 @@ blink.mojom.ModelStreamingResponseStatus = {
   kErrorInputTooLarge: 14,
   kErrorResponseLowQuality: 15,
 };
+blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ModelExecutionContextInfo
 blink.mojom.ModelExecutionContextInfoSpec = {
@@ -36,9 +37,9 @@ blink.mojom.ModelExecutionContextInfoSpec = {
       name: 'blink.mojom.ModelExecutionContextInfo',
       packedSize: 16,
       fields: [
-        { name: 'current_tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'current_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -133,9 +134,9 @@ blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnCompletion_Params',
       packedSize: 16,
       fields: [
-        { name: 'context_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModelExecutionContextInfoSpec, nullable: true },
+        { name: 'context_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelExecutionContextInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -147,10 +148,10 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModelStreamingResponseStatusSpec, nullable: false },
-        { name: 'quota_error_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelStreamingResponseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -162,9 +163,9 @@ blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
       name: 'blink.mojom.ModelStreamingResponder.OnStreaming_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,7 +178,7 @@ blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

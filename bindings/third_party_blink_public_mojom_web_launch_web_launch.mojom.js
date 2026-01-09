@@ -81,9 +81,9 @@ blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
       name: 'blink.mojom.WebLaunchService.SetLaunchFiles_Params',
       packedSize: 16,
       fields: [
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileSystemAccessEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,11 +95,11 @@ blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
       name: 'blink.mojom.WebLaunchService.EnqueueLaunchParams_Params',
       packedSize: 32,
       fields: [
-        { name: 'launch_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'time_navigation_started_in_browser', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'navigation_started', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'navigation_started', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

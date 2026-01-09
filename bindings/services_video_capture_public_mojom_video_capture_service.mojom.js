@@ -9,6 +9,10 @@ var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
 
 
+video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kVideoCapture;
+
+video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+
 // Interface: AcceleratorFactory
 video_capture.mojom.AcceleratorFactory = {};
 
@@ -72,9 +76,9 @@ video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = 
       name: 'video_capture.mojom.AcceleratorFactory.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,9 +196,9 @@ video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.InjectGpuDependencies_Params',
       packedSize: 16,
       fields: [
-        { name: 'accelerator_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,9 +210,9 @@ video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpe
       name: 'video_capture.mojom.VideoCaptureService.ConnectToCameraAppDeviceBridge_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,9 +224,9 @@ video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec
       name: 'video_capture.mojom.VideoCaptureService.BindVideoCaptureDeviceFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,9 +238,9 @@ video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec 
       name: 'video_capture.mojom.VideoCaptureService.ConnectToVideoSourceProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -248,9 +252,9 @@ video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.BindControlsForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,9 +266,9 @@ video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'luid', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.LuidSpec, nullable: false },
+        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.LuidSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

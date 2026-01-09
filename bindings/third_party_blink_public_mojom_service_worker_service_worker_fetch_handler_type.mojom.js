@@ -15,3 +15,4 @@ blink.mojom.ServiceWorkerFetchHandlerType = {
   kNotSkippable: 1,
   kEmptyFetchHandler: 2,
 };
+blink.mojom.ServiceWorkerFetchHandlerTypeSpec = { $: mojo.internal.Enum() };

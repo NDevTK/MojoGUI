@@ -16,9 +16,9 @@ sharing.mojom.TcpServerSocketPortSpec = {
       name: 'sharing.mojom.TcpServerSocketPort',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

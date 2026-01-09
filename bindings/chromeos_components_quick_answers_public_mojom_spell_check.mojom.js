@@ -72,9 +72,9 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dictionary_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
 quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dictionary', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -160,9 +160,9 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
       name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_Params',
       packedSize: 16,
       fields: [
-        { name: 'word', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,12 +170,12 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
 quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'correctness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

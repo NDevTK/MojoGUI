@@ -22,3 +22,4 @@ gfx.mojom.OverlayTransform = {
   OVERLAY_TRANSFORM_FLIP_VERTICAL_CLOCKWISE_270: 8,
   OVERLAY_TRANSFORM_LAST: 9,
 };
+gfx.mojom.OverlayTransformSpec = { $: mojo.internal.Enum() };

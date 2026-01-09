@@ -19,6 +19,7 @@ blink.mojom.BackgroundSyncError = {
   PERMISSION_DENIED: 5,
   MAX: 6,
 };
+blink.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncState
 blink.mojom.BackgroundSyncState = {
@@ -26,18 +27,21 @@ blink.mojom.BackgroundSyncState = {
   FIRING: 1,
   REREGISTERED_WHILE_FIRING: 2,
 };
+blink.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncEventLastChance
 blink.mojom.BackgroundSyncEventLastChance = {
   IS_NOT_LAST_CHANCE: 0,
   IS_LAST_CHANCE: 1,
 };
+blink.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundSyncType
 blink.mojom.BackgroundSyncType = {
   ONE_SHOT: 0,
   PERIODIC: 1,
 };
+blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyncRegistrationOptions
 blink.mojom.SyncRegistrationOptionsSpec = {
@@ -46,10 +50,10 @@ blink.mojom.SyncRegistrationOptionsSpec = {
       name: 'blink.mojom.SyncRegistrationOptions',
       packedSize: 24,
       fields: [
-        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'min_interval', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'min_interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -61,11 +65,11 @@ blink.mojom.BackgroundSyncRegistrationInfoSpec = {
       name: 'blink.mojom.BackgroundSyncRegistrationInfo',
       packedSize: 32,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'sync_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.BackgroundSyncTypeSpec, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'sync_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.BackgroundSyncTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -151,10 +155,10 @@ blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
       name: 'blink.mojom.OneShotBackgroundSyncService.Register_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false },
-        { name: 'service_worker_registration_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -162,13 +166,13 @@ blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
 blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.OneShotBackgroundSyncService.Register_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'err', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: true },
+        { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -180,9 +184,9 @@ blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
       name: 'blink.mojom.OneShotBackgroundSyncService.DidResolveRegistration_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncRegistrationInfoSpec, nullable: false },
+        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncRegistrationInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,9 +198,9 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
       name: 'blink.mojom.OneShotBackgroundSyncService.GetRegistrations_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,13 +208,13 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
 blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.OneShotBackgroundSyncService.GetRegistrations_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'err', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false },
-        { name: 'registrations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -301,10 +305,10 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Register_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false },
-        { name: 'service_worker_registration_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -312,13 +316,13 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.PeriodicBackgroundSyncService.Register_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'err', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: true },
+        { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncRegistrationOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -330,10 +334,10 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
       name: 'blink.mojom.PeriodicBackgroundSyncService.Unregister_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -341,12 +345,12 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.PeriodicBackgroundSyncService.Unregister_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'err', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false },
+        { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -358,9 +362,9 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
       name: 'blink.mojom.PeriodicBackgroundSyncService.GetRegistrations_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -368,13 +372,13 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.PeriodicBackgroundSyncService.GetRegistrations_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'err', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false },
-        { name: 'registrations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

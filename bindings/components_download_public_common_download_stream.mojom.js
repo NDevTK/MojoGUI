@@ -22,6 +22,7 @@ download.mojom.NetworkRequestStatus = {
   USER_CANCELED: 8,
   NETWORK_FAILED: 9,
 };
+download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DownloadStreamHandle
 download.mojom.DownloadStreamHandleSpec = {
@@ -30,10 +31,10 @@ download.mojom.DownloadStreamHandleSpec = {
       name: 'download.mojom.DownloadStreamHandle',
       packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -101,9 +102,9 @@ download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
       name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

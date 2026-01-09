@@ -14,6 +14,7 @@ webnn.mojom.Code = {
   kUnknownError: 0,
   kNotSupportedError: 1,
 };
+webnn.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
 webnn.mojom.ErrorSpec = {
@@ -22,9 +23,9 @@ webnn.mojom.ErrorSpec = {
       name: 'webnn.mojom.Error',
       packedSize: 16,
       fields: [
-        { name: 'kUnknownError', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknownError', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

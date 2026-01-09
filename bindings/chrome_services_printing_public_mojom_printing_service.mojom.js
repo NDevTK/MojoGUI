@@ -9,6 +9,10 @@ var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
 
+printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kPdfConversion;
+
+printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kUtility;
+
 // Interface: PrintingService
 printing.mojom.PrintingService = {};
 
@@ -99,9 +103,9 @@ printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfNupConverter_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -113,9 +117,9 @@ printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfToPwgRasterConverter_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,9 +131,9 @@ printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfFlattener_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +145,9 @@ printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfToEmfConverterFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

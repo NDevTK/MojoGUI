@@ -73,9 +73,9 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
       name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'trash_info_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'trash_info_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,14 +83,14 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
 ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'restore_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'deletion_date', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'restore_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'deletion_date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

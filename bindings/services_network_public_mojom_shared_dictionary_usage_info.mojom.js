@@ -16,10 +16,10 @@ network.mojom.SharedDictionaryUsageInfoSpec = {
       name: 'network.mojom.SharedDictionaryUsageInfo',
       packedSize: 24,
       fields: [
-        { name: 'isolation_key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedDictionaryIsolationKeySpec, nullable: false },
-        { name: 'total_size_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryIsolationKeySpec, nullable: false, minVersion: 0 },
+        { name: 'total_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

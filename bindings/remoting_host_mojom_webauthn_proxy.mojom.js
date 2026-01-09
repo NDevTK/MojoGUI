@@ -9,6 +9,34 @@ var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
 
+// Union: WebAuthnCreateResponse
+remoting.mojom.WebAuthnCreateResponseSpec = { $: mojo.internal.Union(
+    'remoting.mojom.WebAuthnCreateResponse', {
+      'error_details': {
+        'ordinal': 0,
+        'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
+      }},
+      'response_data': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
+// Union: WebAuthnGetResponse
+remoting.mojom.WebAuthnGetResponseSpec = { $: mojo.internal.Union(
+    'remoting.mojom.WebAuthnGetResponse', {
+      'error_details': {
+        'ordinal': 0,
+        'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
+      }},
+      'response_data': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
 // Struct: WebAuthnExceptionDetails
 remoting.mojom.WebAuthnExceptionDetailsSpec = {
   $: {
@@ -16,10 +44,10 @@ remoting.mojom.WebAuthnExceptionDetailsSpec = {
       name: 'remoting.mojom.WebAuthnExceptionDetails',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,7 +116,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,12 +124,12 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
 remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'was_canceled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'was_canceled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,7 +221,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -201,12 +229,12 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
 remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -218,10 +246,10 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_canceller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -229,12 +257,12 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
 remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -246,10 +274,10 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Get_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'request_canceller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -257,12 +285,12 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
 remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

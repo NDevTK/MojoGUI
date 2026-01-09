@@ -73,9 +73,9 @@ ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
       name: 'ash.mojom.sample_swa.ChildUntrustedPage.DoSomethingForParent_Params',
       packedSize: 16,
       fields: [
-        { name: 'task', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,9 +148,9 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
       name: 'ash.mojom.sample_swa.ParentTrustedPage.DoSomethingForChild_Params',
       packedSize: 16,
       fields: [
-        { name: 'task', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,12 +158,12 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
 ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.mojom.sample_swa.ParentTrustedPage.DoSomethingForChild_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'resp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

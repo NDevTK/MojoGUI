@@ -9,19 +9,21 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+viz.mojom.kInvalidDisplayId = -1;
+
 // Struct: OcclusionCullerSettings
 viz.mojom.OcclusionCullerSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OcclusionCullerSettings',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'quad_split_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'maximum_occluder_complexity', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'minimum_fragments_reduced', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'generate_complex_occluder_for_rounded_corners', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'quad_split_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'maximum_occluder_complexity', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'minimum_fragments_reduced', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'generate_complex_occluder_for_rounded_corners', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -31,23 +33,23 @@ viz.mojom.RendererSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RendererSettings',
-      packedSize: 64,
+      packedSize: 48,
       fields: [
-        { name: 'allow_antialiasing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_antialiasing', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_blending_with_shaders', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'highp_threshold_min', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'partial_swap_enabled', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'release_overlay_resources_after_gpu_query', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'should_clear_root_render_pass', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'slow_down_compositing_scale_factor', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'auto_resize_output_surface', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'requires_alpha_channel', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'occlusion_culler_settings', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.OcclusionCullerSettingsSpec, nullable: false },
-        { name: 'overlay_strategies', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'display_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allow_antialiasing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_antialiasing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_blending_with_shaders', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'highp_threshold_min', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'partial_swap_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'release_overlay_resources_after_gpu_query', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'should_clear_root_render_pass', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'slow_down_compositing_scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'auto_resize_output_surface', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'requires_alpha_channel', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'occlusion_culler_settings', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.OcclusionCullerSettingsSpec, nullable: false, minVersion: 0 },
+        { name: 'overlay_strategies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.OverlayStrategySpec, false), nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -59,13 +61,13 @@ viz.mojom.DebugRendererSettingsSpec = {
       name: 'viz.mojom.DebugRendererSettings',
       packedSize: 16,
       fields: [
-        { name: 'tint_composited_content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'tint_composited_content_modulate', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_overdraw_feedback', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_dc_layer_debug_borders', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_aggregated_damage', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'tint_composited_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tint_composited_content_modulate', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'show_overdraw_feedback', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'show_dc_layer_debug_borders', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'show_aggregated_damage', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

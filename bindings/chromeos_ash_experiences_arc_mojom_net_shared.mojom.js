@@ -16,3 +16,4 @@ arc.mojom.SecurityType = {
   WPA_PSK: 2,
   WPA_EAP: 3,
 };
+arc.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };

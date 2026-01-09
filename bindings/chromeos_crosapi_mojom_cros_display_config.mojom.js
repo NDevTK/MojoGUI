@@ -28,12 +28,14 @@ crosapi.mojom.DisplayConfigResult = {
   kCalibrationInvalidDataError: 14,
   kCalibrationFailedError: 15,
 };
+crosapi.mojom.DisplayConfigResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayLayoutMode
 crosapi.mojom.DisplayLayoutMode = {
   kUnified: 0,
   kMirrored: 1,
 };
+crosapi.mojom.DisplayLayoutModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayLayoutPosition
 crosapi.mojom.DisplayLayoutPosition = {
@@ -41,6 +43,7 @@ crosapi.mojom.DisplayLayoutPosition = {
   kBottom: 1,
   kLeft: 2,
 };
+crosapi.mojom.DisplayLayoutPositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayConfigOperation
 crosapi.mojom.DisplayConfigOperation = {
@@ -49,11 +52,13 @@ crosapi.mojom.DisplayConfigOperation = {
   kComplete: 2,
   kShowNative: 3,
 };
+crosapi.mojom.DisplayConfigOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayConfigSource
 crosapi.mojom.DisplayConfigSource = {
   kPolicy: 0,
 };
+crosapi.mojom.DisplayConfigSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayRotationOptions
 crosapi.mojom.DisplayRotationOptions = {
@@ -62,16 +67,19 @@ crosapi.mojom.DisplayRotationOptions = {
   k180Degrees: 2,
   k270Degrees: 3,
 };
+crosapi.mojom.DisplayRotationOptionsSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchCalibrationPair
 crosapi.mojom.TouchCalibrationPairSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TouchCalibrationPair',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'display_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -81,10 +89,12 @@ crosapi.mojom.TouchCalibrationSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TouchCalibration',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'pairs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TouchCalibrationPairSpec, false), nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -94,10 +104,14 @@ crosapi.mojom.DisplayLayoutSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayLayout',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.DisplayLayoutPositionSpec, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -107,10 +121,14 @@ crosapi.mojom.DisplayLayoutInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayLayoutInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'layout_mode', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayLayoutModeSpec, nullable: false, minVersion: 0 },
+        { name: 'mirror_source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'mirror_destination_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'layouts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.DisplayLayoutSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -120,10 +138,13 @@ crosapi.mojom.EdidSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Edid',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'manufacturer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'year_of_manufacture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -133,10 +154,11 @@ crosapi.mojom.DisplayRotationSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayRotation',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayRotationOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,10 +168,16 @@ crosapi.mojom.DisplayModeSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayMode',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'size_in_native_pixels', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'refresh_rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'is_native', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_interlaced', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -159,10 +187,30 @@ crosapi.mojom.DisplayUnitInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayUnitInfo',
-      packedSize: 8,
+      packedSize: 112,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'edid', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.EdidSpec, nullable: true, minVersion: 0 },
+        { name: 'is_primary', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_internal', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_enabled', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_auto_rotation_allowed', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_touch_support', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_accelerometer_support', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'dpi_x', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'dpi_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'rotation_options', packedOffset: 28, packedBitOffset: 0, type: crosapi.mojom.DisplayRotationOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'overscan', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: false, minVersion: 0 },
+        { name: 'work_area', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_display_mode_index', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'available_display_modes', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.DisplayModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'display_zoom_factor', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'available_display_zoom_factors', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
+        { name: 'is_detected', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 112}, {version: 1, packedSize: 112}]
     }
   }
 };
@@ -172,10 +220,16 @@ crosapi.mojom.DisplayConfigPropertiesSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DisplayConfigProperties',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'set_primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'overscan', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: true, minVersion: 0 },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.DisplayRotationSpec, nullable: true, minVersion: 0 },
+        { name: 'bounds_origin', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true, minVersion: 0 },
+        { name: 'display_zoom_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'display_mode', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.DisplayModeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -215,6 +269,96 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  addObserver(observer) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec,
+      null,
+      [observer]);
+  }
+
+  getDisplayLayoutInfo() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec,
+      []);
+  }
+
+  setDisplayLayoutInfo(info) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec,
+      [info]);
+  }
+
+  getDisplayUnitInfoList(single_unified) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec,
+      [single_unified]);
+  }
+
+  setDisplayProperties(id, properties, source) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec,
+      [id, properties, source]);
+  }
+
+  setUnifiedDesktopEnabled(enabled) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec,
+      null,
+      [enabled]);
+  }
+
+  overscanCalibration(display_id, op, delta) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec,
+      [display_id, op, delta]);
+  }
+
+  touchCalibration(display_id, op, calibration) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec,
+      crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec,
+      [display_id, op, calibration]);
+  }
+
+  highlightDisplay(id) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec,
+      null,
+      [id]);
+  }
+
+  dragDisplayDelta(display_id, delta_x, delta_y) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec,
+      null,
+      [display_id, delta_x, delta_y]);
+  }
+
 };
 
 crosapi.mojom.CrosDisplayConfigController.getRemote = function() {
@@ -225,6 +369,231 @@ crosapi.mojom.CrosDisplayConfigController.getRemote = function() {
     'crosapi.mojom.CrosDisplayConfigController',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AddObserver
+crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetDisplayLayoutInfo
+crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.GetDisplayLayoutInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayLayoutInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetDisplayLayoutInfo
+crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.SetDisplayLayoutInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayLayoutInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetDisplayUnitInfoList
+crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.GetDisplayUnitInfoList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'single_unified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.DisplayUnitInfoSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetDisplayProperties
+crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.SetDisplayProperties_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigSourceSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetUnifiedDesktopEnabled
+crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.SetUnifiedDesktopEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OverscanCalibration
+crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.OverscanCalibration_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'op', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'delta', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for TouchCalibration
+crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.TouchCalibration_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'op', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'calibration', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.TouchCalibrationSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for HighlightDisplay
+crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.HighlightDisplay_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DragDisplayDelta
+crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigController.DragDisplayDelta_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'delta_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'delta_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -267,6 +636,15 @@ crosapi.mojom.CrosDisplayConfigObserverRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onDisplayConfigChanged() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 crosapi.mojom.CrosDisplayConfigObserver.getRemote = function() {
@@ -277,6 +655,19 @@ crosapi.mojom.CrosDisplayConfigObserver.getRemote = function() {
     'crosapi.mojom.CrosDisplayConfigObserver',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnDisplayConfigChanged
+crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CrosDisplayConfigObserver.OnDisplayConfigChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -90,9 +90,9 @@ storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
       name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -100,12 +100,12 @@ storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
 storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,11 +117,11 @@ storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
       name: 'storage.mojom.FileSystemAccessContext.DeserializeHandle_Params',
       packedSize: 32,
       fields: [
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'bits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -133,9 +133,9 @@ storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
       name: 'storage.mojom.FileSystemAccessContext.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiever', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

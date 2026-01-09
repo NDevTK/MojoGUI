@@ -15,3 +15,4 @@ blink.mojom.NavigationInitiatorActivationAndAdStatus = {
   kStartedWithTransientActivationFromNonAd: 1,
   kStartedWithTransientActivationFromAd: 2,
 };
+blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = { $: mojo.internal.Enum() };

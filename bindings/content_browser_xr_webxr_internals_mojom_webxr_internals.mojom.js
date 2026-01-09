@@ -16,12 +16,12 @@ webxr.mojom.DeviceInfoSpec = {
       name: 'webxr.mojom.DeviceInfo',
       packedSize: 40,
       fields: [
-        { name: 'operating_system_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'operating_system_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'gpu_gl_vendor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'gpu_gl_renderer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'operating_system_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'operating_system_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'gpu_gl_vendor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'gpu_gl_renderer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,10 +33,10 @@ webxr.mojom.SessionRequestedRecordSpec = {
       name: 'webxr.mojom.SessionRequestedRecord',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRSessionOptionsSpec, nullable: false },
-        { name: 'requested_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'requested_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -48,13 +48,13 @@ webxr.mojom.SessionRejectedRecordSpec = {
       name: 'webxr.mojom.SessionRejectedRecord',
       packedSize: 48,
       fields: [
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'failure_reason', packedOffset: 16, packedBitOffset: 0, type: device.mojom.RequestSessionErrorSpec, nullable: false },
-        { name: 'rejected_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'failure_reason_description', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rejected_features', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'failure_reason', packedOffset: 8, packedBitOffset: 0, type: device.mojom.RequestSessionErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'rejected_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'failure_reason_description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rejected_features', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -66,11 +66,11 @@ webxr.mojom.SessionStartedRecordSpec = {
       name: 'webxr.mojom.SessionStartedRecord',
       packedSize: 32,
       fields: [
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false },
-        { name: 'started_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'started_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -82,10 +82,10 @@ webxr.mojom.SessionStoppedRecordSpec = {
       name: 'webxr.mojom.SessionStoppedRecord',
       packedSize: 24,
       fields: [
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'stopped_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'stopped_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -95,13 +95,13 @@ webxr.mojom.RuntimeInfoSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.RuntimeInfo',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false },
-        { name: 'supported_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_ar_blend_mode_supported', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_ar_blend_mode_supported', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -188,7 +188,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -196,12 +196,12 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
 webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webxr.mojom.WebXrInternalsHandler.GetDeviceInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.DeviceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,7 +214,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -222,12 +222,12 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
 webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webxr.mojom.WebXrInternalsHandler.GetActiveRuntimes_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'active_runtimes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'active_runtimes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(webxr.mojom.RuntimeInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,9 +239,9 @@ webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
       name: 'webxr.mojom.WebXrInternalsHandler.SubscribeToEvents_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,9 +377,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_requested_record', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.SessionRequestedRecordSpec, nullable: false },
+        { name: 'session_requested_record', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.SessionRequestedRecordSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,9 +391,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRejected_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_rejected_record', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.SessionRejectedRecordSpec, nullable: false },
+        { name: 'session_rejected_record', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.SessionRejectedRecordSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -405,9 +405,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_started_record', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.SessionStartedRecordSpec, nullable: false },
+        { name: 'session_started_record', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.SessionStartedRecordSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -419,9 +419,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_stopped_record', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.SessionStoppedRecordSpec, nullable: false },
+        { name: 'session_stopped_record', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.SessionStoppedRecordSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -433,9 +433,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'runtime_added_record', packedOffset: 8, packedBitOffset: 0, type: webxr.mojom.RuntimeInfoSpec, nullable: false },
+        { name: 'runtime_added_record', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.RuntimeInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -447,9 +447,9 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -461,9 +461,9 @@ webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogFrameData_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrframe_statistics', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XrFrameStatisticsSpec, nullable: false },
+        { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XrFrameStatisticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -475,9 +475,9 @@ webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
       name: 'webxr.mojom.XRInternalsSessionListener.LogConsoleMessages_Params',
       packedSize: 16,
       fields: [
-        { name: 'xrlogging_statistics', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XrLogMessageSpec, nullable: false },
+        { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XrLogMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

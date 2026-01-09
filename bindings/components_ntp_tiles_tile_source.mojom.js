@@ -19,3 +19,4 @@ ntp_tiles.mojom.TileSource = {
   HOMEPAGE: 5,
   ENTERPRISE_SHORTCUTS: 6,
 };
+ntp_tiles.mojom.TileSourceSpec = { $: mojo.internal.Enum() };

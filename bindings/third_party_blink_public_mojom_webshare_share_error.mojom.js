@@ -16,3 +16,4 @@ blink.mojom.ShareError = {
   PERMISSION_DENIED: 2,
   CANCELED: 3,
 };
+blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };

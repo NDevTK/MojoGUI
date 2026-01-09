@@ -72,9 +72,9 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
       name: 'pdf.mojom.Ocr.PerformOcr_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
 pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'pdf.mojom.Ocr.PerformOcr_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visual_annotation', packedOffset: 8, packedBitOffset: 0, type: screen_ai.mojom.VisualAnnotationSpec, nullable: false },
+        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.VisualAnnotationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,10 +178,10 @@ pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfProgressiveSearchifier_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'ocr', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,10 +193,10 @@ pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfSearchifier_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'ocr', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,9 +208,9 @@ pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfThumbnailer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

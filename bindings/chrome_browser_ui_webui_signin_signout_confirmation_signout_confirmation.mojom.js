@@ -16,10 +16,10 @@ signout_confirmation.mojom.ExtensionInfoSpec = {
       name: 'signout_confirmation.mojom.ExtensionInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,15 +31,15 @@ signout_confirmation.mojom.SignoutConfirmationDataSpec = {
       name: 'signout_confirmation.mojom.SignoutConfirmationData',
       packedSize: 64,
       fields: [
-        { name: 'dialog_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'dialog_subtitle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'accept_button_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cancel_button_label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'verify_button_label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'account_extensions', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'has_unsynced_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'dialog_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'dialog_subtitle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'accept_button_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cancel_button_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'verify_button_label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'account_extensions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(signout_confirmation.mojom.ExtensionInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'has_unsynced_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -107,10 +107,10 @@ signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_P
       name: 'signout_confirmation.mojom.PageHandlerFactory.CreateSignoutConfirmationHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,9 +219,9 @@ signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.UpdateViewHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -233,9 +233,9 @@ signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.Accept_Params',
       packedSize: 16,
       fields: [
-        { name: 'uninstall_account_extensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -247,9 +247,9 @@ signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
       name: 'signout_confirmation.mojom.PageHandler.Cancel_Params',
       packedSize: 16,
       fields: [
-        { name: 'uninstall_account_extensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,7 +262,7 @@ signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -275,7 +275,7 @@ signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -348,9 +348,9 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
       name: 'signout_confirmation.mojom.Page.SendSignoutConfirmationData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: signout_confirmation.mojom.SignoutConfirmationDataSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: signout_confirmation.mojom.SignoutConfirmationDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

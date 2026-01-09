@@ -14,3 +14,4 @@ blink.mojom.NavigationBlockedReason = {
   kRedirectWithNoUserGesture: 0,
   kRedirectWithNoUserGestureSandbox: 1,
 };
+blink.mojom.NavigationBlockedReasonSpec = { $: mojo.internal.Enum() };

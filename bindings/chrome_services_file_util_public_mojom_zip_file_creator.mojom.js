@@ -81,11 +81,11 @@ chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
       name: 'chrome.mojom.ZipListener.OnProgress_Params',
       packedSize: 24,
       fields: [
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'files', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'directories', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'directories', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,9 +97,9 @@ chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
       name: 'chrome.mojom.ZipListener.OnFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,14 +170,14 @@ chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ZipFileCreator.CreateZipFile_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'src_dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'relative_paths', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'zip_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'src_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'relative_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+        { name: 'zip_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

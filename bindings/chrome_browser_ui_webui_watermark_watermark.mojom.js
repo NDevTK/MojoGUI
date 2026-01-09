@@ -16,11 +16,11 @@ watermark.mojom.WatermarkStyleSpec = {
       name: 'watermark.mojom.WatermarkStyle',
       packedSize: 24,
       fields: [
-        { name: 'fill_opacity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'outline_opacity', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'font_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'fill_opacity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'outline_opacity', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,9 +88,9 @@ watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'watermark.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,9 +172,9 @@ watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
       name: 'watermark.mojom.PageHandler.SetWatermarkStyle_Params',
       packedSize: 16,
       fields: [
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false },
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkStyleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -187,7 +187,7 @@ watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

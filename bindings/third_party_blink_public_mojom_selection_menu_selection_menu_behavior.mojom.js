@@ -14,3 +14,4 @@ blink.mojom.SelectionMenuBehavior = {
   kHide: 0,
   kShow: 1,
 };
+blink.mojom.SelectionMenuBehaviorSpec = { $: mojo.internal.Enum() };

@@ -15,6 +15,7 @@ ash.language.mojom.FeatureId = {
   UNSUPPORTED_UNKNOWN: 0,
   HANDWRITING_RECOGNITION: 1,
 };
+ash.language.mojom.FeatureIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: PackState
 ash.language.mojom.PackState = {
@@ -24,6 +25,7 @@ ash.language.mojom.PackState = {
   INSTALLED: 3,
   Default: 4,
 };
+ash.language.mojom.PackStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorCode
 ash.language.mojom.ErrorCode = {
@@ -33,18 +35,22 @@ ash.language.mojom.ErrorCode = {
   kNeedReboot: 3,
   kAllocation: 4,
 };
+ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LanguagePackInfo
 ash.language.mojom.LanguagePackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.language.mojom.LanguagePackInfo',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: ash.language.mojom.ErrorCodeSpec, nullable: false, minVersion: 2 },
+        { name: 'feature_id', packedOffset: 16, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 3 },
+        { name: 'locale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 24}, {version: 3, packedSize: 40}]
     }
   }
 };
@@ -56,10 +62,11 @@ ash.language.mojom.BasePackInfoSpec = {
       name: 'ash.language.mojom.BasePackInfo',
       packedSize: 24,
       fields: [
-        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pack_state', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: ash.language.mojom.ErrorCodeSpec, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 24}]
     }
   }
 };
@@ -99,6 +106,15 @@ ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onPackStateChanged(info) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
+      null,
+      [info]);
+  }
+
 };
 
 ash.language.mojom.LanguagePacksObserver.getRemote = function() {
@@ -109,6 +125,20 @@ ash.language.mojom.LanguagePacksObserver.getRemote = function() {
     'ash.language.mojom.LanguagePacksObserver',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnPackStateChanged
+ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacksObserver.OnPackStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -151,6 +181,51 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getPackInfo(feature_id, language) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
+      ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
+      [feature_id, language]);
+  }
+
+  installPack(feature_id, language) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
+      [feature_id, language]);
+  }
+
+  installBasePack(feature_id) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
+      ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
+      [feature_id]);
+  }
+
+  uninstallPack(feature_id, language) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec,
+      null,
+      [feature_id, language]);
+  }
+
+  addObserver(observer) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec,
+      null,
+      [observer]);
+  }
+
 };
 
 ash.language.mojom.LanguagePacks.getRemote = function() {
@@ -161,6 +236,118 @@ ash.language.mojom.LanguagePacks.getRemote = function() {
     'ash.language.mojom.LanguagePacks',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetPackInfo
+ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks.GetPackInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for InstallPack
+ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks.InstallPack_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for InstallBasePack
+ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks.InstallBasePack_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feature_id', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.BasePackInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for UninstallPack
+ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks.UninstallPack_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_id', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for AddObserver
+ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePacks.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -15,3 +15,4 @@ blink.mojom.FileSystemAccessPermissionMode = {
   kReadWrite: 1,
   kWrite: 2,
 };
+blink.mojom.FileSystemAccessPermissionModeSpec = { $: mojo.internal.Enum() };

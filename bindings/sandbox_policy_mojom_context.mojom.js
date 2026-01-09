@@ -15,3 +15,4 @@ sandbox.mojom.Context = {
   kPrivilegedUtility: 1,
   kLowest: 2,
 };
+sandbox.mojom.ContextSpec = { $: mojo.internal.Enum() };

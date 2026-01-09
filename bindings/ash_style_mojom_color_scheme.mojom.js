@@ -18,3 +18,4 @@ ash.style.mojom.ColorScheme = {
   kExpressive: 3,
   kVibrant: 4,
 };
+ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };

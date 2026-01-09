@@ -14,18 +14,21 @@ continuous_search.mojom.ResultType = {
   kSearchResults: 0,
   kRelatedSearches: 1,
 };
+continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Category
 continuous_search.mojom.Category = {
   kNone: 0,
   kOrganic: 1,
 };
+continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 continuous_search.mojom.Status = {
   kSuccess: 0,
   kNoResults: 1,
 };
+continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
 continuous_search.mojom.SearchResultSpec = {
@@ -34,10 +37,10 @@ continuous_search.mojom.SearchResultSpec = {
       name: 'continuous_search.mojom.SearchResult',
       packedSize: 24,
       fields: [
-        { name: 'link', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -49,10 +52,10 @@ continuous_search.mojom.ResultGroupSpec = {
       name: 'continuous_search.mojom.ResultGroup',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false },
-        { name: 'results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -64,11 +67,11 @@ continuous_search.mojom.CategoryResultsSpec = {
       name: 'continuous_search.mojom.CategoryResults',
       packedSize: 32,
       fields: [
-        { name: 'document_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'category_type', packedOffset: 16, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false },
-        { name: 'groups', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'category_type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false, minVersion: 0 },
+        { name: 'groups', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -136,9 +139,9 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,13 +149,13 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
 continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false },
-        { name: 'results', packedOffset: 16, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

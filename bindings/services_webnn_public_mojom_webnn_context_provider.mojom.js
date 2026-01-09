@@ -15,6 +15,21 @@ webnn.mojom.PowerPreference = {
   kHighPerformance: 1,
   kLowPower: 2,
 };
+webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
+
+// Union: CreateContextResult
+webnn.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
+    'webnn.mojom.CreateContextResult', {
+      'success': {
+        'ordinal': 0,
+        'type': webnn.mojom.CreateContextSuccessSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': webnn.mojom.ErrorSpec,
+      }},
+    })
+};
 
 // Struct: CreateContextOptions
 webnn.mojom.CreateContextOptionsSpec = {
@@ -23,9 +38,9 @@ webnn.mojom.CreateContextOptionsSpec = {
       name: 'webnn.mojom.CreateContextOptions',
       packedSize: 16,
       fields: [
-        { name: 'kDefault', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -37,13 +52,13 @@ webnn.mojom.CreateContextSuccessSpec = {
       name: 'webnn.mojom.CreateContextSuccess',
       packedSize: 48,
       fields: [
-        { name: 'context_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'context_properties', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
-        { name: 'context_handle', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
-        { name: 'write_tensor_producer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'read_tensor_consumer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'context_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'context_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'write_tensor_producer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'read_tensor_consumer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -111,9 +126,9 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,12 +136,12 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
 webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

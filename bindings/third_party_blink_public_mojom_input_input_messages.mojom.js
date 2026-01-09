@@ -117,9 +117,9 @@ blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.ApplySpellCheckSuggestion_Params',
       packedSize: 16,
       fields: [
-        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -131,10 +131,10 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.ApplyTextSuggestion_Params',
       packedSize: 16,
       fields: [
-        { name: 'marker_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'suggestion_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'suggestion_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -147,7 +147,7 @@ blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -159,9 +159,9 @@ blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.OnNewWordAddedToDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,7 +174,7 @@ blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,9 +186,9 @@ blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
       name: 'blink.mojom.TextSuggestionBackend.SuggestionMenuTimeoutCallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'max_number_of_suggestions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

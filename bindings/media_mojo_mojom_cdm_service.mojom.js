@@ -72,10 +72,10 @@ media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
       name: 'media.mojom.CdmService.CreateCdmFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_interfaces', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +149,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -157,12 +157,12 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
 media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -233,13 +233,13 @@ media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmServiceBroker.GetService_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'cdm_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'token_provider', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

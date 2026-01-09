@@ -101,7 +101,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -109,12 +109,12 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
 ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ntp.safe_browsing.mojom.SafeBrowsingHandler.CanShowModule_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'show', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +127,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +140,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,7 +153,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

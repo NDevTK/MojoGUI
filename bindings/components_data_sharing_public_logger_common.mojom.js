@@ -17,3 +17,4 @@ logger_common.mojom.LogSource = {
   TabGroupSyncService: 3,
   UI: 4,
 };
+logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };

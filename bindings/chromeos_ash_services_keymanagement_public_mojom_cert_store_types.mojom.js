@@ -14,3 +14,4 @@ arc.keymanagement.mojom = arc.keymanagement.mojom || {};
 arc.keymanagement.mojom.ChapsSlot = {
   kSystem: 0,
 };
+arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };

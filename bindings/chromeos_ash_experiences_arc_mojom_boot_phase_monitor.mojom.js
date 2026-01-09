@@ -44,6 +44,15 @@ arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onBootCompleted() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.BootPhaseMonitorHost.getRemote = function() {
@@ -54,6 +63,19 @@ arc.mojom.BootPhaseMonitorHost.getRemote = function() {
     'arc.mojom.BootPhaseMonitorHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnBootCompleted
+arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BootPhaseMonitorHost.OnBootCompleted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +118,15 @@ arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
@@ -106,6 +137,20 @@ arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
     'arc.mojom.BootPhaseMonitorInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BootPhaseMonitorInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

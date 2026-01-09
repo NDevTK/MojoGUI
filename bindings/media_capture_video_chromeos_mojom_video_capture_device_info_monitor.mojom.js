@@ -44,6 +44,15 @@ cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onGetCameraIdToDeviceIdMapping(camera_id, device_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec,
+      null,
+      [camera_id, device_id]);
+  }
+
 };
 
 cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
@@ -54,6 +63,21 @@ cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
     'cros.mojom.VideoCaptureDeviceInfoObserver',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnGetCameraIdToDeviceIdMapping
+cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VideoCaptureDeviceInfoObserver.OnGetCameraIdToDeviceIdMapping_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +120,15 @@ cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  addVideoCaptureDeviceInfoObserver(observer) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec,
+      null,
+      [observer]);
+  }
+
 };
 
 cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
@@ -106,6 +139,20 @@ cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
     'cros.mojom.VideoCaptureDeviceInfoMonitor',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AddVideoCaptureDeviceInfoObserver
+cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VideoCaptureDeviceInfoMonitor.AddVideoCaptureDeviceInfoObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

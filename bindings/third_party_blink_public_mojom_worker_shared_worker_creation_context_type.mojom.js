@@ -14,3 +14,4 @@ blink.mojom.SharedWorkerCreationContextType = {
   kNonsecure: 0,
   kSecure: 1,
 };
+blink.mojom.SharedWorkerCreationContextTypeSpec = { $: mojo.internal.Enum() };

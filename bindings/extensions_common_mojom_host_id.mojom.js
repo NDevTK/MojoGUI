@@ -15,6 +15,7 @@ extensions.mojom.HostType = {
   kWebUi: 1,
   kControlledFrameEmbedder: 2,
 };
+extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HostID
 extensions.mojom.HostIDSpec = {
@@ -23,9 +24,9 @@ extensions.mojom.HostIDSpec = {
       name: 'extensions.mojom.HostID',
       packedSize: 16,
       fields: [
-        { name: 'kExtensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kExtensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

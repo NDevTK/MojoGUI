@@ -74,10 +74,10 @@ ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.settings.date_time.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,7 +169,7 @@ ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -182,7 +182,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,12 +190,12 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
 ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'timezones', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +208,7 @@ ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -290,9 +290,9 @@ ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
       name: 'ash.settings.date_time.mojom.Page.OnSystemClockCanSetTimeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -304,9 +304,9 @@ ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = 
       name: 'ash.settings.date_time.mojom.Page.OnParentAccessValidationComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -72,9 +72,9 @@ webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'webui_examples.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,10 +165,10 @@ webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
       name: 'webui_examples.mojom.PageHandler.Navigate_Params',
       packedSize: 24,
       fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'src', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'src', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -180,9 +180,9 @@ webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
       name: 'webui_examples.mojom.PageHandler.GoBack_Params',
       packedSize: 16,
       fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,9 +194,9 @@ webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
       name: 'webui_examples.mojom.PageHandler.GoForward_Params',
       packedSize: 16,
       fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

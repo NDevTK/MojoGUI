@@ -72,9 +72,9 @@ ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
       name: 'ui.mojom.ScenicGpuService.Initialize_Params',
       packedSize: 16,
       fields: [
-        { name: 'scenic_gpu_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'scenic_gpu_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

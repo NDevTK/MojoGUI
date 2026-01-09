@@ -14,6 +14,7 @@ new_tab_page.mojom.AuthType = {
   kSilent: 0,
   kPopup: 1,
 };
+new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: MicrosoftAuthUntrustedDocument
 new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
@@ -97,7 +98,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -110,7 +111,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +124,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -17,3 +17,4 @@ ui.mojom.MetaKey = {
   kExternalMeta: 3,
   kCommand: 4,
 };
+ui.mojom.MetaKeySpec = { $: mojo.internal.Enum() };

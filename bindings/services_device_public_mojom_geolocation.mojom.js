@@ -81,9 +81,9 @@ device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
       name: 'device.mojom.Geolocation.SetHighAccuracyHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'high_accuracy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,12 +104,12 @@ device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
 device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

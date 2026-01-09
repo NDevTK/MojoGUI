@@ -18,6 +18,7 @@ network.mojom.CoopAccessReportType = {
   kAccessToCoopPageFromOpenee: 4,
   kAccessToCoopPageFromOther: 5,
 };
+network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrossOriginOpenerPolicyValue
 network.mojom.CrossOriginOpenerPolicyValue = {
@@ -27,20 +28,21 @@ network.mojom.CrossOriginOpenerPolicyValue = {
   kSameOriginPlusCoep: 3,
   kNoopenerAllowPopups: 4,
 };
+network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginOpenerPolicyReporterParams
 network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'report_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false },
-        { name: 'reporter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'endpoint_defined', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'reported_window_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reporter', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'endpoint_defined', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reported_window_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -52,10 +54,10 @@ network.mojom.CrossOriginOpenerPolicySpec = {
       name: 'network.mojom.CrossOriginOpenerPolicy',
       packedSize: 24,
       fields: [
-        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'report_only_reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -123,12 +125,12 @@ network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
       name: 'network.mojom.CrossOriginOpenerPolicyReporter.QueueAccessReport_Params',
       packedSize: 40,
       fields: [
-        { name: 'report_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false },
-        { name: 'property', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_location', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false },
-        { name: 'reported_window_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'property', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_location', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'reported_window_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

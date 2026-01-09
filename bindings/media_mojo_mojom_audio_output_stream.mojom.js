@@ -17,6 +17,7 @@ media.mojom.DisconnectReason = {
   kStreamCreationFailed: 3,
   kDocumentDestroyed: 4,
 };
+media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioOutputStream
 media.mojom.AudioOutputStream = {};
@@ -109,7 +110,7 @@ media.mojom.AudioOutputStream_Play_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -122,7 +123,7 @@ media.mojom.AudioOutputStream_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -135,7 +136,7 @@ media.mojom.AudioOutputStream_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,9 +148,9 @@ media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
       name: 'media.mojom.AudioOutputStream.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +242,7 @@ media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -254,7 +255,7 @@ media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -266,9 +267,9 @@ media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
       name: 'media.mojom.AudioOutputStreamObserver.DidChangeAudibleState_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_audible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_audible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -341,10 +342,10 @@ media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
       name: 'media.mojom.AudioOutputStreamProvider.Acquire_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -417,10 +418,10 @@ media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
       name: 'media.mojom.AudioOutputStreamProviderClient.Created_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -493,9 +494,9 @@ media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
       name: 'media.mojom.DeviceSwitchInterface.SwitchAudioOutputDeviceId_Params',
       packedSize: 16,
       fields: [
-        { name: 'output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'output_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
