@@ -153,16 +153,35 @@ jobs:
 
           def run_generator(mojom_path):
               """Run the official mojom bindings generator."""
+          def run_generator(mojom_path):
+              """Run the official mojom bindings generator."""
+              # mojom_path is relative: chromium_src/foo/bar.mojom
+              # We need to make sure RelativePath behaves correctly.
+              # The generator internally converts args to absolute paths.
+              # RelativePath(abs_path, abs_root, abs_output)
+              
+              # If we pass --depth . and --output_dir ., root is CWD.
+              # absolute path of CWD/chromium_src/foo/bar.mojom starts with CWD.
+              # But filename might be being passed weirdly.
+              
+              # Let's verify module path existence first
+              # mojom_parser: --output-root . --input-root . 
+              # implies module is at ./chromium_src/foo/bar.mojom-module
+              module_path = mojom_path + '-module'
+              if not os.path.exists(module_path):
+                  print(f"DEBUG source module missing: {module_path}")
+                  return False
+
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/bindings/mojom_bindings_generator.py',
                   '--use_bundled_pylibs',
                   'generate',
                   '-g', 'javascript',
-                  '--output_dir', '.',  # Output relative to current dir, mapping source struct
-                  '--depth', '.',       # Root for relative paths
-                  '--bytecode_path', 'bindings', # Required for caching/intermediate files
-                  mojom_path
+                  '--output_dir', '.',
+                  '--depth', '.', 
+                  '--bytecode_path', 'bindings', 
+                  mojom_path 
               ]
               try:
                   subprocess.run(cmd, check=True, capture_output=True)
