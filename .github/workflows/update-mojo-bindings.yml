@@ -123,6 +123,34 @@ jobs:
                   print(f"Error parsing {file_path}: {e}")
                   return None
 
+          def run_parser(mojom_files):
+              """Run the mojom parser to generate -module files."""
+              print("Running mojom parser...")
+              # Create filelist for parser
+              # We need to make sure we pass relative paths that make sense with the roots
+              # But simple invocation often works best:
+              
+              # We use a temporary file for the list of files to parse
+              with open('mojom_files_list.txt', 'w') as f:
+                  for p in mojom_files:
+                      f.write(f"{p}\n")
+              
+              cmd = [
+                  sys.executable,
+                  'chromium_src/mojo/public/tools/bindings/mojom_parser.py',
+                  '--output_root', '.',
+                  '--input_root', '.',
+                  '-I', 'chromium_src', # Include path for imports to resolve
+                  '--filelist', 'mojom_files_list.txt'
+              ]
+              
+              try:
+                  subprocess.run(cmd, check=True) # Parser outputs to stdout/stderr freely
+                  return True
+              except subprocess.CalledProcessError as e:
+                  print(f"Parser failed: {e}")
+                  return False
+
           def run_generator(mojom_path):
               """Run the official mojom bindings generator."""
               cmd = [
@@ -162,6 +190,11 @@ jobs:
           
           print(f"Processing {len(mojom_files)} .mojom files...")
           
+          # Step 1: Parse all files
+          if not run_parser(mojom_files):
+               print("WARNING: Parsing failed. Generation might fail.")
+          
+          # Step 2: Generate bindings
           for mojom_path in mojom_files:
               # Run official generator
               if run_generator(mojom_path):
