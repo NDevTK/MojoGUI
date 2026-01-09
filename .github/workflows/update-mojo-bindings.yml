@@ -140,7 +140,7 @@ jobs:
                   'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
                   '--output-root', '.',
                   '--input-root', '.',
-                  '--module-root', 'chromium_src', # For imports like 'mojo/...'
+                  '--input-root', 'chromium_src', # Include path for imports to resolve
                   '--mojom-file-list', 'mojom_files_list.txt'
               ]
               
