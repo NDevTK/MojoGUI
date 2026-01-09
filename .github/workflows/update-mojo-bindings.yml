@@ -145,11 +145,13 @@ jobs:
                   interface_body = content_no_comments[start_pos:end_pos-1]
                   
                   methods = []
-                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
+                  # Capture optional Ordinal: Name@123(...)
+                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
                   for method_match in re.finditer(method_pattern, interface_body):
                       method_name = method_match.group(1)
-                      params_str = method_match.group(2).strip()
-                      returns_str = method_match.group(3)
+                      ordinal_str = method_match.group(2)
+                      params_str = method_match.group(3).strip()
+                      returns_str = method_match.group(4)
                       
                       # Skip false positives
                       if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch'):
@@ -160,6 +162,7 @@ jobs:
                       
                       methods.append({
                           'name': method_name,
+                          'ordinal': int(ordinal_str) if ordinal_str else None,
                           'params': params,
                           'returns': returns
                       })
@@ -775,14 +778,17 @@ jobs:
                   js_code += "  }\n\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
+                      ordinal = method.get('ordinal')
+                      if ordinal is None: ordinal = idx
+                      
                       params_list = [p['name'] for p in method.get('params', []) if p and p.get('name')]
                       params_str = ', '.join(params_list)
                       method_name_camel = to_camel_case(method['name'])
                       
                       js_code += f"  {method_name_camel}({params_str}) {{\n"
-                      js_code += f"    // Ordinal: {idx}\n"
+                      js_code += f"    // Ordinal: {ordinal}\n"
                       js_code += "    return this.proxy.sendMessage(\n"
-                      js_code += f"      {idx},  // ordinal\n"
+                      js_code += f"      {ordinal},  // ordinal\n"
                       js_code += f"      {full_name}_{method['name']}_ParamsSpec,\n"
                       if method.get('returns'):
                           js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
