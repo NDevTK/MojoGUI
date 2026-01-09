@@ -10,6 +10,8 @@ most_visited.mojom = most_visited.mojom || {};
 
 
 // Interface: MostVisitedPageHandlerFactory
+most_visited.mojom.MostVisitedPageHandlerFactory = {};
+
 most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRequest = most_visited.mojom.Mos
 
 
 // Interface: MostVisitedPageHandler
+most_visited.mojom.MostVisitedPageHandler = {};
+
 most_visited.mojom.MostVisitedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -548,6 +552,8 @@ most_visited.mojom.MostVisitedPageHandlerRequest = most_visited.mojom.MostVisite
 
 
 // Interface: MostVisitedPage
+most_visited.mojom.MostVisitedPage = {};
+
 most_visited.mojom.MostVisitedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

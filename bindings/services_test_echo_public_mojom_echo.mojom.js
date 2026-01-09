@@ -18,6 +18,8 @@ echo.mojom.LoadStatus = {
 };
 
 // Interface: EchoService
+echo.mojom.EchoService = {};
+
 echo.mojom.EchoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

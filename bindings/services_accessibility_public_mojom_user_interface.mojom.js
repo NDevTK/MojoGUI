@@ -23,6 +23,8 @@ ax.mojom.FocusRingStackingOrder = {
 };
 
 // Interface: UserInterface
+ax.mojom.UserInterface = {};
+
 ax.mojom.UserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

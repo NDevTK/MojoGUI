@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: AudioProcessorControls
+media.mojom.AudioProcessorControls = {};
+
 media.mojom.AudioProcessorControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

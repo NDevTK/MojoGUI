@@ -10,6 +10,8 @@ foo.mojom = foo.mojom || {};
 
 
 // Interface: FooHandler
+foo.mojom.FooHandler = {};
+
 foo.mojom.FooHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

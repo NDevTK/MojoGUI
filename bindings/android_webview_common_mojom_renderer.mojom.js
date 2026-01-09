@@ -10,6 +10,8 @@ android_webview.mojom = android_webview.mojom || {};
 
 
 // Interface: Renderer
+android_webview.mojom.Renderer = {};
+
 android_webview.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

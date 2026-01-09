@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: ZipListener
+chrome.mojom.ZipListener = {};
+
 chrome.mojom.ZipListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -108,6 +110,8 @@ chrome.mojom.ZipListenerRequest = chrome.mojom.ZipListenerPendingReceiver;
 
 
 // Interface: ZipFileCreator
+chrome.mojom.ZipFileCreator = {};
+
 chrome.mojom.ZipFileCreatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

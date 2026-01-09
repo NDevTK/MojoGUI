@@ -11,6 +11,8 @@ ash.camera_app.mojom = ash.camera_app.mojom || {};
 
 
 // Interface: PdfBuilder
+ash.camera_app.mojom.PdfBuilder = {};
+
 ash.camera_app.mojom.PdfBuilderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

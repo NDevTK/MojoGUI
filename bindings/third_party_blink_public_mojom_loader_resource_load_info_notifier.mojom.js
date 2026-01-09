@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ResourceLoadInfoNotifier
+blink.mojom.ResourceLoadInfoNotifier = {};
+
 blink.mojom.ResourceLoadInfoNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

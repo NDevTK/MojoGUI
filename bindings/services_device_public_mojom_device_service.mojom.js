@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: DeviceService
+device.mojom.DeviceService = {};
+
 device.mojom.DeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

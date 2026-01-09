@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: LocalFrame
+extensions.mojom.LocalFrame = {};
+
 extensions.mojom.LocalFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -330,6 +332,8 @@ extensions.mojom.LocalFrameRequest = extensions.mojom.LocalFramePendingReceiver;
 
 
 // Interface: LocalFrameHost
+extensions.mojom.LocalFrameHost = {};
+
 extensions.mojom.LocalFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -57,6 +57,8 @@ ash.ime.mojom.JpUnusedEnum6 = {
 };
 
 // Interface: JpUnused
+ash.ime.mojom.JpUnused = {};
+
 ash.ime.mojom.JpUnusedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

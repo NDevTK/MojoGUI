@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: EventDispatcher
+extensions.mojom.EventDispatcher = {};
+
 extensions.mojom.EventDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -14,6 +14,8 @@ infobar_internals.mojom.InfoBarType = {
 };
 
 // Interface: Page
+infobar_internals.mojom.Page = {};
+
 infobar_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -64,6 +66,8 @@ infobar_internals.mojom.PageRequest = infobar_internals.mojom.PagePendingReceive
 
 
 // Interface: PageHandler
+infobar_internals.mojom.PageHandler = {};
+
 infobar_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -185,6 +189,8 @@ infobar_internals.mojom.PageHandlerRequest = infobar_internals.mojom.PageHandler
 
 
 // Interface: PageHandlerFactory
+infobar_internals.mojom.PageHandlerFactory = {};
+
 infobar_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: ExternalLogoutRequestObserver
+crosapi.mojom.ExternalLogoutRequestObserver = {};
+
 crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ crosapi.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.ExternalLogou
 
 
 // Interface: Login
+crosapi.mojom.Login = {};
+
 crosapi.mojom.LoginPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

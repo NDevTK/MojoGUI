@@ -30,6 +30,8 @@ storage.mojom.FailMethod = {
 };
 
 // Interface: MockFailureInjector
+storage.mojom.MockFailureInjector = {};
+
 storage.mojom.MockFailureInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ storage.mojom.MockFailureInjectorRequest = storage.mojom.MockFailureInjectorPend
 
 
 // Interface: IndexedDBControlTest
+storage.mojom.IndexedDBControlTest = {};
+
 storage.mojom.IndexedDBControlTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

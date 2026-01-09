@@ -16,6 +16,8 @@ network.mojom.RestrictedUDPSocketMode = {
 };
 
 // Interface: RestrictedUDPSocket
+network.mojom.RestrictedUDPSocket = {};
+
 network.mojom.RestrictedUDPSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

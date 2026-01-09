@@ -17,6 +17,8 @@ page_load_metrics.mojom.CacheType = {
 };
 
 // Interface: PageLoadMetrics
+page_load_metrics.mojom.PageLoadMetrics = {};
+
 page_load_metrics.mojom.PageLoadMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

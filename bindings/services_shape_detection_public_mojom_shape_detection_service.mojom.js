@@ -10,6 +10,8 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Interface: ShapeDetectionService
+shape_detection.mojom.ShapeDetectionService = {};
+
 shape_detection.mojom.ShapeDetectionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

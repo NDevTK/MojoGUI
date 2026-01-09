@@ -22,6 +22,8 @@ media.mojom.CdmKeyStatus = {
 };
 
 // Interface: ContentDecryptionModule
+media.mojom.ContentDecryptionModule = {};
+
 media.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -354,6 +356,8 @@ media.mojom.ContentDecryptionModuleRequest = media.mojom.ContentDecryptionModule
 
 
 // Interface: ContentDecryptionModuleClient
+media.mojom.ContentDecryptionModuleClient = {};
+
 media.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -502,6 +506,8 @@ media.mojom.ContentDecryptionModuleClientRequest = media.mojom.ContentDecryption
 
 
 // Interface: CdmFactory
+media.mojom.CdmFactory = {};
+
 media.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

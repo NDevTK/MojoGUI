@@ -17,6 +17,8 @@ network.mojom.DocumentIsolationPolicyValue = {
 };
 
 // Interface: DocumentIsolationPolicyReporter
+network.mojom.DocumentIsolationPolicyReporter = {};
+
 network.mojom.DocumentIsolationPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

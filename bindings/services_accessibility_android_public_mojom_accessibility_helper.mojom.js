@@ -295,6 +295,8 @@ ax.android.mojom.SetNativeChromeVoxResponse = {
 };
 
 // Interface: AccessibilityHelperHost
+ax.android.mojom.AccessibilityHelperHost = {};
+
 ax.android.mojom.AccessibilityHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -345,6 +347,8 @@ ax.android.mojom.AccessibilityHelperHostRequest = ax.android.mojom.Accessibility
 
 
 // Interface: AccessibilityHelperInstance
+ax.android.mojom.AccessibilityHelperInstance = {};
+
 ax.android.mojom.AccessibilityHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

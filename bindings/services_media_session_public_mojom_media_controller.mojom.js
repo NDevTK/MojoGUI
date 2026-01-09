@@ -10,6 +10,8 @@ media_session.mojom = media_session.mojom || {};
 
 
 // Interface: MediaControllerManager
+media_session.mojom.MediaControllerManager = {};
+
 media_session.mojom.MediaControllerManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ media_session.mojom.MediaControllerManagerRequest = media_session.mojom.MediaCon
 
 
 // Interface: MediaController
+media_session.mojom.MediaController = {};
+
 media_session.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ media_session.mojom.MediaControllerRequest = media_session.mojom.MediaController
 
 
 // Interface: MediaControllerObserver
+media_session.mojom.MediaControllerObserver = {};
+
 media_session.mojom.MediaControllerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -160,6 +166,8 @@ media_session.mojom.MediaControllerObserverRequest = media_session.mojom.MediaCo
 
 
 // Interface: MediaControllerImageObserver
+media_session.mojom.MediaControllerImageObserver = {};
+
 media_session.mojom.MediaControllerImageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

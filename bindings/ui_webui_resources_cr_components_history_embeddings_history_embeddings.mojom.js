@@ -29,6 +29,8 @@ history_embeddings.mojom.UserFeedback = {
 };
 
 // Interface: PageHandler
+history_embeddings.mojom.PageHandler = {};
+
 history_embeddings.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,6 +246,8 @@ history_embeddings.mojom.PageHandlerRequest = history_embeddings.mojom.PageHandl
 
 
 // Interface: Page
+history_embeddings.mojom.Page = {};
+
 history_embeddings.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ commerce.mojom = commerce.mojom || {};
 
 
 // Interface: CommerceInternalsHandlerFactory
+commerce.mojom.CommerceInternalsHandlerFactory = {};
+
 commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ commerce.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.CommerceI
 
 
 // Interface: CommerceInternalsHandler
+commerce.mojom.CommerceInternalsHandler = {};
+
 commerce.mojom.CommerceInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -354,6 +358,8 @@ commerce.mojom.CommerceInternalsHandlerRequest = commerce.mojom.CommerceInternal
 
 
 // Interface: CommerceInternalsPage
+commerce.mojom.CommerceInternalsPage = {};
+
 commerce.mojom.CommerceInternalsPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

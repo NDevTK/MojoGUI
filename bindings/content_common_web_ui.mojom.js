@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: WebUIHost
+content.mojom.WebUIHost = {};
+
 content.mojom.WebUIHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ content.mojom.WebUIHostRequest = content.mojom.WebUIHostPendingReceiver;
 
 
 // Interface: WebUI
+content.mojom.WebUI = {};
+
 content.mojom.WebUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: StorageService
+storage.mojom.StorageService = {};
+
 storage.mojom.StorageServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

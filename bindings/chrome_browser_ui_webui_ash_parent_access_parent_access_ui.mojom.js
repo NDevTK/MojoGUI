@@ -39,6 +39,8 @@ parent_access_ui.mojom.ParentAccessResult = {
 };
 
 // Interface: ParentAccessUiHandler
+parent_access_ui.mojom.ParentAccessUiHandler = {};
+
 parent_access_ui.mojom.ParentAccessUiHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

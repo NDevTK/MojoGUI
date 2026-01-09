@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BroadcastChannelClient
+blink.mojom.BroadcastChannelClient = {};
+
 blink.mojom.BroadcastChannelClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ blink.mojom.BroadcastChannelClientRequest = blink.mojom.BroadcastChannelClientPe
 
 
 // Interface: BroadcastChannelProvider
+blink.mojom.BroadcastChannelProvider = {};
+
 blink.mojom.BroadcastChannelProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

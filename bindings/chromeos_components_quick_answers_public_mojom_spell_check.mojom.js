@@ -10,6 +10,8 @@ quick_answers.mojom = quick_answers.mojom || {};
 
 
 // Interface: SpellCheckService
+quick_answers.mojom.SpellCheckService = {};
+
 quick_answers.mojom.SpellCheckServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ quick_answers.mojom.SpellCheckServiceRequest = quick_answers.mojom.SpellCheckSer
 
 
 // Interface: SpellCheckDictionary
+quick_answers.mojom.SpellCheckDictionary = {};
+
 quick_answers.mojom.SpellCheckDictionaryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

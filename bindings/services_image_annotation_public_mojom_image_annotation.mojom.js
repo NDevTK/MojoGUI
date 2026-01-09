@@ -25,6 +25,8 @@ image_annotation.mojom.AnnotationType = {
 };
 
 // Interface: ImageProcessor
+image_annotation.mojom.ImageProcessor = {};
+
 image_annotation.mojom.ImageProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -112,6 +114,8 @@ image_annotation.mojom.ImageProcessorRequest = image_annotation.mojom.ImageProce
 
 
 // Interface: Annotator
+image_annotation.mojom.Annotator = {};
+
 image_annotation.mojom.AnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -200,6 +204,8 @@ image_annotation.mojom.AnnotatorRequest = image_annotation.mojom.AnnotatorPendin
 
 
 // Interface: ImageAnnotationService
+image_annotation.mojom.ImageAnnotationService = {};
+
 image_annotation.mojom.ImageAnnotationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

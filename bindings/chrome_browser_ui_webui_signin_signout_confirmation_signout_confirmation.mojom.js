@@ -10,6 +10,8 @@ signout_confirmation.mojom = signout_confirmation.mojom || {};
 
 
 // Interface: PageHandlerFactory
+signout_confirmation.mojom.PageHandlerFactory = {};
+
 signout_confirmation.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ signout_confirmation.mojom.PageHandlerFactoryRequest = signout_confirmation.mojo
 
 
 // Interface: PageHandler
+signout_confirmation.mojom.PageHandler = {};
+
 signout_confirmation.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,6 +251,8 @@ signout_confirmation.mojom.PageHandlerRequest = signout_confirmation.mojom.PageH
 
 
 // Interface: Page
+signout_confirmation.mojom.Page = {};
+
 signout_confirmation.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

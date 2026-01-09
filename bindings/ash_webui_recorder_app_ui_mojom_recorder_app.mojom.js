@@ -21,6 +21,8 @@ ash.recorder_app.mojom.ModelStateType = {
 };
 
 // Interface: ModelStateMonitor
+ash.recorder_app.mojom.ModelStateMonitor = {};
+
 ash.recorder_app.mojom.ModelStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -94,6 +96,8 @@ ash.recorder_app.mojom.ModelStateMonitorRequest = ash.recorder_app.mojom.ModelSt
 
 
 // Interface: QuietModeMonitor
+ash.recorder_app.mojom.QuietModeMonitor = {};
+
 ash.recorder_app.mojom.QuietModeMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -167,6 +171,8 @@ ash.recorder_app.mojom.QuietModeMonitorRequest = ash.recorder_app.mojom.QuietMod
 
 
 // Interface: PageHandler
+ash.recorder_app.mojom.PageHandler = {};
+
 ash.recorder_app.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

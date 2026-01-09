@@ -120,6 +120,8 @@ arc.mojom.AccountUpdateType = {
 };
 
 // Interface: AuthHost
+arc.mojom.AuthHost = {};
+
 arc.mojom.AuthHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -170,6 +172,8 @@ arc.mojom.AuthHostRequest = arc.mojom.AuthHostPendingReceiver;
 
 
 // Interface: AuthInstance
+arc.mojom.AuthInstance = {};
+
 arc.mojom.AuthInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

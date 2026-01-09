@@ -17,6 +17,8 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
 };
 
 // Interface: CrossOriginEmbedderPolicyReporter
+network.mojom.CrossOriginEmbedderPolicyReporter = {};
+
 network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

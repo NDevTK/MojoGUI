@@ -42,6 +42,8 @@ nearby_share.mojom.FastInitiationNotificationState = {
 };
 
 // Interface: NearbyShareSettingsObserver
+nearby_share.mojom.NearbyShareSettingsObserver = {};
+
 nearby_share.mojom.NearbyShareSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,6 +278,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRequest = nearby_share.mojom.Nearb
 
 
 // Interface: NearbyShareSettings
+nearby_share.mojom.NearbyShareSettings = {};
+
 nearby_share.mojom.NearbyShareSettingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -839,6 +843,8 @@ nearby_share.mojom.NearbyShareSettingsRequest = nearby_share.mojom.NearbyShareSe
 
 
 // Interface: DownloadContactsObserver
+nearby_share.mojom.DownloadContactsObserver = {};
+
 nearby_share.mojom.DownloadContactsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -936,6 +942,8 @@ nearby_share.mojom.DownloadContactsObserverRequest = nearby_share.mojom.Download
 
 
 // Interface: ContactManager
+nearby_share.mojom.ContactManager = {};
+
 nearby_share.mojom.ContactManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

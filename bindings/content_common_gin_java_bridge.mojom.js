@@ -22,6 +22,8 @@ content.mojom.GinJavaBridgeError = {
 };
 
 // Interface: GinJavaBridge
+content.mojom.GinJavaBridge = {};
+
 content.mojom.GinJavaBridgePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -143,6 +145,8 @@ content.mojom.GinJavaBridgeRequest = content.mojom.GinJavaBridgePendingReceiver;
 
 
 // Interface: GinJavaBridgeRemoteObject
+content.mojom.GinJavaBridgeRemoteObject = {};
+
 content.mojom.GinJavaBridgeRemoteObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -302,6 +306,8 @@ content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemo
 
 
 // Interface: GinJavaBridgeHost
+content.mojom.GinJavaBridgeHost = {};
+
 content.mojom.GinJavaBridgeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: GuestView
+extensions.mojom.GuestView = {};
+
 extensions.mojom.GuestViewPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -119,6 +121,8 @@ extensions.mojom.GuestViewRequest = extensions.mojom.GuestViewPendingReceiver;
 
 
 // Interface: MimeHandlerViewContainerManager
+extensions.mojom.MimeHandlerViewContainerManager = {};
+
 extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

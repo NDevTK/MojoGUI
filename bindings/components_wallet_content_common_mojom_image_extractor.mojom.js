@@ -10,6 +10,8 @@ wallet.mojom = wallet.mojom || {};
 
 
 // Interface: ImageExtractor
+wallet.mojom.ImageExtractor = {};
+
 wallet.mojom.ImageExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

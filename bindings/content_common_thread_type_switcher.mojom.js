@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: ThreadTypeSwitcher
+content.mojom.ThreadTypeSwitcher = {};
+
 content.mojom.ThreadTypeSwitcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -18,6 +18,8 @@ remote_cocoa.mojom.HitTestResult = {
 };
 
 // Interface: NativeWidgetNSWindowHost
+remote_cocoa.mojom.NativeWidgetNSWindowHost = {};
+
 remote_cocoa.mojom.NativeWidgetNSWindowHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

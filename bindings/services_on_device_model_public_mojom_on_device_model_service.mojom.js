@@ -51,6 +51,8 @@ on_device_model.mojom.SafetyFeature = {
 };
 
 // Interface: PlatformModelProgressObserver
+on_device_model.mojom.PlatformModelProgressObserver = {};
+
 on_device_model.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -101,6 +103,8 @@ on_device_model.mojom.PlatformModelProgressObserverRequest = on_device_model.moj
 
 
 // Interface: OnDeviceModelService
+on_device_model.mojom.OnDeviceModelService = {};
+
 on_device_model.mojom.OnDeviceModelServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,6 +288,8 @@ on_device_model.mojom.OnDeviceModelServiceRequest = on_device_model.mojom.OnDevi
 
 
 // Interface: OnDeviceModelPlatformService
+on_device_model.mojom.OnDeviceModelPlatformService = {};
+
 on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

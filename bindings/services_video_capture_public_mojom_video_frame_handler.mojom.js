@@ -10,6 +10,8 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: VideoFrameAccessHandler
+video_capture.mojom.VideoFrameAccessHandler = {};
+
 video_capture.mojom.VideoFrameAccessHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ video_capture.mojom.VideoFrameAccessHandlerRequest = video_capture.mojom.VideoFr
 
 
 // Interface: VideoFrameHandler
+video_capture.mojom.VideoFrameHandler = {};
+
 video_capture.mojom.VideoFrameHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ChunkedDataPipeGetter
+network.mojom.ChunkedDataPipeGetter = {};
+
 network.mojom.ChunkedDataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

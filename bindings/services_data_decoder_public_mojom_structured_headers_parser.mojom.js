@@ -10,6 +10,8 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: StructuredHeadersParser
+data_decoder.mojom.StructuredHeadersParser = {};
+
 data_decoder.mojom.StructuredHeadersParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

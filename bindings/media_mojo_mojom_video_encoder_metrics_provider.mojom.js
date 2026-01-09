@@ -18,6 +18,8 @@ media.mojom.VideoEncoderUseCase = {
 };
 
 // Interface: VideoEncoderMetricsProvider
+media.mojom.VideoEncoderMetricsProvider = {};
+
 media.mojom.VideoEncoderMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

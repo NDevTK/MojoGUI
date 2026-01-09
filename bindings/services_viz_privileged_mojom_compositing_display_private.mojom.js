@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: DisplayPrivate
+viz.mojom.DisplayPrivate = {};
+
 viz.mojom.DisplayPrivatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -475,6 +477,8 @@ viz.mojom.DisplayPrivateRequest = viz.mojom.DisplayPrivatePendingReceiver;
 
 
 // Interface: DisplayClient
+viz.mojom.DisplayClient = {};
+
 viz.mojom.DisplayClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

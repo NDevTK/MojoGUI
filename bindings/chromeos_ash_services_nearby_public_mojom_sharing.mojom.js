@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: Sharing
+sharing.mojom.Sharing = {};
+
 sharing.mojom.SharingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

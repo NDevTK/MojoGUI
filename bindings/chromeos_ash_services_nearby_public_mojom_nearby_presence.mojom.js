@@ -60,6 +60,8 @@ ash.nearby.presence.mojom.CredentialType = {
 };
 
 // Interface: ScanSession
+ash.nearby.presence.mojom.ScanSession = {};
+
 ash.nearby.presence.mojom.ScanSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ ash.nearby.presence.mojom.ScanSessionRequest = ash.nearby.presence.mojom.ScanSes
 
 
 // Interface: ScanObserver
+ash.nearby.presence.mojom.ScanObserver = {};
+
 ash.nearby.presence.mojom.ScanObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -229,6 +233,8 @@ ash.nearby.presence.mojom.ScanObserverRequest = ash.nearby.presence.mojom.ScanOb
 
 
 // Interface: NearbyPresence
+ash.nearby.presence.mojom.NearbyPresence = {};
+
 ash.nearby.presence.mojom.NearbyPresencePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

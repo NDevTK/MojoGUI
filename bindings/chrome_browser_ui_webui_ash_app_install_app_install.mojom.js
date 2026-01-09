@@ -11,6 +11,8 @@ ash.app_install.mojom = ash.app_install.mojom || {};
 
 
 // Interface: AppInfoActions
+ash.app_install.mojom.AppInfoActions = {};
+
 ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -118,6 +120,8 @@ ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActio
 
 
 // Interface: ConnectionErrorActions
+ash.app_install.mojom.ConnectionErrorActions = {};
+
 ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -190,6 +194,8 @@ ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.Conn
 
 
 // Interface: PageHandlerFactory
+ash.app_install.mojom.PageHandlerFactory = {};
+
 ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,6 +269,8 @@ ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHand
 
 
 // Interface: PageHandler
+ash.app_install.mojom.PageHandler = {};
+
 ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

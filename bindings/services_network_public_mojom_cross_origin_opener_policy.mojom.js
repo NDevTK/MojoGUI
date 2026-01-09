@@ -29,6 +29,8 @@ network.mojom.CrossOriginOpenerPolicyValue = {
 };
 
 // Interface: CrossOriginOpenerPolicyReporter
+network.mojom.CrossOriginOpenerPolicyReporter = {};
+
 network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

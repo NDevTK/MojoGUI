@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecodeStatsRecorder
+media.mojom.VideoDecodeStatsRecorder = {};
+
 media.mojom.VideoDecodeStatsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

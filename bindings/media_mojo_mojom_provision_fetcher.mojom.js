@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: ProvisionFetcher
+media.mojom.ProvisionFetcher = {};
+
 media.mojom.ProvisionFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -26,6 +26,8 @@ network.mojom.HttpCacheBackendDeleteFileMode = {
 };
 
 // Interface: FileEnumerator
+network.mojom.FileEnumerator = {};
+
 network.mojom.FileEnumeratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -114,6 +116,8 @@ network.mojom.FileEnumeratorRequest = network.mojom.FileEnumeratorPendingReceive
 
 
 // Interface: HttpCacheBackendFileOperations
+network.mojom.HttpCacheBackendFileOperations = {};
+
 network.mojom.HttpCacheBackendFileOperationsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -480,6 +484,8 @@ network.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.HttpCacheBac
 
 
 // Interface: HttpCacheBackendFileOperationsFactory
+network.mojom.HttpCacheBackendFileOperationsFactory = {};
+
 network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

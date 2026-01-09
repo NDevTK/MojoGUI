@@ -10,6 +10,8 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Interface: RangeTraitsTestService
+gfx.mojom.RangeTraitsTestService = {};
+
 gfx.mojom.RangeTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ManifestManager
+blink.mojom.ManifestManager = {};
+
 blink.mojom.ManifestManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

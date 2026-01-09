@@ -17,6 +17,8 @@ arc.mojom.PurchaseState = {
 };
 
 // Interface: DigitalGoodsInstance
+arc.mojom.DigitalGoodsInstance = {};
+
 arc.mojom.DigitalGoodsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -89,6 +89,8 @@ device.mojom.UsbTransferStatus = {
 };
 
 // Interface: UsbDevice
+device.mojom.UsbDevice = {};
+
 device.mojom.UsbDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -645,6 +647,8 @@ device.mojom.UsbDeviceRequest = device.mojom.UsbDevicePendingReceiver;
 
 
 // Interface: UsbDeviceClient
+device.mojom.UsbDeviceClient = {};
+
 device.mojom.UsbDeviceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

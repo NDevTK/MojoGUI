@@ -17,6 +17,8 @@ password_manager.mojom.Status = {
 };
 
 // Interface: CSVPasswordParser
+password_manager.mojom.CSVPasswordParser = {};
+
 password_manager.mojom.CSVPasswordParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

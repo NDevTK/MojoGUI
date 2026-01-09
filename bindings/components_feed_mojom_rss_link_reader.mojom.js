@@ -10,6 +10,8 @@ feed.mojom = feed.mojom || {};
 
 
 // Interface: RssLinkReader
+feed.mojom.RssLinkReader = {};
+
 feed.mojom.RssLinkReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

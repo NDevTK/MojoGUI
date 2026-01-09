@@ -50,6 +50,8 @@ ash.shortcut_customization.mojom.Subactions = {
 };
 
 // Interface: AcceleratorsUpdatedObserver
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};
+
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -123,6 +125,8 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRequest = ash.shortc
 
 
 // Interface: PolicyUpdatedObserver
+ash.shortcut_customization.mojom.PolicyUpdatedObserver = {};
+
 ash.shortcut_customization.mojom.PolicyUpdatedObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -195,6 +199,8 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRequest = ash.shortcut_cus
 
 
 // Interface: AcceleratorConfigurationProvider
+ash.shortcut_customization.mojom.AcceleratorConfigurationProvider = {};
+
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

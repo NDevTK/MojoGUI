@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ScreenCaptureHost
+arc.mojom.ScreenCaptureHost = {};
+
 arc.mojom.ScreenCaptureHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.ScreenCaptureHostRequest = arc.mojom.ScreenCaptureHostPendingReceiver;
 
 
 // Interface: ScreenCaptureSession
+arc.mojom.ScreenCaptureSession = {};
+
 arc.mojom.ScreenCaptureSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.ScreenCaptureSessionRequest = arc.mojom.ScreenCaptureSessionPendingRec
 
 
 // Interface: ScreenCaptureInstance
+arc.mojom.ScreenCaptureInstance = {};
+
 arc.mojom.ScreenCaptureInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -160,6 +166,8 @@ arc.mojom.ScreenCaptureInstanceRequest = arc.mojom.ScreenCaptureInstancePendingR
 
 
 // Interface: ScreenCaptureSessionNotifier
+arc.mojom.ScreenCaptureSessionNotifier = {};
+
 arc.mojom.ScreenCaptureSessionNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Interface: FeatureManager
+chromecast.shell.mojom.FeatureManager = {};
+
 chromecast.shell.mojom.FeatureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

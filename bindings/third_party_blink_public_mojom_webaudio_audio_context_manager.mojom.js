@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AudioContextManager
+blink.mojom.AudioContextManager = {};
+
 blink.mojom.AudioContextManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -56,6 +56,8 @@ ash.auth.mojom.PasswordComplexity = {
 };
 
 // Interface: FactorObserver
+ash.auth.mojom.FactorObserver = {};
+
 ash.auth.mojom.FactorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ ash.auth.mojom.FactorObserverRequest = ash.auth.mojom.FactorObserverPendingRecei
 
 
 // Interface: AuthFactorConfig
+ash.auth.mojom.AuthFactorConfig = {};
+
 ash.auth.mojom.AuthFactorConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -350,6 +354,8 @@ ash.auth.mojom.AuthFactorConfigRequest = ash.auth.mojom.AuthFactorConfigPendingR
 
 
 // Interface: RecoveryFactorEditor
+ash.auth.mojom.RecoveryFactorEditor = {};
+
 ash.auth.mojom.RecoveryFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -437,6 +443,8 @@ ash.auth.mojom.RecoveryFactorEditorRequest = ash.auth.mojom.RecoveryFactorEditor
 
 
 // Interface: PinFactorEditor
+ash.auth.mojom.PinFactorEditor = {};
+
 ash.auth.mojom.PinFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -670,6 +678,8 @@ ash.auth.mojom.PinFactorEditorRequest = ash.auth.mojom.PinFactorEditorPendingRec
 
 
 // Interface: PasswordFactorEditor
+ash.auth.mojom.PasswordFactorEditor = {};
+
 ash.auth.mojom.PasswordFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -84,6 +84,8 @@ device.mojom.SmartCardConnectionState = {
 };
 
 // Interface: SmartCardTransaction
+device.mojom.SmartCardTransaction = {};
+
 device.mojom.SmartCardTransactionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -170,6 +172,8 @@ device.mojom.SmartCardTransactionRequest = device.mojom.SmartCardTransactionPend
 
 
 // Interface: SmartCardConnection
+device.mojom.SmartCardConnection = {};
+
 device.mojom.SmartCardConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -473,6 +477,8 @@ device.mojom.SmartCardConnectionRequest = device.mojom.SmartCardConnectionPendin
 
 
 // Interface: SmartCardConnectionWatcher
+device.mojom.SmartCardConnectionWatcher = {};
+
 device.mojom.SmartCardConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -545,6 +551,8 @@ device.mojom.SmartCardConnectionWatcherRequest = device.mojom.SmartCardConnectio
 
 
 // Interface: SmartCardContext
+device.mojom.SmartCardContext = {};
+
 device.mojom.SmartCardContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -741,6 +749,8 @@ device.mojom.SmartCardContextRequest = device.mojom.SmartCardContextPendingRecei
 
 
 // Interface: SmartCardContextFactory
+device.mojom.SmartCardContextFactory = {};
+
 device.mojom.SmartCardContextFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

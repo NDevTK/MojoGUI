@@ -112,6 +112,8 @@ arc.mojom.OemCryptoPrivateKey = {
 };
 
 // Interface: OemCryptoService
+arc.mojom.OemCryptoService = {};
+
 arc.mojom.OemCryptoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -162,6 +164,8 @@ arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
 
 
 // Interface: OemCryptoHost
+arc.mojom.OemCryptoHost = {};
+
 arc.mojom.OemCryptoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -212,6 +216,8 @@ arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
 
 
 // Interface: OemCryptoInstance
+arc.mojom.OemCryptoInstance = {};
+
 arc.mojom.OemCryptoInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

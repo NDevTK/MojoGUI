@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: TestService
+content.mojom.TestService = {};
+
 content.mojom.TestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

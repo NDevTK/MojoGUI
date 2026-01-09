@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: NearbyShareSessionHost
+arc.mojom.NearbyShareSessionHost = {};
+
 arc.mojom.NearbyShareSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.NearbyShareSessionHostRequest = arc.mojom.NearbyShareSessionHostPendin
 
 
 // Interface: NearbyShareSessionInstance
+arc.mojom.NearbyShareSessionInstance = {};
+
 arc.mojom.NearbyShareSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.NearbyShareSessionInstanceRequest = arc.mojom.NearbyShareSessionInstan
 
 
 // Interface: NearbyShareHost
+arc.mojom.NearbyShareHost = {};
+
 arc.mojom.NearbyShareHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -160,6 +166,8 @@ arc.mojom.NearbyShareHostRequest = arc.mojom.NearbyShareHostPendingReceiver;
 
 
 // Interface: NearbyShareInstance
+arc.mojom.NearbyShareInstance = {};
+
 arc.mojom.NearbyShareInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

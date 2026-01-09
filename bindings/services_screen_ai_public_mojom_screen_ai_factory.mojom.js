@@ -10,6 +10,8 @@ screen_ai.mojom = screen_ai.mojom || {};
 
 
 // Interface: ScreenAIServiceShutdownHandler
+screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
+
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAI
 
 
 // Interface: ScreenAIServiceFactory
+screen_ai.mojom.ScreenAIServiceFactory = {};
+
 screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

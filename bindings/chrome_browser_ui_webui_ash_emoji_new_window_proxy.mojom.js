@@ -10,6 +10,8 @@ new_window_proxy.mojom = new_window_proxy.mojom || {};
 
 
 // Interface: NewWindowProxy
+new_window_proxy.mojom.NewWindowProxy = {};
+
 new_window_proxy.mojom.NewWindowProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

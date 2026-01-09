@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: FrameHostTestInterface
+content.mojom.FrameHostTestInterface = {};
+
 content.mojom.FrameHostTestInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

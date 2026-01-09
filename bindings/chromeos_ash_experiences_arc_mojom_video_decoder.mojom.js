@@ -19,6 +19,8 @@ arc.mojom.DecoderStatus = {
 };
 
 // Interface: VideoDecoder
+arc.mojom.VideoDecoder = {};
+
 arc.mojom.VideoDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -69,6 +71,8 @@ arc.mojom.VideoDecoderRequest = arc.mojom.VideoDecoderPendingReceiver;
 
 
 // Interface: VideoDecoderClient
+arc.mojom.VideoDecoderClient = {};
+
 arc.mojom.VideoDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

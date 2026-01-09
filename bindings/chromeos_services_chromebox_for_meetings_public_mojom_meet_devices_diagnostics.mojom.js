@@ -11,6 +11,8 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
 // Interface: MeetDevicesDiagnostics
+chromeos.cfm.mojom.MeetDevicesDiagnostics = {};
+
 chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PointerLockContext
+blink.mojom.PointerLockContext = {};
+
 blink.mojom.PointerLockContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

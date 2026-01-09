@@ -10,6 +10,8 @@ metrics.mojom = metrics.mojom || {};
 
 
 // Interface: SingleSampleMetricsProvider
+metrics.mojom.SingleSampleMetricsProvider = {};
+
 metrics.mojom.SingleSampleMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -88,6 +90,8 @@ metrics.mojom.SingleSampleMetricsProviderRequest = metrics.mojom.SingleSampleMet
 
 
 // Interface: SingleSampleMetric
+metrics.mojom.SingleSampleMetric = {};
+
 metrics.mojom.SingleSampleMetricPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

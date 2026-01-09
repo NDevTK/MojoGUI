@@ -10,6 +10,8 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PdfToEmfConverter
+printing.mojom.PdfToEmfConverter = {};
+
 printing.mojom.PdfToEmfConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -143,6 +145,8 @@ printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendin
 
 
 // Interface: PdfToEmfConverterFactory
+printing.mojom.PdfToEmfConverterFactory = {};
+
 printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

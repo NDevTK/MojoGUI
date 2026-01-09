@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: WakeLockProvider
+device.mojom.WakeLockProvider = {};
+
 device.mojom.WakeLockProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -170,6 +172,8 @@ device.mojom.WakeLockProviderRequest = device.mojom.WakeLockProviderPendingRecei
 
 
 // Interface: WakeLockObserver
+device.mojom.WakeLockObserver = {};
+
 device.mojom.WakeLockObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

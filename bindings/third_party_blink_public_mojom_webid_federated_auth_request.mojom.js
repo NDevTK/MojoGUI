@@ -66,6 +66,8 @@ blink.mojom.Format = {
 };
 
 // Interface: FederatedAuthRequest
+blink.mojom.FederatedAuthRequest = {};
+
 blink.mojom.FederatedAuthRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

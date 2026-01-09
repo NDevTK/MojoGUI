@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InstallationService
+blink.mojom.InstallationService = {};
+
 blink.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

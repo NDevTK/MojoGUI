@@ -15,6 +15,8 @@ blink.mojom.NodeLocationType = {
 };
 
 // Interface: InnerTextAgent
+blink.mojom.InnerTextAgent = {};
+
 blink.mojom.InnerTextAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

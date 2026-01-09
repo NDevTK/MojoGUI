@@ -11,6 +11,8 @@ chromecast.media.mojom = chromecast.media.mojom || {};
 
 
 // Interface: VideoGeometryChangeClient
+chromecast.media.mojom.VideoGeometryChangeClient = {};
+
 chromecast.media.mojom.VideoGeometryChangeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ chromecast.media.mojom.VideoGeometryChangeClientRequest = chromecast.media.mojom
 
 
 // Interface: VideoGeometryChangeSubscriber
+chromecast.media.mojom.VideoGeometryChangeSubscriber = {};
+
 chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -159,6 +163,8 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRequest = chromecast.media.m
 
 
 // Interface: VideoGeometrySetter
+chromecast.media.mojom.VideoGeometrySetter = {};
+
 chromecast.media.mojom.VideoGeometrySetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

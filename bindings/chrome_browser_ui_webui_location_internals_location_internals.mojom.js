@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: LocationInternalsHandler
+mojom.LocationInternalsHandler = {};
+
 mojom.LocationInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

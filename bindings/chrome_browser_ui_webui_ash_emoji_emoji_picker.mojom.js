@@ -27,6 +27,8 @@ emoji_picker.mojom.Category = {
 };
 
 // Interface: PageHandlerFactory
+emoji_picker.mojom.PageHandlerFactory = {};
+
 emoji_picker.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -100,6 +102,8 @@ emoji_picker.mojom.PageHandlerFactoryRequest = emoji_picker.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+emoji_picker.mojom.PageHandler = {};
+
 emoji_picker.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

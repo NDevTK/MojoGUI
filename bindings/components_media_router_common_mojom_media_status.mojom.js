@@ -17,6 +17,8 @@ media_router.mojom.PlayState = {
 };
 
 // Interface: MediaStatusObserver
+media_router.mojom.MediaStatusObserver = {};
+
 media_router.mojom.MediaStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

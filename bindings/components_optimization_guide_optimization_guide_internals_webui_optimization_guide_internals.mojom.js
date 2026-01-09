@@ -10,6 +10,8 @@ optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+optimization_guide_internals.mojom.PageHandlerFactory = {};
+
 optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -188,6 +190,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guid
 
 
 // Interface: Page
+optimization_guide_internals.mojom.Page = {};
+
 optimization_guide_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

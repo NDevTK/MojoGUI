@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: MidisClient
+arc.mojom.MidisClient = {};
+
 arc.mojom.MidisClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.MidisClientRequest = arc.mojom.MidisClientPendingReceiver;
 
 
 // Interface: MidisServer
+arc.mojom.MidisServer = {};
+
 arc.mojom.MidisServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.MidisServerRequest = arc.mojom.MidisServerPendingReceiver;
 
 
 // Interface: MidisHost
+arc.mojom.MidisHost = {};
+
 arc.mojom.MidisHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -160,6 +166,8 @@ arc.mojom.MidisHostRequest = arc.mojom.MidisHostPendingReceiver;
 
 
 // Interface: MidisInstance
+arc.mojom.MidisInstance = {};
+
 arc.mojom.MidisInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

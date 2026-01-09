@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: LeakDetector
+blink.mojom.LeakDetector = {};
+
 blink.mojom.LeakDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

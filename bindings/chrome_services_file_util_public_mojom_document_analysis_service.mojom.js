@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: DocumentAnalysisService
+chrome.mojom.DocumentAnalysisService = {};
+
 chrome.mojom.DocumentAnalysisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

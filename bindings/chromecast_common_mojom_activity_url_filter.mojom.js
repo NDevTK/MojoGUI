@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ActivityUrlFilterConfiguration
+chromecast.mojom.ActivityUrlFilterConfiguration = {};
+
 chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

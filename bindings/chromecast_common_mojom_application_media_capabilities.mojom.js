@@ -11,6 +11,8 @@ chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Interface: ApplicationMediaCapabilitiesObserver
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver = {};
+
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRequest = chromecast.
 
 
 // Interface: ApplicationMediaCapabilities
+chromecast.shell.mojom.ApplicationMediaCapabilities = {};
+
 chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

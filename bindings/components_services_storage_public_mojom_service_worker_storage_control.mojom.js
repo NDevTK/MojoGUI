@@ -16,6 +16,8 @@ storage.mojom.ServiceWorkerStorageStorageKeyState = {
 };
 
 // Interface: ServiceWorkerLiveVersionRef
+storage.mojom.ServiceWorkerLiveVersionRef = {};
+
 storage.mojom.ServiceWorkerLiveVersionRefPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -66,6 +68,8 @@ storage.mojom.ServiceWorkerLiveVersionRefRequest = storage.mojom.ServiceWorkerLi
 
 
 // Interface: ServiceWorkerResourceReader
+storage.mojom.ServiceWorkerResourceReader = {};
+
 storage.mojom.ServiceWorkerResourceReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -224,6 +228,8 @@ storage.mojom.ServiceWorkerResourceReaderRequest = storage.mojom.ServiceWorkerRe
 
 
 // Interface: ServiceWorkerResourceWriter
+storage.mojom.ServiceWorkerResourceWriter = {};
+
 storage.mojom.ServiceWorkerResourceWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -346,6 +352,8 @@ storage.mojom.ServiceWorkerResourceWriterRequest = storage.mojom.ServiceWorkerRe
 
 
 // Interface: ServiceWorkerResourceMetadataWriter
+storage.mojom.ServiceWorkerResourceMetadataWriter = {};
+
 storage.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -432,6 +440,8 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRequest = storage.mojom.Service
 
 
 // Interface: ServiceWorkerStorageControl
+storage.mojom.ServiceWorkerStorageControl = {};
+
 storage.mojom.ServiceWorkerStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

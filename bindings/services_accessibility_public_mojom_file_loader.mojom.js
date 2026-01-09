@@ -10,6 +10,8 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: AccessibilityFileLoader
+ax.mojom.AccessibilityFileLoader = {};
+
 ax.mojom.AccessibilityFileLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

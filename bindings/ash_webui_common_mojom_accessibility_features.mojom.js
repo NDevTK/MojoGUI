@@ -11,6 +11,8 @@ ash.common.mojom = ash.common.mojom || {};
 
 
 // Interface: ForceHiddenElementsVisibleObserver
+ash.common.mojom.ForceHiddenElementsVisibleObserver = {};
+
 ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRequest = ash.common.mojom.Fo
 
 
 // Interface: AccessibilityFeatures
+ash.common.mojom.AccessibilityFeatures = {};
+
 ash.common.mojom.AccessibilityFeaturesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

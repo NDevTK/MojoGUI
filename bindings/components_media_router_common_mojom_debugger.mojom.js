@@ -10,6 +10,8 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Interface: Debugger
+media_router.mojom.Debugger = {};
+
 media_router.mojom.DebuggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

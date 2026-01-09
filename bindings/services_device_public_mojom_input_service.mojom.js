@@ -25,6 +25,8 @@ device.mojom.InputDeviceType = {
 };
 
 // Interface: InputDeviceManagerClient
+device.mojom.InputDeviceManagerClient = {};
+
 device.mojom.InputDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -121,6 +123,8 @@ device.mojom.InputDeviceManagerClientRequest = device.mojom.InputDeviceManagerCl
 
 
 // Interface: InputDeviceManager
+device.mojom.InputDeviceManager = {};
+
 device.mojom.InputDeviceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -16,6 +16,8 @@ metrics.mojom.ProfileType = {
 };
 
 // Interface: CallStackProfileCollector
+metrics.mojom.CallStackProfileCollector = {};
+
 metrics.mojom.CallStackProfileCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

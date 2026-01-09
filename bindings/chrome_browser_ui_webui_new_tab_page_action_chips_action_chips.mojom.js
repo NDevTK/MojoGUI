@@ -18,6 +18,8 @@ action_chips.mojom.ChipType = {
 };
 
 // Interface: ActionChipsHandler
+action_chips.mojom.ActionChipsHandler = {};
+
 action_chips.mojom.ActionChipsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ action_chips.mojom.ActionChipsHandlerRequest = action_chips.mojom.ActionChipsHan
 
 
 // Interface: Page
+action_chips.mojom.Page = {};
+
 action_chips.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -163,6 +167,8 @@ action_chips.mojom.PageRequest = action_chips.mojom.PagePendingReceiver;
 
 
 // Interface: ActionChipsHandlerFactory
+action_chips.mojom.ActionChipsHandlerFactory = {};
+
 action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

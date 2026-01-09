@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: BeginFrameObserver
+viz.mojom.BeginFrameObserver = {};
+
 viz.mojom.BeginFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

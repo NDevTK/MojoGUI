@@ -10,6 +10,8 @@ contextual_tasks.mojom = contextual_tasks.mojom || {};
 
 
 // Interface: PageHandler
+contextual_tasks.mojom.PageHandler = {};
+
 contextual_tasks.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -486,6 +488,8 @@ contextual_tasks.mojom.PageHandlerRequest = contextual_tasks.mojom.PageHandlerPe
 
 
 // Interface: Page
+contextual_tasks.mojom.Page = {};
+
 contextual_tasks.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -854,6 +858,8 @@ contextual_tasks.mojom.PageRequest = contextual_tasks.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandlerFactory
+contextual_tasks.mojom.PageHandlerFactory = {};
+
 contextual_tasks.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

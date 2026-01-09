@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: SystemInfo
+audio.mojom.SystemInfo = {};
+
 audio.mojom.SystemInfoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

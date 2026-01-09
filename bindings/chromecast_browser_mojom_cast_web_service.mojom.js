@@ -39,6 +39,8 @@ chromecast.mojom.GesturePriority = {
 };
 
 // Interface: CastWebService
+chromecast.mojom.CastWebService = {};
+
 chromecast.mojom.CastWebServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

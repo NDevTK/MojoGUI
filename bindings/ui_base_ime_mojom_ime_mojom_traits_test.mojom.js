@@ -10,6 +10,8 @@ ui.mojom = ui.mojom || {};
 
 
 // Interface: IMEStructTraitsTest
+ui.mojom.IMEStructTraitsTest = {};
+
 ui.mojom.IMEStructTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -18,6 +18,8 @@ network.mojom.ReportingApiReportStatus = {
 };
 
 // Interface: ReportingApiObserver
+network.mojom.ReportingApiObserver = {};
+
 network.mojom.ReportingApiObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

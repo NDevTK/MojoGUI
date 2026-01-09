@@ -17,6 +17,8 @@ chromeos.machine_learning.mojom.AnnotationUsecase = {
 };
 
 // Interface: TextClassifier
+chromeos.machine_learning.mojom.TextClassifier = {};
+
 chromeos.machine_learning.mojom.TextClassifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

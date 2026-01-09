@@ -41,6 +41,8 @@ auction_worklet.mojom.ReportingIdField = {
 };
 
 // Interface: GenerateBidClient
+auction_worklet.mojom.GenerateBidClient = {};
+
 auction_worklet.mojom.GenerateBidClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -151,6 +153,8 @@ auction_worklet.mojom.GenerateBidClientRequest = auction_worklet.mojom.GenerateB
 
 
 // Interface: GenerateBidFinalizer
+auction_worklet.mojom.GenerateBidFinalizer = {};
+
 auction_worklet.mojom.GenerateBidFinalizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -231,6 +235,8 @@ auction_worklet.mojom.GenerateBidFinalizerRequest = auction_worklet.mojom.Genera
 
 
 // Interface: BidderWorklet
+auction_worklet.mojom.BidderWorklet = {};
+
 auction_worklet.mojom.BidderWorkletPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

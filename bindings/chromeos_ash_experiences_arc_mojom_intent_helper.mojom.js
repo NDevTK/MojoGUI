@@ -101,6 +101,8 @@ arc.mojom.CaptionTextShadowType = {
 };
 
 // Interface: CustomTabSession
+arc.mojom.CustomTabSession = {};
+
 arc.mojom.CustomTabSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -151,6 +153,8 @@ arc.mojom.CustomTabSessionRequest = arc.mojom.CustomTabSessionPendingReceiver;
 
 
 // Interface: IntentHelperHost
+arc.mojom.IntentHelperHost = {};
+
 arc.mojom.IntentHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -201,6 +205,8 @@ arc.mojom.IntentHelperHostRequest = arc.mojom.IntentHelperHostPendingReceiver;
 
 
 // Interface: IntentHelperInstance
+arc.mojom.IntentHelperInstance = {};
+
 arc.mojom.IntentHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

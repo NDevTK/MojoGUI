@@ -10,6 +10,8 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Interface: WebNNContext
+webnn.mojom.WebNNContext = {};
+
 webnn.mojom.WebNNContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

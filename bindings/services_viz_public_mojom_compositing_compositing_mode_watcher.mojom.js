@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: CompositingModeWatcher
+viz.mojom.CompositingModeWatcher = {};
+
 viz.mojom.CompositingModeWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ viz.mojom.CompositingModeWatcherRequest = viz.mojom.CompositingModeWatcherPendin
 
 
 // Interface: CompositingModeReporter
+viz.mojom.CompositingModeReporter = {};
+
 viz.mojom.CompositingModeReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

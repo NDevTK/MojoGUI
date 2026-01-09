@@ -33,6 +33,8 @@ chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
 };
 
 // Interface: HandwritingRecognizer
+chromeos.machine_learning.mojom.HandwritingRecognizer = {};
+
 chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -15,6 +15,8 @@ blink.mojom.ControllerServiceWorkerPurpose = {
 };
 
 // Interface: ServiceWorkerContainerHost
+blink.mojom.ServiceWorkerContainerHost = {};
+
 blink.mojom.ServiceWorkerContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -329,6 +331,8 @@ blink.mojom.ServiceWorkerContainerHostRequest = blink.mojom.ServiceWorkerContain
 
 
 // Interface: ServiceWorkerContainer
+blink.mojom.ServiceWorkerContainer = {};
+
 blink.mojom.ServiceWorkerContainerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

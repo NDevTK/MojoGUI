@@ -11,6 +11,8 @@ ash.local_search_service.mojom = ash.local_search_service.mojom || {};
 
 
 // Interface: Index
+ash.local_search_service.mojom.Index = {};
+
 ash.local_search_service.mojom.IndexPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

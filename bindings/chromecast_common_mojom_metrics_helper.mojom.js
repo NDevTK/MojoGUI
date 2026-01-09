@@ -11,6 +11,8 @@ chromecast.metrics.mojom = chromecast.metrics.mojom || {};
 
 
 // Interface: MetricsHelper
+chromecast.metrics.mojom.MetricsHelper = {};
+
 chromecast.metrics.mojom.MetricsHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

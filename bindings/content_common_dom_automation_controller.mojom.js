@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: DomAutomationControllerHost
+content.mojom.DomAutomationControllerHost = {};
+
 content.mojom.DomAutomationControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

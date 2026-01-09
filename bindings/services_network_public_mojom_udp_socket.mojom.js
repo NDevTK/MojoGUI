@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: UDPSocket
+network.mojom.UDPSocket = {};
+
 network.mojom.UDPSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -460,6 +462,8 @@ network.mojom.UDPSocketRequest = network.mojom.UDPSocketPendingReceiver;
 
 
 // Interface: UDPSocketListener
+network.mojom.UDPSocketListener = {};
+
 network.mojom.UDPSocketListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

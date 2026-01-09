@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MainFrameCounterTest
+content.mojom.MainFrameCounterTest = {};
+
 content.mojom.MainFrameCounterTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

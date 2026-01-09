@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: CameraService
+arc.mojom.CameraService = {};
+
 arc.mojom.CameraServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.CameraServiceRequest = arc.mojom.CameraServicePendingReceiver;
 
 
 // Interface: CameraHost
+arc.mojom.CameraHost = {};
+
 arc.mojom.CameraHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.CameraHostRequest = arc.mojom.CameraHostPendingReceiver;
 
 
 // Interface: CameraInstance
+arc.mojom.CameraInstance = {};
+
 arc.mojom.CameraInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

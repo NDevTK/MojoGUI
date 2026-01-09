@@ -83,6 +83,8 @@ arc.mojom.AppCategory = {
 };
 
 // Interface: AppHost
+arc.mojom.AppHost = {};
+
 arc.mojom.AppHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -133,6 +135,8 @@ arc.mojom.AppHostRequest = arc.mojom.AppHostPendingReceiver;
 
 
 // Interface: AppInstance
+arc.mojom.AppInstance = {};
+
 arc.mojom.AppInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

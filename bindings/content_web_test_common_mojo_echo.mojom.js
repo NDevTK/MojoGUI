@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MojoEcho
+content.mojom.MojoEcho = {};
+
 content.mojom.MojoEchoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

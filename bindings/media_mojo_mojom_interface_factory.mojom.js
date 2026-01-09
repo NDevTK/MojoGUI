@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecoderTracker
+media.mojom.VideoDecoderTracker = {};
+
 media.mojom.VideoDecoderTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ media.mojom.VideoDecoderTrackerRequest = media.mojom.VideoDecoderTrackerPendingR
 
 
 // Interface: InterfaceFactory
+media.mojom.InterfaceFactory = {};
+
 media.mojom.InterfaceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -36,6 +36,8 @@ history_clusters.mojom.VisitType = {
 };
 
 // Interface: PageHandler
+history_clusters.mojom.PageHandler = {};
+
 history_clusters.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -516,6 +518,8 @@ history_clusters.mojom.PageHandlerRequest = history_clusters.mojom.PageHandlerPe
 
 
 // Interface: Page
+history_clusters.mojom.Page = {};
+
 history_clusters.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

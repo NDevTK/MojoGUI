@@ -11,6 +11,8 @@ ash.vm.mojom = ash.vm.mojom || {};
 
 
 // Interface: VmDiagnosticsProvider
+ash.vm.mojom.VmDiagnosticsProvider = {};
+
 ash.vm.mojom.VmDiagnosticsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

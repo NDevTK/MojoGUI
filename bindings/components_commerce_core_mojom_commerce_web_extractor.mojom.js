@@ -10,6 +10,8 @@ commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
 
 
 // Interface: CommerceWebExtractor
+commerce_web_extractor.mojom.CommerceWebExtractor = {};
+
 commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

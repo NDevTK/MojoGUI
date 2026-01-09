@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebSensorProvider
+blink.mojom.WebSensorProvider = {};
+
 blink.mojom.WebSensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

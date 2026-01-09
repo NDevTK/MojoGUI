@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessFileWriter
+blink.mojom.FileSystemAccessFileWriter = {};
+
 blink.mojom.FileSystemAccessFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

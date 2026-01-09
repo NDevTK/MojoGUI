@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebTransportConnector
+blink.mojom.WebTransportConnector = {};
+
 blink.mojom.WebTransportConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

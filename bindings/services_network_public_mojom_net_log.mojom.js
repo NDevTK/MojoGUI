@@ -25,6 +25,8 @@ network.mojom.NetLogEventPhase = {
 };
 
 // Interface: NetLogExporter
+network.mojom.NetLogExporter = {};
+
 network.mojom.NetLogExporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -150,6 +152,8 @@ network.mojom.NetLogExporterRequest = network.mojom.NetLogExporterPendingReceive
 
 
 // Interface: NetLogProxySource
+network.mojom.NetLogProxySource = {};
+
 network.mojom.NetLogProxySourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -223,6 +227,8 @@ network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingR
 
 
 // Interface: NetLogProxySink
+network.mojom.NetLogProxySink = {};
+
 network.mojom.NetLogProxySinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

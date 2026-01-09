@@ -10,6 +10,8 @@ on_device_translation.mojom = on_device_translation.mojom || {};
 
 
 // Interface: Translator
+on_device_translation.mojom.Translator = {};
+
 on_device_translation.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: AcceptCHFrameObserver
+network.mojom.AcceptCHFrameObserver = {};
+
 network.mojom.AcceptCHFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

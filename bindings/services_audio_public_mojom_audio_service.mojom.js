@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: AudioService
+audio.mojom.AudioService = {};
+
 audio.mojom.AudioServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

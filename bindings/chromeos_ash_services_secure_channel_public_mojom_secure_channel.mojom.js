@@ -87,6 +87,8 @@ ash.secure_channel.mojom.SecureChannelState = {
 };
 
 // Interface: Channel
+ash.secure_channel.mojom.Channel = {};
+
 ash.secure_channel.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -233,6 +235,8 @@ ash.secure_channel.mojom.ChannelRequest = ash.secure_channel.mojom.ChannelPendin
 
 
 // Interface: MessageReceiver
+ash.secure_channel.mojom.MessageReceiver = {};
+
 ash.secure_channel.mojom.MessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,6 +310,8 @@ ash.secure_channel.mojom.MessageReceiverRequest = ash.secure_channel.mojom.Messa
 
 
 // Interface: ConnectionDelegate
+ash.secure_channel.mojom.ConnectionDelegate = {};
+
 ash.secure_channel.mojom.ConnectionDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -404,6 +410,8 @@ ash.secure_channel.mojom.ConnectionDelegateRequest = ash.secure_channel.mojom.Co
 
 
 // Interface: SecureChannelStructuredMetricsLogger
+ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger = {};
+
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -525,6 +533,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRequest = ash.secur
 
 
 // Interface: SecureChannel
+ash.secure_channel.mojom.SecureChannel = {};
+
 ash.secure_channel.mojom.SecureChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

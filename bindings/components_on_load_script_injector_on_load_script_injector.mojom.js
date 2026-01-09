@@ -10,6 +10,8 @@ on_load_script_injector.mojom = on_load_script_injector.mojom || {};
 
 
 // Interface: OnLoadScriptInjector
+on_load_script_injector.mojom.OnLoadScriptInjector = {};
+
 on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

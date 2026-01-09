@@ -17,6 +17,8 @@ autofill_ml_internals.mojom.OptimizationTarget = {
 };
 
 // Interface: Page
+autofill_ml_internals.mojom.Page = {};
+
 autofill_ml_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ autofill_ml_internals.mojom.PageRequest = autofill_ml_internals.mojom.PagePendin
 
 
 // Interface: PageHandler
+autofill_ml_internals.mojom.PageHandler = {};
+
 autofill_ml_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

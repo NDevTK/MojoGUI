@@ -24,6 +24,8 @@ font_service.mojom.RenderStyleSwitch = {
 };
 
 // Interface: FontService
+font_service.mojom.FontService = {};
+
 font_service.mojom.FontServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

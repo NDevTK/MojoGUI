@@ -26,6 +26,8 @@ ash.cellular_setup.mojom.ActivationResult = {
 };
 
 // Interface: CarrierPortalHandler
+ash.cellular_setup.mojom.CarrierPortalHandler = {};
+
 ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -99,6 +101,8 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.
 
 
 // Interface: ActivationDelegate
+ash.cellular_setup.mojom.ActivationDelegate = {};
+
 ash.cellular_setup.mojom.ActivationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -195,6 +199,8 @@ ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.Ac
 
 
 // Interface: CellularSetup
+ash.cellular_setup.mojom.CellularSetup = {};
+
 ash.cellular_setup.mojom.CellularSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

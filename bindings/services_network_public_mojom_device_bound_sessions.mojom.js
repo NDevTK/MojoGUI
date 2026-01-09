@@ -140,6 +140,8 @@ network.mojom.DeviceBoundSessionInclusionResult = {
 };
 
 // Interface: DeviceBoundSessionManager
+network.mojom.DeviceBoundSessionManager = {};
+
 network.mojom.DeviceBoundSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -362,6 +364,8 @@ network.mojom.DeviceBoundSessionManagerRequest = network.mojom.DeviceBoundSessio
 
 
 // Interface: DeviceBoundSessionAccessObserver
+network.mojom.DeviceBoundSessionAccessObserver = {};
+
 network.mojom.DeviceBoundSessionAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -458,6 +462,8 @@ network.mojom.DeviceBoundSessionAccessObserverRequest = network.mojom.DeviceBoun
 
 
 // Interface: DeviceBoundSessionEventObserver
+network.mojom.DeviceBoundSessionEventObserver = {};
+
 network.mojom.DeviceBoundSessionEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

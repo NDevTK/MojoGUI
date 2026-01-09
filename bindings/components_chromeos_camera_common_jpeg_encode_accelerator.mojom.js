@@ -21,6 +21,8 @@ chromeos_camera.mojom.EncodeStatus = {
 };
 
 // Interface: JpegEncodeAccelerator
+chromeos_camera.mojom.JpegEncodeAccelerator = {};
+
 chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

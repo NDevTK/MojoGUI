@@ -10,6 +10,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: TelemetryManagementService
+crosapi.mojom.TelemetryManagementService = {};
+
 crosapi.mojom.TelemetryManagementServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

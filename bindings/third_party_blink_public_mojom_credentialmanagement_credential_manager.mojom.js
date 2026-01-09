@@ -33,6 +33,8 @@ blink.mojom.CredentialManagerError = {
 };
 
 // Interface: CredentialManager
+blink.mojom.CredentialManager = {};
+
 blink.mojom.CredentialManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ManagedConfigurationObserver
+blink.mojom.ManagedConfigurationObserver = {};
+
 blink.mojom.ManagedConfigurationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ blink.mojom.ManagedConfigurationObserverRequest = blink.mojom.ManagedConfigurati
 
 
 // Interface: DeviceAPIService
+blink.mojom.DeviceAPIService = {};
+
 blink.mojom.DeviceAPIServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -307,6 +311,8 @@ blink.mojom.DeviceAPIServiceRequest = blink.mojom.DeviceAPIServicePendingReceive
 
 
 // Interface: ManagedConfigurationService
+blink.mojom.ManagedConfigurationService = {};
+
 blink.mojom.ManagedConfigurationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

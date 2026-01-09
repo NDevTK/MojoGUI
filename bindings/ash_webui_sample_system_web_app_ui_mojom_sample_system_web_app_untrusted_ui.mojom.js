@@ -11,6 +11,8 @@ ash.mojom.sample_swa = ash.mojom.sample_swa || {};
 
 
 // Interface: UntrustedPageInterfacesFactory
+ash.mojom.sample_swa.UntrustedPageInterfacesFactory = {};
+
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

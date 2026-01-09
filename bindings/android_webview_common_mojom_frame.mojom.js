@@ -22,6 +22,8 @@ android_webview.mojom.HitTestDataType = {
 };
 
 // Interface: LocalMainFrame
+android_webview.mojom.LocalMainFrame = {};
+
 android_webview.mojom.LocalMainFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -200,6 +202,8 @@ android_webview.mojom.LocalMainFrameRequest = android_webview.mojom.LocalMainFra
 
 
 // Interface: FrameHost
+android_webview.mojom.FrameHost = {};
+
 android_webview.mojom.FrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

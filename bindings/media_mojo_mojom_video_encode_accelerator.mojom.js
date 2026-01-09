@@ -37,6 +37,8 @@ media.mojom.EncoderType = {
 };
 
 // Interface: VideoEncodeAcceleratorProvider
+media.mojom.VideoEncodeAcceleratorProvider = {};
+
 media.mojom.VideoEncodeAcceleratorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -146,6 +148,8 @@ media.mojom.VideoEncodeAcceleratorProviderRequest = media.mojom.VideoEncodeAccel
 
 
 // Interface: VideoEncodeAcceleratorProviderFactory
+media.mojom.VideoEncodeAcceleratorProviderFactory = {};
+
 media.mojom.VideoEncodeAcceleratorProviderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -219,6 +223,8 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRequest = media.mojom.VideoEnco
 
 
 // Interface: VideoEncodeAccelerator
+media.mojom.VideoEncodeAccelerator = {};
+
 media.mojom.VideoEncodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -475,6 +481,8 @@ media.mojom.VideoEncodeAcceleratorRequest = media.mojom.VideoEncodeAcceleratorPe
 
 
 // Interface: VideoEncodeAcceleratorClient
+media.mojom.VideoEncodeAcceleratorClient = {};
+
 media.mojom.VideoEncodeAcceleratorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

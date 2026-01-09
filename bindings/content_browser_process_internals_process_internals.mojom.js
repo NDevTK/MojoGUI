@@ -16,6 +16,8 @@ mojom.Type = {
 };
 
 // Interface: ProcessInternalsHandler
+mojom.ProcessInternalsHandler = {};
+
 mojom.ProcessInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

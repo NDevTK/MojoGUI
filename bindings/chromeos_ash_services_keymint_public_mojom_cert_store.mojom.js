@@ -11,6 +11,8 @@ arc.keymint.mojom = arc.keymint.mojom || {};
 
 
 // Interface: CertStoreInstance
+arc.keymint.mojom.CertStoreInstance = {};
+
 arc.keymint.mojom.CertStoreInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

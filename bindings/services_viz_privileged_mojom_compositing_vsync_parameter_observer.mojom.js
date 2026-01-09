@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VSyncParameterObserver
+viz.mojom.VSyncParameterObserver = {};
+
 viz.mojom.VSyncParameterObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

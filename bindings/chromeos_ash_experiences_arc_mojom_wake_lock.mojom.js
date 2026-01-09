@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: WakeLockHost
+arc.mojom.WakeLockHost = {};
+
 arc.mojom.WakeLockHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.WakeLockHostRequest = arc.mojom.WakeLockHostPendingReceiver;
 
 
 // Interface: WakeLockInstance
+arc.mojom.WakeLockInstance = {};
+
 arc.mojom.WakeLockInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

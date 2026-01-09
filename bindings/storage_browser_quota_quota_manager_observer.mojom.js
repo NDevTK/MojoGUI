@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: QuotaManagerObserver
+storage.mojom.QuotaManagerObserver = {};
+
 storage.mojom.QuotaManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -28,6 +28,8 @@ data_sharing.mojom.GroupActionProgress = {
 };
 
 // Interface: PageHandlerFactory
+data_sharing.mojom.PageHandlerFactory = {};
+
 data_sharing.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -102,6 +104,8 @@ data_sharing.mojom.PageHandlerFactoryRequest = data_sharing.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+data_sharing.mojom.PageHandler = {};
+
 data_sharing.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -424,6 +428,8 @@ data_sharing.mojom.PageHandlerRequest = data_sharing.mojom.PageHandlerPendingRec
 
 
 // Interface: Page
+data_sharing.mojom.Page = {};
+
 data_sharing.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

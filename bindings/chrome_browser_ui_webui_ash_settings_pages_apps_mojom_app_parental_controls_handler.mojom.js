@@ -19,6 +19,8 @@ ash.settings.app_parental_controls.mojom.PinValidationResult = {
 };
 
 // Interface: AppParentalControlsHandler
+ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
+
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,6 +318,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRequest = ash
 
 
 // Interface: AppParentalControlsObserver
+ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = {};
+
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

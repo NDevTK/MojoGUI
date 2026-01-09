@@ -19,6 +19,8 @@ blink.mojom.Type = {
 };
 
 // Interface: PopupMenuClient
+blink.mojom.PopupMenuClient = {};
+
 blink.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

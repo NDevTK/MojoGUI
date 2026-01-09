@@ -10,6 +10,8 @@ tracked_element.mojom = tracked_element.mojom || {};
 
 
 // Interface: TrackedElementHandler
+tracked_element.mojom.TrackedElementHandler = {};
+
 tracked_element.mojom.TrackedElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

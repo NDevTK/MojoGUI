@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ServiceWorkerRegistrationObjectHost
+blink.mojom.ServiceWorkerRegistrationObjectHost = {};
+
 blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,6 +246,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.ServiceWork
 
 
 // Interface: ServiceWorkerRegistrationObject
+blink.mojom.ServiceWorkerRegistrationObject = {};
+
 blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: WatchTimeRecorder
+media.mojom.WatchTimeRecorder = {};
+
 media.mojom.WatchTimeRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

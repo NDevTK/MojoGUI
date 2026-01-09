@@ -18,6 +18,8 @@ ash.manage_mirrorsync.mojom.GetSyncPathError = {
 };
 
 // Interface: PageHandlerFactory
+ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
+
 ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRequest = ash.manage_mirrorsync.mo
 
 
 // Interface: PageHandler
+ash.manage_mirrorsync.mojom.PageHandler = {};
+
 ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

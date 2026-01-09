@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: WebrtcVideoPerfRecorder
+media.mojom.WebrtcVideoPerfRecorder = {};
+
 media.mojom.WebrtcVideoPerfRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ media.mojom.WebrtcVideoPerfRecorderRequest = media.mojom.WebrtcVideoPerfRecorder
 
 
 // Interface: WebrtcVideoPerfHistory
+media.mojom.WebrtcVideoPerfHistory = {};
+
 media.mojom.WebrtcVideoPerfHistoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -28,6 +28,8 @@ continuous_search.mojom.Status = {
 };
 
 // Interface: SearchResultExtractor
+continuous_search.mojom.SearchResultExtractor = {};
+
 continuous_search.mojom.SearchResultExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

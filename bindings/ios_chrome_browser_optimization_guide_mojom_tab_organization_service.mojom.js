@@ -10,6 +10,8 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: TabOrganizationService
+ai.mojom.TabOrganizationService = {};
+
 ai.mojom.TabOrganizationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ ash.sanitize_ui.mojom = ash.sanitize_ui.mojom || {};
 
 
 // Interface: SettingsResetter
+ash.sanitize_ui.mojom.SettingsResetter = {};
+
 ash.sanitize_ui.mojom.SettingsResetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

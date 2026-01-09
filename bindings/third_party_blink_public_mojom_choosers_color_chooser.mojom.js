@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ColorChooserFactory
+blink.mojom.ColorChooserFactory = {};
+
 blink.mojom.ColorChooserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ blink.mojom.ColorChooserFactoryRequest = blink.mojom.ColorChooserFactoryPendingR
 
 
 // Interface: ColorChooser
+blink.mojom.ColorChooser = {};
+
 blink.mojom.ColorChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -159,6 +163,8 @@ blink.mojom.ColorChooserRequest = blink.mojom.ColorChooserPendingReceiver;
 
 
 // Interface: ColorChooserClient
+blink.mojom.ColorChooserClient = {};
+
 blink.mojom.ColorChooserClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -232,6 +238,8 @@ blink.mojom.ColorChooserClientRequest = blink.mojom.ColorChooserClientPendingRec
 
 
 // Interface: EyeDropperChooser
+blink.mojom.EyeDropperChooser = {};
+
 blink.mojom.EyeDropperChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

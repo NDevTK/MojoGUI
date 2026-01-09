@@ -10,6 +10,8 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: VideoCaptureDeviceInfoObserver
+cros.mojom.VideoCaptureDeviceInfoObserver = {};
+
 cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ cros.mojom.VideoCaptureDeviceInfoObserverRequest = cros.mojom.VideoCaptureDevice
 
 
 // Interface: VideoCaptureDeviceInfoMonitor
+cros.mojom.VideoCaptureDeviceInfoMonitor = {};
+
 cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -16,6 +16,8 @@ attribution_reporting.mojom.DataAvailableCallsite = {
 };
 
 // Interface: DataHost
+attribution_reporting.mojom.DataHost = {};
+
 attribution_reporting.mojom.DataHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

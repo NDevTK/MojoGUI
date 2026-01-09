@@ -19,6 +19,8 @@ bookmark_bar.mojom.BookmarkType = {
 };
 
 // Interface: PageHandlerFactory
+bookmark_bar.mojom.PageHandlerFactory = {};
+
 bookmark_bar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ bookmark_bar.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+bookmark_bar.mojom.PageHandler = {};
+
 bookmark_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -201,6 +205,8 @@ bookmark_bar.mojom.PageHandlerRequest = bookmark_bar.mojom.PageHandlerPendingRec
 
 
 // Interface: Page
+bookmark_bar.mojom.Page = {};
+
 bookmark_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -16,6 +16,8 @@ add_supervision.mojom.OAuthTokenFetchStatus = {
 };
 
 // Interface: AddSupervisionHandler
+add_supervision.mojom.AddSupervisionHandler = {};
+
 add_supervision.mojom.AddSupervisionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

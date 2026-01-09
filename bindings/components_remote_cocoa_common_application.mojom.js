@@ -17,6 +17,8 @@ remote_cocoa.mojom.CutCopyPasteCommand = {
 };
 
 // Interface: StubInterface
+remote_cocoa.mojom.StubInterface = {};
+
 remote_cocoa.mojom.StubInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ remote_cocoa.mojom.StubInterfaceRequest = remote_cocoa.mojom.StubInterfacePendin
 
 
 // Interface: Application
+remote_cocoa.mojom.Application = {};
+
 remote_cocoa.mojom.ApplicationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

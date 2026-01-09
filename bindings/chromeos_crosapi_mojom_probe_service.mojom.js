@@ -95,6 +95,8 @@ crosapi.mojom.ProbeThermalSensorSource = {
 };
 
 // Interface: TelemetryProbeService
+crosapi.mojom.TelemetryProbeService = {};
+
 crosapi.mojom.TelemetryProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

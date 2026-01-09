@@ -11,6 +11,8 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
 // Interface: CfmBrowser
+chromeos.cfm.mojom.CfmBrowser = {};
+
 chromeos.cfm.mojom.CfmBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

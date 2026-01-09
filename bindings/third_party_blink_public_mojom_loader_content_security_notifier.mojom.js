@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ContentSecurityNotifier
+blink.mojom.ContentSecurityNotifier = {};
+
 blink.mojom.ContentSecurityNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

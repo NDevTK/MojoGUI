@@ -21,6 +21,8 @@ quarantine.mojom.QuarantineFileResult = {
 };
 
 // Interface: Quarantine
+quarantine.mojom.Quarantine = {};
+
 quarantine.mojom.QuarantinePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

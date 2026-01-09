@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: Geolocation
+device.mojom.Geolocation = {};
+
 device.mojom.GeolocationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

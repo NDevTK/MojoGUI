@@ -33,6 +33,8 @@ side_panel.mojom.ViewType = {
 };
 
 // Interface: BookmarksPageHandlerFactory
+side_panel.mojom.BookmarksPageHandlerFactory = {};
+
 side_panel.mojom.BookmarksPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ side_panel.mojom.BookmarksPageHandlerFactoryRequest = side_panel.mojom.Bookmarks
 
 
 // Interface: BookmarksPageHandler
+side_panel.mojom.BookmarksPageHandler = {};
+
 side_panel.mojom.BookmarksPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -727,6 +731,8 @@ side_panel.mojom.BookmarksPageHandlerRequest = side_panel.mojom.BookmarksPageHan
 
 
 // Interface: BookmarksPage
+side_panel.mojom.BookmarksPage = {};
+
 side_panel.mojom.BookmarksPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

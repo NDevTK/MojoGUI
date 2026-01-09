@@ -16,6 +16,8 @@ storage.mojom.CacheStorageOwner = {
 };
 
 // Interface: CacheStorageObserver
+storage.mojom.CacheStorageObserver = {};
+
 storage.mojom.CacheStorageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ storage.mojom.CacheStorageObserverRequest = storage.mojom.CacheStorageObserverPe
 
 
 // Interface: CacheStorageControl
+storage.mojom.CacheStorageControl = {};
+
 storage.mojom.CacheStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

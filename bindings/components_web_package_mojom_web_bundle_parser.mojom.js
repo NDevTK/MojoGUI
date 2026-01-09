@@ -23,6 +23,8 @@ web_package.mojom.BundleFormatVersion = {
 };
 
 // Interface: WebBundleParserFactory
+web_package.mojom.WebBundleParserFactory = {};
+
 web_package.mojom.WebBundleParserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -122,6 +124,8 @@ web_package.mojom.WebBundleParserFactoryRequest = web_package.mojom.WebBundlePar
 
 
 // Interface: WebBundleParser
+web_package.mojom.WebBundleParser = {};
+
 web_package.mojom.WebBundleParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,6 +309,8 @@ web_package.mojom.WebBundleParserRequest = web_package.mojom.WebBundleParserPend
 
 
 // Interface: BundleDataSource
+web_package.mojom.BundleDataSource = {};
+
 web_package.mojom.BundleDataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

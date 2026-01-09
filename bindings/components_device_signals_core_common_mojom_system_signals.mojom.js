@@ -26,6 +26,8 @@ device_signals.mojom.AntiVirusProductState = {
 };
 
 // Interface: SystemSignalsService
+device_signals.mojom.SystemSignalsService = {};
+
 device_signals.mojom.SystemSignalsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

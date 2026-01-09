@@ -34,6 +34,8 @@ device.mojom.GetVirtualSensorInformationError = {
 };
 
 // Interface: SensorProvider
+device.mojom.SensorProvider = {};
+
 device.mojom.SensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -117,6 +117,8 @@ remoting.mojom.ProtocolErrorCode = {
 };
 
 // Interface: DesktopSessionRequestHandler
+remoting.mojom.DesktopSessionRequestHandler = {};
+
 remoting.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -234,6 +236,8 @@ remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessi
 
 
 // Interface: DesktopSessionManager
+remoting.mojom.DesktopSessionManager = {};
+
 remoting.mojom.DesktopSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -356,6 +360,8 @@ remoting.mojom.DesktopSessionManagerRequest = remoting.mojom.DesktopSessionManag
 
 
 // Interface: DesktopSessionAgent
+remoting.mojom.DesktopSessionAgent = {};
+
 remoting.mojom.DesktopSessionAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -444,6 +450,8 @@ remoting.mojom.DesktopSessionAgentRequest = remoting.mojom.DesktopSessionAgentPe
 
 
 // Interface: FileWriter
+remoting.mojom.FileWriter = {};
+
 remoting.mojom.FileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -565,6 +573,8 @@ remoting.mojom.FileWriterRequest = remoting.mojom.FileWriterPendingReceiver;
 
 
 // Interface: FileReader
+remoting.mojom.FileReader = {};
+
 remoting.mojom.FileReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -651,6 +661,8 @@ remoting.mojom.FileReaderRequest = remoting.mojom.FileReaderPendingReceiver;
 
 
 // Interface: DesktopSessionControl
+remoting.mojom.DesktopSessionControl = {};
+
 remoting.mojom.DesktopSessionControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1056,6 +1068,8 @@ remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionContr
 
 
 // Interface: VideoCapturer
+remoting.mojom.VideoCapturer = {};
+
 remoting.mojom.VideoCapturerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1151,6 +1165,8 @@ remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceive
 
 
 // Interface: VideoCapturerEventHandler
+remoting.mojom.VideoCapturerEventHandler = {};
+
 remoting.mojom.VideoCapturerEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1272,6 +1288,8 @@ remoting.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.VideoCapturerEv
 
 
 // Interface: DesktopSessionEventHandler
+remoting.mojom.DesktopSessionEventHandler = {};
+
 remoting.mojom.DesktopSessionEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1529,6 +1547,8 @@ remoting.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.DesktopSession
 
 
 // Interface: DesktopSessionStateHandler
+remoting.mojom.DesktopSessionStateHandler = {};
+
 remoting.mojom.DesktopSessionStateHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1604,6 +1624,8 @@ remoting.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.DesktopSession
 
 
 // Interface: WorkerProcessControl
+remoting.mojom.WorkerProcessControl = {};
+
 remoting.mojom.WorkerProcessControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

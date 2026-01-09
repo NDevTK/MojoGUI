@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AnchorElementInteractionHost
+blink.mojom.AnchorElementInteractionHost = {};
+
 blink.mojom.AnchorElementInteractionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: URLLoaderFactory
+network.mojom.URLLoaderFactory = {};
+
 network.mojom.URLLoaderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

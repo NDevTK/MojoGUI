@@ -11,6 +11,8 @@ ash.borealis_installer.mojom = ash.borealis_installer.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.borealis_installer.mojom.PageHandlerFactory = {};
+
 ash.borealis_installer.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.borealis_installer.mojom.PageHandlerFactoryRequest = ash.borealis_installer.
 
 
 // Interface: PageHandler
+ash.borealis_installer.mojom.PageHandler = {};
+
 ash.borealis_installer.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,6 +271,8 @@ ash.borealis_installer.mojom.PageHandlerRequest = ash.borealis_installer.mojom.P
 
 
 // Interface: Page
+ash.borealis_installer.mojom.Page = {};
+
 ash.borealis_installer.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MemoryConsumerTraitsTest
+content.mojom.MemoryConsumerTraitsTest = {};
+
 content.mojom.MemoryConsumerTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ ash.mojom.sample_swa = ash.mojom.sample_swa || {};
 
 
 // Interface: PageHandlerFactory
+ash.mojom.sample_swa.PageHandlerFactory = {};
+
 ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.mojom.sample_swa.PageHandlerFactoryRequest = ash.mojom.sample_swa.PageHandle
 
 
 // Interface: PageHandler
+ash.mojom.sample_swa.PageHandler = {};
+
 ash.mojom.sample_swa.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -215,6 +219,8 @@ ash.mojom.sample_swa.PageHandlerRequest = ash.mojom.sample_swa.PageHandlerPendin
 
 
 // Interface: Page
+ash.mojom.sample_swa.Page = {};
+
 ash.mojom.sample_swa.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: MemoryUsageMonitorLinux
+blink.mojom.MemoryUsageMonitorLinux = {};
+
 blink.mojom.MemoryUsageMonitorLinuxPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: TimeZoneMonitor
+device.mojom.TimeZoneMonitor = {};
+
 device.mojom.TimeZoneMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ device.mojom.TimeZoneMonitorRequest = device.mojom.TimeZoneMonitorPendingReceive
 
 
 // Interface: TimeZoneMonitorClient
+device.mojom.TimeZoneMonitorClient = {};
+
 device.mojom.TimeZoneMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

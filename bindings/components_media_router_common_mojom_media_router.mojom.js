@@ -38,6 +38,8 @@ media_router.mojom.Type = {
 };
 
 // Interface: MediaRouteProvider
+media_router.mojom.MediaRouteProvider = {};
+
 media_router.mojom.MediaRouteProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -446,6 +448,8 @@ media_router.mojom.MediaRouteProviderRequest = media_router.mojom.MediaRouteProv
 
 
 // Interface: MediaRouter
+media_router.mojom.MediaRouter = {};
+
 media_router.mojom.MediaRouterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

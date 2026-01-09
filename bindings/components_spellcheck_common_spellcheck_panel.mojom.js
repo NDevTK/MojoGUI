@@ -10,6 +10,8 @@ spellcheck.mojom = spellcheck.mojom || {};
 
 
 // Interface: SpellCheckPanel
+spellcheck.mojom.SpellCheckPanel = {};
+
 spellcheck.mojom.SpellCheckPanelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ spellcheck.mojom.SpellCheckPanelRequest = spellcheck.mojom.SpellCheckPanelPendin
 
 
 // Interface: SpellCheckPanelHost
+spellcheck.mojom.SpellCheckPanelHost = {};
+
 spellcheck.mojom.SpellCheckPanelHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

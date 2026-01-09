@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: IdbInternalsHandler
+storage.mojom.IdbInternalsHandler = {};
+
 storage.mojom.IdbInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

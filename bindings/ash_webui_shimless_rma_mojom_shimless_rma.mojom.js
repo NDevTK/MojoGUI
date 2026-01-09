@@ -260,6 +260,8 @@ ash.shimless_rma.mojom.StatePropertyError = {
 };
 
 // Interface: ErrorObserver
+ash.shimless_rma.mojom.ErrorObserver = {};
+
 ash.shimless_rma.mojom.ErrorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -333,6 +335,8 @@ ash.shimless_rma.mojom.ErrorObserverRequest = ash.shimless_rma.mojom.ErrorObserv
 
 
 // Interface: OsUpdateObserver
+ash.shimless_rma.mojom.OsUpdateObserver = {};
+
 ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -408,6 +412,8 @@ ash.shimless_rma.mojom.OsUpdateObserverRequest = ash.shimless_rma.mojom.OsUpdate
 
 
 // Interface: CalibrationObserver
+ash.shimless_rma.mojom.CalibrationObserver = {};
+
 ash.shimless_rma.mojom.CalibrationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -504,6 +510,8 @@ ash.shimless_rma.mojom.CalibrationObserverRequest = ash.shimless_rma.mojom.Calib
 
 
 // Interface: ProvisioningObserver
+ash.shimless_rma.mojom.ProvisioningObserver = {};
+
 ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -579,6 +587,8 @@ ash.shimless_rma.mojom.ProvisioningObserverRequest = ash.shimless_rma.mojom.Prov
 
 
 // Interface: HardwareWriteProtectionStateObserver
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver = {};
+
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -652,6 +662,8 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRequest = ash.shimles
 
 
 // Interface: PowerCableStateObserver
+ash.shimless_rma.mojom.PowerCableStateObserver = {};
+
 ash.shimless_rma.mojom.PowerCableStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -725,6 +737,8 @@ ash.shimless_rma.mojom.PowerCableStateObserverRequest = ash.shimless_rma.mojom.P
 
 
 // Interface: ExternalDiskStateObserver
+ash.shimless_rma.mojom.ExternalDiskStateObserver = {};
+
 ash.shimless_rma.mojom.ExternalDiskStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -798,6 +812,8 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRequest = ash.shimless_rma.mojom
 
 
 // Interface: HardwareVerificationStatusObserver
+ash.shimless_rma.mojom.HardwareVerificationStatusObserver = {};
+
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -871,6 +887,8 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_
 
 
 // Interface: FinalizationObserver
+ash.shimless_rma.mojom.FinalizationObserver = {};
+
 ash.shimless_rma.mojom.FinalizationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -946,6 +964,8 @@ ash.shimless_rma.mojom.FinalizationObserverRequest = ash.shimless_rma.mojom.Fina
 
 
 // Interface: UpdateRoFirmwareObserver
+ash.shimless_rma.mojom.UpdateRoFirmwareObserver = {};
+
 ash.shimless_rma.mojom.UpdateRoFirmwareObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1019,6 +1039,8 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRequest = ash.shimless_rma.mojom.
 
 
 // Interface: ShimlessRmaService
+ash.shimless_rma.mojom.ShimlessRmaService = {};
+
 ash.shimless_rma.mojom.ShimlessRmaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

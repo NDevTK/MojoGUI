@@ -61,6 +61,8 @@ safe_browsing.mojom.WebRequestContactInitiatorType = {
 };
 
 // Interface: SafeBrowsing
+safe_browsing.mojom.SafeBrowsing = {};
+
 safe_browsing.mojom.SafeBrowsingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -178,6 +180,8 @@ safe_browsing.mojom.SafeBrowsingRequest = safe_browsing.mojom.SafeBrowsingPendin
 
 
 // Interface: ThreatReporter
+safe_browsing.mojom.ThreatReporter = {};
+
 safe_browsing.mojom.ThreatReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,6 +267,8 @@ safe_browsing.mojom.ThreatReporterRequest = safe_browsing.mojom.ThreatReporterPe
 
 
 // Interface: PhishingDetector
+safe_browsing.mojom.PhishingDetector = {};
+
 safe_browsing.mojom.PhishingDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -351,6 +357,8 @@ safe_browsing.mojom.PhishingDetectorRequest = safe_browsing.mojom.PhishingDetect
 
 
 // Interface: PhishingModelSetter
+safe_browsing.mojom.PhishingModelSetter = {};
+
 safe_browsing.mojom.PhishingModelSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -518,6 +526,8 @@ safe_browsing.mojom.PhishingModelSetterRequest = safe_browsing.mojom.PhishingMod
 
 
 // Interface: PhishingModelSetterTestObserver
+safe_browsing.mojom.PhishingModelSetterTestObserver = {};
+
 safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -590,6 +600,8 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom
 
 
 // Interface: PhishingImageEmbedderDetector
+safe_browsing.mojom.PhishingImageEmbedderDetector = {};
+
 safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -677,6 +689,8 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.P
 
 
 // Interface: ExtensionWebRequestReporter
+safe_browsing.mojom.ExtensionWebRequestReporter = {};
+
 safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

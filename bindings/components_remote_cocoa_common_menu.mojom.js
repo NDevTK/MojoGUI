@@ -10,6 +10,8 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Interface: MenuHost
+remote_cocoa.mojom.MenuHost = {};
+
 remote_cocoa.mojom.MenuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ remote_cocoa.mojom.MenuHostRequest = remote_cocoa.mojom.MenuHostPendingReceiver;
 
 
 // Interface: Menu
+remote_cocoa.mojom.Menu = {};
+
 remote_cocoa.mojom.MenuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

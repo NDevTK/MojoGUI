@@ -10,6 +10,8 @@ extensions.mime_handler = extensions.mime_handler || {};
 
 
 // Interface: MimeHandlerService
+extensions.mime_handler.MimeHandlerService = {};
+
 extensions.mime_handler.MimeHandlerServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -118,6 +120,8 @@ extensions.mime_handler.MimeHandlerServiceRequest = extensions.mime_handler.Mime
 
 
 // Interface: BeforeUnloadControl
+extensions.mime_handler.BeforeUnloadControl = {};
+
 extensions.mime_handler.BeforeUnloadControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

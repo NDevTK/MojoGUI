@@ -11,6 +11,8 @@ ui.ozone.mojom = ui.ozone.mojom || {};
 
 
 // Interface: DrmDevice
+ui.ozone.mojom.DrmDevice = {};
+
 ui.ozone.mojom.DrmDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

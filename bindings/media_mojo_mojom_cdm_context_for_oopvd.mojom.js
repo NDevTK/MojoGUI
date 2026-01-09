@@ -23,6 +23,8 @@ media.mojom.CdmContextEvent = {
 };
 
 // Interface: CdmContextEventCallback
+media.mojom.CdmContextEventCallback = {};
+
 media.mojom.CdmContextEventCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ media.mojom.CdmContextEventCallbackRequest = media.mojom.CdmContextEventCallback
 
 
 // Interface: CdmContextForOOPVD
+media.mojom.CdmContextForOOPVD = {};
+
 media.mojom.CdmContextForOOPVDPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

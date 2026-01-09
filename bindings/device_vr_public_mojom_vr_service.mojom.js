@@ -127,6 +127,8 @@ device.mojom.XRVisibilityState = {
 };
 
 // Interface: VRService
+device.mojom.VRService = {};
+
 device.mojom.VRServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -352,6 +354,8 @@ device.mojom.VRServiceRequest = device.mojom.VRServicePendingReceiver;
 
 
 // Interface: XRSessionMetricsRecorder
+device.mojom.XRSessionMetricsRecorder = {};
+
 device.mojom.XRSessionMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -425,6 +429,8 @@ device.mojom.XRSessionMetricsRecorderRequest = device.mojom.XRSessionMetricsReco
 
 
 // Interface: VRServiceClient
+device.mojom.VRServiceClient = {};
+
 device.mojom.VRServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -497,6 +503,8 @@ device.mojom.VRServiceClientRequest = device.mojom.VRServiceClientPendingReceive
 
 
 // Interface: XREnvironmentIntegrationProvider
+device.mojom.XREnvironmentIntegrationProvider = {};
+
 device.mojom.XREnvironmentIntegrationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -707,6 +715,8 @@ device.mojom.XREnvironmentIntegrationProviderRequest = device.mojom.XREnvironmen
 
 
 // Interface: XRFrameDataProvider
+device.mojom.XRFrameDataProvider = {};
+
 device.mojom.XRFrameDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -816,6 +826,8 @@ device.mojom.XRFrameDataProviderRequest = device.mojom.XRFrameDataProviderPendin
 
 
 // Interface: XRPresentationProvider
+device.mojom.XRPresentationProvider = {};
+
 device.mojom.XRPresentationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -991,6 +1003,8 @@ device.mojom.XRPresentationProviderRequest = device.mojom.XRPresentationProvider
 
 
 // Interface: XRPresentationClient
+device.mojom.XRPresentationClient = {};
+
 device.mojom.XRPresentationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1109,6 +1123,8 @@ device.mojom.XRPresentationClientRequest = device.mojom.XRPresentationClientPend
 
 
 // Interface: XRSessionClient
+device.mojom.XRSessionClient = {};
+
 device.mojom.XRSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1204,6 +1220,8 @@ device.mojom.XRSessionClientRequest = device.mojom.XRSessionClientPendingReceive
 
 
 // Interface: XRLayerManager
+device.mojom.XRLayerManager = {};
+
 device.mojom.XRLayerManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1360,6 +1378,8 @@ device.mojom.XRLayerManagerRequest = device.mojom.XRLayerManagerPendingReceiver;
 
 
 // Interface: WebXrInternalsRendererListener
+device.mojom.WebXrInternalsRendererListener = {};
+
 device.mojom.WebXrInternalsRendererListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

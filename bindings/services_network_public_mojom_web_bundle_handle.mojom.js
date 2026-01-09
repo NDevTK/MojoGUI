@@ -22,6 +22,8 @@ network.mojom.WebBundleErrorType = {
 };
 
 // Interface: WebBundleHandle
+network.mojom.WebBundleHandle = {};
+
 network.mojom.WebBundleHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

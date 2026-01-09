@@ -11,6 +11,8 @@ chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Interface: QueryableDataStore
+chromecast.shell.mojom.QueryableDataStore = {};
+
 chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WakeLockService
+blink.mojom.WakeLockService = {};
+
 blink.mojom.WakeLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

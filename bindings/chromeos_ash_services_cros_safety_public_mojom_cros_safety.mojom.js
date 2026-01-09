@@ -23,6 +23,8 @@ ash.cros_safety.mojom.SafetyRuleset = {
 };
 
 // Interface: CloudSafetySession
+ash.cros_safety.mojom.CloudSafetySession = {};
+
 ash.cros_safety.mojom.CloudSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -73,6 +75,8 @@ ash.cros_safety.mojom.CloudSafetySessionRequest = ash.cros_safety.mojom.CloudSaf
 
 
 // Interface: OnDeviceSafetySession
+ash.cros_safety.mojom.OnDeviceSafetySession = {};
+
 ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

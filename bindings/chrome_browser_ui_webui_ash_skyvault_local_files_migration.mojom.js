@@ -24,6 +24,8 @@ policy.local_user_files.mojom.TimeUnit = {
 };
 
 // Interface: PageHandlerFactory
+policy.local_user_files.mojom.PageHandlerFactory = {};
+
 policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ policy.local_user_files.mojom.PageHandlerFactoryRequest = policy.local_user_file
 
 
 // Interface: PageHandler
+policy.local_user_files.mojom.PageHandler = {};
+
 policy.local_user_files.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -229,6 +233,8 @@ policy.local_user_files.mojom.PageHandlerRequest = policy.local_user_files.mojom
 
 
 // Interface: Page
+policy.local_user_files.mojom.Page = {};
+
 policy.local_user_files.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

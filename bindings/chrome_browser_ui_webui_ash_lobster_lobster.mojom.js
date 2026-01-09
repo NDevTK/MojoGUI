@@ -37,6 +37,8 @@ lobster.mojom.WebUIMetricEvent = {
 };
 
 // Interface: UntrustedLobsterPageHandler
+lobster.mojom.UntrustedLobsterPageHandler = {};
+
 lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ heap_profiling.mojom = heap_profiling.mojom || {};
 
 
 // Interface: SnapshotController
+heap_profiling.mojom.SnapshotController = {};
+
 heap_profiling.mojom.SnapshotControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

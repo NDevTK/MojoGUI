@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AttributionHost
+blink.mojom.AttributionHost = {};
+
 blink.mojom.AttributionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

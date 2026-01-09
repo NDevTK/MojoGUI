@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: TcpSocketFactory
+sharing.mojom.TcpSocketFactory = {};
+
 sharing.mojom.TcpSocketFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

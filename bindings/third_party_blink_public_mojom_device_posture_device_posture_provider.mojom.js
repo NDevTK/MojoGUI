@@ -16,6 +16,8 @@ blink.mojom.DevicePostureType = {
 };
 
 // Interface: DevicePostureProvider
+blink.mojom.DevicePostureProvider = {};
+
 blink.mojom.DevicePostureProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -147,6 +149,8 @@ blink.mojom.DevicePostureProviderRequest = blink.mojom.DevicePostureProviderPend
 
 
 // Interface: DevicePostureClient
+blink.mojom.DevicePostureClient = {};
+
 blink.mojom.DevicePostureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

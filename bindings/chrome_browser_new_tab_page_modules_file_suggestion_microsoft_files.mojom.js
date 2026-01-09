@@ -10,6 +10,8 @@ file_suggestion.mojom = file_suggestion.mojom || {};
 
 
 // Interface: MicrosoftFilesPageHandler
+file_suggestion.mojom.MicrosoftFilesPageHandler = {};
+
 file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

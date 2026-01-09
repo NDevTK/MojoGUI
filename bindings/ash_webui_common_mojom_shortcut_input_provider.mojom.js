@@ -11,6 +11,8 @@ ash.common.mojom = ash.common.mojom || {};
 
 
 // Interface: ShortcutInputObserver
+ash.common.mojom.ShortcutInputObserver = {};
+
 ash.common.mojom.ShortcutInputObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -109,6 +111,8 @@ ash.common.mojom.ShortcutInputObserverRequest = ash.common.mojom.ShortcutInputOb
 
 
 // Interface: ShortcutInputProvider
+ash.common.mojom.ShortcutInputProvider = {};
+
 ash.common.mojom.ShortcutInputProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

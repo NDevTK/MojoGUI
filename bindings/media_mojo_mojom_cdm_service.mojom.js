@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: CdmService
+media.mojom.CdmService = {};
+
 media.mojom.CdmServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
 
 
 // Interface: SeatbeltExtensionTokenProvider
+media.mojom.SeatbeltExtensionTokenProvider = {};
+
 media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -169,6 +173,8 @@ media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensio
 
 
 // Interface: CdmServiceBroker
+media.mojom.CdmServiceBroker = {};
+
 media.mojom.CdmServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

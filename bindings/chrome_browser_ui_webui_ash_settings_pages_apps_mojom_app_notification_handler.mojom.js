@@ -26,6 +26,8 @@ ash.settings.app_notification.mojom.Readiness = {
 };
 
 // Interface: AppNotificationsHandler
+ash.settings.app_notification.mojom.AppNotificationsHandler = {};
+
 ash.settings.app_notification.mojom.AppNotificationsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -238,6 +240,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRequest = ash.setting
 
 
 // Interface: AppNotificationsObserver
+ash.settings.app_notification.mojom.AppNotificationsObserver = {};
+
 ash.settings.app_notification.mojom.AppNotificationsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

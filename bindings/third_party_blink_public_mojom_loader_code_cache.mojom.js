@@ -16,6 +16,8 @@ blink.mojom.CodeCacheType = {
 };
 
 // Interface: CodeCacheHost
+blink.mojom.CodeCacheHost = {};
+
 blink.mojom.CodeCacheHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

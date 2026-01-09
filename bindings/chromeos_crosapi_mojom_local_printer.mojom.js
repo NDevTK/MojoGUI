@@ -99,6 +99,8 @@ crosapi.mojom.PrintJobSource = {
 };
 
 // Interface: PrintServerObserver
+crosapi.mojom.PrintServerObserver = {};
+
 crosapi.mojom.PrintServerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -149,6 +151,8 @@ crosapi.mojom.PrintServerObserverRequest = crosapi.mojom.PrintServerObserverPend
 
 
 // Interface: PrintJobObserver
+crosapi.mojom.PrintJobObserver = {};
+
 crosapi.mojom.PrintJobObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -199,6 +203,8 @@ crosapi.mojom.PrintJobObserverRequest = crosapi.mojom.PrintJobObserverPendingRec
 
 
 // Interface: LocalPrintersObserver
+crosapi.mojom.LocalPrintersObserver = {};
+
 crosapi.mojom.LocalPrintersObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,6 +255,8 @@ crosapi.mojom.LocalPrintersObserverRequest = crosapi.mojom.LocalPrintersObserver
 
 
 // Interface: LocalPrinter
+crosapi.mojom.LocalPrinter = {};
+
 crosapi.mojom.LocalPrinterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

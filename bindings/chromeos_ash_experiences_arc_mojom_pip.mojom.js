@@ -15,6 +15,8 @@ arc.mojom.ArcPipEvent = {
 };
 
 // Interface: PipHost
+arc.mojom.PipHost = {};
+
 arc.mojom.PipHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -65,6 +67,8 @@ arc.mojom.PipHostRequest = arc.mojom.PipHostPendingReceiver;
 
 
 // Interface: PipInstance
+arc.mojom.PipInstance = {};
+
 arc.mojom.PipInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

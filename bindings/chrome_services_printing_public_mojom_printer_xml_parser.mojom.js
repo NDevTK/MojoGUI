@@ -10,6 +10,8 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PrinterXmlParser
+printing.mojom.PrinterXmlParser = {};
+
 printing.mojom.PrinterXmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

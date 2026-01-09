@@ -18,6 +18,8 @@ private_aggregation_internals.mojom.ReportStatus = {
 };
 
 // Interface: Observer
+private_aggregation_internals.mojom.Observer = {};
+
 private_aggregation_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ private_aggregation_internals.mojom.ObserverRequest = private_aggregation_intern
 
 
 // Interface: Handler
+private_aggregation_internals.mojom.Handler = {};
+
 private_aggregation_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -243,6 +247,8 @@ private_aggregation_internals.mojom.HandlerRequest = private_aggregation_interna
 
 
 // Interface: Factory
+private_aggregation_internals.mojom.Factory = {};
+
 private_aggregation_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

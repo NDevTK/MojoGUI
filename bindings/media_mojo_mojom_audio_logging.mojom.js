@@ -17,6 +17,8 @@ media.mojom.AudioLogComponent = {
 };
 
 // Interface: AudioLog
+media.mojom.AudioLog = {};
+
 media.mojom.AudioLogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -248,6 +250,8 @@ media.mojom.AudioLogRequest = media.mojom.AudioLogPendingReceiver;
 
 
 // Interface: AudioLogFactory
+media.mojom.AudioLogFactory = {};
+
 media.mojom.AudioLogFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

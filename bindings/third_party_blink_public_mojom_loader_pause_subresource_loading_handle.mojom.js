@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PauseSubresourceLoadingHandle
+blink.mojom.PauseSubresourceLoadingHandle = {};
+
 blink.mojom.PauseSubresourceLoadingHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

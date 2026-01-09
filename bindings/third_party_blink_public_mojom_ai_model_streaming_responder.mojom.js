@@ -30,6 +30,8 @@ blink.mojom.ModelStreamingResponseStatus = {
 };
 
 // Interface: ModelStreamingResponder
+blink.mojom.ModelStreamingResponder = {};
+
 blink.mojom.ModelStreamingResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

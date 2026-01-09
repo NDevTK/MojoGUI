@@ -33,6 +33,8 @@ help_bubble.mojom.HelpBubbleClosedReason = {
 };
 
 // Interface: HelpBubbleHandlerFactory
+help_bubble.mojom.HelpBubbleHandlerFactory = {};
+
 help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRequest = help_bubble.mojom.HelpBubble
 
 
 // Interface: PdfHelpBubbleHandlerFactory
+help_bubble.mojom.PdfHelpBubbleHandlerFactory = {};
+
 help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -181,6 +185,8 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRequest = help_bubble.mojom.PdfHelp
 
 
 // Interface: HelpBubbleHandler
+help_bubble.mojom.HelpBubbleHandler = {};
+
 help_bubble.mojom.HelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -302,6 +308,8 @@ help_bubble.mojom.HelpBubbleHandlerRequest = help_bubble.mojom.HelpBubbleHandler
 
 
 // Interface: HelpBubbleClient
+help_bubble.mojom.HelpBubbleClient = {};
+
 help_bubble.mojom.HelpBubbleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: Gzipper
+data_decoder.mojom.Gzipper = {};
+
 data_decoder.mojom.GzipperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

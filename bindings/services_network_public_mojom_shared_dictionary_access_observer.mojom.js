@@ -16,6 +16,8 @@ network.mojom.Type = {
 };
 
 // Interface: SharedDictionaryAccessObserver
+network.mojom.SharedDictionaryAccessObserver = {};
+
 network.mojom.SharedDictionaryAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

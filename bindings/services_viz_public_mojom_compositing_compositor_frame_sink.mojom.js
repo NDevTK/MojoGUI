@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: CompositorFrameSink
+viz.mojom.CompositorFrameSink = {};
+
 viz.mojom.CompositorFrameSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -224,6 +226,8 @@ viz.mojom.CompositorFrameSinkRequest = viz.mojom.CompositorFrameSinkPendingRecei
 
 
 // Interface: CompositorFrameSinkClient
+viz.mojom.CompositorFrameSinkClient = {};
+
 viz.mojom.CompositorFrameSinkClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

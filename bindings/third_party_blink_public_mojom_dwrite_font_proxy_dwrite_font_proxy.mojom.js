@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DWriteFontProxy
+blink.mojom.DWriteFontProxy = {};
+
 blink.mojom.DWriteFontProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

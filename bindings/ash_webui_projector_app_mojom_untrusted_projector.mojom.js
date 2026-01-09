@@ -11,6 +11,8 @@ ash.projector.mojom = ash.projector.mojom || {};
 
 
 // Interface: UntrustedProjectorPageHandler
+ash.projector.mojom.UntrustedProjectorPageHandler = {};
+
 ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -433,6 +435,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRequest = ash.projector.mojom.U
 
 
 // Interface: UntrustedProjectorPage
+ash.projector.mojom.UntrustedProjectorPage = {};
+
 ash.projector.mojom.UntrustedProjectorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -596,6 +600,8 @@ ash.projector.mojom.UntrustedProjectorPageRequest = ash.projector.mojom.Untruste
 
 
 // Interface: UntrustedProjectorPageHandlerFactory
+ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
+
 ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

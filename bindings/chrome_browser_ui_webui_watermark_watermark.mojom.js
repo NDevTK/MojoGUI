@@ -10,6 +10,8 @@ watermark.mojom = watermark.mojom || {};
 
 
 // Interface: PageHandlerFactory
+watermark.mojom.PageHandlerFactory = {};
+
 watermark.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ watermark.mojom.PageHandlerFactoryRequest = watermark.mojom.PageHandlerFactoryPe
 
 
 // Interface: PageHandler
+watermark.mojom.PageHandler = {};
+
 watermark.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

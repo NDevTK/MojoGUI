@@ -10,6 +10,8 @@ web.mojom = web.mojom || {};
 
 
 // Interface: WebUsageController
+web.mojom.WebUsageController = {};
+
 web.mojom.WebUsageControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

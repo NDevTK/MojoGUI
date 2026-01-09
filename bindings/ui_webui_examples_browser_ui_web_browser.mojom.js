@@ -10,6 +10,8 @@ webui_examples.mojom = webui_examples.mojom || {};
 
 
 // Interface: PageHandlerFactory
+webui_examples.mojom.PageHandlerFactory = {};
+
 webui_examples.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ webui_examples.mojom.PageHandlerFactoryRequest = webui_examples.mojom.PageHandle
 
 
 // Interface: PageHandler
+webui_examples.mojom.PageHandler = {};
+
 webui_examples.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

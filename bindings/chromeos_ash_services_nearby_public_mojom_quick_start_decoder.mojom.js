@@ -11,6 +11,8 @@ ash.quick_start.mojom = ash.quick_start.mojom || {};
 
 
 // Interface: QuickStartDecoder
+ash.quick_start.mojom.QuickStartDecoder = {};
+
 ash.quick_start.mojom.QuickStartDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

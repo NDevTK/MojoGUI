@@ -10,6 +10,8 @@ guest_contents.mojom = guest_contents.mojom || {};
 
 
 // Interface: GuestContentsHost
+guest_contents.mojom.GuestContentsHost = {};
+
 guest_contents.mojom.GuestContentsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

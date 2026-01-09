@@ -10,6 +10,8 @@ IPC.mojom = IPC.mojom || {};
 
 
 // Interface: Channel
+IPC.mojom.Channel = {};
+
 IPC.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ IPC.mojom.ChannelRequest = IPC.mojom.ChannelPendingReceiver;
 
 
 // Interface: ChannelBootstrap
+IPC.mojom.ChannelBootstrap = {};
+
 IPC.mojom.ChannelBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

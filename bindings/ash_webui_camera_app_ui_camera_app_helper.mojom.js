@@ -63,6 +63,8 @@ ash.camera_app.mojom.FileType = {
 };
 
 // Interface: TabletModeMonitor
+ash.camera_app.mojom.TabletModeMonitor = {};
+
 ash.camera_app.mojom.TabletModeMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -136,6 +138,8 @@ ash.camera_app.mojom.TabletModeMonitorRequest = ash.camera_app.mojom.TabletModeM
 
 
 // Interface: ScreenStateMonitor
+ash.camera_app.mojom.ScreenStateMonitor = {};
+
 ash.camera_app.mojom.ScreenStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -209,6 +213,8 @@ ash.camera_app.mojom.ScreenStateMonitorRequest = ash.camera_app.mojom.ScreenStat
 
 
 // Interface: ScreenLockedMonitor
+ash.camera_app.mojom.ScreenLockedMonitor = {};
+
 ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -282,6 +288,8 @@ ash.camera_app.mojom.ScreenLockedMonitorRequest = ash.camera_app.mojom.ScreenLoc
 
 
 // Interface: ExternalScreenMonitor
+ash.camera_app.mojom.ExternalScreenMonitor = {};
+
 ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -355,6 +363,8 @@ ash.camera_app.mojom.ExternalScreenMonitorRequest = ash.camera_app.mojom.Externa
 
 
 // Interface: CameraUsageOwnershipMonitor
+ash.camera_app.mojom.CameraUsageOwnershipMonitor = {};
+
 ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -428,6 +438,8 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = ash.camera_app.mojom.C
 
 
 // Interface: LidStateMonitor
+ash.camera_app.mojom.LidStateMonitor = {};
+
 ash.camera_app.mojom.LidStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -501,6 +513,8 @@ ash.camera_app.mojom.LidStateMonitorRequest = ash.camera_app.mojom.LidStateMonit
 
 
 // Interface: SWPrivacySwitchMonitor
+ash.camera_app.mojom.SWPrivacySwitchMonitor = {};
+
 ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -574,6 +588,8 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = ash.camera_app.mojom.SWPriv
 
 
 // Interface: WindowStateMonitor
+ash.camera_app.mojom.WindowStateMonitor = {};
+
 ash.camera_app.mojom.WindowStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -670,6 +686,8 @@ ash.camera_app.mojom.WindowStateMonitorRequest = ash.camera_app.mojom.WindowStat
 
 
 // Interface: StorageMonitor
+ash.camera_app.mojom.StorageMonitor = {};
+
 ash.camera_app.mojom.StorageMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -743,6 +761,8 @@ ash.camera_app.mojom.StorageMonitorRequest = ash.camera_app.mojom.StorageMonitor
 
 
 // Interface: WindowStateController
+ash.camera_app.mojom.WindowStateController = {};
+
 ash.camera_app.mojom.WindowStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -974,6 +994,8 @@ ash.camera_app.mojom.WindowStateControllerRequest = ash.camera_app.mojom.WindowS
 
 
 // Interface: CameraAppHelper
+ash.camera_app.mojom.CameraAppHelper = {};
+
 ash.camera_app.mojom.CameraAppHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

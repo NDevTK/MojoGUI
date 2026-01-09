@@ -10,6 +10,8 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: CrosDocumentScanner
+cros.mojom.CrosDocumentScanner = {};
+
 cros.mojom.CrosDocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

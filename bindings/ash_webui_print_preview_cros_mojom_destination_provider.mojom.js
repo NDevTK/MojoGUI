@@ -12,6 +12,8 @@ ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
 
 
 // Interface: DestinationProvider
+ash.printing.print_preview.mojom.DestinationProvider = {};
+
 ash.printing.print_preview.mojom.DestinationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

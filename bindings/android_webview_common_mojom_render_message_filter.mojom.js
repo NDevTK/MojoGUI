@@ -10,6 +10,8 @@ android_webview.mojom = android_webview.mojom || {};
 
 
 // Interface: RenderMessageFilter
+android_webview.mojom.RenderMessageFilter = {};
+
 android_webview.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ pdf.mojom = pdf.mojom || {};
 
 
 // Interface: Ocr
+pdf.mojom.Ocr = {};
+
 pdf.mojom.OcrPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ pdf.mojom.OcrRequest = pdf.mojom.OcrPendingReceiver;
 
 
 // Interface: PdfService
+pdf.mojom.PdfService = {};
+
 pdf.mojom.PdfServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

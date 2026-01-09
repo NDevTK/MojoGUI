@@ -17,6 +17,8 @@ content.optional_numerics_unittest.mojom.RegularEnum = {
 };
 
 // Interface: Params
+content.optional_numerics_unittest.mojom.Params = {};
+
 content.optional_numerics_unittest.mojom.ParamsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1340,6 +1342,8 @@ content.optional_numerics_unittest.mojom.ParamsRequest = content.optional_numeri
 
 
 // Interface: ResponseParams
+content.optional_numerics_unittest.mojom.ResponseParams = {};
+
 content.optional_numerics_unittest.mojom.ResponseParamsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2930,6 +2934,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRequest = content.optiona
 
 
 // Interface: InterfaceV0
+content.optional_numerics_unittest.mojom.InterfaceV0 = {};
+
 content.optional_numerics_unittest.mojom.InterfaceV0PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2980,6 +2986,8 @@ content.optional_numerics_unittest.mojom.InterfaceV0Request = content.optional_n
 
 
 // Interface: InterfaceV2
+content.optional_numerics_unittest.mojom.InterfaceV2 = {};
+
 content.optional_numerics_unittest.mojom.InterfaceV2PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

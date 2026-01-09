@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: RendererAutomationRegistry
+extensions.mojom.RendererAutomationRegistry = {};
+
 extensions.mojom.RendererAutomationRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

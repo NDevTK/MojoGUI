@@ -17,6 +17,8 @@ blink.mojom.BucketError = {
 };
 
 // Interface: BucketHost
+blink.mojom.BucketHost = {};
+
 blink.mojom.BucketHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -426,6 +428,8 @@ blink.mojom.BucketHostRequest = blink.mojom.BucketHostPendingReceiver;
 
 
 // Interface: BucketManagerHost
+blink.mojom.BucketManagerHost = {};
+
 blink.mojom.BucketManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

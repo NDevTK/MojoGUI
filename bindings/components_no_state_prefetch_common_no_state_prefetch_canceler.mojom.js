@@ -10,6 +10,8 @@ prerender.mojom = prerender.mojom || {};
 
 
 // Interface: NoStatePrefetchCanceler
+prerender.mojom.NoStatePrefetchCanceler = {};
+
 prerender.mojom.NoStatePrefetchCancelerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

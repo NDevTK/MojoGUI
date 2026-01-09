@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BlobURLStore
+blink.mojom.BlobURLStore = {};
+
 blink.mojom.BlobURLStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +158,8 @@ blink.mojom.BlobURLStoreRequest = blink.mojom.BlobURLStorePendingReceiver;
 
 
 // Interface: BlobURLToken
+blink.mojom.BlobURLToken = {};
+
 blink.mojom.BlobURLTokenPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Interface: Binder
+mojo_base.mojom.Binder = {};
+
 mojo_base.mojom.BinderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

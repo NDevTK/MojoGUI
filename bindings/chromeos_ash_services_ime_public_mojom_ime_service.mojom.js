@@ -11,6 +11,8 @@ ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Interface: InputEngineManager
+ash.ime.mojom.InputEngineManager = {};
+
 ash.ime.mojom.InputEngineManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -136,6 +138,8 @@ ash.ime.mojom.InputEngineManagerRequest = ash.ime.mojom.InputEngineManagerPendin
 
 
 // Interface: PlatformAccessProvider
+ash.ime.mojom.PlatformAccessProvider = {};
+
 ash.ime.mojom.PlatformAccessProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -223,6 +227,8 @@ ash.ime.mojom.PlatformAccessProviderRequest = ash.ime.mojom.PlatformAccessProvid
 
 
 // Interface: ImeService
+ash.ime.mojom.ImeService = {};
+
 ash.ime.mojom.ImeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

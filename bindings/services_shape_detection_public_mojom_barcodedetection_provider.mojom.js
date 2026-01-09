@@ -10,6 +10,8 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Interface: BarcodeDetectionProvider
+shape_detection.mojom.BarcodeDetectionProvider = {};
+
 shape_detection.mojom.BarcodeDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

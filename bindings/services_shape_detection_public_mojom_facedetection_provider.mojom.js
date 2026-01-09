@@ -10,6 +10,8 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Interface: FaceDetectionProvider
+shape_detection.mojom.FaceDetectionProvider = {};
+
 shape_detection.mojom.FaceDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

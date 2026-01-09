@@ -32,6 +32,8 @@ arc.mojom.CommandResultType = {
 };
 
 // Interface: PolicyHost
+arc.mojom.PolicyHost = {};
+
 arc.mojom.PolicyHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ arc.mojom.PolicyHostRequest = arc.mojom.PolicyHostPendingReceiver;
 
 
 // Interface: PolicyInstance
+arc.mojom.PolicyInstance = {};
+
 arc.mojom.PolicyInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

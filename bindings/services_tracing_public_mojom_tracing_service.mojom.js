@@ -10,6 +10,8 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Interface: TracingService
+tracing.mojom.TracingService = {};
+
 tracing.mojom.TracingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ reading_list.mojom.CurrentPageActionButtonState = {
 };
 
 // Interface: PageHandlerFactory
+reading_list.mojom.PageHandlerFactory = {};
+
 reading_list.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ reading_list.mojom.PageHandlerFactoryRequest = reading_list.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+reading_list.mojom.PageHandler = {};
+
 reading_list.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -418,6 +422,8 @@ reading_list.mojom.PageHandlerRequest = reading_list.mojom.PageHandlerPendingRec
 
 
 // Interface: Page
+reading_list.mojom.Page = {};
+
 reading_list.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

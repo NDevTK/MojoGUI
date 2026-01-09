@@ -10,6 +10,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: StructuredMetricsService
+crosapi.mojom.StructuredMetricsService = {};
+
 crosapi.mojom.StructuredMetricsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: BootPhaseMonitorHost
+arc.mojom.BootPhaseMonitorHost = {};
+
 arc.mojom.BootPhaseMonitorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.BootPhaseMonitorHostRequest = arc.mojom.BootPhaseMonitorHostPendingRec
 
 
 // Interface: BootPhaseMonitorInstance
+arc.mojom.BootPhaseMonitorInstance = {};
+
 arc.mojom.BootPhaseMonitorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

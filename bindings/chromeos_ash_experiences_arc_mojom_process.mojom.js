@@ -64,6 +64,8 @@ arc.mojom.PressureLevel = {
 };
 
 // Interface: ProcessInstance
+arc.mojom.ProcessInstance = {};
+
 arc.mojom.ProcessInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

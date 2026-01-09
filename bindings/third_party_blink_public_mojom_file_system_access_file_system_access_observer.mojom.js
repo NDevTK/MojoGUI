@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessObserver
+blink.mojom.FileSystemAccessObserver = {};
+
 blink.mojom.FileSystemAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

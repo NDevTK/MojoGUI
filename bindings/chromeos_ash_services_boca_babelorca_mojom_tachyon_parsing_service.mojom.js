@@ -18,6 +18,8 @@ ash.babelorca.mojom.ParsingState = {
 };
 
 // Interface: TachyonParsingService
+ash.babelorca.mojom.TachyonParsingService = {};
+
 ash.babelorca.mojom.TachyonParsingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

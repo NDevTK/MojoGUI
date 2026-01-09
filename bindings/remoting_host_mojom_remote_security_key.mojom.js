@@ -10,6 +10,8 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: SecurityKeyForwarder
+remoting.mojom.SecurityKeyForwarder = {};
+
 remoting.mojom.SecurityKeyForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: DCOMPSurfaceRegistry
+media.mojom.DCOMPSurfaceRegistry = {};
+
 media.mojom.DCOMPSurfaceRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

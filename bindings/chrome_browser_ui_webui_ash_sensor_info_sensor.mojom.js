@@ -20,6 +20,8 @@ sensor.mojom.SensorType = {
 };
 
 // Interface: PageHandlerFactory
+sensor.mojom.PageHandlerFactory = {};
+
 sensor.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingR
 
 
 // Interface: PageHandler
+sensor.mojom.PageHandler = {};
+
 sensor.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

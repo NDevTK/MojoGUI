@@ -19,6 +19,8 @@ zero_state_promo.mojom.WebStoreLinkClicked = {
 };
 
 // Interface: PageHandlerFactory
+zero_state_promo.mojom.PageHandlerFactory = {};
+
 zero_state_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -92,6 +94,8 @@ zero_state_promo.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.PageHa
 
 
 // Interface: PageHandler
+zero_state_promo.mojom.PageHandler = {};
+
 zero_state_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

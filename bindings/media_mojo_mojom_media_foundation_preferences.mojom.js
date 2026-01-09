@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaFoundationPreferences
+media.mojom.MediaFoundationPreferences = {};
+
 media.mojom.MediaFoundationPreferencesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -52,6 +52,8 @@ crosapi.mojom.Status = {
 };
 
 // Interface: AccountManagerObserver
+crosapi.mojom.AccountManagerObserver = {};
+
 crosapi.mojom.AccountManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -102,6 +104,8 @@ crosapi.mojom.AccountManagerObserverRequest = crosapi.mojom.AccountManagerObserv
 
 
 // Interface: AccountManager
+crosapi.mojom.AccountManager = {};
+
 crosapi.mojom.AccountManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -152,6 +156,8 @@ crosapi.mojom.AccountManagerRequest = crosapi.mojom.AccountManagerPendingReceive
 
 
 // Interface: AccessTokenFetcher
+crosapi.mojom.AccessTokenFetcher = {};
+
 crosapi.mojom.AccessTokenFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

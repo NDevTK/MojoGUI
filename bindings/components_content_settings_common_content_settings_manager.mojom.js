@@ -20,6 +20,8 @@ content_settings.mojom.StorageType = {
 };
 
 // Interface: ContentSettingsManager
+content_settings.mojom.ContentSettingsManager = {};
+
 content_settings.mojom.ContentSettingsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

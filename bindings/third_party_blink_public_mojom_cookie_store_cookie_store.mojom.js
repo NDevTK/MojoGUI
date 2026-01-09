@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CookieStore
+blink.mojom.CookieStore = {};
+
 blink.mojom.CookieStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

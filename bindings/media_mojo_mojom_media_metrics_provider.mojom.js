@@ -28,6 +28,8 @@ media.mojom.MediaURLScheme = {
 };
 
 // Interface: MediaMetricsProvider
+media.mojom.MediaMetricsProvider = {};
+
 media.mojom.MediaMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

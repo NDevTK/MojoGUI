@@ -16,6 +16,8 @@ new_tab_page.mojom.AuthType = {
 };
 
 // Interface: MicrosoftAuthUntrustedDocument
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
+
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

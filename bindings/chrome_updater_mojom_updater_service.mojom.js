@@ -67,6 +67,8 @@ updater.mojom.Priority = {
 };
 
 // Interface: UpdateService
+updater.mojom.UpdateService = {};
+
 updater.mojom.UpdateServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -117,6 +119,8 @@ updater.mojom.UpdateServiceRequest = updater.mojom.UpdateServicePendingReceiver;
 
 
 // Interface: StateChangeObserver
+updater.mojom.StateChangeObserver = {};
+
 updater.mojom.StateChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

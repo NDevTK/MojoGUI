@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: AppfuseHost
+arc.mojom.AppfuseHost = {};
+
 arc.mojom.AppfuseHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.AppfuseHostRequest = arc.mojom.AppfuseHostPendingReceiver;
 
 
 // Interface: AppfuseInstance
+arc.mojom.AppfuseInstance = {};
+
 arc.mojom.AppfuseInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

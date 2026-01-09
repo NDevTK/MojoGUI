@@ -18,6 +18,8 @@ blink.mojom.SpeechSynthesisErrorCode = {
 };
 
 // Interface: SpeechSynthesisVoiceListObserver
+blink.mojom.SpeechSynthesisVoiceListObserver = {};
+
 blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ blink.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.SpeechSynthesi
 
 
 // Interface: SpeechSynthesisClient
+blink.mojom.SpeechSynthesisClient = {};
+
 blink.mojom.SpeechSynthesisClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -300,6 +304,8 @@ blink.mojom.SpeechSynthesisClientRequest = blink.mojom.SpeechSynthesisClientPend
 
 
 // Interface: SpeechSynthesis
+blink.mojom.SpeechSynthesis = {};
+
 blink.mojom.SpeechSynthesisPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

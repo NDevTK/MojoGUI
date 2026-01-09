@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: PowerMonitor
+device.mojom.PowerMonitor = {};
+
 device.mojom.PowerMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ device.mojom.PowerMonitorRequest = device.mojom.PowerMonitorPendingReceiver;
 
 
 // Interface: PowerMonitorClient
+device.mojom.PowerMonitorClient = {};
+
 device.mojom.PowerMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

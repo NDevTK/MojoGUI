@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: RenderAccessibilityHost
+blink.mojom.RenderAccessibilityHost = {};
+
 blink.mojom.RenderAccessibilityHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -109,6 +111,8 @@ blink.mojom.RenderAccessibilityHostRequest = blink.mojom.RenderAccessibilityHost
 
 
 // Interface: RenderAccessibility
+blink.mojom.RenderAccessibility = {};
+
 blink.mojom.RenderAccessibilityPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

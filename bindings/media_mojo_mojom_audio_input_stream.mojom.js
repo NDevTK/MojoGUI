@@ -21,6 +21,8 @@ media.mojom.DisconnectReason = {
 };
 
 // Interface: AudioInputStream
+media.mojom.AudioInputStream = {};
+
 media.mojom.AudioInputStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -116,6 +118,8 @@ media.mojom.AudioInputStreamRequest = media.mojom.AudioInputStreamPendingReceive
 
 
 // Interface: AudioInputStreamClient
+media.mojom.AudioInputStreamClient = {};
+
 media.mojom.AudioInputStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -212,6 +216,8 @@ media.mojom.AudioInputStreamClientRequest = media.mojom.AudioInputStreamClientPe
 
 
 // Interface: AudioInputStreamObserver
+media.mojom.AudioInputStreamObserver = {};
+
 media.mojom.AudioInputStreamObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

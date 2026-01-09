@@ -10,6 +10,8 @@ launcher_internals.mojom = launcher_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+launcher_internals.mojom.PageHandlerFactory = {};
+
 launcher_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ launcher_internals.mojom.PageHandlerFactoryRequest = launcher_internals.mojom.Pa
 
 
 // Interface: Page
+launcher_internals.mojom.Page = {};
+
 launcher_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

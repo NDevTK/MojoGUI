@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: BluetoothDeviceAccessProvider
+chromecast.mojom.BluetoothDeviceAccessProvider = {};
+
 chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderRequest = chromecast.mojom.Bluetoo
 
 
 // Interface: BluetoothDeviceAccessProviderClient
+chromecast.mojom.BluetoothDeviceAccessProviderClient = {};
+
 chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

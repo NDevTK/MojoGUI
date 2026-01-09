@@ -10,6 +10,8 @@ cert_verifier.mojom = cert_verifier.mojom || {};
 
 
 // Interface: URLLoaderFactoryConnector
+cert_verifier.mojom.URLLoaderFactoryConnector = {};
+
 cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRequest = cert_verifier.mojom.URLLo
 
 
 // Interface: CertVerifierService
+cert_verifier.mojom.CertVerifierService = {};
+
 cert_verifier.mojom.CertVerifierServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,6 +248,8 @@ cert_verifier.mojom.CertVerifierServiceRequest = cert_verifier.mojom.CertVerifie
 
 
 // Interface: CertVerifierServiceClient
+cert_verifier.mojom.CertVerifierServiceClient = {};
+
 cert_verifier.mojom.CertVerifierServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,6 +322,8 @@ cert_verifier.mojom.CertVerifierServiceClientRequest = cert_verifier.mojom.CertV
 
 
 // Interface: CertVerifierRequest
+cert_verifier.mojom.CertVerifierRequest = {};
+
 cert_verifier.mojom.CertVerifierRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

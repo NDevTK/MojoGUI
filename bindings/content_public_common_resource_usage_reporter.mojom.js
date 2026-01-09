@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: ResourceUsageReporter
+content.mojom.ResourceUsageReporter = {};
+
 content.mojom.ResourceUsageReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

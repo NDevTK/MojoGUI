@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: CrashCollectorHost
+arc.mojom.CrashCollectorHost = {};
+
 arc.mojom.CrashCollectorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.CrashCollectorHostRequest = arc.mojom.CrashCollectorHostPendingReceive
 
 
 // Interface: CrashCollectorInstance
+arc.mojom.CrashCollectorInstance = {};
+
 arc.mojom.CrashCollectorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

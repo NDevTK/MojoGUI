@@ -43,6 +43,8 @@ side_panel.mojom.NewTabPageType = {
 };
 
 // Interface: CustomizeChromePageHandlerFactory
+side_panel.mojom.CustomizeChromePageHandlerFactory = {};
+
 side_panel.mojom.CustomizeChromePageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -117,6 +119,8 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRequest = side_panel.mojom.Cus
 
 
 // Interface: CustomizeChromePageHandler
+side_panel.mojom.CustomizeChromePageHandler = {};
+
 side_panel.mojom.CustomizeChromePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -879,6 +883,8 @@ side_panel.mojom.CustomizeChromePageHandlerRequest = side_panel.mojom.CustomizeC
 
 
 // Interface: CustomizeChromePage
+side_panel.mojom.CustomizeChromePage = {};
+
 side_panel.mojom.CustomizeChromePagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ shape_detection.mojom.LandmarkType = {
 };
 
 // Interface: FaceDetection
+shape_detection.mojom.FaceDetection = {};
+
 shape_detection.mojom.FaceDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

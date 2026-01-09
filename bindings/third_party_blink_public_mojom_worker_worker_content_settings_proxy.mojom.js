@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WorkerContentSettingsProxy
+blink.mojom.WorkerContentSettingsProxy = {};
+
 blink.mojom.WorkerContentSettingsProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

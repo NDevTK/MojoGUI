@@ -10,6 +10,8 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PrintingService
+printing.mojom.PrintingService = {};
+
 printing.mojom.PrintingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

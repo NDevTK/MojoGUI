@@ -11,6 +11,8 @@ chromecast.media.mojom = chromecast.media.mojom || {};
 
 
 // Interface: MediaCaps
+chromecast.media.mojom.MediaCaps = {};
+
 chromecast.media.mojom.MediaCapsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ chromecast.media.mojom.MediaCapsRequest = chromecast.media.mojom.MediaCapsPendin
 
 
 // Interface: MediaCapsObserver
+chromecast.media.mojom.MediaCapsObserver = {};
+
 chromecast.media.mojom.MediaCapsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

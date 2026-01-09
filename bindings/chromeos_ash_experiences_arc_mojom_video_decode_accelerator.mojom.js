@@ -21,6 +21,8 @@ arc.mojom.Result = {
 };
 
 // Interface: VideoDecodeAccelerator
+arc.mojom.VideoDecodeAccelerator = {};
+
 arc.mojom.VideoDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -71,6 +73,8 @@ arc.mojom.VideoDecodeAcceleratorRequest = arc.mojom.VideoDecodeAcceleratorPendin
 
 
 // Interface: VideoDecodeClient
+arc.mojom.VideoDecodeClient = {};
+
 arc.mojom.VideoDecodeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

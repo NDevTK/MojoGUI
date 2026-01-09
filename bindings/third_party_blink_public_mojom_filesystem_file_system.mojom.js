@@ -18,6 +18,8 @@ blink.mojom.FileSystemType = {
 };
 
 // Interface: FileSystemCancellableOperation
+blink.mojom.FileSystemCancellableOperation = {};
+
 blink.mojom.FileSystemCancellableOperationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -103,6 +105,8 @@ blink.mojom.FileSystemCancellableOperationRequest = blink.mojom.FileSystemCancel
 
 
 // Interface: FileSystemOperationListener
+blink.mojom.FileSystemOperationListener = {};
+
 blink.mojom.FileSystemOperationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -224,6 +228,8 @@ blink.mojom.FileSystemOperationListenerRequest = blink.mojom.FileSystemOperation
 
 
 // Interface: ReceivedSnapshotListener
+blink.mojom.ReceivedSnapshotListener = {};
+
 blink.mojom.ReceivedSnapshotListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,6 +302,8 @@ blink.mojom.ReceivedSnapshotListenerRequest = blink.mojom.ReceivedSnapshotListen
 
 
 // Interface: FileSystemManager
+blink.mojom.FileSystemManager = {};
+
 blink.mojom.FileSystemManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

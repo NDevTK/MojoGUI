@@ -27,6 +27,8 @@ storage.mojom.WriteBlobToFileResult = {
 };
 
 // Interface: BlobDataItemReader
+storage.mojom.BlobDataItemReader = {};
+
 storage.mojom.BlobDataItemReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -151,6 +153,8 @@ storage.mojom.BlobDataItemReaderRequest = storage.mojom.BlobDataItemReaderPendin
 
 
 // Interface: BlobStorageContext
+storage.mojom.BlobStorageContext = {};
+
 storage.mojom.BlobStorageContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

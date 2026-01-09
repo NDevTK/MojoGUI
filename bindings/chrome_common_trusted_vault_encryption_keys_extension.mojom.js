@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: TrustedVaultEncryptionKeysExtension
+chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
+
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

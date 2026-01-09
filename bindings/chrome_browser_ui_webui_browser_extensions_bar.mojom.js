@@ -10,6 +10,8 @@ extensions_bar.mojom = extensions_bar.mojom || {};
 
 
 // Interface: PageHandlerFactory
+extensions_bar.mojom.PageHandlerFactory = {};
+
 extensions_bar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ extensions_bar.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.PageHandle
 
 
 // Interface: PageHandler
+extensions_bar.mojom.PageHandler = {};
+
 extensions_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -203,6 +207,8 @@ extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendin
 
 
 // Interface: Page
+extensions_bar.mojom.Page = {};
+
 extensions_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ system_media_controls.mojom.PlaybackStatus = {
 };
 
 // Interface: SystemMediaControls
+system_media_controls.mojom.SystemMediaControls = {};
+
 system_media_controls.mojom.SystemMediaControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,6 +344,8 @@ system_media_controls.mojom.SystemMediaControlsRequest = system_media_controls.m
 
 
 // Interface: SystemMediaControlsObserver
+system_media_controls.mojom.SystemMediaControlsObserver = {};
+
 system_media_controls.mojom.SystemMediaControlsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

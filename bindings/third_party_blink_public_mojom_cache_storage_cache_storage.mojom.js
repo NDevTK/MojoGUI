@@ -31,6 +31,8 @@ blink.mojom.OperationType = {
 };
 
 // Interface: CacheStorageCache
+blink.mojom.CacheStorageCache = {};
+
 blink.mojom.CacheStorageCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,6 +261,8 @@ blink.mojom.CacheStorageCacheRequest = blink.mojom.CacheStorageCachePendingRecei
 
 
 // Interface: CacheStorage
+blink.mojom.CacheStorage = {};
+
 blink.mojom.CacheStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -145,6 +145,8 @@ network.mojom.CookieDeletionSessionControl = {
 };
 
 // Interface: CookieChangeListener
+network.mojom.CookieChangeListener = {};
+
 network.mojom.CookieChangeListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -218,6 +220,8 @@ network.mojom.CookieChangeListenerRequest = network.mojom.CookieChangeListenerPe
 
 
 // Interface: CookieManager
+network.mojom.CookieManager = {};
+
 network.mojom.CookieManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

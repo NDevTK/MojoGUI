@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: SystemStateHost
+arc.mojom.SystemStateHost = {};
+
 arc.mojom.SystemStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.SystemStateHostRequest = arc.mojom.SystemStateHostPendingReceiver;
 
 
 // Interface: SystemStateInstance
+arc.mojom.SystemStateInstance = {};
+
 arc.mojom.SystemStateInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

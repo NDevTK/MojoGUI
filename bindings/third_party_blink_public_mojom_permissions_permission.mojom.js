@@ -61,6 +61,8 @@ blink.mojom.EmbeddedPermissionControlResult = {
 };
 
 // Interface: PermissionObserver
+blink.mojom.PermissionObserver = {};
+
 blink.mojom.PermissionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -134,6 +136,8 @@ blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingRec
 
 
 // Interface: EmbeddedPermissionControlClient
+blink.mojom.EmbeddedPermissionControlClient = {};
+
 blink.mojom.EmbeddedPermissionControlClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -208,6 +212,8 @@ blink.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.EmbeddedPermiss
 
 
 // Interface: PermissionService
+blink.mojom.PermissionService = {};
+
 blink.mojom.PermissionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

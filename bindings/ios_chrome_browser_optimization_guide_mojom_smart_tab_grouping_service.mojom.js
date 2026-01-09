@@ -10,6 +10,8 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: SmartTabGroupingService
+ai.mojom.SmartTabGroupingService = {};
+
 ai.mojom.SmartTabGroupingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

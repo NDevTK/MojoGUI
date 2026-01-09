@@ -16,6 +16,8 @@ blink.mojom.DeviceEmulationCacheBehavior = {
 };
 
 // Interface: FrameWidget
+blink.mojom.FrameWidget = {};
+
 blink.mojom.FrameWidgetPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -595,6 +597,8 @@ blink.mojom.FrameWidgetRequest = blink.mojom.FrameWidgetPendingReceiver;
 
 
 // Interface: FrameWidgetHost
+blink.mojom.FrameWidgetHost = {};
+
 blink.mojom.FrameWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -806,6 +810,8 @@ blink.mojom.FrameWidgetHostRequest = blink.mojom.FrameWidgetHostPendingReceiver;
 
 
 // Interface: PopupWidgetHost
+blink.mojom.PopupWidgetHost = {};
+
 blink.mojom.PopupWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

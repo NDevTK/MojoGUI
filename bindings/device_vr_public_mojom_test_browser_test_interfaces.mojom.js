@@ -34,6 +34,8 @@ device_test.mojom.EventType = {
 };
 
 // Interface: XRTestHook
+device_test.mojom.XRTestHook = {};
+
 device_test.mojom.XRTestHookPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -390,6 +392,8 @@ device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceive
 
 
 // Interface: XRServiceTestHook
+device_test.mojom.XRServiceTestHook = {};
+
 device_test.mojom.XRServiceTestHookPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

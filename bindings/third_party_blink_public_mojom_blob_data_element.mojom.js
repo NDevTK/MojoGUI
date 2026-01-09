@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BytesProvider
+blink.mojom.BytesProvider = {};
+
 blink.mojom.BytesProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

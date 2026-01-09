@@ -16,6 +16,8 @@ blink.mojom.DevToolsExecutionContextType = {
 };
 
 // Interface: DevToolsAgent
+blink.mojom.DevToolsAgent = {};
+
 blink.mojom.DevToolsAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -144,6 +146,8 @@ blink.mojom.DevToolsAgentRequest = blink.mojom.DevToolsAgentPendingReceiver;
 
 
 // Interface: DevToolsAgentHost
+blink.mojom.DevToolsAgentHost = {};
+
 blink.mojom.DevToolsAgentHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -289,6 +293,8 @@ blink.mojom.DevToolsAgentHostRequest = blink.mojom.DevToolsAgentHostPendingRecei
 
 
 // Interface: DevToolsSession
+blink.mojom.DevToolsSession = {};
+
 blink.mojom.DevToolsSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -386,6 +392,8 @@ blink.mojom.DevToolsSessionRequest = blink.mojom.DevToolsSessionPendingReceiver;
 
 
 // Interface: DevToolsSessionHost
+blink.mojom.DevToolsSessionHost = {};
+
 blink.mojom.DevToolsSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

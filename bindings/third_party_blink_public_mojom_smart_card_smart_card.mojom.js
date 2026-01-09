@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SmartCardService
+blink.mojom.SmartCardService = {};
+
 blink.mojom.SmartCardServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -24,6 +24,8 @@ remote_cocoa.mojom.Visibility = {
 };
 
 // Interface: WebContentsNSView
+remote_cocoa.mojom.WebContentsNSView = {};
+
 remote_cocoa.mojom.WebContentsNSViewPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,6 +262,8 @@ remote_cocoa.mojom.WebContentsNSViewRequest = remote_cocoa.mojom.WebContentsNSVi
 
 
 // Interface: WebContentsNSViewHost
+remote_cocoa.mojom.WebContentsNSViewHost = {};
+
 remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

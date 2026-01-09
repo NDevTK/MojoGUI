@@ -28,6 +28,8 @@ media.mojom.LinkType = {
 };
 
 // Interface: OutputProtection
+media.mojom.OutputProtection = {};
+
 media.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

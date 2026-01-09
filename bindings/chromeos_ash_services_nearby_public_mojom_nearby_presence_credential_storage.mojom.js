@@ -12,6 +12,8 @@ ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
 
 
 // Interface: NearbyPresenceCredentialStorage
+ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = {};
+
 ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

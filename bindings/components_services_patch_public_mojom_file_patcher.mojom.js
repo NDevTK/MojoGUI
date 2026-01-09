@@ -25,6 +25,8 @@ patch.mojom.ZucchiniStatus = {
 };
 
 // Interface: FilePatcher
+patch.mojom.FilePatcher = {};
+
 patch.mojom.FilePatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CallStackGenerator
+blink.mojom.CallStackGenerator = {};
+
 blink.mojom.CallStackGeneratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

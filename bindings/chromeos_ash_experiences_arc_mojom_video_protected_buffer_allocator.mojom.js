@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: VideoProtectedBufferAllocator
+arc.mojom.VideoProtectedBufferAllocator = {};
+
 arc.mojom.VideoProtectedBufferAllocatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

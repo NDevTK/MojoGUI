@@ -11,6 +11,8 @@ ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.media_app_ui.mojom.PageHandlerFactory = {};
+
 ash.media_app_ui.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.media_app_ui.mojom.PageHandlerFactoryRequest = ash.media_app_ui.mojom.PageHa
 
 
 // Interface: PageHandler
+ash.media_app_ui.mojom.PageHandler = {};
+
 ash.media_app_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

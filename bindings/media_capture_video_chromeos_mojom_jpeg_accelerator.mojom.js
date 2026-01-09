@@ -10,6 +10,8 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: JpegAcceleratorProvider
+cros.mojom.JpegAcceleratorProvider = {};
+
 cros.mojom.JpegAcceleratorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

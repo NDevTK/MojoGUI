@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ReportingServiceProxy
+blink.mojom.ReportingServiceProxy = {};
+
 blink.mojom.ReportingServiceProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

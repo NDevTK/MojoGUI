@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: GeolocationService
+blink.mojom.GeolocationService = {};
+
 blink.mojom.GeolocationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

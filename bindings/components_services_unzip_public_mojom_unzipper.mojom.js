@@ -10,6 +10,8 @@ unzip.mojom = unzip.mojom || {};
 
 
 // Interface: UnzipFilter
+unzip.mojom.UnzipFilter = {};
+
 unzip.mojom.UnzipFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ unzip.mojom.UnzipFilterRequest = unzip.mojom.UnzipFilterPendingReceiver;
 
 
 // Interface: UnzipListener
+unzip.mojom.UnzipListener = {};
+
 unzip.mojom.UnzipListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -169,6 +173,8 @@ unzip.mojom.UnzipListenerRequest = unzip.mojom.UnzipListenerPendingReceiver;
 
 
 // Interface: Unzipper
+unzip.mojom.Unzipper = {};
+
 unzip.mojom.UnzipperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

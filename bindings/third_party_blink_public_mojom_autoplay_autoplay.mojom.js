@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AutoplayConfigurationClient
+blink.mojom.AutoplayConfigurationClient = {};
+
 blink.mojom.AutoplayConfigurationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

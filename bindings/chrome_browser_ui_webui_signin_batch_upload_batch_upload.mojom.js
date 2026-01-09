@@ -10,6 +10,8 @@ batch_upload.mojom = batch_upload.mojom || {};
 
 
 // Interface: PageHandlerFactory
+batch_upload.mojom.PageHandlerFactory = {};
+
 batch_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ batch_upload.mojom.PageHandlerFactoryRequest = batch_upload.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+batch_upload.mojom.PageHandler = {};
+
 batch_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -202,6 +206,8 @@ batch_upload.mojom.PageHandlerRequest = batch_upload.mojom.PageHandlerPendingRec
 
 
 // Interface: Page
+batch_upload.mojom.Page = {};
+
 batch_upload.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

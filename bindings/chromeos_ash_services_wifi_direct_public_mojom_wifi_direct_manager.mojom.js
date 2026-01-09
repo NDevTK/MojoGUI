@@ -30,6 +30,8 @@ ash.wifi_direct.mojom.WifiDirectOperationResult = {
 };
 
 // Interface: WifiDirectManager
+ash.wifi_direct.mojom.WifiDirectManager = {};
+
 ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -190,6 +192,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRequest = ash.wifi_direct.mojom.WifiDirec
 
 
 // Interface: WifiDirectConnection
+ash.wifi_direct.mojom.WifiDirectConnection = {};
+
 ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -25,6 +25,8 @@ network.mojom.TransportType = {
 };
 
 // Interface: ClientCertificateResponder
+network.mojom.ClientCertificateResponder = {};
+
 network.mojom.ClientCertificateResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -145,6 +147,8 @@ network.mojom.ClientCertificateResponderRequest = network.mojom.ClientCertificat
 
 
 // Interface: SSLPrivateKey
+network.mojom.SSLPrivateKey = {};
+
 network.mojom.SSLPrivateKeyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -233,6 +237,8 @@ network.mojom.SSLPrivateKeyRequest = network.mojom.SSLPrivateKeyPendingReceiver;
 
 
 // Interface: AuthChallengeResponder
+network.mojom.AuthChallengeResponder = {};
+
 network.mojom.AuthChallengeResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,6 +312,8 @@ network.mojom.AuthChallengeResponderRequest = network.mojom.AuthChallengeRespond
 
 
 // Interface: URLLoaderNetworkServiceObserver
+network.mojom.URLLoaderNetworkServiceObserver = {};
+
 network.mojom.URLLoaderNetworkServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

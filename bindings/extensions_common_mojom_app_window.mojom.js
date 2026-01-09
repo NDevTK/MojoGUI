@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: AppWindow
+extensions.mojom.AppWindow = {};
+
 extensions.mojom.AppWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

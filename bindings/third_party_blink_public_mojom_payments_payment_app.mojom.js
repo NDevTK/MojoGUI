@@ -68,6 +68,8 @@ payments.mojom.PaymentDelegation = {
 };
 
 // Interface: PaymentManager
+payments.mojom.PaymentManager = {};
+
 payments.mojom.PaymentManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -418,6 +420,8 @@ payments.mojom.PaymentManagerRequest = payments.mojom.PaymentManagerPendingRecei
 
 
 // Interface: PaymentHandlerResponseCallback
+payments.mojom.PaymentHandlerResponseCallback = {};
+
 payments.mojom.PaymentHandlerResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

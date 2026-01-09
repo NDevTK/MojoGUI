@@ -17,6 +17,8 @@ mahi.mojom.ResponseStatus = {
 };
 
 // Interface: ContentExtractionService
+mahi.mojom.ContentExtractionService = {};
+
 mahi.mojom.ContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionService
 
 
 // Interface: ContentExtractionServiceFactory
+mahi.mojom.ContentExtractionServiceFactory = {};
+
 mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

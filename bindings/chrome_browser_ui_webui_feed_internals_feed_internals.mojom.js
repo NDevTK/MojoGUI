@@ -17,6 +17,8 @@ feed_internals.mojom.FeedOrder = {
 };
 
 // Interface: PageHandler
+feed_internals.mojom.PageHandler = {};
+
 feed_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

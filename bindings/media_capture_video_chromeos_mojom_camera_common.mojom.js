@@ -34,6 +34,8 @@ cros.mojom.TorchModeStatus = {
 };
 
 // Interface: CameraModuleCallbacks
+cros.mojom.CameraModuleCallbacks = {};
+
 cros.mojom.CameraModuleCallbacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ cros.mojom.CameraModuleCallbacksRequest = cros.mojom.CameraModuleCallbacksPendin
 
 
 // Interface: VendorTagOps
+cros.mojom.VendorTagOps = {};
+
 cros.mojom.VendorTagOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -134,6 +138,8 @@ cros.mojom.VendorTagOpsRequest = cros.mojom.VendorTagOpsPendingReceiver;
 
 
 // Interface: CameraModule
+cros.mojom.CameraModule = {};
+
 cros.mojom.CameraModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

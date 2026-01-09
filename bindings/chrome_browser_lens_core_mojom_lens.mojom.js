@@ -39,6 +39,8 @@ lens.mojom.SemanticEvent = {
 };
 
 // Interface: LensPageHandlerFactory
+lens.mojom.LensPageHandlerFactory = {};
+
 lens.mojom.LensPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ lens.mojom.LensPageHandlerFactoryRequest = lens.mojom.LensPageHandlerFactoryPend
 
 
 // Interface: LensPageHandler
+lens.mojom.LensPageHandler = {};
+
 lens.mojom.LensPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -834,6 +838,8 @@ lens.mojom.LensPageHandlerRequest = lens.mojom.LensPageHandlerPendingReceiver;
 
 
 // Interface: LensPage
+lens.mojom.LensPage = {};
+
 lens.mojom.LensPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

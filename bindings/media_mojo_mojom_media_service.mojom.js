@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaService
+media.mojom.MediaService = {};
+
 media.mojom.MediaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

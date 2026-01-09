@@ -11,6 +11,8 @@ ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
 
 
 // Interface: UntrustedServiceFactory
+ash.media_app_ui.mojom.UntrustedServiceFactory = {};
+
 ash.media_app_ui.mojom.UntrustedServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -182,6 +184,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRequest = ash.media_app_ui.mojom.U
 
 
 // Interface: OcrUntrustedService
+ash.media_app_ui.mojom.OcrUntrustedService = {};
+
 ash.media_app_ui.mojom.OcrUntrustedServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -302,6 +306,8 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRequest = ash.media_app_ui.mojom.OcrUn
 
 
 // Interface: OcrUntrustedPage
+ash.media_app_ui.mojom.OcrUntrustedPage = {};
+
 ash.media_app_ui.mojom.OcrUntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -434,6 +440,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRequest = ash.media_app_ui.mojom.OcrUntru
 
 
 // Interface: MahiUntrustedService
+ash.media_app_ui.mojom.MahiUntrustedService = {};
+
 ash.media_app_ui.mojom.MahiUntrustedServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -575,6 +583,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRequest = ash.media_app_ui.mojom.Mahi
 
 
 // Interface: MahiUntrustedPage
+ash.media_app_ui.mojom.MahiUntrustedPage = {};
+
 ash.media_app_ui.mojom.MahiUntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -683,6 +693,8 @@ ash.media_app_ui.mojom.MahiUntrustedPageRequest = ash.media_app_ui.mojom.MahiUnt
 
 
 // Interface: MantisUntrustedService
+ash.media_app_ui.mojom.MantisUntrustedService = {};
+
 ash.media_app_ui.mojom.MantisUntrustedServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -957,6 +969,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRequest = ash.media_app_ui.mojom.Ma
 
 
 // Interface: MantisUntrustedPage
+ash.media_app_ui.mojom.MantisUntrustedPage = {};
+
 ash.media_app_ui.mojom.MantisUntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

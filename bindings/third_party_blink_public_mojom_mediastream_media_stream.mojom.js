@@ -112,6 +112,8 @@ blink.mojom.WindowAudioPreference = {
 };
 
 // Interface: MediaStreamDeviceObserver
+blink.mojom.MediaStreamDeviceObserver = {};
+
 blink.mojom.MediaStreamDeviceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -309,6 +311,8 @@ blink.mojom.MediaStreamDeviceObserverRequest = blink.mojom.MediaStreamDeviceObse
 
 
 // Interface: MediaStreamDispatcherHost
+blink.mojom.MediaStreamDispatcherHost = {};
+
 blink.mojom.MediaStreamDispatcherHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -772,6 +776,8 @@ blink.mojom.MediaStreamDispatcherHostRequest = blink.mojom.MediaStreamDispatcher
 
 
 // Interface: MediaStreamTrackMetricsHost
+blink.mojom.MediaStreamTrackMetricsHost = {};
+
 blink.mojom.MediaStreamTrackMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

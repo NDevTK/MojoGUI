@@ -12,6 +12,8 @@ ash.settings.app_permission.mojom = ash.settings.app_permission.mojom || {};
 
 
 // Interface: AppPermissionsHandler
+ash.settings.app_permission.mojom.AppPermissionsHandler = {};
+
 ash.settings.app_permission.mojom.AppPermissionsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,6 +262,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRequest = ash.settings.ap
 
 
 // Interface: AppPermissionsObserver
+ash.settings.app_permission.mojom.AppPermissionsObserver = {};
+
 ash.settings.app_permission.mojom.AppPermissionsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

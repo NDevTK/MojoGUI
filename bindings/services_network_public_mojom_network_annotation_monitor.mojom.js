@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkAnnotationMonitor
+network.mojom.NetworkAnnotationMonitor = {};
+
 network.mojom.NetworkAnnotationMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

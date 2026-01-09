@@ -10,6 +10,8 @@ user_data_importer.mojom = user_data_importer.mojom || {};
 
 
 // Interface: BookmarkHtmlParser
+user_data_importer.mojom.BookmarkHtmlParser = {};
+
 user_data_importer.mojom.BookmarkHtmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

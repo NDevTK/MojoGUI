@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: RemovableStorageWriter
+chrome.mojom.RemovableStorageWriter = {};
+
 chrome.mojom.RemovableStorageWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ chrome.mojom.RemovableStorageWriterRequest = chrome.mojom.RemovableStorageWriter
 
 
 // Interface: RemovableStorageWriterClient
+chrome.mojom.RemovableStorageWriterClient = {};
+
 chrome.mojom.RemovableStorageWriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

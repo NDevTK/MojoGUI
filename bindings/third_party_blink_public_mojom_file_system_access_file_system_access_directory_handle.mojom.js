@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessDirectoryEntriesListener
+blink.mojom.FileSystemAccessDirectoryEntriesListener = {};
+
 blink.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRequest = blink.mojom.FileSy
 
 
 // Interface: FileSystemAccessDirectoryHandle
+blink.mojom.FileSystemAccessDirectoryHandle = {};
+
 blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

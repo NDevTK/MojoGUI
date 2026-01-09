@@ -53,6 +53,8 @@ tab_search.mojom.UserFeedback = {
 };
 
 // Interface: PageHandlerFactory
+tab_search.mojom.PageHandlerFactory = {};
+
 tab_search.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -127,6 +129,8 @@ tab_search.mojom.PageHandlerFactoryRequest = tab_search.mojom.PageHandlerFactory
 
 
 // Interface: PageHandler
+tab_search.mojom.PageHandler = {};
+
 tab_search.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1021,6 +1025,8 @@ tab_search.mojom.PageHandlerRequest = tab_search.mojom.PageHandlerPendingReceive
 
 
 // Interface: Page
+tab_search.mojom.Page = {};
+
 tab_search.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

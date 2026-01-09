@@ -19,6 +19,8 @@ arc.mojom.TtsEventType = {
 };
 
 // Interface: TtsHost
+arc.mojom.TtsHost = {};
+
 arc.mojom.TtsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -69,6 +71,8 @@ arc.mojom.TtsHostRequest = arc.mojom.TtsHostPendingReceiver;
 
 
 // Interface: TtsInstance
+arc.mojom.TtsInstance = {};
+
 arc.mojom.TtsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

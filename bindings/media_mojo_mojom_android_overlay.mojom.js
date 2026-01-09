@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: AndroidOverlayProvider
+media.mojom.AndroidOverlayProvider = {};
+
 media.mojom.AndroidOverlayProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ media.mojom.AndroidOverlayProviderRequest = media.mojom.AndroidOverlayProviderPe
 
 
 // Interface: AndroidOverlay
+media.mojom.AndroidOverlay = {};
+
 media.mojom.AndroidOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -158,6 +162,8 @@ media.mojom.AndroidOverlayRequest = media.mojom.AndroidOverlayPendingReceiver;
 
 
 // Interface: AndroidOverlayClient
+media.mojom.AndroidOverlayClient = {};
+
 media.mojom.AndroidOverlayClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

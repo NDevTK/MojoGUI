@@ -9,6 +9,8 @@ var extensions = extensions || {};
 
 
 // Interface: KeepAlive
+extensions.KeepAlive = {};
+
 extensions.KeepAlivePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

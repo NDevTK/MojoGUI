@@ -17,6 +17,8 @@ printing.mojom.Status = {
 };
 
 // Interface: PdfNupConverter
+printing.mojom.PdfNupConverter = {};
+
 printing.mojom.PdfNupConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

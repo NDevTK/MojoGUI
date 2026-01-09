@@ -10,6 +10,8 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Interface: SystemTracingService
+tracing.mojom.SystemTracingService = {};
+
 tracing.mojom.SystemTracingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

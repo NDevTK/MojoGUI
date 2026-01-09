@@ -253,6 +253,8 @@ ash.ime.mojom.AutocorrectSuggestionProvider = {
 };
 
 // Interface: InputMethod
+ash.ime.mojom.InputMethod = {};
+
 ash.ime.mojom.InputMethodPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

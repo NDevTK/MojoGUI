@@ -11,6 +11,8 @@ ash.mojom.scanner_feedback_ui = ash.mojom.scanner_feedback_ui || {};
 
 
 // Interface: PageHandler
+ash.mojom.scanner_feedback_ui.PageHandler = {};
+
 ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

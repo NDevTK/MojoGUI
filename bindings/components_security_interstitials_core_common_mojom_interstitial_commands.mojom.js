@@ -10,6 +10,8 @@ security_interstitials.mojom = security_interstitials.mojom || {};
 
 
 // Interface: InterstitialCommands
+security_interstitials.mojom.InterstitialCommands = {};
+
 security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

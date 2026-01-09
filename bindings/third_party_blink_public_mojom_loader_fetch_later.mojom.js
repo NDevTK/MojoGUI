@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FetchLaterLoaderFactory
+blink.mojom.FetchLaterLoaderFactory = {};
+
 blink.mojom.FetchLaterLoaderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ blink.mojom.FetchLaterLoaderFactoryRequest = blink.mojom.FetchLaterLoaderFactory
 
 
 // Interface: FetchLaterLoader
+blink.mojom.FetchLaterLoader = {};
+
 blink.mojom.FetchLaterLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

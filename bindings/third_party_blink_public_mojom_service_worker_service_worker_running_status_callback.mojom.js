@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ServiceWorkerRunningStatusCallback
+blink.mojom.ServiceWorkerRunningStatusCallback = {};
+
 blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

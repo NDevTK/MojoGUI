@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: TextureReleaser
+viz.mojom.TextureReleaser = {};
+
 viz.mojom.TextureReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

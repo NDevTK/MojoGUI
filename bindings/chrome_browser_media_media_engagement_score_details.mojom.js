@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaEngagementScoreDetailsProvider
+media.mojom.MediaEngagementScoreDetailsProvider = {};
+
 media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

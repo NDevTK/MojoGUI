@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: UnhandledTapNotifier
+blink.mojom.UnhandledTapNotifier = {};
+
 blink.mojom.UnhandledTapNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

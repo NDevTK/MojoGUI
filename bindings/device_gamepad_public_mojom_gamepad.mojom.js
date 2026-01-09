@@ -46,6 +46,8 @@ device.mojom.GamepadHapticsResult = {
 };
 
 // Interface: GamepadObserver
+device.mojom.GamepadObserver = {};
+
 device.mojom.GamepadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -168,6 +170,8 @@ device.mojom.GamepadObserverRequest = device.mojom.GamepadObserverPendingReceive
 
 
 // Interface: GamepadMonitor
+device.mojom.GamepadMonitor = {};
+
 device.mojom.GamepadMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,6 +302,8 @@ device.mojom.GamepadMonitorRequest = device.mojom.GamepadMonitorPendingReceiver;
 
 
 // Interface: GamepadHapticsManager
+device.mojom.GamepadHapticsManager = {};
+
 device.mojom.GamepadHapticsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

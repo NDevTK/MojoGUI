@@ -10,6 +10,8 @@ webxr.mojom = webxr.mojom || {};
 
 
 // Interface: WebXrInternalsHandler
+webxr.mojom.WebXrInternalsHandler = {};
+
 webxr.mojom.WebXrInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -153,6 +155,8 @@ webxr.mojom.WebXrInternalsHandlerRequest = webxr.mojom.WebXrInternalsHandlerPend
 
 
 // Interface: XRInternalsSessionListener
+webxr.mojom.XRInternalsSessionListener = {};
+
 webxr.mojom.XRInternalsSessionListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

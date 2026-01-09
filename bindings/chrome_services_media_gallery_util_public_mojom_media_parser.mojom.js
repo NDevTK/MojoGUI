@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: MediaParser
+chrome.mojom.MediaParser = {};
+
 chrome.mojom.MediaParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -212,6 +214,8 @@ chrome.mojom.MediaParserRequest = chrome.mojom.MediaParserPendingReceiver;
 
 
 // Interface: MediaParserFactory
+chrome.mojom.MediaParserFactory = {};
+
 chrome.mojom.MediaParserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,6 +303,8 @@ chrome.mojom.MediaParserFactoryRequest = chrome.mojom.MediaParserFactoryPendingR
 
 
 // Interface: MediaDataSource
+chrome.mojom.MediaDataSource = {};
+
 chrome.mojom.MediaDataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -18,6 +18,8 @@ media_router.mojom.LogCategory = {
 };
 
 // Interface: Logger
+media_router.mojom.Logger = {};
+
 media_router.mojom.LoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

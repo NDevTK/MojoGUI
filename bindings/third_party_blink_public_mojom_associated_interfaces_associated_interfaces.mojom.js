@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AssociatedInterface
+blink.mojom.AssociatedInterface = {};
+
 blink.mojom.AssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ blink.mojom.AssociatedInterfaceRequest = blink.mojom.AssociatedInterfacePendingR
 
 
 // Interface: AssociatedInterfaceProvider
+blink.mojom.AssociatedInterfaceProvider = {};
+
 blink.mojom.AssociatedInterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

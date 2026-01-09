@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: QuotaInternalsHandler
+storage.mojom.QuotaInternalsHandler = {};
+
 storage.mojom.QuotaInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

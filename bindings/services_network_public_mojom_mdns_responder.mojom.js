@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: MdnsResponder
+network.mojom.MdnsResponder = {};
+
 network.mojom.MdnsResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

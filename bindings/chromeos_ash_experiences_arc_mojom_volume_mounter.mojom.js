@@ -23,6 +23,8 @@ arc.mojom.DeviceType = {
 };
 
 // Interface: VolumeMounterHost
+arc.mojom.VolumeMounterHost = {};
+
 arc.mojom.VolumeMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -73,6 +75,8 @@ arc.mojom.VolumeMounterHostRequest = arc.mojom.VolumeMounterHostPendingReceiver;
 
 
 // Interface: VolumeMounterInstance
+arc.mojom.VolumeMounterInstance = {};
+
 arc.mojom.VolumeMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

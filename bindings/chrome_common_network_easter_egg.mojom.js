@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetworkEasterEgg
+chrome.mojom.NetworkEasterEgg = {};
+
 chrome.mojom.NetworkEasterEggPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

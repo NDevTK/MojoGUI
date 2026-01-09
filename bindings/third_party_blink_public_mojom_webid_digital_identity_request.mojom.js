@@ -21,6 +21,8 @@ blink.mojom.RequestDigitalIdentityStatus = {
 };
 
 // Interface: DigitalIdentityRequest
+blink.mojom.DigitalIdentityRequest = {};
+
 blink.mojom.DigitalIdentityRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

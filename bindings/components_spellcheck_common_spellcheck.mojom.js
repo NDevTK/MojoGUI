@@ -16,6 +16,8 @@ spellcheck.mojom.Decoration = {
 };
 
 // Interface: SpellChecker
+spellcheck.mojom.SpellChecker = {};
+
 spellcheck.mojom.SpellCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -115,6 +117,8 @@ spellcheck.mojom.SpellCheckerRequest = spellcheck.mojom.SpellCheckerPendingRecei
 
 
 // Interface: SpellCheckInitializationHost
+spellcheck.mojom.SpellCheckInitializationHost = {};
+
 spellcheck.mojom.SpellCheckInitializationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -187,6 +191,8 @@ spellcheck.mojom.SpellCheckInitializationHostRequest = spellcheck.mojom.SpellChe
 
 
 // Interface: SpellCheckHost
+spellcheck.mojom.SpellCheckHost = {};
+
 spellcheck.mojom.SpellCheckHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

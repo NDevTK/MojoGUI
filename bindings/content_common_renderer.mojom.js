@@ -16,6 +16,8 @@ content.mojom.RenderProcessVisibleState = {
 };
 
 // Interface: Renderer
+content.mojom.Renderer = {};
+
 content.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

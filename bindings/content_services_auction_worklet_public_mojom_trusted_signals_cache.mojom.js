@@ -17,6 +17,8 @@ auction_worklet.mojom.TrustedSignalsCompressionScheme = {
 };
 
 // Interface: TrustedSignalsCacheClient
+auction_worklet.mojom.TrustedSignalsCacheClient = {};
+
 auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -114,6 +116,8 @@ auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.T
 
 
 // Interface: TrustedSignalsCache
+auction_worklet.mojom.TrustedSignalsCache = {};
+
 auction_worklet.mojom.TrustedSignalsCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

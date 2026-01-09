@@ -85,6 +85,8 @@ media_session.mojom.SuspendType = {
 };
 
 // Interface: MediaSessionObserver
+media_session.mojom.MediaSessionObserver = {};
+
 media_session.mojom.MediaSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +137,8 @@ media_session.mojom.MediaSessionObserverRequest = media_session.mojom.MediaSessi
 
 
 // Interface: MediaSession
+media_session.mojom.MediaSession = {};
+
 media_session.mojom.MediaSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

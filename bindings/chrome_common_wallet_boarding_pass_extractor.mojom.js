@@ -10,6 +10,8 @@ wallet.mojom = wallet.mojom || {};
 
 
 // Interface: BoardingPassExtractor
+wallet.mojom.BoardingPassExtractor = {};
+
 wallet.mojom.BoardingPassExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

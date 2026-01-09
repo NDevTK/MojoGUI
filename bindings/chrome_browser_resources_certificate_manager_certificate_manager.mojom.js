@@ -27,6 +27,8 @@ certificate_manager.mojom.SuccessResult = {
 };
 
 // Interface: CertificateManagerPageHandlerFactory
+certificate_manager.mojom.CertificateManagerPageHandlerFactory = {};
+
 certificate_manager.mojom.CertificateManagerPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -101,6 +103,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRequest = certific
 
 
 // Interface: CertificateManagerPageHandler
+certificate_manager.mojom.CertificateManagerPageHandler = {};
+
 certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -424,6 +428,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRequest = certificate_man
 
 
 // Interface: CertificateManagerPage
+certificate_manager.mojom.CertificateManagerPage = {};
+
 certificate_manager.mojom.CertificateManagerPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

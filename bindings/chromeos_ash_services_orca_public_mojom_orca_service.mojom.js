@@ -34,6 +34,8 @@ ash.orca.mojom.TextQueryErrorCode = {
 };
 
 // Interface: EditorClient
+ash.orca.mojom.EditorClient = {};
+
 ash.orca.mojom.EditorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.orca.mojom.EditorClientRequest = ash.orca.mojom.EditorClientPendingReceiver;
 
 
 // Interface: EditorClientConnector
+ash.orca.mojom.EditorClientConnector = {};
+
 ash.orca.mojom.EditorClientConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -134,6 +138,8 @@ ash.orca.mojom.EditorClientConnectorRequest = ash.orca.mojom.EditorClientConnect
 
 
 // Interface: EditorEventSink
+ash.orca.mojom.EditorEventSink = {};
+
 ash.orca.mojom.EditorEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -184,6 +190,8 @@ ash.orca.mojom.EditorEventSinkRequest = ash.orca.mojom.EditorEventSinkPendingRec
 
 
 // Interface: SystemActuator
+ash.orca.mojom.SystemActuator = {};
+
 ash.orca.mojom.SystemActuatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -234,6 +242,8 @@ ash.orca.mojom.SystemActuatorRequest = ash.orca.mojom.SystemActuatorPendingRecei
 
 
 // Interface: TextQueryProvider
+ash.orca.mojom.TextQueryProvider = {};
+
 ash.orca.mojom.TextQueryProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,6 +294,8 @@ ash.orca.mojom.TextQueryProviderRequest = ash.orca.mojom.TextQueryProviderPendin
 
 
 // Interface: OrcaService
+ash.orca.mojom.OrcaService = {};
+
 ash.orca.mojom.OrcaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

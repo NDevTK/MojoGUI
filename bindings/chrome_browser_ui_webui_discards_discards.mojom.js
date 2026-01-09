@@ -24,6 +24,8 @@ discards.mojom.CanFreeze = {
 };
 
 // Interface: DetailsProvider
+discards.mojom.DetailsProvider = {};
+
 discards.mojom.DetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,6 +271,8 @@ discards.mojom.DetailsProviderRequest = discards.mojom.DetailsProviderPendingRec
 
 
 // Interface: GraphChangeStream
+discards.mojom.GraphChangeStream = {};
+
 discards.mojom.GraphChangeStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -549,6 +553,8 @@ discards.mojom.GraphChangeStreamRequest = discards.mojom.GraphChangeStreamPendin
 
 
 // Interface: GraphDump
+discards.mojom.GraphDump = {};
+
 discards.mojom.GraphDumpPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

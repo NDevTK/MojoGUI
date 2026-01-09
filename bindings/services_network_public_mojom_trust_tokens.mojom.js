@@ -81,6 +81,8 @@ network.mojom.DeleteStoredTrustTokensStatus = {
 };
 
 // Interface: TrustTokenQueryAnswerer
+network.mojom.TrustTokenQueryAnswerer = {};
+
 network.mojom.TrustTokenQueryAnswererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

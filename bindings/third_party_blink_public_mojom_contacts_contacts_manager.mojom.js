@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ContactsManager
+blink.mojom.ContactsManager = {};
+
 blink.mojom.ContactsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

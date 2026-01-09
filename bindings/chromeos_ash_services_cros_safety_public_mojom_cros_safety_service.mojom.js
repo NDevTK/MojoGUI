@@ -21,6 +21,8 @@ ash.cros_safety.mojom.GetOnDeviceSafetySessionResult = {
 };
 
 // Interface: CrosSafetyService
+ash.cros_safety.mojom.CrosSafetyService = {};
+
 ash.cros_safety.mojom.CrosSafetyServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

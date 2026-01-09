@@ -11,6 +11,8 @@ ntp.calendar.mojom = ntp.calendar.mojom || {};
 
 
 // Interface: OutlookCalendarPageHandler
+ntp.calendar.mojom.OutlookCalendarPageHandler = {};
+
 ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Interface: TextDetection
+shape_detection.mojom.TextDetection = {};
+
 shape_detection.mojom.TextDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

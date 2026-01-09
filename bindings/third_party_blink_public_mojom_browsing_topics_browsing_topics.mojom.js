@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BrowsingTopicsDocumentService
+blink.mojom.BrowsingTopicsDocumentService = {};
+
 blink.mojom.BrowsingTopicsDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

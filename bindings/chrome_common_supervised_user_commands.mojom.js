@@ -10,6 +10,8 @@ supervised_user.mojom = supervised_user.mojom || {};
 
 
 // Interface: SupervisedUserCommands
+supervised_user.mojom.SupervisedUserCommands = {};
+
 supervised_user.mojom.SupervisedUserCommandsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

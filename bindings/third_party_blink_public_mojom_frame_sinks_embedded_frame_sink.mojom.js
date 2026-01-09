@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SurfaceEmbedder
+blink.mojom.SurfaceEmbedder = {};
+
 blink.mojom.SurfaceEmbedderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ blink.mojom.SurfaceEmbedderRequest = blink.mojom.SurfaceEmbedderPendingReceiver;
 
 
 // Interface: EmbeddedFrameSinkClient
+blink.mojom.EmbeddedFrameSinkClient = {};
+
 blink.mojom.EmbeddedFrameSinkClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +183,8 @@ blink.mojom.EmbeddedFrameSinkClientRequest = blink.mojom.EmbeddedFrameSinkClient
 
 
 // Interface: EmbeddedFrameSinkProvider
+blink.mojom.EmbeddedFrameSinkProvider = {};
+
 blink.mojom.EmbeddedFrameSinkProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

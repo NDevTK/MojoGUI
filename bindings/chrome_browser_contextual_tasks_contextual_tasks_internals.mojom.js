@@ -10,6 +10,8 @@ contextual_tasks_internals.mojom = contextual_tasks_internals.mojom || {};
 
 
 // Interface: ContextualTasksInternalsPageHandlerFactory
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory = {};
+
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryReque
 
 
 // Interface: ContextualTasksInternalsPageHandler
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler = {};
+
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -170,6 +174,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRequest = co
 
 
 // Interface: ContextualTasksInternalsPage
+contextual_tasks_internals.mojom.ContextualTasksInternalsPage = {};
+
 contextual_tasks_internals.mojom.ContextualTasksInternalsPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

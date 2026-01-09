@@ -23,6 +23,8 @@ blink.mojom.WaitMode = {
 };
 
 // Interface: LockHandle
+blink.mojom.LockHandle = {};
+
 blink.mojom.LockHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -73,6 +75,8 @@ blink.mojom.LockHandleRequest = blink.mojom.LockHandlePendingReceiver;
 
 
 // Interface: LockRequest
+blink.mojom.LockRequest = {};
+
 blink.mojom.LockRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -168,6 +172,8 @@ blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 
 
 // Interface: LockManager
+blink.mojom.LockManager = {};
+
 blink.mojom.LockManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

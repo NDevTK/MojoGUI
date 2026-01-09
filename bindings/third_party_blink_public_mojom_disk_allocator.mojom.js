@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DiskAllocator
+blink.mojom.DiskAllocator = {};
+
 blink.mojom.DiskAllocatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

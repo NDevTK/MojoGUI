@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: LayeredWindowUpdater
+viz.mojom.LayeredWindowUpdater = {};
+
 viz.mojom.LayeredWindowUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

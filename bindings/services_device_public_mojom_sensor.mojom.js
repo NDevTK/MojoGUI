@@ -30,6 +30,8 @@ device.mojom.ReportingMode = {
 };
 
 // Interface: Sensor
+device.mojom.Sensor = {};
+
 device.mojom.SensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -241,6 +243,8 @@ device.mojom.SensorRequest = device.mojom.SensorPendingReceiver;
 
 
 // Interface: SensorClient
+device.mojom.SensorClient = {};
+
 device.mojom.SensorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: MdnsObserver
+sharing.mojom.MdnsObserver = {};
+
 sharing.mojom.MdnsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
 
 
 // Interface: MdnsManager
+sharing.mojom.MdnsManager = {};
+
 sharing.mojom.MdnsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

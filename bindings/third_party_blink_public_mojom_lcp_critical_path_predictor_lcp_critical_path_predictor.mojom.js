@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: LCPCriticalPathPredictorHost
+blink.mojom.LCPCriticalPathPredictorHost = {};
+
 blink.mojom.LCPCriticalPathPredictorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

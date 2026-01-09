@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: IioSensorHost
+arc.mojom.IioSensorHost = {};
+
 arc.mojom.IioSensorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.IioSensorHostRequest = arc.mojom.IioSensorHostPendingReceiver;
 
 
 // Interface: IioSensorInstance
+arc.mojom.IioSensorInstance = {};
+
 arc.mojom.IioSensorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: GoogleAccountsPrivateApiExtension
+chrome.mojom.GoogleAccountsPrivateApiExtension = {};
+
 chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

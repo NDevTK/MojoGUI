@@ -16,6 +16,8 @@ blink.mojom.ObservedFeatureType = {
 };
 
 // Interface: ObservedFeature
+blink.mojom.ObservedFeature = {};
+
 blink.mojom.ObservedFeaturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -66,6 +68,8 @@ blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
 
 
 // Interface: FeatureObserver
+blink.mojom.FeatureObserver = {};
+
 blink.mojom.FeatureObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -77,6 +77,8 @@ read_anything.mojom.DistillationStatus = {
 };
 
 // Interface: UntrustedPageHandlerFactory
+read_anything.mojom.UntrustedPageHandlerFactory = {};
+
 read_anything.mojom.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -173,6 +175,8 @@ read_anything.mojom.UntrustedPageHandlerFactoryRequest = read_anything.mojom.Unt
 
 
 // Interface: UntrustedPageHandler
+read_anything.mojom.UntrustedPageHandler = {};
+
 read_anything.mojom.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -949,6 +953,8 @@ read_anything.mojom.UntrustedPageHandlerRequest = read_anything.mojom.UntrustedP
 
 
 // Interface: UntrustedPage
+read_anything.mojom.UntrustedPage = {};
+
 read_anything.mojom.UntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

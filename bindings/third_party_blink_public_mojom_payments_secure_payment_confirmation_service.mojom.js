@@ -25,6 +25,8 @@ payments.mojom.SecurePaymentConfirmationAvailabilityEnum = {
 };
 
 // Interface: SecurePaymentConfirmationService
+payments.mojom.SecurePaymentConfirmationService = {};
+
 payments.mojom.SecurePaymentConfirmationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

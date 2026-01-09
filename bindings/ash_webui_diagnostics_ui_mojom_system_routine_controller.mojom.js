@@ -44,6 +44,8 @@ ash.diagnostics.mojom.StandardRoutineResult = {
 };
 
 // Interface: RoutineRunner
+ash.diagnostics.mojom.RoutineRunner = {};
+
 ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -117,6 +119,8 @@ ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunner
 
 
 // Interface: SystemRoutineController
+ash.diagnostics.mojom.SystemRoutineController = {};
+
 ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

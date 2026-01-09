@@ -27,6 +27,8 @@ media.mojom.CdmCapabilityQueryStatus = {
 };
 
 // Interface: KeySystemSupportObserver
+media.mojom.KeySystemSupportObserver = {};
+
 media.mojom.KeySystemSupportObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -100,6 +102,8 @@ media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserv
 
 
 // Interface: KeySystemSupport
+media.mojom.KeySystemSupport = {};
+
 media.mojom.KeySystemSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

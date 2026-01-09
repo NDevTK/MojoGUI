@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DocumentMetadata
+blink.mojom.DocumentMetadata = {};
+
 blink.mojom.DocumentMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

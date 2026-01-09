@@ -43,6 +43,8 @@ chrome.mojom.ShortcutOperation = {
 };
 
 // Interface: UtilWin
+chrome.mojom.UtilWin = {};
+
 chrome.mojom.UtilWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -340,6 +342,8 @@ chrome.mojom.UtilWinRequest = chrome.mojom.UtilWinPendingReceiver;
 
 
 // Interface: ProcessorMetrics
+chrome.mojom.ProcessorMetrics = {};
+
 chrome.mojom.ProcessorMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

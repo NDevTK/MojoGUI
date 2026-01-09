@@ -42,6 +42,8 @@ ash.cellular_setup.mojom.ESimOperationResult = {
 };
 
 // Interface: ESimManagerObserver
+ash.cellular_setup.mojom.ESimManagerObserver = {};
+
 ash.cellular_setup.mojom.ESimManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -183,6 +185,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRequest = ash.cellular_setup.mojom.E
 
 
 // Interface: ESimManager
+ash.cellular_setup.mojom.ESimManager = {};
+
 ash.cellular_setup.mojom.ESimManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,6 +295,8 @@ ash.cellular_setup.mojom.ESimManagerRequest = ash.cellular_setup.mojom.ESimManag
 
 
 // Interface: Euicc
+ash.cellular_setup.mojom.Euicc = {};
+
 ash.cellular_setup.mojom.EuiccPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -556,6 +562,8 @@ ash.cellular_setup.mojom.EuiccRequest = ash.cellular_setup.mojom.EuiccPendingRec
 
 
 // Interface: ESimProfile
+ash.cellular_setup.mojom.ESimProfile = {};
+
 ash.cellular_setup.mojom.ESimProfilePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ProxyConfigClient
+network.mojom.ProxyConfigClient = {};
+
 network.mojom.ProxyConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ network.mojom.ProxyConfigClientRequest = network.mojom.ProxyConfigClientPendingR
 
 
 // Interface: ProxyConfigPollerClient
+network.mojom.ProxyConfigPollerClient = {};
+
 network.mojom.ProxyConfigPollerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -177,6 +181,8 @@ network.mojom.ProxyConfigPollerClientRequest = network.mojom.ProxyConfigPollerCl
 
 
 // Interface: ProxyErrorClient
+network.mojom.ProxyErrorClient = {};
+
 network.mojom.ProxyErrorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

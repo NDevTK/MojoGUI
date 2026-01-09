@@ -10,6 +10,8 @@ batch_upload_promo.mojom = batch_upload_promo.mojom || {};
 
 
 // Interface: PageHandlerFactory
+batch_upload_promo.mojom.PageHandlerFactory = {};
+
 batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ batch_upload_promo.mojom.PageHandlerFactoryRequest = batch_upload_promo.mojom.Pa
 
 
 // Interface: PageHandler
+batch_upload_promo.mojom.PageHandler = {};
+
 batch_upload_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -191,6 +195,8 @@ batch_upload_promo.mojom.PageHandlerRequest = batch_upload_promo.mojom.PageHandl
 
 
 // Interface: Page
+batch_upload_promo.mojom.Page = {};
+
 batch_upload_promo.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ ntp.safe_browsing.mojom = ntp.safe_browsing.mojom || {};
 
 
 // Interface: SafeBrowsingHandler
+ntp.safe_browsing.mojom.SafeBrowsingHandler = {};
+
 ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: VideoFramePool
+arc.mojom.VideoFramePool = {};
+
 arc.mojom.VideoFramePoolPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.VideoFramePoolRequest = arc.mojom.VideoFramePoolPendingReceiver;
 
 
 // Interface: VideoFramePoolClient
+arc.mojom.VideoFramePoolClient = {};
+
 arc.mojom.VideoFramePoolClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

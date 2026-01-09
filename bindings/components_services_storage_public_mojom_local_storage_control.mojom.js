@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: LocalStorageControl
+storage.mojom.LocalStorageControl = {};
+
 storage.mojom.LocalStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

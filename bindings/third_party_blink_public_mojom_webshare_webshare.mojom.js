@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ShareService
+blink.mojom.ShareService = {};
+
 blink.mojom.ShareServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

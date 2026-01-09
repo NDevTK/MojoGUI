@@ -10,6 +10,8 @@ unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+unexportable_keys_internals.mojom.PageHandlerFactory = {};
+
 unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRequest = unexportable_keys_
 
 
 // Interface: PageHandler
+unexportable_keys_internals.mojom.PageHandler = {};
+
 unexportable_keys_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -205,6 +209,8 @@ unexportable_keys_internals.mojom.PageHandlerRequest = unexportable_keys_interna
 
 
 // Interface: Page
+unexportable_keys_internals.mojom.Page = {};
+
 unexportable_keys_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

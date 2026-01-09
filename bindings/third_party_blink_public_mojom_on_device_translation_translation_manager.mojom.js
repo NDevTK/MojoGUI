@@ -38,6 +38,8 @@ blink.mojom.CreateTranslatorError = {
 };
 
 // Interface: TranslationManagerCreateTranslatorClient
+blink.mojom.TranslationManagerCreateTranslatorClient = {};
+
 blink.mojom.TranslationManagerCreateTranslatorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ blink.mojom.TranslationManagerCreateTranslatorClientRequest = blink.mojom.Transl
 
 
 // Interface: TranslationManager
+blink.mojom.TranslationManager = {};
+
 blink.mojom.TranslationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

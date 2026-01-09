@@ -25,6 +25,8 @@ paint_preview.mojom.BitmapStatus = {
 };
 
 // Interface: PaintPreviewCompositor
+paint_preview.mojom.PaintPreviewCompositor = {};
+
 paint_preview.mojom.PaintPreviewCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,6 +251,8 @@ paint_preview.mojom.PaintPreviewCompositorRequest = paint_preview.mojom.PaintPre
 
 
 // Interface: PaintPreviewCompositorCollection
+paint_preview.mojom.PaintPreviewCompositorCollection = {};
+
 paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

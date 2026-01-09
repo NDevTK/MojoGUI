@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: StorageAccessHandle
+blink.mojom.StorageAccessHandle = {};
+
 blink.mojom.StorageAccessHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

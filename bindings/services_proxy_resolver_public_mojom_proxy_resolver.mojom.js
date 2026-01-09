@@ -33,6 +33,8 @@ proxy_resolver.mojom.WinHttpStatus = {
 };
 
 // Interface: HostResolverRequestClient
+proxy_resolver.mojom.HostResolverRequestClient = {};
+
 proxy_resolver.mojom.HostResolverRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ proxy_resolver.mojom.HostResolverRequestClientRequest = proxy_resolver.mojom.Hos
 
 
 // Interface: ProxyResolver
+proxy_resolver.mojom.ProxyResolver = {};
+
 proxy_resolver.mojom.ProxyResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -182,6 +186,8 @@ proxy_resolver.mojom.ProxyResolverRequest = proxy_resolver.mojom.ProxyResolverPe
 
 
 // Interface: ProxyResolverRequestClient
+proxy_resolver.mojom.ProxyResolverRequestClient = {};
+
 proxy_resolver.mojom.ProxyResolverRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -329,6 +335,8 @@ proxy_resolver.mojom.ProxyResolverRequestClientRequest = proxy_resolver.mojom.Pr
 
 
 // Interface: ProxyResolverFactory
+proxy_resolver.mojom.ProxyResolverFactory = {};
+
 proxy_resolver.mojom.ProxyResolverFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -404,6 +412,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequest = proxy_resolver.mojom.ProxyRes
 
 
 // Interface: ProxyResolverFactoryRequestClient
+proxy_resolver.mojom.ProxyResolverFactoryRequestClient = {};
+
 proxy_resolver.mojom.ProxyResolverFactoryRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -550,6 +560,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRequest = proxy_resolver.m
 
 
 // Interface: SystemProxyResolver
+proxy_resolver.mojom.SystemProxyResolver = {};
+
 proxy_resolver.mojom.SystemProxyResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

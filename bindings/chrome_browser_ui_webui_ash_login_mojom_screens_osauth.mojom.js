@@ -11,6 +11,8 @@ ash.screens_osauth.mojom = ash.screens_osauth.mojom || {};
 
 
 // Interface: LocalDataLossWarningPageHandler
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = {};
+
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

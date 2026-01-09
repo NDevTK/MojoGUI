@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SynchronousCompositor
+blink.mojom.SynchronousCompositor = {};
+
 blink.mojom.SynchronousCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -421,6 +423,8 @@ blink.mojom.SynchronousCompositorRequest = blink.mojom.SynchronousCompositorPend
 
 
 // Interface: SynchronousCompositorHost
+blink.mojom.SynchronousCompositorHost = {};
+
 blink.mojom.SynchronousCompositorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -562,6 +566,8 @@ blink.mojom.SynchronousCompositorHostRequest = blink.mojom.SynchronousCompositor
 
 
 // Interface: SynchronousCompositorControlHost
+blink.mojom.SynchronousCompositorControlHost = {};
+
 blink.mojom.SynchronousCompositorControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PaidContentMetadataObserver
+blink.mojom.PaidContentMetadataObserver = {};
+
 blink.mojom.PaidContentMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ blink.mojom.PaidContentMetadataObserverRequest = blink.mojom.PaidContentMetadata
 
 
 // Interface: MetaTagsObserver
+blink.mojom.MetaTagsObserver = {};
+
 blink.mojom.MetaTagsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ blink.mojom.MetaTagsObserverRequest = blink.mojom.MetaTagsObserverPendingReceive
 
 
 // Interface: FrameMetadataObserverRegistry
+blink.mojom.FrameMetadataObserverRegistry = {};
+
 blink.mojom.FrameMetadataObserverRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ metrics.dwa.mojom = metrics.dwa.mojom || {};
 
 
 // Interface: DwaRecorderClientInterface
+metrics.dwa.mojom.DwaRecorderClientInterface = {};
+
 metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.mojom.DwaRecor
 
 
 // Interface: DwaRecorderInterface
+metrics.dwa.mojom.DwaRecorderInterface = {};
+
 metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -134,6 +138,8 @@ metrics.dwa.mojom.DwaRecorderInterfaceRequest = metrics.dwa.mojom.DwaRecorderInt
 
 
 // Interface: DwaRecorderFactory
+metrics.dwa.mojom.DwaRecorderFactory = {};
+
 metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

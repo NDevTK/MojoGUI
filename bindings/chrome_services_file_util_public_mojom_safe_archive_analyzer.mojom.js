@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: SafeArchiveAnalyzer
+chrome.mojom.SafeArchiveAnalyzer = {};
+
 chrome.mojom.SafeArchiveAnalyzerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,6 +290,8 @@ chrome.mojom.SafeArchiveAnalyzerRequest = chrome.mojom.SafeArchiveAnalyzerPendin
 
 
 // Interface: TemporaryFileGetter
+chrome.mojom.TemporaryFileGetter = {};
+
 chrome.mojom.TemporaryFileGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

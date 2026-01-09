@@ -10,6 +10,8 @@ url.mojom = url.mojom || {};
 
 
 // Interface: UrlTest
+url.mojom.UrlTest = {};
+
 url.mojom.UrlTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

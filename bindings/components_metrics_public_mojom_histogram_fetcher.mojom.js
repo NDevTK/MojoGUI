@@ -23,6 +23,8 @@ metrics.mojom.UmaPingCallSource = {
 };
 
 // Interface: ChildHistogramFetcherFactory
+metrics.mojom.ChildHistogramFetcherFactory = {};
+
 metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -97,6 +99,8 @@ metrics.mojom.ChildHistogramFetcherFactoryRequest = metrics.mojom.ChildHistogram
 
 
 // Interface: ChildHistogramFetcher
+metrics.mojom.ChildHistogramFetcher = {};
+
 metrics.mojom.ChildHistogramFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -18,6 +18,8 @@ media.mojom.AvailabilityStatus = {
 };
 
 // Interface: SpeechRecognizer
+media.mojom.SpeechRecognizer = {};
+
 media.mojom.SpeechRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ media.mojom.SpeechRecognizerRequest = media.mojom.SpeechRecognizerPendingReceive
 
 
 // Interface: OnDeviceSpeechRecognition
+media.mojom.OnDeviceSpeechRecognition = {};
+
 media.mojom.OnDeviceSpeechRecognitionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -213,6 +217,8 @@ media.mojom.OnDeviceSpeechRecognitionRequest = media.mojom.OnDeviceSpeechRecogni
 
 
 // Interface: SpeechRecognitionSession
+media.mojom.SpeechRecognitionSession = {};
+
 media.mojom.SpeechRecognitionSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,6 +269,8 @@ media.mojom.SpeechRecognitionSessionRequest = media.mojom.SpeechRecognitionSessi
 
 
 // Interface: SpeechRecognitionSessionClient
+media.mojom.SpeechRecognitionSessionClient = {};
+
 media.mojom.SpeechRecognitionSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

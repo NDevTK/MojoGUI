@@ -20,6 +20,8 @@ ash.cros_healthd.internal.mojom.ConnectionType = {
 };
 
 // Interface: ChromiumDataCollector
+ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
+
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: QuotaManagerHost
+blink.mojom.QuotaManagerHost = {};
+
 blink.mojom.QuotaManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

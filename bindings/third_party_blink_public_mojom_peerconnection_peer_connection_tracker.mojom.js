@@ -19,6 +19,8 @@ blink.mojom.DeviceThermalState = {
 };
 
 // Interface: PeerConnectionManager
+blink.mojom.PeerConnectionManager = {};
+
 blink.mojom.PeerConnectionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,6 +253,8 @@ blink.mojom.PeerConnectionManagerRequest = blink.mojom.PeerConnectionManagerPend
 
 
 // Interface: PeerConnectionTrackerHost
+blink.mojom.PeerConnectionTrackerHost = {};
+
 blink.mojom.PeerConnectionTrackerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

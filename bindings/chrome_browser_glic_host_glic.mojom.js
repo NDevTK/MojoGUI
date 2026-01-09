@@ -195,6 +195,8 @@ glic.mojom.CurrentView = {
 };
 
 // Interface: PreloadPage
+glic.mojom.PreloadPage = {};
+
 glic.mojom.PreloadPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -268,6 +270,8 @@ glic.mojom.PreloadPageRequest = glic.mojom.PreloadPagePendingReceiver;
 
 
 // Interface: Page
+glic.mojom.Page = {};
+
 glic.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -386,6 +390,8 @@ glic.mojom.PageRequest = glic.mojom.PagePendingReceiver;
 
 
 // Interface: GlicPreloadHandler
+glic.mojom.GlicPreloadHandler = {};
+
 glic.mojom.GlicPreloadHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -471,6 +477,8 @@ glic.mojom.GlicPreloadHandlerRequest = glic.mojom.GlicPreloadHandlerPendingRecei
 
 
 // Interface: GlicPreloadHandlerFactory
+glic.mojom.GlicPreloadHandlerFactory = {};
+
 glic.mojom.GlicPreloadHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -545,6 +553,8 @@ glic.mojom.GlicPreloadHandlerFactoryRequest = glic.mojom.GlicPreloadHandlerFacto
 
 
 // Interface: PageHandlerFactory
+glic.mojom.PageHandlerFactory = {};
+
 glic.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -619,6 +629,8 @@ glic.mojom.PageHandlerFactoryRequest = glic.mojom.PageHandlerFactoryPendingRecei
 
 
 // Interface: PageHandler
+glic.mojom.PageHandler = {};
+
 glic.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -943,6 +955,8 @@ glic.mojom.PageHandlerRequest = glic.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: PinCandidatesObserver
+glic.mojom.PinCandidatesObserver = {};
+
 glic.mojom.PinCandidatesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1016,6 +1030,8 @@ glic.mojom.PinCandidatesObserverRequest = glic.mojom.PinCandidatesObserverPendin
 
 
 // Interface: WebClientHandler
+glic.mojom.WebClientHandler = {};
+
 glic.mojom.WebClientHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -3402,6 +3418,8 @@ glic.mojom.WebClientHandlerRequest = glic.mojom.WebClientHandlerPendingReceiver;
 
 
 // Interface: TabDataHandler
+glic.mojom.TabDataHandler = {};
+
 glic.mojom.TabDataHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -3475,6 +3493,8 @@ glic.mojom.TabDataHandlerRequest = glic.mojom.TabDataHandlerPendingReceiver;
 
 
 // Interface: WebClient
+glic.mojom.WebClient = {};
+
 glic.mojom.WebClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -4351,6 +4371,8 @@ glic.mojom.WebClientRequest = glic.mojom.WebClientPendingReceiver;
 
 
 // Interface: CaptureRegionObserver
+glic.mojom.CaptureRegionObserver = {};
+
 glic.mojom.CaptureRegionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

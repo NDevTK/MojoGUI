@@ -38,6 +38,8 @@ smbfs.mojom.Source = {
 };
 
 // Interface: SmbFsBootstrap
+smbfs.mojom.SmbFsBootstrap = {};
+
 smbfs.mojom.SmbFsBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -126,6 +128,8 @@ smbfs.mojom.SmbFsBootstrapRequest = smbfs.mojom.SmbFsBootstrapPendingReceiver;
 
 
 // Interface: SmbFs
+smbfs.mojom.SmbFs = {};
+
 smbfs.mojom.SmbFsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,6 +251,8 @@ smbfs.mojom.SmbFsRequest = smbfs.mojom.SmbFsPendingReceiver;
 
 
 // Interface: SmbFsDelegate
+smbfs.mojom.SmbFsDelegate = {};
+
 smbfs.mojom.SmbFsDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

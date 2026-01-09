@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebPressureManager
+blink.mojom.WebPressureManager = {};
+
 blink.mojom.WebPressureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -97,6 +99,8 @@ blink.mojom.WebPressureManagerRequest = blink.mojom.WebPressureManagerPendingRec
 
 
 // Interface: WebPressureClient
+blink.mojom.WebPressureClient = {};
+
 blink.mojom.WebPressureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

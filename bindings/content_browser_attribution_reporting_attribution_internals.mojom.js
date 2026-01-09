@@ -18,6 +18,8 @@ attribution_internals.mojom.Attributability = {
 };
 
 // Interface: Observer
+attribution_internals.mojom.Observer = {};
+
 attribution_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,6 +277,8 @@ attribution_internals.mojom.ObserverRequest = attribution_internals.mojom.Observ
 
 
 // Interface: Handler
+attribution_internals.mojom.Handler = {};
+
 attribution_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -406,6 +410,8 @@ attribution_internals.mojom.HandlerRequest = attribution_internals.mojom.Handler
 
 
 // Interface: Factory
+attribution_internals.mojom.Factory = {};
+
 attribution_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

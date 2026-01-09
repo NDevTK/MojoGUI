@@ -10,6 +10,8 @@ safe_browsing.mojom = safe_browsing.mojom || {};
 
 
 // Interface: SafeBrowsingUrlChecker
+safe_browsing.mojom.SafeBrowsingUrlChecker = {};
+
 safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

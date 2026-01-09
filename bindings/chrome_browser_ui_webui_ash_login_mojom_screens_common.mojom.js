@@ -25,6 +25,8 @@ ash.screens_common.mojom.GesturePages = {
 };
 
 // Interface: AiIntroPageHandler
+ash.screens_common.mojom.AiIntroPageHandler = {};
+
 ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -97,6 +99,8 @@ ash.screens_common.mojom.AiIntroPageHandlerRequest = ash.screens_common.mojom.Ai
 
 
 // Interface: AiIntroPage
+ash.screens_common.mojom.AiIntroPage = {};
+
 ash.screens_common.mojom.AiIntroPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -170,6 +174,8 @@ ash.screens_common.mojom.AiIntroPageRequest = ash.screens_common.mojom.AiIntroPa
 
 
 // Interface: AppDownloadingPageHandler
+ash.screens_common.mojom.AppDownloadingPageHandler = {};
+
 ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -242,6 +248,8 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRequest = ash.screens_common.m
 
 
 // Interface: DrivePinningPageHandler
+ash.screens_common.mojom.DrivePinningPageHandler = {};
+
 ash.screens_common.mojom.DrivePinningPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -338,6 +346,8 @@ ash.screens_common.mojom.DrivePinningPageHandlerRequest = ash.screens_common.moj
 
 
 // Interface: DrivePinningPage
+ash.screens_common.mojom.DrivePinningPage = {};
+
 ash.screens_common.mojom.DrivePinningPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,6 +422,8 @@ ash.screens_common.mojom.DrivePinningPageRequest = ash.screens_common.mojom.Driv
 
 
 // Interface: FjordStationSetupPageHandler
+ash.screens_common.mojom.FjordStationSetupPageHandler = {};
+
 ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -484,6 +496,8 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRequest = ash.screens_commo
 
 
 // Interface: GaiaInfoPageHandler
+ash.screens_common.mojom.GaiaInfoPageHandler = {};
+
 ash.screens_common.mojom.GaiaInfoPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -579,6 +593,8 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRequest = ash.screens_common.mojom.G
 
 
 // Interface: GaiaInfoPage
+ash.screens_common.mojom.GaiaInfoPage = {};
+
 ash.screens_common.mojom.GaiaInfoPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -651,6 +667,8 @@ ash.screens_common.mojom.GaiaInfoPageRequest = ash.screens_common.mojom.GaiaInfo
 
 
 // Interface: GestureNavigationPageHandler
+ash.screens_common.mojom.GestureNavigationPageHandler = {};
+
 ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -768,6 +786,8 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRequest = ash.screens_commo
 
 
 // Interface: GeminiIntroPageHandler
+ash.screens_common.mojom.GeminiIntroPageHandler = {};
+
 ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

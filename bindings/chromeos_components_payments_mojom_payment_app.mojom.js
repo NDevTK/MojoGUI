@@ -11,6 +11,8 @@ chromeos.payments.mojom = chromeos.payments.mojom || {};
 
 
 // Interface: PaymentAppInstance
+chromeos.payments.mojom.PaymentAppInstance = {};
+
 chromeos.payments.mojom.PaymentAppInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

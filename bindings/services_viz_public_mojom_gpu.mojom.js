@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: Gpu
+viz.mojom.Gpu = {};
+
 viz.mojom.GpuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

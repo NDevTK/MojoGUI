@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: AdbdMonitorHost
+arc.mojom.AdbdMonitorHost = {};
+
 arc.mojom.AdbdMonitorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.AdbdMonitorHostRequest = arc.mojom.AdbdMonitorHostPendingReceiver;
 
 
 // Interface: AdbdMonitorInstance
+arc.mojom.AdbdMonitorInstance = {};
+
 arc.mojom.AdbdMonitorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ dom_distiller.mojom = dom_distiller.mojom || {};
 
 
 // Interface: DistillerJavaScriptService
+dom_distiller.mojom.DistillerJavaScriptService = {};
+
 dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

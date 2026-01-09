@@ -10,6 +10,8 @@ private_state_tokens.mojom = private_state_tokens.mojom || {};
 
 
 // Interface: PrivateStateTokensPageHandler
+private_state_tokens.mojom.PrivateStateTokensPageHandler = {};
+
 private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

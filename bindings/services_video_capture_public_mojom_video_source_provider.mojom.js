@@ -16,6 +16,8 @@ video_capture.mojom.GetSourceInfosResult = {
 };
 
 // Interface: VideoSourceProvider
+video_capture.mojom.VideoSourceProvider = {};
+
 video_capture.mojom.VideoSourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

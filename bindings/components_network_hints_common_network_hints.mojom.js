@@ -10,6 +10,8 @@ network_hints.mojom = network_hints.mojom || {};
 
 
 // Interface: NetworkHintsHandler
+network_hints.mojom.NetworkHintsHandler = {};
+
 network_hints.mojom.NetworkHintsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

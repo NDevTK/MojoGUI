@@ -18,6 +18,8 @@ network.mojom.NetworkChangeEvent = {
 };
 
 // Interface: ConnectionChangeObserverClient
+network.mojom.ConnectionChangeObserverClient = {};
+
 network.mojom.ConnectionChangeObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

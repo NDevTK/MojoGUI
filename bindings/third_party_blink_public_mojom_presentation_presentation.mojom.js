@@ -43,6 +43,8 @@ blink.mojom.PresentationErrorType = {
 };
 
 // Interface: PresentationConnection
+blink.mojom.PresentationConnection = {};
+
 blink.mojom.PresentationConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -162,6 +164,8 @@ blink.mojom.PresentationConnectionRequest = blink.mojom.PresentationConnectionPe
 
 
 // Interface: PresentationService
+blink.mojom.PresentationService = {};
+
 blink.mojom.PresentationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -450,6 +454,8 @@ blink.mojom.PresentationServiceRequest = blink.mojom.PresentationServicePendingR
 
 
 // Interface: PresentationController
+blink.mojom.PresentationController = {};
+
 blink.mojom.PresentationControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -596,6 +602,8 @@ blink.mojom.PresentationControllerRequest = blink.mojom.PresentationControllerPe
 
 
 // Interface: PresentationReceiver
+blink.mojom.PresentationReceiver = {};
+
 blink.mojom.PresentationReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -31,6 +31,8 @@ blink.mojom.AIRewriterLength = {
 };
 
 // Interface: AIRewriter
+blink.mojom.AIRewriter = {};
+
 blink.mojom.AIRewriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

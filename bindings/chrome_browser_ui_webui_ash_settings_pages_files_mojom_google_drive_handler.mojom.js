@@ -12,6 +12,8 @@ ash.settings.google_drive.mojom = ash.settings.google_drive.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.settings.google_drive.mojom.PageHandlerFactory = {};
+
 ash.settings.google_drive.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRequest = ash.settings.google_
 
 
 // Interface: PageHandler
+ash.settings.google_drive.mojom.PageHandler = {};
+
 ash.settings.google_drive.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -237,6 +241,8 @@ ash.settings.google_drive.mojom.PageHandlerRequest = ash.settings.google_drive.m
 
 
 // Interface: Page
+ash.settings.google_drive.mojom.Page = {};
+
 ash.settings.google_drive.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

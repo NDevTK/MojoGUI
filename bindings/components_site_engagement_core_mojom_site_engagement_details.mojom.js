@@ -10,6 +10,8 @@ site_engagement.mojom = site_engagement.mojom || {};
 
 
 // Interface: SiteEngagementDetailsProvider
+site_engagement.mojom.SiteEngagementDetailsProvider = {};
+
 site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

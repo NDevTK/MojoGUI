@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: DisplaySettings
+chromecast.mojom.DisplaySettings = {};
+
 chromecast.mojom.DisplaySettingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,6 +269,8 @@ chromecast.mojom.DisplaySettingsRequest = chromecast.mojom.DisplaySettingsPendin
 
 
 // Interface: DisplaySettingsObserver
+chromecast.mojom.DisplaySettingsObserver = {};
+
 chromecast.mojom.DisplaySettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

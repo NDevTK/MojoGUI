@@ -84,6 +84,8 @@ app_management.mojom.RunOnOsLoginMode = {
 };
 
 // Interface: PageHandlerFactory
+app_management.mojom.PageHandlerFactory = {};
+
 app_management.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -158,6 +160,8 @@ app_management.mojom.PageHandlerFactoryRequest = app_management.mojom.PageHandle
 
 
 // Interface: PageHandler
+app_management.mojom.PageHandler = {};
+
 app_management.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -715,6 +719,8 @@ app_management.mojom.PageHandlerRequest = app_management.mojom.PageHandlerPendin
 
 
 // Interface: Page
+app_management.mojom.Page = {};
+
 app_management.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

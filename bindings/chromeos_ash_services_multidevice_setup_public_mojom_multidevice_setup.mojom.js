@@ -63,6 +63,8 @@ ash.multidevice_setup.mojom.FeatureState = {
 };
 
 // Interface: AccountStatusChangeDelegate
+ash.multidevice_setup.mojom.AccountStatusChangeDelegate = {};
+
 ash.multidevice_setup.mojom.AccountStatusChangeDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -225,6 +227,8 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRequest = ash.multidevice
 
 
 // Interface: HostStatusObserver
+ash.multidevice_setup.mojom.HostStatusObserver = {};
+
 ash.multidevice_setup.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,6 +303,8 @@ ash.multidevice_setup.mojom.HostStatusObserverRequest = ash.multidevice_setup.mo
 
 
 // Interface: FeatureStateObserver
+ash.multidevice_setup.mojom.FeatureStateObserver = {};
+
 ash.multidevice_setup.mojom.FeatureStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,6 +378,8 @@ ash.multidevice_setup.mojom.FeatureStateObserverRequest = ash.multidevice_setup.
 
 
 // Interface: MultiDeviceSetup
+ash.multidevice_setup.mojom.MultiDeviceSetup = {};
+
 ash.multidevice_setup.mojom.MultiDeviceSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -858,6 +866,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRequest = ash.multidevice_setup.mojo
 
 
 // Interface: PrivilegedHostDeviceSetter
+ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter = {};
+
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -20,6 +20,8 @@ ash.focus_mode.mojom.PlaybackState = {
 };
 
 // Interface: MediaClient
+ash.focus_mode.mojom.MediaClient = {};
+
 ash.focus_mode.mojom.MediaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ ash.focus_mode.mojom.MediaClientRequest = ash.focus_mode.mojom.MediaClientPendin
 
 
 // Interface: TrackProvider
+ash.focus_mode.mojom.TrackProvider = {};
+
 ash.focus_mode.mojom.TrackProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

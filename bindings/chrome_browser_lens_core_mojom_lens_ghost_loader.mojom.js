@@ -10,6 +10,8 @@ lens.mojom = lens.mojom || {};
 
 
 // Interface: LensGhostLoaderPageHandlerFactory
+lens.mojom.LensGhostLoaderPageHandlerFactory = {};
+
 lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.LensGhostLoader
 
 
 // Interface: LensGhostLoaderPage
+lens.mojom.LensGhostLoaderPage = {};
+
 lens.mojom.LensGhostLoaderPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

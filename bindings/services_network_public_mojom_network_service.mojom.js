@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: GssapiLibraryLoadObserver
+network.mojom.GssapiLibraryLoadObserver = {};
+
 network.mojom.GssapiLibraryLoadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ network.mojom.GssapiLibraryLoadObserverRequest = network.mojom.GssapiLibraryLoad
 
 
 // Interface: NetworkService
+network.mojom.NetworkService = {};
+
 network.mojom.NetworkServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1132,6 +1136,8 @@ network.mojom.NetworkServiceRequest = network.mojom.NetworkServicePendingReceive
 
 
 // Interface: DurableMessageCollector
+network.mojom.DurableMessageCollector = {};
+
 network.mojom.DurableMessageCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

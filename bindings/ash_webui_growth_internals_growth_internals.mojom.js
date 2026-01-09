@@ -11,6 +11,8 @@ ash.growth.mojom = ash.growth.mojom || {};
 
 
 // Interface: PageHandler
+ash.growth.mojom.PageHandler = {};
+
 ash.growth.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

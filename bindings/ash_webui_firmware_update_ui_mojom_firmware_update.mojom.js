@@ -48,6 +48,8 @@ ash.firmware_update.mojom.DeviceRequestKind = {
 };
 
 // Interface: UpdateObserver
+ash.firmware_update.mojom.UpdateObserver = {};
+
 ash.firmware_update.mojom.UpdateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -121,6 +123,8 @@ ash.firmware_update.mojom.UpdateObserverRequest = ash.firmware_update.mojom.Upda
 
 
 // Interface: DeviceRequestObserver
+ash.firmware_update.mojom.DeviceRequestObserver = {};
+
 ash.firmware_update.mojom.DeviceRequestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -194,6 +198,8 @@ ash.firmware_update.mojom.DeviceRequestObserverRequest = ash.firmware_update.moj
 
 
 // Interface: UpdateProgressObserver
+ash.firmware_update.mojom.UpdateProgressObserver = {};
+
 ash.firmware_update.mojom.UpdateProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,6 +273,8 @@ ash.firmware_update.mojom.UpdateProgressObserverRequest = ash.firmware_update.mo
 
 
 // Interface: UpdateProvider
+ash.firmware_update.mojom.UpdateProvider = {};
+
 ash.firmware_update.mojom.UpdateProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,6 +419,8 @@ ash.firmware_update.mojom.UpdateProviderRequest = ash.firmware_update.mojom.Upda
 
 
 // Interface: InstallController
+ash.firmware_update.mojom.InstallController = {};
+
 ash.firmware_update.mojom.InstallControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -531,6 +541,8 @@ ash.firmware_update.mojom.InstallControllerRequest = ash.firmware_update.mojom.I
 
 
 // Interface: SystemUtils
+ash.firmware_update.mojom.SystemUtils = {};
+
 ash.firmware_update.mojom.SystemUtilsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

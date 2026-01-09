@@ -10,6 +10,8 @@ js_injection.mojom = js_injection.mojom || {};
 
 
 // Interface: JsToBrowserMessaging
+js_injection.mojom.JsToBrowserMessaging = {};
+
 js_injection.mojom.JsToBrowserMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ js_injection.mojom.JsToBrowserMessagingRequest = js_injection.mojom.JsToBrowserM
 
 
 // Interface: JsObjectsClient
+js_injection.mojom.JsObjectsClient = {};
+
 js_injection.mojom.JsObjectsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +183,8 @@ js_injection.mojom.JsObjectsClientRequest = js_injection.mojom.JsObjectsClientPe
 
 
 // Interface: BrowserToJsMessagingFactory
+js_injection.mojom.BrowserToJsMessagingFactory = {};
+
 js_injection.mojom.BrowserToJsMessagingFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,6 +258,8 @@ js_injection.mojom.BrowserToJsMessagingFactoryRequest = js_injection.mojom.Brows
 
 
 // Interface: BrowserToJsMessaging
+js_injection.mojom.BrowserToJsMessaging = {};
+
 js_injection.mojom.BrowserToJsMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,6 +333,8 @@ js_injection.mojom.BrowserToJsMessagingRequest = js_injection.mojom.BrowserToJsM
 
 
 // Interface: JsCommunication
+js_injection.mojom.JsCommunication = {};
+
 js_injection.mojom.JsCommunicationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

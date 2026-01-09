@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: MlModelManager
+audio.mojom.MlModelManager = {};
+
 audio.mojom.MlModelManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

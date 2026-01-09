@@ -10,6 +10,8 @@ omnibox_popup_aim.mojom = omnibox_popup_aim.mojom || {};
 
 
 // Interface: PageHandlerFactory
+omnibox_popup_aim.mojom.PageHandlerFactory = {};
+
 omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRequest = omnibox_popup_aim.mojom.Page
 
 
 // Interface: PageHandler
+omnibox_popup_aim.mojom.PageHandler = {};
+
 omnibox_popup_aim.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +183,8 @@ omnibox_popup_aim.mojom.PageHandlerRequest = omnibox_popup_aim.mojom.PageHandler
 
 
 // Interface: Page
+omnibox_popup_aim.mojom.Page = {};
+
 omnibox_popup_aim.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

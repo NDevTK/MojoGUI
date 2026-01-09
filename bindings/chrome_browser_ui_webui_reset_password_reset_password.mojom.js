@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: ResetPasswordHandler
+mojom.ResetPasswordHandler = {};
+
 mojom.ResetPasswordHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

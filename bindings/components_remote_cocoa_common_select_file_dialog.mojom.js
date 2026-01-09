@@ -20,6 +20,8 @@ remote_cocoa.mojom.SelectFileDialogType = {
 };
 
 // Interface: SelectFileDialog
+remote_cocoa.mojom.SelectFileDialog = {};
+
 remote_cocoa.mojom.SelectFileDialogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

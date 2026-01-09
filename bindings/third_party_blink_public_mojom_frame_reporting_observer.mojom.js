@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ReportingObserver
+blink.mojom.ReportingObserver = {};
+
 blink.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WorkletDevToolsHost
+blink.mojom.WorkletDevToolsHost = {};
+
 blink.mojom.WorkletDevToolsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

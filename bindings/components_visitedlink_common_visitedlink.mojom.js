@@ -10,6 +10,8 @@ visitedlink.mojom = visitedlink.mojom || {};
 
 
 // Interface: VisitedLinkNotificationSink
+visitedlink.mojom.VisitedLinkNotificationSink = {};
+
 visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

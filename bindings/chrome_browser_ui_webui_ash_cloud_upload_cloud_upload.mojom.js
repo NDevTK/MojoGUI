@@ -40,6 +40,8 @@ ash.cloud_upload.mojom.OperationType = {
 };
 
 // Interface: PageHandlerFactory
+ash.cloud_upload.mojom.PageHandlerFactory = {};
+
 ash.cloud_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ ash.cloud_upload.mojom.PageHandlerFactoryRequest = ash.cloud_upload.mojom.PageHa
 
 
 // Interface: PageHandler
+ash.cloud_upload.mojom.PageHandler = {};
+
 ash.cloud_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

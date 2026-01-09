@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: Renderer
+media.mojom.Renderer = {};
+
 media.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,6 +249,8 @@ media.mojom.RendererRequest = media.mojom.RendererPendingReceiver;
 
 
 // Interface: RendererClient
+media.mojom.RendererClient = {};
+
 media.mojom.RendererClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

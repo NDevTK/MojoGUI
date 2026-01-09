@@ -70,6 +70,8 @@ network.mojom.IPAddressChangeType = {
 };
 
 // Interface: NetworkChangeManagerClient
+network.mojom.NetworkChangeManagerClient = {};
+
 network.mojom.NetworkChangeManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -166,6 +168,8 @@ network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeMan
 
 
 // Interface: NetworkChangeManager
+network.mojom.NetworkChangeManager = {};
+
 network.mojom.NetworkChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

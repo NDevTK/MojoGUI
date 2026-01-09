@@ -42,6 +42,8 @@ blink.mojom.BackgroundFetchFailureReason = {
 };
 
 // Interface: BackgroundFetchRegistrationObserver
+blink.mojom.BackgroundFetchRegistrationObserver = {};
+
 blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -166,6 +168,8 @@ blink.mojom.BackgroundFetchRegistrationObserverRequest = blink.mojom.BackgroundF
 
 
 // Interface: BackgroundFetchService
+blink.mojom.BackgroundFetchService = {};
+
 blink.mojom.BackgroundFetchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -368,6 +372,8 @@ blink.mojom.BackgroundFetchServiceRequest = blink.mojom.BackgroundFetchServicePe
 
 
 // Interface: BackgroundFetchRegistrationService
+blink.mojom.BackgroundFetchRegistrationService = {};
+
 blink.mojom.BackgroundFetchRegistrationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

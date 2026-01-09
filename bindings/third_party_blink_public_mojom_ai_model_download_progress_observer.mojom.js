@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ModelDownloadProgressObserver
+blink.mojom.ModelDownloadProgressObserver = {};
+
 blink.mojom.ModelDownloadProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

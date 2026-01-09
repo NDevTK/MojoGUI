@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: GpuDataManager
+blink.mojom.GpuDataManager = {};
+
 blink.mojom.GpuDataManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

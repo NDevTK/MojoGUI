@@ -11,6 +11,8 @@ chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
 
 
 // Interface: MediaPerceptionService
+chromeos.media_perception.mojom.MediaPerceptionService = {};
+
 chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRequest = chromeos.media_p
 
 
 // Interface: MediaPerceptionController
+chromeos.media_perception.mojom.MediaPerceptionController = {};
+
 chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -111,6 +115,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRequest = chromeos.medi
 
 
 // Interface: MediaPerceptionControllerClient
+chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
+
 chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

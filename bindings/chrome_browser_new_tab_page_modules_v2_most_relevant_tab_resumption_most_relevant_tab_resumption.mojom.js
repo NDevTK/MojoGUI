@@ -19,6 +19,8 @@ ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
 };
 
 // Interface: PageHandler
+ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
+
 ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

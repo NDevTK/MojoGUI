@@ -10,6 +10,8 @@ drivefs.mojom = drivefs.mojom || {};
 
 
 // Interface: FakeDriveFsLauncher
+drivefs.mojom.FakeDriveFsLauncher = {};
+
 drivefs.mojom.FakeDriveFsLauncherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

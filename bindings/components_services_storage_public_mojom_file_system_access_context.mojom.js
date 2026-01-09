@@ -10,6 +10,8 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: FileSystemAccessContext
+storage.mojom.FileSystemAccessContext = {};
+
 storage.mojom.FileSystemAccessContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

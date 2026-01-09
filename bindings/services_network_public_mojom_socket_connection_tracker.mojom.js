@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SocketConnectionTracker
+network.mojom.SocketConnectionTracker = {};
+
 network.mojom.SocketConnectionTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

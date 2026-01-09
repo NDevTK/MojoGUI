@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetBenchmarking
+chrome.mojom.NetBenchmarking = {};
+
 chrome.mojom.NetBenchmarkingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

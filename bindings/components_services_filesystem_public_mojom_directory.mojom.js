@@ -10,6 +10,8 @@ filesystem.mojom = filesystem.mojom || {};
 
 
 // Interface: Directory
+filesystem.mojom.Directory = {};
+
 filesystem.mojom.DirectoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoFrameHandleReleaser
+media.mojom.VideoFrameHandleReleaser = {};
+
 media.mojom.VideoFrameHandleReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ media.mojom.VideoFrameHandleReleaserRequest = media.mojom.VideoFrameHandleReleas
 
 
 // Interface: VideoDecoder
+media.mojom.VideoDecoder = {};
+
 media.mojom.VideoDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -321,6 +325,8 @@ media.mojom.VideoDecoderRequest = media.mojom.VideoDecoderPendingReceiver;
 
 
 // Interface: VideoDecoderClient
+media.mojom.VideoDecoderClient = {};
+
 media.mojom.VideoDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

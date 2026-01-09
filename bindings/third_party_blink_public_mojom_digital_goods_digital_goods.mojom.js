@@ -10,6 +10,8 @@ payments.mojom = payments.mojom || {};
 
 
 // Interface: DigitalGoods
+payments.mojom.DigitalGoods = {};
+
 payments.mojom.DigitalGoodsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -205,6 +207,8 @@ payments.mojom.DigitalGoodsRequest = payments.mojom.DigitalGoodsPendingReceiver;
 
 
 // Interface: DigitalGoodsFactory
+payments.mojom.DigitalGoodsFactory = {};
+
 payments.mojom.DigitalGoodsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -25,6 +25,8 @@ blink.mojom.AttachmentResult = {
 };
 
 // Interface: AnnotationAgent
+blink.mojom.AnnotationAgent = {};
+
 blink.mojom.AnnotationAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ blink.mojom.AnnotationAgentRequest = blink.mojom.AnnotationAgentPendingReceiver;
 
 
 // Interface: AnnotationAgentHost
+blink.mojom.AnnotationAgentHost = {};
+
 blink.mojom.AnnotationAgentHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -172,6 +176,8 @@ blink.mojom.AnnotationAgentHostRequest = blink.mojom.AnnotationAgentHostPendingR
 
 
 // Interface: AnnotationAgentContainer
+blink.mojom.AnnotationAgentContainer = {};
+
 blink.mojom.AnnotationAgentContainerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

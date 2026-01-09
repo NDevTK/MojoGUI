@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: WebEngineMediaResourceProvider
+mojom.WebEngineMediaResourceProvider = {};
+
 mojom.WebEngineMediaResourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

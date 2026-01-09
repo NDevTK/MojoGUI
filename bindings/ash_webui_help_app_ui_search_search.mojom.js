@@ -11,6 +11,8 @@ ash.help_app.mojom = ash.help_app.mojom || {};
 
 
 // Interface: SearchResultsObserver
+ash.help_app.mojom.SearchResultsObserver = {};
+
 ash.help_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ ash.help_app.mojom.SearchResultsObserverRequest = ash.help_app.mojom.SearchResul
 
 
 // Interface: SearchHandler
+ash.help_app.mojom.SearchHandler = {};
+
 ash.help_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

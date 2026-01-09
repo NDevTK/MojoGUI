@@ -12,6 +12,8 @@ ash.settings.graduation.mojom = ash.settings.graduation.mojom || {};
 
 
 // Interface: GraduationHandler
+ash.settings.graduation.mojom.GraduationHandler = {};
+
 ash.settings.graduation.mojom.GraduationHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ ash.settings.graduation.mojom.GraduationHandlerRequest = ash.settings.graduation
 
 
 // Interface: GraduationObserver
+ash.settings.graduation.mojom.GraduationObserver = {};
+
 ash.settings.graduation.mojom.GraduationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

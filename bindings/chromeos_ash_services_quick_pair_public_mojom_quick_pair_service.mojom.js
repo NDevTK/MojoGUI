@@ -11,6 +11,8 @@ ash.quick_pair.mojom = ash.quick_pair.mojom || {};
 
 
 // Interface: QuickPairService
+ash.quick_pair.mojom.QuickPairService = {};
+
 ash.quick_pair.mojom.QuickPairServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

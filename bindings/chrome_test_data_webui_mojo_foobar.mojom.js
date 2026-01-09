@@ -10,6 +10,8 @@ test.mojom = test.mojom || {};
 
 
 // Interface: Foo
+test.mojom.Foo = {};
+
 test.mojom.FooPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -95,6 +97,8 @@ test.mojom.FooRequest = test.mojom.FooPendingReceiver;
 
 
 // Interface: Bar
+test.mojom.Bar = {};
+
 test.mojom.BarPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -180,6 +184,8 @@ test.mojom.BarRequest = test.mojom.BarPendingReceiver;
 
 
 // Interface: Baz
+test.mojom.Baz = {};
+
 test.mojom.BazPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

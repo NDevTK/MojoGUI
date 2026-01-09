@@ -17,6 +17,8 @@ reload_button.mojom.ClickDispositionFlag = {
 };
 
 // Interface: PageHandlerFactory
+reload_button.mojom.PageHandlerFactory = {};
+
 reload_button.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ reload_button.mojom.PageHandlerFactoryRequest = reload_button.mojom.PageHandlerF
 
 
 // Interface: PageHandler
+reload_button.mojom.PageHandler = {};
+
 reload_button.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -211,6 +215,8 @@ reload_button.mojom.PageHandlerRequest = reload_button.mojom.PageHandlerPendingR
 
 
 // Interface: Page
+reload_button.mojom.Page = {};
+
 reload_button.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

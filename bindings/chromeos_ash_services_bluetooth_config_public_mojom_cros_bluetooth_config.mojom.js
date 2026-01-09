@@ -60,6 +60,8 @@ ash.bluetooth_config.mojom.PairingResult = {
 };
 
 // Interface: SystemPropertiesObserver
+ash.bluetooth_config.mojom.SystemPropertiesObserver = {};
+
 ash.bluetooth_config.mojom.SystemPropertiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -133,6 +135,8 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverRequest = ash.bluetooth_confi
 
 
 // Interface: BluetoothDeviceStatusObserver
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver = {};
+
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,6 +256,8 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRequest = ash.bluetooth_
 
 
 // Interface: DiscoverySessionStatusObserver
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserver = {};
+
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,6 +331,8 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRequest = ash.bluetooth
 
 
 // Interface: KeyEnteredHandler
+ash.bluetooth_config.mojom.KeyEnteredHandler = {};
+
 ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -398,6 +406,8 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRequest = ash.bluetooth_config.mojom
 
 
 // Interface: DevicePairingDelegate
+ash.bluetooth_config.mojom.DevicePairingDelegate = {};
+
 ash.bluetooth_config.mojom.DevicePairingDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -637,6 +647,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRequest = ash.bluetooth_config.m
 
 
 // Interface: DevicePairingHandler
+ash.bluetooth_config.mojom.DevicePairingHandler = {};
+
 ash.bluetooth_config.mojom.DevicePairingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -760,6 +772,8 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRequest = ash.bluetooth_config.mo
 
 
 // Interface: BluetoothDiscoveryDelegate
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate = {};
+
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -878,6 +892,8 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequest = ash.bluetooth_con
 
 
 // Interface: CrosBluetoothConfig
+ash.bluetooth_config.mojom.CrosBluetoothConfig = {};
+
 ash.bluetooth_config.mojom.CrosBluetoothConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

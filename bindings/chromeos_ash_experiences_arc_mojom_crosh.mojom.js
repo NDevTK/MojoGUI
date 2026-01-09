@@ -17,6 +17,8 @@ arc.mojom.ArcShellCommand = {
 };
 
 // Interface: ArcShellExecutionInstance
+arc.mojom.ArcShellExecutionInstance = {};
+
 arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

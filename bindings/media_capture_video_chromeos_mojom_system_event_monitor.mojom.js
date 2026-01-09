@@ -32,6 +32,8 @@ cros.mojom.ClockwiseRotation = {
 };
 
 // Interface: CrosDisplayObserver
+cros.mojom.CrosDisplayObserver = {};
+
 cros.mojom.CrosDisplayObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ cros.mojom.CrosDisplayObserverRequest = cros.mojom.CrosDisplayObserverPendingRec
 
 
 // Interface: CrosLidObserver
+cros.mojom.CrosLidObserver = {};
+
 cros.mojom.CrosLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -132,6 +136,8 @@ cros.mojom.CrosLidObserverRequest = cros.mojom.CrosLidObserverPendingReceiver;
 
 
 // Interface: CrosPowerObserver
+cros.mojom.CrosPowerObserver = {};
+
 cros.mojom.CrosPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -182,6 +188,8 @@ cros.mojom.CrosPowerObserverRequest = cros.mojom.CrosPowerObserverPendingReceive
 
 
 // Interface: CrosSystemEventMonitor
+cros.mojom.CrosSystemEventMonitor = {};
+
 cros.mojom.CrosSystemEventMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -51,6 +51,8 @@ ash.secure_channel.mojom.NearbyConnectionStepResult = {
 };
 
 // Interface: NearbyConnectionStateListener
+ash.secure_channel.mojom.NearbyConnectionStateListener = {};
+
 ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -125,6 +127,8 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRequest = ash.secure_chann
 
 
 // Interface: NearbyMessageSender
+ash.secure_channel.mojom.NearbyMessageSender = {};
+
 ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -211,6 +215,8 @@ ash.secure_channel.mojom.NearbyMessageSenderRequest = ash.secure_channel.mojom.N
 
 
 // Interface: NearbyMessageReceiver
+ash.secure_channel.mojom.NearbyMessageReceiver = {};
+
 ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,6 +290,8 @@ ash.secure_channel.mojom.NearbyMessageReceiverRequest = ash.secure_channel.mojom
 
 
 // Interface: NearbyFilePayloadHandler
+ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
+
 ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,6 +380,8 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.mo
 
 
 // Interface: NearbyConnector
+ash.secure_channel.mojom.NearbyConnector = {};
+
 ash.secure_channel.mojom.NearbyConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: DemuxerStream
+media.mojom.DemuxerStream = {};
+
 media.mojom.DemuxerStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ pdf.mojom = pdf.mojom || {};
 
 
 // Interface: PdfProgressiveSearchifier
+pdf.mojom.PdfProgressiveSearchifier = {};
+
 pdf.mojom.PdfProgressiveSearchifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

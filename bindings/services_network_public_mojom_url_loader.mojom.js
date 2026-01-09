@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: URLLoader
+network.mojom.URLLoader = {};
+
 network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ network.mojom.URLLoaderRequest = network.mojom.URLLoaderPendingReceiver;
 
 
 // Interface: URLLoaderClient
+network.mojom.URLLoaderClient = {};
+
 network.mojom.URLLoaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

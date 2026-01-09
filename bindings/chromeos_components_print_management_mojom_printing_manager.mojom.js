@@ -48,6 +48,8 @@ chromeos.printing.printing_manager.mojom.LaunchSource = {
 };
 
 // Interface: PrintJobsObserver
+chromeos.printing.printing_manager.mojom.PrintJobsObserver = {};
+
 chromeos.printing.printing_manager.mojom.PrintJobsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -143,6 +145,8 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRequest = chromeos.pri
 
 
 // Interface: PrintingMetadataProvider
+chromeos.printing.printing_manager.mojom.PrintingMetadataProvider = {};
+
 chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,6 +397,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRequest = chrom
 
 
 // Interface: PrintManagementHandler
+chromeos.printing.printing_manager.mojom.PrintManagementHandler = {};
+
 chromeos.printing.printing_manager.mojom.PrintManagementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

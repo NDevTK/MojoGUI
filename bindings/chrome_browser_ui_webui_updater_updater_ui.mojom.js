@@ -10,6 +10,8 @@ updater_ui.mojom = updater_ui.mojom || {};
 
 
 // Interface: PageHandlerFactory
+updater_ui.mojom.PageHandlerFactory = {};
+
 updater_ui.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ updater_ui.mojom.PageHandlerFactoryRequest = updater_ui.mojom.PageHandlerFactory
 
 
 // Interface: PageHandler
+updater_ui.mojom.PageHandler = {};
+
 updater_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -169,6 +173,8 @@ updater_ui.mojom.PageHandlerRequest = updater_ui.mojom.PageHandlerPendingReceive
 
 
 // Interface: Page
+updater_ui.mojom.Page = {};
+
 updater_ui.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

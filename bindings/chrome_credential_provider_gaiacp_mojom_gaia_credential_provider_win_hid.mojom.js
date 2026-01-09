@@ -10,6 +10,8 @@ gcpw_hid.mojom = gcpw_hid.mojom || {};
 
 
 // Interface: GaiaCredentialProviderHidBroker
+gcpw_hid.mojom.GaiaCredentialProviderHidBroker = {};
+
 gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

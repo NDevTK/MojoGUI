@@ -25,6 +25,8 @@ chromeos.machine_learning.mojom.ExecuteResult = {
 };
 
 // Interface: GraphExecutor
+chromeos.machine_learning.mojom.GraphExecutor = {};
+
 chromeos.machine_learning.mojom.GraphExecutorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

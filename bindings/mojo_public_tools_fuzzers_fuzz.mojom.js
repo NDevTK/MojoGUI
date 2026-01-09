@@ -17,6 +17,8 @@ fuzz.mojom.FuzzEnum = {
 };
 
 // Interface: FuzzDummyInterface
+fuzz.mojom.FuzzDummyInterface = {};
+
 fuzz.mojom.FuzzDummyInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -89,6 +91,8 @@ fuzz.mojom.FuzzDummyInterfaceRequest = fuzz.mojom.FuzzDummyInterfacePendingRecei
 
 
 // Interface: FuzzInterface
+fuzz.mojom.FuzzInterface = {};
+
 fuzz.mojom.FuzzInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

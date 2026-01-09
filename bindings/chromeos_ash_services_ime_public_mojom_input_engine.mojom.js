@@ -11,6 +11,8 @@ ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Interface: InputChannel
+ash.ime.mojom.InputChannel = {};
+
 ash.ime.mojom.InputChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

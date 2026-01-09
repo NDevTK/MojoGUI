@@ -33,6 +33,8 @@ optimization_guide.mojom.ModelUnavailableReason = {
 };
 
 // Interface: ModelSolution
+optimization_guide.mojom.ModelSolution = {};
+
 optimization_guide.mojom.ModelSolutionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -152,6 +154,8 @@ optimization_guide.mojom.ModelSolutionRequest = optimization_guide.mojom.ModelSo
 
 
 // Interface: ModelSubscriber
+optimization_guide.mojom.ModelSubscriber = {};
+
 optimization_guide.mojom.ModelSubscriberPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,6 +253,8 @@ optimization_guide.mojom.ModelSubscriberRequest = optimization_guide.mojom.Model
 
 
 // Interface: ModelBroker
+optimization_guide.mojom.ModelBroker = {};
+
 optimization_guide.mojom.ModelBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

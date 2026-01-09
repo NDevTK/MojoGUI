@@ -70,6 +70,8 @@ payments.mojom.PaymentComplete = {
 };
 
 // Interface: PaymentRequestClient
+payments.mojom.PaymentRequestClient = {};
+
 payments.mojom.PaymentRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,6 +413,8 @@ payments.mojom.PaymentRequestClientRequest = payments.mojom.PaymentRequestClient
 
 
 // Interface: PaymentRequest
+payments.mojom.PaymentRequest = {};
+
 payments.mojom.PaymentRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

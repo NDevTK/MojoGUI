@@ -22,6 +22,8 @@ ash.cfm.mojom.GetFn = {
 };
 
 // Interface: XuCamera
+ash.cfm.mojom.XuCamera = {};
+
 ash.cfm.mojom.XuCameraPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

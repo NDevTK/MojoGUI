@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileBackedBlobFactory
+blink.mojom.FileBackedBlobFactory = {};
+
 blink.mojom.FileBackedBlobFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

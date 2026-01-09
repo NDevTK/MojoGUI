@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: MtpManagerClient
+device.mojom.MtpManagerClient = {};
+
 device.mojom.MtpManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ device.mojom.MtpManagerClientRequest = device.mojom.MtpManagerClientPendingRecei
 
 
 // Interface: MtpManager
+device.mojom.MtpManager = {};
+
 device.mojom.MtpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

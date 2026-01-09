@@ -11,6 +11,8 @@ chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
 
 
 // Interface: MediaPerception
+chromeos.media_perception.mojom.MediaPerception = {};
+
 chromeos.media_perception.mojom.MediaPerceptionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

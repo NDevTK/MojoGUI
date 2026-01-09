@@ -38,6 +38,8 @@ device.mojom.NSRawTypeNameFormat = {
 };
 
 // Interface: NFC
+device.mojom.NFC = {};
+
 device.mojom.NFCPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,6 +288,8 @@ device.mojom.NFCRequest = device.mojom.NFCPendingReceiver;
 
 
 // Interface: NFCClient
+device.mojom.NFCClient = {};
+
 device.mojom.NFCClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -384,6 +388,8 @@ device.mojom.NFCClientRequest = device.mojom.NFCClientPendingReceiver;
 
 
 // Interface: RawNFCClient
+device.mojom.RawNFCClient = {};
+
 device.mojom.RawNFCClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

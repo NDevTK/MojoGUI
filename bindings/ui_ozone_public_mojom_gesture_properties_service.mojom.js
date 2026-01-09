@@ -21,6 +21,8 @@ ui.ozone.mojom.SetGesturePropErrorCode = {
 };
 
 // Interface: GesturePropertiesService
+ui.ozone.mojom.GesturePropertiesService = {};
+
 ui.ozone.mojom.GesturePropertiesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

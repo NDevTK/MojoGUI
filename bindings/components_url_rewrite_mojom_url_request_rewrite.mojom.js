@@ -16,6 +16,8 @@ url_rewrite.mojom.UrlRequestAccessPolicy = {
 };
 
 // Interface: UrlRequestRulesReceiver
+url_rewrite.mojom.UrlRequestRulesReceiver = {};
+
 url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

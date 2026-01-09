@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: CacheEncryptionProvider
+network.mojom.CacheEncryptionProvider = {};
+
 network.mojom.CacheEncryptionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

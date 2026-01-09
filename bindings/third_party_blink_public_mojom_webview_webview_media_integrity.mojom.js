@@ -19,6 +19,8 @@ blink.mojom.WebViewMediaIntegrityErrorCode = {
 };
 
 // Interface: WebViewMediaIntegrityService
+blink.mojom.WebViewMediaIntegrityService = {};
+
 blink.mojom.WebViewMediaIntegrityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ blink.mojom.WebViewMediaIntegrityServiceRequest = blink.mojom.WebViewMediaIntegr
 
 
 // Interface: WebViewMediaIntegrityProvider
+blink.mojom.WebViewMediaIntegrityProvider = {};
+
 blink.mojom.WebViewMediaIntegrityProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

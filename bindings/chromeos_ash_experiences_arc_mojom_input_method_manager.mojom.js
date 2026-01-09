@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: InputConnection
+arc.mojom.InputConnection = {};
+
 arc.mojom.InputConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.InputConnectionRequest = arc.mojom.InputConnectionPendingReceiver;
 
 
 // Interface: InputMethodManagerHost
+arc.mojom.InputMethodManagerHost = {};
+
 arc.mojom.InputMethodManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.InputMethodManagerHostRequest = arc.mojom.InputMethodManagerHostPendin
 
 
 // Interface: InputMethodManagerInstance
+arc.mojom.InputMethodManagerInstance = {};
+
 arc.mojom.InputMethodManagerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

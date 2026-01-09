@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PersistentRendererPrefsService
+blink.mojom.PersistentRendererPrefsService = {};
+
 blink.mojom.PersistentRendererPrefsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

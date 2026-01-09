@@ -104,6 +104,8 @@ crosapi.mojom.Issue = {
 };
 
 // Interface: TelemetryDiagnosticRoutineControl
+crosapi.mojom.TelemetryDiagnosticRoutineControl = {};
+
 crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -154,6 +156,8 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.Telemetry
 
 
 // Interface: TelemetryDiagnosticRoutineObserver
+crosapi.mojom.TelemetryDiagnosticRoutineObserver = {};
+
 crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -204,6 +208,8 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.Telemetr
 
 
 // Interface: TelemetryDiagnosticRoutinesService
+crosapi.mojom.TelemetryDiagnosticRoutinesService = {};
+
 crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

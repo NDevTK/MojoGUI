@@ -17,6 +17,8 @@ storage.mojom.ForceCloseReason = {
 };
 
 // Interface: IndexedDBObserver
+storage.mojom.IndexedDBObserver = {};
+
 storage.mojom.IndexedDBObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -115,6 +117,8 @@ storage.mojom.IndexedDBObserverRequest = storage.mojom.IndexedDBObserverPendingR
 
 
 // Interface: IndexedDBControl
+storage.mojom.IndexedDBControl = {};
+
 storage.mojom.IndexedDBControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

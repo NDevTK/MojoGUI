@@ -162,6 +162,8 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemType = 
 };
 
 // Interface: NetworkDiagnosticsRoutines
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines = {};
+
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

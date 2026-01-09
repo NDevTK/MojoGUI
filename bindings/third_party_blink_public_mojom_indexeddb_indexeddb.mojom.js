@@ -98,6 +98,8 @@ blink.mojom.IDBException = {
 };
 
 // Interface: IDBFactoryClient
+blink.mojom.IDBFactoryClient = {};
+
 blink.mojom.IDBFactoryClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,6 +271,8 @@ blink.mojom.IDBFactoryClientRequest = blink.mojom.IDBFactoryClientPendingReceive
 
 
 // Interface: IDBDatabaseCallbacks
+blink.mojom.IDBDatabaseCallbacks = {};
+
 blink.mojom.IDBDatabaseCallbacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,6 +417,8 @@ blink.mojom.IDBDatabaseCallbacksRequest = blink.mojom.IDBDatabaseCallbacksPendin
 
 
 // Interface: IDBCursor
+blink.mojom.IDBCursor = {};
+
 blink.mojom.IDBCursorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -595,6 +601,8 @@ blink.mojom.IDBCursorRequest = blink.mojom.IDBCursorPendingReceiver;
 
 
 // Interface: IDBTransaction
+blink.mojom.IDBTransaction = {};
+
 blink.mojom.IDBTransactionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -804,6 +812,8 @@ blink.mojom.IDBTransactionRequest = blink.mojom.IDBTransactionPendingReceiver;
 
 
 // Interface: IDBDatabaseGetAllResultSink
+blink.mojom.IDBDatabaseGetAllResultSink = {};
+
 blink.mojom.IDBDatabaseGetAllResultSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -901,6 +911,8 @@ blink.mojom.IDBDatabaseGetAllResultSinkRequest = blink.mojom.IDBDatabaseGetAllRe
 
 
 // Interface: IDBDatabase
+blink.mojom.IDBDatabase = {};
+
 blink.mojom.IDBDatabasePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1446,6 +1458,8 @@ blink.mojom.IDBDatabaseRequest = blink.mojom.IDBDatabasePendingReceiver;
 
 
 // Interface: IDBFactory
+blink.mojom.IDBFactory = {};
+
 blink.mojom.IDBFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

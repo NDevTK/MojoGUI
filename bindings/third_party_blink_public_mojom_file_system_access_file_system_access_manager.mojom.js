@@ -20,6 +20,8 @@ blink.mojom.WellKnownDirectory = {
 };
 
 // Interface: FileSystemAccessManager
+blink.mojom.FileSystemAccessManager = {};
+
 blink.mojom.FileSystemAccessManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

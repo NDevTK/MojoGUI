@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: RendererAudioOutputStreamFactory
+blink.mojom.RendererAudioOutputStreamFactory = {};
+
 blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ImeRenderWidgetHost
+blink.mojom.ImeRenderWidgetHost = {};
+
 blink.mojom.ImeRenderWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

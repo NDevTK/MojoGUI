@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ControllerServiceWorker
+blink.mojom.ControllerServiceWorker = {};
+
 blink.mojom.ControllerServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -124,6 +126,8 @@ blink.mojom.ControllerServiceWorkerRequest = blink.mojom.ControllerServiceWorker
 
 
 // Interface: ControllerServiceWorkerConnector
+blink.mojom.ControllerServiceWorkerConnector = {};
+
 blink.mojom.ControllerServiceWorkerConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

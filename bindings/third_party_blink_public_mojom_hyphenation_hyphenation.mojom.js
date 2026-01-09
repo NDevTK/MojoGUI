@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: Hyphenation
+blink.mojom.Hyphenation = {};
+
 blink.mojom.HyphenationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -40,6 +40,8 @@ blink.mojom.BackgroundSyncType = {
 };
 
 // Interface: OneShotBackgroundSyncService
+blink.mojom.OneShotBackgroundSyncService = {};
+
 blink.mojom.OneShotBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -188,6 +190,8 @@ blink.mojom.OneShotBackgroundSyncServiceRequest = blink.mojom.OneShotBackgroundS
 
 
 // Interface: PeriodicBackgroundSyncService
+blink.mojom.PeriodicBackgroundSyncService = {};
+
 blink.mojom.PeriodicBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

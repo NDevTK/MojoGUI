@@ -19,6 +19,8 @@ arc.mojom.ThemeStyleType = {
 };
 
 // Interface: SystemUiInstance
+arc.mojom.SystemUiInstance = {};
+
 arc.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

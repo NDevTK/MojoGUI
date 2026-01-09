@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: PrivacyItemsHost
+arc.mojom.PrivacyItemsHost = {};
+
 arc.mojom.PrivacyItemsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
 
 
 // Interface: PrivacyItemsInstance
+arc.mojom.PrivacyItemsInstance = {};
+
 arc.mojom.PrivacyItemsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -19,6 +19,8 @@ media.mojom.VideoCaptureState = {
 };
 
 // Interface: VideoCaptureObserver
+media.mojom.VideoCaptureObserver = {};
+
 media.mojom.VideoCaptureObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -208,6 +210,8 @@ media.mojom.VideoCaptureObserverRequest = media.mojom.VideoCaptureObserverPendin
 
 
 // Interface: VideoCaptureHost
+media.mojom.VideoCaptureHost = {};
+
 media.mojom.VideoCaptureHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
