@@ -1,0 +1,19 @@
+// Auto-generated MojoJS binding
+// Source: chromium_src/ui/base/mojom/themes.mojom
+// Module: ui.mojom
+
+'use strict';
+
+// Module namespace
+var ui = ui || {};
+ui.mojom = ui.mojom || {};
+
+
+// Enum: BrowserColorVariant
+ui.mojom.BrowserColorVariant = {
+  kSystem: 0,
+  kTonalSpot: 1,
+  kNeutral: 2,
+  kVibrant: 3,
+  kExpressive: 4,
+};

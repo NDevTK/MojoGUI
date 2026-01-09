@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T19:33:17.367868Z",
+  "generated_at": "2026-01-09T21:12:41.619524Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -22314,13 +22314,58 @@
       "module": "android_webview.mojom"
     },
     {
+      "filename": "ash_public_mojom_accelerator_actions.mojom.js",
+      "source": "ash/public/mojom/accelerator_actions.mojom",
+      "module": "ash.mojom"
+    },
+    {
+      "filename": "ash_public_mojom_accelerator_configuration.mojom.js",
+      "source": "ash/public/mojom/accelerator_configuration.mojom",
+      "module": "ash.mojom"
+    },
+    {
+      "filename": "ash_public_mojom_accelerator_info.mojom.js",
+      "source": "ash/public/mojom/accelerator_info.mojom",
+      "module": "ash.mojom"
+    },
+    {
+      "filename": "ash_public_mojom_accelerator_keys.mojom.js",
+      "source": "ash/public/mojom/accelerator_keys.mojom",
+      "module": "ash.mojom"
+    },
+    {
       "filename": "ash_public_mojom_hid_preserving_bluetooth_state_controller.mojom.js",
       "source": "ash/public/mojom/hid_preserving_bluetooth_state_controller.mojom",
       "module": "ash.mojom"
     },
     {
+      "filename": "ash_public_mojom_input_device_settings.mojom.js",
+      "source": "ash/public/mojom/input_device_settings.mojom",
+      "module": "ash.mojom"
+    },
+    {
+      "filename": "ash_public_mojom_wallpaper.mojom.js",
+      "source": "ash/public/mojom/wallpaper.mojom",
+      "module": "ash.mojom"
+    },
+    {
+      "filename": "ash_style_mojom_color_scheme.mojom.js",
+      "source": "ash/style/mojom/color_scheme.mojom",
+      "module": "ash.style.mojom"
+    },
+    {
+      "filename": "ash_system_diagnostics_mojom_input.mojom.js",
+      "source": "ash/system/diagnostics/mojom/input.mojom",
+      "module": "ash.diagnostics.mojom"
+    },
+    {
       "filename": "ash_webui_annotator_mojom_untrusted_annotator.mojom.js",
       "source": "ash/webui/annotator/mojom/untrusted_annotator.mojom",
+      "module": "ash.annotator.mojom"
+    },
+    {
+      "filename": "ash_webui_annotator_public_mojom_annotator_structs.mojom.js",
+      "source": "ash/webui/annotator/public/mojom/annotator_structs.mojom",
       "module": "ash.annotator.mojom"
     },
     {
@@ -22344,8 +22389,18 @@
       "module": "ash.camera_app.mojom"
     },
     {
+      "filename": "ash_webui_camera_app_ui_ocr.mojom.js",
+      "source": "ash/webui/camera_app_ui/ocr.mojom",
+      "module": "ash.camera_app.mojom"
+    },
+    {
       "filename": "ash_webui_camera_app_ui_pdf_builder.mojom.js",
       "source": "ash/webui/camera_app_ui/pdf_builder.mojom",
+      "module": "ash.camera_app.mojom"
+    },
+    {
+      "filename": "ash_webui_camera_app_ui_types.mojom.js",
+      "source": "ash/webui/camera_app_ui/types.mojom",
       "module": "ash.camera_app.mojom"
     },
     {
@@ -22366,6 +22421,11 @@
     {
       "filename": "ash_webui_common_mojom_sea_pen.mojom.js",
       "source": "ash/webui/common/mojom/sea_pen.mojom",
+      "module": "ash.personalization_app.mojom"
+    },
+    {
+      "filename": "ash_webui_common_mojom_sea_pen_generated.mojom.js",
+      "source": "ash/webui/common/mojom/sea_pen_generated.mojom",
       "module": "ash.personalization_app.mojom"
     },
     {
@@ -22484,8 +22544,18 @@
       "module": "ash.printing.print_preview.mojom"
     },
     {
+      "filename": "ash_webui_print_preview_cros_mojom_printer_capabilities.mojom.js",
+      "source": "ash/webui/print_preview_cros/mojom/printer_capabilities.mojom",
+      "module": "ash.printing.print_preview.mojom"
+    },
+    {
       "filename": "ash_webui_projector_app_mojom_untrusted_projector.mojom.js",
       "source": "ash/webui/projector_app/mojom/untrusted_projector.mojom",
+      "module": "ash.projector.mojom"
+    },
+    {
+      "filename": "ash_webui_projector_app_public_mojom_projector_types.mojom.js",
+      "source": "ash/webui/projector_app/public/mojom/projector_types.mojom",
       "module": "ash.projector.mojom"
     },
     {
@@ -22524,6 +22594,16 @@
       "module": "ash.scanning.mojom"
     },
     {
+      "filename": "ash_webui_settings_public_constants_routes.mojom.js",
+      "source": "ash/webui/settings/public/constants/routes.mojom",
+      "module": "chromeos.settings.mojom"
+    },
+    {
+      "filename": "ash_webui_settings_public_constants_setting.mojom.js",
+      "source": "ash/webui/settings/public/constants/setting.mojom",
+      "module": "chromeos.settings.mojom"
+    },
+    {
       "filename": "ash_webui_shimless_rma_mojom_shimless_rma.mojom.js",
       "source": "ash/webui/shimless_rma/mojom/shimless_rma.mojom",
       "module": "ash.shimless_rma.mojom"
@@ -22544,14 +22624,99 @@
       "module": "ash.mojom.status_area_internals"
     },
     {
+      "filename": "cc_mojom_browser_controls_offset_tag_modifications.mojom.js",
+      "source": "cc/mojom/browser_controls_offset_tag_modifications.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_browser_controls_offset_tags.mojom.js",
+      "source": "cc/mojom/browser_controls_offset_tags.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_browser_controls_params.mojom.js",
+      "source": "cc/mojom/browser_controls_params.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_element_id.mojom.js",
+      "source": "cc/mojom/element_id.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_hit_test_opaqueness.mojom.js",
+      "source": "cc/mojom/hit_test_opaqueness.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_layer_selection_bound.mojom.js",
+      "source": "cc/mojom/layer_selection_bound.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_layer_tree_debug_state.mojom.js",
+      "source": "cc/mojom/layer_tree_debug_state.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_layer_type.mojom.js",
+      "source": "cc/mojom/layer_type.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_missing_tile_reason.mojom.js",
+      "source": "cc/mojom/missing_tile_reason.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_paint_flags.mojom.js",
+      "source": "cc/mojom/paint_flags.mojom",
+      "module": "cc.mojom"
+    },
+    {
       "filename": "cc_mojom_render_frame_metadata.mojom.js",
       "source": "cc/mojom/render_frame_metadata.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_render_surface_reason.mojom.js",
+      "source": "cc/mojom/render_surface_reason.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_scrollbar_animator.mojom.js",
+      "source": "cc/mojom/scrollbar_animator.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_synced_scroll_offset.mojom.js",
+      "source": "cc/mojom/synced_scroll_offset.mojom",
+      "module": "cc.mojom"
+    },
+    {
+      "filename": "cc_mojom_ui_resource_id.mojom.js",
+      "source": "cc/mojom/ui_resource_id.mojom",
       "module": "cc.mojom"
     },
     {
       "filename": "chrome_browser_actor_ui_actor_overlay.mojom.js",
       "source": "chrome/browser/actor/ui/actor_overlay.mojom",
       "module": "actor.ui.mojom"
+    },
+    {
+      "filename": "chrome_browser_ash_borealis_borealis_types.mojom.js",
+      "source": "chrome/browser/ash/borealis/borealis_types.mojom",
+      "module": "borealis.mojom"
+    },
+    {
+      "filename": "chrome_browser_ash_crostini_crostini_types.mojom.js",
+      "source": "chrome/browser/ash/crostini/crostini_types.mojom",
+      "module": "crostini.mojom"
+    },
+    {
+      "filename": "chrome_browser_ash_guest_os_guest_os_diagnostics.mojom.js",
+      "source": "chrome/browser/ash/guest_os/guest_os_diagnostics.mojom",
+      "module": "guest_os.mojom"
     },
     {
       "filename": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
@@ -22564,6 +22729,11 @@
       "module": "contextual_tasks_internals.mojom"
     },
     {
+      "filename": "chrome_browser_contextual_tasks_contextual_tasks_types.mojom.js",
+      "source": "chrome/browser/contextual_tasks/contextual_tasks_types.mojom",
+      "module": "contextual_tasks.mojom"
+    },
+    {
       "filename": "chrome_browser_glic_fre_glic_fre.mojom.js",
       "source": "chrome/browser/glic/fre/glic_fre.mojom",
       "module": "glic.mojom"
@@ -22572,6 +22742,11 @@
       "filename": "chrome_browser_glic_host_glic.mojom.js",
       "source": "chrome/browser/glic/host/glic.mojom",
       "module": "glic.mojom"
+    },
+    {
+      "filename": "chrome_browser_lens_core_mojom_geometry.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/geometry.mojom",
+      "module": "lens.mojom"
     },
     {
       "filename": "chrome_browser_lens_core_mojom_lens.mojom.js",
@@ -22589,6 +22764,31 @@
       "module": "lens.mojom"
     },
     {
+      "filename": "chrome_browser_lens_core_mojom_overlay_object.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/overlay_object.mojom",
+      "module": "lens.mojom"
+    },
+    {
+      "filename": "chrome_browser_lens_core_mojom_page_content_type.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/page_content_type.mojom",
+      "module": "lens.mojom"
+    },
+    {
+      "filename": "chrome_browser_lens_core_mojom_polygon.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/polygon.mojom",
+      "module": "lens.mojom"
+    },
+    {
+      "filename": "chrome_browser_lens_core_mojom_text.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/text.mojom",
+      "module": "lens.mojom"
+    },
+    {
+      "filename": "chrome_browser_lens_core_mojom_translate.mojom.js",
+      "source": "chrome/browser/lens/core/mojom/translate.mojom",
+      "module": "lens.mojom"
+    },
+    {
       "filename": "chrome_browser_media_media_engagement_score_details.mojom.js",
       "source": "chrome/browser/media/media_engagement_score_details.mojom",
       "module": "media.mojom"
@@ -22596,6 +22796,11 @@
     {
       "filename": "chrome_browser_new_tab_page_modules_file_suggestion_drive_suggestion.mojom.js",
       "source": "chrome/browser/new_tab_page/modules/file_suggestion/drive_suggestion.mojom",
+      "module": "file_suggestion.mojom"
+    },
+    {
+      "filename": "chrome_browser_new_tab_page_modules_file_suggestion_file_suggestion.mojom.js",
+      "source": "chrome/browser/new_tab_page/modules/file_suggestion/file_suggestion.mojom",
       "module": "file_suggestion.mojom"
     },
     {
@@ -22614,6 +22819,11 @@
       "module": "ntp.authentication.mojom"
     },
     {
+      "filename": "chrome_browser_new_tab_page_modules_v2_calendar_calendar_data.mojom.js",
+      "source": "chrome/browser/new_tab_page/modules/v2/calendar/calendar_data.mojom",
+      "module": "ntp.calendar.mojom"
+    },
+    {
       "filename": "chrome_browser_new_tab_page_modules_v2_calendar_google_calendar.mojom.js",
       "source": "chrome/browser/new_tab_page/modules/v2/calendar/google_calendar.mojom",
       "module": "ntp.calendar.mojom"
@@ -22629,9 +22839,24 @@
       "module": "ntp.most_relevant_tab_resumption.mojom"
     },
     {
+      "filename": "chrome_browser_new_tab_page_modules_v2_most_relevant_tab_resumption_url_visit_types.mojom.js",
+      "source": "chrome/browser/new_tab_page/modules/v2/most_relevant_tab_resumption/url_visit_types.mojom",
+      "module": "ntp.most_relevant_tab_resumption.mojom"
+    },
+    {
       "filename": "chrome_browser_new_tab_page_modules_v2_tab_groups_tab_groups.mojom.js",
       "source": "chrome/browser/new_tab_page/modules/v2/tab_groups/tab_groups.mojom",
       "module": "ntp.tab_groups.mojom"
+    },
+    {
+      "filename": "chrome_browser_privacy_sandbox_notice_notice.mojom.js",
+      "source": "chrome/browser/privacy_sandbox/notice/notice.mojom",
+      "module": "privacy_sandbox.notice.mojom"
+    },
+    {
+      "filename": "chrome_browser_resource_coordinator_lifecycle_unit_state.mojom.js",
+      "source": "chrome/browser/resource_coordinator/lifecycle_unit_state.mojom",
+      "module": "mojom"
     },
     {
       "filename": "chrome_browser_resources_certificate_manager_certificate_manager.mojom.js",
@@ -22819,6 +23044,11 @@
       "module": "ash.settings.mojom"
     },
     {
+      "filename": "chrome_browser_ui_webui_ash_settings_search_mojom_search_result_icon.mojom.js",
+      "source": "chrome/browser/ui/webui/ash/settings/search/mojom/search_result_icon.mojom",
+      "module": "ash.settings.mojom"
+    },
+    {
       "filename": "chrome_browser_ui_webui_ash_settings_search_mojom_user_action_recorder.mojom.js",
       "source": "chrome/browser/ui/webui/ash/settings/search/mojom/user_action_recorder.mojom",
       "module": "ash.settings.mojom"
@@ -22891,6 +23121,11 @@
     {
       "filename": "chrome_browser_ui_webui_nearby_share_nearby_share.mojom.js",
       "source": "chrome/browser/ui/webui/nearby_share/nearby_share.mojom",
+      "module": "nearby_share.mojom"
+    },
+    {
+      "filename": "chrome_browser_ui_webui_nearby_share_nearby_share_share_type.mojom.js",
+      "source": "chrome/browser/ui/webui/nearby_share/nearby_share_share_type.mojom",
       "module": "nearby_share.mojom"
     },
     {
@@ -23069,6 +23304,11 @@
       "module": "tab_strip_internals.mojom"
     },
     {
+      "filename": "chrome_browser_ui_webui_tabs_tabs.mojom.js",
+      "source": "chrome/browser/ui/webui/tabs/tabs.mojom",
+      "module": "tabs.mojom"
+    },
+    {
       "filename": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
       "source": "chrome/browser/ui/webui/unexportable_keys_internals/unexportable_keys_internals.mojom",
       "module": "unexportable_keys_internals.mojom"
@@ -23119,6 +23359,11 @@
       "module": "extensions_bar.mojom"
     },
     {
+      "filename": "chrome_browser_web_applications_mojom_user_display_mode.mojom.js",
+      "source": "chrome/browser/web_applications/mojom/user_display_mode.mojom",
+      "module": "web_app.mojom"
+    },
+    {
       "filename": "chrome_browser_web_applications_mojom_web_app_shortcut_copier.mojom.js",
       "source": "chrome/browser/web_applications/mojom/web_app_shortcut_copier.mojom",
       "module": "web_app.mojom"
@@ -23127,6 +23372,11 @@
       "filename": "chrome_common_actor.mojom.js",
       "source": "chrome/common/actor.mojom",
       "module": "actor.mojom"
+    },
+    {
+      "filename": "chrome_common_actor_webui.mojom.js",
+      "source": "chrome/common/actor_webui.mojom",
+      "module": "actor.webui.mojom"
     },
     {
       "filename": "chrome_common_chrome_render_frame.mojom.js",
@@ -23254,6 +23504,16 @@
       "module": "enterprise_companion.mojom"
     },
     {
+      "filename": "chrome_enterprise_companion_mojom_policy_fetch_reason.mojom.js",
+      "source": "chrome/enterprise_companion/mojom/policy_fetch_reason.mojom",
+      "module": "enterprise_companion.mojom"
+    },
+    {
+      "filename": "chrome_services_file_util_public_mojom_constants.mojom.js",
+      "source": "chrome/services/file_util/public/mojom/constants.mojom",
+      "module": "chrome.file_util.mojom"
+    },
+    {
       "filename": "chrome_services_file_util_public_mojom_document_analysis_service.mojom.js",
       "source": "chrome/services/file_util/public/mojom/document_analysis_service.mojom",
       "module": "chrome.mojom"
@@ -23316,6 +23576,11 @@
     {
       "filename": "chrome_services_printing_public_mojom_pdf_nup_converter.mojom.js",
       "source": "chrome/services/printing/public/mojom/pdf_nup_converter.mojom",
+      "module": "printing.mojom"
+    },
+    {
+      "filename": "chrome_services_printing_public_mojom_pdf_render_settings.mojom.js",
+      "source": "chrome/services/printing/public/mojom/pdf_render_settings.mojom",
       "module": "printing.mojom"
     },
     {
@@ -23509,6 +23774,11 @@
       "module": "chromecast.external_mojo.mojom"
     },
     {
+      "filename": "chromecast_media_mojom_media_types.mojom.js",
+      "source": "chromecast/media/mojom/media_types.mojom",
+      "module": "chromecast.media.mojom"
+    },
+    {
       "filename": "chromecast_media_service_mojom_video_geometry_setter.mojom.js",
       "source": "chromecast/media/service/mojom/video_geometry_setter.mojom",
       "module": "chromecast.media.mojom"
@@ -23521,6 +23791,11 @@
     {
       "filename": "chromecast_ui_mojom_display_settings.mojom.js",
       "source": "chromecast/ui/mojom/display_settings.mojom",
+      "module": "chromecast.mojom"
+    },
+    {
+      "filename": "chromecast_ui_mojom_ui_service.mojom.js",
+      "source": "chromecast/ui/mojom/ui_service.mojom",
       "module": "chromecast.mojom"
     },
     {
@@ -23539,9 +23814,24 @@
       "module": "drivefs.mojom"
     },
     {
+      "filename": "chromeos_ash_components_drivefs_mojom_notifications.mojom.js",
+      "source": "chromeos/ash/components/drivefs/mojom/notifications.mojom",
+      "module": "drivefs.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_drivefs_mojom_pinning_manager_types.mojom.js",
+      "source": "chromeos/ash/components/drivefs/mojom/pinning_manager_types.mojom",
+      "module": "drivefs.pinning_manager_types.mojom"
+    },
+    {
       "filename": "chromeos_ash_components_emoji_emoji_search.mojom.js",
       "source": "chromeos/ash/components/emoji/emoji_search.mojom",
       "module": "emoji_search.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_emoji_tenor_types.mojom.js",
+      "source": "chromeos/ash/components/emoji/tenor_types.mojom",
+      "module": "tenor.mojom"
     },
     {
       "filename": "chromeos_ash_components_enhanced_network_tts_mojom_enhanced_network_tts.mojom.js",
@@ -23561,6 +23851,11 @@
     {
       "filename": "chromeos_ash_components_local_search_service_public_mojom_local_search_service.mojom.js",
       "source": "chromeos/ash/components/local_search_service/public/mojom/local_search_service.mojom",
+      "module": "ash.local_search_service.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_local_search_service_public_mojom_types.mojom.js",
+      "source": "chromeos/ash/components/local_search_service/public/mojom/types.mojom",
       "module": "ash.local_search_service.mojom"
     },
     {
@@ -23584,6 +23879,26 @@
       "module": "chromeos.mojo_service_manager.mojom"
     },
     {
+      "filename": "chromeos_ash_components_multidevice_mojom_multidevice_types.mojom.js",
+      "source": "chromeos/ash/components/multidevice/mojom/multidevice_types.mojom",
+      "module": "ash.multidevice.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_proximity_auth_public_mojom_auth_type.mojom.js",
+      "source": "chromeos/ash/components/proximity_auth/public/mojom/auth_type.mojom",
+      "module": "proximity_auth.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_smbfs_mojom_file_path.mojom.js",
+      "source": "chromeos/ash/components/smbfs/mojom/file_path.mojom",
+      "module": "smbfs.mojom"
+    },
+    {
+      "filename": "chromeos_ash_components_smbfs_mojom_ip_address.mojom.js",
+      "source": "chromeos/ash/components/smbfs/mojom/ip_address.mojom",
+      "module": "smbfs.mojom"
+    },
+    {
       "filename": "chromeos_ash_components_smbfs_mojom_smbfs.mojom.js",
       "source": "chromeos/ash/components/smbfs/mojom/smbfs.mojom",
       "module": "smbfs.mojom"
@@ -23596,6 +23911,11 @@
     {
       "filename": "chromeos_ash_experiences_arc_mojom_adbd.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/adbd.mojom",
+      "module": "arc.mojom"
+    },
+    {
+      "filename": "chromeos_ash_experiences_arc_mojom_anr.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/anr.mojom",
       "module": "arc.mojom"
     },
     {
@@ -23639,6 +23959,11 @@
       "module": "arc.mojom"
     },
     {
+      "filename": "chromeos_ash_experiences_arc_mojom_bitmap.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/bitmap.mojom",
+      "module": "arc.mojom"
+    },
+    {
       "filename": "chromeos_ash_experiences_arc_mojom_bluetooth.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/bluetooth.mojom",
       "module": "arc.mojom"
@@ -23651,6 +23976,11 @@
     {
       "filename": "chromeos_ash_experiences_arc_mojom_camera.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/camera.mojom",
+      "module": "arc.mojom"
+    },
+    {
+      "filename": "chromeos_ash_experiences_arc_mojom_camera_intent.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/camera_intent.mojom",
       "module": "arc.mojom"
     },
     {
@@ -23699,6 +24029,11 @@
       "module": "arc.mojom"
     },
     {
+      "filename": "chromeos_ash_experiences_arc_mojom_gfx.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/gfx.mojom",
+      "module": "arc.mojom"
+    },
+    {
       "filename": "chromeos_ash_experiences_arc_mojom_iio_sensor.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/iio_sensor.mojom",
       "module": "arc.mojom"
@@ -23711,6 +24046,11 @@
     {
       "filename": "chromeos_ash_experiences_arc_mojom_input_method_manager.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/input_method_manager.mojom",
+      "module": "arc.mojom"
+    },
+    {
+      "filename": "chromeos_ash_experiences_arc_mojom_intent_common.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/intent_common.mojom",
       "module": "arc.mojom"
     },
     {
@@ -23764,6 +24104,11 @@
       "module": "arc.mojom"
     },
     {
+      "filename": "chromeos_ash_experiences_arc_mojom_net_shared.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/net_shared.mojom",
+      "module": "arc.mojom"
+    },
+    {
       "filename": "chromeos_ash_experiences_arc_mojom_notifications.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/notifications.mojom",
       "module": "arc.mojom"
@@ -23799,6 +24144,11 @@
       "module": "arc.mojom"
     },
     {
+      "filename": "chromeos_ash_experiences_arc_mojom_print_common.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/print_common.mojom",
+      "module": "arc.mojom"
+    },
+    {
       "filename": "chromeos_ash_experiences_arc_mojom_print_spooler.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/print_spooler.mojom",
       "module": "arc.mojom"
@@ -23816,6 +24166,11 @@
     {
       "filename": "chromeos_ash_experiences_arc_mojom_protected_buffer_manager.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/protected_buffer_manager.mojom",
+      "module": "arc.mojom"
+    },
+    {
+      "filename": "chromeos_ash_experiences_arc_mojom_scale_factor.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/scale_factor.mojom",
       "module": "arc.mojom"
     },
     {
@@ -23861,6 +24216,11 @@
     {
       "filename": "chromeos_ash_experiences_arc_mojom_video.mojom.js",
       "source": "chromeos/ash/experiences/arc/mojom/video.mojom",
+      "module": "arc.mojom"
+    },
+    {
+      "filename": "chromeos_ash_experiences_arc_mojom_video_common.mojom.js",
+      "source": "chromeos/ash/experiences/arc/mojom/video_common.mojom",
       "module": "arc.mojom"
     },
     {
@@ -23969,8 +24329,23 @@
       "module": "ash.cros_healthd.mojom"
     },
     {
+      "filename": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_exception.mojom.js",
+      "source": "chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_exception.mojom",
+      "module": "ash.cros_healthd.mojom"
+    },
+    {
+      "filename": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_probe.mojom.js",
+      "source": "chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_probe.mojom",
+      "module": "ash.cros_healthd.mojom"
+    },
+    {
       "filename": "chromeos_ash_services_cros_healthd_public_mojom_cros_healthd_routines.mojom.js",
       "source": "chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_routines.mojom",
+      "module": "ash.cros_healthd.mojom"
+    },
+    {
+      "filename": "chromeos_ash_services_cros_healthd_public_mojom_nullable_primitives.mojom.js",
+      "source": "chromeos/ash/services/cros_healthd/public/mojom/nullable_primitives.mojom",
       "module": "ash.cros_healthd.mojom"
     },
     {
@@ -24039,6 +24414,16 @@
       "module": "ash.ime.mojom"
     },
     {
+      "filename": "chromeos_ash_services_ime_public_mojom_user_data_japanese_dictionary.mojom.js",
+      "source": "chromeos/ash/services/ime/public/mojom/user_data_japanese_dictionary.mojom",
+      "module": "ash.ime.mojom"
+    },
+    {
+      "filename": "chromeos_ash_services_keymanagement_public_mojom_cert_store_types.mojom.js",
+      "source": "chromeos/ash/services/keymanagement/public/mojom/cert_store_types.mojom",
+      "module": "arc.keymanagement.mojom"
+    },
+    {
       "filename": "chromeos_ash_services_keymaster_public_mojom_cert_store.mojom.js",
       "source": "chromeos/ash/services/keymaster/public/mojom/cert_store.mojom",
       "module": "arc.keymaster.mojom"
@@ -24069,8 +24454,18 @@
       "module": "nearby.connections.mojom"
     },
     {
+      "filename": "chromeos_ash_services_nearby_public_mojom_nearby_connections_types.mojom.js",
+      "source": "chromeos/ash/services/nearby/public/mojom/nearby_connections_types.mojom",
+      "module": "nearby.connections.mojom"
+    },
+    {
       "filename": "chromeos_ash_services_nearby_public_mojom_nearby_decoder.mojom.js",
       "source": "chromeos/ash/services/nearby/public/mojom/nearby_decoder.mojom",
+      "module": "sharing.mojom"
+    },
+    {
+      "filename": "chromeos_ash_services_nearby_public_mojom_nearby_decoder_types.mojom.js",
+      "source": "chromeos/ash/services/nearby/public/mojom/nearby_decoder_types.mojom",
       "module": "sharing.mojom"
     },
     {
@@ -24089,13 +24484,28 @@
       "module": "nearby_share.mojom"
     },
     {
+      "filename": "chromeos_ash_services_nearby_public_mojom_nearby_share_target_types.mojom.js",
+      "source": "chromeos/ash/services/nearby/public/mojom/nearby_share_target_types.mojom",
+      "module": "nearby_share.mojom"
+    },
+    {
       "filename": "chromeos_ash_services_nearby_public_mojom_quick_start_decoder.mojom.js",
       "source": "chromeos/ash/services/nearby/public/mojom/quick_start_decoder.mojom",
       "module": "ash.quick_start.mojom"
     },
     {
+      "filename": "chromeos_ash_services_nearby_public_mojom_quick_start_decoder_types.mojom.js",
+      "source": "chromeos/ash/services/nearby/public/mojom/quick_start_decoder_types.mojom",
+      "module": "ash.quick_start.mojom"
+    },
+    {
       "filename": "chromeos_ash_services_nearby_public_mojom_sharing.mojom.js",
       "source": "chromeos/ash/services/nearby/public/mojom/sharing.mojom",
+      "module": "sharing.mojom"
+    },
+    {
+      "filename": "chromeos_ash_services_nearby_public_mojom_tcp_server_socket_port.mojom.js",
+      "source": "chromeos/ash/services/nearby/public/mojom/tcp_server_socket_port.mojom",
       "module": "sharing.mojom"
     },
     {
@@ -24204,6 +24614,11 @@
       "module": "chromeos.payments.mojom"
     },
     {
+      "filename": "chromeos_components_payments_mojom_payment_app_types.mojom.js",
+      "source": "chromeos/components/payments/mojom/payment_app_types.mojom",
+      "module": "chromeos.payments.mojom"
+    },
+    {
       "filename": "chromeos_components_print_management_mojom_printing_manager.mojom.js",
       "source": "chromeos/components/print_management/mojom/printing_manager.mojom",
       "module": "chromeos.printing.printing_manager.mojom"
@@ -24239,6 +24654,11 @@
       "module": "crosapi.mojom"
     },
     {
+      "filename": "chromeos_crosapi_mojom_clipboard_history.mojom.js",
+      "source": "chromeos/crosapi/mojom/clipboard_history.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
       "filename": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
       "source": "chromeos/crosapi/mojom/cros_display_config.mojom",
       "module": "crosapi.mojom"
@@ -24264,6 +24684,11 @@
       "module": "crosapi.mojom"
     },
     {
+      "filename": "chromeos_crosapi_mojom_keystore_error.mojom.js",
+      "source": "chromeos/crosapi/mojom/keystore_error.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
       "filename": "chromeos_crosapi_mojom_keystore_service.mojom.js",
       "source": "chromeos/crosapi/mojom/keystore_service.mojom",
       "module": "crosapi.mojom"
@@ -24281,6 +24706,16 @@
     {
       "filename": "chromeos_crosapi_mojom_login.mojom.js",
       "source": "chromeos/crosapi/mojom/login.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
+      "filename": "chromeos_crosapi_mojom_mahi.mojom.js",
+      "source": "chromeos/crosapi/mojom/mahi.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
+      "filename": "chromeos_crosapi_mojom_nullable_primitives.mojom.js",
+      "source": "chromeos/crosapi/mojom/nullable_primitives.mojom",
       "module": "crosapi.mojom"
     },
     {
@@ -24319,8 +24754,23 @@
       "module": "crosapi.mojom"
     },
     {
+      "filename": "chromeos_crosapi_mojom_telemetry_extension_exception.mojom.js",
+      "source": "chromeos/crosapi/mojom/telemetry_extension_exception.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
+      "filename": "chromeos_crosapi_mojom_telemetry_keyboard_event.mojom.js",
+      "source": "chromeos/crosapi/mojom/telemetry_keyboard_event.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
       "filename": "chromeos_crosapi_mojom_telemetry_management_service.mojom.js",
       "source": "chromeos/crosapi/mojom/telemetry_management_service.mojom",
+      "module": "crosapi.mojom"
+    },
+    {
+      "filename": "chromeos_crosapi_mojom_ui_constants.mojom.js",
+      "source": "chromeos/crosapi/mojom/ui_constants.mojom",
       "module": "crosapi.mojom"
     },
     {
@@ -24384,6 +24834,11 @@
       "module": "chromeos.machine_learning.mojom"
     },
     {
+      "filename": "chromeos_services_machine_learning_public_mojom_document_scanner_param_types.mojom.js",
+      "source": "chromeos/services/machine_learning/public/mojom/document_scanner_param_types.mojom",
+      "module": "chromeos.machine_learning.mojom"
+    },
+    {
       "filename": "chromeos_services_machine_learning_public_mojom_grammar_checker.mojom.js",
       "source": "chromeos/services/machine_learning/public/mojom/grammar_checker.mojom",
       "module": "chromeos.machine_learning.mojom"
@@ -24424,6 +24879,11 @@
       "module": "chromeos.machine_learning.mojom"
     },
     {
+      "filename": "chromeos_services_machine_learning_public_mojom_tensor.mojom.js",
+      "source": "chromeos/services/machine_learning/public/mojom/tensor.mojom",
+      "module": "chromeos.machine_learning.mojom"
+    },
+    {
       "filename": "chromeos_services_machine_learning_public_mojom_text_classifier.mojom.js",
       "source": "chromeos/services/machine_learning/public/mojom/text_classifier.mojom",
       "module": "chromeos.machine_learning.mojom"
@@ -24454,6 +24914,11 @@
       "module": "chromeos.network_config.mojom"
     },
     {
+      "filename": "chromeos_services_network_config_public_mojom_network_types.mojom.js",
+      "source": "chromeos/services/network_config/public/mojom/network_types.mojom",
+      "module": "chromeos.network_config.mojom"
+    },
+    {
       "filename": "chromeos_services_network_health_public_mojom_network_diagnostics.mojom.js",
       "source": "chromeos/services/network_health/public/mojom/network_diagnostics.mojom",
       "module": "chromeos.network_diagnostics.mojom"
@@ -24461,6 +24926,11 @@
     {
       "filename": "chromeos_services_network_health_public_mojom_network_health.mojom.js",
       "source": "chromeos/services/network_health/public/mojom/network_health.mojom",
+      "module": "chromeos.network_health.mojom"
+    },
+    {
+      "filename": "chromeos_services_network_health_public_mojom_network_health_types.mojom.js",
+      "source": "chromeos/services/network_health/public/mojom/network_health_types.mojom",
       "module": "chromeos.network_health.mojom"
     },
     {
@@ -24479,8 +24949,63 @@
       "module": "codelabs.mojom"
     },
     {
+      "filename": "components_account_id_mojom_account_id.mojom.js",
+      "source": "components/account_id/mojom/account_id.mojom",
+      "module": "signin.mojom"
+    },
+    {
       "filename": "components_attribution_reporting_data_host.mojom.js",
       "source": "components/attribution_reporting/data_host.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_debug_types.mojom.js",
+      "source": "components/attribution_reporting/debug_types.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_os_registration_error.mojom.js",
+      "source": "components/attribution_reporting/os_registration_error.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_registration.mojom.js",
+      "source": "components/attribution_reporting/registration.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_registration_eligibility.mojom.js",
+      "source": "components/attribution_reporting/registration_eligibility.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_registration_header_error.mojom.js",
+      "source": "components/attribution_reporting/registration_header_error.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_source_registration_error.mojom.js",
+      "source": "components/attribution_reporting/source_registration_error.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_source_registration_time_config.mojom.js",
+      "source": "components/attribution_reporting/source_registration_time_config.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_source_type.mojom.js",
+      "source": "components/attribution_reporting/source_type.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_trigger_data_matching.mojom.js",
+      "source": "components/attribution_reporting/trigger_data_matching.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "components_attribution_reporting_trigger_registration_error.mojom.js",
+      "source": "components/attribution_reporting/trigger_registration_error.mojom",
       "module": "attribution_reporting.mojom"
     },
     {
@@ -24494,9 +25019,19 @@
       "module": "autofill.mojom"
     },
     {
+      "filename": "components_autofill_core_browser_data_model_autofill_ai_autofill_ai_enums.mojom.js",
+      "source": "components/autofill/core/browser/data_model/autofill_ai/autofill_ai_enums.mojom",
+      "module": "autofill.mojom"
+    },
+    {
       "filename": "components_autofill_core_browser_ml_model_logging_autofill_ml_internals.mojom.js",
       "source": "components/autofill/core/browser/ml_model/logging/autofill_ml_internals.mojom",
       "module": "autofill_ml_internals.mojom"
+    },
+    {
+      "filename": "components_autofill_core_common_mojom_autofill_types.mojom.js",
+      "source": "components/autofill/core/common/mojom/autofill_types.mojom",
+      "module": "autofill.mojom"
     },
     {
       "filename": "components_autofill_core_common_mojom_test_autofill_types.mojom.js",
@@ -24506,6 +25041,21 @@
     {
       "filename": "components_browser_apis_tab_strip_tab_strip_api.mojom.js",
       "source": "components/browser_apis/tab_strip/tab_strip_api.mojom",
+      "module": "tabs_api.mojom"
+    },
+    {
+      "filename": "components_browser_apis_tab_strip_tab_strip_api_data_model.mojom.js",
+      "source": "components/browser_apis/tab_strip/tab_strip_api_data_model.mojom",
+      "module": "tabs_api.mojom"
+    },
+    {
+      "filename": "components_browser_apis_tab_strip_tab_strip_api_events.mojom.js",
+      "source": "components/browser_apis/tab_strip/tab_strip_api_events.mojom",
+      "module": "tabs_api.mojom"
+    },
+    {
+      "filename": "components_browser_apis_tab_strip_tab_strip_api_types.mojom.js",
+      "source": "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
       "module": "tabs_api.mojom"
     },
     {
@@ -24527,6 +25077,11 @@
       "filename": "components_cast_streaming_common_public_mojom_renderer_controller.mojom.js",
       "source": "components/cast_streaming/common/public/mojom/renderer_controller.mojom",
       "module": "cast_streaming.mojom"
+    },
+    {
+      "filename": "components_chromeos_camera_common_dmabuf.mojom.js",
+      "source": "components/chromeos_camera/common/dmabuf.mojom",
+      "module": "chromeos_camera.mojom"
     },
     {
       "filename": "components_chromeos_camera_common_jpeg_encode_accelerator.mojom.js",
@@ -24564,13 +25119,28 @@
       "module": "commerce.product_specifications.mojom"
     },
     {
+      "filename": "components_commerce_core_mojom_shared.mojom.js",
+      "source": "components/commerce/core/mojom/shared.mojom",
+      "module": "commerce.shared.mojom"
+    },
+    {
       "filename": "components_commerce_core_mojom_shopping_service.mojom.js",
       "source": "components/commerce/core/mojom/shopping_service.mojom",
       "module": "shopping_service.mojom"
     },
     {
+      "filename": "components_compose_core_browser_compose_enums.mojom.js",
+      "source": "components/compose/core/browser/compose_enums.mojom",
+      "module": "compose.mojom"
+    },
+    {
       "filename": "components_content_capture_common_content_capture.mojom.js",
       "source": "components/content_capture/common/content_capture.mojom",
+      "module": "content_capture.mojom"
+    },
+    {
+      "filename": "components_content_capture_common_content_capture_data.mojom.js",
+      "source": "components/content_capture/common/content_capture_data.mojom",
       "module": "content_capture.mojom"
     },
     {
@@ -24584,6 +25154,21 @@
       "module": "content_settings.mojom"
     },
     {
+      "filename": "components_content_settings_core_common_content_settings.mojom.js",
+      "source": "components/content_settings/core/common/content_settings.mojom",
+      "module": "content_settings.mojom"
+    },
+    {
+      "filename": "components_content_settings_core_common_content_settings_enums.mojom.js",
+      "source": "components/content_settings/core/common/content_settings_enums.mojom",
+      "module": "content_settings.mojom"
+    },
+    {
+      "filename": "components_content_settings_core_common_content_settings_types.mojom.js",
+      "source": "components/content_settings/core/common/content_settings_types.mojom",
+      "module": "content_settings.mojom"
+    },
+    {
       "filename": "components_continuous_search_common_public_mojom_continuous_search.mojom.js",
       "source": "components/continuous_search/common/public/mojom/continuous_search.mojom",
       "module": "continuous_search.mojom"
@@ -24594,9 +25179,24 @@
       "module": "data_sharing_internals.mojom"
     },
     {
+      "filename": "components_data_sharing_public_logger_common.mojom.js",
+      "source": "components/data_sharing/public/logger_common.mojom",
+      "module": "logger_common.mojom"
+    },
+    {
+      "filename": "components_data_sharing_public_protocol_group_data.mojom.js",
+      "source": "components/data_sharing/public/protocol/group_data.mojom",
+      "module": "data_sharing.mojom"
+    },
+    {
       "filename": "components_device_signals_core_common_mojom_system_signals.mojom.js",
       "source": "components/device_signals/core/common/mojom/system_signals.mojom",
       "module": "device_signals.mojom"
+    },
+    {
+      "filename": "components_digital_goods_mojom_digital_goods.mojom.js",
+      "source": "components/digital_goods/mojom/digital_goods.mojom",
+      "module": "payments.mojom"
     },
     {
       "filename": "components_discardable_memory_public_mojom_discardable_shared_memory_manager.mojom.js",
@@ -24614,6 +25214,11 @@
       "module": "dom_distiller.mojom"
     },
     {
+      "filename": "components_dom_distiller_core_mojom_distilled_page_prefs.mojom.js",
+      "source": "components/dom_distiller/core/mojom/distilled_page_prefs.mojom",
+      "module": "dom_distiller.mojom"
+    },
+    {
       "filename": "components_download_public_common_download_stream.mojom.js",
       "source": "components/download/public/common/download_stream.mojom",
       "module": "download.mojom"
@@ -24622,6 +25227,11 @@
       "filename": "components_enterprise_connectors_connectors_internals.mojom.js",
       "source": "components/enterprise/connectors/connectors_internals.mojom",
       "module": "connectors_internals.mojom"
+    },
+    {
+      "filename": "components_enterprise_watermarking_mojom_watermark.mojom.js",
+      "source": "components/enterprise/watermarking/mojom/watermark.mojom",
+      "module": "watermark.mojom"
     },
     {
       "filename": "components_facilitated_payments_core_mojom_pix_code_validator.mojom.js",
@@ -24664,9 +25274,19 @@
       "module": "history_clusters_internals.mojom"
     },
     {
+      "filename": "components_history_clusters_public_mojom_history_cluster_types.mojom.js",
+      "source": "components/history_clusters/public/mojom/history_cluster_types.mojom",
+      "module": "history_clusters.mojom"
+    },
+    {
       "filename": "components_input_render_input_router.mojom.js",
       "source": "components/input/render_input_router.mojom",
       "module": "input.mojom"
+    },
+    {
+      "filename": "components_js_injection_common_enum.mojom.js",
+      "source": "components/js_injection/common/enum.mojom",
+      "module": "js_injection.mojom"
     },
     {
       "filename": "components_js_injection_common_interfaces.mojom.js",
@@ -24682,6 +25302,11 @@
       "filename": "components_legion_mojom_oak_session.mojom.js",
       "source": "components/legion/mojom/oak_session.mojom",
       "module": "legion.mojom"
+    },
+    {
+      "filename": "components_lens_lens_metadata.mojom.js",
+      "source": "components/lens/lens_metadata.mojom",
+      "module": "lens.mojom"
     },
     {
       "filename": "components_media_control_mojom_media_playback_options.mojom.js",
@@ -24704,6 +25329,11 @@
       "module": "media_router.mojom"
     },
     {
+      "filename": "components_media_router_common_mojom_media_route_provider_id.mojom.js",
+      "source": "components/media_router/common/mojom/media_route_provider_id.mojom",
+      "module": "media_router.mojom"
+    },
+    {
       "filename": "components_media_router_common_mojom_media_router.mojom.js",
       "source": "components/media_router/common/mojom/media_router.mojom",
       "module": "media_router.mojom"
@@ -24719,9 +25349,19 @@
       "module": "media_router.mojom"
     },
     {
+      "filename": "components_media_router_common_mojom_route_request_result_code.mojom.js",
+      "source": "components/media_router/common/mojom/route_request_result_code.mojom",
+      "module": "media_router.mojom"
+    },
+    {
       "filename": "components_metrics_dwa_mojom_dwa_interface.mojom.js",
       "source": "components/metrics/dwa/mojom/dwa_interface.mojom",
       "module": "metrics.dwa.mojom"
+    },
+    {
+      "filename": "components_metrics_private_metrics_mojom_private_metrics_interface.mojom.js",
+      "source": "components/metrics/private_metrics/mojom/private_metrics_interface.mojom",
+      "module": "metrics.private_metrics.mojom"
     },
     {
       "filename": "components_metrics_public_mojom_call_stack_profile_collector.mojom.js",
@@ -24744,6 +25384,11 @@
       "module": "metrics.mojom"
     },
     {
+      "filename": "components_metrics_structured_mojom_event.mojom.js",
+      "source": "components/metrics/structured/mojom/event.mojom",
+      "module": "metrics.structured.mojom"
+    },
+    {
       "filename": "components_mirroring_mojom_cast_message_channel.mojom.js",
       "source": "components/mirroring/mojom/cast_message_channel.mojom",
       "module": "mirroring.mojom"
@@ -24764,6 +25409,11 @@
       "module": "mirroring.mojom"
     },
     {
+      "filename": "components_mirroring_mojom_session_parameters.mojom.js",
+      "source": "components/mirroring/mojom/session_parameters.mojom",
+      "module": "mirroring.mojom"
+    },
+    {
       "filename": "components_network_hints_common_network_hints.mojom.js",
       "source": "components/network_hints/common/network_hints.mojom",
       "module": "network_hints.mojom"
@@ -24779,9 +25429,29 @@
       "module": "prerender.mojom"
     },
     {
+      "filename": "components_ntp_tiles_tile_source.mojom.js",
+      "source": "components/ntp_tiles/tile_source.mojom",
+      "module": "ntp_tiles.mojom"
+    },
+    {
+      "filename": "components_ntp_tiles_tile_type.mojom.js",
+      "source": "components/ntp_tiles/tile_type.mojom",
+      "module": "ntp_tiles.mojom"
+    },
+    {
+      "filename": "components_omnibox_browser_omnibox.mojom.js",
+      "source": "components/omnibox/browser/omnibox.mojom",
+      "module": "omnibox.mojom"
+    },
+    {
       "filename": "components_omnibox_browser_searchbox.mojom.js",
       "source": "components/omnibox/browser/searchbox.mojom",
       "module": "searchbox.mojom"
+    },
+    {
+      "filename": "components_omnibox_composebox_composebox_query.mojom.js",
+      "source": "components/omnibox/composebox/composebox_query.mojom",
+      "module": "composebox_query.mojom"
     },
     {
       "filename": "components_on_device_translation_public_mojom_on_device_translation_service.mojom.js",
@@ -24804,6 +25474,11 @@
       "module": "optimization_guide.mojom"
     },
     {
+      "filename": "components_optimization_guide_core_optimization_guide_common.mojom.js",
+      "source": "components/optimization_guide/core/optimization_guide_common.mojom",
+      "module": "optimization_guide_common.mojom"
+    },
+    {
       "filename": "components_optimization_guide_optimization_guide_internals_webui_optimization_guide_internals.mojom.js",
       "source": "components/optimization_guide/optimization_guide_internals/webui/optimization_guide_internals.mojom",
       "module": "optimization_guide_internals.mojom"
@@ -24812,6 +25487,21 @@
       "filename": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "source": "components/optimization_guide/public/mojom/model_broker.mojom",
       "module": "optimization_guide.mojom"
+    },
+    {
+      "filename": "components_origin_matcher_origin_matcher.mojom.js",
+      "source": "components/origin_matcher/origin_matcher.mojom",
+      "module": "origin_matcher.mojom"
+    },
+    {
+      "filename": "components_os_crypt_async_common_algorithm.mojom.js",
+      "source": "components/os_crypt/async/common/algorithm.mojom",
+      "module": "os_crypt_async.mojom"
+    },
+    {
+      "filename": "components_os_crypt_async_common_encryptor.mojom.js",
+      "source": "components/os_crypt/async/common/encryptor.mojom",
+      "module": "os_crypt_async.mojom"
     },
     {
       "filename": "components_page_image_service_mojom_page_image_service.mojom.js",
@@ -24829,14 +25519,44 @@
       "module": "paint_preview.mojom"
     },
     {
+      "filename": "components_paint_preview_common_mojom_paint_preview_types.mojom.js",
+      "source": "components/paint_preview/common/mojom/paint_preview_types.mojom",
+      "module": "paint_preview.mojom"
+    },
+    {
       "filename": "components_password_manager_services_csv_password_public_mojom_csv_password_parser.mojom.js",
       "source": "components/password_manager/services/csv_password/public/mojom/csv_password_parser.mojom",
       "module": "password_manager.mojom"
     },
     {
+      "filename": "components_payments_mojom_payment_request_data.mojom.js",
+      "source": "components/payments/mojom/payment_request_data.mojom",
+      "module": "payments.mojom"
+    },
+    {
       "filename": "components_performance_manager_public_mojom_coordination_unit.mojom.js",
       "source": "components/performance_manager/public/mojom/coordination_unit.mojom",
       "module": "performance_manager.mojom"
+    },
+    {
+      "filename": "components_performance_manager_public_mojom_lifecycle.mojom.js",
+      "source": "components/performance_manager/public/mojom/lifecycle.mojom",
+      "module": "performance_manager.mojom"
+    },
+    {
+      "filename": "components_performance_manager_public_mojom_v8_contexts.mojom.js",
+      "source": "components/performance_manager/public/mojom/v8_contexts.mojom",
+      "module": "performance_manager.mojom"
+    },
+    {
+      "filename": "components_performance_manager_public_mojom_web_memory.mojom.js",
+      "source": "components/performance_manager/public/mojom/web_memory.mojom",
+      "module": "performance_manager.mojom"
+    },
+    {
+      "filename": "components_persistent_cache_mojom_persistent_cache.mojom.js",
+      "source": "components/persistent_cache/mojom/persistent_cache.mojom",
+      "module": "persistent_cache.mojom"
     },
     {
       "filename": "components_printing_common_print.mojom.js",
@@ -24851,6 +25571,11 @@
     {
       "filename": "components_remote_cocoa_common_application.mojom.js",
       "source": "components/remote_cocoa/common/application.mojom",
+      "module": "remote_cocoa.mojom"
+    },
+    {
+      "filename": "components_remote_cocoa_common_font.mojom.js",
+      "source": "components/remote_cocoa/common/font.mojom",
       "module": "remote_cocoa.mojom"
     },
     {
@@ -24889,6 +25614,16 @@
       "module": "safe_browsing.mojom"
     },
     {
+      "filename": "components_schema_org_common_improved_metadata.mojom.js",
+      "source": "components/schema_org/common/improved_metadata.mojom",
+      "module": "schema_org.improved.mojom"
+    },
+    {
+      "filename": "components_schema_org_common_metadata.mojom.js",
+      "source": "components/schema_org/common/metadata.mojom",
+      "module": "schema_org.mojom"
+    },
+    {
       "filename": "components_security_interstitials_core_common_mojom_interstitial_commands.mojom.js",
       "source": "components/security_interstitials/core/common/mojom/interstitial_commands.mojom",
       "module": "security_interstitials.mojom"
@@ -24896,6 +25631,11 @@
     {
       "filename": "components_services_filesystem_public_mojom_directory.mojom.js",
       "source": "components/services/filesystem/public/mojom/directory.mojom",
+      "module": "filesystem.mojom"
+    },
+    {
+      "filename": "components_services_filesystem_public_mojom_types.mojom.js",
+      "source": "components/services/filesystem/public/mojom/types.mojom",
       "module": "filesystem.mojom"
     },
     {
@@ -24939,6 +25679,11 @@
       "module": "quarantine.mojom"
     },
     {
+      "filename": "components_services_storage_privileged_mojom_bucket_client_info.mojom.js",
+      "source": "components/services/storage/privileged/mojom/bucket_client_info.mojom",
+      "module": "storage.mojom"
+    },
+    {
       "filename": "components_services_storage_privileged_mojom_indexed_db_client_state_checker.mojom.js",
       "source": "components/services/storage/privileged/mojom/indexed_db_client_state_checker.mojom",
       "module": "storage.mojom"
@@ -24954,8 +25699,28 @@
       "module": "storage.mojom"
     },
     {
+      "filename": "components_services_storage_privileged_mojom_indexed_db_internals_types.mojom.js",
+      "source": "components/services/storage/privileged/mojom/indexed_db_internals_types.mojom",
+      "module": "storage.mojom"
+    },
+    {
       "filename": "components_services_storage_public_mojom_blob_storage_context.mojom.js",
       "source": "components/services/storage/public/mojom/blob_storage_context.mojom",
+      "module": "storage.mojom"
+    },
+    {
+      "filename": "components_services_storage_public_mojom_buckets_bucket_id.mojom.js",
+      "source": "components/services/storage/public/mojom/buckets/bucket_id.mojom",
+      "module": "storage.mojom"
+    },
+    {
+      "filename": "components_services_storage_public_mojom_buckets_bucket_info.mojom.js",
+      "source": "components/services/storage/public/mojom/buckets/bucket_info.mojom",
+      "module": "storage.mojom"
+    },
+    {
+      "filename": "components_services_storage_public_mojom_buckets_bucket_locator.mojom.js",
+      "source": "components/services/storage/public/mojom/buckets/bucket_locator.mojom",
       "module": "storage.mojom"
     },
     {
@@ -24984,6 +25749,11 @@
       "module": "storage.mojom"
     },
     {
+      "filename": "components_services_storage_public_mojom_service_worker_database.mojom.js",
+      "source": "components/services/storage/public/mojom/service_worker_database.mojom",
+      "module": "storage.mojom"
+    },
+    {
       "filename": "components_services_storage_public_mojom_service_worker_storage_control.mojom.js",
       "source": "components/services/storage/public/mojom/service_worker_storage_control.mojom",
       "module": "storage.mojom"
@@ -24994,8 +25764,18 @@
       "module": "storage.mojom"
     },
     {
+      "filename": "components_services_storage_public_mojom_storage_policy_update.mojom.js",
+      "source": "components/services/storage/public/mojom/storage_policy_update.mojom",
+      "module": "storage.mojom"
+    },
+    {
       "filename": "components_services_storage_public_mojom_storage_service.mojom.js",
       "source": "components/services/storage/public/mojom/storage_service.mojom",
+      "module": "storage.mojom"
+    },
+    {
+      "filename": "components_services_storage_public_mojom_storage_usage_info.mojom.js",
+      "source": "components/services/storage/public/mojom/storage_usage_info.mojom",
       "module": "storage.mojom"
     },
     {
@@ -25029,9 +25809,19 @@
       "module": "subresource_filter.mojom"
     },
     {
+      "filename": "components_sync_mojom_syncer.mojom.js",
+      "source": "components/sync/mojom/syncer.mojom",
+      "module": "syncer.mojom"
+    },
+    {
       "filename": "components_system_media_controls_mac_remote_cocoa_system_media_controls.mojom.js",
       "source": "components/system_media_controls/mac/remote_cocoa/system_media_controls.mojom",
       "module": "system_media_controls.mojom"
+    },
+    {
+      "filename": "components_tab_groups_public_mojom_tab_group_types.mojom.js",
+      "source": "components/tab_groups/public/mojom/tab_group_types.mojom",
+      "module": "tab_groups.mojom"
     },
     {
       "filename": "components_translate_content_common_translate.mojom.js",
@@ -25052,6 +25842,11 @@
       "filename": "components_user_data_importer_mojom_bookmark_html_parser.mojom.js",
       "source": "components/user_data_importer/mojom/bookmark_html_parser.mojom",
       "module": "user_data_importer.mojom"
+    },
+    {
+      "filename": "components_variations_variations.mojom.js",
+      "source": "components/variations/variations.mojom",
+      "module": "variations.mojom"
     },
     {
       "filename": "components_visitedlink_common_visitedlink.mojom.js",
@@ -25079,6 +25874,11 @@
       "module": "web_package.mojom"
     },
     {
+      "filename": "components_webapps_common_web_page_metadata.mojom.js",
+      "source": "components/webapps/common/web_page_metadata.mojom",
+      "module": "webapps.mojom"
+    },
+    {
       "filename": "components_webapps_common_web_page_metadata_agent.mojom.js",
       "source": "components/webapps/common/web_page_metadata_agent.mojom",
       "module": "webapps.mojom"
@@ -25089,9 +25889,34 @@
       "module": "chrome_urls.mojom"
     },
     {
+      "filename": "content_browser_attribution_reporting_aggregatable_result.mojom.js",
+      "source": "content/browser/attribution_reporting/aggregatable_result.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
       "filename": "content_browser_attribution_reporting_attribution_internals.mojom.js",
       "source": "content/browser/attribution_reporting/attribution_internals.mojom",
       "module": "attribution_internals.mojom"
+    },
+    {
+      "filename": "content_browser_attribution_reporting_attribution_reporting.mojom.js",
+      "source": "content/browser/attribution_reporting/attribution_reporting.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "content_browser_attribution_reporting_event_level_result.mojom.js",
+      "source": "content/browser/attribution_reporting/event_level_result.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "content_browser_attribution_reporting_process_aggregatable_debug_report_result.mojom.js",
+      "source": "content/browser/attribution_reporting/process_aggregatable_debug_report_result.mojom",
+      "module": "attribution_reporting.mojom"
+    },
+    {
+      "filename": "content_browser_attribution_reporting_store_source_result.mojom.js",
+      "source": "content/browser/attribution_reporting/store_source_result.mojom",
+      "module": "attribution_reporting.mojom"
     },
     {
       "filename": "content_browser_indexed_db_indexed_db_internals.mojom.js",
@@ -25151,6 +25976,11 @@
     {
       "filename": "content_common_frame.mojom.js",
       "source": "content/common/frame.mojom",
+      "module": "content.mojom"
+    },
+    {
+      "filename": "content_common_frame_messages.mojom.js",
+      "source": "content/common/frame_messages.mojom",
       "module": "content.mojom"
     },
     {
@@ -25234,13 +26064,33 @@
       "module": "content.mojom"
     },
     {
+      "filename": "content_public_common_alternative_error_page_override_info.mojom.js",
+      "source": "content/public/common/alternative_error_page_override_info.mojom",
+      "module": "content.mojom"
+    },
+    {
+      "filename": "content_public_common_extra_mojo_js_features.mojom.js",
+      "source": "content/public/common/extra_mojo_js_features.mojom",
+      "module": "content.mojom"
+    },
+    {
       "filename": "content_public_common_font_cache_win.mojom.js",
       "source": "content/public/common/font_cache_win.mojom",
       "module": "content.mojom"
     },
     {
+      "filename": "content_public_common_media_playback_renderer_type.mojom.js",
+      "source": "content/public/common/media_playback_renderer_type.mojom",
+      "module": "content.mojom"
+    },
+    {
       "filename": "content_public_common_resource_usage_reporter.mojom.js",
       "source": "content/public/common/resource_usage_reporter.mojom",
+      "module": "content.mojom"
+    },
+    {
+      "filename": "content_public_common_window_container_type.mojom.js",
+      "source": "content/public/common/window_container_type.mojom",
       "module": "content.mojom"
     },
     {
@@ -25274,6 +26124,26 @@
       "module": "auction_worklet.mojom"
     },
     {
+      "filename": "content_services_auction_worklet_public_mojom_in_progress_auction_download.mojom.js",
+      "source": "content/services/auction_worklet/public/mojom/in_progress_auction_download.mojom",
+      "module": "auction_worklet.mojom"
+    },
+    {
+      "filename": "content_services_auction_worklet_public_mojom_private_aggregation_request.mojom.js",
+      "source": "content/services/auction_worklet/public/mojom/private_aggregation_request.mojom",
+      "module": "auction_worklet.mojom"
+    },
+    {
+      "filename": "content_services_auction_worklet_public_mojom_real_time_reporting.mojom.js",
+      "source": "content/services/auction_worklet/public/mojom/real_time_reporting.mojom",
+      "module": "auction_worklet.mojom"
+    },
+    {
+      "filename": "content_services_auction_worklet_public_mojom_reject_reason.mojom.js",
+      "source": "content/services/auction_worklet/public/mojom/reject_reason.mojom",
+      "module": "auction_worklet.mojom"
+    },
+    {
       "filename": "content_services_auction_worklet_public_mojom_seller_worklet.mojom.js",
       "source": "content/services/auction_worklet/public/mojom/seller_worklet.mojom",
       "module": "auction_worklet.mojom"
@@ -25302,6 +26172,11 @@
       "filename": "content_test_frame_host_test_interface.mojom.js",
       "source": "content/test/frame_host_test_interface.mojom",
       "module": "content.mojom"
+    },
+    {
+      "filename": "content_utility_sandbox_delegate_data.mojom.js",
+      "source": "content/utility/sandbox_delegate_data.mojom",
+      "module": "content.mojom.sandbox"
     },
     {
       "filename": "content_web_test_common_fake_bluetooth_chooser.mojom.js",
@@ -25344,6 +26219,26 @@
       "module": "bluetooth.mojom"
     },
     {
+      "filename": "device_bluetooth_public_mojom_gatt_characteristic_permissions.mojom.js",
+      "source": "device/bluetooth/public/mojom/gatt_characteristic_permissions.mojom",
+      "module": "bluetooth.mojom"
+    },
+    {
+      "filename": "device_bluetooth_public_mojom_gatt_characteristic_properties.mojom.js",
+      "source": "device/bluetooth/public/mojom/gatt_characteristic_properties.mojom",
+      "module": "bluetooth.mojom"
+    },
+    {
+      "filename": "device_bluetooth_public_mojom_gatt_service_error_code.mojom.js",
+      "source": "device/bluetooth/public/mojom/gatt_service_error_code.mojom",
+      "module": "bluetooth.mojom"
+    },
+    {
+      "filename": "device_bluetooth_public_mojom_uuid.mojom.js",
+      "source": "device/bluetooth/public/mojom/uuid.mojom",
+      "module": "bluetooth.mojom"
+    },
+    {
       "filename": "device_gamepad_public_mojom_gamepad.mojom.js",
       "source": "device/gamepad/public/mojom/gamepad.mojom",
       "module": "device.mojom"
@@ -25351,6 +26246,11 @@
     {
       "filename": "device_vr_public_mojom_isolated_xr_service.mojom.js",
       "source": "device/vr/public/mojom/isolated_xr_service.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "device_vr_public_mojom_openxr_interaction_profile_type.mojom.js",
+      "source": "device/vr/public/mojom/openxr_interaction_profile_type.mojom",
       "module": "device.mojom"
     },
     {
@@ -25364,9 +26264,34 @@
       "module": "device.mojom"
     },
     {
+      "filename": "device_vr_public_mojom_xr_device.mojom.js",
+      "source": "device/vr/public/mojom/xr_device.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "device_vr_public_mojom_xr_hand_tracking_data.mojom.js",
+      "source": "device/vr/public/mojom/xr_hand_tracking_data.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "device_vr_public_mojom_xr_session.mojom.js",
+      "source": "device/vr/public/mojom/xr_session.mojom",
+      "module": "device.mojom"
+    },
+    {
       "filename": "extensions_common_api_mime_handler.mojom.js",
       "source": "extensions/common/api/mime_handler.mojom",
       "module": "extensions.mime_handler"
+    },
+    {
+      "filename": "extensions_common_mojom_activation_sequence.mojom.js",
+      "source": "extensions/common/mojom/activation_sequence.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_api_permission_id.mojom.js",
+      "source": "extensions/common/mojom/api_permission_id.mojom",
+      "module": "extensions.mojom"
     },
     {
       "filename": "extensions_common_mojom_app_window.mojom.js",
@@ -25376,6 +26301,26 @@
     {
       "filename": "extensions_common_mojom_automation_registry.mojom.js",
       "source": "extensions/common/mojom/automation_registry.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_channel.mojom.js",
+      "source": "extensions/common/mojom/channel.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_code_injection.mojom.js",
+      "source": "extensions/common/mojom/code_injection.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_context_type.mojom.js",
+      "source": "extensions/common/mojom/context_type.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_css_origin.mojom.js",
+      "source": "extensions/common/mojom/css_origin.mojom",
       "module": "extensions.mojom"
     },
     {
@@ -25389,6 +26334,26 @@
       "module": "extensions.mojom"
     },
     {
+      "filename": "extensions_common_mojom_execution_world.mojom.js",
+      "source": "extensions/common/mojom/execution_world.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_extension_id.mojom.js",
+      "source": "extensions/common/mojom/extension_id.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_extra_response_data.mojom.js",
+      "source": "extensions/common/mojom/extra_response_data.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_feature_session_type.mojom.js",
+      "source": "extensions/common/mojom/feature_session_type.mojom",
+      "module": "extensions.mojom"
+    },
+    {
       "filename": "extensions_common_mojom_frame.mojom.js",
       "source": "extensions/common/mojom/frame.mojom",
       "module": "extensions.mojom"
@@ -25399,13 +26364,38 @@
       "module": "extensions.mojom"
     },
     {
+      "filename": "extensions_common_mojom_host_id.mojom.js",
+      "source": "extensions/common/mojom/host_id.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_injection_type.mojom.js",
+      "source": "extensions/common/mojom/injection_type.mojom",
+      "module": "extensions.mojom"
+    },
+    {
       "filename": "extensions_common_mojom_keep_alive.mojom.js",
       "source": "extensions/common/mojom/keep_alive.mojom",
       "module": "extensions"
     },
     {
+      "filename": "extensions_common_mojom_manifest.mojom.js",
+      "source": "extensions/common/mojom/manifest.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_match_origin_as_fallback.mojom.js",
+      "source": "extensions/common/mojom/match_origin_as_fallback.mojom",
+      "module": "extensions.mojom"
+    },
+    {
       "filename": "extensions_common_mojom_message_port.mojom.js",
       "source": "extensions/common/mojom/message_port.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_permission_set.mojom.js",
+      "source": "extensions/common/mojom/permission_set.mojom",
       "module": "extensions.mojom"
     },
     {
@@ -25419,6 +26409,11 @@
       "module": "extensions.mojom"
     },
     {
+      "filename": "extensions_common_mojom_run_location.mojom.js",
+      "source": "extensions/common/mojom/run_location.mojom",
+      "module": "extensions.mojom"
+    },
+    {
       "filename": "extensions_common_mojom_service_worker.mojom.js",
       "source": "extensions/common/mojom/service_worker.mojom",
       "module": "extensions.mojom"
@@ -25429,9 +26424,39 @@
       "module": "extensions.mojom"
     },
     {
+      "filename": "extensions_common_mojom_stack_frame.mojom.js",
+      "source": "extensions/common/mojom/stack_frame.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_url_pattern_set.mojom.js",
+      "source": "extensions/common/mojom/url_pattern_set.mojom",
+      "module": "extensions.mojom"
+    },
+    {
+      "filename": "extensions_common_mojom_view_type.mojom.js",
+      "source": "extensions/common/mojom/view_type.mojom",
+      "module": "extensions.mojom"
+    },
+    {
       "filename": "fuchsia_web_webengine_mojom_web_engine_media_resource_provider.mojom.js",
       "source": "fuchsia_web/webengine/mojom/web_engine_media_resource_provider.mojom",
       "module": "mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_context_result.mojom.js",
+      "source": "gpu/ipc/common/context_result.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_device_perf_info.mojom.js",
+      "source": "gpu/ipc/common/device_perf_info.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_exported_shared_image.mojom.js",
+      "source": "gpu/ipc/common/exported_shared_image.mojom",
+      "module": "gpu.mojom"
     },
     {
       "filename": "gpu_ipc_common_gpu_channel.mojom.js",
@@ -25439,8 +26464,88 @@
       "module": "gpu.mojom"
     },
     {
+      "filename": "gpu_ipc_common_gpu_disk_cache_type.mojom.js",
+      "source": "gpu/ipc/common/gpu_disk_cache_type.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_gpu_feature_info.mojom.js",
+      "source": "gpu/ipc/common/gpu_feature_info.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_gpu_info.mojom.js",
+      "source": "gpu/ipc/common/gpu_info.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_gpu_peak_memory.mojom.js",
+      "source": "gpu/ipc/common/gpu_peak_memory.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_gpu_preferences.mojom.js",
+      "source": "gpu/ipc/common/gpu_preferences.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_luid.mojom.js",
+      "source": "gpu/ipc/common/luid.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_mailbox.mojom.js",
+      "source": "gpu/ipc/common/mailbox.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_memory_stats.mojom.js",
+      "source": "gpu/ipc/common/memory_stats.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_shared_image_capabilities.mojom.js",
+      "source": "gpu/ipc/common/shared_image_capabilities.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_shared_image_metadata.mojom.js",
+      "source": "gpu/ipc/common/shared_image_metadata.mojom",
+      "module": "gpu.mojom"
+    },
+    {
       "filename": "gpu_ipc_common_shared_image_pool_client_interface.mojom.js",
       "source": "gpu/ipc/common/shared_image_pool_client_interface.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_shared_image_pool_id.mojom.js",
+      "source": "gpu/ipc/common/shared_image_pool_id.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_surface_handle.mojom.js",
+      "source": "gpu/ipc/common/surface_handle.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_sync_token.mojom.js",
+      "source": "gpu/ipc/common/sync_token.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_vulkan_info.mojom.js",
+      "source": "gpu/ipc/common/vulkan_info.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_vulkan_types.mojom.js",
+      "source": "gpu/ipc/common/vulkan_types.mojom",
+      "module": "gpu.mojom"
+    },
+    {
+      "filename": "gpu_ipc_common_vulkan_ycbcr_info.mojom.js",
+      "source": "gpu/ipc/common/vulkan_ycbcr_info.mojom",
       "module": "gpu.mojom"
     },
     {
@@ -25489,6 +26594,16 @@
       "module": "media.mojom"
     },
     {
+      "filename": "media_capture_mojom_video_capture_buffer.mojom.js",
+      "source": "media/capture/mojom/video_capture_buffer.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_capture_mojom_video_capture_types.mojom.js",
+      "source": "media/capture/mojom/video_capture_types.mojom",
+      "module": "media.mojom"
+    },
+    {
       "filename": "media_capture_video_chromeos_mojom_camera3.mojom.js",
       "source": "media/capture/video/chromeos/mojom/camera3.mojom",
       "module": "cros.mojom"
@@ -25504,6 +26619,21 @@
       "module": "cros.mojom"
     },
     {
+      "filename": "media_capture_video_chromeos_mojom_camera_features.mojom.js",
+      "source": "media/capture/video/chromeos/mojom/camera_features.mojom",
+      "module": "cros.mojom"
+    },
+    {
+      "filename": "media_capture_video_chromeos_mojom_camera_metadata.mojom.js",
+      "source": "media/capture/video/chromeos/mojom/camera_metadata.mojom",
+      "module": "cros.mojom"
+    },
+    {
+      "filename": "media_capture_video_chromeos_mojom_camera_metadata_tags.mojom.js",
+      "source": "media/capture/video/chromeos/mojom/camera_metadata_tags.mojom",
+      "module": "cros.mojom"
+    },
+    {
       "filename": "media_capture_video_chromeos_mojom_cros_camera_client.mojom.js",
       "source": "media/capture/video/chromeos/mojom/cros_camera_client.mojom",
       "module": "cros.mojom"
@@ -25516,6 +26646,11 @@
     {
       "filename": "media_capture_video_chromeos_mojom_document_scanner.mojom.js",
       "source": "media/capture/video/chromeos/mojom/document_scanner.mojom",
+      "module": "cros.mojom"
+    },
+    {
+      "filename": "media_capture_video_chromeos_mojom_effects_pipeline.mojom.js",
+      "source": "media/capture/video/chromeos/mojom/effects_pipeline.mojom",
       "module": "cros.mojom"
     },
     {
@@ -25541,6 +26676,16 @@
     {
       "filename": "media_mojo_mojom_android_overlay.mojom.js",
       "source": "media/mojo/mojom/android_overlay.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_audio_data.mojom.js",
+      "source": "media/mojo/mojom/audio_data.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_audio_data_pipe.mojom.js",
+      "source": "media/mojo/mojom/audio_data_pipe.mojom",
       "module": "media.mojom"
     },
     {
@@ -25576,6 +26721,11 @@
     {
       "filename": "media_mojo_mojom_audio_stream_factory.mojom.js",
       "source": "media/mojo/mojom/audio_stream_factory.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_capture_handle.mojom.js",
+      "source": "media/mojo/mojom/capture_handle.mojom",
       "module": "media.mojom"
     },
     {
@@ -25621,6 +26771,16 @@
     {
       "filename": "media_mojo_mojom_demuxer_stream.mojom.js",
       "source": "media/mojo/mojom/demuxer_stream.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_display_media_information.mojom.js",
+      "source": "media/mojo/mojom/display_media_information.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_encryption_pattern.mojom.js",
+      "source": "media/mojo/mojom/encryption_pattern.mojom",
       "module": "media.mojom"
     },
     {
@@ -25679,6 +26839,11 @@
       "module": "media.mojom"
     },
     {
+      "filename": "media_mojo_mojom_media_types.mojom.js",
+      "source": "media/mojo/mojom/media_types.mojom",
+      "module": "media.mojom"
+    },
+    {
       "filename": "media_mojo_mojom_mediadrm_support.mojom.js",
       "source": "media/mojo/mojom/mediadrm_support.mojom",
       "module": "media.mojom"
@@ -25704,6 +26869,11 @@
       "module": "media.mojom"
     },
     {
+      "filename": "media_mojo_mojom_remoting_common.mojom.js",
+      "source": "media/mojo/mojom/remoting_common.mojom",
+      "module": "media.mojom"
+    },
+    {
       "filename": "media_mojo_mojom_renderer.mojom.js",
       "source": "media/mojo/mojom/renderer.mojom",
       "module": "media.mojom"
@@ -25724,6 +26894,31 @@
       "module": "media.mojom"
     },
     {
+      "filename": "media_mojo_mojom_speech_recognition_error.mojom.js",
+      "source": "media/mojo/mojom/speech_recognition_error.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_speech_recognition_error_code.mojom.js",
+      "source": "media/mojo/mojom/speech_recognition_error_code.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_speech_recognition_grammar.mojom.js",
+      "source": "media/mojo/mojom/speech_recognition_grammar.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_speech_recognition_recognition_context.mojom.js",
+      "source": "media/mojo/mojom/speech_recognition_recognition_context.mojom",
+      "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_speech_recognition_result.mojom.js",
+      "source": "media/mojo/mojom/speech_recognition_result.mojom",
+      "module": "media.mojom"
+    },
+    {
       "filename": "media_mojo_mojom_speech_recognition_service.mojom.js",
       "source": "media/mojo/mojom/speech_recognition_service.mojom",
       "module": "media.mojom"
@@ -25732,6 +26927,11 @@
       "filename": "media_mojo_mojom_speech_recognizer.mojom.js",
       "source": "media/mojo/mojom/speech_recognizer.mojom",
       "module": "media.mojom"
+    },
+    {
+      "filename": "media_mojo_mojom_stable_native_pixmap_handle.mojom.js",
+      "source": "media/mojo/mojom/stable/native_pixmap_handle.mojom",
+      "module": "media.stable.mojom"
     },
     {
       "filename": "media_mojo_mojom_video_decode_perf_history.mojom.js",
@@ -25759,6 +26959,11 @@
       "module": "media.mojom"
     },
     {
+      "filename": "media_mojo_mojom_video_encoder_info.mojom.js",
+      "source": "media/mojo/mojom/video_encoder_info.mojom",
+      "module": "media.mojom"
+    },
+    {
       "filename": "media_mojo_mojom_video_encoder_metrics_provider.mojom.js",
       "source": "media/mojo/mojom/video_encoder_metrics_provider.mojom",
       "module": "media.mojom"
@@ -25774,13 +26979,218 @@
       "module": "media.mojom"
     },
     {
+      "filename": "mojo_public_interfaces_bindings_interface_control_messages.mojom.js",
+      "source": "mojo/public/interfaces/bindings/interface_control_messages.mojom",
+      "module": "mojo.interface_control"
+    },
+    {
+      "filename": "mojo_public_interfaces_bindings_native_struct.mojom.js",
+      "source": "mojo/public/interfaces/bindings/native_struct.mojom",
+      "module": "mojo.native"
+    },
+    {
+      "filename": "mojo_public_interfaces_bindings_pipe_control_messages.mojom.js",
+      "source": "mojo/public/interfaces/bindings/pipe_control_messages.mojom",
+      "module": "mojo.pipe_control"
+    },
+    {
+      "filename": "mojo_public_mojom_base_absl_status.mojom.js",
+      "source": "mojo/public/mojom/base/absl_status.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_application_state.mojom.js",
+      "source": "mojo/public/mojom/base/application_state.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_battery_power_status.mojom.js",
+      "source": "mojo/public/mojom/base/battery_power_status.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_big_buffer.mojom.js",
+      "source": "mojo/public/mojom/base/big_buffer.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_big_string.mojom.js",
+      "source": "mojo/public/mojom/base/big_string.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
       "filename": "mojo_public_mojom_base_binder.mojom.js",
       "source": "mojo/public/mojom/base/binder.mojom",
       "module": "mojo_base.mojom"
     },
     {
+      "filename": "mojo_public_mojom_base_byte_count.mojom.js",
+      "source": "mojo/public/mojom/base/byte_count.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_byte_size.mojom.js",
+      "source": "mojo/public/mojom/base/byte_size.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_byte_string.mojom.js",
+      "source": "mojo/public/mojom/base/byte_string.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_empty.mojom.js",
+      "source": "mojo/public/mojom/base/empty.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_error.mojom.js",
+      "source": "mojo/public/mojom/base/error.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_file.mojom.js",
+      "source": "mojo/public/mojom/base/file.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_file_error.mojom.js",
+      "source": "mojo/public/mojom/base/file_error.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_file_info.mojom.js",
+      "source": "mojo/public/mojom/base/file_info.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_file_path.mojom.js",
+      "source": "mojo/public/mojom/base/file_path.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
       "filename": "mojo_public_mojom_base_generic_pending_associated_receiver.mojom.js",
       "source": "mojo/public/mojom/base/generic_pending_associated_receiver.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_generic_pending_receiver.mojom.js",
+      "source": "mojo/public/mojom/base/generic_pending_receiver.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_int128.mojom.js",
+      "source": "mojo/public/mojom/base/int128.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_jserror.mojom.js",
+      "source": "mojo/public/mojom/base/jserror.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_logfont_win.mojom.js",
+      "source": "mojo/public/mojom/base/logfont_win.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_memory_allocator_dump_cross_process_uid.mojom.js",
+      "source": "mojo/public/mojom/base/memory_allocator_dump_cross_process_uid.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_memory_pressure_level.mojom.js",
+      "source": "mojo/public/mojom/base/memory_pressure_level.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_message_pump_type.mojom.js",
+      "source": "mojo/public/mojom/base/message_pump_type.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_process_id.mojom.js",
+      "source": "mojo/public/mojom/base/process_id.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_process_priority.mojom.js",
+      "source": "mojo/public/mojom/base/process_priority.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_proto_wrapper.mojom.js",
+      "source": "mojo/public/mojom/base/proto_wrapper.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_read_only_buffer.mojom.js",
+      "source": "mojo/public/mojom/base/read_only_buffer.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_ref_counted_memory.mojom.js",
+      "source": "mojo/public/mojom/base/ref_counted_memory.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_safe_base_name.mojom.js",
+      "source": "mojo/public/mojom/base/safe_base_name.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_shared_memory.mojom.js",
+      "source": "mojo/public/mojom/base/shared_memory.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_string16.mojom.js",
+      "source": "mojo/public/mojom/base/string16.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_text_direction.mojom.js",
+      "source": "mojo/public/mojom/base/text_direction.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_thread_type.mojom.js",
+      "source": "mojo/public/mojom/base/thread_type.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_time.mojom.js",
+      "source": "mojo/public/mojom/base/time.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_token.mojom.js",
+      "source": "mojo/public/mojom/base/token.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_unguessable_token.mojom.js",
+      "source": "mojo/public/mojom/base/unguessable_token.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_uuid.mojom.js",
+      "source": "mojo/public/mojom/base/uuid.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_values.mojom.js",
+      "source": "mojo/public/mojom/base/values.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_version.mojom.js",
+      "source": "mojo/public/mojom/base/version.mojom",
+      "module": "mojo_base.mojom"
+    },
+    {
+      "filename": "mojo_public_mojom_base_wstring.mojom.js",
+      "source": "mojo/public/mojom/base/wstring.mojom",
       "module": "mojo_base.mojom"
     },
     {
@@ -25792,6 +27202,21 @@
       "filename": "pdf_mojom_pdf.mojom.js",
       "source": "pdf/mojom/pdf.mojom",
       "module": "pdf.mojom"
+    },
+    {
+      "filename": "printing_backend_mojom_print_backend.mojom.js",
+      "source": "printing/backend/mojom/print_backend.mojom",
+      "module": "printing.mojom"
+    },
+    {
+      "filename": "printing_mojom_print.mojom.js",
+      "source": "printing/mojom/print.mojom",
+      "module": "printing.mojom"
+    },
+    {
+      "filename": "printing_mojom_printing_context.mojom.js",
+      "source": "printing/mojom/printing_context.mojom",
+      "module": "printing.mojom"
     },
     {
       "filename": "remoting_host_mojom_agent_process_broker.mojom.js",
@@ -25806,6 +27231,11 @@
     {
       "filename": "remoting_host_mojom_desktop_session.mojom.js",
       "source": "remoting/host/mojom/desktop_session.mojom",
+      "module": "remoting.mojom"
+    },
+    {
+      "filename": "remoting_host_mojom_keyboard_layout.mojom.js",
+      "source": "remoting/host/mojom/keyboard_layout.mojom",
       "module": "remoting.mojom"
     },
     {
@@ -25834,9 +27264,34 @@
       "module": "remoting.mojom"
     },
     {
+      "filename": "remoting_host_mojom_webrtc_types.mojom.js",
+      "source": "remoting/host/mojom/webrtc_types.mojom",
+      "module": "remoting.mojom"
+    },
+    {
+      "filename": "remoting_host_mojom_wrapped_primitives.mojom.js",
+      "source": "remoting/host/mojom/wrapped_primitives.mojom",
+      "module": "remoting.mojom"
+    },
+    {
+      "filename": "sandbox_mac_mojom_seatbelt_extension_token.mojom.js",
+      "source": "sandbox/mac/mojom/seatbelt_extension_token.mojom",
+      "module": "sandbox.mac.mojom"
+    },
+    {
       "filename": "sandbox_mac_mojom_traits_test_service.mojom.js",
       "source": "sandbox/mac/mojom/traits_test_service.mojom",
       "module": "sandbox.mac.mojom"
+    },
+    {
+      "filename": "sandbox_policy_mojom_context.mojom.js",
+      "source": "sandbox/policy/mojom/context.mojom",
+      "module": "sandbox.mojom"
+    },
+    {
+      "filename": "sandbox_policy_mojom_sandbox.mojom.js",
+      "source": "sandbox/policy/mojom/sandbox.mojom",
+      "module": "sandbox.mojom"
     },
     {
       "filename": "services_accessibility_android_public_mojom_accessibility_helper.mojom.js",
@@ -25846,6 +27301,11 @@
     {
       "filename": "services_accessibility_public_mojom_accessibility_service.mojom.js",
       "source": "services/accessibility/public/mojom/accessibility_service.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "services_accessibility_public_mojom_assistive_technology_type.mojom.js",
+      "source": "services/accessibility/public/mojom/assistive_technology_type.mojom",
       "module": "ax.mojom"
     },
     {
@@ -25887,6 +27347,11 @@
       "filename": "services_accessibility_public_mojom_user_interface.mojom.js",
       "source": "services/accessibility/public/mojom/user_interface.mojom",
       "module": "ax.mojom"
+    },
+    {
+      "filename": "services_audio_public_mojom_audio_device_description.mojom.js",
+      "source": "services/audio/public/mojom/audio_device_description.mojom",
+      "module": "audio.mojom"
     },
     {
       "filename": "services_audio_public_mojom_audio_service.mojom.js",
@@ -25964,6 +27429,11 @@
       "module": "device.mojom"
     },
     {
+      "filename": "services_device_public_mojom_battery_status.mojom.js",
+      "source": "services/device/public/mojom/battery_status.mojom",
+      "module": "device.mojom"
+    },
+    {
       "filename": "services_device_public_mojom_device_service.mojom.js",
       "source": "services/device/public/mojom/device_service.mojom",
       "module": "device.mojom"
@@ -25976,6 +27446,11 @@
     {
       "filename": "services_device_public_mojom_geolocation.mojom.js",
       "source": "services/device/public/mojom/geolocation.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "services_device_public_mojom_geolocation_client_id.mojom.js",
+      "source": "services/device/public/mojom/geolocation_client_id.mojom",
       "module": "device.mojom"
     },
     {
@@ -25994,6 +27469,11 @@
       "module": "device.mojom"
     },
     {
+      "filename": "services_device_public_mojom_geoposition.mojom.js",
+      "source": "services/device/public/mojom/geoposition.mojom",
+      "module": "device.mojom"
+    },
+    {
       "filename": "services_device_public_mojom_hid.mojom.js",
       "source": "services/device/public/mojom/hid.mojom",
       "module": "device.mojom"
@@ -26004,8 +27484,18 @@
       "module": "device.mojom"
     },
     {
+      "filename": "services_device_public_mojom_mtp_file_entry.mojom.js",
+      "source": "services/device/public/mojom/mtp_file_entry.mojom",
+      "module": "device.mojom"
+    },
+    {
       "filename": "services_device_public_mojom_mtp_manager.mojom.js",
       "source": "services/device/public/mojom/mtp_manager.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "services_device_public_mojom_mtp_storage_info.mojom.js",
+      "source": "services/device/public/mojom/mtp_storage_info.mojom",
       "module": "device.mojom"
     },
     {
@@ -26029,6 +27519,11 @@
       "module": "device.mojom"
     },
     {
+      "filename": "services_device_public_mojom_pressure_update.mojom.js",
+      "source": "services/device/public/mojom/pressure_update.mojom",
+      "module": "device.mojom"
+    },
+    {
       "filename": "services_device_public_mojom_public_ip_address_geolocation_provider.mojom.js",
       "source": "services/device/public/mojom/public_ip_address_geolocation_provider.mojom",
       "module": "device.mojom"
@@ -26036,6 +27531,11 @@
     {
       "filename": "services_device_public_mojom_screen_orientation.mojom.js",
       "source": "services/device/public/mojom/screen_orientation.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "services_device_public_mojom_screen_orientation_lock_types.mojom.js",
+      "source": "services/device/public/mojom/screen_orientation_lock_types.mojom",
       "module": "device.mojom"
     },
     {
@@ -26066,6 +27566,11 @@
     {
       "filename": "services_device_public_mojom_usb_device.mojom.js",
       "source": "services/device/public/mojom/usb_device.mojom",
+      "module": "device.mojom"
+    },
+    {
+      "filename": "services_device_public_mojom_usb_enumeration_options.mojom.js",
+      "source": "services/device/public/mojom/usb_enumeration_options.mojom",
       "module": "device.mojom"
     },
     {
@@ -26144,6 +27649,36 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_ad_auction.mojom.js",
+      "source": "services/network/public/mojom/ad_auction.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_address_family.mojom.js",
+      "source": "services/network/public/mojom/address_family.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_address_list.mojom.js",
+      "source": "services/network/public/mojom/address_list.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_alternate_protocol_usage.mojom.js",
+      "source": "services/network/public/mojom/alternate_protocol_usage.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_attribution.mojom.js",
+      "source": "services/network/public/mojom/attribution.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_blocked_by_response_reason.mojom.js",
+      "source": "services/network/public/mojom/blocked_by_response_reason.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_cache_encryption_provider.mojom.js",
       "source": "services/network/public/mojom/cache_encryption_provider.mojom",
       "module": "network.mojom"
@@ -26164,8 +27699,33 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_clear_data_filter.mojom.js",
+      "source": "services/network/public/mojom/clear_data_filter.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_client_security_state.mojom.js",
+      "source": "services/network/public/mojom/client_security_state.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_connection_allowlist.mojom.js",
+      "source": "services/network/public/mojom/connection_allowlist.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_connection_change_observer_client.mojom.js",
       "source": "services/network/public/mojom/connection_change_observer_client.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_connection_endpoint_metadata.mojom.js",
+      "source": "services/network/public/mojom/connection_endpoint_metadata.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_content_security_policy.mojom.js",
+      "source": "services/network/public/mojom/content_security_policy.mojom",
       "module": "network.mojom"
     },
     {
@@ -26184,6 +27744,26 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_cookie_partition_key.mojom.js",
+      "source": "services/network/public/mojom/cookie_partition_key.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_cookie_setting_overrides.mojom.js",
+      "source": "services/network/public/mojom/cookie_setting_overrides.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_cors.mojom.js",
+      "source": "services/network/public/mojom/cors.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_cors_origin_pattern.mojom.js",
+      "source": "services/network/public/mojom/cors_origin_pattern.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_cross_origin_embedder_policy.mojom.js",
       "source": "services/network/public/mojom/cross_origin_embedder_policy.mojom",
       "module": "network.mojom"
@@ -26194,8 +27774,23 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_ct_log_info.mojom.js",
+      "source": "services/network/public/mojom/ct_log_info.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_ct_policy.mojom.js",
+      "source": "services/network/public/mojom/ct_policy.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_data_pipe_getter.mojom.js",
       "source": "services/network/public/mojom/data_pipe_getter.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_default_credentials.mojom.js",
+      "source": "services/network/public/mojom/default_credentials.mojom",
       "module": "network.mojom"
     },
     {
@@ -26214,8 +27809,38 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_digitally_signed.mojom.js",
+      "source": "services/network/public/mojom/digitally_signed.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_document_isolation_policy.mojom.js",
       "source": "services/network/public/mojom/document_isolation_policy.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_early_hints.mojom.js",
+      "source": "services/network/public/mojom/early_hints.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_encoded_body_length.mojom.js",
+      "source": "services/network/public/mojom/encoded_body_length.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_fetch_api.mojom.js",
+      "source": "services/network/public/mojom/fetch_api.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_fetch_retry_options.mojom.js",
+      "source": "services/network/public/mojom/fetch_retry_options.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_first_party_sets.mojom.js",
+      "source": "services/network/public/mojom/first_party_sets.mojom",
       "module": "network.mojom"
     },
     {
@@ -26224,8 +27849,18 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_hash_value.mojom.js",
+      "source": "services/network/public/mojom/hash_value.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_host_resolver.mojom.js",
       "source": "services/network/public/mojom/host_resolver.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_host_resolver_endpoint_result.mojom.js",
+      "source": "services/network/public/mojom/host_resolver_endpoint_result.mojom",
       "module": "network.mojom"
     },
     {
@@ -26234,8 +27869,83 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_http_raw_headers.mojom.js",
+      "source": "services/network/public/mojom/http_raw_headers.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_http_request_headers.mojom.js",
+      "source": "services/network/public/mojom/http_request_headers.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_integrity_algorithm.mojom.js",
+      "source": "services/network/public/mojom/integrity_algorithm.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_integrity_metadata.mojom.js",
+      "source": "services/network/public/mojom/integrity_metadata.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_integrity_policy.mojom.js",
+      "source": "services/network/public/mojom/integrity_policy.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_ip_address.mojom.js",
+      "source": "services/network/public/mojom/ip_address.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_ip_address_space.mojom.js",
+      "source": "services/network/public/mojom/ip_address_space.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_ip_endpoint.mojom.js",
+      "source": "services/network/public/mojom/ip_endpoint.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_isolation_info.mojom.js",
+      "source": "services/network/public/mojom/isolation_info.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_key_pinning.mojom.js",
+      "source": "services/network/public/mojom/key_pinning.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_link_header.mojom.js",
+      "source": "services/network/public/mojom/link_header.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_load_timing_info.mojom.js",
+      "source": "services/network/public/mojom/load_timing_info.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_load_timing_internal_info.mojom.js",
+      "source": "services/network/public/mojom/load_timing_internal_info.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_mdns_responder.mojom.js",
       "source": "services/network/public/mojom/mdns_responder.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_mutable_network_traffic_annotation_tag.mojom.js",
+      "source": "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_mutable_partial_network_traffic_annotation_tag.mojom.js",
+      "source": "services/network/public/mojom/mutable_partial_network_traffic_annotation_tag.mojom",
       "module": "network.mojom"
     },
     {
@@ -26246,6 +27956,11 @@
     {
       "filename": "services_network_public_mojom_network_annotation_monitor.mojom.js",
       "source": "services/network/public/mojom/network_annotation_monitor.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_network_anonymization_key.mojom.js",
+      "source": "services/network/public/mojom/network_anonymization_key.mojom",
       "module": "network.mojom"
     },
     {
@@ -26264,8 +27979,28 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_network_interface.mojom.js",
+      "source": "services/network/public/mojom/network_interface.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_network_interface_change_listener.mojom.js",
       "source": "services/network/public/mojom/network_interface_change_listener.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_network_isolation_key.mojom.js",
+      "source": "services/network/public/mojom/network_isolation_key.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_network_isolation_partition.mojom.js",
+      "source": "services/network/public/mojom/network_isolation_partition.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_network_param.mojom.js",
+      "source": "services/network/public/mojom/network_param.mojom",
       "module": "network.mojom"
     },
     {
@@ -26284,6 +28019,11 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_no_vary_search.mojom.js",
+      "source": "services/network/public/mojom/no_vary_search.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_oblivious_http_request.mojom.js",
       "source": "services/network/public/mojom/oblivious_http_request.mojom",
       "module": "network.mojom"
@@ -26296,6 +28036,31 @@
     {
       "filename": "services_network_public_mojom_p2p_trusted.mojom.js",
       "source": "services/network/public/mojom/p2p_trusted.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_parsed_headers.mojom.js",
+      "source": "services/network/public/mojom/parsed_headers.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_parsed_request_cookie.mojom.js",
+      "source": "services/network/public/mojom/parsed_request_cookie.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_permissions_policy_permissions_policy.mojom.js",
+      "source": "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_permissions_policy_permissions_policy_feature.mojom.js",
+      "source": "services/network/public/mojom/permissions_policy/permissions_policy_feature.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_proxy_config.mojom.js",
+      "source": "services/network/public/mojom/proxy_config.mojom",
       "module": "network.mojom"
     },
     {
@@ -26314,8 +28079,18 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_referrer_policy.mojom.js",
+      "source": "services/network/public/mojom/referrer_policy.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_reporting_service.mojom.js",
       "source": "services/network/public/mojom/reporting_service.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_request_priority.mojom.js",
+      "source": "services/network/public/mojom/request_priority.mojom",
       "module": "network.mojom"
     },
     {
@@ -26329,8 +28104,43 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_schemeful_site.mojom.js",
+      "source": "services/network/public/mojom/schemeful_site.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_service_worker_router_info.mojom.js",
+      "source": "services/network/public/mojom/service_worker_router_info.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_shared_dictionary_access_observer.mojom.js",
       "source": "services/network/public/mojom/shared_dictionary_access_observer.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_shared_dictionary_error.mojom.js",
+      "source": "services/network/public/mojom/shared_dictionary_error.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_shared_dictionary_isolation_key.mojom.js",
+      "source": "services/network/public/mojom/shared_dictionary_isolation_key.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_shared_dictionary_usage_info.mojom.js",
+      "source": "services/network/public/mojom/shared_dictionary_usage_info.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_shared_storage.mojom.js",
+      "source": "services/network/public/mojom/shared_storage.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_site_for_cookies.mojom.js",
+      "source": "services/network/public/mojom/site_for_cookies.mojom",
       "module": "network.mojom"
     },
     {
@@ -26344,8 +28154,38 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_source_location.mojom.js",
+      "source": "services/network/public/mojom/source_location.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_source_type.mojom.js",
+      "source": "services/network/public/mojom/source_type.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_sri_message_signature.mojom.js",
+      "source": "services/network/public/mojom/sri_message_signature.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_ssl_config.mojom.js",
       "source": "services/network/public/mojom/ssl_config.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_storage_access_api.mojom.js",
+      "source": "services/network/public/mojom/storage_access_api.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_structured_headers.mojom.js",
+      "source": "services/network/public/mojom/structured_headers.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_supports_loading_mode.mojom.js",
+      "source": "services/network/public/mojom/supports_loading_mode.mojom",
       "module": "network.mojom"
     },
     {
@@ -26364,6 +28204,11 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_transferable_socket.mojom.js",
+      "source": "services/network/public/mojom/transferable_socket.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_trust_token_access_observer.mojom.js",
       "source": "services/network/public/mojom/trust_token_access_observer.mojom",
       "module": "network.mojom"
@@ -26379,8 +28224,18 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_unencoded_digest.mojom.js",
+      "source": "services/network/public/mojom/unencoded_digest.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_url_loader.mojom.js",
       "source": "services/network/public/mojom/url_loader.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_url_loader_completion_status.mojom.js",
+      "source": "services/network/public/mojom/url_loader_completion_status.mojom",
       "module": "network.mojom"
     },
     {
@@ -26394,8 +28249,28 @@
       "module": "network.mojom"
     },
     {
+      "filename": "services_network_public_mojom_url_request.mojom.js",
+      "source": "services/network/public/mojom/url_request.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_url_response_head.mojom.js",
+      "source": "services/network/public/mojom/url_response_head.mojom",
+      "module": "network.mojom"
+    },
+    {
       "filename": "services_network_public_mojom_web_bundle_handle.mojom.js",
       "source": "services/network/public/mojom/web_bundle_handle.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_web_client_hints_types.mojom.js",
+      "source": "services/network/public/mojom/web_client_hints_types.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_web_sandbox_flags.mojom.js",
+      "source": "services/network/public/mojom/web_sandbox_flags.mojom",
       "module": "network.mojom"
     },
     {
@@ -26407,6 +28282,16 @@
       "filename": "services_network_public_mojom_websocket.mojom.js",
       "source": "services/network/public/mojom/websocket.mojom",
       "module": "network.mojom"
+    },
+    {
+      "filename": "services_network_public_mojom_x_frame_options.mojom.js",
+      "source": "services/network/public/mojom/x_frame_options.mojom",
+      "module": "network.mojom"
+    },
+    {
+      "filename": "services_on_device_model_android_downloader_params.mojom.js",
+      "source": "services/on_device_model/android/downloader_params.mojom",
+      "module": "on_device_model.mojom"
     },
     {
       "filename": "services_on_device_model_public_mojom_on_device_model.mojom.js",
@@ -26459,8 +28344,18 @@
       "module": "service_manager.mojom"
     },
     {
+      "filename": "services_service_manager_public_mojom_constants.mojom.js",
+      "source": "services/service_manager/public/mojom/constants.mojom",
+      "module": "service_manager.mojom"
+    },
+    {
       "filename": "services_service_manager_public_mojom_interface_provider.mojom.js",
       "source": "services/service_manager/public/mojom/interface_provider.mojom",
+      "module": "service_manager.mojom"
+    },
+    {
+      "filename": "services_service_manager_public_mojom_interface_provider_spec.mojom.js",
+      "source": "services/service_manager/public/mojom/interface_provider_spec.mojom",
       "module": "service_manager.mojom"
     },
     {
@@ -26471,6 +28366,11 @@
     {
       "filename": "services_service_manager_public_mojom_service_control.mojom.js",
       "source": "services/service_manager/public/mojom/service_control.mojom",
+      "module": "service_manager.mojom"
+    },
+    {
+      "filename": "services_service_manager_public_mojom_service_filter.mojom.js",
+      "source": "services/service_manager/public/mojom/service_filter.mojom",
       "module": "service_manager.mojom"
     },
     {
@@ -26624,8 +28524,23 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_privileged_mojom_compositing_overlay_strategy.mojom.js",
+      "source": "services/viz/privileged/mojom/compositing/overlay_strategy.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_privileged_mojom_compositing_renderer_settings.mojom.js",
+      "source": "services/viz/privileged/mojom/compositing/renderer_settings.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_privileged_mojom_compositing_vsync_parameter_observer.mojom.js",
       "source": "services/viz/privileged/mojom/compositing/vsync_parameter_observer.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_privileged_mojom_gl_context_lost_reason.mojom.js",
+      "source": "services/viz/privileged/mojom/gl/context_lost_reason.mojom",
       "module": "viz.mojom"
     },
     {
@@ -26654,8 +28569,38 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_public_mojom_compositing_animation.mojom.js",
+      "source": "services/viz/public/mojom/compositing/animation.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_begin_frame_args.mojom.js",
+      "source": "services/viz/public/mojom/compositing/begin_frame_args.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_bitmap_in_shared_memory.mojom.js",
+      "source": "services/viz/public/mojom/compositing/bitmap_in_shared_memory.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_blit_request.mojom.js",
+      "source": "services/viz/public/mojom/compositing/blit_request.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_public_mojom_compositing_compositing_mode_watcher.mojom.js",
       "source": "services/viz/public/mojom/compositing/compositing_mode_watcher.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_compositor_frame.mojom.js",
+      "source": "services/viz/public/mojom/compositing/compositor_frame.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_compositor_frame_metadata.mojom.js",
+      "source": "services/viz/public/mojom/compositing/compositor_frame_metadata.mojom",
       "module": "viz.mojom"
     },
     {
@@ -26664,8 +28609,48 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_public_mojom_compositing_compositor_frame_transition_directive.mojom.js",
+      "source": "services/viz/public/mojom/compositing/compositor_frame_transition_directive.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_compositor_render_pass.mojom.js",
+      "source": "services/viz/public/mojom/compositing/compositor_render_pass.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_compositor_render_pass_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/compositor_render_pass_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_public_mojom_compositing_copy_output_request.mojom.js",
       "source": "services/viz/public/mojom/compositing/copy_output_request.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_copy_output_result.mojom.js",
+      "source": "services/viz/public/mojom/compositing/copy_output_result.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_filter_operation.mojom.js",
+      "source": "services/viz/public/mojom/compositing/filter_operation.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_filter_operations.mojom.js",
+      "source": "services/viz/public/mojom/compositing/filter_operations.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_frame_deadline.mojom.js",
+      "source": "services/viz/public/mojom/compositing/frame_deadline.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_frame_interval_inputs.mojom.js",
+      "source": "services/viz/public/mojom/compositing/frame_interval_inputs.mojom",
       "module": "viz.mojom"
     },
     {
@@ -26674,8 +28659,103 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_public_mojom_compositing_frame_sink_bundle_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/frame_sink_bundle_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_frame_sink_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_frame_timing_details.mojom.js",
+      "source": "services/viz/public/mojom/compositing/frame_timing_details.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_internal_singleplanar_format.mojom.js",
+      "source": "services/viz/public/mojom/compositing/internal/singleplanar_format.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_layer.mojom.js",
+      "source": "services/viz/public/mojom/compositing/layer.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_public_mojom_compositing_layer_context.mojom.js",
       "source": "services/viz/public/mojom/compositing/layer_context.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_local_surface_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/local_surface_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_offset_tag.mojom.js",
+      "source": "services/viz/public/mojom/compositing/offset_tag.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_paint_filter.mojom.js",
+      "source": "services/viz/public/mojom/compositing/paint_filter.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_quads.mojom.js",
+      "source": "services/viz/public/mojom/compositing/quads.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_region_capture_bounds.mojom.js",
+      "source": "services/viz/public/mojom/compositing/region_capture_bounds.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_resource_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/resource_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_returned_resource.mojom.js",
+      "source": "services/viz/public/mojom/compositing/returned_resource.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_selection.mojom.js",
+      "source": "services/viz/public/mojom/compositing/selection.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_shared_image_format.mojom.js",
+      "source": "services/viz/public/mojom/compositing/shared_image_format.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_shared_quad_state.mojom.js",
+      "source": "services/viz/public/mojom/compositing/shared_quad_state.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_subtree_capture_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/subtree_capture_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_surface_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/surface_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_surface_info.mojom.js",
+      "source": "services/viz/public/mojom/compositing/surface_info.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_surface_range.mojom.js",
+      "source": "services/viz/public/mojom/compositing/surface_range.mojom",
       "module": "viz.mojom"
     },
     {
@@ -26684,8 +28764,43 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_public_mojom_compositing_thread.mojom.js",
+      "source": "services/viz/public/mojom/compositing/thread.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_tiling.mojom.js",
+      "source": "services/viz/public/mojom/compositing/tiling.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_transferable_resource.mojom.js",
+      "source": "services/viz/public/mojom/compositing/transferable_resource.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_trees_in_viz_timing.mojom.js",
+      "source": "services/viz/public/mojom/compositing/trees_in_viz_timing.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_vertical_scroll_direction.mojom.js",
+      "source": "services/viz/public/mojom/compositing/vertical_scroll_direction.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_public_mojom_compositing_video_detector_observer.mojom.js",
       "source": "services/viz/public/mojom/compositing/video_detector_observer.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_view_transition_element_resource_id.mojom.js",
+      "source": "services/viz/public/mojom/compositing/view_transition_element_resource_id.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_view_transition_request.mojom.js",
+      "source": "services/viz/public/mojom/compositing/view_transition_request.mojom",
       "module": "viz.mojom"
     },
     {
@@ -26694,9 +28809,24 @@
       "module": "viz.mojom"
     },
     {
+      "filename": "services_viz_public_mojom_hit_test_aggregated_hit_test_region.mojom.js",
+      "source": "services/viz/public/mojom/hit_test/aggregated_hit_test_region.mojom",
+      "module": "viz.mojom"
+    },
+    {
+      "filename": "services_viz_public_mojom_hit_test_hit_test_region_list.mojom.js",
+      "source": "services/viz/public/mojom/hit_test/hit_test_region_list.mojom",
+      "module": "viz.mojom"
+    },
+    {
       "filename": "services_viz_public_mojom_hit_test_input_target_client.mojom.js",
       "source": "services/viz/public/mojom/hit_test/input_target_client.mojom",
       "module": "viz.mojom"
+    },
+    {
+      "filename": "services_webnn_public_mojom_ep_package_info.mojom.js",
+      "source": "services/webnn/public/mojom/ep_package_info.mojom",
+      "module": "webnn.mojom"
     },
     {
       "filename": "services_webnn_public_mojom_webnn_context.mojom.js",
@@ -26704,8 +28834,23 @@
       "module": "webnn.mojom"
     },
     {
+      "filename": "services_webnn_public_mojom_webnn_context_properties.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_context_properties.mojom",
+      "module": "webnn.mojom"
+    },
+    {
       "filename": "services_webnn_public_mojom_webnn_context_provider.mojom.js",
       "source": "services/webnn/public/mojom/webnn_context_provider.mojom",
+      "module": "webnn.mojom"
+    },
+    {
+      "filename": "services_webnn_public_mojom_webnn_device.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_device.mojom",
+      "module": "webnn.mojom"
+    },
+    {
+      "filename": "services_webnn_public_mojom_webnn_error.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_error.mojom",
       "module": "webnn.mojom"
     },
     {
@@ -26724,6 +28869,51 @@
       "module": "webnn.mojom"
     },
     {
+      "filename": "skia_public_mojom_bitmap.mojom.js",
+      "source": "skia/public/mojom/bitmap.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_image_info.mojom.js",
+      "source": "skia/public/mojom/image_info.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_skcolor.mojom.js",
+      "source": "skia/public/mojom/skcolor.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_skcolor4f.mojom.js",
+      "source": "skia/public/mojom/skcolor4f.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_skcolorspace.mojom.js",
+      "source": "skia/public/mojom/skcolorspace.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_skcolorspace_primaries.mojom.js",
+      "source": "skia/public/mojom/skcolorspace_primaries.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_skpath.mojom.js",
+      "source": "skia/public/mojom/skpath.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_surface_origin.mojom.js",
+      "source": "skia/public/mojom/surface_origin.mojom",
+      "module": "skia.mojom"
+    },
+    {
+      "filename": "skia_public_mojom_tile_mode.mojom.js",
+      "source": "skia/public/mojom/tile_mode.mojom",
+      "module": "skia.mojom"
+    },
+    {
       "filename": "storage_browser_quota_quota_internals.mojom.js",
       "source": "storage/browser/quota/quota_internals.mojom",
       "module": "storage.mojom"
@@ -26732,6 +28922,21 @@
       "filename": "storage_browser_quota_quota_manager_observer.mojom.js",
       "source": "storage/browser/quota/quota_manager_observer.mojom",
       "module": "storage.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_ad_tagging_ad_evidence.mojom.js",
+      "source": "third_party/blink/public/mojom/ad_tagging/ad_evidence.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_aggregation_service_aggregatable_report.mojom.js",
+      "source": "third_party/blink/public/mojom/aggregation_service/aggregatable_report.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_ai_ai_common.mojom.js",
+      "source": "third_party/blink/public/mojom/ai/ai_common.mojom",
+      "module": "blink.mojom"
     },
     {
       "filename": "third_party_blink_public_mojom_ai_ai_language_model.mojom.js",
@@ -26789,6 +28994,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_array_buffer_array_buffer_contents.mojom.js",
+      "source": "third_party/blink/public/mojom/array_buffer/array_buffer_contents.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_associated_interfaces_associated_interfaces.mojom.js",
       "source": "third_party/blink/public/mojom/associated_interfaces/associated_interfaces.mojom",
       "module": "blink.mojom"
@@ -26796,6 +29006,11 @@
     {
       "filename": "third_party_blink_public_mojom_autoplay_autoplay.mojom.js",
       "source": "third_party/blink/public/mojom/autoplay/autoplay.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_back_forward_cache_not_restored_reasons.mojom.js",
+      "source": "third_party/blink/public/mojom/back_forward_cache_not_restored_reasons.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26836,6 +29051,11 @@
     {
       "filename": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
       "source": "third_party/blink/public/mojom/blob/file_backed_blob_factory.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_blob_serialized_blob.mojom.js",
+      "source": "third_party/blink/public/mojom/blob/serialized_blob.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26904,8 +29124,23 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_commit_result_commit_result.mojom.js",
+      "source": "third_party/blink/public/mojom/commit_result/commit_result.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_compute_pressure_web_pressure_manager.mojom.js",
       "source": "third_party/blink/public/mojom/compute_pressure/web_pressure_manager.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_compute_pressure_web_pressure_update.mojom.js",
+      "source": "third_party/blink/public/mojom/compute_pressure/web_pressure_update.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_confidence_level.mojom.js",
+      "source": "third_party/blink/public/mojom/confidence_level.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26916,6 +29151,11 @@
     {
       "filename": "third_party_blink_public_mojom_content_extraction_ai_page_content.mojom.js",
       "source": "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_content_extraction_ai_page_content_metadata.mojom.js",
+      "source": "third_party/blink/public/mojom/content_extraction/ai_page_content_metadata.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26931,6 +29171,11 @@
     {
       "filename": "third_party_blink_public_mojom_content_extraction_inner_text.mojom.js",
       "source": "third_party/blink/public/mojom/content_extraction/inner_text.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_content_extraction_script_tools.mojom.js",
+      "source": "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26954,6 +29199,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_cpu_performance.mojom.js",
+      "source": "third_party/blink/public/mojom/cpu_performance.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_crash_crash_memory_metrics_reporter.mojom.js",
       "source": "third_party/blink/public/mojom/crash/crash_memory_metrics_reporter.mojom",
       "module": "blink.mojom"
@@ -26961,6 +29211,26 @@
     {
       "filename": "third_party_blink_public_mojom_credentialmanagement_credential_manager.mojom.js",
       "source": "third_party/blink/public/mojom/credentialmanagement/credential_manager.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_credentialmanagement_credential_type_flags.mojom.js",
+      "source": "third_party/blink/public/mojom/credentialmanagement/credential_type_flags.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_css_preferred_color_scheme.mojom.js",
+      "source": "third_party/blink/public/mojom/css/preferred_color_scheme.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_css_preferred_contrast.mojom.js",
+      "source": "third_party/blink/public/mojom/css/preferred_contrast.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_data_transfer_data_transfer.mojom.js",
+      "source": "third_party/blink/public/mojom/data_transfer/data_transfer.mojom",
       "module": "blink.mojom"
     },
     {
@@ -26974,6 +29244,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_devtools_console_message.mojom.js",
+      "source": "third_party/blink/public/mojom/devtools/console_message.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_devtools_devtools_agent.mojom.js",
       "source": "third_party/blink/public/mojom/devtools/devtools_agent.mojom",
       "module": "blink.mojom"
@@ -26981,6 +29256,11 @@
     {
       "filename": "third_party_blink_public_mojom_devtools_devtools_frontend.mojom.js",
       "source": "third_party/blink/public/mojom/devtools/devtools_frontend.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_devtools_inspector_issue.mojom.js",
+      "source": "third_party/blink/public/mojom/devtools/inspector_issue.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27019,6 +29299,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_drag_drag.mojom.js",
+      "source": "third_party/blink/public/mojom/drag/drag.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_dwrite_font_proxy_dwrite_font_proxy.mojom.js",
       "source": "third_party/blink/public/mojom/dwrite_font_proxy/dwrite_font_proxy.mojom",
       "module": "blink.mojom"
@@ -27029,6 +29314,11 @@
       "module": "payments.facilitated.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_favicon_favicon_url.mojom.js",
+      "source": "third_party/blink/public/mojom/favicon/favicon_url.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_feature_observer_feature_observer.mojom.js",
       "source": "third_party/blink/public/mojom/feature_observer/feature_observer.mojom",
       "module": "blink.mojom"
@@ -27036,6 +29326,21 @@
     {
       "filename": "third_party_blink_public_mojom_fenced_frame_fenced_frame.mojom.js",
       "source": "third_party/blink/public/mojom/fenced_frame/fenced_frame.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_fenced_frame_fenced_frame_config.mojom.js",
+      "source": "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_fetch_fetch_api_request.mojom.js",
+      "source": "third_party/blink/public/mojom/fetch/fetch_api_request.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_fetch_fetch_api_response.mojom.js",
+      "source": "third_party/blink/public/mojom/fetch/fetch_api_response.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27049,6 +29354,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_cloud_identifier.mojom.js",
+      "source": "third_party/blink/public/mojom/file_system_access/file_system_access_cloud_identifier.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_data_transfer_token.mojom.js",
       "source": "third_party/blink/public/mojom/file_system_access/file_system_access_data_transfer_token.mojom",
       "module": "blink.mojom"
@@ -27056,6 +29366,11 @@
     {
       "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_directory_handle.mojom.js",
       "source": "third_party/blink/public/mojom/file_system_access/file_system_access_directory_handle.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_error.mojom.js",
+      "source": "third_party/blink/public/mojom/file_system_access/file_system_access_error.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27094,6 +29409,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_permission_mode.mojom.js",
+      "source": "third_party/blink/public/mojom/file_system_access/file_system_access_permission_mode.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_file_system_access_file_system_access_transfer_token.mojom.js",
       "source": "third_party/blink/public/mojom/file_system_access/file_system_access_transfer_token.mojom",
       "module": "blink.mojom"
@@ -27101,6 +29421,11 @@
     {
       "filename": "third_party_blink_public_mojom_filesystem_file_system.mojom.js",
       "source": "third_party/blink/public/mojom/filesystem/file_system.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_fingerprinting_protection_noise_token.mojom.js",
+      "source": "third_party/blink/public/mojom/fingerprinting_protection/noise_token.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27114,8 +29439,28 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_forms_form_control_type.mojom.js",
+      "source": "third_party/blink/public/mojom/forms/form_control_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_frame_back_forward_cache_controller.mojom.js",
       "source": "third_party/blink/public/mojom/frame/back_forward_cache_controller.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_blocked_navigation_types.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/blocked_navigation_types.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_color_scheme.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/color_scheme.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_deferred_fetch_policy.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/deferred_fetch_policy.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27126,6 +29471,46 @@
     {
       "filename": "third_party_blink_public_mojom_frame_frame.mojom.js",
       "source": "third_party/blink/public/mojom/frame/frame.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_frame_owner_properties.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_frame_policy.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/frame_policy.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_frame_replication_state.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_frame_visual_properties.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/frame_visual_properties.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_fullscreen.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/fullscreen.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_intrinsic_sizing_info.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/intrinsic_sizing_info.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_lifecycle.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/lifecycle.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_media_player_action.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/media_player_action.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27141,6 +29526,46 @@
     {
       "filename": "third_party_blink_public_mojom_frame_reporting_observer.mojom.js",
       "source": "third_party/blink/public/mojom/frame/reporting_observer.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_sudden_termination_disabler_type.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/sudden_termination_disabler_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_text_autosizer_page_info.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/text_autosizer_page_info.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_tree_scope_type.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/tree_scope_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_triggering_event_info.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/triggering_event_info.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_user_activation_notification_type.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/user_activation_notification_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_user_activation_update_types.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/user_activation_update_types.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_view_transition_state.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/view_transition_state.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_viewport_intersection_state.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/viewport_intersection_state.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27189,8 +29614,33 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_input_focus_type.mojom.js",
+      "source": "third_party/blink/public/mojom/input/focus_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_gesture_event.mojom.js",
+      "source": "third_party/blink/public/mojom/input/gesture_event.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_handwriting_gesture_result.mojom.js",
+      "source": "third_party/blink/public/mojom/input/handwriting_gesture_result.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_input_ime_host.mojom.js",
       "source": "third_party/blink/public/mojom/input/ime_host.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_input_event.mojom.js",
+      "source": "third_party/blink/public/mojom/input/input_event.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_input_event_result.mojom.js",
+      "source": "third_party/blink/public/mojom/input/input_event_result.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27214,6 +29664,21 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_input_pointer_lock_result.mojom.js",
+      "source": "third_party/blink/public/mojom/input/pointer_lock_result.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_scroll_direction.mojom.js",
+      "source": "third_party/blink/public/mojom/input/scroll_direction.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_stylus_writing_gesture.mojom.js",
+      "source": "third_party/blink/public/mojom/input/stylus_writing_gesture.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_input_synchronous_compositor.mojom.js",
       "source": "third_party/blink/public/mojom/input/synchronous_compositor.mojom",
       "module": "blink.mojom"
@@ -27221,6 +29686,11 @@
     {
       "filename": "third_party_blink_public_mojom_input_text_input_host.mojom.js",
       "source": "third_party/blink/public/mojom/input/text_input_host.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_input_touch_event.mojom.js",
+      "source": "third_party/blink/public/mojom/input/touch_event.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27234,8 +29704,23 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_installedapp_related_application.mojom.js",
+      "source": "third_party/blink/public/mojom/installedapp/related_application.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_interest_group_ad_auction_service.mojom.js",
       "source": "third_party/blink/public/mojom/interest_group/ad_auction_service.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_interest_group_ad_display_size.mojom.js",
+      "source": "third_party/blink/public/mojom/interest_group/ad_display_size.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_interest_group_interest_group_types.mojom.js",
+      "source": "third_party/blink/public/mojom/interest_group/interest_group_types.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27269,8 +29754,18 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_loader_fetch_client_settings_object.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/fetch_client_settings_object.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_loader_fetch_later.mojom.js",
       "source": "third_party/blink/public/mojom/loader/fetch_later.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_javascript_framework_detection.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/javascript_framework_detection.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27284,6 +29779,21 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_loader_local_resource_loader_config.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/local_resource_loader_config.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_mhtml_load_result.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/mhtml_load_result.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_mixed_content.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/mixed_content.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_loader_navigation_predictor.mojom.js",
       "source": "third_party/blink/public/mojom/loader/navigation_predictor.mojom",
       "module": "blink.mojom"
@@ -27294,8 +29804,38 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_loader_referrer.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/referrer.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_request_context_frame_type.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/request_context_frame_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_resource_load_info.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/resource_load_info.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_loader_resource_load_info_notifier.mojom.js",
       "source": "third_party/blink/public/mojom/loader/resource_load_info_notifier.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_same_document_navigation_type.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/same_document_navigation_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_transferrable_url_loader.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/transferrable_url_loader.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_loader_url_loader_factory_bundle.mojom.js",
+      "source": "third_party/blink/public/mojom/loader/url_loader_factory_bundle.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27309,6 +29849,21 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_manifest_display_mode.mojom.js",
+      "source": "third_party/blink/public/mojom/manifest/display_mode.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_manifest_manifest.mojom.js",
+      "source": "third_party/blink/public/mojom/manifest/manifest.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_manifest_manifest_launch_handler.mojom.js",
+      "source": "third_party/blink/public/mojom/manifest/manifest_launch_handler.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_manifest_manifest_manager.mojom.js",
       "source": "third_party/blink/public/mojom/manifest/manifest_manager.mojom",
       "module": "blink.mojom"
@@ -27316,6 +29871,11 @@
     {
       "filename": "third_party_blink_public_mojom_manifest_manifest_observer.mojom.js",
       "source": "third_party/blink/public/mojom/manifest/manifest_observer.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_media_capture_handle_config.mojom.js",
+      "source": "third_party/blink/public/mojom/media/capture_handle_config.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27359,13 +29919,88 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_messaging_cloneable_message.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/cloneable_message.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_messaging_delegated_capability.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/delegated_capability.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_messaging_message_port_descriptor.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/message_port_descriptor.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_messaging_static_bitmap_image.mojom.js",
       "source": "third_party/blink/public/mojom/messaging/static_bitmap_image.mojom",
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_messaging_task_attribution_id.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/task_attribution_id.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_messaging_transferable_message.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/transferable_message.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_messaging_user_activation_snapshot.mojom.js",
+      "source": "third_party/blink/public/mojom/messaging/user_activation_snapshot.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_mime_mime_registry.mojom.js",
       "source": "third_party/blink/public/mojom/mime/mime_registry.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_navigation_api_history_entry_arrays.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/navigation_api_history_entry_arrays.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_navigation_initiator_activation_and_ad_status.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/navigation_initiator_activation_and_ad_status.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_navigation_params.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/navigation_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_navigation_policy.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/navigation_policy.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_prefetched_signed_exchange_info.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/prefetched_signed_exchange_info.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_renderer_content_settings.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/renderer_content_settings.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_renderer_eviction_reason.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/renderer_eviction_reason.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_was_activated_option.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/was_activated_option.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_notifications_notification.mojom.js",
+      "source": "third_party/blink/public/mojom/notifications/notification.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27389,8 +30024,18 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_opengraph_metadata.mojom.js",
+      "source": "third_party/blink/public/mojom/opengraph/metadata.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_origin_trials_origin_trial_state_host.mojom.js",
       "source": "third_party/blink/public/mojom/origin_trials/origin_trial_state_host.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_origin_trials_origin_trials_settings.mojom.js",
+      "source": "third_party/blink/public/mojom/origin_trials/origin_trials_settings.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27399,13 +30044,38 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_page_draggable_region.mojom.js",
+      "source": "third_party/blink/public/mojom/page/draggable_region.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_page_page.mojom.js",
       "source": "third_party/blink/public/mojom/page/page.mojom",
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_page_page_visibility_state.mojom.js",
+      "source": "third_party/blink/public/mojom/page/page_visibility_state.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_page_prerender_page_param.mojom.js",
+      "source": "third_party/blink/public/mojom/page/prerender_page_param.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_page_widget.mojom.js",
       "source": "third_party/blink/public/mojom/page/widget.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_page_state_page_state.mojom.js",
+      "source": "third_party/blink/public/mojom/page_state/page_state.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_parakeet_ad_request.mojom.js",
+      "source": "third_party/blink/public/mojom/parakeet/ad_request.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27434,6 +30104,16 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_peerconnection_webrtc_ip_handling_policy.mojom.js",
+      "source": "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_policy.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_peerconnection_webrtc_ip_handling_url_entry.mojom.js",
+      "source": "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_url_entry.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_performance_manager_v8_detailed_memory_reporter.mojom.js",
       "source": "third_party/blink/public/mojom/performance_manager/v8_detailed_memory_reporter.mojom",
       "module": "blink.mojom"
@@ -27444,6 +30124,26 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_permissions_permission_status.mojom.js",
+      "source": "third_party/blink/public/mojom/permissions/permission_status.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_permissions_policy_document_policy_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/permissions_policy/document_policy_feature.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_permissions_policy_policy_disposition.mojom.js",
+      "source": "third_party/blink/public/mojom/permissions_policy/policy_disposition.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_permissions_policy_policy_value.mojom.js",
+      "source": "third_party/blink/public/mojom/permissions_policy/policy_value.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_persistent_renderer_prefs.mojom.js",
       "source": "third_party/blink/public/mojom/persistent_renderer_prefs.mojom",
       "module": "blink.mojom"
@@ -27451,6 +30151,11 @@
     {
       "filename": "third_party_blink_public_mojom_picture_in_picture_picture_in_picture.mojom.js",
       "source": "third_party/blink/public/mojom/picture_in_picture/picture_in_picture.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_picture_in_picture_window_options_picture_in_picture_window_options.mojom.js",
+      "source": "third_party/blink/public/mojom/picture_in_picture_window_options/picture_in_picture_window_options.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27489,8 +30194,18 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_push_messaging_push_messaging_status.mojom.js",
+      "source": "third_party/blink/public/mojom/push_messaging/push_messaging_status.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_quota_quota_manager_host.mojom.js",
       "source": "third_party/blink/public/mojom/quota/quota_manager_host.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_quota_quota_types.mojom.js",
+      "source": "third_party/blink/public/mojom/quota/quota_types.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27509,8 +30224,63 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_renderer_preferences.mojom.js",
+      "source": "third_party/blink/public/mojom/renderer_preferences.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_reporting_reporting.mojom.js",
       "source": "third_party/blink/public/mojom/reporting/reporting.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_safe_url_pattern.mojom.js",
+      "source": "third_party/blink/public/mojom/safe_url_pattern.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_scheduler_web_scheduler_tracked_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/scheduler/web_scheduler_tracked_feature.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_script_script_evaluation_params.mojom.js",
+      "source": "third_party/blink/public/mojom/script/script_evaluation_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_script_script_type.mojom.js",
+      "source": "third_party/blink/public/mojom/script/script_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_script_source_location.mojom.js",
+      "source": "third_party/blink/public/mojom/script_source_location.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_scroll_scroll_enums.mojom.js",
+      "source": "third_party/blink/public/mojom/scroll/scroll_enums.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_scroll_scroll_into_view_params.mojom.js",
+      "source": "third_party/blink/public/mojom/scroll/scroll_into_view_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_scroll_scrollbar_mode.mojom.js",
+      "source": "third_party/blink/public/mojom/scroll/scrollbar_mode.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_security_context_insecure_request_policy.mojom.js",
+      "source": "third_party/blink/public/mojom/security_context/insecure_request_policy.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_selection_menu_selection_menu_behavior.mojom.js",
+      "source": "third_party/blink/public/mojom/selection_menu/selection_menu_behavior.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27529,8 +30299,23 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_service_worker_controller_service_worker_mode.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/controller_service_worker_mode.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_dispatch_fetch_event_params.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/dispatch_fetch_event_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_service_worker_embedded_worker.mojom.js",
       "source": "third_party/blink/public/mojom/service_worker/embedded_worker.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_navigation_preload_state.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/navigation_preload_state.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27539,8 +30324,48 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_ancestor_frame_type.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_ancestor_frame_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_client.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_client.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_service_worker_service_worker_container.mojom.js",
       "source": "third_party/blink/public/mojom/service_worker/service_worker_container.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_container_type.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_container_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_embedded_worker_status.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_embedded_worker_status.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_error_type.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_error_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_event_status.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_event_status.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_fetch_handler_bypass_option.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_fetch_handler_bypass_option.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_fetch_handler_type.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_fetch_handler_type.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27559,13 +30384,33 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_provider.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_provider.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_service_worker_service_worker_registration.mojom.js",
       "source": "third_party/blink/public/mojom/service_worker/service_worker_registration.mojom",
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_registration_options.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_registration_options.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_router_rule.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_router_rule.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_service_worker_service_worker_running_status_callback.mojom.js",
       "source": "third_party/blink/public/mojom/service_worker/service_worker_running_status_callback.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_service_worker_service_worker_state.mojom.js",
+      "source": "third_party/blink/public/mojom/service_worker/service_worker_state.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27594,6 +30439,11 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_site_engagement_site_engagement.mojom.js",
+      "source": "third_party/blink/public/mojom/site_engagement/site_engagement.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_smart_card_smart_card.mojom.js",
       "source": "third_party/blink/public/mojom/smart_card/smart_card.mojom",
       "module": "blink.mojom"
@@ -27619,8 +30469,33 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_storage_key_ancestor_chain_bit.mojom.js",
+      "source": "third_party/blink/public/mojom/storage_key/ancestor_chain_bit.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_storage_key_storage_key.mojom.js",
+      "source": "third_party/blink/public/mojom/storage_key/storage_key.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_subapps_sub_apps_service.mojom.js",
       "source": "third_party/blink/public/mojom/subapps/sub_apps_service.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_timing_performance_mark_or_measure.mojom.js",
+      "source": "third_party/blink/public/mojom/timing/performance_mark_or_measure.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_timing_resource_timing.mojom.js",
+      "source": "third_party/blink/public/mojom/timing/resource_timing.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_tokens_tokens.mojom.js",
+      "source": "third_party/blink/public/mojom/tokens/tokens.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27631,6 +30506,36 @@
     {
       "filename": "third_party_blink_public_mojom_usb_web_usb_service.mojom.js",
       "source": "third_party/blink/public/mojom/usb/web_usb_service.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_use_counter_metrics_css_property_id.mojom.js",
+      "source": "third_party/blink/public/mojom/use_counter/metrics/css_property_id.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_use_counter_metrics_web_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/use_counter/metrics/web_feature.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_use_counter_metrics_webdx_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/use_counter/metrics/webdx_feature.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_use_counter_use_counter_feature.mojom.js",
+      "source": "third_party/blink/public/mojom/use_counter/use_counter_feature.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_user_agent_user_agent_metadata.mojom.js",
+      "source": "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_v8_cache_options.mojom.js",
+      "source": "third_party/blink/public/mojom/v8_cache_options.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27669,6 +30574,16 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_webpreferences_web_preferences.mojom.js",
+      "source": "third_party/blink/public/mojom/webpreferences/web_preferences.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_webshare_share_error.mojom.js",
+      "source": "third_party/blink/public/mojom/webshare/share_error.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_webshare_webshare.mojom.js",
       "source": "third_party/blink/public/mojom/webshare/webshare.mojom",
       "module": "blink.mojom"
@@ -27689,8 +30604,28 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_widget_device_emulation_params.mojom.js",
+      "source": "third_party/blink/public/mojom/widget/device_emulation_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_widget_platform_widget.mojom.js",
       "source": "third_party/blink/public/mojom/widget/platform_widget.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_widget_record_content_to_visible_time_request.mojom.js",
+      "source": "third_party/blink/public/mojom/widget/record_content_to_visible_time_request.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_widget_visual_properties.mojom.js",
+      "source": "third_party/blink/public/mojom/widget/visual_properties.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_window_features_window_features.mojom.js",
+      "source": "third_party/blink/public/mojom/window_features/window_features.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27719,6 +30654,16 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_worker_shared_worker_creation_context_type.mojom.js",
+      "source": "third_party/blink/public/mojom/worker/shared_worker_creation_context_type.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_worker_shared_worker_exception_details.mojom.js",
+      "source": "third_party/blink/public/mojom/worker/shared_worker_exception_details.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_worker_shared_worker_factory.mojom.js",
       "source": "third_party/blink/public/mojom/worker/shared_worker_factory.mojom",
       "module": "blink.mojom"
@@ -27726,6 +30671,11 @@
     {
       "filename": "third_party_blink_public_mojom_worker_shared_worker_host.mojom.js",
       "source": "third_party/blink/public/mojom/worker/shared_worker_host.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_worker_shared_worker_info.mojom.js",
+      "source": "third_party/blink/public/mojom/worker/shared_worker_info.mojom",
       "module": "blink.mojom"
     },
     {
@@ -27739,9 +30689,104 @@
       "module": "blink.mojom"
     },
     {
+      "filename": "third_party_blink_public_mojom_worker_worker_main_script_load_params.mojom.js",
+      "source": "third_party/blink/public/mojom/worker/worker_main_script_load_params.mojom",
+      "module": "blink.mojom"
+    },
+    {
+      "filename": "third_party_blink_public_mojom_worker_worker_options.mojom.js",
+      "source": "third_party/blink/public/mojom/worker/worker_options.mojom",
+      "module": "blink.mojom"
+    },
+    {
       "filename": "third_party_blink_public_mojom_worker_worklet_global_scope_creation_params.mojom.js",
       "source": "third_party/blink/public/mojom/worker/worklet_global_scope_creation_params.mojom",
       "module": "blink.mojom"
+    },
+    {
+      "filename": "ui_accessibility_ax_enums.mojom.js",
+      "source": "ui/accessibility/ax_enums.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_action_data.mojom.js",
+      "source": "ui/accessibility/mojom/ax_action_data.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_assistant_structure.mojom.js",
+      "source": "ui/accessibility/mojom/ax_assistant_structure.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_event.mojom.js",
+      "source": "ui/accessibility/mojom/ax_event.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_event_intent.mojom.js",
+      "source": "ui/accessibility/mojom/ax_event_intent.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_location_and_scroll_updates.mojom.js",
+      "source": "ui/accessibility/mojom/ax_location_and_scroll_updates.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_mode.mojom.js",
+      "source": "ui/accessibility/mojom/ax_mode.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_node_data.mojom.js",
+      "source": "ui/accessibility/mojom/ax_node_data.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_relative_bounds.mojom.js",
+      "source": "ui/accessibility/mojom/ax_relative_bounds.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_tree_checks.mojom.js",
+      "source": "ui/accessibility/mojom/ax_tree_checks.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_tree_data.mojom.js",
+      "source": "ui/accessibility/mojom/ax_tree_data.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_tree_update.mojom.js",
+      "source": "ui/accessibility/mojom/ax_tree_update.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_accessibility_mojom_ax_updates_and_events.mojom.js",
+      "source": "ui/accessibility/mojom/ax_updates_and_events.mojom",
+      "module": "ax.mojom"
+    },
+    {
+      "filename": "ui_base_accelerators_mojom_accelerator.mojom.js",
+      "source": "ui/base/accelerators/mojom/accelerator.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_cursor_mojom_cursor.mojom.js",
+      "source": "ui/base/cursor/mojom/cursor.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_cursor_mojom_cursor_type.mojom.js",
+      "source": "ui/base/cursor/mojom/cursor_type.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_dragdrop_mojom_drag_drop_types.mojom.js",
+      "source": "ui/base/dragdrop/mojom/drag_drop_types.mojom",
+      "module": "ui.mojom"
     },
     {
       "filename": "ui_base_ime_mojom_ime_mojom_traits_test.mojom.js",
@@ -27749,8 +30794,228 @@
       "module": "ui.mojom"
     },
     {
+      "filename": "ui_base_ime_mojom_ime_types.mojom.js",
+      "source": "ui/base/ime/mojom/ime_types.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_ime_mojom_text_edit_commands.mojom.js",
+      "source": "ui/base/ime/mojom/text_edit_commands.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_ime_mojom_text_input_state.mojom.js",
+      "source": "ui/base/ime/mojom/text_input_state.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_ime_mojom_virtual_keyboard_types.mojom.js",
+      "source": "ui/base/ime/mojom/virtual_keyboard_types.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_attributed_string.mojom.js",
+      "source": "ui/base/mojom/attributed_string.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_color_mode.mojom.js",
+      "source": "ui/base/mojom/color_mode.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_dialog_button.mojom.js",
+      "source": "ui/base/mojom/dialog_button.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_menu_source_type.mojom.js",
+      "source": "ui/base/mojom/menu_source_type.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_themes.mojom.js",
+      "source": "ui/base/mojom/themes.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_ui_base_types.mojom.js",
+      "source": "ui/base/mojom/ui_base_types.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_window_open_disposition.mojom.js",
+      "source": "ui/base/mojom/window_open_disposition.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_base_mojom_window_show_state.mojom.js",
+      "source": "ui/base/mojom/window_show_state.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_color_color_id.mojom.js",
+      "source": "ui/color/color_id.mojom",
+      "module": "color.mojom"
+    },
+    {
+      "filename": "ui_color_scheme_variant.mojom.js",
+      "source": "ui/color/scheme_variant.mojom",
+      "module": "color.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display.mojom.js",
+      "source": "ui/display/mojom/display.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_color_management.mojom.js",
+      "source": "ui/display/mojom/display_color_management.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_configuration_params.mojom.js",
+      "source": "ui/display/mojom/display_configuration_params.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_constants.mojom.js",
+      "source": "ui/display/mojom/display_constants.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_layout.mojom.js",
+      "source": "ui/display/mojom/display_layout.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_mode.mojom.js",
+      "source": "ui/display/mojom/display_mode.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_display_snapshot.mojom.js",
+      "source": "ui/display/mojom/display_snapshot.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_gamma_ramp_rgb_entry.mojom.js",
+      "source": "ui/display/mojom/gamma_ramp_rgb_entry.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_screen_info.mojom.js",
+      "source": "ui/display/mojom/screen_info.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_screen_infos.mojom.js",
+      "source": "ui/display/mojom/screen_infos.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_display_mojom_screen_orientation.mojom.js",
+      "source": "ui/display/mojom/screen_orientation.mojom",
+      "module": "display.mojom"
+    },
+    {
+      "filename": "ui_events_ash_mojom_extended_fkeys_modifier.mojom.js",
+      "source": "ui/events/ash/mojom/extended_fkeys_modifier.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_ash_mojom_meta_key.mojom.js",
+      "source": "ui/events/ash/mojom/meta_key.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_ash_mojom_modifier_key.mojom.js",
+      "source": "ui/events/ash/mojom/modifier_key.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_ash_mojom_simulate_right_click_modifier.mojom.js",
+      "source": "ui/events/ash/mojom/simulate_right_click_modifier.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_ash_mojom_six_pack_shortcut_modifier.mojom.js",
+      "source": "ui/events/ash/mojom/six_pack_shortcut_modifier.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_mojom_event.mojom.js",
+      "source": "ui/events/mojom/event.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_mojom_event_constants.mojom.js",
+      "source": "ui/events/mojom/event_constants.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_mojom_event_latency_metadata.mojom.js",
+      "source": "ui/events/mojom/event_latency_metadata.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_mojom_keyboard_codes.mojom.js",
+      "source": "ui/events/mojom/keyboard_codes.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_events_mojom_motion_event_android.mojom.js",
+      "source": "ui/events/mojom/motion_event_android.mojom",
+      "module": "ui.mojom"
+    },
+    {
+      "filename": "ui_gfx_geometry_mojom_geometry.mojom.js",
+      "source": "ui/gfx/geometry/mojom/geometry.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_image_mojom_image.mojom.js",
+      "source": "ui/gfx/image/mojom/image.mojom",
+      "module": "gfx.mojom"
+    },
+    {
       "filename": "ui_gfx_image_mojom_image_traits_test_service.mojom.js",
       "source": "ui/gfx/image/mojom/image_traits_test_service.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_accelerated_widget.mojom.js",
+      "source": "ui/gfx/mojom/accelerated_widget.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_buffer_types.mojom.js",
+      "source": "ui/gfx/mojom/buffer_types.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_ca_layer_params.mojom.js",
+      "source": "ui/gfx/mojom/ca_layer_params.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_ca_layer_result.mojom.js",
+      "source": "ui/gfx/mojom/ca_layer_result.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_color_space.mojom.js",
+      "source": "ui/gfx/mojom/color_space.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_delegated_ink_metadata.mojom.js",
+      "source": "ui/gfx/mojom/delegated_ink_metadata.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_delegated_ink_point.mojom.js",
+      "source": "ui/gfx/mojom/delegated_ink_point.mojom",
       "module": "gfx.mojom"
     },
     {
@@ -27759,8 +31024,113 @@
       "module": "gfx.mojom"
     },
     {
+      "filename": "ui_gfx_mojom_display_color_spaces.mojom.js",
+      "source": "ui/gfx/mojom/display_color_spaces.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_dxgi_info.mojom.js",
+      "source": "ui/gfx/mojom/dxgi_info.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_font_render_params.mojom.js",
+      "source": "ui/gfx/mojom/font_render_params.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_frame_data.mojom.js",
+      "source": "ui/gfx/mojom/frame_data.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_gpu_extra_info.mojom.js",
+      "source": "ui/gfx/mojom/gpu_extra_info.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_gpu_fence_handle.mojom.js",
+      "source": "ui/gfx/mojom/gpu_fence_handle.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_hdr_metadata.mojom.js",
+      "source": "ui/gfx/mojom/hdr_metadata.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_hdr_static_metadata.mojom.js",
+      "source": "ui/gfx/mojom/hdr_static_metadata.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_linear_gradient.mojom.js",
+      "source": "ui/gfx/mojom/linear_gradient.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_mask_filter_info.mojom.js",
+      "source": "ui/gfx/mojom/mask_filter_info.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_native_handle_types.mojom.js",
+      "source": "ui/gfx/mojom/native_handle_types.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_overlay_priority_hint.mojom.js",
+      "source": "ui/gfx/mojom/overlay_priority_hint.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_overlay_transform.mojom.js",
+      "source": "ui/gfx/mojom/overlay_transform.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_overlay_type.mojom.js",
+      "source": "ui/gfx/mojom/overlay_type.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_presentation_feedback.mojom.js",
+      "source": "ui/gfx/mojom/presentation_feedback.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_rrect_f.mojom.js",
+      "source": "ui/gfx/mojom/rrect_f.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_selection_bound.mojom.js",
+      "source": "ui/gfx/mojom/selection_bound.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_swap_result.mojom.js",
+      "source": "ui/gfx/mojom/swap_result.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_swap_timings.mojom.js",
+      "source": "ui/gfx/mojom/swap_timings.mojom",
+      "module": "gfx.mojom"
+    },
+    {
       "filename": "ui_gfx_mojom_traits_test_service.mojom.js",
       "source": "ui/gfx/mojom/traits_test_service.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_mojom_transform.mojom.js",
+      "source": "ui/gfx/mojom/transform.mojom",
+      "module": "gfx.mojom"
+    },
+    {
+      "filename": "ui_gfx_range_mojom_range.mojom.js",
+      "source": "ui/gfx/range/mojom/range.mojom",
       "module": "gfx.mojom"
     },
     {
@@ -27769,9 +31139,24 @@
       "module": "gfx.mojom"
     },
     {
+      "filename": "ui_gl_mojom_gl_implementation.mojom.js",
+      "source": "ui/gl/mojom/gl_implementation.mojom",
+      "module": "gl.mojom"
+    },
+    {
+      "filename": "ui_gl_mojom_gpu_preference.mojom.js",
+      "source": "ui/gl/mojom/gpu_preference.mojom",
+      "module": "gl.mojom"
+    },
+    {
       "filename": "ui_gl_mojom_traits_test_service.mojom.js",
       "source": "ui/gl/mojom/traits_test_service.mojom",
       "module": "gl.mojom"
+    },
+    {
+      "filename": "ui_latency_mojom_latency_info.mojom.js",
+      "source": "ui/latency/mojom/latency_info.mojom",
+      "module": "ui.mojom"
     },
     {
       "filename": "ui_ozone_platform_drm_mojom_device_cursor.mojom.js",
@@ -27799,8 +31184,18 @@
       "module": "ui.ozone.mojom"
     },
     {
+      "filename": "ui_ozone_platform_wayland_mojom_wayland_overlay_config.mojom.js",
+      "source": "ui/ozone/platform/wayland/mojom/wayland_overlay_config.mojom",
+      "module": "wl.mojom"
+    },
+    {
       "filename": "ui_ozone_platform_wayland_mojom_wayland_overlay_config_traits_test_service.mojom.js",
       "source": "ui/ozone/platform/wayland/mojom/wayland_overlay_config_traits_test_service.mojom",
+      "module": "wl.mojom"
+    },
+    {
+      "filename": "ui_ozone_platform_wayland_mojom_wayland_presentation_info.mojom.js",
+      "source": "ui/ozone/platform/wayland/mojom/wayland_presentation_info.mojom",
       "module": "wl.mojom"
     },
     {
@@ -27887,6 +31282,21 @@
       "filename": "ui_webui_resources_js_tracked_element_tracked_element.mojom.js",
       "source": "ui/webui/resources/js/tracked_element/tracked_element.mojom",
       "module": "tracked_element.mojom"
+    },
+    {
+      "filename": "url_mojom_origin.mojom.js",
+      "source": "url/mojom/origin.mojom",
+      "module": "url.mojom"
+    },
+    {
+      "filename": "url_mojom_scheme_host_port.mojom.js",
+      "source": "url/mojom/scheme_host_port.mojom",
+      "module": "url.mojom"
+    },
+    {
+      "filename": "url_mojom_url.mojom.js",
+      "source": "url/mojom/url.mojom",
+      "module": "url.mojom"
     },
     {
       "filename": "url_mojom_url_test.mojom.js",

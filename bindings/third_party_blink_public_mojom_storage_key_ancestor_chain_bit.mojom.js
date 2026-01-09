@@ -1,0 +1,16 @@
+// Auto-generated MojoJS binding
+// Source: chromium_src/third_party/blink/public/mojom/storage_key/ancestor_chain_bit.mojom
+// Module: blink.mojom
+
+'use strict';
+
+// Module namespace
+var blink = blink || {};
+blink.mojom = blink.mojom || {};
+
+
+// Enum: AncestorChainBit
+blink.mojom.AncestorChainBit = {
+  kSameSite: 0,
+  kCrossSite: 1,
+};

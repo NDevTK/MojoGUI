@@ -1,0 +1,26 @@
+// Auto-generated MojoJS binding
+// Source: chromium_src/chromeos/ash/components/drivefs/mojom/pinning_manager_types.mojom
+// Module: drivefs.pinning_manager_types.mojom
+
+'use strict';
+
+// Module namespace
+var drivefs = drivefs || {};
+drivefs.pinning_manager_types = drivefs.pinning_manager_types || {};
+drivefs.pinning_manager_types.mojom = drivefs.pinning_manager_types.mojom || {};
+
+
+// Enum: Stage
+drivefs.pinning_manager_types.mojom.Stage = {
+  kStopped: 0,
+  kPausedOffline: 1,
+  kPausedBatterySaver: 2,
+  kGettingFreeSpace: 3,
+  kListingFiles: 4,
+  kSyncing: 5,
+  kSuccess: 6,
+  kNotEnoughSpace: 7,
+  kCannotGetFreeSpace: 8,
+  kCannotListFiles: 9,
+  kCannotEnableDocsOffline: 10,
+};
