@@ -328,6 +328,11 @@ jobs:
                   # If looks like "some.module.Type", assume it matches "some.module.TypeSpec"
                   if '.' in clean_name:
                       return f"{clean_name}Spec"
+
+                  # Heuristic: Uppercase = Struct/Enum reference in same or imported module
+                  # Assume it lives in the current module's namespace (or imported into it)
+                  if clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
+                      return f"{module}.{clean_name}Spec"
                   
                   # Fallback to Pointer if unknown (could be interface pointer or other)
                   # Better: if it starts with valid char and not lowercase primitive, assume it is a struct/enum reference in same package if not qualified?
