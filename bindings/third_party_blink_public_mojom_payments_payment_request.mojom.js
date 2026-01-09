@@ -562,10 +562,10 @@ payments.mojom.PaymentRequest_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentRequest.Show_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'wait_for_updated_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'had_user_activation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'had_user_activation', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

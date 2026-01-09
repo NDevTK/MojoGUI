@@ -303,6 +303,43 @@ jobs:
               
               module = parsed['module']
               module_parts = module.split('.')
+
+              def get_struct_layout(params):
+                  """Calculate field offsets and size with boolean bit packing."""
+                  fields_code = []
+                  offset = 0
+                  bit = 0
+                  
+                  for param in params:
+                      if not param or not param.get('name'): continue
+                      
+                      p_type = mojo_type_map(param.get('type', 'string'))
+                      is_bool = p_type == 'mojo.internal.Bool'
+                      nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
+                      
+                      if is_bool:
+                          f_off = offset
+                          f_bit = bit
+                          bit += 1
+                      else:
+                          # If we were packing bits, move to next 8-byte word
+                          if bit > 0:
+                              bit = 0
+                              offset += 8
+                          
+                          f_off = offset
+                          f_bit = 0
+                          offset += 8
+                      
+                      fields_code.append(f"{{ name: '{param['name']}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
+                  
+                  # Finalize size
+                  if bit > 0:
+                      offset += 8
+                  
+                  packed_size = 8 + offset  # Header (8 bytes) + payload
+                  return fields_code, packed_size
+
               
               # Build namespace chain
               js_code = f'''// Auto-generated MojoJS binding
@@ -407,18 +444,18 @@ jobs:
                   
                   # Generate ParamsSpec placeholders for each method
                   for idx, method in enumerate(interface.get('methods', [])):
+                      # Calculate layout for Params
+                      params_code, params_size = get_struct_layout(method.get('params', []))
+                      
                       js_code += f"// ParamsSpec for {method['name']}\n"
                       js_code += f"{full_name}_{method['name']}_ParamsSpec = {{\n"
                       js_code += "  $: {\n"
                       js_code += "    structSpec: {\n"
                       js_code += f"      name: '{interface_string}.{method['name']}_Params',\n"
-                      js_code += f"      packedSize: {8 + len(method.get('params', [])) * 8},\n"
+                      js_code += f"      packedSize: {params_size},\n"
                       js_code += "      fields: [\n"
-                      for pid, param in enumerate(method.get('params', [])):
-                          if param and param.get('name'):
-                              param_mojo_type = mojo_type_map(param.get('type', 'string'))
-                              nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
-                              js_code += f"        {{ name: '{param['name']}', packedOffset: {pid * 8}, packedBitOffset: 0, type: {param_mojo_type}, nullable: {nullable} }},\n"
+                      for field in params_code:
+                          js_code += f"        {field},\n"
                       js_code += "      ],\n"
                       js_code += "      versions: [{version: 0}]\n"
                       js_code += "    }\n"
@@ -426,17 +463,17 @@ jobs:
                       js_code += "};\n\n"
                       
                       if method.get('returns'):
+                          # Calculate layout for ResponseParams
+                          ret_code, ret_size = get_struct_layout(method.get('returns', []))
+                          
                           js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
                           js_code += "  $: {\n"
                           js_code += "    structSpec: {\n"
                           js_code += f"      name: '{interface_string}.{method['name']}_ResponseParams',\n"
-                          js_code += f"      packedSize: {8 + len(method.get('returns', [])) * 8},\n"
+                          js_code += f"      packedSize: {ret_size},\n"
                           js_code += "      fields: [\n"
-                          for rid, ret in enumerate(method.get('returns', [])):
-                              if ret and ret.get('name'):
-                                  ret_mojo_type = mojo_type_map(ret.get('type', 'string'))
-                                  nullable = 'true' if ret.get('optional') or '?' in ret.get('type', '') else 'false'
-                                  js_code += f"        {{ name: '{ret['name']}', packedOffset: {rid * 8}, packedBitOffset: 0, type: {ret_mojo_type}, nullable: {nullable} }},\n"
+                          for field in ret_code:
+                              js_code += f"        {field},\n"
                           js_code += "      ],\n"
                           js_code += "      versions: [{version: 0}]\n"
                           js_code += "    }\n"
