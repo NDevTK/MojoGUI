@@ -98,14 +98,19 @@ jobs:
               for match in re.finditer(interface_pattern, content, re.DOTALL):
                   interface_name = match.group(1)
                   interface_body = match.group(2)
-                  
+              
                   methods = []
                   # Parse methods: MethodName(params) => (return_params);
-                  method_pattern = r'(\w+)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
-                  for method_match in re.finditer(method_pattern, interface_body):
+                  # Must start at beginning of line (after whitespace) and be PascalCase
+                  method_pattern = r'^\s*([A-Z]\w*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?\s*;'
+                  for method_match in re.finditer(method_pattern, interface_body, re.MULTILINE):
                       method_name = method_match.group(1)
                       params_str = method_match.group(2).strip()
                       returns_str = method_match.group(3)
+                      
+                      # Skip if it looks like a comment or annotation
+                      if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED'):
+                          continue
                       
                       params = parse_params(params_str) if params_str else []
                       returns = parse_params(returns_str) if returns_str else []
@@ -115,7 +120,7 @@ jobs:
                           'params': params,
                           'returns': returns
                       })
-                  
+              
                   result['interfaces'].append({
                       'name': interface_name,
                       'methods': methods
