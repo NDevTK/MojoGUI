@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: NFCProvider
+device.mojom.NFCProvider = {};
+
 device.mojom.NFCProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: CastApplicationMediaInfoManager
+media.mojom.CastApplicationMediaInfoManager = {};
+
 media.mojom.CastApplicationMediaInfoManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

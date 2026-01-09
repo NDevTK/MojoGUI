@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: XRSessionController
+device.mojom.XRSessionController = {};
+
 device.mojom.XRSessionControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ device.mojom.XRSessionControllerRequest = device.mojom.XRSessionControllerPendin
 
 
 // Interface: XRRuntimeEventListener
+device.mojom.XRRuntimeEventListener = {};
+
 device.mojom.XRRuntimeEventListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -178,6 +182,8 @@ device.mojom.XRRuntimeEventListenerRequest = device.mojom.XRRuntimeEventListener
 
 
 // Interface: XRRuntime
+device.mojom.XRRuntime = {};
+
 device.mojom.XRRuntimePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -309,6 +315,8 @@ device.mojom.XRRuntimeRequest = device.mojom.XRRuntimePendingReceiver;
 
 
 // Interface: ImmersiveOverlay
+device.mojom.ImmersiveOverlay = {};
+
 device.mojom.ImmersiveOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -480,6 +488,8 @@ device.mojom.ImmersiveOverlayRequest = device.mojom.ImmersiveOverlayPendingRecei
 
 
 // Interface: IsolatedXRRuntimeProviderClient
+device.mojom.IsolatedXRRuntimeProviderClient = {};
+
 device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -600,6 +610,8 @@ device.mojom.IsolatedXRRuntimeProviderClientRequest = device.mojom.IsolatedXRRun
 
 
 // Interface: IsolatedXRRuntimeProvider
+device.mojom.IsolatedXRRuntimeProvider = {};
+
 device.mojom.IsolatedXRRuntimeProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -673,6 +685,8 @@ device.mojom.IsolatedXRRuntimeProviderRequest = device.mojom.IsolatedXRRuntimePr
 
 
 // Interface: XRDeviceService
+device.mojom.XRDeviceService = {};
+
 device.mojom.XRDeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -770,6 +784,8 @@ device.mojom.XRDeviceServiceRequest = device.mojom.XRDeviceServicePendingReceive
 
 
 // Interface: XRDeviceServiceHost
+device.mojom.XRDeviceServiceHost = {};
+
 device.mojom.XRDeviceServiceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

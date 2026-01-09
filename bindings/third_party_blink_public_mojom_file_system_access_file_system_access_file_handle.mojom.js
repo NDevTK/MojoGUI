@@ -23,6 +23,8 @@ blink.mojom.FileSystemAccessWritableFileStreamLockMode = {
 };
 
 // Interface: FileSystemAccessFileHandle
+blink.mojom.FileSystemAccessFileHandle = {};
+
 blink.mojom.FileSystemAccessFileHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

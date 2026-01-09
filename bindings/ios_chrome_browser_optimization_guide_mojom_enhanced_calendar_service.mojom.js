@@ -10,6 +10,8 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: EnhancedCalendarService
+ai.mojom.EnhancedCalendarService = {};
+
 ai.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: ExternalBeginFrameController
+viz.mojom.ExternalBeginFrameController = {};
+
 viz.mojom.ExternalBeginFrameControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -167,6 +169,8 @@ viz.mojom.ExternalBeginFrameControllerRequest = viz.mojom.ExternalBeginFrameCont
 
 
 // Interface: ExternalBeginFrameControllerClient
+viz.mojom.ExternalBeginFrameControllerClient = {};
+
 viz.mojom.ExternalBeginFrameControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

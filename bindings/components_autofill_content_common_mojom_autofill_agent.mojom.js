@@ -10,6 +10,8 @@ autofill.mojom = autofill.mojom || {};
 
 
 // Interface: AutofillAgent
+autofill.mojom.AutofillAgent = {};
+
 autofill.mojom.AutofillAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -489,6 +491,8 @@ autofill.mojom.AutofillAgentRequest = autofill.mojom.AutofillAgentPendingReceive
 
 
 // Interface: PasswordAutofillAgent
+autofill.mojom.PasswordAutofillAgent = {};
+
 autofill.mojom.PasswordAutofillAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -905,6 +909,8 @@ autofill.mojom.PasswordAutofillAgentRequest = autofill.mojom.PasswordAutofillAge
 
 
 // Interface: PasswordGenerationAgent
+autofill.mojom.PasswordGenerationAgent = {};
+
 autofill.mojom.PasswordGenerationAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

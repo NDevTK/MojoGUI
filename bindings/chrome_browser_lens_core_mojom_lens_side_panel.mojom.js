@@ -19,6 +19,8 @@ lens.mojom.SidePanelResultStatus = {
 };
 
 // Interface: LensSidePanelPageHandlerFactory
+lens.mojom.LensSidePanelPageHandlerFactory = {};
+
 lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ lens.mojom.LensSidePanelPageHandlerFactoryRequest = lens.mojom.LensSidePanelPage
 
 
 // Interface: LensSidePanelPageHandler
+lens.mojom.LensSidePanelPageHandler = {};
+
 lens.mojom.LensSidePanelPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,6 +295,8 @@ lens.mojom.LensSidePanelPageHandlerRequest = lens.mojom.LensSidePanelPageHandler
 
 
 // Interface: LensSidePanelPage
+lens.mojom.LensSidePanelPage = {};
+
 lens.mojom.LensSidePanelPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

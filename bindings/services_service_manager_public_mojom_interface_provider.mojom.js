@@ -10,6 +10,8 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Interface: InterfaceProvider
+service_manager.mojom.InterfaceProvider = {};
+
 service_manager.mojom.InterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

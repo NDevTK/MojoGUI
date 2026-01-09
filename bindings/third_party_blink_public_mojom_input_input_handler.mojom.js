@@ -37,6 +37,8 @@ blink.mojom.FocusState = {
 };
 
 // Interface: WidgetInputHandlerHost
+blink.mojom.WidgetInputHandlerHost = {};
+
 blink.mojom.WidgetInputHandlerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,6 +310,8 @@ blink.mojom.WidgetInputHandlerHostRequest = blink.mojom.WidgetInputHandlerHostPe
 
 
 // Interface: FrameWidgetInputHandler
+blink.mojom.FrameWidgetInputHandler = {};
+
 blink.mojom.FrameWidgetInputHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1160,6 +1164,8 @@ blink.mojom.FrameWidgetInputHandlerRequest = blink.mojom.FrameWidgetInputHandler
 
 
 // Interface: WidgetInputHandler
+blink.mojom.WidgetInputHandler = {};
+
 blink.mojom.WidgetInputHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

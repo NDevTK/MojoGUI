@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: FontCacheWin
+content.mojom.FontCacheWin = {};
+
 content.mojom.FontCacheWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

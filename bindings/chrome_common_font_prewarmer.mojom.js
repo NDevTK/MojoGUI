@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: FontPrewarmer
+chrome.mojom.FontPrewarmer = {};
+
 chrome.mojom.FontPrewarmerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chrome.mojom.FontPrewarmerRequest = chrome.mojom.FontPrewarmerPendingReceiver;
 
 
 // Interface: RenderFrameFontFamilyAccessor
+chrome.mojom.RenderFrameFontFamilyAccessor = {};
+
 chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

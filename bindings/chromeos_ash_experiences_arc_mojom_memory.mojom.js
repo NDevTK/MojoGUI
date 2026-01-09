@@ -16,6 +16,8 @@ arc.mojom.ReclaimType = {
 };
 
 // Interface: MemoryInstance
+arc.mojom.MemoryInstance = {};
+
 arc.mojom.MemoryInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

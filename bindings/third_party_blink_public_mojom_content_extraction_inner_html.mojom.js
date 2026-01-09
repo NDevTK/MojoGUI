@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InnerHtmlAgent
+blink.mojom.InnerHtmlAgent = {};
+
 blink.mojom.InnerHtmlAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

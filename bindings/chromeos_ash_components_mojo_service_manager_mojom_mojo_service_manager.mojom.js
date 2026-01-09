@@ -26,6 +26,8 @@ chromeos.mojo_service_manager.mojom.ErrorCode = {
 };
 
 // Interface: ServiceManager
+chromeos.mojo_service_manager.mojom.ServiceManager = {};
+
 chromeos.mojo_service_manager.mojom.ServiceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -76,6 +78,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRequest = chromeos.mojo_servic
 
 
 // Interface: ServiceProvider
+chromeos.mojo_service_manager.mojom.ServiceProvider = {};
+
 chromeos.mojo_service_manager.mojom.ServiceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -126,6 +130,8 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRequest = chromeos.mojo_servi
 
 
 // Interface: ServiceObserver
+chromeos.mojo_service_manager.mojom.ServiceObserver = {};
+
 chromeos.mojo_service_manager.mojom.ServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

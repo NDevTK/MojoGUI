@@ -17,6 +17,8 @@ customize_color_scheme_mode.mojom.ColorSchemeMode = {
 };
 
 // Interface: CustomizeColorSchemeModeHandlerFactory
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = {};
+
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRequest 
 
 
 // Interface: CustomizeColorSchemeModeHandler
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler = {};
+
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -186,6 +190,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRequest = custo
 
 
 // Interface: CustomizeColorSchemeModeClient
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient = {};
+
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

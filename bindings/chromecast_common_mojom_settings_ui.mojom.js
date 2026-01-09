@@ -25,6 +25,8 @@ chromecast.mojom.SideSwipeOrigin = {
 };
 
 // Interface: SettingsClient
+chromecast.mojom.SettingsClient = {};
+
 chromecast.mojom.SettingsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -123,6 +125,8 @@ chromecast.mojom.SettingsClientRequest = chromecast.mojom.SettingsClientPendingR
 
 
 // Interface: SettingsPlatform
+chromecast.mojom.SettingsPlatform = {};
+
 chromecast.mojom.SettingsPlatformPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

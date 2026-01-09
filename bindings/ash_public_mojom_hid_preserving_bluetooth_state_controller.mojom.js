@@ -16,6 +16,8 @@ ash.mojom.HidWarningDialogSource = {
 };
 
 // Interface: HidPreservingBluetoothStateController
+ash.mojom.HidPreservingBluetoothStateController = {};
+
 ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ ash.trash_service.mojom = ash.trash_service.mojom || {};
 
 
 // Interface: TrashService
+ash.trash_service.mojom.TrashService = {};
+
 ash.trash_service.mojom.TrashServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

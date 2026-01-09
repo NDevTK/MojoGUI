@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: MediaSessionInstance
+arc.mojom.MediaSessionInstance = {};
+
 arc.mojom.MediaSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

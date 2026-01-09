@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: KeepAliveHandleFactory
+blink.mojom.KeepAliveHandleFactory = {};
+
 blink.mojom.KeepAliveHandleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

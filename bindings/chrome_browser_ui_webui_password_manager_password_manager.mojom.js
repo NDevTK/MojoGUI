@@ -10,6 +10,8 @@ password_manager.mojom = password_manager.mojom || {};
 
 
 // Interface: PageHandlerFactory
+password_manager.mojom.PageHandlerFactory = {};
+
 password_manager.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ password_manager.mojom.PageHandlerFactoryRequest = password_manager.mojom.PageHa
 
 
 // Interface: PageHandler
+password_manager.mojom.PageHandler = {};
+
 password_manager.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -528,6 +532,8 @@ password_manager.mojom.PageHandlerRequest = password_manager.mojom.PageHandlerPe
 
 
 // Interface: Page
+password_manager.mojom.Page = {};
+
 password_manager.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

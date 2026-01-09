@@ -40,6 +40,8 @@ content.mojom.CreateNewWindowStatus = {
 };
 
 // Interface: FrameHTMLSerializerHandler
+content.mojom.FrameHTMLSerializerHandler = {};
+
 content.mojom.FrameHTMLSerializerHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +137,8 @@ content.mojom.FrameHTMLSerializerHandlerRequest = content.mojom.FrameHTMLSeriali
 
 
 // Interface: Frame
+content.mojom.Frame = {};
+
 content.mojom.FramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -430,6 +434,8 @@ content.mojom.FrameRequest = content.mojom.FramePendingReceiver;
 
 
 // Interface: FrameBindingsControl
+content.mojom.FrameBindingsControl = {};
+
 content.mojom.FrameBindingsControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -573,6 +579,8 @@ content.mojom.FrameBindingsControlRequest = content.mojom.FrameBindingsControlPe
 
 
 // Interface: NavigationRendererCancellationListener
+content.mojom.NavigationRendererCancellationListener = {};
+
 content.mojom.NavigationRendererCancellationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -645,6 +653,8 @@ content.mojom.NavigationRendererCancellationListenerRequest = content.mojom.Navi
 
 
 // Interface: FrameHost
+content.mojom.FrameHost = {};
+
 content.mojom.FrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

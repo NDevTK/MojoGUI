@@ -10,6 +10,8 @@ new_tab_page.mojom = new_tab_page.mojom || {};
 
 
 // Interface: MicrosoftAuthUntrustedDocumentInterfacesFactory
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
+
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRequest = new_
 
 
 // Interface: MicrosoftAuthUntrustedPageHandler
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler = {};
+
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

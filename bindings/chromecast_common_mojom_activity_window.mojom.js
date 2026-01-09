@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ActivityWindow
+chromecast.mojom.ActivityWindow = {};
+
 chromecast.mojom.ActivityWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

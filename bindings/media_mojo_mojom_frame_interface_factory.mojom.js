@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MuteStateObserver
+media.mojom.MuteStateObserver = {};
+
 media.mojom.MuteStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ media.mojom.MuteStateObserverRequest = media.mojom.MuteStateObserverPendingRecei
 
 
 // Interface: FrameInterfaceFactory
+media.mojom.FrameInterfaceFactory = {};
+
 media.mojom.FrameInterfaceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: AgentSchedulingGroupHost
+content.mojom.AgentSchedulingGroupHost = {};
+
 content.mojom.AgentSchedulingGroupHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ content.mojom.AgentSchedulingGroupHostRequest = content.mojom.AgentSchedulingGro
 
 
 // Interface: AgentSchedulingGroup
+content.mojom.AgentSchedulingGroup = {};
+
 content.mojom.AgentSchedulingGroupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

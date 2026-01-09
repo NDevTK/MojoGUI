@@ -12,6 +12,8 @@ ash.settings.one_drive.mojom = ash.settings.one_drive.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.settings.one_drive.mojom.PageHandlerFactory = {};
+
 ash.settings.one_drive.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRequest = ash.settings.one_drive.
 
 
 // Interface: PageHandler
+ash.settings.one_drive.mojom.PageHandler = {};
+
 ash.settings.one_drive.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,6 +280,8 @@ ash.settings.one_drive.mojom.PageHandlerRequest = ash.settings.one_drive.mojom.P
 
 
 // Interface: Page
+ash.settings.one_drive.mojom.Page = {};
+
 ash.settings.one_drive.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

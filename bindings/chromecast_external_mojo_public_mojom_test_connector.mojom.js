@@ -11,6 +11,8 @@ chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
 
 // Interface: TestExternalConnector
+chromecast.external_mojo.mojom.TestExternalConnector = {};
+
 chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

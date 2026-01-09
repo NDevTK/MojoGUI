@@ -10,6 +10,8 @@ browsing_topics.mojom = browsing_topics.mojom || {};
 
 
 // Interface: PageHandler
+browsing_topics.mojom.PageHandler = {};
+
 browsing_topics.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

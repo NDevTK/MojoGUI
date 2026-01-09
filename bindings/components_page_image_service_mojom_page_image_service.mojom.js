@@ -21,6 +21,8 @@ page_image_service.mojom.ClientId = {
 };
 
 // Interface: PageImageServiceHandler
+page_image_service.mojom.PageImageServiceHandler = {};
+
 page_image_service.mojom.PageImageServiceHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

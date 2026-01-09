@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: UsbHostHost
+arc.mojom.UsbHostHost = {};
+
 arc.mojom.UsbHostHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.UsbHostHostRequest = arc.mojom.UsbHostHostPendingReceiver;
 
 
 // Interface: UsbHostInstance
+arc.mojom.UsbHostInstance = {};
+
 arc.mojom.UsbHostInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

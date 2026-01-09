@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: RendererPreferenceWatcher
+blink.mojom.RendererPreferenceWatcher = {};
+
 blink.mojom.RendererPreferenceWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

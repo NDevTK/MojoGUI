@@ -24,6 +24,8 @@ ash.graduation_ui.mojom.AuthResult = {
 };
 
 // Interface: GraduationUiHandler
+ash.graduation_ui.mojom.GraduationUiHandler = {};
+
 ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

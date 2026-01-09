@@ -16,6 +16,8 @@ ax.mojom.SpeechRecognitionType = {
 };
 
 // Interface: SpeechRecognitionEventObserver
+ax.mojom.SpeechRecognitionEventObserver = {};
+
 ax.mojom.SpeechRecognitionEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -134,6 +136,8 @@ ax.mojom.SpeechRecognitionEventObserverRequest = ax.mojom.SpeechRecognitionEvent
 
 
 // Interface: SpeechRecognition
+ax.mojom.SpeechRecognition = {};
+
 ax.mojom.SpeechRecognitionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

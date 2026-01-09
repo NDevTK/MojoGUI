@@ -10,6 +10,8 @@ autofill.mojom = autofill.mojom || {};
 
 
 // Interface: AutofillDriver
+autofill.mojom.AutofillDriver = {};
+
 autofill.mojom.AutofillDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,6 +443,8 @@ autofill.mojom.AutofillDriverRequest = autofill.mojom.AutofillDriverPendingRecei
 
 
 // Interface: PasswordManagerDriver
+autofill.mojom.PasswordManagerDriver = {};
+
 autofill.mojom.PasswordManagerDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -795,6 +799,8 @@ autofill.mojom.PasswordManagerDriverRequest = autofill.mojom.PasswordManagerDriv
 
 
 // Interface: PasswordGenerationDriver
+autofill.mojom.PasswordGenerationDriver = {};
+
 autofill.mojom.PasswordGenerationDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

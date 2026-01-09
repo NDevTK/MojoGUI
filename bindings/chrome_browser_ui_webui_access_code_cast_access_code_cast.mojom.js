@@ -35,6 +35,8 @@ access_code_cast.mojom.CastDiscoveryMethod = {
 };
 
 // Interface: PageHandlerFactory
+access_code_cast.mojom.PageHandlerFactory = {};
+
 access_code_cast.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -109,6 +111,8 @@ access_code_cast.mojom.PageHandlerFactoryRequest = access_code_cast.mojom.PageHa
 
 
 // Interface: PageHandler
+access_code_cast.mojom.PageHandler = {};
+
 access_code_cast.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -231,6 +235,8 @@ access_code_cast.mojom.PageHandlerRequest = access_code_cast.mojom.PageHandlerPe
 
 
 // Interface: Page
+access_code_cast.mojom.Page = {};
+
 access_code_cast.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

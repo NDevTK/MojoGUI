@@ -10,6 +10,8 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Interface: TextInputHost
+remote_cocoa.mojom.TextInputHost = {};
+
 remote_cocoa.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

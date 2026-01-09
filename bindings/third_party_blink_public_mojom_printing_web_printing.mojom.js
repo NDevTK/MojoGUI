@@ -116,6 +116,8 @@ blink.mojom.WebPrintError = {
 };
 
 // Interface: WebPrintJobStateObserver
+blink.mojom.WebPrintJobStateObserver = {};
+
 blink.mojom.WebPrintJobStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -189,6 +191,8 @@ blink.mojom.WebPrintJobStateObserverRequest = blink.mojom.WebPrintJobStateObserv
 
 
 // Interface: WebPrintJobController
+blink.mojom.WebPrintJobController = {};
+
 blink.mojom.WebPrintJobControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,6 +265,8 @@ blink.mojom.WebPrintJobControllerRequest = blink.mojom.WebPrintJobControllerPend
 
 
 // Interface: WebPrinter
+blink.mojom.WebPrinter = {};
+
 blink.mojom.WebPrinterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -383,6 +389,8 @@ blink.mojom.WebPrinterRequest = blink.mojom.WebPrinterPendingReceiver;
 
 
 // Interface: WebPrintingService
+blink.mojom.WebPrintingService = {};
+
 blink.mojom.WebPrintingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: SpeechRecognitionAudioForwarder
+media.mojom.SpeechRecognitionAudioForwarder = {};
+
 media.mojom.SpeechRecognitionAudioForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

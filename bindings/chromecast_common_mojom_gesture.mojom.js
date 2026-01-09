@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: GestureHandler
+chromecast.mojom.GestureHandler = {};
+
 chromecast.mojom.GestureHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,6 +276,8 @@ chromecast.mojom.GestureHandlerRequest = chromecast.mojom.GestureHandlerPendingR
 
 
 // Interface: GestureSource
+chromecast.mojom.GestureSource = {};
+
 chromecast.mojom.GestureSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

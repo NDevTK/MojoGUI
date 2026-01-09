@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: Translator
+blink.mojom.Translator = {};
+
 blink.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

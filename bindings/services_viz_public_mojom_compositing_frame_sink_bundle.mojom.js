@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: FrameSinkBundle
+viz.mojom.FrameSinkBundle = {};
+
 viz.mojom.FrameSinkBundlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -131,6 +133,8 @@ viz.mojom.FrameSinkBundleRequest = viz.mojom.FrameSinkBundlePendingReceiver;
 
 
 // Interface: FrameSinkBundleClient
+viz.mojom.FrameSinkBundleClient = {};
+
 viz.mojom.FrameSinkBundleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

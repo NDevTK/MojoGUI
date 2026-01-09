@@ -10,6 +10,8 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Interface: TracedProcess
+tracing.mojom.TracedProcess = {};
+
 tracing.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

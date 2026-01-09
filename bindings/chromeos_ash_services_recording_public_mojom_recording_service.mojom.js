@@ -25,6 +25,8 @@ recording.mojom.RecordingStatus = {
 };
 
 // Interface: DriveFsQuotaDelegate
+recording.mojom.DriveFsQuotaDelegate = {};
+
 recording.mojom.DriveFsQuotaDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ recording.mojom.DriveFsQuotaDelegateRequest = recording.mojom.DriveFsQuotaDelega
 
 
 // Interface: RecordingServiceClient
+recording.mojom.RecordingServiceClient = {};
+
 recording.mojom.RecordingServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -184,6 +188,8 @@ recording.mojom.RecordingServiceClientRequest = recording.mojom.RecordingService
 
 
 // Interface: RecordingService
+recording.mojom.RecordingService = {};
+
 recording.mojom.RecordingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

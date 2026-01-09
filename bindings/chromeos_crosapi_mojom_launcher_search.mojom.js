@@ -79,6 +79,8 @@ crosapi.mojom.PageTransition = {
 };
 
 // Interface: SearchResultsPublisher
+crosapi.mojom.SearchResultsPublisher = {};
+
 crosapi.mojom.SearchResultsPublisherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ crosapi.mojom.SearchResultsPublisherRequest = crosapi.mojom.SearchResultsPublish
 
 
 // Interface: SearchController
+crosapi.mojom.SearchController = {};
+
 crosapi.mojom.SearchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +183,8 @@ crosapi.mojom.SearchControllerRequest = crosapi.mojom.SearchControllerPendingRec
 
 
 // Interface: SearchResultConsumer
+crosapi.mojom.SearchResultConsumer = {};
+
 crosapi.mojom.SearchResultConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -23,6 +23,8 @@ ash.diagnostics.mojom.TouchDeviceType = {
 };
 
 // Interface: KeyboardObserver
+ash.diagnostics.mojom.KeyboardObserver = {};
+
 ash.diagnostics.mojom.KeyboardObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -140,6 +142,8 @@ ash.diagnostics.mojom.KeyboardObserverRequest = ash.diagnostics.mojom.KeyboardOb
 
 
 // Interface: InternalDisplayPowerStateObserver
+ash.diagnostics.mojom.InternalDisplayPowerStateObserver = {};
+
 ash.diagnostics.mojom.InternalDisplayPowerStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -213,6 +217,8 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRequest = ash.diagnostics
 
 
 // Interface: TabletModeObserver
+ash.diagnostics.mojom.TabletModeObserver = {};
+
 ash.diagnostics.mojom.TabletModeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,6 +292,8 @@ ash.diagnostics.mojom.TabletModeObserverRequest = ash.diagnostics.mojom.TabletMo
 
 
 // Interface: LidStateObserver
+ash.diagnostics.mojom.LidStateObserver = {};
+
 ash.diagnostics.mojom.LidStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -359,6 +367,8 @@ ash.diagnostics.mojom.LidStateObserverRequest = ash.diagnostics.mojom.LidStateOb
 
 
 // Interface: ConnectedDevicesObserver
+ash.diagnostics.mojom.ConnectedDevicesObserver = {};
+
 ash.diagnostics.mojom.ConnectedDevicesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -501,6 +511,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRequest = ash.diagnostics.mojom.Co
 
 
 // Interface: InputDataProvider
+ash.diagnostics.mojom.InputDataProvider = {};
+
 ash.diagnostics.mojom.InputDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

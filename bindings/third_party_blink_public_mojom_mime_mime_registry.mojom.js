@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: MimeRegistry
+blink.mojom.MimeRegistry = {};
+
 blink.mojom.MimeRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

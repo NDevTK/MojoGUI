@@ -11,6 +11,8 @@ ash.settings.mojom = ash.settings.mojom || {};
 
 
 // Interface: UserActionRecorder
+ash.settings.mojom.UserActionRecorder = {};
+
 ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

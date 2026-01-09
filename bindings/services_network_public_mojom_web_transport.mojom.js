@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: WebTransport
+network.mojom.WebTransport = {};
+
 network.mojom.WebTransportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -359,6 +361,8 @@ network.mojom.WebTransportRequest = network.mojom.WebTransportPendingReceiver;
 
 
 // Interface: WebTransportClient
+network.mojom.WebTransportClient = {};
+
 network.mojom.WebTransportClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -551,6 +555,8 @@ network.mojom.WebTransportClientRequest = network.mojom.WebTransportClientPendin
 
 
 // Interface: WebTransportHandshakeClient
+network.mojom.WebTransportHandshakeClient = {};
+
 network.mojom.WebTransportHandshakeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

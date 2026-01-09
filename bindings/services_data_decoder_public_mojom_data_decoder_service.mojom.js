@@ -10,6 +10,8 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: DataDecoderService
+data_decoder.mojom.DataDecoderService = {};
+
 data_decoder.mojom.DataDecoderServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

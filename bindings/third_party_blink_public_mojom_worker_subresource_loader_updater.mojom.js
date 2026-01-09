@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SubresourceLoaderUpdater
+blink.mojom.SubresourceLoaderUpdater = {};
+
 blink.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

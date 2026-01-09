@@ -11,6 +11,8 @@ chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
 
 // Interface: ExternalService
+chromecast.external_mojo.mojom.ExternalService = {};
+
 chromecast.external_mojo.mojom.ExternalServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ chromecast.external_mojo.mojom.ExternalServiceRequest = chromecast.external_mojo
 
 
 // Interface: ExternalConnector
+chromecast.external_mojo.mojom.ExternalConnector = {};
+
 chromecast.external_mojo.mojom.ExternalConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

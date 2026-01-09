@@ -47,6 +47,8 @@ device.mojom.BiometricsManagerStatus = {
 };
 
 // Interface: FingerprintObserver
+device.mojom.FingerprintObserver = {};
+
 device.mojom.FingerprintObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -213,6 +215,8 @@ device.mojom.FingerprintObserverRequest = device.mojom.FingerprintObserverPendin
 
 
 // Interface: Fingerprint
+device.mojom.Fingerprint = {};
+
 device.mojom.FingerprintPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

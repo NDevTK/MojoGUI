@@ -30,6 +30,8 @@ blink.mojom.AIWriterLength = {
 };
 
 // Interface: AIWriter
+blink.mojom.AIWriter = {};
+
 blink.mojom.AIWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

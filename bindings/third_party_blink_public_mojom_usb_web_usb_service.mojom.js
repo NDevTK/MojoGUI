@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebUsbService
+blink.mojom.WebUsbService = {};
+
 blink.mojom.WebUsbServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

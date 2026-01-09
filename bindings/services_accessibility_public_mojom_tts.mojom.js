@@ -37,6 +37,8 @@ ax.mojom.TtsError = {
 };
 
 // Interface: TtsUtteranceClient
+ax.mojom.TtsUtteranceClient = {};
+
 ax.mojom.TtsUtteranceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
 
 
 // Interface: Tts
+ax.mojom.Tts = {};
+
 ax.mojom.TtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

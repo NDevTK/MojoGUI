@@ -29,6 +29,8 @@ network.mojom.DomainReliabilityClearMode = {
 };
 
 // Interface: CustomProxyConnectionObserver
+network.mojom.CustomProxyConnectionObserver = {};
+
 network.mojom.CustomProxyConnectionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -128,6 +130,8 @@ network.mojom.CustomProxyConnectionObserverRequest = network.mojom.CustomProxyCo
 
 
 // Interface: CustomProxyConfigClient
+network.mojom.CustomProxyConfigClient = {};
+
 network.mojom.CustomProxyConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -201,6 +205,8 @@ network.mojom.CustomProxyConfigClientRequest = network.mojom.CustomProxyConfigCl
 
 
 // Interface: TrustedHeaderClient
+network.mojom.TrustedHeaderClient = {};
+
 network.mojom.TrustedHeaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,6 +334,8 @@ network.mojom.TrustedHeaderClientRequest = network.mojom.TrustedHeaderClientPend
 
 
 // Interface: TrustedURLLoaderHeaderClient
+network.mojom.TrustedURLLoaderHeaderClient = {};
+
 network.mojom.TrustedURLLoaderHeaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -426,6 +434,8 @@ network.mojom.TrustedURLLoaderHeaderClientRequest = network.mojom.TrustedURLLoad
 
 
 // Interface: PreloadedSharedDictionaryInfoHandle
+network.mojom.PreloadedSharedDictionaryInfoHandle = {};
+
 network.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -476,6 +486,8 @@ network.mojom.PreloadedSharedDictionaryInfoHandleRequest = network.mojom.Preload
 
 
 // Interface: NetworkContext
+network.mojom.NetworkContext = {};
+
 network.mojom.NetworkContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

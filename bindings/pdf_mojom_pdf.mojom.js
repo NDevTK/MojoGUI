@@ -25,6 +25,8 @@ pdf.mojom.GetPdfBytesStatus = {
 };
 
 // Interface: SaveDataBufferHandler
+pdf.mojom.SaveDataBufferHandler = {};
+
 pdf.mojom.SaveDataBufferHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -112,6 +114,8 @@ pdf.mojom.SaveDataBufferHandlerRequest = pdf.mojom.SaveDataBufferHandlerPendingR
 
 
 // Interface: PdfListener
+pdf.mojom.PdfListener = {};
+
 pdf.mojom.PdfListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -377,6 +381,8 @@ pdf.mojom.PdfListenerRequest = pdf.mojom.PdfListenerPendingReceiver;
 
 
 // Interface: PdfHost
+pdf.mojom.PdfHost = {};
+
 pdf.mojom.PdfHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

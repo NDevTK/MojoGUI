@@ -40,6 +40,8 @@ on_device_model.mojom.LoadModelResult = {
 };
 
 // Interface: StreamingResponder
+on_device_model.mojom.StreamingResponder = {};
+
 on_device_model.mojom.StreamingResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ on_device_model.mojom.StreamingResponderRequest = on_device_model.mojom.Streamin
 
 
 // Interface: ContextClient
+on_device_model.mojom.ContextClient = {};
+
 on_device_model.mojom.ContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -140,6 +144,8 @@ on_device_model.mojom.ContextClientRequest = on_device_model.mojom.ContextClient
 
 
 // Interface: Session
+on_device_model.mojom.Session = {};
+
 on_device_model.mojom.SessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -190,6 +196,8 @@ on_device_model.mojom.SessionRequest = on_device_model.mojom.SessionPendingRecei
 
 
 // Interface: OnDeviceModel
+on_device_model.mojom.OnDeviceModel = {};
+
 on_device_model.mojom.OnDeviceModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -240,6 +248,8 @@ on_device_model.mojom.OnDeviceModelRequest = on_device_model.mojom.OnDeviceModel
 
 
 // Interface: TextSafetySession
+on_device_model.mojom.TextSafetySession = {};
+
 on_device_model.mojom.TextSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,6 +300,8 @@ on_device_model.mojom.TextSafetySessionRequest = on_device_model.mojom.TextSafet
 
 
 // Interface: TextSafetyModel
+on_device_model.mojom.TextSafetyModel = {};
+
 on_device_model.mojom.TextSafetyModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -340,6 +352,8 @@ on_device_model.mojom.TextSafetyModelRequest = on_device_model.mojom.TextSafetyM
 
 
 // Interface: AsrStreamResponder
+on_device_model.mojom.AsrStreamResponder = {};
+
 on_device_model.mojom.AsrStreamResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -390,6 +404,8 @@ on_device_model.mojom.AsrStreamResponderRequest = on_device_model.mojom.AsrStrea
 
 
 // Interface: AsrStreamInput
+on_device_model.mojom.AsrStreamInput = {};
+
 on_device_model.mojom.AsrStreamInputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

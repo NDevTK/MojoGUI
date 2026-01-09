@@ -10,6 +10,8 @@ cast_streaming.mojom = cast_streaming.mojom || {};
 
 
 // Interface: RendererController
+cast_streaming.mojom.RendererController = {};
+
 cast_streaming.mojom.RendererControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

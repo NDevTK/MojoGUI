@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: TestInterfaceForDefer
+content.mojom.TestInterfaceForDefer = {};
+
 content.mojom.TestInterfaceForDeferPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ content.mojom.TestInterfaceForDeferRequest = content.mojom.TestInterfaceForDefer
 
 
 // Interface: TestInterfaceForGrant
+content.mojom.TestInterfaceForGrant = {};
+
 content.mojom.TestInterfaceForGrantPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -132,6 +136,8 @@ content.mojom.TestInterfaceForGrantRequest = content.mojom.TestInterfaceForGrant
 
 
 // Interface: TestInterfaceForCancel
+content.mojom.TestInterfaceForCancel = {};
+
 content.mojom.TestInterfaceForCancelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -182,6 +188,8 @@ content.mojom.TestInterfaceForCancelRequest = content.mojom.TestInterfaceForCanc
 
 
 // Interface: TestInterfaceForUnexpected
+content.mojom.TestInterfaceForUnexpected = {};
+
 content.mojom.TestInterfaceForUnexpectedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -232,6 +240,8 @@ content.mojom.TestInterfaceForUnexpectedRequest = content.mojom.TestInterfaceFor
 
 
 // Interface: MojoContextProvider
+content.mojom.MojoContextProvider = {};
+
 content.mojom.MojoContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

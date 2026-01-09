@@ -183,6 +183,8 @@ ash.camera_app.mojom.OcrEventType = {
 };
 
 // Interface: EventsSender
+ash.camera_app.mojom.EventsSender = {};
+
 ash.camera_app.mojom.EventsSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

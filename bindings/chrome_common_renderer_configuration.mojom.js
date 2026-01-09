@@ -22,6 +22,8 @@ chrome.mojom.ResumeBlockedRequestsTrigger = {
 };
 
 // Interface: BoundSessionRequestThrottledHandler
+chrome.mojom.BoundSessionRequestThrottledHandler = {};
+
 chrome.mojom.BoundSessionRequestThrottledHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -108,6 +110,8 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRequest = chrome.mojom.BoundSess
 
 
 // Interface: ChromeOSListener
+chrome.mojom.ChromeOSListener = {};
+
 chrome.mojom.ChromeOSListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -180,6 +184,8 @@ chrome.mojom.ChromeOSListenerRequest = chrome.mojom.ChromeOSListenerPendingRecei
 
 
 // Interface: RendererConfiguration
+chrome.mojom.RendererConfiguration = {};
+
 chrome.mojom.RendererConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

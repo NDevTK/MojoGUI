@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: P2PTrustedSocketManagerClient
+network.mojom.P2PTrustedSocketManagerClient = {};
+
 network.mojom.P2PTrustedSocketManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ network.mojom.P2PTrustedSocketManagerClientRequest = network.mojom.P2PTrustedSoc
 
 
 // Interface: P2PTrustedSocketManager
+network.mojom.P2PTrustedSocketManager = {};
+
 network.mojom.P2PTrustedSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

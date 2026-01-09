@@ -19,6 +19,8 @@ ash.boca_receiver.mojom.ConnectionClosedReason = {
 };
 
 // Interface: UntrustedPage
+ash.boca_receiver.mojom.UntrustedPage = {};
+
 ash.boca_receiver.mojom.UntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -207,6 +209,8 @@ ash.boca_receiver.mojom.UntrustedPageRequest = ash.boca_receiver.mojom.Untrusted
 
 
 // Interface: UntrustedPageHandlerFactory
+ash.boca_receiver.mojom.UntrustedPageHandlerFactory = {};
+
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

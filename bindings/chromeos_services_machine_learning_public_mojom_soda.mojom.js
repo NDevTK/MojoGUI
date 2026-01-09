@@ -52,6 +52,8 @@ chromeos.machine_learning.mojom.AsrSwitchResult = {
 };
 
 // Interface: SodaClient
+chromeos.machine_learning.mojom.SodaClient = {};
+
 chromeos.machine_learning.mojom.SodaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -102,6 +104,8 @@ chromeos.machine_learning.mojom.SodaClientRequest = chromeos.machine_learning.mo
 
 
 // Interface: SodaRecognizer
+chromeos.machine_learning.mojom.SodaRecognizer = {};
+
 chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

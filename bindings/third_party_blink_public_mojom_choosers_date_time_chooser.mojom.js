@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DateTimeChooser
+blink.mojom.DateTimeChooser = {};
+
 blink.mojom.DateTimeChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

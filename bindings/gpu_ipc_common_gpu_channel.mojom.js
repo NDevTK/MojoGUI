@@ -33,6 +33,8 @@ gpu.mojom.SchedulingPriority = {
 };
 
 // Interface: GpuChannel
+gpu.mojom.GpuChannel = {};
+
 gpu.mojom.GpuChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -599,6 +601,8 @@ gpu.mojom.GpuChannelRequest = gpu.mojom.GpuChannelPendingReceiver;
 
 
 // Interface: CommandBuffer
+gpu.mojom.CommandBuffer = {};
+
 gpu.mojom.CommandBufferPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -804,6 +808,8 @@ gpu.mojom.CommandBufferRequest = gpu.mojom.CommandBufferPendingReceiver;
 
 
 // Interface: CommandBufferClient
+gpu.mojom.CommandBufferClient = {};
+
 gpu.mojom.CommandBufferClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -970,6 +976,8 @@ gpu.mojom.CommandBufferClientRequest = gpu.mojom.CommandBufferClientPendingRecei
 
 
 // Interface: DCOMPTexture
+gpu.mojom.DCOMPTexture = {};
+
 gpu.mojom.DCOMPTexturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1102,6 +1110,8 @@ gpu.mojom.DCOMPTextureRequest = gpu.mojom.DCOMPTexturePendingReceiver;
 
 
 // Interface: DCOMPTextureClient
+gpu.mojom.DCOMPTextureClient = {};
+
 gpu.mojom.DCOMPTextureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1198,6 +1208,8 @@ gpu.mojom.DCOMPTextureClientRequest = gpu.mojom.DCOMPTextureClientPendingReceive
 
 
 // Interface: OverlayStateObserver
+gpu.mojom.OverlayStateObserver = {};
+
 gpu.mojom.OverlayStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

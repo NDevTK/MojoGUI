@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: NearbySharingDecoder
+sharing.mojom.NearbySharingDecoder = {};
+
 sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ nearby.connections.mojom = nearby.connections.mojom || {};
 
 
 // Interface: EndpointDiscoveryListener
+nearby.connections.mojom.EndpointDiscoveryListener = {};
+
 nearby.connections.mojom.EndpointDiscoveryListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -108,6 +110,8 @@ nearby.connections.mojom.EndpointDiscoveryListenerRequest = nearby.connections.m
 
 
 // Interface: ConnectionLifecycleListener
+nearby.connections.mojom.ConnectionLifecycleListener = {};
+
 nearby.connections.mojom.ConnectionLifecycleListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,6 +280,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRequest = nearby.connections
 
 
 // Interface: PayloadListener
+nearby.connections.mojom.PayloadListener = {};
+
 nearby.connections.mojom.PayloadListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -374,6 +380,8 @@ nearby.connections.mojom.PayloadListenerRequest = nearby.connections.mojom.Paylo
 
 
 // Interface: ConnectionListenerV3
+nearby.connections.mojom.ConnectionListenerV3 = {};
+
 nearby.connections.mojom.ConnectionListenerV3PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -519,6 +527,8 @@ nearby.connections.mojom.ConnectionListenerV3Request = nearby.connections.mojom.
 
 
 // Interface: PayloadListenerV3
+nearby.connections.mojom.PayloadListenerV3 = {};
+
 nearby.connections.mojom.PayloadListenerV3PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -617,6 +627,8 @@ nearby.connections.mojom.PayloadListenerV3Request = nearby.connections.mojom.Pay
 
 
 // Interface: NearbyConnections
+nearby.connections.mojom.NearbyConnections = {};
+
 nearby.connections.mojom.NearbyConnectionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -38,6 +38,8 @@ storage.mojom.FileWriteAccess = {
 };
 
 // Interface: FileLock
+storage.mojom.FileLock = {};
+
 storage.mojom.FileLockPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -123,6 +125,8 @@ storage.mojom.FileLockRequest = storage.mojom.FileLockPendingReceiver;
 
 
 // Interface: Directory
+storage.mojom.Directory = {};
+
 storage.mojom.DirectoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

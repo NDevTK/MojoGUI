@@ -11,6 +11,8 @@ ntp.authentication.mojom = ntp.authentication.mojom || {};
 
 
 // Interface: MicrosoftAuthPageHandler
+ntp.authentication.mojom.MicrosoftAuthPageHandler = {};
+
 ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

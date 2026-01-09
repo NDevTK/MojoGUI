@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DirectSocketsService
+blink.mojom.DirectSocketsService = {};
+
 blink.mojom.DirectSocketsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -32,6 +32,8 @@ ash.personalization_app.mojom.SearchConceptId = {
 };
 
 // Interface: SearchResultsObserver
+ash.personalization_app.mojom.SearchResultsObserver = {};
+
 ash.personalization_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -104,6 +106,8 @@ ash.personalization_app.mojom.SearchResultsObserverRequest = ash.personalization
 
 
 // Interface: SearchHandler
+ash.personalization_app.mojom.SearchHandler = {};
+
 ash.personalization_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DevToolsFrontend
+blink.mojom.DevToolsFrontend = {};
+
 blink.mojom.DevToolsFrontendPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ blink.mojom.DevToolsFrontendRequest = blink.mojom.DevToolsFrontendPendingReceive
 
 
 // Interface: DevToolsFrontendHost
+blink.mojom.DevToolsFrontendHost = {};
+
 blink.mojom.DevToolsFrontendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

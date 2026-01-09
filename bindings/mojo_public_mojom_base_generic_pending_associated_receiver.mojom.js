@@ -10,6 +10,8 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Interface: GenericAssociatedInterface
+mojo_base.mojom.GenericAssociatedInterface = {};
+
 mojo_base.mojom.GenericAssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -16,6 +16,8 @@ data_decoder.mojom.ImageCodec = {
 };
 
 // Interface: ImageDecoder
+data_decoder.mojom.ImageDecoder = {};
+
 data_decoder.mojom.ImageDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

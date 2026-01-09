@@ -10,6 +10,8 @@ mojom.app_service_internals = mojom.app_service_internals || {};
 
 
 // Interface: AppServiceInternalsPageHandler
+mojom.app_service_internals.AppServiceInternalsPageHandler = {};
+
 mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

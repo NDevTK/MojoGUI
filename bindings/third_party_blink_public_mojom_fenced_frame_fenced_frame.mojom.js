@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FencedFrameOwnerHost
+blink.mojom.FencedFrameOwnerHost = {};
+
 blink.mojom.FencedFrameOwnerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

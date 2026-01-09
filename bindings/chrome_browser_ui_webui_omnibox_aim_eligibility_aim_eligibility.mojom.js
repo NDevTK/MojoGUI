@@ -10,6 +10,8 @@ aim_eligibility.mojom = aim_eligibility.mojom || {};
 
 
 // Interface: Page
+aim_eligibility.mojom.Page = {};
+
 aim_eligibility.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ aim_eligibility.mojom.PageRequest = aim_eligibility.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
+aim_eligibility.mojom.PageHandler = {};
+
 aim_eligibility.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -226,6 +230,8 @@ aim_eligibility.mojom.PageHandlerRequest = aim_eligibility.mojom.PageHandlerPend
 
 
 // Interface: PageHandlerFactory
+aim_eligibility.mojom.PageHandlerFactory = {};
+
 aim_eligibility.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

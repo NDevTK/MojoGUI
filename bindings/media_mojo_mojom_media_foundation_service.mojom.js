@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: GpuInfoObserver
+media.mojom.GpuInfoObserver = {};
+
 media.mojom.GpuInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ media.mojom.GpuInfoObserverRequest = media.mojom.GpuInfoObserverPendingReceiver;
 
 
 // Interface: MediaFoundationService
+media.mojom.MediaFoundationService = {};
+
 media.mojom.MediaFoundationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -194,6 +198,8 @@ media.mojom.MediaFoundationServiceRequest = media.mojom.MediaFoundationServicePe
 
 
 // Interface: MediaFoundationServiceBroker
+media.mojom.MediaFoundationServiceBroker = {};
+
 media.mojom.MediaFoundationServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

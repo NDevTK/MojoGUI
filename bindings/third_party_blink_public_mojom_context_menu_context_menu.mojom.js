@@ -30,6 +30,8 @@ blink.mojom.CustomContextMenuItemType = {
 };
 
 // Interface: ContextMenuClient
+blink.mojom.ContextMenuClient = {};
+
 blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

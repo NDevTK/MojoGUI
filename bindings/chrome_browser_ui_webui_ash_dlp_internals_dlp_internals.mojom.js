@@ -78,6 +78,8 @@ dlp_internals.mojom.UserType = {
 };
 
 // Interface: ReportingObserver
+dlp_internals.mojom.ReportingObserver = {};
+
 dlp_internals.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -151,6 +153,8 @@ dlp_internals.mojom.ReportingObserverRequest = dlp_internals.mojom.ReportingObse
 
 
 // Interface: PageHandler
+dlp_internals.mojom.PageHandler = {};
+
 dlp_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

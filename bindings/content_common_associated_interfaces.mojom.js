@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RouteProvider
+content.mojom.RouteProvider = {};
+
 content.mojom.RouteProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

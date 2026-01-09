@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecoderFactoryProcess
+media.mojom.VideoDecoderFactoryProcess = {};
+
 media.mojom.VideoDecoderFactoryProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

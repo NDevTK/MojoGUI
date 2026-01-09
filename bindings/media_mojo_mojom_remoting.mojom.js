@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: RemoterFactory
+media.mojom.RemoterFactory = {};
+
 media.mojom.RemoterFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ media.mojom.RemoterFactoryRequest = media.mojom.RemoterFactoryPendingReceiver;
 
 
 // Interface: RemotingDataStreamSender
+media.mojom.RemotingDataStreamSender = {};
+
 media.mojom.RemotingDataStreamSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +183,8 @@ media.mojom.RemotingDataStreamSenderRequest = media.mojom.RemotingDataStreamSend
 
 
 // Interface: Remoter
+media.mojom.Remoter = {};
+
 media.mojom.RemoterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -380,6 +386,8 @@ media.mojom.RemoterRequest = media.mojom.RemoterPendingReceiver;
 
 
 // Interface: RemotingSource
+media.mojom.RemotingSource = {};
+
 media.mojom.RemotingSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -566,6 +574,8 @@ media.mojom.RemotingSourceRequest = media.mojom.RemotingSourcePendingReceiver;
 
 
 // Interface: Remotee
+media.mojom.Remotee = {};
+
 media.mojom.RemoteePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -733,6 +743,8 @@ media.mojom.RemoteeRequest = media.mojom.RemoteePendingReceiver;
 
 
 // Interface: RemotingSink
+media.mojom.RemotingSink = {};
+
 media.mojom.RemotingSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -806,6 +818,8 @@ media.mojom.RemotingSinkRequest = media.mojom.RemotingSinkPendingReceiver;
 
 
 // Interface: RemotingDataStreamReceiver
+media.mojom.RemotingDataStreamReceiver = {};
+
 media.mojom.RemotingDataStreamReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -47,6 +47,8 @@ chrome.mojom.AppShimScreenReaderSupportMode = {
 };
 
 // Interface: AppShim
+chrome.mojom.AppShim = {};
+
 chrome.mojom.AppShimPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,6 +318,8 @@ chrome.mojom.AppShimRequest = chrome.mojom.AppShimPendingReceiver;
 
 
 // Interface: AppShimHost
+chrome.mojom.AppShimHost = {};
+
 chrome.mojom.AppShimHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -592,6 +596,8 @@ chrome.mojom.AppShimHostRequest = chrome.mojom.AppShimHostPendingReceiver;
 
 
 // Interface: AppShimHostBootstrap
+chrome.mojom.AppShimHostBootstrap = {};
+
 chrome.mojom.AppShimHostBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

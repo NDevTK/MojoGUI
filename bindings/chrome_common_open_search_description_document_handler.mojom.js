@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: OpenSearchDescriptionDocumentHandler
+chrome.mojom.OpenSearchDescriptionDocumentHandler = {};
+
 chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebSocketConnector
+blink.mojom.WebSocketConnector = {};
+
 blink.mojom.WebSocketConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

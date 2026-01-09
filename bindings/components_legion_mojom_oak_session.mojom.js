@@ -10,6 +10,8 @@ legion.mojom = legion.mojom || {};
 
 
 // Interface: OakSession
+legion.mojom.OakSession = {};
+
 legion.mojom.OakSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -127,6 +127,8 @@ arc.mojom.QosCategory = {
 };
 
 // Interface: NetHost
+arc.mojom.NetHost = {};
+
 arc.mojom.NetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -177,6 +179,8 @@ arc.mojom.NetHostRequest = arc.mojom.NetHostPendingReceiver;
 
 
 // Interface: NetInstance
+arc.mojom.NetInstance = {};
+
 arc.mojom.NetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

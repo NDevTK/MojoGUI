@@ -11,6 +11,8 @@ ash.annotator.mojom = ash.annotator.mojom || {};
 
 
 // Interface: UntrustedAnnotatorPage
+ash.annotator.mojom.UntrustedAnnotatorPage = {};
+
 ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -150,6 +152,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRequest = ash.annotator.mojom.Untruste
 
 
 // Interface: UntrustedAnnotatorPageHandler
+ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
+
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,6 +251,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.mojom.U
 
 
 // Interface: UntrustedAnnotatorPageHandlerFactory
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
+
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

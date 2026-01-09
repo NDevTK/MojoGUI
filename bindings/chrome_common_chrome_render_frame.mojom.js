@@ -18,6 +18,8 @@ chrome.mojom.ImageFormat = {
 };
 
 // Interface: ChromeRenderFrame
+chrome.mojom.ChromeRenderFrame = {};
+
 chrome.mojom.ChromeRenderFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

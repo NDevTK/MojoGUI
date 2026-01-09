@@ -20,6 +20,8 @@ ash.enhanced_network_tts.mojom.TtsRequestError = {
 };
 
 // Interface: EnhancedNetworkTts
+ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
+
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest = ash.enhanced_network_
 
 
 // Interface: AudioDataObserver
+ash.enhanced_network_tts.mojom.AudioDataObserver = {};
+
 ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

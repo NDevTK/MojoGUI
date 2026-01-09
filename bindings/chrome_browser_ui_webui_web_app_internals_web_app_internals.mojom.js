@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: WebAppInternalsHandler
+mojom.WebAppInternalsHandler = {};
+
 mojom.WebAppInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

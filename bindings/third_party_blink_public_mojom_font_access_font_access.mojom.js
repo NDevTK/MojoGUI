@@ -20,6 +20,8 @@ blink.mojom.FontEnumerationStatus = {
 };
 
 // Interface: FontAccessManager
+blink.mojom.FontAccessManager = {};
+
 blink.mojom.FontAccessManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

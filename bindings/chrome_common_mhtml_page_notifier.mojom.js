@@ -10,6 +10,8 @@ offline_pages.mojom = offline_pages.mojom || {};
 
 
 // Interface: MhtmlPageNotifier
+offline_pages.mojom.MhtmlPageNotifier = {};
+
 offline_pages.mojom.MhtmlPageNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -16,6 +16,8 @@ customize_buttons.mojom.SidePanelOpenTrigger = {
 };
 
 // Interface: CustomizeButtonsHandlerFactory
+customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
+
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryRequest = customize_button
 
 
 // Interface: CustomizeButtonsHandler
+customize_buttons.mojom.CustomizeButtonsHandler = {};
+
 customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -209,6 +213,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerRequest = customize_buttons.mojom
 
 
 // Interface: CustomizeButtonsDocument
+customize_buttons.mojom.CustomizeButtonsDocument = {};
+
 customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

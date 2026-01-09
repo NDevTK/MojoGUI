@@ -10,6 +10,8 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: CborParser
+data_decoder.mojom.CborParser = {};
+
 data_decoder.mojom.CborParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

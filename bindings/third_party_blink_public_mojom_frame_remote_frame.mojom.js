@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: NavigationStateKeepAliveHandle
+blink.mojom.NavigationStateKeepAliveHandle = {};
+
 blink.mojom.NavigationStateKeepAliveHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ blink.mojom.NavigationStateKeepAliveHandleRequest = blink.mojom.NavigationStateK
 
 
 // Interface: RemoteFrameHost
+blink.mojom.RemoteFrameHost = {};
+
 blink.mojom.RemoteFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -461,6 +465,8 @@ blink.mojom.RemoteFrameHostRequest = blink.mojom.RemoteFrameHostPendingReceiver;
 
 
 // Interface: RemoteFrame
+blink.mojom.RemoteFrame = {};
+
 blink.mojom.RemoteFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1301,6 +1307,8 @@ blink.mojom.RemoteFrameRequest = blink.mojom.RemoteFramePendingReceiver;
 
 
 // Interface: RemoteMainFrame
+blink.mojom.RemoteMainFrame = {};
+
 blink.mojom.RemoteMainFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1374,6 +1382,8 @@ blink.mojom.RemoteMainFrameRequest = blink.mojom.RemoteMainFramePendingReceiver;
 
 
 // Interface: RemoteMainFrameHost
+blink.mojom.RemoteMainFrameHost = {};
+
 blink.mojom.RemoteMainFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

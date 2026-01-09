@@ -23,6 +23,8 @@ glic.mojom.FreWebUiState = {
 };
 
 // Interface: FrePageHandlerFactory
+glic.mojom.FrePageHandlerFactory = {};
+
 glic.mojom.FrePageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ glic.mojom.FrePageHandlerFactoryRequest = glic.mojom.FrePageHandlerFactoryPendin
 
 
 // Interface: FrePageHandler
+glic.mojom.FrePageHandler = {};
+
 glic.mojom.FrePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

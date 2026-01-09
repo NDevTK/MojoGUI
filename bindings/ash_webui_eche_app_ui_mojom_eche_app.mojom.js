@@ -65,6 +65,8 @@ ash.eche_app.mojom.AppStreamLaunchEntryPoint = {
 };
 
 // Interface: SignalingMessageExchanger
+ash.eche_app.mojom.SignalingMessageExchanger = {};
+
 ash.eche_app.mojom.SignalingMessageExchangerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -183,6 +185,8 @@ ash.eche_app.mojom.SignalingMessageExchangerRequest = ash.eche_app.mojom.Signali
 
 
 // Interface: SignalingMessageObserver
+ash.eche_app.mojom.SignalingMessageObserver = {};
+
 ash.eche_app.mojom.SignalingMessageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,6 +260,8 @@ ash.eche_app.mojom.SignalingMessageObserverRequest = ash.eche_app.mojom.Signalin
 
 
 // Interface: SystemInfoProvider
+ash.eche_app.mojom.SystemInfoProvider = {};
+
 ash.eche_app.mojom.SystemInfoProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -364,6 +370,8 @@ ash.eche_app.mojom.SystemInfoProviderRequest = ash.eche_app.mojom.SystemInfoProv
 
 
 // Interface: SystemInfoObserver
+ash.eche_app.mojom.SystemInfoObserver = {};
+
 ash.eche_app.mojom.SystemInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -484,6 +492,8 @@ ash.eche_app.mojom.SystemInfoObserverRequest = ash.eche_app.mojom.SystemInfoObse
 
 
 // Interface: AccessibilityProvider
+ash.eche_app.mojom.AccessibilityProvider = {};
+
 ash.eche_app.mojom.AccessibilityProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -615,6 +625,8 @@ ash.eche_app.mojom.AccessibilityProviderRequest = ash.eche_app.mojom.Accessibili
 
 
 // Interface: AccessibilityObserver
+ash.eche_app.mojom.AccessibilityObserver = {};
+
 ash.eche_app.mojom.AccessibilityObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -783,6 +795,8 @@ ash.eche_app.mojom.AccessibilityObserverRequest = ash.eche_app.mojom.Accessibili
 
 
 // Interface: UidGenerator
+ash.eche_app.mojom.UidGenerator = {};
+
 ash.eche_app.mojom.UidGeneratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -868,6 +882,8 @@ ash.eche_app.mojom.UidGeneratorRequest = ash.eche_app.mojom.UidGeneratorPendingR
 
 
 // Interface: NotificationGenerator
+ash.eche_app.mojom.NotificationGenerator = {};
+
 ash.eche_app.mojom.NotificationGeneratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -966,6 +982,8 @@ ash.eche_app.mojom.NotificationGeneratorRequest = ash.eche_app.mojom.Notificatio
 
 
 // Interface: DisplayStreamHandler
+ash.eche_app.mojom.DisplayStreamHandler = {};
+
 ash.eche_app.mojom.DisplayStreamHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1084,6 +1102,8 @@ ash.eche_app.mojom.DisplayStreamHandlerRequest = ash.eche_app.mojom.DisplayStrea
 
 
 // Interface: StreamActionObserver
+ash.eche_app.mojom.StreamActionObserver = {};
+
 ash.eche_app.mojom.StreamActionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1157,6 +1177,8 @@ ash.eche_app.mojom.StreamActionObserverRequest = ash.eche_app.mojom.StreamAction
 
 
 // Interface: StreamOrientationObserver
+ash.eche_app.mojom.StreamOrientationObserver = {};
+
 ash.eche_app.mojom.StreamOrientationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1230,6 +1252,8 @@ ash.eche_app.mojom.StreamOrientationObserverRequest = ash.eche_app.mojom.StreamO
 
 
 // Interface: ConnectionStatusObserver
+ash.eche_app.mojom.ConnectionStatusObserver = {};
+
 ash.eche_app.mojom.ConnectionStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1303,6 +1327,8 @@ ash.eche_app.mojom.ConnectionStatusObserverRequest = ash.eche_app.mojom.Connecti
 
 
 // Interface: KeyboardLayoutHandler
+ash.eche_app.mojom.KeyboardLayoutHandler = {};
+
 ash.eche_app.mojom.KeyboardLayoutHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1398,6 +1424,8 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRequest = ash.eche_app.mojom.KeyboardLay
 
 
 // Interface: KeyboardLayoutObserver
+ash.eche_app.mojom.KeyboardLayoutObserver = {};
+
 ash.eche_app.mojom.KeyboardLayoutObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

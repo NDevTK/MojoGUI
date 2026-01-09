@@ -17,6 +17,8 @@ ntp_promo.mojom.ShowNtpPromosResult = {
 };
 
 // Interface: NtpPromoHandler
+ntp_promo.mojom.NtpPromoHandler = {};
+
 ntp_promo.mojom.NtpPromoHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -224,6 +226,8 @@ ntp_promo.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.NtpPromoHandlerPendingR
 
 
 // Interface: NtpPromoClient
+ntp_promo.mojom.NtpPromoClient = {};
+
 ntp_promo.mojom.NtpPromoClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,6 +302,8 @@ ntp_promo.mojom.NtpPromoClientRequest = ntp_promo.mojom.NtpPromoClientPendingRec
 
 
 // Interface: NtpPromoHandlerFactory
+ntp_promo.mojom.NtpPromoHandlerFactory = {};
+
 ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

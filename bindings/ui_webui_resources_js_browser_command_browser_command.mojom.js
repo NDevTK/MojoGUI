@@ -34,6 +34,8 @@ browser_command.mojom.Command = {
 };
 
 // Interface: CommandHandlerFactory
+browser_command.mojom.CommandHandlerFactory = {};
+
 browser_command.mojom.CommandHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ browser_command.mojom.CommandHandlerFactoryRequest = browser_command.mojom.Comma
 
 
 // Interface: CommandHandler
+browser_command.mojom.CommandHandler = {};
+
 browser_command.mojom.CommandHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

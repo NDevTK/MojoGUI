@@ -47,6 +47,8 @@ crosapi.mojom.KeyTag = {
 };
 
 // Interface: KeystoreService
+crosapi.mojom.KeystoreService = {};
+
 crosapi.mojom.KeystoreServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

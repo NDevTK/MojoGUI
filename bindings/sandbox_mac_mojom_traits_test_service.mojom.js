@@ -11,6 +11,8 @@ sandbox.mac.mojom = sandbox.mac.mojom || {};
 
 
 // Interface: TraitsTestService
+sandbox.mac.mojom.TraitsTestService = {};
+
 sandbox.mac.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

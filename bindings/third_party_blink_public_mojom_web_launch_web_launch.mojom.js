@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebLaunchService
+blink.mojom.WebLaunchService = {};
+
 blink.mojom.WebLaunchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

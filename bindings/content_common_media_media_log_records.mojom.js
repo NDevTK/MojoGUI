@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MediaInternalLogRecords
+content.mojom.MediaInternalLogRecords = {};
+
 content.mojom.MediaInternalLogRecordsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

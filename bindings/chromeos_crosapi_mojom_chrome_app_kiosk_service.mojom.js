@@ -29,6 +29,8 @@ crosapi.mojom.ChromeKioskLaunchResult = {
 };
 
 // Interface: ChromeKioskLaunchController
+crosapi.mojom.ChromeKioskLaunchController = {};
+
 crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -79,6 +81,8 @@ crosapi.mojom.ChromeKioskLaunchControllerRequest = crosapi.mojom.ChromeKioskLaun
 
 
 // Interface: ChromeAppKioskService
+crosapi.mojom.ChromeAppKioskService = {};
+
 crosapi.mojom.ChromeAppKioskServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

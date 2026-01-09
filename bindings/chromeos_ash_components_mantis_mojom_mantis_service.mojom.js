@@ -22,6 +22,8 @@ mantis.mojom.InitializeResult = {
 };
 
 // Interface: PlatformModelProgressObserver
+mantis.mojom.PlatformModelProgressObserver = {};
+
 mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -72,6 +74,8 @@ mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelPr
 
 
 // Interface: MantisService
+mantis.mojom.MantisService = {};
+
 mantis.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ subresource_filter.mojom = subresource_filter.mojom || {};
 
 
 // Interface: SubresourceFilterAgent
+subresource_filter.mojom.SubresourceFilterAgent = {};
+
 subresource_filter.mojom.SubresourceFilterAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ subresource_filter.mojom.SubresourceFilterAgentRequest = subresource_filter.mojo
 
 
 // Interface: SubresourceFilterHost
+subresource_filter.mojom.SubresourceFilterHost = {};
+
 subresource_filter.mojom.SubresourceFilterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

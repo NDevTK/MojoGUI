@@ -17,6 +17,8 @@ audio.mojom.DebugRecordingStreamType = {
 };
 
 // Interface: DebugRecordingFileProvider
+audio.mojom.DebugRecordingFileProvider = {};
+
 audio.mojom.DebugRecordingFileProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -140,6 +142,8 @@ audio.mojom.DebugRecordingFileProviderRequest = audio.mojom.DebugRecordingFilePr
 
 
 // Interface: DebugRecording
+audio.mojom.DebugRecording = {};
+
 audio.mojom.DebugRecordingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

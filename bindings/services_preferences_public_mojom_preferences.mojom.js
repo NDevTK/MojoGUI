@@ -28,6 +28,8 @@ prefs.mojom.ValueType = {
 };
 
 // Interface: ResetOnLoadObserver
+prefs.mojom.ResetOnLoadObserver = {};
+
 prefs.mojom.ResetOnLoadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

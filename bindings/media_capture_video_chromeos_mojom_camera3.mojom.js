@@ -99,6 +99,8 @@ cros.mojom.BufferType = {
 };
 
 // Interface: Camera3CallbackOps
+cros.mojom.Camera3CallbackOps = {};
+
 cros.mojom.Camera3CallbackOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -149,6 +151,8 @@ cros.mojom.Camera3CallbackOpsRequest = cros.mojom.Camera3CallbackOpsPendingRecei
 
 
 // Interface: Camera3DeviceOps
+cros.mojom.Camera3DeviceOps = {};
+
 cros.mojom.Camera3DeviceOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

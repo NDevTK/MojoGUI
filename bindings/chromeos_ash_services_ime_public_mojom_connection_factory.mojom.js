@@ -11,6 +11,8 @@ ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Interface: ConnectionFactory
+ash.ime.mojom.ConnectionFactory = {};
+
 ash.ime.mojom.ConnectionFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

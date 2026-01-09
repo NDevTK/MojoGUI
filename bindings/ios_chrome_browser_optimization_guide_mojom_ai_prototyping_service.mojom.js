@@ -10,6 +10,8 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: AIPrototypingService
+ai.mojom.AIPrototypingService = {};
+
 ai.mojom.AIPrototypingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

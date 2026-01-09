@@ -17,6 +17,8 @@ service_manager.mojom.InstanceState = {
 };
 
 // Interface: ServiceManagerListener
+service_manager.mojom.ServiceManagerListener = {};
+
 service_manager.mojom.ServiceManagerListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -207,6 +209,8 @@ service_manager.mojom.ServiceManagerListenerRequest = service_manager.mojom.Serv
 
 
 // Interface: ServiceManager
+service_manager.mojom.ServiceManager = {};
+
 service_manager.mojom.ServiceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

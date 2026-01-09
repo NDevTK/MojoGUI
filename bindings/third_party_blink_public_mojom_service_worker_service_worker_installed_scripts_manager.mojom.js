@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ServiceWorkerInstalledScriptsManagerHost
+blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
+
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.Servic
 
 
 // Interface: ServiceWorkerInstalledScriptsManager
+blink.mojom.ServiceWorkerInstalledScriptsManager = {};
+
 blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

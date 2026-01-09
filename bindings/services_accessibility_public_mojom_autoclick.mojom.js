@@ -10,6 +10,8 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: Autoclick
+ax.mojom.Autoclick = {};
+
 ax.mojom.AutoclickPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ ax.mojom.AutoclickRequest = ax.mojom.AutoclickPendingReceiver;
 
 
 // Interface: AutoclickClient
+ax.mojom.AutoclickClient = {};
+
 ax.mojom.AutoclickClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

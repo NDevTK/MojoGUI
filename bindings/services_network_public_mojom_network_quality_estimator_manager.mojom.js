@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkQualityEstimatorManagerClient
+network.mojom.NetworkQualityEstimatorManagerClient = {};
+
 network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ network.mojom.NetworkQualityEstimatorManagerClientRequest = network.mojom.Networ
 
 
 // Interface: NetworkQualityEstimatorManager
+network.mojom.NetworkQualityEstimatorManager = {};
+
 network.mojom.NetworkQualityEstimatorManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

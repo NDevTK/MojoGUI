@@ -10,6 +10,8 @@ file_suggestion.mojom = file_suggestion.mojom || {};
 
 
 // Interface: DriveSuggestionHandler
+file_suggestion.mojom.DriveSuggestionHandler = {};
+
 file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

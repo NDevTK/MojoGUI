@@ -10,6 +10,8 @@ payments.mojom = payments.mojom || {};
 
 
 // Interface: PaymentHandlerHost
+payments.mojom.PaymentHandlerHost = {};
+
 payments.mojom.PaymentHandlerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

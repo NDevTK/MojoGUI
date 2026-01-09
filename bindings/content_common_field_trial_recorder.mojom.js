@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: FieldTrialRecorder
+content.mojom.FieldTrialRecorder = {};
+
 content.mojom.FieldTrialRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

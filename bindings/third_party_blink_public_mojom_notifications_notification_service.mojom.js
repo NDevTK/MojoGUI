@@ -17,6 +17,8 @@ blink.mojom.PersistentNotificationError = {
 };
 
 // Interface: NonPersistentNotificationListener
+blink.mojom.NonPersistentNotificationListener = {};
+
 blink.mojom.NonPersistentNotificationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -133,6 +135,8 @@ blink.mojom.NonPersistentNotificationListenerRequest = blink.mojom.NonPersistent
 
 
 // Interface: NotificationService
+blink.mojom.NotificationService = {};
+
 blink.mojom.NotificationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

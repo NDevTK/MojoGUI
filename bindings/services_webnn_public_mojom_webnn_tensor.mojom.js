@@ -10,6 +10,8 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Interface: WebNNTensor
+webnn.mojom.WebNNTensor = {};
+
 webnn.mojom.WebNNTensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

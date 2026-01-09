@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: FlingingRendererClientExtension
+media.mojom.FlingingRendererClientExtension = {};
+
 media.mojom.FlingingRendererClientExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ media.mojom.FlingingRendererClientExtensionRequest = media.mojom.FlingingRendere
 
 
 // Interface: MediaFoundationRendererExtension
+media.mojom.MediaFoundationRendererExtension = {};
+
 media.mojom.MediaFoundationRendererExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -228,6 +232,8 @@ media.mojom.MediaFoundationRendererExtensionRequest = media.mojom.MediaFoundatio
 
 
 // Interface: MediaFoundationRendererObserver
+media.mojom.MediaFoundationRendererObserver = {};
+
 media.mojom.MediaFoundationRendererObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,6 +284,8 @@ media.mojom.MediaFoundationRendererObserverRequest = media.mojom.MediaFoundation
 
 
 // Interface: MediaFoundationRendererNotifier
+media.mojom.MediaFoundationRendererNotifier = {};
+
 media.mojom.MediaFoundationRendererNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

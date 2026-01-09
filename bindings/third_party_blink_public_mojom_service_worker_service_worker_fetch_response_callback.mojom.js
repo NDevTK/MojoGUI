@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ServiceWorkerFetchResponseCallback
+blink.mojom.ServiceWorkerFetchResponseCallback = {};
+
 blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

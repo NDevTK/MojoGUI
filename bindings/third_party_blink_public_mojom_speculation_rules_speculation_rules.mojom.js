@@ -40,6 +40,8 @@ blink.mojom.SpeculationInjectionType = {
 };
 
 // Interface: SpeculationHost
+blink.mojom.SpeculationHost = {};
+
 blink.mojom.SpeculationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

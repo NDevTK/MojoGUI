@@ -16,6 +16,8 @@ chromeos.machine_learning.mojom.Status = {
 };
 
 // Interface: ImageContentAnnotator
+chromeos.machine_learning.mojom.ImageContentAnnotator = {};
+
 chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

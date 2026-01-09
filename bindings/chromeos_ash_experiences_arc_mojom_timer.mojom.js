@@ -22,6 +22,8 @@ arc.mojom.ClockId = {
 };
 
 // Interface: TimerHost
+arc.mojom.TimerHost = {};
+
 arc.mojom.TimerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -72,6 +74,8 @@ arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
 
 
 // Interface: TimerInstance
+arc.mojom.TimerInstance = {};
+
 arc.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

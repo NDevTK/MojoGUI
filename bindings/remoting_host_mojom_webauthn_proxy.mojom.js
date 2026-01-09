@@ -10,6 +10,8 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: WebAuthnRequestCanceller
+remoting.mojom.WebAuthnRequestCanceller = {};
+
 remoting.mojom.WebAuthnRequestCancellerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -95,6 +97,8 @@ remoting.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.WebAuthnRequestC
 
 
 // Interface: WebAuthnProxy
+remoting.mojom.WebAuthnProxy = {};
+
 remoting.mojom.WebAuthnProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ content_settings.mojom = content_settings.mojom || {};
 
 
 // Interface: ContentSettingsAgent
+content_settings.mojom.ContentSettingsAgent = {};
+
 content_settings.mojom.ContentSettingsAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

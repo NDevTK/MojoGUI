@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ImageReleaseCallback
+blink.mojom.ImageReleaseCallback = {};
+
 blink.mojom.ImageReleaseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

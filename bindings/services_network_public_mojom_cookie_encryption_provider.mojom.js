@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: CookieEncryptionProvider
+network.mojom.CookieEncryptionProvider = {};
+
 network.mojom.CookieEncryptionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkContextClient
+network.mojom.NetworkContextClient = {};
+
 network.mojom.NetworkContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -44,6 +44,8 @@ ash.help_app.mojom.SettingsComponent = {
 };
 
 // Interface: PageHandlerFactory
+ash.help_app.mojom.PageHandlerFactory = {};
+
 ash.help_app.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -117,6 +119,8 @@ ash.help_app.mojom.PageHandlerFactoryRequest = ash.help_app.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+ash.help_app.mojom.PageHandler = {};
+
 ash.help_app.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

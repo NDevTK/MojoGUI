@@ -85,6 +85,8 @@ crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
 };
 
 // Interface: DiagnosticsService
+crosapi.mojom.DiagnosticsService = {};
+
 crosapi.mojom.DiagnosticsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

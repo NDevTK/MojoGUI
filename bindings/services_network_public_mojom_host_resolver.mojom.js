@@ -78,6 +78,8 @@ network.mojom.UpdateType = {
 };
 
 // Interface: ResolveHostHandle
+network.mojom.ResolveHostHandle = {};
+
 network.mojom.ResolveHostHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -151,6 +153,8 @@ network.mojom.ResolveHostHandleRequest = network.mojom.ResolveHostHandlePendingR
 
 
 // Interface: ResolveHostClient
+network.mojom.ResolveHostClient = {};
+
 network.mojom.ResolveHostClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,6 +277,8 @@ network.mojom.ResolveHostClientRequest = network.mojom.ResolveHostClientPendingR
 
 
 // Interface: MdnsListenClient
+network.mojom.MdnsListenClient = {};
+
 network.mojom.MdnsListenClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -422,6 +428,8 @@ network.mojom.MdnsListenClientRequest = network.mojom.MdnsListenClientPendingRec
 
 
 // Interface: HostResolver
+network.mojom.HostResolver = {};
+
 network.mojom.HostResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -536,6 +544,8 @@ network.mojom.HostResolverRequest = network.mojom.HostResolverPendingReceiver;
 
 
 // Interface: DnsConfigChangeManagerClient
+network.mojom.DnsConfigChangeManagerClient = {};
+
 network.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -608,6 +618,8 @@ network.mojom.DnsConfigChangeManagerClientRequest = network.mojom.DnsConfigChang
 
 
 // Interface: DnsConfigChangeManager
+network.mojom.DnsConfigChangeManager = {};
+
 network.mojom.DnsConfigChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ProxyResolvingSocket
+network.mojom.ProxyResolvingSocket = {};
+
 network.mojom.ProxyResolvingSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -101,6 +103,8 @@ network.mojom.ProxyResolvingSocketRequest = network.mojom.ProxyResolvingSocketPe
 
 
 // Interface: ProxyResolvingSocketFactory
+network.mojom.ProxyResolvingSocketFactory = {};
+
 network.mojom.ProxyResolvingSocketFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

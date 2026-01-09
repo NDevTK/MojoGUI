@@ -88,6 +88,8 @@ blink.mojom.WebBluetoothWriteType = {
 };
 
 // Interface: WebBluetoothService
+blink.mojom.WebBluetoothService = {};
+
 blink.mojom.WebBluetoothServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -728,6 +730,8 @@ blink.mojom.WebBluetoothServiceRequest = blink.mojom.WebBluetoothServicePendingR
 
 
 // Interface: WebBluetoothServerClient
+blink.mojom.WebBluetoothServerClient = {};
+
 blink.mojom.WebBluetoothServerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -800,6 +804,8 @@ blink.mojom.WebBluetoothServerClientRequest = blink.mojom.WebBluetoothServerClie
 
 
 // Interface: WebBluetoothCharacteristicClient
+blink.mojom.WebBluetoothCharacteristicClient = {};
+
 blink.mojom.WebBluetoothCharacteristicClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -873,6 +879,8 @@ blink.mojom.WebBluetoothCharacteristicClientRequest = blink.mojom.WebBluetoothCh
 
 
 // Interface: WebBluetoothAdvertisementClient
+blink.mojom.WebBluetoothAdvertisementClient = {};
+
 blink.mojom.WebBluetoothAdvertisementClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

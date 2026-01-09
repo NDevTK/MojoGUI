@@ -20,6 +20,8 @@ blink.mojom.SmsStatus = {
 };
 
 // Interface: WebOTPService
+blink.mojom.WebOTPService = {};
+
 blink.mojom.WebOTPServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

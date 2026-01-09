@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DomStorageProvider
+blink.mojom.DomStorageProvider = {};
+
 blink.mojom.DomStorageProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ blink.mojom.DomStorageProviderRequest = blink.mojom.DomStorageProviderPendingRec
 
 
 // Interface: DomStorage
+blink.mojom.DomStorage = {};
+
 blink.mojom.DomStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -209,6 +213,8 @@ blink.mojom.DomStorageRequest = blink.mojom.DomStoragePendingReceiver;
 
 
 // Interface: DomStorageClient
+blink.mojom.DomStorageClient = {};
+
 blink.mojom.DomStorageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

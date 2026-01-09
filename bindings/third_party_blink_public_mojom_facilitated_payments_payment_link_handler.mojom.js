@@ -11,6 +11,8 @@ payments.facilitated.mojom = payments.facilitated.mojom || {};
 
 
 // Interface: PaymentLinkHandler
+payments.facilitated.mojom.PaymentLinkHandler = {};
+
 payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

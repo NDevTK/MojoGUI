@@ -10,6 +10,8 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Interface: SharedImagePoolClientInterface
+gpu.mojom.SharedImagePoolClientInterface = {};
+
 gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

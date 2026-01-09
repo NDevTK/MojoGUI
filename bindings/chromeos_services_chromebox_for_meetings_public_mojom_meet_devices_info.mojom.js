@@ -11,6 +11,8 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
 // Interface: MeetDevicesInfo
+chromeos.cfm.mojom.MeetDevicesInfo = {};
+
 chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRequest = chromeos.cfm.mojom.MeetDevicesInfoPe
 
 
 // Interface: PolicyInfoObserver
+chromeos.cfm.mojom.PolicyInfoObserver = {};
+
 chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

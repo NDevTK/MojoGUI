@@ -66,6 +66,8 @@ ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
 };
 
 // Interface: HelpContentProvider
+ash.os_feedback_ui.mojom.HelpContentProvider = {};
+
 ash.os_feedback_ui.mojom.HelpContentProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -152,6 +154,8 @@ ash.os_feedback_ui.mojom.HelpContentProviderRequest = ash.os_feedback_ui.mojom.H
 
 
 // Interface: FeedbackServiceProvider
+ash.os_feedback_ui.mojom.FeedbackServiceProvider = {};
+
 ash.os_feedback_ui.mojom.FeedbackServiceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

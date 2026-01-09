@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: AudioSourceSpeechRecognitionContext
+media.mojom.AudioSourceSpeechRecognitionContext = {};
+
 media.mojom.AudioSourceSpeechRecognitionContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ media.mojom.AudioSourceSpeechRecognitionContextRequest = media.mojom.AudioSource
 
 
 // Interface: SpeechRecognitionService
+media.mojom.SpeechRecognitionService = {};
+
 media.mojom.SpeechRecognitionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,6 +269,8 @@ media.mojom.SpeechRecognitionServiceRequest = media.mojom.SpeechRecognitionServi
 
 
 // Interface: AudioSourceFetcher
+media.mojom.AudioSourceFetcher = {};
+
 media.mojom.AudioSourceFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

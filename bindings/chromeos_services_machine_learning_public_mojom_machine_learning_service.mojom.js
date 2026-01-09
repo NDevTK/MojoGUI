@@ -20,6 +20,8 @@ chromeos.machine_learning.mojom.LoadModelResult = {
 };
 
 // Interface: MachineLearningService
+chromeos.machine_learning.mojom.MachineLearningService = {};
+
 chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

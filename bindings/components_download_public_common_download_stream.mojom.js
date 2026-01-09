@@ -24,6 +24,8 @@ download.mojom.NetworkRequestStatus = {
 };
 
 // Interface: DownloadStreamClient
+download.mojom.DownloadStreamClient = {};
+
 download.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

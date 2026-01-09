@@ -29,6 +29,8 @@ handwriting.mojom.CreateHandwritingRecognizerResult = {
 };
 
 // Interface: HandwritingRecognizer
+handwriting.mojom.HandwritingRecognizer = {};
+
 handwriting.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -116,6 +118,8 @@ handwriting.mojom.HandwritingRecognizerRequest = handwriting.mojom.HandwritingRe
 
 
 // Interface: HandwritingRecognitionService
+handwriting.mojom.HandwritingRecognitionService = {};
+
 handwriting.mojom.HandwritingRecognitionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

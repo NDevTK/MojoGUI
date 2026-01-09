@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AecDumpAgent
+blink.mojom.AecDumpAgent = {};
+
 blink.mojom.AecDumpAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ blink.mojom.AecDumpAgentRequest = blink.mojom.AecDumpAgentPendingReceiver;
 
 
 // Interface: AecDumpManager
+blink.mojom.AecDumpManager = {};
+
 blink.mojom.AecDumpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

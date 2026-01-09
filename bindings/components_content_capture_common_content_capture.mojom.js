@@ -10,6 +10,8 @@ content_capture.mojom = content_capture.mojom || {};
 
 
 // Interface: ContentCaptureReceiver
+content_capture.mojom.ContentCaptureReceiver = {};
+
 content_capture.mojom.ContentCaptureReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -152,6 +154,8 @@ content_capture.mojom.ContentCaptureReceiverRequest = content_capture.mojom.Cont
 
 
 // Interface: ContentCaptureSender
+content_capture.mojom.ContentCaptureSender = {};
+
 content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

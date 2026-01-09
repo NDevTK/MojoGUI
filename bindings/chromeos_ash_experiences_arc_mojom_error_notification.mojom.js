@@ -15,6 +15,8 @@ arc.mojom.ErrorType = {
 };
 
 // Interface: ErrorNotificationHost
+arc.mojom.ErrorNotificationHost = {};
+
 arc.mojom.ErrorNotificationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -65,6 +67,8 @@ arc.mojom.ErrorNotificationHostRequest = arc.mojom.ErrorNotificationHostPendingR
 
 
 // Interface: ErrorNotificationInstance
+arc.mojom.ErrorNotificationInstance = {};
+
 arc.mojom.ErrorNotificationInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -115,6 +119,8 @@ arc.mojom.ErrorNotificationInstanceRequest = arc.mojom.ErrorNotificationInstance
 
 
 // Interface: ErrorNotificationItem
+arc.mojom.ErrorNotificationItem = {};
+
 arc.mojom.ErrorNotificationItemPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -165,6 +171,8 @@ arc.mojom.ErrorNotificationItemRequest = arc.mojom.ErrorNotificationItemPendingR
 
 
 // Interface: ErrorNotificationActionHandler
+arc.mojom.ErrorNotificationActionHandler = {};
+
 arc.mojom.ErrorNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

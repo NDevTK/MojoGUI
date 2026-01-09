@@ -16,6 +16,8 @@ media.mojom.AacOutputFormat = {
 };
 
 // Interface: AudioEncoder
+media.mojom.AudioEncoder = {};
+
 media.mojom.AudioEncoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -174,6 +176,8 @@ media.mojom.AudioEncoderRequest = media.mojom.AudioEncoderPendingReceiver;
 
 
 // Interface: AudioEncoderClient
+media.mojom.AudioEncoderClient = {};
+
 media.mojom.AudioEncoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

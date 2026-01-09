@@ -11,6 +11,8 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
 // Interface: DisconnectReason
+chromeos.cfm.mojom.DisconnectReason = {};
+
 chromeos.cfm.mojom.DisconnectReasonPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.cfm.mojom.DisconnectReasonRequest = chromeos.cfm.mojom.DisconnectReason
 
 
 // Interface: CfmServiceContext
+chromeos.cfm.mojom.CfmServiceContext = {};
+
 chromeos.cfm.mojom.CfmServiceContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -111,6 +115,8 @@ chromeos.cfm.mojom.CfmServiceContextRequest = chromeos.cfm.mojom.CfmServiceConte
 
 
 // Interface: CfmServiceAdaptor
+chromeos.cfm.mojom.CfmServiceAdaptor = {};
+
 chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

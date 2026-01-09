@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FullscreenVideoElementHandler
+blink.mojom.FullscreenVideoElementHandler = {};
+
 blink.mojom.FullscreenVideoElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

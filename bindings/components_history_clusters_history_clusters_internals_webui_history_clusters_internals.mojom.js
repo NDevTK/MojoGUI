@@ -10,6 +10,8 @@ history_clusters_internals.mojom = history_clusters_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+history_clusters_internals.mojom.PageHandlerFactory = {};
+
 history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ history_clusters_internals.mojom.PageHandlerFactoryRequest = history_clusters_in
 
 
 // Interface: PageHandler
+history_clusters_internals.mojom.PageHandler = {};
+
 history_clusters_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -191,6 +195,8 @@ history_clusters_internals.mojom.PageHandlerRequest = history_clusters_internals
 
 
 // Interface: Page
+history_clusters_internals.mojom.Page = {};
+
 history_clusters_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

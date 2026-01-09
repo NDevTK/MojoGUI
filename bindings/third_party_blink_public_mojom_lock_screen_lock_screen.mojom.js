@@ -17,6 +17,8 @@ blink.mojom.LockScreenServiceStatus = {
 };
 
 // Interface: LockScreenService
+blink.mojom.LockScreenService = {};
+
 blink.mojom.LockScreenServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

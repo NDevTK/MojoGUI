@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaDrmStorage
+media.mojom.MediaDrmStorage = {};
+
 media.mojom.MediaDrmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

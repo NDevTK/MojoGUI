@@ -19,6 +19,8 @@ ash.office_fallback.mojom.DialogChoice = {
 };
 
 // Interface: PageHandlerFactory
+ash.office_fallback.mojom.PageHandlerFactory = {};
+
 ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -92,6 +94,8 @@ ash.office_fallback.mojom.PageHandlerFactoryRequest = ash.office_fallback.mojom.
 
 
 // Interface: PageHandler
+ash.office_fallback.mojom.PageHandler = {};
+
 ash.office_fallback.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

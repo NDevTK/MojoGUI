@@ -15,6 +15,8 @@ remoting.mojom.StartSupportSessionError = {
 };
 
 // Interface: SupportHostObserver
+remoting.mojom.SupportHostObserver = {};
+
 remoting.mojom.SupportHostObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

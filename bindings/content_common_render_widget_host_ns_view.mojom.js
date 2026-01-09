@@ -10,6 +10,8 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
 // Interface: PopupMenuRunner
+remote_cocoa.mojom.PopupMenuRunner = {};
+
 remote_cocoa.mojom.PopupMenuRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ remote_cocoa.mojom.PopupMenuRunnerRequest = remote_cocoa.mojom.PopupMenuRunnerPe
 
 
 // Interface: RenderWidgetHostNSView
+remote_cocoa.mojom.RenderWidgetHostNSView = {};
+
 remote_cocoa.mojom.RenderWidgetHostNSViewPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -759,6 +763,8 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRequest = remote_cocoa.mojom.RenderWidg
 
 
 // Interface: RenderWidgetHostNSViewHost
+remote_cocoa.mojom.RenderWidgetHostNSViewHost = {};
+
 remote_cocoa.mojom.RenderWidgetHostNSViewHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

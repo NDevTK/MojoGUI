@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: LogFactoryManager
+audio.mojom.LogFactoryManager = {};
+
 audio.mojom.LogFactoryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

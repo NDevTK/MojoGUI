@@ -11,6 +11,8 @@ chromeos.network_health.mojom = chromeos.network_health.mojom || {};
 
 
 // Interface: NetworkEventsObserver
+chromeos.network_health.mojom.NetworkEventsObserver = {};
+
 chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.network_health.mojom.NetworkEventsObserverRequest = chromeos.network_he
 
 
 // Interface: NetworkHealthService
+chromeos.network_health.mojom.NetworkHealthService = {};
+
 chromeos.network_health.mojom.NetworkHealthServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

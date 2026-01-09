@@ -17,6 +17,8 @@ webnn.mojom.PowerPreference = {
 };
 
 // Interface: WebNNContextProvider
+webnn.mojom.WebNNContextProvider = {};
+
 webnn.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

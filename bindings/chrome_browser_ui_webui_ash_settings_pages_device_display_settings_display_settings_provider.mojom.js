@@ -42,6 +42,8 @@ ash.settings.mojom.DisplaySettingsOrientationOption = {
 };
 
 // Interface: TabletModeObserver
+ash.settings.mojom.TabletModeObserver = {};
+
 ash.settings.mojom.TabletModeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -115,6 +117,8 @@ ash.settings.mojom.TabletModeObserverRequest = ash.settings.mojom.TabletModeObse
 
 
 // Interface: DisplayConfigurationObserver
+ash.settings.mojom.DisplayConfigurationObserver = {};
+
 ash.settings.mojom.DisplayConfigurationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -187,6 +191,8 @@ ash.settings.mojom.DisplayConfigurationObserverRequest = ash.settings.mojom.Disp
 
 
 // Interface: DisplayBrightnessSettingsObserver
+ash.settings.mojom.DisplayBrightnessSettingsObserver = {};
+
 ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,6 +267,8 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRequest = ash.settings.mojom
 
 
 // Interface: AmbientLightSensorObserver
+ash.settings.mojom.AmbientLightSensorObserver = {};
+
 ash.settings.mojom.AmbientLightSensorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -334,6 +342,8 @@ ash.settings.mojom.AmbientLightSensorObserverRequest = ash.settings.mojom.Ambien
 
 
 // Interface: DisplaySettingsProvider
+ash.settings.mojom.DisplaySettingsProvider = {};
+
 ash.settings.mojom.DisplaySettingsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

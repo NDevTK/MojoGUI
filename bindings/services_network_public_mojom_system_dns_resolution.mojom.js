@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SystemDnsResolver
+network.mojom.SystemDnsResolver = {};
+
 network.mojom.SystemDnsResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

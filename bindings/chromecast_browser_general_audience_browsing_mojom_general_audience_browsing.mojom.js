@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: GeneralAudienceBrowsingAPIKeyObserver
+chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver = {};
+
 chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRequest = chromecast.mojom
 
 
 // Interface: GeneralAudienceBrowsingAPIKeySubject
+chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject = {};
+
 chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -34,6 +34,8 @@ whats_new.mojom.ModulePosition = {
 };
 
 // Interface: PageHandlerFactory
+whats_new.mojom.PageHandlerFactory = {};
+
 whats_new.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -108,6 +110,8 @@ whats_new.mojom.PageHandlerFactoryRequest = whats_new.mojom.PageHandlerFactoryPe
 
 
 // Interface: PageHandler
+whats_new.mojom.PageHandler = {};
+
 whats_new.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -680,6 +684,8 @@ whats_new.mojom.PageHandlerRequest = whats_new.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+whats_new.mojom.Page = {};
+
 whats_new.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

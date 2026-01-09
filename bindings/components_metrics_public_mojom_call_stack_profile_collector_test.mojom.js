@@ -10,6 +10,8 @@ metrics.mojom = metrics.mojom || {};
 
 
 // Interface: CallStackProfileCollectorTest
+metrics.mojom.CallStackProfileCollectorTest = {};
+
 metrics.mojom.CallStackProfileCollectorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

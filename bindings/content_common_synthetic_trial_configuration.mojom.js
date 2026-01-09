@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: SyntheticTrialConfiguration
+content.mojom.SyntheticTrialConfiguration = {};
+
 content.mojom.SyntheticTrialConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

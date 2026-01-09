@@ -11,6 +11,8 @@ ui.ozone.mojom = ui.ozone.mojom || {};
 
 
 // Interface: WaylandBufferManagerHost
+ui.ozone.mojom.WaylandBufferManagerHost = {};
+
 ui.ozone.mojom.WaylandBufferManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -215,6 +217,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRequest = ui.ozone.mojom.WaylandBufferMan
 
 
 // Interface: WaylandBufferManagerGpu
+ui.ozone.mojom.WaylandBufferManagerGpu = {};
+
 ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

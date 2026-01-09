@@ -37,6 +37,8 @@ chromeos.machine_learning.mojom.CreateGraphExecutorResult = {
 };
 
 // Interface: Model
+chromeos.machine_learning.mojom.Model = {};
+
 chromeos.machine_learning.mojom.ModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

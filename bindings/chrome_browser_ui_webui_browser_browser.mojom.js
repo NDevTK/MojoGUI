@@ -29,6 +29,8 @@ webui_browser.mojom.SecurityIcon = {
 };
 
 // Interface: PageHandlerFactory
+webui_browser.mojom.PageHandlerFactory = {};
+
 webui_browser.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -138,6 +140,8 @@ webui_browser.mojom.PageHandlerFactoryRequest = webui_browser.mojom.PageHandlerF
 
 
 // Interface: Page
+webui_browser.mojom.Page = {};
+
 webui_browser.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -304,6 +308,8 @@ webui_browser.mojom.PageRequest = webui_browser.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
+webui_browser.mojom.PageHandler = {};
+
 webui_browser.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -625,6 +631,8 @@ webui_browser.mojom.PageHandlerRequest = webui_browser.mojom.PageHandlerPendingR
 
 
 // Interface: GuestHandler
+webui_browser.mojom.GuestHandler = {};
+
 webui_browser.mojom.GuestHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

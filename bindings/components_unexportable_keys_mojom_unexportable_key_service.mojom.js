@@ -37,6 +37,8 @@ unexportable_keys.mojom.BackgroundTaskPriority = {
 };
 
 // Interface: UnexportableKeyService
+unexportable_keys.mojom.UnexportableKeyService = {};
+
 unexportable_keys.mojom.UnexportableKeyServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: FirewallHole
+sharing.mojom.FirewallHole = {};
+
 sharing.mojom.FirewallHolePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ sharing.mojom.FirewallHoleRequest = sharing.mojom.FirewallHolePendingReceiver;
 
 
 // Interface: FirewallHoleFactory
+sharing.mojom.FirewallHoleFactory = {};
+
 sharing.mojom.FirewallHoleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -38,6 +38,8 @@ subresource_filter.mojom.SubresourceFilterDisabledReason = {
 };
 
 // Interface: SubresourceFilterRulesetObserver
+subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
+
 subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

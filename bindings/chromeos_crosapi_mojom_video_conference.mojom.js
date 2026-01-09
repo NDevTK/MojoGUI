@@ -32,6 +32,8 @@ crosapi.mojom.VideoConferenceAppType = {
 };
 
 // Interface: VideoConferenceManagerClient
+crosapi.mojom.VideoConferenceManagerClient = {};
+
 crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -32,6 +32,8 @@ chromecast.mojom.VisibilityPriority = {
 };
 
 // Interface: CastContentWindowObserver
+chromecast.mojom.CastContentWindowObserver = {};
+
 chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -127,6 +129,8 @@ chromecast.mojom.CastContentWindowObserverRequest = chromecast.mojom.CastContent
 
 
 // Interface: CastContentWindow
+chromecast.mojom.CastContentWindow = {};
+
 chromecast.mojom.CastContentWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

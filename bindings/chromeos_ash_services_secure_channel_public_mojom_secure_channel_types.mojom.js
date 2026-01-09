@@ -19,6 +19,8 @@ ash.secure_channel.mojom.FileTransferStatus = {
 };
 
 // Interface: FilePayloadListener
+ash.secure_channel.mojom.FilePayloadListener = {};
+
 ash.secure_channel.mojom.FilePayloadListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

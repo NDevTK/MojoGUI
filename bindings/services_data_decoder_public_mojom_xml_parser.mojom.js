@@ -16,6 +16,8 @@ data_decoder.mojom.WhitespaceBehavior = {
 };
 
 // Interface: XmlParser
+data_decoder.mojom.XmlParser = {};
+
 data_decoder.mojom.XmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

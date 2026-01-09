@@ -230,6 +230,8 @@ drivefs.mojom.Type = {
 };
 
 // Interface: DriveFsBootstrap
+drivefs.mojom.DriveFsBootstrap = {};
+
 drivefs.mojom.DriveFsBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,6 +307,8 @@ drivefs.mojom.DriveFsBootstrapRequest = drivefs.mojom.DriveFsBootstrapPendingRec
 
 
 // Interface: DriveFs
+drivefs.mojom.DriveFs = {};
+
 drivefs.mojom.DriveFsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1538,6 +1542,8 @@ drivefs.mojom.DriveFsRequest = drivefs.mojom.DriveFsPendingReceiver;
 
 
 // Interface: DriveFsDelegate
+drivefs.mojom.DriveFsDelegate = {};
+
 drivefs.mojom.DriveFsDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2120,6 +2126,8 @@ drivefs.mojom.DriveFsDelegateRequest = drivefs.mojom.DriveFsDelegatePendingRecei
 
 
 // Interface: SearchQuery
+drivefs.mojom.SearchQuery = {};
+
 drivefs.mojom.SearchQueryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2206,6 +2214,8 @@ drivefs.mojom.SearchQueryRequest = drivefs.mojom.SearchQueryPendingReceiver;
 
 
 // Interface: HttpDelegate
+drivefs.mojom.HttpDelegate = {};
+
 drivefs.mojom.HttpDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ pdf.mojom = pdf.mojom || {};
 
 
 // Interface: PdfThumbnailer
+pdf.mojom.PdfThumbnailer = {};
+
 pdf.mojom.PdfThumbnailerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

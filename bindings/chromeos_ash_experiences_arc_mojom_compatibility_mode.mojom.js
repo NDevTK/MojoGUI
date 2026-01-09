@@ -19,6 +19,8 @@ arc.mojom.ArcResizeLockState = {
 };
 
 // Interface: CompatibilityModeInstance
+arc.mojom.CompatibilityModeInstance = {};
+
 arc.mojom.CompatibilityModeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

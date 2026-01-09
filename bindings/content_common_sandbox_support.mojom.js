@@ -26,6 +26,8 @@ content.mojom.LcTypeStrings = {
 };
 
 // Interface: SandboxSupport
+content.mojom.SandboxSupport = {};
+
 content.mojom.SandboxSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

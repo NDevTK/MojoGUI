@@ -24,6 +24,8 @@ printing.mojom.DocumentType = {
 };
 
 // Interface: PrintCompositor
+printing.mojom.PrintCompositor = {};
+
 printing.mojom.PrintCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

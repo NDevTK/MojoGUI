@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: DataPipeGetter
+network.mojom.DataPipeGetter = {};
+
 network.mojom.DataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

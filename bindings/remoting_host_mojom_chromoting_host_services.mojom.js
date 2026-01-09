@@ -10,6 +10,8 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: ChromotingHostServices
+remoting.mojom.ChromotingHostServices = {};
+
 remoting.mojom.ChromotingHostServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ remoting.mojom.ChromotingHostServicesRequest = remoting.mojom.ChromotingHostServ
 
 
 // Interface: ChromotingSessionServices
+remoting.mojom.ChromotingSessionServices = {};
+
 remoting.mojom.ChromotingSessionServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

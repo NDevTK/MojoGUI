@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: Decryptor
+media.mojom.Decryptor = {};
+
 media.mojom.DecryptorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -340,6 +342,8 @@ media.mojom.DecryptorRequest = media.mojom.DecryptorPendingReceiver;
 
 
 // Interface: FrameResourceReleaser
+media.mojom.FrameResourceReleaser = {};
+
 media.mojom.FrameResourceReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

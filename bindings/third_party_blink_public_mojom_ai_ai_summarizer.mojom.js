@@ -31,6 +31,8 @@ blink.mojom.AISummarizerLength = {
 };
 
 // Interface: AISummarizer
+blink.mojom.AISummarizer = {};
+
 blink.mojom.AISummarizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ chromeos.sensors.mojom = chromeos.sensors.mojom || {};
 
 
 // Interface: SensorHalServer
+chromeos.sensors.mojom.SensorHalServer = {};
+
 chromeos.sensors.mojom.SensorHalServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.sensors.mojom.SensorHalServerRequest = chromeos.sensors.mojom.SensorHal
 
 
 // Interface: SensorHalClient
+chromeos.sensors.mojom.SensorHalClient = {};
+
 chromeos.sensors.mojom.SensorHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

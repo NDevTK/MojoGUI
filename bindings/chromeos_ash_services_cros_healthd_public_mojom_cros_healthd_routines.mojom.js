@@ -142,6 +142,8 @@ ash.cros_healthd.mojom.Issue = {
 };
 
 // Interface: CrosHealthdRoutinesService
+ash.cros_healthd.mojom.CrosHealthdRoutinesService = {};
+
 ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -192,6 +194,8 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = ash.cros_healthd.mojo
 
 
 // Interface: RoutineControl
+ash.cros_healthd.mojom.RoutineControl = {};
+
 ash.cros_healthd.mojom.RoutineControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -242,6 +246,8 @@ ash.cros_healthd.mojom.RoutineControlRequest = ash.cros_healthd.mojom.RoutineCon
 
 
 // Interface: RoutineObserver
+ash.cros_healthd.mojom.RoutineObserver = {};
+
 ash.cros_healthd.mojom.RoutineObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -31,6 +31,8 @@ tracing.mojom.TracingClientPriority = {
 };
 
 // Interface: ProducerHost
+tracing.mojom.ProducerHost = {};
+
 tracing.mojom.ProducerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -197,6 +199,8 @@ tracing.mojom.ProducerHostRequest = tracing.mojom.ProducerHostPendingReceiver;
 
 
 // Interface: ProducerClient
+tracing.mojom.ProducerClient = {};
+
 tracing.mojom.ProducerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -362,6 +366,8 @@ tracing.mojom.ProducerClientRequest = tracing.mojom.ProducerClientPendingReceive
 
 
 // Interface: PerfettoService
+tracing.mojom.PerfettoService = {};
+
 tracing.mojom.PerfettoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -438,6 +444,8 @@ tracing.mojom.PerfettoServiceRequest = tracing.mojom.PerfettoServicePendingRecei
 
 
 // Interface: ConsumerHost
+tracing.mojom.ConsumerHost = {};
+
 tracing.mojom.ConsumerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -555,6 +563,8 @@ tracing.mojom.ConsumerHostRequest = tracing.mojom.ConsumerHostPendingReceiver;
 
 
 // Interface: TracingSessionHost
+tracing.mojom.TracingSessionHost = {};
+
 tracing.mojom.TracingSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -735,6 +745,8 @@ tracing.mojom.TracingSessionHostRequest = tracing.mojom.TracingSessionHostPendin
 
 
 // Interface: TracingSessionClient
+tracing.mojom.TracingSessionClient = {};
+
 tracing.mojom.TracingSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

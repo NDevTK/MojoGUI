@@ -10,6 +10,8 @@ heap_profiling.mojom = heap_profiling.mojom || {};
 
 
 // Interface: TestConnector
+heap_profiling.mojom.TestConnector = {};
+
 heap_profiling.mojom.TestConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

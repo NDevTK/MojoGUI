@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: PowerMonitorTest
+content.mojom.PowerMonitorTest = {};
+
 content.mojom.PowerMonitorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

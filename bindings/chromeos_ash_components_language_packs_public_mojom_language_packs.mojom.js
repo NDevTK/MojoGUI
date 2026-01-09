@@ -35,6 +35,8 @@ ash.language.mojom.ErrorCode = {
 };
 
 // Interface: LanguagePacksObserver
+ash.language.mojom.LanguagePacksObserver = {};
+
 ash.language.mojom.LanguagePacksObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.language.mojom.LanguagePacksObserverRequest = ash.language.mojom.LanguagePac
 
 
 // Interface: LanguagePacks
+ash.language.mojom.LanguagePacks = {};
+
 ash.language.mojom.LanguagePacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

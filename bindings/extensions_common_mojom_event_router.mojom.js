@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: EventRouter
+extensions.mojom.EventRouter = {};
+
 extensions.mojom.EventRouterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

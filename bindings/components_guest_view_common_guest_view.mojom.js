@@ -10,6 +10,8 @@ guest_view.mojom = guest_view.mojom || {};
 
 
 // Interface: ViewHandle
+guest_view.mojom.ViewHandle = {};
+
 guest_view.mojom.ViewHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ guest_view.mojom.ViewHandleRequest = guest_view.mojom.ViewHandlePendingReceiver;
 
 
 // Interface: GuestViewHost
+guest_view.mojom.GuestViewHost = {};
+
 guest_view.mojom.GuestViewHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

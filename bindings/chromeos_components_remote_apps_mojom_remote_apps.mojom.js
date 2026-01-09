@@ -11,6 +11,8 @@ chromeos.remote_apps.mojom = chromeos.remote_apps.mojom || {};
 
 
 // Interface: RemoteApps
+chromeos.remote_apps.mojom.RemoteApps = {};
+
 chromeos.remote_apps.mojom.RemoteAppsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ chromeos.remote_apps.mojom.RemoteAppsRequest = chromeos.remote_apps.mojom.Remote
 
 
 // Interface: RemoteAppsFactory
+chromeos.remote_apps.mojom.RemoteAppsFactory = {};
+
 chromeos.remote_apps.mojom.RemoteAppsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -111,6 +115,8 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryRequest = chromeos.remote_apps.mojom
 
 
 // Interface: RemoteAppLaunchObserver
+chromeos.remote_apps.mojom.RemoteAppLaunchObserver = {};
+
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

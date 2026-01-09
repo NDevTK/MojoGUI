@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AndroidFontLookup
+blink.mojom.AndroidFontLookup = {};
+
 blink.mojom.AndroidFontLookupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

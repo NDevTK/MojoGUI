@@ -45,6 +45,8 @@ bluetooth.mojom.GattResult = {
 };
 
 // Interface: Device
+bluetooth.mojom.Device = {};
+
 bluetooth.mojom.DevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

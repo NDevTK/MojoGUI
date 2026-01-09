@@ -28,6 +28,8 @@ blink.mojom.AILanguageModelPromptType = {
 };
 
 // Interface: AIManagerCreateLanguageModelClient
+blink.mojom.AIManagerCreateLanguageModelClient = {};
+
 blink.mojom.AIManagerCreateLanguageModelClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -126,6 +128,8 @@ blink.mojom.AIManagerCreateLanguageModelClientRequest = blink.mojom.AIManagerCre
 
 
 // Interface: AILanguageModel
+blink.mojom.AILanguageModel = {};
+
 blink.mojom.AILanguageModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

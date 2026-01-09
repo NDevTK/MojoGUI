@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SerialService
+blink.mojom.SerialService = {};
+
 blink.mojom.SerialServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -216,6 +218,8 @@ blink.mojom.SerialServiceRequest = blink.mojom.SerialServicePendingReceiver;
 
 
 // Interface: SerialServiceClient
+blink.mojom.SerialServiceClient = {};
+
 blink.mojom.SerialServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

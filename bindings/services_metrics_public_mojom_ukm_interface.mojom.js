@@ -10,6 +10,8 @@ ukm.mojom = ukm.mojom || {};
 
 
 // Interface: SingularUkmInterface
+ukm.mojom.SingularUkmInterface = {};
+
 ukm.mojom.SingularUkmInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ ukm.mojom.SingularUkmInterfaceRequest = ukm.mojom.SingularUkmInterfacePendingRec
 
 
 // Interface: UkmRecorderClientInterface
+ukm.mojom.UkmRecorderClientInterface = {};
+
 ukm.mojom.UkmRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ ukm.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.UkmRecorderClientInterfa
 
 
 // Interface: UkmRecorderInterface
+ukm.mojom.UkmRecorderInterface = {};
+
 ukm.mojom.UkmRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,6 +259,8 @@ ukm.mojom.UkmRecorderInterfaceRequest = ukm.mojom.UkmRecorderInterfacePendingRec
 
 
 // Interface: UkmRecorderFactory
+ukm.mojom.UkmRecorderFactory = {};
+
 ukm.mojom.UkmRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

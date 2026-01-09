@@ -10,6 +10,8 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: AutomationClient
+ax.mojom.AutomationClient = {};
+
 ax.mojom.AutomationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

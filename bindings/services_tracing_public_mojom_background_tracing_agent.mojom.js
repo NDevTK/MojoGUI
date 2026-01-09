@@ -10,6 +10,8 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Interface: BackgroundTracingAgentClient
+tracing.mojom.BackgroundTracingAgentClient = {};
+
 tracing.mojom.BackgroundTracingAgentClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ tracing.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.BackgroundTrac
 
 
 // Interface: BackgroundTracingAgent
+tracing.mojom.BackgroundTracingAgent = {};
+
 tracing.mojom.BackgroundTracingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -206,6 +210,8 @@ tracing.mojom.BackgroundTracingAgentRequest = tracing.mojom.BackgroundTracingAge
 
 
 // Interface: BackgroundTracingAgentProvider
+tracing.mojom.BackgroundTracingAgentProvider = {};
+
 tracing.mojom.BackgroundTracingAgentProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ enterprise_companion.mojom = enterprise_companion.mojom || {};
 
 
 // Interface: EnterpriseCompanion
+enterprise_companion.mojom.EnterpriseCompanion = {};
+
 enterprise_companion.mojom.EnterpriseCompanionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -39,6 +39,8 @@ arc.mojom.CursorCoordinateSpace = {
 };
 
 // Interface: ImeHost
+arc.mojom.ImeHost = {};
+
 arc.mojom.ImeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -89,6 +91,8 @@ arc.mojom.ImeHostRequest = arc.mojom.ImeHostPendingReceiver;
 
 
 // Interface: ImeInstance
+arc.mojom.ImeInstance = {};
+
 arc.mojom.ImeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

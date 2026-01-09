@@ -20,6 +20,8 @@ on_device_translation.mojom.CreateTranslatorResult = {
 };
 
 // Interface: FileOperationProxy
+on_device_translation.mojom.FileOperationProxy = {};
+
 on_device_translation.mojom.FileOperationProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -145,6 +147,8 @@ on_device_translation.mojom.FileOperationProxyRequest = on_device_translation.mo
 
 
 // Interface: OnDeviceTranslationService
+on_device_translation.mojom.OnDeviceTranslationService = {};
+
 on_device_translation.mojom.OnDeviceTranslationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

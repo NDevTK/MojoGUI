@@ -12,6 +12,8 @@ ash.settings.date_time.mojom = ash.settings.date_time.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.settings.date_time.mojom.PageHandlerFactory = {};
+
 ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ ash.settings.date_time.mojom.PageHandlerFactoryRequest = ash.settings.date_time.
 
 
 // Interface: PageHandler
+ash.settings.date_time.mojom.PageHandler = {};
+
 ash.settings.date_time.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -215,6 +219,8 @@ ash.settings.date_time.mojom.PageHandlerRequest = ash.settings.date_time.mojom.P
 
 
 // Interface: Page
+ash.settings.date_time.mojom.Page = {};
+
 ash.settings.date_time.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

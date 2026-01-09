@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: KioskHost
+arc.mojom.KioskHost = {};
+
 arc.mojom.KioskHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.KioskHostRequest = arc.mojom.KioskHostPendingReceiver;
 
 
 // Interface: KioskInstance
+arc.mojom.KioskInstance = {};
+
 arc.mojom.KioskInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

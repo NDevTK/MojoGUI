@@ -36,6 +36,8 @@ arc.mojom.AudioDeviceType = {
 };
 
 // Interface: AudioHost
+arc.mojom.AudioHost = {};
+
 arc.mojom.AudioHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ arc.mojom.AudioHostRequest = arc.mojom.AudioHostPendingReceiver;
 
 
 // Interface: AudioInstance
+arc.mojom.AudioInstance = {};
+
 arc.mojom.AudioInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

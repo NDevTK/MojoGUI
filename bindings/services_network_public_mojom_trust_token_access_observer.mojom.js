@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: TrustTokenAccessObserver
+network.mojom.TrustTokenAccessObserver = {};
+
 network.mojom.TrustTokenAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ web_cache.mojom = web_cache.mojom || {};
 
 
 // Interface: WebCache
+web_cache.mojom.WebCache = {};
+
 web_cache.mojom.WebCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

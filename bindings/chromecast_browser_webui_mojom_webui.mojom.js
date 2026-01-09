@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: MessageCallback
+chromecast.mojom.MessageCallback = {};
+
 chromecast.mojom.MessageCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.MessageCallbackRequest = chromecast.mojom.MessageCallbackPendin
 
 
 // Interface: WebUi
+chromecast.mojom.WebUi = {};
+
 chromecast.mojom.WebUiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -181,6 +185,8 @@ chromecast.mojom.WebUiRequest = chromecast.mojom.WebUiPendingReceiver;
 
 
 // Interface: Resources
+chromecast.mojom.Resources = {};
+
 chromecast.mojom.ResourcesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,6 +273,8 @@ chromecast.mojom.ResourcesRequest = chromecast.mojom.ResourcesPendingReceiver;
 
 
 // Interface: WebUiClient
+chromecast.mojom.WebUiClient = {};
+
 chromecast.mojom.WebUiClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

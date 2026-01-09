@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: TracingInstance
+arc.mojom.TracingInstance = {};
+
 arc.mojom.TracingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

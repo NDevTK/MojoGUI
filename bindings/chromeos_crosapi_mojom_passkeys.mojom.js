@@ -31,6 +31,8 @@ crosapi.mojom.PasskeyAssertionError = {
 };
 
 // Interface: PasskeyAuthenticator
+crosapi.mojom.PasskeyAuthenticator = {};
+
 crosapi.mojom.PasskeyAuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

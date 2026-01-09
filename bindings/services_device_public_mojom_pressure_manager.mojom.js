@@ -16,6 +16,8 @@ device.mojom.PressureManagerAddClientResult = {
 };
 
 // Interface: PressureManager
+device.mojom.PressureManager = {};
+
 device.mojom.PressureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -179,6 +181,8 @@ device.mojom.PressureManagerRequest = device.mojom.PressureManagerPendingReceive
 
 
 // Interface: PressureClient
+device.mojom.PressureClient = {};
+
 device.mojom.PressureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

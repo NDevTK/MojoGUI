@@ -18,6 +18,8 @@ network.mojom.WebSocketMessageType = {
 };
 
 // Interface: WebSocketAuthenticationHandler
+network.mojom.WebSocketAuthenticationHandler = {};
+
 network.mojom.WebSocketAuthenticationHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ network.mojom.WebSocketAuthenticationHandlerRequest = network.mojom.WebSocketAut
 
 
 // Interface: WebSocketHandshakeClient
+network.mojom.WebSocketHandshakeClient = {};
+
 network.mojom.WebSocketHandshakeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -231,6 +235,8 @@ network.mojom.WebSocketHandshakeClientRequest = network.mojom.WebSocketHandshake
 
 
 // Interface: WebSocketClient
+network.mojom.WebSocketClient = {};
+
 network.mojom.WebSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -353,6 +359,8 @@ network.mojom.WebSocketClientRequest = network.mojom.WebSocketClientPendingRecei
 
 
 // Interface: WebSocket
+network.mojom.WebSocket = {};
+
 network.mojom.WebSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

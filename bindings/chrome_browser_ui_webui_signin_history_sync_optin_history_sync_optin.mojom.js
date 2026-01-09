@@ -24,6 +24,8 @@ history_sync_optin.mojom.ScreenMode = {
 };
 
 // Interface: PageHandlerFactory
+history_sync_optin.mojom.PageHandlerFactory = {};
+
 history_sync_optin.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ history_sync_optin.mojom.PageHandlerFactoryRequest = history_sync_optin.mojom.Pa
 
 
 // Interface: PageHandler
+history_sync_optin.mojom.PageHandler = {};
+
 history_sync_optin.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -237,6 +241,8 @@ history_sync_optin.mojom.PageHandlerRequest = history_sync_optin.mojom.PageHandl
 
 
 // Interface: Page
+history_sync_optin.mojom.Page = {};
+
 history_sync_optin.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ actor_internals.mojom = actor_internals.mojom || {};
 
 
 // Interface: Page
+actor_internals.mojom.Page = {};
+
 actor_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ actor_internals.mojom.PageRequest = actor_internals.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
+actor_internals.mojom.PageHandler = {};
+
 actor_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -177,6 +181,8 @@ actor_internals.mojom.PageHandlerRequest = actor_internals.mojom.PageHandlerPend
 
 
 // Interface: PageHandlerFactory
+actor_internals.mojom.PageHandlerFactory = {};
+
 actor_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

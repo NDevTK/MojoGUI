@@ -11,6 +11,8 @@ chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
 
 // Interface: BrowserCdmFactory
+chromeos.cdm.mojom.BrowserCdmFactory = {};
+
 chromeos.cdm.mojom.BrowserCdmFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

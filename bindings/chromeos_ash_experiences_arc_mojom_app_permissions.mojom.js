@@ -27,6 +27,8 @@ arc.mojom.AppPermissionGroup = {
 };
 
 // Interface: AppPermissionsInstance
+arc.mojom.AppPermissionsInstance = {};
+
 arc.mojom.AppPermissionsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

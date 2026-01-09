@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: InputTargetClient
+viz.mojom.InputTargetClient = {};
+
 viz.mojom.InputTargetClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

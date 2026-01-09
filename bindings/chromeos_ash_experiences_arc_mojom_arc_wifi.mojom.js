@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ArcWifiHost
+arc.mojom.ArcWifiHost = {};
+
 arc.mojom.ArcWifiHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.ArcWifiHostRequest = arc.mojom.ArcWifiHostPendingReceiver;
 
 
 // Interface: ArcWifiInstance
+arc.mojom.ArcWifiInstance = {};
+
 arc.mojom.ArcWifiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

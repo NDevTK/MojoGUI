@@ -27,6 +27,8 @@ device.mojom.LocationProviderManagerMode = {
 };
 
 // Interface: GeolocationInternalsObserver
+device.mojom.GeolocationInternalsObserver = {};
+
 device.mojom.GeolocationInternalsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -146,6 +148,8 @@ device.mojom.GeolocationInternalsObserverRequest = device.mojom.GeolocationInter
 
 
 // Interface: GeolocationInternals
+device.mojom.GeolocationInternals = {};
+
 device.mojom.GeolocationInternalsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

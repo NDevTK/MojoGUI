@@ -11,6 +11,8 @@ ntp.calendar.mojom = ntp.calendar.mojom || {};
 
 
 // Interface: GoogleCalendarPageHandler
+ntp.calendar.mojom.GoogleCalendarPageHandler = {};
+
 ntp.calendar.mojom.GoogleCalendarPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

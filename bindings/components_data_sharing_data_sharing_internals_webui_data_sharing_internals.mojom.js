@@ -10,6 +10,8 @@ data_sharing_internals.mojom = data_sharing_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+data_sharing_internals.mojom.PageHandlerFactory = {};
+
 data_sharing_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ data_sharing_internals.mojom.PageHandlerFactoryRequest = data_sharing_internals.
 
 
 // Interface: PageHandler
+data_sharing_internals.mojom.PageHandler = {};
+
 data_sharing_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -205,6 +209,8 @@ data_sharing_internals.mojom.PageHandlerRequest = data_sharing_internals.mojom.P
 
 
 // Interface: Page
+data_sharing_internals.mojom.Page = {};
+
 data_sharing_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

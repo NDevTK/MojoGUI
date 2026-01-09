@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DedicatedWorkerHostFactoryClient
+blink.mojom.DedicatedWorkerHostFactoryClient = {};
+
 blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -137,6 +139,8 @@ blink.mojom.DedicatedWorkerHostFactoryClientRequest = blink.mojom.DedicatedWorke
 
 
 // Interface: DedicatedWorkerHostFactory
+blink.mojom.DedicatedWorkerHostFactory = {};
+
 blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

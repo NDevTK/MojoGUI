@@ -17,6 +17,8 @@ media.mojom.VideoDecoderSecureMemoryMode = {
 };
 
 // Interface: FuchsiaMediaCdmProvider
+media.mojom.FuchsiaMediaCdmProvider = {};
+
 media.mojom.FuchsiaMediaCdmProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProvider
 
 
 // Interface: FuchsiaMediaCodecProvider
+media.mojom.FuchsiaMediaCodecProvider = {};
+
 media.mojom.FuchsiaMediaCodecProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

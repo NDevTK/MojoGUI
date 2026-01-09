@@ -31,6 +31,8 @@ blink.mojom.PlatformClipboardPermissionState = {
 };
 
 // Interface: ClipboardListener
+blink.mojom.ClipboardListener = {};
+
 blink.mojom.ClipboardListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ blink.mojom.ClipboardListenerRequest = blink.mojom.ClipboardListenerPendingRecei
 
 
 // Interface: ClipboardHost
+blink.mojom.ClipboardHost = {};
+
 blink.mojom.ClipboardHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -117,6 +117,8 @@ blink.mojom.PublicKeyCredentialType = {
 };
 
 // Interface: Authenticator
+blink.mojom.Authenticator = {};
+
 blink.mojom.AuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

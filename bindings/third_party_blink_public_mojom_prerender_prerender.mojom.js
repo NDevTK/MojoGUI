@@ -16,6 +16,8 @@ blink.mojom.PrerenderTriggerType = {
 };
 
 // Interface: NoStatePrefetchProcessor
+blink.mojom.NoStatePrefetchProcessor = {};
+
 blink.mojom.NoStatePrefetchProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

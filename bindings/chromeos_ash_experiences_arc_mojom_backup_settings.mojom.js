@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: BackupSettingsInstance
+arc.mojom.BackupSettingsInstance = {};
+
 arc.mojom.BackupSettingsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

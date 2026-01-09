@@ -17,6 +17,8 @@ chromeos.machine_learning.mojom.Status = {
 };
 
 // Interface: GrammarChecker
+chromeos.machine_learning.mojom.GrammarChecker = {};
+
 chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

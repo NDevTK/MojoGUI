@@ -10,6 +10,8 @@ mirroring.mojom = mirroring.mojom || {};
 
 
 // Interface: CastMessageChannel
+mirroring.mojom.CastMessageChannel = {};
+
 mirroring.mojom.CastMessageChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

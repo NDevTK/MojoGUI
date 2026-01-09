@@ -56,6 +56,8 @@ ash.audio_config.mojom.AudioEffectType = {
 };
 
 // Interface: AudioSystemPropertiesObserver
+ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
+
 ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = ash.audio_config.m
 
 
 // Interface: CrosAudioConfig
+ash.audio_config.mojom.CrosAudioConfig = {};
+
 ash.audio_config.mojom.CrosAudioConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

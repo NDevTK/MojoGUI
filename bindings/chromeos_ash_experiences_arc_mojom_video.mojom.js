@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: VideoHost
+arc.mojom.VideoHost = {};
+
 arc.mojom.VideoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.VideoHostRequest = arc.mojom.VideoHostPendingReceiver;
 
 
 // Interface: VideoInstance
+arc.mojom.VideoInstance = {};
+
 arc.mojom.VideoInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.VideoInstanceRequest = arc.mojom.VideoInstancePendingReceiver;
 
 
 // Interface: VideoAcceleratorFactory
+arc.mojom.VideoAcceleratorFactory = {};
+
 arc.mojom.VideoAcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

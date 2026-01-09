@@ -10,6 +10,8 @@ test.mojom = test.mojom || {};
 
 
 // Interface: MojoFileSystemAccessTest
+test.mojom.MojoFileSystemAccessTest = {};
+
 test.mojom.MojoFileSystemAccessTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -23,6 +23,8 @@ media.mojom.Status = {
 };
 
 // Interface: CdmStorage
+media.mojom.CdmStorage = {};
+
 media.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +112,8 @@ media.mojom.CdmStorageRequest = media.mojom.CdmStoragePendingReceiver;
 
 
 // Interface: CdmFile
+media.mojom.CdmFile = {};
+
 media.mojom.CdmFilePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ blink.mojom.WebInstallServiceResult = {
 };
 
 // Interface: WebInstallService
+blink.mojom.WebInstallService = {};
+
 blink.mojom.WebInstallServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

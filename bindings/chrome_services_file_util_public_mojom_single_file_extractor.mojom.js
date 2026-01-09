@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: SingleFileExtractor
+chrome.mojom.SingleFileExtractor = {};
+
 chrome.mojom.SingleFileExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ chrome.mojom.SingleFileExtractorRequest = chrome.mojom.SingleFileExtractorPendin
 
 
 // Interface: SingleFileExtractorListener
+chrome.mojom.SingleFileExtractorListener = {};
+
 chrome.mojom.SingleFileExtractorListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

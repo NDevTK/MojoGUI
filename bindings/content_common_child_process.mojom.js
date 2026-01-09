@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: ChildProcessHost
+content.mojom.ChildProcessHost = {};
+
 content.mojom.ChildProcessHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ content.mojom.ChildProcessHostRequest = content.mojom.ChildProcessHostPendingRec
 
 
 // Interface: ChildProcess
+content.mojom.ChildProcess = {};
+
 content.mojom.ChildProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

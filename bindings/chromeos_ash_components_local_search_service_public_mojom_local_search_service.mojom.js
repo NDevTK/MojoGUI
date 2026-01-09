@@ -26,6 +26,8 @@ ash.local_search_service.mojom.Backend = {
 };
 
 // Interface: SearchMetricsReporter
+ash.local_search_service.mojom.SearchMetricsReporter = {};
+
 ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -99,6 +101,8 @@ ash.local_search_service.mojom.SearchMetricsReporterRequest = ash.local_search_s
 
 
 // Interface: LocalSearchService
+ash.local_search_service.mojom.LocalSearchService = {};
+
 ash.local_search_service.mojom.LocalSearchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

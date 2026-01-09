@@ -65,6 +65,8 @@ device.mojom.SerialPortType = {
 };
 
 // Interface: SerialPortManager
+device.mojom.SerialPortManager = {};
+
 device.mojom.SerialPortManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -213,6 +215,8 @@ device.mojom.SerialPortManagerRequest = device.mojom.SerialPortManagerPendingRec
 
 
 // Interface: SerialPortManagerClient
+device.mojom.SerialPortManagerClient = {};
+
 device.mojom.SerialPortManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -332,6 +336,8 @@ device.mojom.SerialPortManagerClientRequest = device.mojom.SerialPortManagerClie
 
 
 // Interface: SerialPort
+device.mojom.SerialPort = {};
+
 device.mojom.SerialPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -638,6 +644,8 @@ device.mojom.SerialPortRequest = device.mojom.SerialPortPendingReceiver;
 
 
 // Interface: SerialPortClient
+device.mojom.SerialPortClient = {};
+
 device.mojom.SerialPortClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -734,6 +742,8 @@ device.mojom.SerialPortClientRequest = device.mojom.SerialPortClientPendingRecei
 
 
 // Interface: SerialPortConnectionWatcher
+device.mojom.SerialPortConnectionWatcher = {};
+
 device.mojom.SerialPortConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

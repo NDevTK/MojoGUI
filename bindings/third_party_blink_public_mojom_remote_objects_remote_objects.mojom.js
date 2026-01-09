@@ -37,6 +37,8 @@ blink.mojom.RemoteInvocationError = {
 };
 
 // Interface: RemoteObjectHost
+blink.mojom.RemoteObjectHost = {};
+
 blink.mojom.RemoteObjectHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -157,6 +159,8 @@ blink.mojom.RemoteObjectHostRequest = blink.mojom.RemoteObjectHostPendingReceive
 
 
 // Interface: RemoteObject
+blink.mojom.RemoteObject = {};
+
 blink.mojom.RemoteObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -337,6 +341,8 @@ blink.mojom.RemoteObjectRequest = blink.mojom.RemoteObjectPendingReceiver;
 
 
 // Interface: RemoteObjectGatewayFactory
+blink.mojom.RemoteObjectGatewayFactory = {};
+
 blink.mojom.RemoteObjectGatewayFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,6 +417,8 @@ blink.mojom.RemoteObjectGatewayFactoryRequest = blink.mojom.RemoteObjectGatewayF
 
 
 // Interface: RemoteObjectGateway
+blink.mojom.RemoteObjectGateway = {};
+
 blink.mojom.RemoteObjectGatewayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

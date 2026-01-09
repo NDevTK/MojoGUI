@@ -10,6 +10,8 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Interface: MediaRouterTraitsTestService
+media_router.mojom.MediaRouterTraitsTestService = {};
+
 media_router.mojom.MediaRouterTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

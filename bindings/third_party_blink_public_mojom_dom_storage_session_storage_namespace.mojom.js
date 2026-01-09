@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SessionStorageNamespace
+blink.mojom.SessionStorageNamespace = {};
+
 blink.mojom.SessionStorageNamespacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

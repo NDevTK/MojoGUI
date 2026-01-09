@@ -12,6 +12,8 @@ ash.cros_healthd.connectivity.mojom = ash.cros_healthd.connectivity.mojom || {};
 
 
 // Interface: State
+ash.cros_healthd.connectivity.mojom.State = {};
+
 ash.cros_healthd.connectivity.mojom.StatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -141,6 +143,8 @@ ash.cros_healthd.connectivity.mojom.StateRequest = ash.cros_healthd.connectivity
 
 
 // Interface: ConnectivityTestProvider
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider = {};
+
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -23,6 +23,8 @@ blink.mojom.AuctionAdConfigBuyerTimeoutField = {
 };
 
 // Interface: AbortableAdAuction
+blink.mojom.AbortableAdAuction = {};
+
 blink.mojom.AbortableAdAuctionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -337,6 +339,8 @@ blink.mojom.AbortableAdAuctionRequest = blink.mojom.AbortableAdAuctionPendingRec
 
 
 // Interface: AdAuctionService
+blink.mojom.AdAuctionService = {};
+
 blink.mojom.AdAuctionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

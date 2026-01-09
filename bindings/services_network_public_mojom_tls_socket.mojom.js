@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: TLSClientSocket
+network.mojom.TLSClientSocket = {};
+
 network.mojom.TLSClientSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

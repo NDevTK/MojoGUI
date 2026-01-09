@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VideoDetectorObserver
+viz.mojom.VideoDetectorObserver = {};
+
 viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

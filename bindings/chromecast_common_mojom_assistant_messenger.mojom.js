@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: AssistantMessagePipe
+chromecast.mojom.AssistantMessagePipe = {};
+
 chromecast.mojom.AssistantMessagePipePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.AssistantMessagePipeRequest = chromecast.mojom.AssistantMessage
 
 
 // Interface: AssistantMessageClient
+chromecast.mojom.AssistantMessageClient = {};
+
 chromecast.mojom.AssistantMessageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ chromecast.mojom.AssistantMessageClientRequest = chromecast.mojom.AssistantMessa
 
 
 // Interface: AssistantMessageService
+chromecast.mojom.AssistantMessageService = {};
+
 chromecast.mojom.AssistantMessageServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

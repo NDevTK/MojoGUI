@@ -10,6 +10,8 @@ web_app.mojom = web_app.mojom || {};
 
 
 // Interface: WebAppShortcutCopier
+web_app.mojom.WebAppShortcutCopier = {};
+
 web_app.mojom.WebAppShortcutCopierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

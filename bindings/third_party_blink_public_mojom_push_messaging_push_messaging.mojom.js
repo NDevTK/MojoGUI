@@ -21,6 +21,8 @@ blink.mojom.PushErrorType = {
 };
 
 // Interface: PushMessaging
+blink.mojom.PushMessaging = {};
+
 blink.mojom.PushMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

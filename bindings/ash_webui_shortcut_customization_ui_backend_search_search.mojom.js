@@ -11,6 +11,8 @@ ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
 
 
 // Interface: SearchResultsAvailabilityObserver
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
+
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRequest = ash.
 
 
 // Interface: SearchHandler
+ash.shortcut_customization.mojom.SearchHandler = {};
+
 ash.shortcut_customization.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

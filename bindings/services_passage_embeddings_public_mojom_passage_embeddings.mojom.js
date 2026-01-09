@@ -18,6 +18,8 @@ passage_embeddings.mojom.PassagePriority = {
 };
 
 // Interface: PassageEmbedder
+passage_embeddings.mojom.PassageEmbedder = {};
+
 passage_embeddings.mojom.PassageEmbedderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ passage_embeddings.mojom.PassageEmbedderRequest = passage_embeddings.mojom.Passa
 
 
 // Interface: PassageEmbeddingsService
+passage_embeddings.mojom.PassageEmbeddingsService = {};
+
 passage_embeddings.mojom.PassageEmbeddingsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

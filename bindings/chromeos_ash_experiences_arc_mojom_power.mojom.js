@@ -37,6 +37,8 @@ arc.mojom.IdleState = {
 };
 
 // Interface: PowerHost
+arc.mojom.PowerHost = {};
+
 arc.mojom.PowerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -87,6 +89,8 @@ arc.mojom.PowerHostRequest = arc.mojom.PowerHostPendingReceiver;
 
 
 // Interface: PowerInstance
+arc.mojom.PowerInstance = {};
+
 arc.mojom.PowerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

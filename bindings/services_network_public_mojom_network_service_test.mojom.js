@@ -19,6 +19,8 @@ network.mojom.ResolverType = {
 };
 
 // Interface: SimpleCacheEntry
+network.mojom.SimpleCacheEntry = {};
+
 network.mojom.SimpleCacheEntryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,6 +246,8 @@ network.mojom.SimpleCacheEntryRequest = network.mojom.SimpleCacheEntryPendingRec
 
 
 // Interface: SimpleCacheEntryEnumerator
+network.mojom.SimpleCacheEntryEnumerator = {};
+
 network.mojom.SimpleCacheEntryEnumeratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -329,6 +333,8 @@ network.mojom.SimpleCacheEntryEnumeratorRequest = network.mojom.SimpleCacheEntry
 
 
 // Interface: SimpleCache
+network.mojom.SimpleCache = {};
+
 network.mojom.SimpleCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -569,6 +575,8 @@ network.mojom.SimpleCacheRequest = network.mojom.SimpleCachePendingReceiver;
 
 
 // Interface: NetworkServiceTest
+network.mojom.NetworkServiceTest = {};
+
 network.mojom.NetworkServiceTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

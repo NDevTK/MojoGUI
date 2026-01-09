@@ -26,6 +26,8 @@ translate.mojom.TranslateError = {
 };
 
 // Interface: TranslateAgent
+translate.mojom.TranslateAgent = {};
+
 translate.mojom.TranslateAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -139,6 +141,8 @@ translate.mojom.TranslateAgentRequest = translate.mojom.TranslateAgentPendingRec
 
 
 // Interface: ContentTranslateDriver
+translate.mojom.ContentTranslateDriver = {};
+
 translate.mojom.ContentTranslateDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

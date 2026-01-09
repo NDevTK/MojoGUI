@@ -17,6 +17,8 @@ on_device_translation_internals.mojom.LanguagePackStatus = {
 };
 
 // Interface: PageHandlerFactory
+on_device_translation_internals.mojom.PageHandlerFactory = {};
+
 on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ on_device_translation_internals.mojom.PageHandlerFactoryRequest = on_device_tran
 
 
 // Interface: PageHandler
+on_device_translation_internals.mojom.PageHandler = {};
+
 on_device_translation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -187,6 +191,8 @@ on_device_translation_internals.mojom.PageHandlerRequest = on_device_translation
 
 
 // Interface: Page
+on_device_translation_internals.mojom.Page = {};
+
 on_device_translation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

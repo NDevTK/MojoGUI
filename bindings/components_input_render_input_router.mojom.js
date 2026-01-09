@@ -10,6 +10,8 @@ input.mojom = input.mojom || {};
 
 
 // Interface: RenderInputRouterDelegate
+input.mojom.RenderInputRouterDelegate = {};
+
 input.mojom.RenderInputRouterDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -200,6 +202,8 @@ input.mojom.RenderInputRouterDelegateRequest = input.mojom.RenderInputRouterDele
 
 
 // Interface: RenderInputRouterDelegateClient
+input.mojom.RenderInputRouterDelegateClient = {};
+
 input.mojom.RenderInputRouterDelegateClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

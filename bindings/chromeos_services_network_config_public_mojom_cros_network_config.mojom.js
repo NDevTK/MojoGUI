@@ -177,6 +177,8 @@ chromeos.network_config.mojom.TrafficCounterSource = {
 };
 
 // Interface: CrosNetworkConfig
+chromeos.network_config.mojom.CrosNetworkConfig = {};
+
 chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1151,6 +1153,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRequest = chromeos.network_config
 
 
 // Interface: CrosNetworkConfigObserver
+chromeos.network_config.mojom.CrosNetworkConfigObserver = {};
+
 chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

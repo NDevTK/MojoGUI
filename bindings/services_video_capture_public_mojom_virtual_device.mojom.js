@@ -10,6 +10,8 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: SharedMemoryVirtualDevice
+video_capture.mojom.SharedMemoryVirtualDevice = {};
+
 video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -122,6 +124,8 @@ video_capture.mojom.SharedMemoryVirtualDeviceRequest = video_capture.mojom.Share
 
 
 // Interface: TextureVirtualDevice
+video_capture.mojom.TextureVirtualDevice = {};
+
 video_capture.mojom.TextureVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,6 +270,8 @@ video_capture.mojom.TextureVirtualDeviceRequest = video_capture.mojom.TextureVir
 
 
 // Interface: GpuMemoryBufferVirtualDevice
+video_capture.mojom.GpuMemoryBufferVirtualDevice = {};
+
 video_capture.mojom.GpuMemoryBufferVirtualDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -46,6 +46,8 @@ chromeos.cfm.mojom.LoggerState = {
 };
 
 // Interface: LoggerStateObserver
+chromeos.cfm.mojom.LoggerStateObserver = {};
+
 chromeos.cfm.mojom.LoggerStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ chromeos.cfm.mojom.LoggerStateObserverRequest = chromeos.cfm.mojom.LoggerStateOb
 
 
 // Interface: MeetDevicesLogger
+chromeos.cfm.mojom.MeetDevicesLogger = {};
+
 chromeos.cfm.mojom.MeetDevicesLoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

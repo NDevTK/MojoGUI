@@ -91,6 +91,8 @@ ash.hotspot_config.mojom.DisableReason = {
 };
 
 // Interface: CrosHotspotConfig
+ash.hotspot_config.mojom.CrosHotspotConfig = {};
+
 ash.hotspot_config.mojom.CrosHotspotConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,6 +330,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRequest = ash.hotspot_config.mojom.Cro
 
 
 // Interface: CrosHotspotConfigObserver
+ash.hotspot_config.mojom.CrosHotspotConfigObserver = {};
+
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -400,6 +404,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRequest = ash.hotspot_config.m
 
 
 // Interface: HotspotEnabledStateObserver
+ash.hotspot_config.mojom.HotspotEnabledStateObserver = {};
+
 ash.hotspot_config.mojom.HotspotEnabledStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

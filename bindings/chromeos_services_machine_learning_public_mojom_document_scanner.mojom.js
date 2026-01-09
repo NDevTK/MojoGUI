@@ -17,6 +17,8 @@ chromeos.machine_learning.mojom.DocumentScannerResultStatus = {
 };
 
 // Interface: DocumentScanner
+chromeos.machine_learning.mojom.DocumentScanner = {};
+
 chromeos.machine_learning.mojom.DocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

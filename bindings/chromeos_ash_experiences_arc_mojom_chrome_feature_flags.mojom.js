@@ -16,6 +16,8 @@ arc.mojom.RoundedWindowCompatStrategy = {
 };
 
 // Interface: ChromeFeatureFlagsInstance
+arc.mojom.ChromeFeatureFlagsInstance = {};
+
 arc.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

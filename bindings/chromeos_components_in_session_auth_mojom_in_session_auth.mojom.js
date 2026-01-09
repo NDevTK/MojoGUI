@@ -17,6 +17,8 @@ chromeos.auth.mojom.Reason = {
 };
 
 // Interface: InSessionAuth
+chromeos.auth.mojom.InSessionAuth = {};
+
 chromeos.auth.mojom.InSessionAuthPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

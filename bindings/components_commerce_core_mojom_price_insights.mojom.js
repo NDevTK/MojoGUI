@@ -11,6 +11,8 @@ commerce.price_insights.mojom = commerce.price_insights.mojom || {};
 
 
 // Interface: PriceInsightsHandler
+commerce.price_insights.mojom.PriceInsightsHandler = {};
+
 commerce.price_insights.mojom.PriceInsightsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ commerce.price_insights.mojom.PriceInsightsHandlerRequest = commerce.price_insig
 
 
 // Interface: PriceInsightsHandlerFactory
+commerce.price_insights.mojom.PriceInsightsHandlerFactory = {};
+
 commerce.price_insights.mojom.PriceInsightsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

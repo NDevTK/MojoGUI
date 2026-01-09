@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileSystemAccessDataTransferToken
+blink.mojom.FileSystemAccessDataTransferToken = {};
+
 blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

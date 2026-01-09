@@ -22,6 +22,8 @@ network.mojom.SSLNamedGroupsPreset = {
 };
 
 // Interface: SSLConfigClient
+network.mojom.SSLConfigClient = {};
+
 network.mojom.SSLConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

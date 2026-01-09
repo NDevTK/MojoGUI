@@ -20,6 +20,8 @@ chrome.mojom.PluginStatus = {
 };
 
 // Interface: PluginHost
+chrome.mojom.PluginHost = {};
+
 chrome.mojom.PluginHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ chrome.mojom.PluginHostRequest = chrome.mojom.PluginHostPendingReceiver;
 
 
 // Interface: PluginAuthHost
+chrome.mojom.PluginAuthHost = {};
+
 chrome.mojom.PluginAuthHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -167,6 +171,8 @@ chrome.mojom.PluginAuthHostRequest = chrome.mojom.PluginAuthHostPendingReceiver;
 
 
 // Interface: PluginInfoHost
+chrome.mojom.PluginInfoHost = {};
+
 chrome.mojom.PluginInfoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

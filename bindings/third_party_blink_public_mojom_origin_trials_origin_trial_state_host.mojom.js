@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: OriginTrialStateHost
+blink.mojom.OriginTrialStateHost = {};
+
 blink.mojom.OriginTrialStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

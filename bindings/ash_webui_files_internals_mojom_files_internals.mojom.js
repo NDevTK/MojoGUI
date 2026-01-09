@@ -11,6 +11,8 @@ ash.mojom.files_internals = ash.mojom.files_internals || {};
 
 
 // Interface: PageHandler
+ash.mojom.files_internals.PageHandler = {};
+
 ash.mojom.files_internals.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

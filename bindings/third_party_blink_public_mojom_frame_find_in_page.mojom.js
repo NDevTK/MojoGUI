@@ -23,6 +23,8 @@ blink.mojom.FindMatchUpdateType = {
 };
 
 // Interface: FindInPage
+blink.mojom.FindInPage = {};
+
 blink.mojom.FindInPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -264,6 +266,8 @@ blink.mojom.FindInPageRequest = blink.mojom.FindInPagePendingReceiver;
 
 
 // Interface: FindInPageClient
+blink.mojom.FindInPageClient = {};
+
 blink.mojom.FindInPageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

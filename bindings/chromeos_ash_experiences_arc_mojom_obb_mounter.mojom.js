@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ObbMounterHost
+arc.mojom.ObbMounterHost = {};
+
 arc.mojom.ObbMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.ObbMounterHostRequest = arc.mojom.ObbMounterHostPendingReceiver;
 
 
 // Interface: ObbMounterInstance
+arc.mojom.ObbMounterInstance = {};
+
 arc.mojom.ObbMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -11,6 +11,8 @@ chromeos.connectivity.mojom = chromeos.connectivity.mojom || {};
 
 
 // Interface: PasspointEventsListener
+chromeos.connectivity.mojom.PasspointEventsListener = {};
+
 chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ chromeos.connectivity.mojom.PasspointEventsListenerRequest = chromeos.connectivi
 
 
 // Interface: PasspointService
+chromeos.connectivity.mojom.PasspointService = {};
+
 chromeos.connectivity.mojom.PasspointServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

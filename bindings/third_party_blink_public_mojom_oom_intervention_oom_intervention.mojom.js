@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: OomInterventionHost
+blink.mojom.OomInterventionHost = {};
+
 blink.mojom.OomInterventionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingR
 
 
 // Interface: OomIntervention
+blink.mojom.OomIntervention = {};
+
 blink.mojom.OomInterventionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

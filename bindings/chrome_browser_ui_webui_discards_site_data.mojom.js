@@ -10,6 +10,8 @@ discards.mojom = discards.mojom || {};
 
 
 // Interface: SiteDataProvider
+discards.mojom.SiteDataProvider = {};
+
 discards.mojom.SiteDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

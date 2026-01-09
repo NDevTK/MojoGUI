@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ProtectedBufferManager
+arc.mojom.ProtectedBufferManager = {};
+
 arc.mojom.ProtectedBufferManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ emoji_search.mojom = emoji_search.mojom || {};
 
 
 // Interface: EmojiSearch
+emoji_search.mojom.EmojiSearch = {};
+
 emoji_search.mojom.EmojiSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

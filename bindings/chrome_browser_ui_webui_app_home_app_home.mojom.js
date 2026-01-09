@@ -24,6 +24,8 @@ app_home.mojom.AppType = {
 };
 
 // Interface: PageHandlerFactory
+app_home.mojom.PageHandlerFactory = {};
+
 app_home.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ app_home.mojom.PageHandlerFactoryRequest = app_home.mojom.PageHandlerFactoryPend
 
 
 // Interface: PageHandler
+app_home.mojom.PageHandler = {};
+
 app_home.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -404,6 +408,8 @@ app_home.mojom.PageHandlerRequest = app_home.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+app_home.mojom.Page = {};
+
 app_home.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

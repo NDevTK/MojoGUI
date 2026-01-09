@@ -11,6 +11,8 @@ ash.rollback_network_config.mojom = ash.rollback_network_config.mojom || {};
 
 
 // Interface: RollbackNetworkConfig
+ash.rollback_network_config.mojom.RollbackNetworkConfig = {};
+
 ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

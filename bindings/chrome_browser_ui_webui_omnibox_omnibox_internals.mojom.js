@@ -16,6 +16,8 @@ mojom.AutocompleteControllerType = {
 };
 
 // Interface: OmniboxPageHandler
+mojom.OmniboxPageHandler = {};
+
 mojom.OmniboxPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -190,6 +192,8 @@ mojom.OmniboxPageHandlerRequest = mojom.OmniboxPageHandlerPendingReceiver;
 
 
 // Interface: OmniboxPage
+mojom.OmniboxPage = {};
+
 mojom.OmniboxPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

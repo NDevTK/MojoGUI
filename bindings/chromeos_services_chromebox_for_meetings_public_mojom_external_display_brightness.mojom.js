@@ -11,6 +11,8 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
 // Interface: ExternalDisplayBrightness
+chromeos.cfm.mojom.ExternalDisplayBrightness = {};
+
 chromeos.cfm.mojom.ExternalDisplayBrightnessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

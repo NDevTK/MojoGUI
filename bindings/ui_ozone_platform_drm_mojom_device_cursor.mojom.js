@@ -11,6 +11,8 @@ ui.ozone.mojom = ui.ozone.mojom || {};
 
 
 // Interface: DeviceCursor
+ui.ozone.mojom.DeviceCursor = {};
+
 ui.ozone.mojom.DeviceCursorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

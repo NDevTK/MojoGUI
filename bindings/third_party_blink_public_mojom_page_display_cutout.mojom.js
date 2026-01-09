@@ -18,6 +18,8 @@ blink.mojom.ViewportFit = {
 };
 
 // Interface: DisplayCutoutHost
+blink.mojom.DisplayCutoutHost = {};
+
 blink.mojom.DisplayCutoutHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -114,6 +116,8 @@ blink.mojom.DisplayCutoutHostRequest = blink.mojom.DisplayCutoutHostPendingRecei
 
 
 // Interface: DisplayCutoutClient
+blink.mojom.DisplayCutoutClient = {};
+
 blink.mojom.DisplayCutoutClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

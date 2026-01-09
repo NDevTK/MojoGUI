@@ -45,6 +45,8 @@ media.mojom.FillLightMode = {
 };
 
 // Interface: ImageCapture
+media.mojom.ImageCapture = {};
+
 media.mojom.ImageCapturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

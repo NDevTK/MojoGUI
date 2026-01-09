@@ -10,6 +10,8 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Interface: AuctionNetworkEventsHandler
+auction_worklet.mojom.AuctionNetworkEventsHandler = {};
+
 auction_worklet.mojom.AuctionNetworkEventsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ legion_internals.mojom = legion_internals.mojom || {};
 
 
 // Interface: LegionInternalsPageHandler
+legion_internals.mojom.LegionInternalsPageHandler = {};
+
 legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -63,6 +63,8 @@ nearby_share.mojom.RegisterReceiveSurfaceResult = {
 };
 
 // Interface: ShareTargetListener
+nearby_share.mojom.ShareTargetListener = {};
+
 nearby_share.mojom.ShareTargetListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -159,6 +161,8 @@ nearby_share.mojom.ShareTargetListenerRequest = nearby_share.mojom.ShareTargetLi
 
 
 // Interface: TransferUpdateListener
+nearby_share.mojom.TransferUpdateListener = {};
+
 nearby_share.mojom.TransferUpdateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -233,6 +237,8 @@ nearby_share.mojom.TransferUpdateListenerRequest = nearby_share.mojom.TransferUp
 
 
 // Interface: DiscoveryObserver
+nearby_share.mojom.DiscoveryObserver = {};
+
 nearby_share.mojom.DiscoveryObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,6 +334,8 @@ nearby_share.mojom.DiscoveryObserverRequest = nearby_share.mojom.DiscoveryObserv
 
 
 // Interface: DiscoveryManager
+nearby_share.mojom.DiscoveryManager = {};
+
 nearby_share.mojom.DiscoveryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -532,6 +540,8 @@ nearby_share.mojom.DiscoveryManagerRequest = nearby_share.mojom.DiscoveryManager
 
 
 // Interface: ConfirmationManager
+nearby_share.mojom.ConfirmationManager = {};
+
 nearby_share.mojom.ConfirmationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -687,6 +697,8 @@ nearby_share.mojom.ConfirmationManagerRequest = nearby_share.mojom.ConfirmationM
 
 
 // Interface: ReceiveObserver
+nearby_share.mojom.ReceiveObserver = {};
+
 nearby_share.mojom.ReceiveObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -828,6 +840,8 @@ nearby_share.mojom.ReceiveObserverRequest = nearby_share.mojom.ReceiveObserverPe
 
 
 // Interface: ReceiveManager
+nearby_share.mojom.ReceiveManager = {};
+
 nearby_share.mojom.ReceiveManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

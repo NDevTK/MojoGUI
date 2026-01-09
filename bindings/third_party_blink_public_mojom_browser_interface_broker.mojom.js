@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BrowserInterfaceBroker
+blink.mojom.BrowserInterfaceBroker = {};
+
 blink.mojom.BrowserInterfaceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

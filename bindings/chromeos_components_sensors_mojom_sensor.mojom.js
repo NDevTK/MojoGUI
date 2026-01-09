@@ -47,6 +47,8 @@ chromeos.sensors.mojom.SensorDeviceDisconnectReason = {
 };
 
 // Interface: SensorService
+chromeos.sensors.mojom.SensorService = {};
+
 chromeos.sensors.mojom.SensorServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -97,6 +99,8 @@ chromeos.sensors.mojom.SensorServiceRequest = chromeos.sensors.mojom.SensorServi
 
 
 // Interface: SensorDevice
+chromeos.sensors.mojom.SensorDevice = {};
+
 chromeos.sensors.mojom.SensorDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -147,6 +151,8 @@ chromeos.sensors.mojom.SensorDeviceRequest = chromeos.sensors.mojom.SensorDevice
 
 
 // Interface: SensorDeviceSamplesObserver
+chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
+
 chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -197,6 +203,8 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.moj
 
 
 // Interface: SensorServiceNewDevicesObserver
+chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
+
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

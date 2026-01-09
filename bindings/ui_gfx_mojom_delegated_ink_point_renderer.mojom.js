@@ -10,6 +10,8 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Interface: DelegatedInkPointRenderer
+gfx.mojom.DelegatedInkPointRenderer = {};
+
 gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

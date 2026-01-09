@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetworkDiagnostics
+chrome.mojom.NetworkDiagnostics = {};
+
 chrome.mojom.NetworkDiagnosticsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chrome.mojom.NetworkDiagnosticsRequest = chrome.mojom.NetworkDiagnosticsPendingR
 
 
 // Interface: NetworkDiagnosticsClient
+chrome.mojom.NetworkDiagnosticsClient = {};
+
 chrome.mojom.NetworkDiagnosticsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ServiceConnector
+chromecast.mojom.ServiceConnector = {};
+
 chromecast.mojom.ServiceConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ObliviousHttpClient
+network.mojom.ObliviousHttpClient = {};
+
 network.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

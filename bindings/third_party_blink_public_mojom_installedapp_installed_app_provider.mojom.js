@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InstalledAppProvider
+blink.mojom.InstalledAppProvider = {};
+
 blink.mojom.InstalledAppProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CloseListener
+blink.mojom.CloseListener = {};
+
 blink.mojom.CloseListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

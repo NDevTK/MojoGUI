@@ -48,6 +48,8 @@ side_panel.customize_chrome.mojom.CategoryId = {
 };
 
 // Interface: CustomizeToolbarHandlerFactory
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = {};
+
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -122,6 +124,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRequest = side_p
 
 
 // Interface: CustomizeToolbarHandler
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler = {};
+
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -323,6 +327,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRequest = side_panel.cu
 
 
 // Interface: CustomizeToolbarClient
+side_panel.customize_chrome.mojom.CustomizeToolbarClient = {};
+
 side_panel.customize_chrome.mojom.CustomizeToolbarClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

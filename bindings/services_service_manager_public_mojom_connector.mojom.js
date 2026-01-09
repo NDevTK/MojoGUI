@@ -23,6 +23,8 @@ service_manager.mojom.BindInterfacePriority = {
 };
 
 // Interface: ProcessMetadata
+service_manager.mojom.ProcessMetadata = {};
+
 service_manager.mojom.ProcessMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -96,6 +98,8 @@ service_manager.mojom.ProcessMetadataRequest = service_manager.mojom.ProcessMeta
 
 
 // Interface: Connector
+service_manager.mojom.Connector = {};
+
 service_manager.mojom.ConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

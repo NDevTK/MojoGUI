@@ -19,6 +19,8 @@ ax.mojom.SyntheticMouseEventButton = {
 };
 
 // Interface: UserInput
+ax.mojom.UserInput = {};
+
 ax.mojom.UserInputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

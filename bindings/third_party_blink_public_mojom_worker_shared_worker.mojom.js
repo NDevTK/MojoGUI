@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SharedWorker
+blink.mojom.SharedWorker = {};
+
 blink.mojom.SharedWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

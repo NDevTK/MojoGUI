@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VizDebugOutput
+viz.mojom.VizDebugOutput = {};
+
 viz.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

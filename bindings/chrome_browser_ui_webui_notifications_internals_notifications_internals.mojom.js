@@ -10,6 +10,8 @@ notifications_internals.mojom = notifications_internals.mojom || {};
 
 
 // Interface: PageHandler
+notifications_internals.mojom.PageHandler = {};
+
 notifications_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

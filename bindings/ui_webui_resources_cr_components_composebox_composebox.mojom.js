@@ -10,6 +10,8 @@ composebox.mojom = composebox.mojom || {};
 
 
 // Interface: PageHandlerFactory
+composebox.mojom.PageHandlerFactory = {};
+
 composebox.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ composebox.mojom.PageHandlerFactoryRequest = composebox.mojom.PageHandlerFactory
 
 
 // Interface: PageHandler
+composebox.mojom.PageHandler = {};
+
 composebox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,6 +278,8 @@ composebox.mojom.PageHandlerRequest = composebox.mojom.PageHandlerPendingReceive
 
 
 // Interface: Page
+composebox.mojom.Page = {};
+
 composebox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

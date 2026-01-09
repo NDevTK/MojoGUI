@@ -18,6 +18,8 @@ coral.mojom.CoralError = {
 };
 
 // Interface: TitleObserver
+coral.mojom.TitleObserver = {};
+
 coral.mojom.TitleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -68,6 +70,8 @@ coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 
 
 // Interface: CoralProcessor
+coral.mojom.CoralProcessor = {};
+
 coral.mojom.CoralProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -118,6 +122,8 @@ coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
 
 
 // Interface: CoralService
+coral.mojom.CoralService = {};
+
 coral.mojom.CoralServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

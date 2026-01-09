@@ -16,6 +16,8 @@ sharing.mojom.LocationStandardFormat = {
 };
 
 // Interface: IncomingMessagesListener
+sharing.mojom.IncomingMessagesListener = {};
+
 sharing.mojom.IncomingMessagesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -112,6 +114,8 @@ sharing.mojom.IncomingMessagesListenerRequest = sharing.mojom.IncomingMessagesLi
 
 
 // Interface: ReceiveMessagesSession
+sharing.mojom.ReceiveMessagesSession = {};
+
 sharing.mojom.ReceiveMessagesSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -184,6 +188,8 @@ sharing.mojom.ReceiveMessagesSessionRequest = sharing.mojom.ReceiveMessagesSessi
 
 
 // Interface: WebRtcSignalingMessenger
+sharing.mojom.WebRtcSignalingMessenger = {};
+
 sharing.mojom.WebRtcSignalingMessengerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

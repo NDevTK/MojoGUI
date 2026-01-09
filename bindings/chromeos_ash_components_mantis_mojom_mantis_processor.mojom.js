@@ -24,6 +24,8 @@ mantis.mojom.SegmentationMode = {
 };
 
 // Interface: MantisProcessor
+mantis.mojom.MantisProcessor = {};
+
 mantis.mojom.MantisProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

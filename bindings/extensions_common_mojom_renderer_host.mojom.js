@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: RendererHost
+extensions.mojom.RendererHost = {};
+
 extensions.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

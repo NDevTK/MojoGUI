@@ -10,6 +10,8 @@ ui.mojom = ui.mojom || {};
 
 
 // Interface: ScenicGpuHost
+ui.mojom.ScenicGpuHost = {};
+
 ui.mojom.ScenicGpuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -19,6 +19,8 @@ heap_profiling.mojom.ProcessType = {
 };
 
 // Interface: ProfilingService
+heap_profiling.mojom.ProfilingService = {};
+
 heap_profiling.mojom.ProfilingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

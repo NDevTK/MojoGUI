@@ -78,6 +78,8 @@ crosapi.mojom.TelemetryEventCategoryEnum = {
 };
 
 // Interface: TelemetryEventObserver
+crosapi.mojom.TelemetryEventObserver = {};
+
 crosapi.mojom.TelemetryEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -128,6 +130,8 @@ crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserv
 
 
 // Interface: TelemetryEventService
+crosapi.mojom.TelemetryEventService = {};
+
 crosapi.mojom.TelemetryEventServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

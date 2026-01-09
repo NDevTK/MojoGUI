@@ -11,6 +11,8 @@ ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Interface: AshEventReporter
+ash.cros_healthd.mojom.AshEventReporter = {};
+
 ash.cros_healthd.mojom.AshEventReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RenderFrameTestHelper
+content.mojom.RenderFrameTestHelper = {};
+
 content.mojom.RenderFrameTestHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

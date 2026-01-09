@@ -37,6 +37,8 @@ bluetooth.mojom.ConnectResult = {
 };
 
 // Interface: Advertisement
+bluetooth.mojom.Advertisement = {};
+
 bluetooth.mojom.AdvertisementPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -109,6 +111,8 @@ bluetooth.mojom.AdvertisementRequest = bluetooth.mojom.AdvertisementPendingRecei
 
 
 // Interface: DiscoverySession
+bluetooth.mojom.DiscoverySession = {};
+
 bluetooth.mojom.DiscoverySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -229,6 +233,8 @@ bluetooth.mojom.DiscoverySessionRequest = bluetooth.mojom.DiscoverySessionPendin
 
 
 // Interface: Socket
+bluetooth.mojom.Socket = {};
+
 bluetooth.mojom.SocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -301,6 +307,8 @@ bluetooth.mojom.SocketRequest = bluetooth.mojom.SocketPendingReceiver;
 
 
 // Interface: ServerSocket
+bluetooth.mojom.ServerSocket = {};
+
 bluetooth.mojom.ServerSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -408,6 +416,8 @@ bluetooth.mojom.ServerSocketRequest = bluetooth.mojom.ServerSocketPendingReceive
 
 
 // Interface: GattService
+bluetooth.mojom.GattService = {};
+
 bluetooth.mojom.GattServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -531,6 +541,8 @@ bluetooth.mojom.GattServiceRequest = bluetooth.mojom.GattServicePendingReceiver;
 
 
 // Interface: GattServiceObserver
+bluetooth.mojom.GattServiceObserver = {};
+
 bluetooth.mojom.GattServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -620,6 +632,8 @@ bluetooth.mojom.GattServiceObserverRequest = bluetooth.mojom.GattServiceObserver
 
 
 // Interface: Adapter
+bluetooth.mojom.Adapter = {};
+
 bluetooth.mojom.AdapterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1094,6 +1108,8 @@ bluetooth.mojom.AdapterRequest = bluetooth.mojom.AdapterPendingReceiver;
 
 
 // Interface: AdapterObserver
+bluetooth.mojom.AdapterObserver = {};
+
 bluetooth.mojom.AdapterObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

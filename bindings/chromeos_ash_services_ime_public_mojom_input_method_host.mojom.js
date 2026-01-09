@@ -40,6 +40,8 @@ ash.ime.mojom.HistogramBucketType = {
 };
 
 // Interface: InputMethodHost
+ash.ime.mojom.InputMethodHost = {};
+
 ash.ime.mojom.InputMethodHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

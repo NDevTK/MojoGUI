@@ -23,6 +23,8 @@ blink.mojom.FetchHandlerExistence = {
 };
 
 // Interface: ServiceWorkerHost
+blink.mojom.ServiceWorkerHost = {};
+
 blink.mojom.ServiceWorkerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,6 +476,8 @@ blink.mojom.ServiceWorkerHostRequest = blink.mojom.ServiceWorkerHostPendingRecei
 
 
 // Interface: ServiceWorker
+blink.mojom.ServiceWorker = {};
+
 blink.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

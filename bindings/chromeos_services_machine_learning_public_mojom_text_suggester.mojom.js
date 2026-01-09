@@ -26,6 +26,8 @@ chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
 };
 
 // Interface: TextSuggester
+chromeos.machine_learning.mojom.TextSuggester = {};
+
 chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

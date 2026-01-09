@@ -12,6 +12,8 @@ chromeos.machine_learning.web_platform.mojom = chromeos.machine_learning.web_pla
 
 
 // Interface: HandwritingRecognizer
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer = {};
+
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

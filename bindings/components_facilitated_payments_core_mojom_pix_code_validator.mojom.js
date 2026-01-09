@@ -18,6 +18,8 @@ payments.facilitated.mojom.PixQrCodeType = {
 };
 
 // Interface: PixCodeValidator
+payments.facilitated.mojom.PixCodeValidator = {};
+
 payments.facilitated.mojom.PixCodeValidatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

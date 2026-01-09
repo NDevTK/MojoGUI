@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: FirstPartySetsAccessDelegate
+network.mojom.FirstPartySetsAccessDelegate = {};
+
 network.mojom.FirstPartySetsAccessDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -39,6 +39,8 @@ cros.mojom.KioskVisionError = {
 };
 
 // Interface: KioskVisionObserver
+cros.mojom.KioskVisionObserver = {};
+
 cros.mojom.KioskVisionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -89,6 +91,8 @@ cros.mojom.KioskVisionObserverRequest = cros.mojom.KioskVisionObserverPendingRec
 
 
 // Interface: CameraHalDispatcher
+cros.mojom.CameraHalDispatcher = {};
+
 cros.mojom.CameraHalDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -139,6 +143,8 @@ cros.mojom.CameraHalDispatcherRequest = cros.mojom.CameraHalDispatcherPendingRec
 
 
 // Interface: CrosCameraServiceObserver
+cros.mojom.CrosCameraServiceObserver = {};
+
 cros.mojom.CrosCameraServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -189,6 +195,8 @@ cros.mojom.CrosCameraServiceObserverRequest = cros.mojom.CrosCameraServiceObserv
 
 
 // Interface: CrosCameraService
+cros.mojom.CrosCameraService = {};
+
 cros.mojom.CrosCameraServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -18,6 +18,8 @@ history.mojom.FilteringBehavior = {
 };
 
 // Interface: PageHandler
+history.mojom.PageHandler = {};
+
 history.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,6 +415,8 @@ history.mojom.PageHandlerRequest = history.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+history.mojom.Page = {};
+
 history.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

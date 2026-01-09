@@ -39,6 +39,8 @@ blink.mojom.AudioOutputStatus = {
 };
 
 // Interface: MediaDevicesDispatcherHost
+blink.mojom.MediaDevicesDispatcherHost = {};
+
 blink.mojom.MediaDevicesDispatcherHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,6 +455,8 @@ blink.mojom.MediaDevicesDispatcherHostRequest = blink.mojom.MediaDevicesDispatch
 
 
 // Interface: MediaDevicesListener
+blink.mojom.MediaDevicesListener = {};
+
 blink.mojom.MediaDevicesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

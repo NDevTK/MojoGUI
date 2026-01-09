@@ -143,6 +143,8 @@ arc.mojom.BluetoothSocketType = {
 };
 
 // Interface: RfcommListeningSocketClient
+arc.mojom.RfcommListeningSocketClient = {};
+
 arc.mojom.RfcommListeningSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -193,6 +195,8 @@ arc.mojom.RfcommListeningSocketClientRequest = arc.mojom.RfcommListeningSocketCl
 
 
 // Interface: RfcommConnectingSocketClient
+arc.mojom.RfcommConnectingSocketClient = {};
+
 arc.mojom.RfcommConnectingSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -243,6 +247,8 @@ arc.mojom.RfcommConnectingSocketClientRequest = arc.mojom.RfcommConnectingSocket
 
 
 // Interface: BluetoothListenSocketClient
+arc.mojom.BluetoothListenSocketClient = {};
+
 arc.mojom.BluetoothListenSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,6 +299,8 @@ arc.mojom.BluetoothListenSocketClientRequest = arc.mojom.BluetoothListenSocketCl
 
 
 // Interface: BluetoothConnectSocketClient
+arc.mojom.BluetoothConnectSocketClient = {};
+
 arc.mojom.BluetoothConnectSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -343,6 +351,8 @@ arc.mojom.BluetoothConnectSocketClientRequest = arc.mojom.BluetoothConnectSocket
 
 
 // Interface: BluetoothHost
+arc.mojom.BluetoothHost = {};
+
 arc.mojom.BluetoothHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,6 +403,8 @@ arc.mojom.BluetoothHostRequest = arc.mojom.BluetoothHostPendingReceiver;
 
 
 // Interface: BluetoothInstance
+arc.mojom.BluetoothInstance = {};
+
 arc.mojom.BluetoothInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

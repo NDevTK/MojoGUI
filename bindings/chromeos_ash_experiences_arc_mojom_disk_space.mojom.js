@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: DiskSpaceHost
+arc.mojom.DiskSpaceHost = {};
+
 arc.mojom.DiskSpaceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.DiskSpaceHostRequest = arc.mojom.DiskSpaceHostPendingReceiver;
 
 
 // Interface: DiskSpaceInstance
+arc.mojom.DiskSpaceInstance = {};
+
 arc.mojom.DiskSpaceInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

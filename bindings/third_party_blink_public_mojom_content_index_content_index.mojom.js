@@ -27,6 +27,8 @@ blink.mojom.ContentCategory = {
 };
 
 // Interface: ContentIndexService
+blink.mojom.ContentIndexService = {};
+
 blink.mojom.ContentIndexServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

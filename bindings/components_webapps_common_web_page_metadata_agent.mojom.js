@@ -10,6 +10,8 @@ webapps.mojom = webapps.mojom || {};
 
 
 // Interface: WebPageMetadataAgent
+webapps.mojom.WebPageMetadataAgent = {};
+
 webapps.mojom.WebPageMetadataAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

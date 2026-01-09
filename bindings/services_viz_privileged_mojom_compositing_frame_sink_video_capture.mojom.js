@@ -17,6 +17,8 @@ viz.mojom.BufferFormatPreference = {
 };
 
 // Interface: FrameSinkVideoConsumerFrameCallbacks
+viz.mojom.FrameSinkVideoConsumerFrameCallbacks = {};
+
 viz.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -112,6 +114,8 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRequest = viz.mojom.FrameSinkVideo
 
 
 // Interface: FrameSinkVideoConsumer
+viz.mojom.FrameSinkVideoConsumer = {};
+
 viz.mojom.FrameSinkVideoConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,6 +282,8 @@ viz.mojom.FrameSinkVideoConsumerRequest = viz.mojom.FrameSinkVideoConsumerPendin
 
 
 // Interface: FrameSinkVideoCapturer
+viz.mojom.FrameSinkVideoCapturer = {};
+
 viz.mojom.FrameSinkVideoCapturerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -585,6 +591,8 @@ viz.mojom.FrameSinkVideoCapturerRequest = viz.mojom.FrameSinkVideoCapturerPendin
 
 
 // Interface: FrameSinkVideoCaptureOverlay
+viz.mojom.FrameSinkVideoCaptureOverlay = {};
+
 viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

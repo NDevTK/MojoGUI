@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: BatteryMonitor
+device.mojom.BatteryMonitor = {};
+
 device.mojom.BatteryMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

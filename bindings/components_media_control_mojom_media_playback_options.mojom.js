@@ -11,6 +11,8 @@ components.media_control.mojom = components.media_control.mojom || {};
 
 
 // Interface: MediaPlaybackOptions
+components.media_control.mojom.MediaPlaybackOptions = {};
+
 components.media_control.mojom.MediaPlaybackOptionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

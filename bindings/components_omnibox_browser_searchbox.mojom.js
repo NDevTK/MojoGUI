@@ -38,6 +38,8 @@ searchbox.mojom.SelectionLineState = {
 };
 
 // Interface: PageHandler
+searchbox.mojom.PageHandler = {};
+
 searchbox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -682,6 +684,8 @@ searchbox.mojom.PageHandlerRequest = searchbox.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+searchbox.mojom.Page = {};
+
 searchbox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ math.mojom = math.mojom || {};
 
 
 // Interface: MathService
+math.mojom.MathService = {};
+
 math.mojom.MathServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

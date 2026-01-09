@@ -169,6 +169,8 @@ arc.mojom.keymint.Tag = {
 };
 
 // Interface: KeyMintHost
+arc.mojom.keymint.KeyMintHost = {};
+
 arc.mojom.keymint.KeyMintHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -219,6 +221,8 @@ arc.mojom.keymint.KeyMintHostRequest = arc.mojom.keymint.KeyMintHostPendingRecei
 
 
 // Interface: KeyMintInstance
+arc.mojom.keymint.KeyMintInstance = {};
+
 arc.mojom.keymint.KeyMintInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,6 +273,8 @@ arc.mojom.keymint.KeyMintInstanceRequest = arc.mojom.keymint.KeyMintInstancePend
 
 
 // Interface: KeyMintServer
+arc.mojom.keymint.KeyMintServer = {};
+
 arc.mojom.keymint.KeyMintServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

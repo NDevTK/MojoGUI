@@ -17,6 +17,8 @@ crosapi.mojom.ScalingType = {
 };
 
 // Interface: PrintPreviewCrosDelegate
+crosapi.mojom.PrintPreviewCrosDelegate = {};
+
 crosapi.mojom.PrintPreviewCrosDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ crosapi.mojom.PrintPreviewCrosDelegateRequest = crosapi.mojom.PrintPreviewCrosDe
 
 
 // Interface: PrintPreviewCrosClient
+crosapi.mojom.PrintPreviewCrosClient = {};
+
 crosapi.mojom.PrintPreviewCrosClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

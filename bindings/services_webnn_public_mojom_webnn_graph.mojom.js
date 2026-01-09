@@ -139,6 +139,8 @@ webnn.mojom.InterpolationMode = {
 };
 
 // Interface: WebNNGraph
+webnn.mojom.WebNNGraph = {};
+
 webnn.mojom.WebNNGraphPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

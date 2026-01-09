@@ -41,6 +41,8 @@ remote_cocoa.mojom.ToolbarVisibilityStyle = {
 };
 
 // Interface: NativeWidgetNSWindow
+remote_cocoa.mojom.NativeWidgetNSWindow = {};
+
 remote_cocoa.mojom.NativeWidgetNSWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

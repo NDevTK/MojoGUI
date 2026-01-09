@@ -10,6 +10,8 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: AgentProcess
+remoting.mojom.AgentProcess = {};
+
 remoting.mojom.AgentProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -127,6 +129,8 @@ remoting.mojom.AgentProcessRequest = remoting.mojom.AgentProcessPendingReceiver;
 
 
 // Interface: AgentProcessBroker
+remoting.mojom.AgentProcessBroker = {};
+
 remoting.mojom.AgentProcessBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

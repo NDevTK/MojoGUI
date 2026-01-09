@@ -17,6 +17,8 @@ device.mojom.GeolocationPermissionLevel = {
 };
 
 // Interface: GeolocationContext
+device.mojom.GeolocationContext = {};
+
 device.mojom.GeolocationContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

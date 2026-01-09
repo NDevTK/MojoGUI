@@ -16,6 +16,8 @@ ash.cfm.mojom.FilterType = {
 };
 
 // Interface: DataWatchDog
+ash.cfm.mojom.DataWatchDog = {};
+
 ash.cfm.mojom.DataWatchDogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -66,6 +68,8 @@ ash.cfm.mojom.DataWatchDogRequest = ash.cfm.mojom.DataWatchDogPendingReceiver;
 
 
 // Interface: DataSource
+ash.cfm.mojom.DataSource = {};
+
 ash.cfm.mojom.DataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -116,6 +120,8 @@ ash.cfm.mojom.DataSourceRequest = ash.cfm.mojom.DataSourcePendingReceiver;
 
 
 // Interface: DataAggregator
+ash.cfm.mojom.DataAggregator = {};
+
 ash.cfm.mojom.DataAggregatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -25,6 +25,8 @@ printing.mojom.DuplexMode = {
 };
 
 // Interface: PdfToPwgRasterConverter
+printing.mojom.PdfToPwgRasterConverter = {};
+
 printing.mojom.PdfToPwgRasterConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

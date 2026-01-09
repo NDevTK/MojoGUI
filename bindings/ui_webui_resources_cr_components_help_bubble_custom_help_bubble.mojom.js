@@ -18,6 +18,8 @@ custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
 };
 
 // Interface: CustomHelpBubbleHandlerFactory
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
+
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bub
 
 
 // Interface: CustomHelpBubbleHandler
+custom_help_bubble.mojom.CustomHelpBubbleHandler = {};
+
 custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

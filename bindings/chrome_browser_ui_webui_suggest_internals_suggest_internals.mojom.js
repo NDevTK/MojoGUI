@@ -19,6 +19,8 @@ suggest_internals.mojom.RequestStatus = {
 };
 
 // Interface: PageHandler
+suggest_internals.mojom.PageHandler = {};
+
 suggest_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ suggest_internals.mojom.PageHandlerRequest = suggest_internals.mojom.PageHandler
 
 
 // Interface: Page
+suggest_internals.mojom.Page = {};
+
 suggest_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

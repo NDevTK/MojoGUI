@@ -36,6 +36,8 @@ screen_ai.mojom.MceClientType = {
 };
 
 // Interface: ScreenAIAnnotator
+screen_ai.mojom.ScreenAIAnnotator = {};
+
 screen_ai.mojom.ScreenAIAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,6 +276,8 @@ screen_ai.mojom.ScreenAIAnnotatorRequest = screen_ai.mojom.ScreenAIAnnotatorPend
 
 
 // Interface: Screen2xMainContentExtractor
+screen_ai.mojom.Screen2xMainContentExtractor = {};
+
 screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -456,6 +460,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRequest = screen_ai.mojom.Screen2xMa
 
 
 // Interface: OCRService
+screen_ai.mojom.OCRService = {};
+
 screen_ai.mojom.OCRServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -529,6 +535,8 @@ screen_ai.mojom.OCRServiceRequest = screen_ai.mojom.OCRServicePendingReceiver;
 
 
 // Interface: MainContentExtractionService
+screen_ai.mojom.MainContentExtractionService = {};
+
 screen_ai.mojom.MainContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

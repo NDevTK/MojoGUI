@@ -10,6 +10,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: GuestOsSkForwarderFactory
+crosapi.mojom.GuestOsSkForwarderFactory = {};
+
 crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ crosapi.mojom.GuestOsSkForwarderFactoryRequest = crosapi.mojom.GuestOsSkForwarde
 
 
 // Interface: GuestOsSkForwarder
+crosapi.mojom.GuestOsSkForwarder = {};
+
 crosapi.mojom.GuestOsSkForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

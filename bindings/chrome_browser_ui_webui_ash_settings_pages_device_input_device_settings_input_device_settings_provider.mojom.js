@@ -11,6 +11,8 @@ ash.settings.mojom = ash.settings.mojom || {};
 
 
 // Interface: KeyboardSettingsObserver
+ash.settings.mojom.KeyboardSettingsObserver = {};
+
 ash.settings.mojom.KeyboardSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -107,6 +109,8 @@ ash.settings.mojom.KeyboardSettingsObserverRequest = ash.settings.mojom.Keyboard
 
 
 // Interface: TouchpadSettingsObserver
+ash.settings.mojom.TouchpadSettingsObserver = {};
+
 ash.settings.mojom.TouchpadSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -180,6 +184,8 @@ ash.settings.mojom.TouchpadSettingsObserverRequest = ash.settings.mojom.Touchpad
 
 
 // Interface: PointingStickSettingsObserver
+ash.settings.mojom.PointingStickSettingsObserver = {};
+
 ash.settings.mojom.PointingStickSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,6 +259,8 @@ ash.settings.mojom.PointingStickSettingsObserverRequest = ash.settings.mojom.Poi
 
 
 // Interface: MouseSettingsObserver
+ash.settings.mojom.MouseSettingsObserver = {};
+
 ash.settings.mojom.MouseSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -349,6 +357,8 @@ ash.settings.mojom.MouseSettingsObserverRequest = ash.settings.mojom.MouseSettin
 
 
 // Interface: ButtonPressObserver
+ash.settings.mojom.ButtonPressObserver = {};
+
 ash.settings.mojom.ButtonPressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -422,6 +432,8 @@ ash.settings.mojom.ButtonPressObserverRequest = ash.settings.mojom.ButtonPressOb
 
 
 // Interface: GraphicsTabletSettingsObserver
+ash.settings.mojom.GraphicsTabletSettingsObserver = {};
+
 ash.settings.mojom.GraphicsTabletSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -495,6 +507,8 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRequest = ash.settings.mojom.Gr
 
 
 // Interface: KeyboardBrightnessObserver
+ash.settings.mojom.KeyboardBrightnessObserver = {};
+
 ash.settings.mojom.KeyboardBrightnessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -568,6 +582,8 @@ ash.settings.mojom.KeyboardBrightnessObserverRequest = ash.settings.mojom.Keyboa
 
 
 // Interface: KeyboardAmbientLightSensorObserver
+ash.settings.mojom.KeyboardAmbientLightSensorObserver = {};
+
 ash.settings.mojom.KeyboardAmbientLightSensorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -641,6 +657,8 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRequest = ash.settings.mojo
 
 
 // Interface: LidStateObserver
+ash.settings.mojom.LidStateObserver = {};
+
 ash.settings.mojom.LidStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -714,6 +732,8 @@ ash.settings.mojom.LidStateObserverRequest = ash.settings.mojom.LidStateObserver
 
 
 // Interface: InputDeviceSettingsProvider
+ash.settings.mojom.InputDeviceSettingsProvider = {};
+
 ash.settings.mojom.InputDeviceSettingsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

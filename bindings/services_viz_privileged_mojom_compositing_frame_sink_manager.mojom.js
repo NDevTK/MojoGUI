@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: FrameSinkManager
+viz.mojom.FrameSinkManager = {};
+
 viz.mojom.FrameSinkManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -672,6 +674,8 @@ viz.mojom.FrameSinkManagerRequest = viz.mojom.FrameSinkManagerPendingReceiver;
 
 
 // Interface: FrameSinkManagerClient
+viz.mojom.FrameSinkManagerClient = {};
+
 viz.mojom.FrameSinkManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -900,6 +904,8 @@ viz.mojom.FrameSinkManagerClientRequest = viz.mojom.FrameSinkManagerClientPendin
 
 
 // Interface: RendererInputRouterDelegateRegistry
+viz.mojom.RendererInputRouterDelegateRegistry = {};
+
 viz.mojom.RendererInputRouterDelegateRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

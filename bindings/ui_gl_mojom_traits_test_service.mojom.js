@@ -10,6 +10,8 @@ gl.mojom = gl.mojom || {};
 
 
 // Interface: TraitsTestService
+gl.mojom.TraitsTestService = {};
+
 gl.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

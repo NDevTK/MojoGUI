@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: PlaybackEventsRecorder
+media.mojom.PlaybackEventsRecorder = {};
+
 media.mojom.PlaybackEventsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

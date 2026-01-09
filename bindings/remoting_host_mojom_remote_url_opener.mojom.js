@@ -18,6 +18,8 @@ remoting.mojom.OpenUrlResult = {
 };
 
 // Interface: RemoteUrlOpener
+remoting.mojom.RemoteUrlOpener = {};
+
 remoting.mojom.RemoteUrlOpenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

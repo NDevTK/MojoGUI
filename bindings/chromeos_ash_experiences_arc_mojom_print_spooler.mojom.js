@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: PrintSessionHost
+arc.mojom.PrintSessionHost = {};
+
 arc.mojom.PrintSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.PrintSessionHostRequest = arc.mojom.PrintSessionHostPendingReceiver;
 
 
 // Interface: PrintSessionInstance
+arc.mojom.PrintSessionInstance = {};
+
 arc.mojom.PrintSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -110,6 +114,8 @@ arc.mojom.PrintSessionInstanceRequest = arc.mojom.PrintSessionInstancePendingRec
 
 
 // Interface: PrintSpoolerHost
+arc.mojom.PrintSpoolerHost = {};
+
 arc.mojom.PrintSpoolerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -160,6 +166,8 @@ arc.mojom.PrintSpoolerHostRequest = arc.mojom.PrintSpoolerHostPendingReceiver;
 
 
 // Interface: PrintSpoolerInstance
+arc.mojom.PrintSpoolerInstance = {};
+
 arc.mojom.PrintSpoolerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

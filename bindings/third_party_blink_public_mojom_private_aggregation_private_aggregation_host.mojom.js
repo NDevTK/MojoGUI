@@ -21,6 +21,8 @@ blink.mojom.PrivateAggregationErrorEvent = {
 };
 
 // Interface: PrivateAggregationHost
+blink.mojom.PrivateAggregationHost = {};
+
 blink.mojom.PrivateAggregationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ on_device_internals.mojom = on_device_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+on_device_internals.mojom.PageHandlerFactory = {};
+
 on_device_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ on_device_internals.mojom.PageHandlerFactoryRequest = on_device_internals.mojom.
 
 
 // Interface: PageHandler
+on_device_internals.mojom.PageHandler = {};
+
 on_device_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,6 +424,8 @@ on_device_internals.mojom.PageHandlerRequest = on_device_internals.mojom.PageHan
 
 
 // Interface: Page
+on_device_internals.mojom.Page = {};
+
 on_device_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ProxyLookupClient
+network.mojom.ProxyLookupClient = {};
+
 network.mojom.ProxyLookupClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

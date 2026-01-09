@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: WallpaperHost
+arc.mojom.WallpaperHost = {};
+
 arc.mojom.WallpaperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.WallpaperHostRequest = arc.mojom.WallpaperHostPendingReceiver;
 
 
 // Interface: WallpaperInstance
+arc.mojom.WallpaperInstance = {};
+
 arc.mojom.WallpaperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

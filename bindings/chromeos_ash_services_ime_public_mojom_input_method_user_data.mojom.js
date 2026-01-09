@@ -11,6 +11,8 @@ ash.ime.mojom = ash.ime.mojom || {};
 
 
 // Interface: InputMethodUserDataService
+ash.ime.mojom.InputMethodUserDataService = {};
+
 ash.ime.mojom.InputMethodUserDataServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

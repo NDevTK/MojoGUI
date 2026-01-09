@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BackForwardCacheControllerHost
+blink.mojom.BackForwardCacheControllerHost = {};
+
 blink.mojom.BackForwardCacheControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

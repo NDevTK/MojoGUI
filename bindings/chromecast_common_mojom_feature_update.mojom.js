@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: FeatureUpdateObserver
+chromecast.mojom.FeatureUpdateObserver = {};
+
 chromecast.mojom.FeatureUpdateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.FeatureUpdateObserverRequest = chromecast.mojom.FeatureUpdateOb
 
 
 // Interface: FeatureUpdateService
+chromecast.mojom.FeatureUpdateService = {};
+
 chromecast.mojom.FeatureUpdateServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

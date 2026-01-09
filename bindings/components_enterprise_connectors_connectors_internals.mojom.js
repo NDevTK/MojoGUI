@@ -41,6 +41,8 @@ connectors_internals.mojom.KeyManagerPermanentFailure = {
 };
 
 // Interface: PageHandler
+connectors_internals.mojom.PageHandler = {};
+
 connectors_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

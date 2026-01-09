@@ -18,6 +18,8 @@ auction_worklet.mojom.AuctionWorkletFunction = {
 };
 
 // Interface: AuctionSharedStorageHost
+auction_worklet.mojom.AuctionSharedStorageHost = {};
+
 auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

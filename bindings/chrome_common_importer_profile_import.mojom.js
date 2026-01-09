@@ -16,6 +16,8 @@ chrome.mojom.Scheme = {
 };
 
 // Interface: ProfileImportObserver
+chrome.mojom.ProfileImportObserver = {};
+
 chrome.mojom.ProfileImportObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -414,6 +416,8 @@ chrome.mojom.ProfileImportObserverRequest = chrome.mojom.ProfileImportObserverPe
 
 
 // Interface: ProfileImport
+chrome.mojom.ProfileImport = {};
+
 chrome.mojom.ProfileImportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

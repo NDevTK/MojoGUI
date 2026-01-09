@@ -10,6 +10,8 @@ autofill.mojom = autofill.mojom || {};
 
 
 // Interface: TypeTraitsTest
+autofill.mojom.TypeTraitsTest = {};
+
 autofill.mojom.TypeTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

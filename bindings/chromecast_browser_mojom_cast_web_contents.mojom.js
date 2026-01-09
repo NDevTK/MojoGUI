@@ -20,6 +20,8 @@ chromecast.mojom.PageState = {
 };
 
 // Interface: CastWebContentsObserver
+chromecast.mojom.CastWebContentsObserver = {};
+
 chromecast.mojom.CastWebContentsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -322,6 +324,8 @@ chromecast.mojom.CastWebContentsObserverRequest = chromecast.mojom.CastWebConten
 
 
 // Interface: CastWebContents
+chromecast.mojom.CastWebContents = {};
+
 chromecast.mojom.CastWebContentsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

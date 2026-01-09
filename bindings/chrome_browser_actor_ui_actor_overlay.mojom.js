@@ -11,6 +11,8 @@ actor.ui.mojom = actor.ui.mojom || {};
 
 
 // Interface: ActorOverlayPageHandlerFactory
+actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
+
 actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.mojom.ActorOverl
 
 
 // Interface: ActorOverlayPageHandler
+actor.ui.mojom.ActorOverlayPageHandler = {};
+
 actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -193,6 +197,8 @@ actor.ui.mojom.ActorOverlayPageHandlerRequest = actor.ui.mojom.ActorOverlayPageH
 
 
 // Interface: ActorOverlayPage
+actor.ui.mojom.ActorOverlayPage = {};
+
 actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

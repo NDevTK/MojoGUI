@@ -103,6 +103,8 @@ ash.personalization_app.mojom.BacklightColor = {
 };
 
 // Interface: WallpaperObserver
+ash.personalization_app.mojom.WallpaperObserver = {};
+
 ash.personalization_app.mojom.WallpaperObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -221,6 +223,8 @@ ash.personalization_app.mojom.WallpaperObserverRequest = ash.personalization_app
 
 
 // Interface: WallpaperProvider
+ash.personalization_app.mojom.WallpaperProvider = {};
+
 ash.personalization_app.mojom.WallpaperProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1122,6 +1126,8 @@ ash.personalization_app.mojom.WallpaperProviderRequest = ash.personalization_app
 
 
 // Interface: ThemeObserver
+ash.personalization_app.mojom.ThemeObserver = {};
+
 ash.personalization_app.mojom.ThemeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1335,6 +1341,8 @@ ash.personalization_app.mojom.ThemeObserverRequest = ash.personalization_app.moj
 
 
 // Interface: ThemeProvider
+ash.personalization_app.mojom.ThemeProvider = {};
+
 ash.personalization_app.mojom.ThemeProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1767,6 +1775,8 @@ ash.personalization_app.mojom.ThemeProviderRequest = ash.personalization_app.moj
 
 
 // Interface: UserImageObserver
+ash.personalization_app.mojom.UserImageObserver = {};
+
 ash.personalization_app.mojom.UserImageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1909,6 +1919,8 @@ ash.personalization_app.mojom.UserImageObserverRequest = ash.personalization_app
 
 
 // Interface: UserProvider
+ash.personalization_app.mojom.UserProvider = {};
+
 ash.personalization_app.mojom.UserProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2164,6 +2176,8 @@ ash.personalization_app.mojom.UserProviderRequest = ash.personalization_app.mojo
 
 
 // Interface: AmbientObserver
+ash.personalization_app.mojom.AmbientObserver = {};
+
 ash.personalization_app.mojom.AmbientObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2445,6 +2459,8 @@ ash.personalization_app.mojom.AmbientObserverRequest = ash.personalization_app.m
 
 
 // Interface: AmbientProvider
+ash.personalization_app.mojom.AmbientProvider = {};
+
 ash.personalization_app.mojom.AmbientProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2908,6 +2924,8 @@ ash.personalization_app.mojom.AmbientProviderRequest = ash.personalization_app.m
 
 
 // Interface: KeyboardBacklightObserver
+ash.personalization_app.mojom.KeyboardBacklightObserver = {};
+
 ash.personalization_app.mojom.KeyboardBacklightObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -3004,6 +3022,8 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRequest = ash.personaliza
 
 
 // Interface: KeyboardBacklightProvider
+ash.personalization_app.mojom.KeyboardBacklightProvider = {};
+
 ash.personalization_app.mojom.KeyboardBacklightProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

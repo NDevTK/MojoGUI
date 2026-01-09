@@ -11,6 +11,8 @@ chromeos.tts.mojom = chromeos.tts.mojom || {};
 
 
 // Interface: TtsService
+chromeos.tts.mojom.TtsService = {};
+
 chromeos.tts.mojom.TtsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -123,6 +125,8 @@ chromeos.tts.mojom.TtsServiceRequest = chromeos.tts.mojom.TtsServicePendingRecei
 
 
 // Interface: GoogleTtsStream
+chromeos.tts.mojom.GoogleTtsStream = {};
+
 chromeos.tts.mojom.GoogleTtsStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,6 +376,8 @@ chromeos.tts.mojom.GoogleTtsStreamRequest = chromeos.tts.mojom.GoogleTtsStreamPe
 
 
 // Interface: PlaybackTtsStream
+chromeos.tts.mojom.PlaybackTtsStream = {};
+
 chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -571,6 +577,8 @@ chromeos.tts.mojom.PlaybackTtsStreamRequest = chromeos.tts.mojom.PlaybackTtsStre
 
 
 // Interface: TtsEventObserver
+chromeos.tts.mojom.TtsEventObserver = {};
+
 chromeos.tts.mojom.TtsEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

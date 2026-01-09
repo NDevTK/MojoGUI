@@ -17,6 +17,8 @@ chrome.mojom.IconSize = {
 };
 
 // Interface: UtilReadIcon
+chrome.mojom.UtilReadIcon = {};
+
 chrome.mojom.UtilReadIconPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

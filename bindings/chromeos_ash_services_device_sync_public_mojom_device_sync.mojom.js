@@ -67,6 +67,8 @@ ash.device_sync.mojom.BetterTogetherMetadataStatus = {
 };
 
 // Interface: DeviceSyncObserver
+ash.device_sync.mojom.DeviceSyncObserver = {};
+
 ash.device_sync.mojom.DeviceSyncObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -161,6 +163,8 @@ ash.device_sync.mojom.DeviceSyncObserverRequest = ash.device_sync.mojom.DeviceSy
 
 
 // Interface: DeviceSync
+ash.device_sync.mojom.DeviceSync = {};
+
 ash.device_sync.mojom.DeviceSyncPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

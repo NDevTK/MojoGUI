@@ -56,6 +56,8 @@ ash.scanning.mojom.ScanResult = {
 };
 
 // Interface: ScanJobObserver
+ash.scanning.mojom.ScanJobObserver = {};
+
 ash.scanning.mojom.ScanJobObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -224,6 +226,8 @@ ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPe
 
 
 // Interface: ScanService
+ash.scanning.mojom.ScanService = {};
+
 ash.scanning.mojom.ScanServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -443,6 +447,8 @@ ash.scanning.mojom.ScanServiceRequest = ash.scanning.mojom.ScanServicePendingRec
 
 
 // Interface: MultiPageScanController
+ash.scanning.mojom.MultiPageScanController = {};
+
 ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ cert_verifier.mojom.CertificateTrust = {
 };
 
 // Interface: CertVerifierServiceFactory
+cert_verifier.mojom.CertVerifierServiceFactory = {};
+
 cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

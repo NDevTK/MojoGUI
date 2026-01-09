@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PolicyContainerHost
+blink.mojom.PolicyContainerHost = {};
+
 blink.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

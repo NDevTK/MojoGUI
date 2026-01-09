@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: CrashMemoryMetricsReporter
+blink.mojom.CrashMemoryMetricsReporter = {};
+
 blink.mojom.CrashMemoryMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

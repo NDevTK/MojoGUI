@@ -24,6 +24,8 @@ blink.mojom.MediaSessionEnterPictureInPictureReason = {
 };
 
 // Interface: MediaSessionClient
+blink.mojom.MediaSessionClient = {};
+
 blink.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ blink.mojom.MediaSessionClientRequest = blink.mojom.MediaSessionClientPendingRec
 
 
 // Interface: MediaSessionService
+blink.mojom.MediaSessionService = {};
+
 blink.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

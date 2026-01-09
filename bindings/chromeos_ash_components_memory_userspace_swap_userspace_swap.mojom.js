@@ -10,6 +10,8 @@ userspace_swap.mojom = userspace_swap.mojom || {};
 
 
 // Interface: UserspaceSwapInitialization
+userspace_swap.mojom.UserspaceSwapInitialization = {};
+
 userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -86,6 +88,8 @@ userspace_swap.mojom.UserspaceSwapInitializationRequest = userspace_swap.mojom.U
 
 
 // Interface: UserspaceSwap
+userspace_swap.mojom.UserspaceSwap = {};
+
 userspace_swap.mojom.UserspaceSwapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

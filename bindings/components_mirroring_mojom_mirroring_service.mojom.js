@@ -10,6 +10,8 @@ mirroring.mojom = mirroring.mojom || {};
 
 
 // Interface: MirroringService
+mirroring.mojom.MirroringService = {};
+
 mirroring.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ drivefs.mojom.ExtensionConnectionStatus = {
 };
 
 // Interface: NativeMessagingPort
+drivefs.mojom.NativeMessagingPort = {};
+
 drivefs.mojom.NativeMessagingPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ drivefs.mojom.NativeMessagingPortRequest = drivefs.mojom.NativeMessagingPortPend
 
 
 // Interface: NativeMessagingHost
+drivefs.mojom.NativeMessagingHost = {};
+
 drivefs.mojom.NativeMessagingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

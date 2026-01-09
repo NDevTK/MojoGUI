@@ -34,6 +34,8 @@ mac_notifications.mojom.PermissionStatus = {
 };
 
 // Interface: MacNotificationService
+mac_notifications.mojom.MacNotificationService = {};
+
 mac_notifications.mojom.MacNotificationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,6 +249,8 @@ mac_notifications.mojom.MacNotificationServiceRequest = mac_notifications.mojom.
 
 
 // Interface: MacNotificationActionHandler
+mac_notifications.mojom.MacNotificationActionHandler = {};
+
 mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -320,6 +324,8 @@ mac_notifications.mojom.MacNotificationActionHandlerRequest = mac_notifications.
 
 
 // Interface: MacNotificationProvider
+mac_notifications.mojom.MacNotificationProvider = {};
+
 mac_notifications.mojom.MacNotificationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

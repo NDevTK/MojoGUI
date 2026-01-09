@@ -32,6 +32,8 @@ side_panel.customize_chrome.mojom.UserFeedback = {
 };
 
 // Interface: WallpaperSearchHandlerFactory
+side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
+
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -106,6 +108,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = side_pa
 
 
 // Interface: WallpaperSearchHandler
+side_panel.customize_chrome.mojom.WallpaperSearchHandler = {};
+
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -449,6 +453,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRequest = side_panel.cus
 
 
 // Interface: WallpaperSearchClient
+side_panel.customize_chrome.mojom.WallpaperSearchClient = {};
+
 side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

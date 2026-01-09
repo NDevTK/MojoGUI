@@ -10,6 +10,8 @@ search.mojom = search.mojom || {};
 
 
 // Interface: EmbeddedSearchConnector
+search.mojom.EmbeddedSearchConnector = {};
+
 search.mojom.EmbeddedSearchConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ search.mojom.EmbeddedSearchConnectorRequest = search.mojom.EmbeddedSearchConnect
 
 
 // Interface: EmbeddedSearch
+search.mojom.EmbeddedSearch = {};
+
 search.mojom.EmbeddedSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -229,6 +233,8 @@ search.mojom.EmbeddedSearchRequest = search.mojom.EmbeddedSearchPendingReceiver;
 
 
 // Interface: EmbeddedSearchClient
+search.mojom.EmbeddedSearchClient = {};
+
 search.mojom.EmbeddedSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

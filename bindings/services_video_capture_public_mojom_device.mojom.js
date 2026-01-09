@@ -10,6 +10,8 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: Device
+video_capture.mojom.Device = {};
+
 video_capture.mojom.DevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

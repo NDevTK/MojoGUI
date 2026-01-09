@@ -11,6 +11,8 @@ ash.crostini_installer.mojom = ash.crostini_installer.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.crostini_installer.mojom.PageHandlerFactory = {};
+
 ash.crostini_installer.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.crostini_installer.mojom.PageHandlerFactoryRequest = ash.crostini_installer.
 
 
 // Interface: PageHandler
+ash.crostini_installer.mojom.PageHandler = {};
+
 ash.crostini_installer.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -262,6 +266,8 @@ ash.crostini_installer.mojom.PageHandlerRequest = ash.crostini_installer.mojom.P
 
 
 // Interface: Page
+ash.crostini_installer.mojom.Page = {};
+
 ash.crostini_installer.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

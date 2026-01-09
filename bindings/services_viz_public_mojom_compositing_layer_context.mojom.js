@@ -16,6 +16,8 @@ viz.mojom.Type = {
 };
 
 // Interface: LayerContext
+viz.mojom.LayerContext = {};
+
 viz.mojom.LayerContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +137,8 @@ viz.mojom.LayerContextRequest = viz.mojom.LayerContextPendingReceiver;
 
 
 // Interface: LayerContextClient
+viz.mojom.LayerContextClient = {};
+
 viz.mojom.LayerContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

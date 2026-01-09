@@ -23,6 +23,8 @@ commerce.product_specifications.mojom.ShowSetDisposition = {
 };
 
 // Interface: ProductSpecificationsHandler
+commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
+
 commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -321,6 +323,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRequest = comm
 
 
 // Interface: Page
+commerce.product_specifications.mojom.Page = {};
+
 commerce.product_specifications.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -462,6 +466,8 @@ commerce.product_specifications.mojom.PageRequest = commerce.product_specificati
 
 
 // Interface: ProductSpecificationsHandlerFactory
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory = {};
+
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

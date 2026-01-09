@@ -25,6 +25,8 @@ shopping_service.mojom.UserFeedback = {
 };
 
 // Interface: ShoppingServiceHandlerFactory
+shopping_service.mojom.ShoppingServiceHandlerFactory = {};
+
 shopping_service.mojom.ShoppingServiceHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryRequest = shopping_service.m
 
 
 // Interface: ShoppingServiceHandler
+shopping_service.mojom.ShoppingServiceHandler = {};
+
 shopping_service.mojom.ShoppingServiceHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

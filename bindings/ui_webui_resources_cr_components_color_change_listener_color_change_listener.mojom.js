@@ -10,6 +10,8 @@ color_change_listener.mojom = color_change_listener.mojom || {};
 
 
 // Interface: PageHandler
+color_change_listener.mojom.PageHandler = {};
+
 color_change_listener.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ color_change_listener.mojom.PageHandlerRequest = color_change_listener.mojom.Pag
 
 
 // Interface: Page
+color_change_listener.mojom.Page = {};
+
 color_change_listener.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ web_ui_test.mojom = web_ui_test.mojom || {};
 
 
 // Interface: TestRunner
+web_ui_test.mojom.TestRunner = {};
+
 web_ui_test.mojom.TestRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

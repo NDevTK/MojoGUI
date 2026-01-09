@@ -10,6 +10,8 @@ metrics_reporter.mojom = metrics_reporter.mojom || {};
 
 
 // Interface: PageMetricsHost
+metrics_reporter.mojom.PageMetricsHost = {};
+
 metrics_reporter.mojom.PageMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -166,6 +168,8 @@ metrics_reporter.mojom.PageMetricsHostRequest = metrics_reporter.mojom.PageMetri
 
 
 // Interface: PageMetrics
+metrics_reporter.mojom.PageMetrics = {};
+
 metrics_reporter.mojom.PageMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

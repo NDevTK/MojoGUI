@@ -30,6 +30,8 @@ ash.screens_login.mojom.UIState = {
 };
 
 // Interface: ArcVmDataMigrationPageHandler
+ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
+
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -190,6 +192,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequest = ash.screens_login
 
 
 // Interface: ArcVmDataMigrationPage
+ash.screens_login.mojom.ArcVmDataMigrationPage = {};
+
 ash.screens_login.mojom.ArcVmDataMigrationPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -379,6 +383,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRequest = ash.screens_login.mojom.
 
 
 // Interface: EncryptionMigrationPageHandler
+ash.screens_login.mojom.EncryptionMigrationPageHandler = {};
+
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -539,6 +545,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRequest = ash.screens_logi
 
 
 // Interface: EncryptionMigrationPage
+ash.screens_login.mojom.EncryptionMigrationPage = {};
+
 ash.screens_login.mojom.EncryptionMigrationPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

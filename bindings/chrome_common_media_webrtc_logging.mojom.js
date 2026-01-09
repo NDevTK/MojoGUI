@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: WebRtcLoggingClient
+chrome.mojom.WebRtcLoggingClient = {};
+
 chrome.mojom.WebRtcLoggingClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ chrome.mojom.WebRtcLoggingClientRequest = chrome.mojom.WebRtcLoggingClientPendin
 
 
 // Interface: WebRtcLoggingAgent
+chrome.mojom.WebRtcLoggingAgent = {};
+
 chrome.mojom.WebRtcLoggingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

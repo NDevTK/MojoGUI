@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RendererHost
+content.mojom.RendererHost = {};
+
 content.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

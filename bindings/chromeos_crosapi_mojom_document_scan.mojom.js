@@ -81,6 +81,8 @@ crosapi.mojom.OptionConfigurability = {
 };
 
 // Interface: DocumentScan
+crosapi.mojom.DocumentScan = {};
+
 crosapi.mojom.DocumentScanPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

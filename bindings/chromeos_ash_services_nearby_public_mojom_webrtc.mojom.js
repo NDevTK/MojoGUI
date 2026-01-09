@@ -10,6 +10,8 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Interface: IceConfigFetcher
+sharing.mojom.IceConfigFetcher = {};
+
 sharing.mojom.IceConfigFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -95,6 +97,8 @@ sharing.mojom.IceConfigFetcherRequest = sharing.mojom.IceConfigFetcherPendingRec
 
 
 // Interface: MdnsResponderFactory
+sharing.mojom.MdnsResponderFactory = {};
+
 sharing.mojom.MdnsResponderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

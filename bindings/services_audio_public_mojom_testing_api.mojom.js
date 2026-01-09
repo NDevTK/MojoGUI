@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: TestingApi
+audio.mojom.TestingApi = {};
+
 audio.mojom.TestingApiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

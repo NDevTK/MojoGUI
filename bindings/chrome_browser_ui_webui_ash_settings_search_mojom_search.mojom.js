@@ -31,6 +31,8 @@ ash.settings.mojom.ParentResultBehavior = {
 };
 
 // Interface: SearchResultsObserver
+ash.settings.mojom.SearchResultsObserver = {};
+
 ash.settings.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -103,6 +105,8 @@ ash.settings.mojom.SearchResultsObserverRequest = ash.settings.mojom.SearchResul
 
 
 // Interface: SearchHandler
+ash.settings.mojom.SearchHandler = {};
+
 ash.settings.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ chromeos.cdm.mojom.CreateCdmStatus = {
 };
 
 // Interface: CdmFactory
+chromeos.cdm.mojom.CdmFactory = {};
+
 chromeos.cdm.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ chromeos.cdm.mojom.CdmFactoryRequest = chromeos.cdm.mojom.CdmFactoryPendingRecei
 
 
 // Interface: CdmFactoryDaemon
+chromeos.cdm.mojom.CdmFactoryDaemon = {};
+
 chromeos.cdm.mojom.CdmFactoryDaemonPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

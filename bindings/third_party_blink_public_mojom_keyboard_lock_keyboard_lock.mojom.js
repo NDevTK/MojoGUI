@@ -26,6 +26,8 @@ blink.mojom.GetKeyboardLayoutMapStatus = {
 };
 
 // Interface: KeyboardLockService
+blink.mojom.KeyboardLockService = {};
+
 blink.mojom.KeyboardLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

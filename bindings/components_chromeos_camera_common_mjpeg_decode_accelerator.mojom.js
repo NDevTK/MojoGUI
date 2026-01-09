@@ -20,6 +20,8 @@ chromeos_camera.mojom.DecodeError = {
 };
 
 // Interface: MjpegDecodeAccelerator
+chromeos_camera.mojom.MjpegDecodeAccelerator = {};
+
 chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

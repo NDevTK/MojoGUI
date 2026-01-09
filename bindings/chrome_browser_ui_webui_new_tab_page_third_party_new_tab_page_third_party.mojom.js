@@ -10,6 +10,8 @@ new_tab_page_third_party.mojom = new_tab_page_third_party.mojom || {};
 
 
 // Interface: PageHandlerFactory
+new_tab_page_third_party.mojom.PageHandlerFactory = {};
+
 new_tab_page_third_party.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRequest = new_tab_page_third_pa
 
 
 // Interface: PageHandler
+new_tab_page_third_party.mojom.PageHandler = {};
+
 new_tab_page_third_party.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ new_tab_page_third_party.mojom.PageHandlerRequest = new_tab_page_third_party.moj
 
 
 // Interface: Page
+new_tab_page_third_party.mojom.Page = {};
+
 new_tab_page_third_party.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

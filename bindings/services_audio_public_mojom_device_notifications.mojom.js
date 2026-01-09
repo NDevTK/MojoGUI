@@ -10,6 +10,8 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: DeviceListener
+audio.mojom.DeviceListener = {};
+
 audio.mojom.DeviceListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ audio.mojom.DeviceListenerRequest = audio.mojom.DeviceListenerPendingReceiver;
 
 
 // Interface: DeviceNotifier
+audio.mojom.DeviceNotifier = {};
+
 audio.mojom.DeviceNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

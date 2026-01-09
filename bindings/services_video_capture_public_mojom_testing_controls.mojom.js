@@ -10,6 +10,8 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: TestingControls
+video_capture.mojom.TestingControls = {};
+
 video_capture.mojom.TestingControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

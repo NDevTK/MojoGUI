@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VizMain
+viz.mojom.VizMain = {};
+
 viz.mojom.VizMainPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

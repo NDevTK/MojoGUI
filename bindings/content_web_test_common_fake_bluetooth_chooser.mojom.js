@@ -24,6 +24,8 @@ content.mojom.ChooserEventType = {
 };
 
 // Interface: FakeBluetoothChooser
+content.mojom.FakeBluetoothChooser = {};
+
 content.mojom.FakeBluetoothChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -141,6 +143,8 @@ content.mojom.FakeBluetoothChooserRequest = content.mojom.FakeBluetoothChooserPe
 
 
 // Interface: FakeBluetoothChooserFactory
+content.mojom.FakeBluetoothChooserFactory = {};
+
 content.mojom.FakeBluetoothChooserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -215,6 +219,8 @@ content.mojom.FakeBluetoothChooserFactoryRequest = content.mojom.FakeBluetoothCh
 
 
 // Interface: FakeBluetoothChooserClient
+content.mojom.FakeBluetoothChooserClient = {};
+
 content.mojom.FakeBluetoothChooserClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

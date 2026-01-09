@@ -21,6 +21,8 @@ global_media_controls.mojom.IconType = {
 };
 
 // Interface: DeviceListHost
+global_media_controls.mojom.DeviceListHost = {};
+
 global_media_controls.mojom.DeviceListHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -71,6 +73,8 @@ global_media_controls.mojom.DeviceListHostRequest = global_media_controls.mojom.
 
 
 // Interface: DeviceListClient
+global_media_controls.mojom.DeviceListClient = {};
+
 global_media_controls.mojom.DeviceListClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -121,6 +125,8 @@ global_media_controls.mojom.DeviceListClientRequest = global_media_controls.mojo
 
 
 // Interface: DeviceService
+global_media_controls.mojom.DeviceService = {};
+
 global_media_controls.mojom.DeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -171,6 +177,8 @@ global_media_controls.mojom.DeviceServiceRequest = global_media_controls.mojom.D
 
 
 // Interface: DevicePickerProvider
+global_media_controls.mojom.DevicePickerProvider = {};
+
 global_media_controls.mojom.DevicePickerProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -221,6 +229,8 @@ global_media_controls.mojom.DevicePickerProviderRequest = global_media_controls.
 
 
 // Interface: DevicePickerObserver
+global_media_controls.mojom.DevicePickerObserver = {};
+
 global_media_controls.mojom.DevicePickerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

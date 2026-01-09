@@ -10,6 +10,8 @@ mojom.user_education_internals = mojom.user_education_internals || {};
 
 
 // Interface: UserEducationInternalsPageHandler
+mojom.user_education_internals.UserEducationInternalsPageHandler = {};
+
 mojom.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

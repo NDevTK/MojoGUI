@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: RemoteInterfaces
+chromecast.mojom.RemoteInterfaces = {};
+
 chromecast.mojom.RemoteInterfacesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

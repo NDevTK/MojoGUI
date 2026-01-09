@@ -17,6 +17,8 @@ content.mojom.AutoResponseMode = {
 };
 
 // Interface: WebTestRenderFrame
+content.mojom.WebTestRenderFrame = {};
+
 content.mojom.WebTestRenderFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -371,6 +373,8 @@ content.mojom.WebTestRenderFrameRequest = content.mojom.WebTestRenderFramePendin
 
 
 // Interface: WebTestControlHost
+content.mojom.WebTestControlHost = {};
+
 content.mojom.WebTestControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1392,6 +1396,8 @@ content.mojom.WebTestControlHostRequest = content.mojom.WebTestControlHostPendin
 
 
 // Interface: NonAssociatedWebTestControlHost
+content.mojom.NonAssociatedWebTestControlHost = {};
+
 content.mojom.NonAssociatedWebTestControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

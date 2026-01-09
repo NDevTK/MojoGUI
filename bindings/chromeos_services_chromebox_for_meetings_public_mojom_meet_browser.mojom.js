@@ -11,6 +11,8 @@ ash.cfm.mojom = ash.cfm.mojom || {};
 
 
 // Interface: MeetBrowser
+ash.cfm.mojom.MeetBrowser = {};
+
 ash.cfm.mojom.MeetBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

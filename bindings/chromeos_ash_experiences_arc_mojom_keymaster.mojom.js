@@ -27,6 +27,8 @@ arc.mojom.KeyFormat = {
 };
 
 // Interface: KeymasterHost
+arc.mojom.KeymasterHost = {};
+
 arc.mojom.KeymasterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -77,6 +79,8 @@ arc.mojom.KeymasterHostRequest = arc.mojom.KeymasterHostPendingReceiver;
 
 
 // Interface: KeymasterInstance
+arc.mojom.KeymasterInstance = {};
+
 arc.mojom.KeymasterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -127,6 +131,8 @@ arc.mojom.KeymasterInstanceRequest = arc.mojom.KeymasterInstancePendingReceiver;
 
 
 // Interface: KeymasterServer
+arc.mojom.KeymasterServer = {};
+
 arc.mojom.KeymasterServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ arc.mojom.GetArcSafetySessionResult = {
 };
 
 // Interface: OnDeviceSafetyHost
+arc.mojom.OnDeviceSafetyHost = {};
+
 arc.mojom.OnDeviceSafetyHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -67,6 +69,8 @@ arc.mojom.OnDeviceSafetyHostRequest = arc.mojom.OnDeviceSafetyHostPendingReceive
 
 
 // Interface: OnDeviceSafetyInstance
+arc.mojom.OnDeviceSafetyInstance = {};
+
 arc.mojom.OnDeviceSafetyInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -69,6 +69,8 @@ memory_instrumentation.mojom.RequestOutcome = {
 };
 
 // Interface: ClientProcess
+memory_instrumentation.mojom.ClientProcess = {};
+
 memory_instrumentation.mojom.ClientProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -196,6 +198,8 @@ memory_instrumentation.mojom.ClientProcessRequest = memory_instrumentation.mojom
 
 
 // Interface: HeapProfiler
+memory_instrumentation.mojom.HeapProfiler = {};
+
 memory_instrumentation.mojom.HeapProfilerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -283,6 +287,8 @@ memory_instrumentation.mojom.HeapProfilerRequest = memory_instrumentation.mojom.
 
 
 // Interface: HeapProfilerHelper
+memory_instrumentation.mojom.HeapProfilerHelper = {};
+
 memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -369,6 +375,8 @@ memory_instrumentation.mojom.HeapProfilerHelperRequest = memory_instrumentation.
 
 
 // Interface: Coordinator
+memory_instrumentation.mojom.Coordinator = {};
+
 memory_instrumentation.mojom.CoordinatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -573,6 +581,8 @@ memory_instrumentation.mojom.CoordinatorRequest = memory_instrumentation.mojom.C
 
 
 // Interface: CoordinatorConnector
+memory_instrumentation.mojom.CoordinatorConnector = {};
+
 memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

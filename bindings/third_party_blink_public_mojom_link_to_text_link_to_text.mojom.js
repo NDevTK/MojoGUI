@@ -36,6 +36,8 @@ blink.mojom.LinkGenerationError = {
 };
 
 // Interface: TextFragmentReceiver
+blink.mojom.TextFragmentReceiver = {};
+
 blink.mojom.TextFragmentReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

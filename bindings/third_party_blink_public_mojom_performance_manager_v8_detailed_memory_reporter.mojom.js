@@ -17,6 +17,8 @@ blink.mojom.Mode = {
 };
 
 // Interface: V8DetailedMemoryReporter
+blink.mojom.V8DetailedMemoryReporter = {};
+
 blink.mojom.V8DetailedMemoryReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

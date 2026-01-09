@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: FrameSinksMetricsRecorder
+viz.mojom.FrameSinksMetricsRecorder = {};
+
 viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

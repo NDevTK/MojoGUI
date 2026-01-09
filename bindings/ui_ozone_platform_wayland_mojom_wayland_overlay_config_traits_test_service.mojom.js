@@ -10,6 +10,8 @@ wl.mojom = wl.mojom || {};
 
 
 // Interface: ConfigTraitsTestService
+wl.mojom.ConfigTraitsTestService = {};
+
 wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

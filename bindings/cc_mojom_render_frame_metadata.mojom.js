@@ -17,6 +17,8 @@ cc.mojom.RootScrollOffsetUpdateFrequency = {
 };
 
 // Interface: RenderFrameMetadataObserver
+cc.mojom.RenderFrameMetadataObserver = {};
+
 cc.mojom.RenderFrameMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -113,6 +115,8 @@ cc.mojom.RenderFrameMetadataObserverRequest = cc.mojom.RenderFrameMetadataObserv
 
 
 // Interface: RenderFrameMetadataObserverClient
+cc.mojom.RenderFrameMetadataObserverClient = {};
+
 cc.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

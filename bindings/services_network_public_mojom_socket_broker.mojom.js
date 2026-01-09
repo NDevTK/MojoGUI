@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SocketBroker
+network.mojom.SocketBroker = {};
+
 network.mojom.SocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

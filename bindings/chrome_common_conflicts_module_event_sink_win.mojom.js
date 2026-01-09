@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: ModuleEventSink
+mojom.ModuleEventSink = {};
+
 mojom.ModuleEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

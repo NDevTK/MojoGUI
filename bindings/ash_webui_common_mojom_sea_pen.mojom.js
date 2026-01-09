@@ -29,6 +29,8 @@ ash.personalization_app.mojom.MantaStatusCode = {
 };
 
 // Interface: SeaPenObserver
+ash.personalization_app.mojom.SeaPenObserver = {};
+
 ash.personalization_app.mojom.SeaPenObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -125,6 +127,8 @@ ash.personalization_app.mojom.SeaPenObserverRequest = ash.personalization_app.mo
 
 
 // Interface: SeaPenProvider
+ash.personalization_app.mojom.SeaPenProvider = {};
+
 ash.personalization_app.mojom.SeaPenProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

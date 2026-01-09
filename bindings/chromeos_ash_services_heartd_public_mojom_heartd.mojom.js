@@ -31,6 +31,8 @@ ash.heartd.mojom.ActionType = {
 };
 
 // Interface: HeartdControl
+ash.heartd.mojom.HeartdControl = {};
+
 ash.heartd.mojom.HeartdControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -81,6 +83,8 @@ ash.heartd.mojom.HeartdControlRequest = ash.heartd.mojom.HeartdControlPendingRec
 
 
 // Interface: HeartbeatService
+ash.heartd.mojom.HeartbeatService = {};
+
 ash.heartd.mojom.HeartbeatServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -131,6 +135,8 @@ ash.heartd.mojom.HeartbeatServiceRequest = ash.heartd.mojom.HeartbeatServicePend
 
 
 // Interface: Pacemaker
+ash.heartd.mojom.Pacemaker = {};
+
 ash.heartd.mojom.PacemakerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

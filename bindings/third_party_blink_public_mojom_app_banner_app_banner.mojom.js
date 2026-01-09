@@ -16,6 +16,8 @@ blink.mojom.AppBannerPromptReply = {
 };
 
 // Interface: AppBannerController
+blink.mojom.AppBannerController = {};
+
 blink.mojom.AppBannerControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -104,6 +106,8 @@ blink.mojom.AppBannerControllerRequest = blink.mojom.AppBannerControllerPendingR
 
 
 // Interface: AppBannerEvent
+blink.mojom.AppBannerEvent = {};
+
 blink.mojom.AppBannerEventPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -199,6 +203,8 @@ blink.mojom.AppBannerEventRequest = blink.mojom.AppBannerEventPendingReceiver;
 
 
 // Interface: AppBannerService
+blink.mojom.AppBannerService = {};
+
 blink.mojom.AppBannerServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

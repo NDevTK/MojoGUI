@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: LocalMuter
+media.mojom.LocalMuter = {};
+
 media.mojom.LocalMuterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ media.mojom.LocalMuterRequest = media.mojom.LocalMuterPendingReceiver;
 
 
 // Interface: AudioStreamFactory
+media.mojom.AudioStreamFactory = {};
+
 media.mojom.AudioStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

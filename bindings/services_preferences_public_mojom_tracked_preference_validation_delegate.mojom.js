@@ -27,6 +27,8 @@ prefs.mojom.ValueState = {
 };
 
 // Interface: TrackedPreferenceValidationDelegate
+prefs.mojom.TrackedPreferenceValidationDelegate = {};
+
 prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

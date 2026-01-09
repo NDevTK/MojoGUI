@@ -24,6 +24,8 @@ device.mojom.WakeLockReason = {
 };
 
 // Interface: WakeLock
+device.mojom.WakeLock = {};
+
 device.mojom.WakeLockPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

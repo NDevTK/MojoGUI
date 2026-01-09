@@ -36,6 +36,8 @@ ash.quick_pair.mojom.MessageGroup = {
 };
 
 // Interface: FastPairDataParser
+ash.quick_pair.mojom.FastPairDataParser = {};
+
 ash.quick_pair.mojom.FastPairDataParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

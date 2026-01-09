@@ -40,6 +40,8 @@ traces_internals.mojom.TracingScenarioState = {
 };
 
 // Interface: TracesInternalsHandlerFactory
+traces_internals.mojom.TracesInternalsHandlerFactory = {};
+
 traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -114,6 +116,8 @@ traces_internals.mojom.TracesInternalsHandlerFactoryRequest = traces_internals.m
 
 
 // Interface: PageHandler
+traces_internals.mojom.PageHandler = {};
+
 traces_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -864,6 +868,8 @@ traces_internals.mojom.PageHandlerRequest = traces_internals.mojom.PageHandlerPe
 
 
 // Interface: Page
+traces_internals.mojom.Page = {};
+
 traces_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ codelabs.mojom = codelabs.mojom || {};
 
 
 // Interface: ObjectA
+codelabs.mojom.ObjectA = {};
+
 codelabs.mojom.ObjectAPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ codelabs.mojom.ObjectARequest = codelabs.mojom.ObjectAPendingReceiver;
 
 
 // Interface: ObjectB
+codelabs.mojom.ObjectB = {};
+
 codelabs.mojom.ObjectBPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -154,6 +158,8 @@ codelabs.mojom.ObjectBRequest = codelabs.mojom.ObjectBPendingReceiver;
 
 
 // Interface: AssociatedProcess
+codelabs.mojom.AssociatedProcess = {};
+
 codelabs.mojom.AssociatedProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,6 +233,8 @@ codelabs.mojom.AssociatedProcessRequest = codelabs.mojom.AssociatedProcessPendin
 
 
 // Interface: GenericInterface
+codelabs.mojom.GenericInterface = {};
+
 codelabs.mojom.GenericInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,6 +285,8 @@ codelabs.mojom.GenericInterfaceRequest = codelabs.mojom.GenericInterfacePendingR
 
 
 // Interface: Process
+codelabs.mojom.Process = {};
+
 codelabs.mojom.ProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -77,6 +77,8 @@ arc.mojom.MessageCenterVisibility = {
 };
 
 // Interface: NotificationsHost
+arc.mojom.NotificationsHost = {};
+
 arc.mojom.NotificationsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -127,6 +129,8 @@ arc.mojom.NotificationsHostRequest = arc.mojom.NotificationsHostPendingReceiver;
 
 
 // Interface: NotificationsInstance
+arc.mojom.NotificationsInstance = {};
+
 arc.mojom.NotificationsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

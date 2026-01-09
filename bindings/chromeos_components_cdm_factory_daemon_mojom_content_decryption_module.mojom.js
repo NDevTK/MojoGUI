@@ -79,6 +79,8 @@ chromeos.cdm.mojom.DecryptStatus = {
 };
 
 // Interface: ContentDecryptionModule
+chromeos.cdm.mojom.ContentDecryptionModule = {};
+
 chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRequest = chromeos.cdm.mojom.ContentDe
 
 
 // Interface: ContentDecryptionModuleClient
+chromeos.cdm.mojom.ContentDecryptionModuleClient = {};
+
 chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

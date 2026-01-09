@@ -10,6 +10,8 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Interface: WebNNGraphBuilder
+webnn.mojom.WebNNGraphBuilder = {};
+
 webnn.mojom.WebNNGraphBuilderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

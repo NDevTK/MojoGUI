@@ -43,6 +43,8 @@ compose.mojom.UserFeedback = {
 };
 
 // Interface: ComposeSessionUntrustedPageHandlerFactory
+compose.mojom.ComposeSessionUntrustedPageHandlerFactory = {};
+
 compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -118,6 +120,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRequest = compose.mojom.C
 
 
 // Interface: ComposeSessionUntrustedPageHandler
+compose.mojom.ComposeSessionUntrustedPageHandler = {};
+
 compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -627,6 +631,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRequest = compose.mojom.ComposeS
 
 
 // Interface: ComposeClientUntrustedPageHandler
+compose.mojom.ComposeClientUntrustedPageHandler = {};
+
 compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -766,6 +772,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRequest = compose.mojom.ComposeCl
 
 
 // Interface: ComposeUntrustedDialog
+compose.mojom.ComposeUntrustedDialog = {};
+
 compose.mojom.ComposeUntrustedDialogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

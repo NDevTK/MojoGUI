@@ -22,6 +22,8 @@ content.mojom.MhtmlSaveStatus = {
 };
 
 // Interface: MhtmlFileWriter
+content.mojom.MhtmlFileWriter = {};
+
 content.mojom.MhtmlFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

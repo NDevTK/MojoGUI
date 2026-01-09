@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: FileUtilService
+chrome.mojom.FileUtilService = {};
+
 chrome.mojom.FileUtilServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

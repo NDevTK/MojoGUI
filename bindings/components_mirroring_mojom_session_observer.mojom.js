@@ -28,6 +28,8 @@ mirroring.mojom.SessionError = {
 };
 
 // Interface: SessionObserver
+mirroring.mojom.SessionObserver = {};
+
 mirroring.mojom.SessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

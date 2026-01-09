@@ -25,6 +25,8 @@ ash.diagnostics.mojom.BatteryState = {
 };
 
 // Interface: BatteryChargeStatusObserver
+ash.diagnostics.mojom.BatteryChargeStatusObserver = {};
+
 ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -98,6 +100,8 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRequest = ash.diagnostics.mojom
 
 
 // Interface: BatteryHealthObserver
+ash.diagnostics.mojom.BatteryHealthObserver = {};
+
 ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -171,6 +175,8 @@ ash.diagnostics.mojom.BatteryHealthObserverRequest = ash.diagnostics.mojom.Batte
 
 
 // Interface: MemoryUsageObserver
+ash.diagnostics.mojom.MemoryUsageObserver = {};
+
 ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,6 +250,8 @@ ash.diagnostics.mojom.MemoryUsageObserverRequest = ash.diagnostics.mojom.MemoryU
 
 
 // Interface: CpuUsageObserver
+ash.diagnostics.mojom.CpuUsageObserver = {};
+
 ash.diagnostics.mojom.CpuUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -317,6 +325,8 @@ ash.diagnostics.mojom.CpuUsageObserverRequest = ash.diagnostics.mojom.CpuUsageOb
 
 
 // Interface: SystemDataProvider
+ash.diagnostics.mojom.SystemDataProvider = {};
+
 ash.diagnostics.mojom.SystemDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

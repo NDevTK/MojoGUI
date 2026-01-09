@@ -17,6 +17,8 @@ font_data_service.mojom.TypefaceSlant = {
 };
 
 // Interface: FontDataService
+font_data_service.mojom.FontDataService = {};
+
 font_data_service.mojom.FontDataServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: CameraHalClient
+cros.mojom.CameraHalClient = {};
+
 cros.mojom.CameraHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

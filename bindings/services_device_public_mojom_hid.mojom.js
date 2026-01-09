@@ -16,6 +16,8 @@ device.mojom.HidBusType = {
 };
 
 // Interface: HidManagerClient
+device.mojom.HidManagerClient = {};
+
 device.mojom.HidManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -66,6 +68,8 @@ device.mojom.HidManagerClientRequest = device.mojom.HidManagerClientPendingRecei
 
 
 // Interface: HidManager
+device.mojom.HidManager = {};
+
 device.mojom.HidManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -116,6 +120,8 @@ device.mojom.HidManagerRequest = device.mojom.HidManagerPendingReceiver;
 
 
 // Interface: HidConnection
+device.mojom.HidConnection = {};
+
 device.mojom.HidConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -166,6 +172,8 @@ device.mojom.HidConnectionRequest = device.mojom.HidConnectionPendingReceiver;
 
 
 // Interface: HidConnectionClient
+device.mojom.HidConnectionClient = {};
+
 device.mojom.HidConnectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -216,6 +224,8 @@ device.mojom.HidConnectionClientRequest = device.mojom.HidConnectionClientPendin
 
 
 // Interface: HidConnectionWatcher
+device.mojom.HidConnectionWatcher = {};
+
 device.mojom.HidConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: DhcpWpadUrlClient
+network.mojom.DhcpWpadUrlClient = {};
+
 network.mojom.DhcpWpadUrlClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

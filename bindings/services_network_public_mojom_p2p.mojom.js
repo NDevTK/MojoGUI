@@ -18,6 +18,8 @@ network.mojom.EcnMarking = {
 };
 
 // Interface: P2PNetworkNotificationClient
+network.mojom.P2PNetworkNotificationClient = {};
+
 network.mojom.P2PNetworkNotificationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -93,6 +95,8 @@ network.mojom.P2PNetworkNotificationClientRequest = network.mojom.P2PNetworkNoti
 
 
 // Interface: P2PSocketManager
+network.mojom.P2PSocketManager = {};
+
 network.mojom.P2PSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -234,6 +238,8 @@ network.mojom.P2PSocketManagerRequest = network.mojom.P2PSocketManagerPendingRec
 
 
 // Interface: P2PSocket
+network.mojom.P2PSocket = {};
+
 network.mojom.P2PSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -355,6 +361,8 @@ network.mojom.P2PSocketRequest = network.mojom.P2PSocketPendingReceiver;
 
 
 // Interface: P2PSocketClient
+network.mojom.P2PSocketClient = {};
+
 network.mojom.P2PSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

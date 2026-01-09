@@ -25,6 +25,8 @@ crosapi.mojom.VideoRotation = {
 };
 
 // Interface: ScopedAccessPermission
+crosapi.mojom.ScopedAccessPermission = {};
+
 crosapi.mojom.ScopedAccessPermissionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -75,6 +77,8 @@ crosapi.mojom.ScopedAccessPermissionRequest = crosapi.mojom.ScopedAccessPermissi
 
 
 // Interface: VideoFrameHandler
+crosapi.mojom.VideoFrameHandler = {};
+
 crosapi.mojom.VideoFrameHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -125,6 +129,8 @@ crosapi.mojom.VideoFrameHandlerRequest = crosapi.mojom.VideoFrameHandlerPendingR
 
 
 // Interface: VideoCaptureDevice
+crosapi.mojom.VideoCaptureDevice = {};
+
 crosapi.mojom.VideoCaptureDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -175,6 +181,8 @@ crosapi.mojom.VideoCaptureDeviceRequest = crosapi.mojom.VideoCaptureDevicePendin
 
 
 // Interface: VideoCaptureDeviceFactory
+crosapi.mojom.VideoCaptureDeviceFactory = {};
+
 crosapi.mojom.VideoCaptureDeviceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

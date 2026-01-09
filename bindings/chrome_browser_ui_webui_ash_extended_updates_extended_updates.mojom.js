@@ -11,6 +11,8 @@ ash.extended_updates.mojom = ash.extended_updates.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.extended_updates.mojom.PageHandlerFactory = {};
+
 ash.extended_updates.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.extended_updates.mojom.PageHandlerFactoryRequest = ash.extended_updates.mojo
 
 
 // Interface: PageHandler
+ash.extended_updates.mojom.PageHandler = {};
+
 ash.extended_updates.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,6 +231,8 @@ ash.extended_updates.mojom.PageHandlerRequest = ash.extended_updates.mojom.PageH
 
 
 // Interface: Page
+ash.extended_updates.mojom.Page = {};
+
 ash.extended_updates.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -19,6 +19,8 @@ chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResult = {
 };
 
 // Interface: HeatmapPalmRejectionClient
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient = {};
+
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

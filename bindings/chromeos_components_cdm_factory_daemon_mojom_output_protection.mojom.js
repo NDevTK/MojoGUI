@@ -30,6 +30,8 @@ chromeos.cdm.mojom.LinkType = {
 };
 
 // Interface: OutputProtection
+chromeos.cdm.mojom.OutputProtection = {};
+
 chromeos.cdm.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

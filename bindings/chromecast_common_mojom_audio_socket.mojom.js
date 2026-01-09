@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: AudioSocketBroker
+chromecast.mojom.AudioSocketBroker = {};
+
 chromecast.mojom.AudioSocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

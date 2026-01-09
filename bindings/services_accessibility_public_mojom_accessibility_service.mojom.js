@@ -10,6 +10,8 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: AssistiveTechnologyController
+ax.mojom.AssistiveTechnologyController = {};
+
 ax.mojom.AssistiveTechnologyControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ ax.mojom.AssistiveTechnologyControllerRequest = ax.mojom.AssistiveTechnologyCont
 
 
 // Interface: AccessibilityService
+ax.mojom.AccessibilityService = {};
+
 ax.mojom.AccessibilityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -204,6 +208,8 @@ ax.mojom.AccessibilityServiceRequest = ax.mojom.AccessibilityServicePendingRecei
 
 
 // Interface: AccessibilityServiceClient
+ax.mojom.AccessibilityServiceClient = {};
+
 ax.mojom.AccessibilityServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

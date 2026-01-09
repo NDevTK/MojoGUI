@@ -11,6 +11,8 @@ ash.mall.mojom = ash.mall.mojom || {};
 
 
 // Interface: PageHandler
+ash.mall.mojom.PageHandler = {};
+
 ash.mall.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

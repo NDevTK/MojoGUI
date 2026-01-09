@@ -18,6 +18,8 @@ remoting.mojom.TransportRouteType = {
 };
 
 // Interface: RemotingHostControl
+remoting.mojom.RemotingHostControl = {};
+
 remoting.mojom.RemotingHostControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -139,6 +141,8 @@ remoting.mojom.RemotingHostControlRequest = remoting.mojom.RemotingHostControlPe
 
 
 // Interface: DesktopSessionConnectionEvents
+remoting.mojom.DesktopSessionConnectionEvents = {};
+
 remoting.mojom.DesktopSessionConnectionEventsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -237,6 +241,8 @@ remoting.mojom.DesktopSessionConnectionEventsRequest = remoting.mojom.DesktopSes
 
 
 // Interface: HostStatusObserver
+remoting.mojom.HostStatusObserver = {};
+
 remoting.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

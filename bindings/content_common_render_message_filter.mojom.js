@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RenderMessageFilter
+content.mojom.RenderMessageFilter = {};
+
 content.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

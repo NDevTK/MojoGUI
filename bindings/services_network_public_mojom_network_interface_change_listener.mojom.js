@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkInterfaceChangeListener
+network.mojom.NetworkInterfaceChangeListener = {};
+
 network.mojom.NetworkInterfaceChangeListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

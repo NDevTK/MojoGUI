@@ -49,6 +49,8 @@ content.mojom.InputEventPattern = {
 };
 
 // Interface: InputInjector
+content.mojom.InputInjector = {};
+
 content.mojom.InputInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

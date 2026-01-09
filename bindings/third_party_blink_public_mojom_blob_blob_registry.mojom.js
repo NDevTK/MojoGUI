@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ProgressClient
+blink.mojom.ProgressClient = {};
+
 blink.mojom.ProgressClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ blink.mojom.ProgressClientRequest = blink.mojom.ProgressClientPendingReceiver;
 
 
 // Interface: BlobRegistry
+blink.mojom.BlobRegistry = {};
+
 blink.mojom.BlobRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

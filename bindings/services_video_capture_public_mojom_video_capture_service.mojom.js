@@ -10,6 +10,8 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: AcceleratorFactory
+video_capture.mojom.AcceleratorFactory = {};
+
 video_capture.mojom.AcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ video_capture.mojom.AcceleratorFactoryRequest = video_capture.mojom.AcceleratorF
 
 
 // Interface: VideoCaptureService
+video_capture.mojom.VideoCaptureService = {};
+
 video_capture.mojom.VideoCaptureServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

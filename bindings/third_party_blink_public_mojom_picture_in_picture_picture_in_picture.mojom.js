@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PictureInPictureSessionObserver
+blink.mojom.PictureInPictureSessionObserver = {};
+
 blink.mojom.PictureInPictureSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ blink.mojom.PictureInPictureSessionObserverRequest = blink.mojom.PictureInPictur
 
 
 // Interface: PictureInPictureSession
+blink.mojom.PictureInPictureSession = {};
+
 blink.mojom.PictureInPictureSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,6 +231,8 @@ blink.mojom.PictureInPictureSessionRequest = blink.mojom.PictureInPictureSession
 
 
 // Interface: PictureInPictureService
+blink.mojom.PictureInPictureService = {};
+
 blink.mojom.PictureInPictureServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

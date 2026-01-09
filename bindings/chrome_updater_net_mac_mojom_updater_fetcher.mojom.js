@@ -10,6 +10,8 @@ updater.mojom = updater.mojom || {};
 
 
 // Interface: PostRequestObserver
+updater.mojom.PostRequestObserver = {};
+
 updater.mojom.PostRequestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +137,8 @@ updater.mojom.PostRequestObserverRequest = updater.mojom.PostRequestObserverPend
 
 
 // Interface: FileDownloadObserver
+updater.mojom.FileDownloadObserver = {};
+
 updater.mojom.FileDownloadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,6 +260,8 @@ updater.mojom.FileDownloadObserverRequest = updater.mojom.FileDownloadObserverPe
 
 
 // Interface: FetchService
+updater.mojom.FetchService = {};
+
 updater.mojom.FetchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

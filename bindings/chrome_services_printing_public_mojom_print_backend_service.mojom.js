@@ -10,6 +10,8 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: UnsandboxedPrintBackendHost
+printing.mojom.UnsandboxedPrintBackendHost = {};
+
 printing.mojom.UnsandboxedPrintBackendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ printing.mojom.UnsandboxedPrintBackendHostRequest = printing.mojom.UnsandboxedPr
 
 
 // Interface: SandboxedPrintBackendHost
+printing.mojom.SandboxedPrintBackendHost = {};
+
 printing.mojom.SandboxedPrintBackendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ printing.mojom.SandboxedPrintBackendHostRequest = printing.mojom.SandboxedPrintB
 
 
 // Interface: PrintBackendService
+printing.mojom.PrintBackendService = {};
+
 printing.mojom.PrintBackendServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: EmbeddedWorkerInstanceClient
+blink.mojom.EmbeddedWorkerInstanceClient = {};
+
 blink.mojom.EmbeddedWorkerInstanceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ blink.mojom.EmbeddedWorkerInstanceClientRequest = blink.mojom.EmbeddedWorkerInst
 
 
 // Interface: EmbeddedWorkerInstanceHost
+blink.mojom.EmbeddedWorkerInstanceHost = {};
+
 blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

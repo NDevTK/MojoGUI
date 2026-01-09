@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: HidService
+blink.mojom.HidService = {};
+
 blink.mojom.HidServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

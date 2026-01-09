@@ -10,6 +10,8 @@ tabs_api.mojom = tabs_api.mojom || {};
 
 
 // Interface: TabStripService
+tabs_api.mojom.TabStripService = {};
+
 tabs_api.mojom.TabStripServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -223,6 +225,8 @@ tabs_api.mojom.TabStripServiceRequest = tabs_api.mojom.TabStripServicePendingRec
 
 
 // Interface: TabsObserver
+tabs_api.mojom.TabsObserver = {};
+
 tabs_api.mojom.TabsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

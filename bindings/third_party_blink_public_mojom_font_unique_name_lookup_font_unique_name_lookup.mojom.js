@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FontUniqueNameLookup
+blink.mojom.FontUniqueNameLookup = {};
+
 blink.mojom.FontUniqueNameLookupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

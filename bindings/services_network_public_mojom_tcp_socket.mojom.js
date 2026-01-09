@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: TCPBoundSocket
+network.mojom.TCPBoundSocket = {};
+
 network.mojom.TCPBoundSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -140,6 +142,8 @@ network.mojom.TCPBoundSocketRequest = network.mojom.TCPBoundSocketPendingReceive
 
 
 // Interface: TCPConnectedSocket
+network.mojom.TCPConnectedSocket = {};
+
 network.mojom.TCPConnectedSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -378,6 +382,8 @@ network.mojom.TCPConnectedSocketRequest = network.mojom.TCPConnectedSocketPendin
 
 
 // Interface: SocketObserver
+network.mojom.SocketObserver = {};
+
 network.mojom.SocketObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,6 +480,8 @@ network.mojom.SocketObserverRequest = network.mojom.SocketObserverPendingReceive
 
 
 // Interface: TCPServerSocket
+network.mojom.TCPServerSocket = {};
+
 network.mojom.TCPServerSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

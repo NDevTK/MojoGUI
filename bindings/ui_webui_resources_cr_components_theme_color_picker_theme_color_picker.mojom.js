@@ -10,6 +10,8 @@ theme_color_picker.mojom = theme_color_picker.mojom || {};
 
 
 // Interface: ThemeColorPickerHandlerFactory
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
+
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRequest = theme_color_pic
 
 
 // Interface: ThemeColorPickerHandler
+theme_color_picker.mojom.ThemeColorPickerHandler = {};
+
 theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,6 +309,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRequest = theme_color_picker.moj
 
 
 // Interface: ThemeColorPickerClient
+theme_color_picker.mojom.ThemeColorPickerClient = {};
+
 theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

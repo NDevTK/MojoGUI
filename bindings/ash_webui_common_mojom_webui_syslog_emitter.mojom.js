@@ -11,6 +11,8 @@ ash.common.mojom = ash.common.mojom || {};
 
 
 // Interface: WebUiSyslogEmitter
+ash.common.mojom.WebUiSyslogEmitter = {};
+
 ash.common.mojom.WebUiSyslogEmitterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

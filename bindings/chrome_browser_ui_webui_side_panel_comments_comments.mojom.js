@@ -10,6 +10,8 @@ comments.mojom = comments.mojom || {};
 
 
 // Interface: PageHandlerFactory
+comments.mojom.PageHandlerFactory = {};
+
 comments.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ comments.mojom.PageHandlerFactoryRequest = comments.mojom.PageHandlerFactoryPend
 
 
 // Interface: PageHandler
+comments.mojom.PageHandler = {};
+
 comments.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -156,6 +160,8 @@ comments.mojom.PageHandlerRequest = comments.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+comments.mojom.Page = {};
+
 comments.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

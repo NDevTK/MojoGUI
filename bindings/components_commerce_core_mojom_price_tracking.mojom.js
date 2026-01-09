@@ -11,6 +11,8 @@ commerce.price_tracking.mojom = commerce.price_tracking.mojom || {};
 
 
 // Interface: PriceTrackingHandler
+commerce.price_tracking.mojom.PriceTrackingHandler = {};
+
 commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,6 +294,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRequest = commerce.price_track
 
 
 // Interface: Page
+commerce.price_tracking.mojom.Page = {};
+
 commerce.price_tracking.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -435,6 +439,8 @@ commerce.price_tracking.mojom.PageRequest = commerce.price_tracking.mojom.PagePe
 
 
 // Interface: PriceTrackingHandlerFactory
+commerce.price_tracking.mojom.PriceTrackingHandlerFactory = {};
+
 commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

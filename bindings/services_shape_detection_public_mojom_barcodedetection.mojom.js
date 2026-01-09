@@ -28,6 +28,8 @@ shape_detection.mojom.BarcodeFormat = {
 };
 
 // Interface: BarcodeDetection
+shape_detection.mojom.BarcodeDetection = {};
+
 shape_detection.mojom.BarcodeDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -45,6 +45,8 @@ bluetooth.mojom.DescriptorOperationType = {
 };
 
 // Interface: FakeBluetooth
+bluetooth.mojom.FakeBluetooth = {};
+
 bluetooth.mojom.FakeBluetoothPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -189,6 +191,8 @@ bluetooth.mojom.FakeBluetoothRequest = bluetooth.mojom.FakeBluetoothPendingRecei
 
 
 // Interface: FakeCentral
+bluetooth.mojom.FakeCentral = {};
+
 bluetooth.mojom.FakeCentralPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1187,6 +1191,8 @@ bluetooth.mojom.FakeCentralRequest = bluetooth.mojom.FakeCentralPendingReceiver;
 
 
 // Interface: FakeCentralClient
+bluetooth.mojom.FakeCentralClient = {};
+
 bluetooth.mojom.FakeCentralClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

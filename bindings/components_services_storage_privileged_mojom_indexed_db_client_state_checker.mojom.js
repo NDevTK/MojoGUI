@@ -18,6 +18,8 @@ storage.mojom.DisallowInactiveClientReason = {
 };
 
 // Interface: IndexedDBClientStateChecker
+storage.mojom.IndexedDBClientStateChecker = {};
+
 storage.mojom.IndexedDBClientStateCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ storage.mojom.IndexedDBClientStateCheckerRequest = storage.mojom.IndexedDBClient
 
 
 // Interface: IndexedDBClientKeepActive
+storage.mojom.IndexedDBClientKeepActive = {};
+
 storage.mojom.IndexedDBClientKeepActivePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

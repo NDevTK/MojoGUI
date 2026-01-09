@@ -16,6 +16,8 @@ blink.mojom.SubAppsServiceResultCode = {
 };
 
 // Interface: SubAppsService
+blink.mojom.SubAppsService = {};
+
 blink.mojom.SubAppsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

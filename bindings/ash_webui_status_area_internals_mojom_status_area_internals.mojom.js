@@ -20,6 +20,8 @@ ash.mojom.status_area_internals.BatteryIcon = {
 };
 
 // Interface: PageHandler
+ash.mojom.status_area_internals.PageHandler = {};
+
 ash.mojom.status_area_internals.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

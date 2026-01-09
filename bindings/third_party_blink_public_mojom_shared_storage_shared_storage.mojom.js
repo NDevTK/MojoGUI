@@ -30,6 +30,8 @@ blink.mojom.SharedStorageDataOriginType = {
 };
 
 // Interface: SharedStorageWorkletHost
+blink.mojom.SharedStorageWorkletHost = {};
+
 blink.mojom.SharedStorageWorkletHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -166,6 +168,8 @@ blink.mojom.SharedStorageWorkletHostRequest = blink.mojom.SharedStorageWorkletHo
 
 
 // Interface: SharedStorageDocumentService
+blink.mojom.SharedStorageDocumentService = {};
+
 blink.mojom.SharedStorageDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

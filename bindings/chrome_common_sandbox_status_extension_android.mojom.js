@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: SandboxStatusExtension
+chrome.mojom.SandboxStatusExtension = {};
+
 chrome.mojom.SandboxStatusExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

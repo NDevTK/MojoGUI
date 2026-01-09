@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ApiBindings
+chromecast.mojom.ApiBindings = {};
+
 chromecast.mojom.ApiBindingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

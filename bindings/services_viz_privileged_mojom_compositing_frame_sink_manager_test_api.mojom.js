@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: FrameSinkManagerTestApi
+viz.mojom.FrameSinkManagerTestApi = {};
+
 viz.mojom.FrameSinkManagerTestApiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

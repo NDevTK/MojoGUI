@@ -10,6 +10,8 @@ privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
 
 
 // Interface: PageHandler
+privacy_sandbox_internals.mojom.PageHandler = {};
+
 privacy_sandbox_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -239,6 +241,8 @@ privacy_sandbox_internals.mojom.PageHandlerRequest = privacy_sandbox_internals.m
 
 
 // Interface: Page
+privacy_sandbox_internals.mojom.Page = {};
+
 privacy_sandbox_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

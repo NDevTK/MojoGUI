@@ -133,6 +133,8 @@ actor.mojom.JournalEntryType = {
 };
 
 // Interface: JournalClient
+actor.mojom.JournalClient = {};
+
 actor.mojom.JournalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -206,6 +208,8 @@ actor.mojom.JournalClientRequest = actor.mojom.JournalClientPendingReceiver;
 
 
 // Interface: PageStabilityMonitor
+actor.mojom.PageStabilityMonitor = {};
+
 actor.mojom.PageStabilityMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

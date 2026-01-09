@@ -10,6 +10,8 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Interface: MediaController
+media_router.mojom.MediaController = {};
+
 media_router.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ cert_verifier.mojom = cert_verifier.mojom || {};
 
 
 // Interface: CertVerifierServiceUpdater
+cert_verifier.mojom.CertVerifierServiceUpdater = {};
+
 cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ cast_streaming.mojom = cast_streaming.mojom || {};
 
 
 // Interface: AudioBufferRequester
+cast_streaming.mojom.AudioBufferRequester = {};
+
 cast_streaming.mojom.AudioBufferRequesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -130,6 +132,8 @@ cast_streaming.mojom.AudioBufferRequesterRequest = cast_streaming.mojom.AudioBuf
 
 
 // Interface: VideoBufferRequester
+cast_streaming.mojom.VideoBufferRequester = {};
+
 cast_streaming.mojom.VideoBufferRequesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,6 +254,8 @@ cast_streaming.mojom.VideoBufferRequesterRequest = cast_streaming.mojom.VideoBuf
 
 
 // Interface: DemuxerConnector
+cast_streaming.mojom.DemuxerConnector = {};
+
 cast_streaming.mojom.DemuxerConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

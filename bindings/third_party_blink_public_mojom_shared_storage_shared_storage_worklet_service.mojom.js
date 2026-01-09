@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SharedStorageEntriesListener
+blink.mojom.SharedStorageEntriesListener = {};
+
 blink.mojom.SharedStorageEntriesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -87,6 +89,8 @@ blink.mojom.SharedStorageEntriesListenerRequest = blink.mojom.SharedStorageEntri
 
 
 // Interface: SharedStorageWorkletServiceClient
+blink.mojom.SharedStorageWorkletServiceClient = {};
+
 blink.mojom.SharedStorageWorkletServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -451,6 +455,8 @@ blink.mojom.SharedStorageWorkletServiceClientRequest = blink.mojom.SharedStorage
 
 
 // Interface: SharedStorageWorkletService
+blink.mojom.SharedStorageWorkletService = {};
+
 blink.mojom.SharedStorageWorkletServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

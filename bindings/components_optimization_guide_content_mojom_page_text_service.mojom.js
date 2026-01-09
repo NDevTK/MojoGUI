@@ -16,6 +16,8 @@ optimization_guide.mojom.TextDumpEvent = {
 };
 
 // Interface: PageTextConsumer
+optimization_guide.mojom.PageTextConsumer = {};
+
 optimization_guide.mojom.PageTextConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -111,6 +113,8 @@ optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.Page
 
 
 // Interface: PageTextService
+optimization_guide.mojom.PageTextService = {};
+
 optimization_guide.mojom.PageTextServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

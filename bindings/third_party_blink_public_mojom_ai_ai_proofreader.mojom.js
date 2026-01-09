@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AIProofreader
+blink.mojom.AIProofreader = {};
+
 blink.mojom.AIProofreaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -22,6 +22,8 @@ network.mojom.RestrictedCookieManagerRole = {
 };
 
 // Interface: RestrictedCookieManager
+network.mojom.RestrictedCookieManager = {};
+
 network.mojom.RestrictedCookieManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

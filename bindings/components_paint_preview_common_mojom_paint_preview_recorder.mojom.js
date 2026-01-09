@@ -21,6 +21,8 @@ paint_preview.mojom.PaintPreviewStatus = {
 };
 
 // Interface: PaintPreviewRecorder
+paint_preview.mojom.PaintPreviewRecorder = {};
+
 paint_preview.mojom.PaintPreviewRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

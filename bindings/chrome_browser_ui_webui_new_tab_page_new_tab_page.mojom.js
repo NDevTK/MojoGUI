@@ -59,6 +59,8 @@ new_tab_page.mojom.OptInStatus = {
 };
 
 // Interface: PageHandlerFactory
+new_tab_page.mojom.PageHandlerFactory = {};
+
 new_tab_page.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -133,6 +135,8 @@ new_tab_page.mojom.PageHandlerFactoryRequest = new_tab_page.mojom.PageHandlerFac
 
 
 // Interface: PageHandler
+new_tab_page.mojom.PageHandler = {};
+
 new_tab_page.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -972,6 +976,8 @@ new_tab_page.mojom.PageHandlerRequest = new_tab_page.mojom.PageHandlerPendingRec
 
 
 // Interface: Page
+new_tab_page.mojom.Page = {};
+
 new_tab_page.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

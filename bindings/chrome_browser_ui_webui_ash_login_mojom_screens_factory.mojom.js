@@ -11,6 +11,8 @@ ash.screens_factory.mojom = ash.screens_factory.mojom || {};
 
 
 // Interface: ScreensFactory
+ash.screens_factory.mojom.ScreensFactory = {};
+
 ash.screens_factory.mojom.ScreensFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

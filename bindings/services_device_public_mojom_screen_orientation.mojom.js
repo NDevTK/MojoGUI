@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: ScreenOrientation
+device.mojom.ScreenOrientation = {};
+
 device.mojom.ScreenOrientationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -118,6 +120,8 @@ device.mojom.ScreenOrientationRequest = device.mojom.ScreenOrientationPendingRec
 
 
 // Interface: ScreenOrientationListener
+device.mojom.ScreenOrientationListener = {};
+
 device.mojom.ScreenOrientationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

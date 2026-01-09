@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: TraitsTestService
+network.mojom.TraitsTestService = {};
+
 network.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

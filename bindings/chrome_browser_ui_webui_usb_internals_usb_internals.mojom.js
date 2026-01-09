@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: UsbInternalsPageHandler
+mojom.UsbInternalsPageHandler = {};
+
 mojom.UsbInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

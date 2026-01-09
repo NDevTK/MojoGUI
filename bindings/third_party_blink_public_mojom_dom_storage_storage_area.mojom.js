@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: StorageAreaObserver
+blink.mojom.StorageAreaObserver = {};
+
 blink.mojom.StorageAreaObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -182,6 +184,8 @@ blink.mojom.StorageAreaObserverRequest = blink.mojom.StorageAreaObserverPendingR
 
 
 // Interface: StorageArea
+blink.mojom.StorageArea = {};
+
 blink.mojom.StorageAreaPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

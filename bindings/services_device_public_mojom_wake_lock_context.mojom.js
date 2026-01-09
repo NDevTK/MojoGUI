@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: WakeLockContext
+device.mojom.WakeLockContext = {};
+
 device.mojom.WakeLockContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

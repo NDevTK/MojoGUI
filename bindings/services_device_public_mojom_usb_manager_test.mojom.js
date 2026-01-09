@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: UsbDeviceManagerTest
+device.mojom.UsbDeviceManagerTest = {};
+
 device.mojom.UsbDeviceManagerTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

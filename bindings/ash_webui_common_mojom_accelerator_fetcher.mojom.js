@@ -11,6 +11,8 @@ ash.common.mojom = ash.common.mojom || {};
 
 
 // Interface: AcceleratorFetcherObserver
+ash.common.mojom.AcceleratorFetcherObserver = {};
+
 ash.common.mojom.AcceleratorFetcherObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.common.mojom.AcceleratorFetcherObserverRequest = ash.common.mojom.Accelerato
 
 
 // Interface: AcceleratorFetcher
+ash.common.mojom.AcceleratorFetcher = {};
+
 ash.common.mojom.AcceleratorFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -20,6 +20,8 @@ ash.screens_oobe.mojom.ConsumerUpdateStep = {
 };
 
 // Interface: ConsumerUpdatePageHandler
+ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
+
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -158,6 +160,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRequest = ash.screens_oobe.mojom
 
 
 // Interface: ConsumerUpdatePage
+ash.screens_oobe.mojom.ConsumerUpdatePage = {};
+
 ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -324,6 +328,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRequest = ash.screens_oobe.mojom.Consum
 
 
 // Interface: PackagedLicensePageHandler
+ash.screens_oobe.mojom.PackagedLicensePageHandler = {};
+
 ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

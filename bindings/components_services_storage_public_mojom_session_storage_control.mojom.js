@@ -16,6 +16,8 @@ storage.mojom.SessionStorageCloneType = {
 };
 
 // Interface: SessionStorageControl
+storage.mojom.SessionStorageControl = {};
+
 storage.mojom.SessionStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

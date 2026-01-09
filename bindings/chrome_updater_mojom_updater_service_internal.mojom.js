@@ -10,6 +10,8 @@ updater.mojom = updater.mojom || {};
 
 
 // Interface: UpdateServiceInternal
+updater.mojom.UpdateServiceInternal = {};
+
 updater.mojom.UpdateServiceInternalPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

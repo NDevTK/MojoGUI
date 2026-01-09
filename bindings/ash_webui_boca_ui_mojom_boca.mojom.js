@@ -165,6 +165,8 @@ ash.boca.mojom.CrdConnectionState = {
 };
 
 // Interface: PageHandler
+ash.boca.mojom.PageHandler = {};
+
 ash.boca.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1273,6 +1275,8 @@ ash.boca.mojom.PageHandlerRequest = ash.boca.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+ash.boca.mojom.Page = {};
+
 ash.boca.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1550,6 +1554,8 @@ ash.boca.mojom.PageRequest = ash.boca.mojom.PagePendingReceiver;
 
 
 // Interface: BocaPageHandlerFactory
+ash.boca.mojom.BocaPageHandlerFactory = {};
+
 ash.boca.mojom.BocaPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

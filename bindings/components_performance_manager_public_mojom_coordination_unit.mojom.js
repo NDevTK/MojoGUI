@@ -18,6 +18,8 @@ performance_manager.mojom.CoordinationUnitType = {
 };
 
 // Interface: DocumentCoordinationUnit
+performance_manager.mojom.DocumentCoordinationUnit = {};
+
 performance_manager.mojom.DocumentCoordinationUnitPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -350,6 +352,8 @@ performance_manager.mojom.DocumentCoordinationUnitRequest = performance_manager.
 
 
 // Interface: ProcessCoordinationUnit
+performance_manager.mojom.ProcessCoordinationUnit = {};
+
 performance_manager.mojom.ProcessCoordinationUnitPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -542,6 +546,8 @@ performance_manager.mojom.ProcessCoordinationUnitRequest = performance_manager.m
 
 
 // Interface: ChildProcessCoordinationUnit
+performance_manager.mojom.ChildProcessCoordinationUnit = {};
+
 performance_manager.mojom.ChildProcessCoordinationUnitPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

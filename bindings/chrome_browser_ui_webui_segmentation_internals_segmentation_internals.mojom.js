@@ -10,6 +10,8 @@ segmentation_internals.mojom = segmentation_internals.mojom || {};
 
 
 // Interface: PageHandlerFactory
+segmentation_internals.mojom.PageHandlerFactory = {};
+
 segmentation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ segmentation_internals.mojom.PageHandlerFactoryRequest = segmentation_internals.
 
 
 // Interface: PageHandler
+segmentation_internals.mojom.PageHandler = {};
+
 segmentation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,6 +231,8 @@ segmentation_internals.mojom.PageHandlerRequest = segmentation_internals.mojom.P
 
 
 // Interface: Page
+segmentation_internals.mojom.Page = {};
+
 segmentation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

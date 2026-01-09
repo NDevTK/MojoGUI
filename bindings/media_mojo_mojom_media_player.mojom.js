@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaPlayer
+media.mojom.MediaPlayer = {};
+
 media.mojom.MediaPlayerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,6 +415,8 @@ media.mojom.MediaPlayerRequest = media.mojom.MediaPlayerPendingReceiver;
 
 
 // Interface: MediaPlayerObserverClient
+media.mojom.MediaPlayerObserverClient = {};
+
 media.mojom.MediaPlayerObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -498,6 +502,8 @@ media.mojom.MediaPlayerObserverClientRequest = media.mojom.MediaPlayerObserverCl
 
 
 // Interface: MediaPlayerObserver
+media.mojom.MediaPlayerObserver = {};
+
 media.mojom.MediaPlayerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -847,6 +853,8 @@ media.mojom.MediaPlayerObserverRequest = media.mojom.MediaPlayerObserverPendingR
 
 
 // Interface: MediaPlayerHost
+media.mojom.MediaPlayerHost = {};
+
 media.mojom.MediaPlayerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

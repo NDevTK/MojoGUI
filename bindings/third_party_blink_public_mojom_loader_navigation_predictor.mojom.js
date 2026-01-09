@@ -19,6 +19,8 @@ blink.mojom.AnchorElementUserInteractionEventForMLModelType = {
 };
 
 // Interface: AnchorElementMetricsHost
+blink.mojom.AnchorElementMetricsHost = {};
+
 blink.mojom.AnchorElementMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -117,6 +117,8 @@ blink.mojom.AIPageContentMode = {
 };
 
 // Interface: AIPageContentAgent
+blink.mojom.AIPageContentAgent = {};
+
 blink.mojom.AIPageContentAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

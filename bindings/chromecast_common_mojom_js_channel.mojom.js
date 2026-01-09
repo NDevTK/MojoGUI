@@ -10,6 +10,8 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: JsChannel
+chromecast.mojom.JsChannel = {};
+
 chromecast.mojom.JsChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ chromecast.mojom.JsChannelRequest = chromecast.mojom.JsChannelPendingReceiver;
 
 
 // Interface: JsChannelClient
+chromecast.mojom.JsChannelClient = {};
+
 chromecast.mojom.JsChannelClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -180,6 +184,8 @@ chromecast.mojom.JsChannelClientRequest = chromecast.mojom.JsChannelClientPendin
 
 
 // Interface: JsChannelBindingProvider
+chromecast.mojom.JsChannelBindingProvider = {};
+
 chromecast.mojom.JsChannelBindingProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

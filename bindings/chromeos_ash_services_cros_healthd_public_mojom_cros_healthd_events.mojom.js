@@ -108,6 +108,8 @@ ash.cros_healthd.mojom.EventCategoryEnum = {
 };
 
 // Interface: CrosHealthdBluetoothObserver
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -158,6 +160,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.mo
 
 
 // Interface: CrosHealthdLidObserver
+ash.cros_healthd.mojom.CrosHealthdLidObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -208,6 +212,8 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.mojom.Cr
 
 
 // Interface: CrosHealthdPowerObserver
+ash.cros_healthd.mojom.CrosHealthdPowerObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,6 +264,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.mojom.
 
 
 // Interface: CrosHealthdAudioObserver
+ash.cros_healthd.mojom.CrosHealthdAudioObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,6 +316,8 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.mojom.
 
 
 // Interface: CrosHealthdThunderboltObserver
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -358,6 +368,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = ash.cros_healthd.
 
 
 // Interface: CrosHealthdUsbObserver
+ash.cros_healthd.mojom.CrosHealthdUsbObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -408,6 +420,8 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.mojom.Cr
 
 
 // Interface: CrosHealthdSdCardObserver
+ash.cros_healthd.mojom.CrosHealthdSdCardObserver = {};
+
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -458,6 +472,8 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = ash.cros_healthd.mojom
 
 
 // Interface: EventObserver
+ash.cros_healthd.mojom.EventObserver = {};
+
 ash.cros_healthd.mojom.EventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

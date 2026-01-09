@@ -10,6 +10,8 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PdfFlattener
+printing.mojom.PdfFlattener = {};
+
 printing.mojom.PdfFlattenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

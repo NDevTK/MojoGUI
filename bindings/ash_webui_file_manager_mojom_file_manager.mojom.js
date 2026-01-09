@@ -11,6 +11,8 @@ ash.file_manager.mojom = ash.file_manager.mojom || {};
 
 
 // Interface: PageHandlerFactory
+ash.file_manager.mojom.PageHandlerFactory = {};
+
 ash.file_manager.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.file_manager.mojom.PageHandlerFactoryRequest = ash.file_manager.mojom.PageHa
 
 
 // Interface: PageHandler
+ash.file_manager.mojom.PageHandler = {};
+
 ash.file_manager.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +139,8 @@ ash.file_manager.mojom.PageHandlerRequest = ash.file_manager.mojom.PageHandlerPe
 
 
 // Interface: Page
+ash.file_manager.mojom.Page = {};
+
 ash.file_manager.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: SharesheetHost
+arc.mojom.SharesheetHost = {};
+
 arc.mojom.SharesheetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -60,6 +62,8 @@ arc.mojom.SharesheetHostRequest = arc.mojom.SharesheetHostPendingReceiver;
 
 
 // Interface: SharesheetInstance
+arc.mojom.SharesheetInstance = {};
+
 arc.mojom.SharesheetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

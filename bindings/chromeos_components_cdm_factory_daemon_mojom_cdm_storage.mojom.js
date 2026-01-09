@@ -11,6 +11,8 @@ chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
 
 // Interface: CdmStorage
+chromeos.cdm.mojom.CdmStorage = {};
+
 chromeos.cdm.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

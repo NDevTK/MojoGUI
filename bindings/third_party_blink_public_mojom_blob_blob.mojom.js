@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BlobReaderClient
+blink.mojom.BlobReaderClient = {};
+
 blink.mojom.BlobReaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -108,6 +110,8 @@ blink.mojom.BlobReaderClientRequest = blink.mojom.BlobReaderClientPendingReceive
 
 
 // Interface: Blob
+blink.mojom.Blob = {};
+
 blink.mojom.BlobPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

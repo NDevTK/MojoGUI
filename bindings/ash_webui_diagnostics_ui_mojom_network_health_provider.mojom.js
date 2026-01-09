@@ -59,6 +59,8 @@ ash.diagnostics.mojom.SecurityType = {
 };
 
 // Interface: NetworkListObserver
+ash.diagnostics.mojom.NetworkListObserver = {};
+
 ash.diagnostics.mojom.NetworkListObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -133,6 +135,8 @@ ash.diagnostics.mojom.NetworkListObserverRequest = ash.diagnostics.mojom.Network
 
 
 // Interface: NetworkStateObserver
+ash.diagnostics.mojom.NetworkStateObserver = {};
+
 ash.diagnostics.mojom.NetworkStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -206,6 +210,8 @@ ash.diagnostics.mojom.NetworkStateObserverRequest = ash.diagnostics.mojom.Networ
 
 
 // Interface: NetworkHealthProvider
+ash.diagnostics.mojom.NetworkHealthProvider = {};
+
 ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

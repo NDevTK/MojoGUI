@@ -10,6 +10,8 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: ZeroStateSuggestionsService
+ai.mojom.ZeroStateSuggestionsService = {};
+
 ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

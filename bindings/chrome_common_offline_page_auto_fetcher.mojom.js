@@ -18,6 +18,8 @@ chrome.mojom.OfflinePageAutoFetcherScheduleResult = {
 };
 
 // Interface: OfflinePageAutoFetcher
+chrome.mojom.OfflinePageAutoFetcher = {};
+
 chrome.mojom.OfflinePageAutoFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

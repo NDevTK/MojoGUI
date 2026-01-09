@@ -64,6 +64,8 @@ crosapi.mojom.DisplayRotationOptions = {
 };
 
 // Interface: CrosDisplayConfigController
+crosapi.mojom.CrosDisplayConfigController = {};
+
 crosapi.mojom.CrosDisplayConfigControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -114,6 +116,8 @@ crosapi.mojom.CrosDisplayConfigControllerRequest = crosapi.mojom.CrosDisplayConf
 
 
 // Interface: CrosDisplayConfigObserver
+crosapi.mojom.CrosDisplayConfigObserver = {};
+
 crosapi.mojom.CrosDisplayConfigObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

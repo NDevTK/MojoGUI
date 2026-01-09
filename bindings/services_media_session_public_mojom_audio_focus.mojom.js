@@ -25,6 +25,8 @@ media_session.mojom.AudioFocusType = {
 };
 
 // Interface: AudioFocusObserver
+media_session.mojom.AudioFocusObserver = {};
+
 media_session.mojom.AudioFocusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -75,6 +77,8 @@ media_session.mojom.AudioFocusObserverRequest = media_session.mojom.AudioFocusOb
 
 
 // Interface: AudioFocusRequestClient
+media_session.mojom.AudioFocusRequestClient = {};
+
 media_session.mojom.AudioFocusRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -125,6 +129,8 @@ media_session.mojom.AudioFocusRequestClientRequest = media_session.mojom.AudioFo
 
 
 // Interface: AudioFocusManager
+media_session.mojom.AudioFocusManager = {};
+
 media_session.mojom.AudioFocusManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -175,6 +181,8 @@ media_session.mojom.AudioFocusManagerRequest = media_session.mojom.AudioFocusMan
 
 
 // Interface: AudioFocusManagerDebug
+media_session.mojom.AudioFocusManagerDebug = {};
+
 media_session.mojom.AudioFocusManagerDebugPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

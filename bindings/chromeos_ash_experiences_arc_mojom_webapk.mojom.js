@@ -25,6 +25,8 @@ arc.mojom.WebApkInstallResult = {
 };
 
 // Interface: WebApkInstance
+arc.mojom.WebApkInstance = {};
+
 arc.mojom.WebApkInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

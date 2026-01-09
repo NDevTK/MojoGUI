@@ -32,6 +32,8 @@ arc.mojom.FileSelectorEventType = {
 };
 
 // Interface: FileSystemHost
+arc.mojom.FileSystemHost = {};
+
 arc.mojom.FileSystemHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ arc.mojom.FileSystemHostRequest = arc.mojom.FileSystemHostPendingReceiver;
 
 
 // Interface: FileSystemInstance
+arc.mojom.FileSystemInstance = {};
+
 arc.mojom.FileSystemInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

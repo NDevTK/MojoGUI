@@ -10,6 +10,8 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Interface: LoadSellerWorkletClient
+auction_worklet.mojom.LoadSellerWorkletClient = {};
+
 auction_worklet.mojom.LoadSellerWorkletClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -83,6 +85,8 @@ auction_worklet.mojom.LoadSellerWorkletClientRequest = auction_worklet.mojom.Loa
 
 
 // Interface: AuctionWorkletService
+auction_worklet.mojom.AuctionWorkletService = {};
+
 auction_worklet.mojom.AuctionWorkletServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

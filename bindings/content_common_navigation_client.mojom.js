@@ -19,6 +19,8 @@ content.mojom.NavigationClientDisconnectReason = {
 };
 
 // Interface: NavigationClient
+content.mojom.NavigationClient = {};
+
 content.mojom.NavigationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

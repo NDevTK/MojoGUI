@@ -42,6 +42,8 @@ media.mojom.RecognizerClientType = {
 };
 
 // Interface: SpeechRecognitionContext
+media.mojom.SpeechRecognitionContext = {};
+
 media.mojom.SpeechRecognitionContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -92,6 +94,8 @@ media.mojom.SpeechRecognitionContextRequest = media.mojom.SpeechRecognitionConte
 
 
 // Interface: SpeechRecognitionRecognizer
+media.mojom.SpeechRecognitionRecognizer = {};
+
 media.mojom.SpeechRecognitionRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -142,6 +146,8 @@ media.mojom.SpeechRecognitionRecognizerRequest = media.mojom.SpeechRecognitionRe
 
 
 // Interface: SpeechRecognitionRecognizerClient
+media.mojom.SpeechRecognitionRecognizerClient = {};
+
 media.mojom.SpeechRecognitionRecognizerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -192,6 +198,8 @@ media.mojom.SpeechRecognitionRecognizerClientRequest = media.mojom.SpeechRecogni
 
 
 // Interface: SpeechRecognitionBrowserObserver
+media.mojom.SpeechRecognitionBrowserObserver = {};
+
 media.mojom.SpeechRecognitionBrowserObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -242,6 +250,8 @@ media.mojom.SpeechRecognitionBrowserObserverRequest = media.mojom.SpeechRecognit
 
 
 // Interface: SpeechRecognitionSurface
+media.mojom.SpeechRecognitionSurface = {};
+
 media.mojom.SpeechRecognitionSurfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,6 +302,8 @@ media.mojom.SpeechRecognitionSurfaceRequest = media.mojom.SpeechRecognitionSurfa
 
 
 // Interface: SpeechRecognitionSurfaceClient
+media.mojom.SpeechRecognitionSurfaceClient = {};
+
 media.mojom.SpeechRecognitionSurfaceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,6 +354,8 @@ media.mojom.SpeechRecognitionSurfaceClientRequest = media.mojom.SpeechRecognitio
 
 
 // Interface: SpeechRecognitionClientBrowserInterface
+media.mojom.SpeechRecognitionClientBrowserInterface = {};
+
 media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

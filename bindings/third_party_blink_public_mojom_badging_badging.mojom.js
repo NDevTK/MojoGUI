@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BadgeService
+blink.mojom.BadgeService = {};
+
 blink.mojom.BadgeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

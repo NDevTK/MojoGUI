@@ -28,6 +28,8 @@ arc.mojom.TimedCloudDpcOp = {
 };
 
 // Interface: EnterpriseReportingHost
+arc.mojom.EnterpriseReportingHost = {};
+
 arc.mojom.EnterpriseReportingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -78,6 +80,8 @@ arc.mojom.EnterpriseReportingHostRequest = arc.mojom.EnterpriseReportingHostPend
 
 
 // Interface: EnterpriseReportingInstance
+arc.mojom.EnterpriseReportingInstance = {};
+
 arc.mojom.EnterpriseReportingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

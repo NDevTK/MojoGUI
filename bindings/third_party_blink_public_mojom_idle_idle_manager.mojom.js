@@ -16,6 +16,8 @@ blink.mojom.IdleManagerError = {
 };
 
 // Interface: IdleMonitor
+blink.mojom.IdleMonitor = {};
+
 blink.mojom.IdleMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ blink.mojom.IdleMonitorRequest = blink.mojom.IdleMonitorPendingReceiver;
 
 
 // Interface: IdleManager
+blink.mojom.IdleManager = {};
+
 blink.mojom.IdleManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

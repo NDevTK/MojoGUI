@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: TextSuggestionHost
+blink.mojom.TextSuggestionHost = {};
+
 blink.mojom.TextSuggestionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

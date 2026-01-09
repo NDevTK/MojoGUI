@@ -11,6 +11,8 @@ ash.mojom.sample_swa = ash.mojom.sample_swa || {};
 
 
 // Interface: ChildUntrustedPage
+ash.mojom.sample_swa.ChildUntrustedPage = {};
+
 ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.mojom.sample_swa.ChildUntrustedPageRequest = ash.mojom.sample_swa.ChildUntru
 
 
 // Interface: ParentTrustedPage
+ash.mojom.sample_swa.ParentTrustedPage = {};
+
 ash.mojom.sample_swa.ParentTrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

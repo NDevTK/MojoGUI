@@ -39,6 +39,8 @@ cros.mojom.CaptureIntent = {
 };
 
 // Interface: CameraAppDeviceProvider
+cros.mojom.CameraAppDeviceProvider = {};
+
 cros.mojom.CameraAppDeviceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -197,6 +199,8 @@ cros.mojom.CameraAppDeviceProviderRequest = cros.mojom.CameraAppDeviceProviderPe
 
 
 // Interface: CameraAppDeviceBridge
+cros.mojom.CameraAppDeviceBridge = {};
+
 cros.mojom.CameraAppDeviceBridgePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -392,6 +396,8 @@ cros.mojom.CameraAppDeviceBridgeRequest = cros.mojom.CameraAppDeviceBridgePendin
 
 
 // Interface: CameraAppDevice
+cros.mojom.CameraAppDevice = {};
+
 cros.mojom.CameraAppDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -779,6 +785,8 @@ cros.mojom.CameraAppDeviceRequest = cros.mojom.CameraAppDevicePendingReceiver;
 
 
 // Interface: ResultMetadataObserver
+cros.mojom.ResultMetadataObserver = {};
+
 cros.mojom.ResultMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -852,6 +860,8 @@ cros.mojom.ResultMetadataObserverRequest = cros.mojom.ResultMetadataObserverPend
 
 
 // Interface: CameraEventObserver
+cros.mojom.CameraEventObserver = {};
+
 cros.mojom.CameraEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -924,6 +934,8 @@ cros.mojom.CameraEventObserverRequest = cros.mojom.CameraEventObserverPendingRec
 
 
 // Interface: DocumentCornersObserver
+cros.mojom.DocumentCornersObserver = {};
+
 cros.mojom.DocumentCornersObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -997,6 +1009,8 @@ cros.mojom.DocumentCornersObserverRequest = cros.mojom.DocumentCornersObserverPe
 
 
 // Interface: CameraInfoObserver
+cros.mojom.CameraInfoObserver = {};
+
 cros.mojom.CameraInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1070,6 +1084,8 @@ cros.mojom.CameraInfoObserverRequest = cros.mojom.CameraInfoObserverPendingRecei
 
 
 // Interface: StillCaptureResultObserver
+cros.mojom.StillCaptureResultObserver = {};
+
 cros.mojom.StillCaptureResultObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

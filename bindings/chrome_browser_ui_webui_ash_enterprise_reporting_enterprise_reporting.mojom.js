@@ -10,6 +10,8 @@ enterprise_reporting.mojom = enterprise_reporting.mojom || {};
 
 
 // Interface: PageHandlerFactory
+enterprise_reporting.mojom.PageHandlerFactory = {};
+
 enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ enterprise_reporting.mojom.PageHandlerFactoryRequest = enterprise_reporting.mojo
 
 
 // Interface: PageHandler
+enterprise_reporting.mojom.PageHandler = {};
+
 enterprise_reporting.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,6 +231,8 @@ enterprise_reporting.mojom.PageHandlerRequest = enterprise_reporting.mojom.PageH
 
 
 // Interface: Page
+enterprise_reporting.mojom.Page = {};
+
 enterprise_reporting.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

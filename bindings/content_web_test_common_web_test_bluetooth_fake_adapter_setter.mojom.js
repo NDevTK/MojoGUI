@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: WebTestBluetoothFakeAdapterSetter
+content.mojom.WebTestBluetoothFakeAdapterSetter = {};
+
 content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

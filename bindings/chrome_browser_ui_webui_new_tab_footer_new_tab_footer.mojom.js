@@ -17,6 +17,8 @@ new_tab_footer.mojom.NewTabPageType = {
 };
 
 // Interface: NewTabFooterHandlerFactory
+new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
+
 new_tab_footer.mojom.NewTabFooterHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -91,6 +93,8 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRequest = new_tab_footer.mojom.Ne
 
 
 // Interface: NewTabFooterHandler
+new_tab_footer.mojom.NewTabFooterHandler = {};
+
 new_tab_footer.mojom.NewTabFooterHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -341,6 +345,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRequest = new_tab_footer.mojom.NewTabFoo
 
 
 // Interface: NewTabFooterDocument
+new_tab_footer.mojom.NewTabFooterDocument = {};
+
 new_tab_footer.mojom.NewTabFooterDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

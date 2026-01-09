@@ -17,6 +17,8 @@ blink.mojom.PagehideDispatch = {
 };
 
 // Interface: PageBroadcast
+blink.mojom.PageBroadcast = {};
+
 blink.mojom.PageBroadcastPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

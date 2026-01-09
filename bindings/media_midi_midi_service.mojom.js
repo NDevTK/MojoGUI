@@ -25,6 +25,8 @@ midi.mojom.PortState = {
 };
 
 // Interface: MidiSessionClient
+midi.mojom.MidiSessionClient = {};
+
 midi.mojom.MidiSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -240,6 +242,8 @@ midi.mojom.MidiSessionClientRequest = midi.mojom.MidiSessionClientPendingReceive
 
 
 // Interface: MidiSessionProvider
+midi.mojom.MidiSessionProvider = {};
+
 midi.mojom.MidiSessionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -314,6 +318,8 @@ midi.mojom.MidiSessionProviderRequest = midi.mojom.MidiSessionProviderPendingRec
 
 
 // Interface: MidiSession
+midi.mojom.MidiSession = {};
+
 midi.mojom.MidiSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

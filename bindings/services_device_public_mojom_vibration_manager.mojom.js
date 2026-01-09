@@ -10,6 +10,8 @@ device.mojom = device.mojom || {};
 
 
 // Interface: VibrationManager
+device.mojom.VibrationManager = {};
+
 device.mojom.VibrationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ device.mojom.VibrationManagerRequest = device.mojom.VibrationManagerPendingRecei
 
 
 // Interface: VibrationManagerListener
+device.mojom.VibrationManagerListener = {};
+
 device.mojom.VibrationManagerListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

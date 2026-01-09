@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: ChildMemoryConsumer
+content.mojom.ChildMemoryConsumer = {};
+
 content.mojom.ChildMemoryConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -105,6 +107,8 @@ content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPend
 
 
 // Interface: BrowserMemoryConsumerRegistry
+content.mojom.BrowserMemoryConsumerRegistry = {};
+
 content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

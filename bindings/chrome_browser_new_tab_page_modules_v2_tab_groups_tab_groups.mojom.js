@@ -11,6 +11,8 @@ ntp.tab_groups.mojom = ntp.tab_groups.mojom || {};
 
 
 // Interface: PageHandler
+ntp.tab_groups.mojom.PageHandler = {};
+
 ntp.tab_groups.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -22,6 +22,8 @@ heap_profiling.mojom.AllocatorType = {
 };
 
 // Interface: ProfilingClient
+heap_profiling.mojom.ProfilingClient = {};
+
 heap_profiling.mojom.ProfilingClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

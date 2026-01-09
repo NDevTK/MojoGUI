@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ManifestUrlChangeObserver
+blink.mojom.ManifestUrlChangeObserver = {};
+
 blink.mojom.ManifestUrlChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

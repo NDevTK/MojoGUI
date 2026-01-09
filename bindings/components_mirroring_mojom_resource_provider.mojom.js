@@ -10,6 +10,8 @@ mirroring.mojom = mirroring.mojom || {};
 
 
 // Interface: AudioStreamCreatorClient
+mirroring.mojom.AudioStreamCreatorClient = {};
+
 mirroring.mojom.AudioStreamCreatorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ mirroring.mojom.AudioStreamCreatorClientRequest = mirroring.mojom.AudioStreamCre
 
 
 // Interface: ResourceProvider
+mirroring.mojom.ResourceProvider = {};
+
 mirroring.mojom.ResourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

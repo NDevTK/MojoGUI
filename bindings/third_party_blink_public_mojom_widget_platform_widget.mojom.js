@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WidgetCompositor
+blink.mojom.WidgetCompositor = {};
+
 blink.mojom.WidgetCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ blink.mojom.WidgetCompositorRequest = blink.mojom.WidgetCompositorPendingReceive
 
 
 // Interface: WidgetHost
+blink.mojom.WidgetHost = {};
+
 blink.mojom.WidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,6 +330,8 @@ blink.mojom.WidgetHostRequest = blink.mojom.WidgetHostPendingReceiver;
 
 
 // Interface: Widget
+blink.mojom.Widget = {};
+
 blink.mojom.WidgetPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -559,6 +565,8 @@ blink.mojom.WidgetRequest = blink.mojom.WidgetPendingReceiver;
 
 
 // Interface: RenderInputRouterClient
+blink.mojom.RenderInputRouterClient = {};
+
 blink.mojom.RenderInputRouterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: AudioDecoder
+media.mojom.AudioDecoder = {};
+
 media.mojom.AudioDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -239,6 +241,8 @@ media.mojom.AudioDecoderRequest = media.mojom.AudioDecoderPendingReceiver;
 
 
 // Interface: AudioDecoderClient
+media.mojom.AudioDecoderClient = {};
+
 media.mojom.AudioDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

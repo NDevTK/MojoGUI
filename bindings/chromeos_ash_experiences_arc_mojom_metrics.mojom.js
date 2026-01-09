@@ -261,6 +261,8 @@ arc.mojom.AndroidDataDirectory = {
 };
 
 // Interface: MetricsHost
+arc.mojom.MetricsHost = {};
+
 arc.mojom.MetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,6 +313,8 @@ arc.mojom.MetricsHostRequest = arc.mojom.MetricsHostPendingReceiver;
 
 
 // Interface: MetricsInstance
+arc.mojom.MetricsInstance = {};
+
 arc.mojom.MetricsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

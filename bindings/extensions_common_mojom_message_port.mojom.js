@@ -33,6 +33,8 @@ extensions.mojom.MessagingEndpointType = {
 };
 
 // Interface: MessagePort
+extensions.mojom.MessagePort = {};
+
 extensions.mojom.MessagePortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -129,6 +131,8 @@ extensions.mojom.MessagePortRequest = extensions.mojom.MessagePortPendingReceive
 
 
 // Interface: MessagePortHost
+extensions.mojom.MessagePortHost = {};
+
 extensions.mojom.MessagePortHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -17,6 +17,8 @@ language_detection.mojom.LanguageDetectionModelStatus = {
 };
 
 // Interface: ContentLanguageDetectionDriver
+language_detection.mojom.ContentLanguageDetectionDriver = {};
+
 language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

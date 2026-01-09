@@ -10,6 +10,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: Crosapi
+crosapi.mojom.Crosapi = {};
+
 crosapi.mojom.CrosapiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

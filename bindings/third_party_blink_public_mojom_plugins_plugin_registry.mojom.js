@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: PluginRegistry
+blink.mojom.PluginRegistry = {};
+
 blink.mojom.PluginRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

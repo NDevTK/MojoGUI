@@ -17,6 +17,8 @@ printing.mojom.PrintFailureReason = {
 };
 
 // Interface: PrintRenderer
+printing.mojom.PrintRenderer = {};
+
 printing.mojom.PrintRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -103,6 +105,8 @@ printing.mojom.PrintRendererRequest = printing.mojom.PrintRendererPendingReceive
 
 
 // Interface: PrintPreviewUI
+printing.mojom.PrintPreviewUI = {};
+
 printing.mojom.PrintPreviewUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,6 +376,8 @@ printing.mojom.PrintPreviewUIRequest = printing.mojom.PrintPreviewUIPendingRecei
 
 
 // Interface: PrintRenderFrame
+printing.mojom.PrintRenderFrame = {};
+
 printing.mojom.PrintRenderFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -685,6 +691,8 @@ printing.mojom.PrintRenderFrameRequest = printing.mojom.PrintRenderFramePendingR
 
 
 // Interface: PrintManagerHost
+printing.mojom.PrintManagerHost = {};
+
 printing.mojom.PrintManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

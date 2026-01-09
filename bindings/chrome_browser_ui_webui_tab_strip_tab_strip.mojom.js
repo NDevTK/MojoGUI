@@ -10,6 +10,8 @@ tab_strip.mojom = tab_strip.mojom || {};
 
 
 // Interface: PageHandlerFactory
+tab_strip.mojom.PageHandlerFactory = {};
+
 tab_strip.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ tab_strip.mojom.PageHandlerFactoryRequest = tab_strip.mojom.PageHandlerFactoryPe
 
 
 // Interface: PageHandler
+tab_strip.mojom.PageHandler = {};
+
 tab_strip.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -574,6 +578,8 @@ tab_strip.mojom.PageHandlerRequest = tab_strip.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+tab_strip.mojom.Page = {};
+
 tab_strip.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

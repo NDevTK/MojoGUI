@@ -10,6 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Interface: DevToolsObserver
+network.mojom.DevToolsObserver = {};
+
 network.mojom.DevToolsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

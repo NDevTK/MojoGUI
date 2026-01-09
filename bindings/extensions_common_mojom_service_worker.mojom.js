@@ -10,6 +10,8 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: ServiceWorker
+extensions.mojom.ServiceWorker = {};
+
 extensions.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

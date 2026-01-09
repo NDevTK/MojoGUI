@@ -17,6 +17,8 @@ search_engine_choice.mojom.ScrollState = {
 };
 
 // Interface: PageHandlerFactory
+search_engine_choice.mojom.PageHandlerFactory = {};
+
 search_engine_choice.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -90,6 +92,8 @@ search_engine_choice.mojom.PageHandlerFactoryRequest = search_engine_choice.mojo
 
 
 // Interface: PageHandler
+search_engine_choice.mojom.PageHandler = {};
+
 search_engine_choice.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

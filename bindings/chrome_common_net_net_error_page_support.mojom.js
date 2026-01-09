@@ -10,6 +10,8 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetErrorPageSupport
+chrome.mojom.NetErrorPageSupport = {};
+
 chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

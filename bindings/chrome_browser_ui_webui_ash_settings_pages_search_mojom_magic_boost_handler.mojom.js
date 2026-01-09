@@ -12,6 +12,8 @@ ash.settings.magic_boost_handler.mojom = ash.settings.magic_boost_handler.mojom 
 
 
 // Interface: PageHandlerFactory
+ash.settings.magic_boost_handler.mojom.PageHandlerFactory = {};
+
 ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -85,6 +87,8 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRequest = ash.settings.
 
 
 // Interface: PageHandler
+ash.settings.magic_boost_handler.mojom.PageHandler = {};
+
 ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

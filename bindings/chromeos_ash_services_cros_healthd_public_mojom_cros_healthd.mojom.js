@@ -11,6 +11,8 @@ ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Interface: CrosHealthdDiagnosticsService
+ash.cros_healthd.mojom.CrosHealthdDiagnosticsService = {};
+
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -61,6 +63,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRequest = ash.cros_healthd.m
 
 
 // Interface: CrosHealthdEventService
+ash.cros_healthd.mojom.CrosHealthdEventService = {};
+
 ash.cros_healthd.mojom.CrosHealthdEventServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -111,6 +115,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRequest = ash.cros_healthd.mojom.C
 
 
 // Interface: CrosHealthdProbeService
+ash.cros_healthd.mojom.CrosHealthdProbeService = {};
+
 ash.cros_healthd.mojom.CrosHealthdProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

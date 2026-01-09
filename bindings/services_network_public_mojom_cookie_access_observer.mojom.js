@@ -16,6 +16,8 @@ network.mojom.Type = {
 };
 
 // Interface: CookieAccessObserver
+network.mojom.CookieAccessObserver = {};
+
 network.mojom.CookieAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

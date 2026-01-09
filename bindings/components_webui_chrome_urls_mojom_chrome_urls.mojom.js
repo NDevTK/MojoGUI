@@ -10,6 +10,8 @@ chrome_urls.mojom = chrome_urls.mojom || {};
 
 
 // Interface: PageHandlerFactory
+chrome_urls.mojom.PageHandlerFactory = {};
+
 chrome_urls.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ chrome_urls.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.PageHandlerFacto
 
 
 // Interface: PageHandler
+chrome_urls.mojom.PageHandler = {};
+
 chrome_urls.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -192,6 +196,8 @@ chrome_urls.mojom.PageHandlerRequest = chrome_urls.mojom.PageHandlerPendingRecei
 
 
 // Interface: Page
+chrome_urls.mojom.Page = {};
+
 chrome_urls.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

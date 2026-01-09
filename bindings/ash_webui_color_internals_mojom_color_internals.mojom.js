@@ -11,6 +11,8 @@ ash.color_internals.mojom = ash.color_internals.mojom || {};
 
 
 // Interface: WallpaperColorsObserver
+ash.color_internals.mojom.WallpaperColorsObserver = {};
+
 ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.color_internals.mojom.WallpaperColorsObserverRequest = ash.color_internals.m
 
 
 // Interface: WallpaperColorsHandler
+ash.color_internals.mojom.WallpaperColorsHandler = {};
+
 ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

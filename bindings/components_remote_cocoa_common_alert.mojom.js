@@ -17,6 +17,8 @@ remote_cocoa.mojom.AlertDisposition = {
 };
 
 // Interface: AlertBridge
+remote_cocoa.mojom.AlertBridge = {};
+
 remote_cocoa.mojom.AlertBridgePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

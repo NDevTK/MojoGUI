@@ -10,6 +10,8 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ArcBridgeHost
+arc.mojom.ArcBridgeHost = {};
+
 arc.mojom.ArcBridgeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

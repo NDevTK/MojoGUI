@@ -16,6 +16,8 @@ video_capture.mojom.CreatePushSubscriptionSuccessCode = {
 };
 
 // Interface: PushVideoStreamSubscription
+video_capture.mojom.PushVideoStreamSubscription = {};
+
 video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -283,6 +285,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRequest = video_capture.mojom.Pus
 
 
 // Interface: VideoSource
+video_capture.mojom.VideoSource = {};
+
 video_capture.mojom.VideoSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

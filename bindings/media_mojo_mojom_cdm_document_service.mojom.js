@@ -10,6 +10,8 @@ media.mojom = media.mojom || {};
 
 
 // Interface: CdmDocumentService
+media.mojom.CdmDocumentService = {};
+
 media.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

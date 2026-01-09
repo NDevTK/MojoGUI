@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ImageDownloader
+blink.mojom.ImageDownloader = {};
+
 blink.mojom.ImageDownloaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

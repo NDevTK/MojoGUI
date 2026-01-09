@@ -81,6 +81,8 @@ blink.mojom.WindowProxyAccessType = {
 };
 
 // Interface: LocalFrameHost
+blink.mojom.LocalFrameHost = {};
+
 blink.mojom.LocalFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2149,6 +2151,8 @@ blink.mojom.LocalFrameHostRequest = blink.mojom.LocalFrameHostPendingReceiver;
 
 
 // Interface: NonAssociatedLocalFrameHost
+blink.mojom.NonAssociatedLocalFrameHost = {};
+
 blink.mojom.NonAssociatedLocalFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -2222,6 +2226,8 @@ blink.mojom.NonAssociatedLocalFrameHostRequest = blink.mojom.NonAssociatedLocalF
 
 
 // Interface: LocalFrame
+blink.mojom.LocalFrame = {};
+
 blink.mojom.LocalFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -3763,6 +3769,8 @@ blink.mojom.LocalFrameRequest = blink.mojom.LocalFramePendingReceiver;
 
 
 // Interface: LocalMainFrame
+blink.mojom.LocalMainFrame = {};
+
 blink.mojom.LocalMainFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -4104,6 +4112,8 @@ blink.mojom.LocalMainFrameRequest = blink.mojom.LocalMainFramePendingReceiver;
 
 
 // Interface: LocalMainFrameHost
+blink.mojom.LocalMainFrameHost = {};
+
 blink.mojom.LocalMainFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -61,6 +61,8 @@ downloads.mojom.SafeBrowsingState = {
 };
 
 // Interface: PageHandlerFactory
+downloads.mojom.PageHandlerFactory = {};
+
 downloads.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -135,6 +137,8 @@ downloads.mojom.PageHandlerFactoryRequest = downloads.mojom.PageHandlerFactoryPe
 
 
 // Interface: PageHandler
+downloads.mojom.PageHandler = {};
+
 downloads.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -744,6 +748,8 @@ downloads.mojom.PageHandlerRequest = downloads.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
+downloads.mojom.Page = {};
+
 downloads.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

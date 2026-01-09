@@ -11,6 +11,8 @@ chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
 // Interface: CastDemoVolumeChangeObserver
+chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
+
 chromecast.shell.mojom.CastDemoVolumeChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRequest = chromecast.shell.mo
 
 
 // Interface: CastDemo
+chromecast.shell.mojom.CastDemo = {};
+
 chromecast.shell.mojom.CastDemoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

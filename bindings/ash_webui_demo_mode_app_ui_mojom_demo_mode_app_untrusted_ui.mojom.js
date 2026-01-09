@@ -11,6 +11,8 @@ ash.mojom.demo_mode = ash.mojom.demo_mode || {};
 
 
 // Interface: UntrustedPageHandlerFactory
+ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
+
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -84,6 +86,8 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.demo_mode.Unt
 
 
 // Interface: UntrustedPageHandler
+ash.mojom.demo_mode.UntrustedPageHandler = {};
+
 ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

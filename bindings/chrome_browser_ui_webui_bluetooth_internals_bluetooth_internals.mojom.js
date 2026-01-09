@@ -9,6 +9,8 @@ var mojom = mojom || {};
 
 
 // Interface: DebugLogsChangeHandler
+mojom.DebugLogsChangeHandler = {};
+
 mojom.DebugLogsChangeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -82,6 +84,8 @@ mojom.DebugLogsChangeHandlerRequest = mojom.DebugLogsChangeHandlerPendingReceive
 
 
 // Interface: BluetoothInternalsHandler
+mojom.BluetoothInternalsHandler = {};
+
 mojom.BluetoothInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -377,6 +381,8 @@ mojom.BluetoothInternalsHandlerRequest = mojom.BluetoothInternalsHandlerPendingR
 
 
 // Interface: BluetoothBtsnoop
+mojom.BluetoothBtsnoop = {};
+
 mojom.BluetoothBtsnoopPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

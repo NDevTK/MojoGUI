@@ -112,6 +112,8 @@ ash.cros_healthd.mojom.DEPRECATED_LedColor = {
 };
 
 // Interface: DEPRECATED_LedLitUpRoutineReplier
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = {};
+
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -19,6 +19,8 @@ blink.mojom.Mode = {
 };
 
 // Interface: FileChooser
+blink.mojom.FileChooser = {};
+
 blink.mojom.FileChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

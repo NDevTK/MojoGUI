@@ -17,6 +17,8 @@ related_website_sets.mojom.SiteType = {
 };
 
 // Interface: RelatedWebsiteSetsPageHandler
+related_website_sets.mojom.RelatedWebsiteSetsPageHandler = {};
+
 related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

@@ -35,6 +35,8 @@ blink.mojom.ModelAvailabilityCheckResult = {
 };
 
 // Interface: AIManagerCreateWriterClient
+blink.mojom.AIManagerCreateWriterClient = {};
+
 blink.mojom.AIManagerCreateWriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -132,6 +134,8 @@ blink.mojom.AIManagerCreateWriterClientRequest = blink.mojom.AIManagerCreateWrit
 
 
 // Interface: AIManagerCreateRewriterClient
+blink.mojom.AIManagerCreateRewriterClient = {};
+
 blink.mojom.AIManagerCreateRewriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -229,6 +233,8 @@ blink.mojom.AIManagerCreateRewriterClientRequest = blink.mojom.AIManagerCreateRe
 
 
 // Interface: AIManagerCreateSummarizerClient
+blink.mojom.AIManagerCreateSummarizerClient = {};
+
 blink.mojom.AIManagerCreateSummarizerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,6 +332,8 @@ blink.mojom.AIManagerCreateSummarizerClientRequest = blink.mojom.AIManagerCreate
 
 
 // Interface: AIManagerCreateProofreaderClient
+blink.mojom.AIManagerCreateProofreaderClient = {};
+
 blink.mojom.AIManagerCreateProofreaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -423,6 +431,8 @@ blink.mojom.AIManagerCreateProofreaderClientRequest = blink.mojom.AIManagerCreat
 
 
 // Interface: AIManager
+blink.mojom.AIManager = {};
+
 blink.mojom.AIManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

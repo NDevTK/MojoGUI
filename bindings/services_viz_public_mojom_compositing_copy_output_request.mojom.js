@@ -10,6 +10,8 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: CopyOutputResultSender
+viz.mojom.CopyOutputResultSender = {};
+
 viz.mojom.CopyOutputResultSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

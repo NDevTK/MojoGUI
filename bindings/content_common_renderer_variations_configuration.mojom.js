@@ -10,6 +10,8 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RendererVariationsConfiguration
+content.mojom.RendererVariationsConfiguration = {};
+
 content.mojom.RendererVariationsConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

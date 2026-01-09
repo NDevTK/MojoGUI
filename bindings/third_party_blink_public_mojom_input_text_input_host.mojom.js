@@ -10,6 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: TextInputHost
+blink.mojom.TextInputHost = {};
+
 blink.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;

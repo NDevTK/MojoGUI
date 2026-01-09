@@ -10,6 +10,8 @@ discardable_memory.mojom = discardable_memory.mojom || {};
 
 
 // Interface: DiscardableSharedMemoryManager
+discardable_memory.mojom.DiscardableSharedMemoryManager = {};
+
 discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
