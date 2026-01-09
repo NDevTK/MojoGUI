@@ -27,10 +27,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
-          pip install jinja2 ply
-
       - name: Create working directories
         run: |
           mkdir -p chromium_src

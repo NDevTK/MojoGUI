@@ -185,10 +185,10 @@
     </div>
 
     <!-- Scripts -->
-    <!-- Mojo runtime (order matters: bindings_lite defines mojo namespace, interface_support adds remote support) -->
+    <!-- Mojo runtime (order matters: mojo_bindings.js defines mojo namespace first) -->
+    <script src="bindings/mojo_bindings.js"></script>
     <script src="bindings/bindings_lite.js"></script>
     <script src="bindings/interface_support.js"></script>
-    <script src="bindings/mojo_bindings.js"></script>
     <script src="bindings/index.js"></script>
     <script src="parser.js"></script>
     <script src="app.js"></script>
