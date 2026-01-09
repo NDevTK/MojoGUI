@@ -542,57 +542,50 @@
         const moduleParts = iface.module.split('.');
         const namespace = moduleParts.join('.');
 
-        let code = `// MojoJS Code for ${iface.name}.${method || '...'}\n`;
-        code += `// Module: ${iface.module}\n\n`;
+        let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
+        code += `// Module: ${iface.module}\n`;
+        code += `// File: ${iface.file}\n\n`;
 
         if (!method) {
-            code += `// 1. Create interface pointer\n`;
-            code += `const ${iface.name.toLowerCase()}Ptr = new ${namespace}.${iface.name}Ptr();\n\n`;
-            code += `// 2. Bind to browser-side implementation\n`;
-            code += `Mojo.bindInterface(\n`;
-            code += `  ${namespace}.${iface.name}.name,\n`;
-            code += `  mojo.makeRequest(${iface.name.toLowerCase()}Ptr).handle\n`;
-            code += `);\n\n`;
+            code += `// Step 1: Get the interface remote\n`;
+            code += `// The binding file defines the interface in the global scope\n`;
+            code += `// after being loaded via <script> tag\n\n`;
+            code += `// Step 2: Create a remote and bind it\n`;
+            code += `const ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n\n`;
             code += `// Select a method to see the full call...`;
             return code;
         }
 
-        const ptrName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Ptr';
+        const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
         const methodName = method.charAt(0).toLowerCase() + method.slice(1);
 
-        code += `// Create and bind interface\n`;
-        code += `const ${ptrName} = new ${namespace}.${iface.name}Ptr();\n`;
-        code += `Mojo.bindInterface(\n`;
-        code += `  ${namespace}.${iface.name}.name,\n`;
-        code += `  mojo.makeRequest(${ptrName}).handle\n`;
-        code += `);\n\n`;
+        code += `// Get remote for the interface\n`;
+        code += `const ${remoteName} = ${namespace}.${iface.name}.getRemote();\n\n`;
 
         // Generate method call with params
         const params = Object.entries(state.paramValues);
 
         if (params.length > 0) {
             code += `// Method parameters\n`;
-            code += `const params = {\n`;
-            params.forEach(([key, value], index) => {
+            params.forEach(([key, value]) => {
                 const valueStr = typeof value === 'string' ? `"${value}"` : JSON.stringify(value);
-                code += `  ${key}: ${valueStr}`;
-                code += index < params.length - 1 ? ',\n' : '\n';
+                code += `const ${key} = ${valueStr};\n`;
             });
-            code += `};\n\n`;
+            code += `\n`;
         }
 
         code += `// Call the method\n`;
+        code += `try {\n`;
         if (params.length > 0) {
-            code += `${ptrName}.${methodName}(params)\n`;
+            const paramNames = params.map(([key]) => key).join(', ');
+            code += `  const result = await ${remoteName}.${methodName}(${paramNames});\n`;
         } else {
-            code += `${ptrName}.${methodName}()\n`;
+            code += `  const result = await ${remoteName}.${methodName}();\n`;
         }
-        code += `  .then(response => {\n`;
-        code += `    console.log('Success:', response);\n`;
-        code += `  })\n`;
-        code += `  .catch(error => {\n`;
-        code += `    console.error('Error:', error);\n`;
-        code += `  });`;
+        code += `  console.log('Success:', result);\n`;
+        code += `} catch (error) {\n`;
+        code += `  console.error('Error:', error);\n`;
+        code += `}`;
 
         return code;
     }
