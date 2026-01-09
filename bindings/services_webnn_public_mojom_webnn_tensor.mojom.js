@@ -33,7 +33,7 @@ webnn.mojom.TensorInfoSpec = {
       name: 'webnn.mojom.TensorInfo',
       packedSize: 24,
       fields: [
-        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandDescriptorSpec, nullable: false },
         { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.TensorUsageSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -143,7 +143,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNTensor.ReadTensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ReadTensorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

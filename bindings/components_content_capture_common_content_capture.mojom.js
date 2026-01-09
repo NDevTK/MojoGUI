@@ -112,7 +112,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
       name: 'content_capture.mojom.ContentCaptureReceiver.DidCaptureContent_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false },
         { name: 'first_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -127,7 +127,7 @@ content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
       name: 'content_capture.mojom.ContentCaptureReceiver.DidUpdateContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

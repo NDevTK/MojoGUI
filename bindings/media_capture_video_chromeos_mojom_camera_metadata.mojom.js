@@ -27,7 +27,7 @@ cros.mojom.CameraMetadataEntrySpec = {
       name: 'cros.mojom.CameraMetadataEntry',
       packedSize: 40,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataTagSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.EntryTypeSpec, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

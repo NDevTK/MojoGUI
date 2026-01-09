@@ -70,7 +70,7 @@ nearby_share.mojom.PayloadPreviewSpec = {
       packedSize: 32,
       fields: [
         { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'share_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'share_type', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false },
         { name: 'file_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -87,7 +87,7 @@ nearby_share.mojom.ShareTargetSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false },
         { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'payload_preview', packedOffset: 32, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false },
         { name: 'for_self_share', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

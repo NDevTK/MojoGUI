@@ -17,7 +17,7 @@ blink.mojom.SharedFileSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,7 +103,7 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = {
       name: 'blink.mojom.ShareService.Share_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

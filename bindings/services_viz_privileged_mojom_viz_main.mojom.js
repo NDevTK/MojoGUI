@@ -16,7 +16,7 @@ viz.mojom.FrameSinkManagerParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerParams',
       packedSize: 40,
       fields: [
-        { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
         { name: 'restart_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'activation_deadline_in_frames', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'frame_sink_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },

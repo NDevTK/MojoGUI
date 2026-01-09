@@ -166,7 +166,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = 
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.DismissURLVisit_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = 
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RestoreURLVisit_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

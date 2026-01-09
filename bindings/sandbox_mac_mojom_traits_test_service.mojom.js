@@ -73,7 +73,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
       name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -86,7 +86,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpe
       name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: sandbox.mac.mojom.SeatbeltExtensionTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

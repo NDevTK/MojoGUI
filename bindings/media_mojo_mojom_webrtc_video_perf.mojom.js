@@ -16,7 +16,7 @@ media.mojom.WebrtcPredictionFeaturesSpec = {
       name: 'media.mojom.WebrtcPredictionFeatures',
       packedSize: 32,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false },
         { name: 'video_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_decode_stats', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'hardware_accelerated', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

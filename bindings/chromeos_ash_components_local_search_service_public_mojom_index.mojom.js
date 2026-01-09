@@ -235,7 +235,7 @@ ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
       name: 'ash.local_search_service.mojom.Index.Find_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.ResponseStatusSpec, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -263,7 +263,7 @@ ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
       name: 'ash.local_search_service.mojom.Index.SetSearchParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.SearchParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

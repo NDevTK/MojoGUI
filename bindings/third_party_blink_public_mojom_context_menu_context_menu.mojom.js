@@ -109,7 +109,7 @@ blink.mojom.UntrustworthyContextMenuParamsSpec = {
         { name: 'media_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContextMenuDataMediaTypeSpec, nullable: false },
         { name: 'link_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'link_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'impression', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'impression', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true },
         { name: 'unfiltered_link_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'src_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'selection_text', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
@@ -124,8 +124,8 @@ blink.mojom.UntrustworthyContextMenuParamsSpec = {
         { name: 'custom_items', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source_type', packedOffset: 128, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false },
         { name: 'selection_rect', packedOffset: 136, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'annotation_type', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'form_control_type', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'annotation_type', packedOffset: 144, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: true },
+        { name: 'form_control_type', packedOffset: 152, packedBitOffset: 0, type: blink.mojom.FormControlTypeSpec, nullable: true },
         { name: 'field_renderer_id', packedOffset: 160, packedBitOffset: 0, type: blink.mojom.FieldRendererIdSpec, nullable: false },
         { name: 'form_renderer_id', packedOffset: 168, packedBitOffset: 0, type: blink.mojom.FormRendererIdSpec, nullable: false },
         { name: 'x', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -236,7 +236,7 @@ blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

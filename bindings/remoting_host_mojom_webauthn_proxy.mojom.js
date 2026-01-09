@@ -232,7 +232,7 @@ remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
       name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -23,8 +23,8 @@ viz.mojom.VideoCaptureTargetSpec = {
       name: 'viz.mojom.VideoCaptureTarget',
       packedSize: 24,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'sub_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'sub_target', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.VideoCaptureSubTargetSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

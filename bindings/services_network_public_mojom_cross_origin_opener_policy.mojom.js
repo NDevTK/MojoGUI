@@ -125,7 +125,7 @@ network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
       fields: [
         { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false },
         { name: 'property', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_location', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false },
         { name: 'reported_window_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

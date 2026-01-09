@@ -120,7 +120,7 @@ side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
         { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
         { name: 'style', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
         { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ side_panel.customize_chrome.mojom.ResultDescriptorsSpec = {
         { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

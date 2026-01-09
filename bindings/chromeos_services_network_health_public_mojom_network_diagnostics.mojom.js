@@ -263,7 +263,7 @@ chromeos.network_diagnostics.mojom.RoutineResultSpec = {
       packedSize: 32,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineVerdictSpec, nullable: false },
-        { name: 'problems', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'problems', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineProblemsSpec, nullable: false },
         { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
       ],
       versions: [{version: 0}]

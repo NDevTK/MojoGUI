@@ -225,8 +225,8 @@ auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = {
       packedSize: 96,
       fields: [
         { name: 'shared_storage_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'script_source_load', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'wasm_helper_load', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'script_source_load', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false },
+        { name: 'wasm_helper_load', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: true },
         { name: 'trusted_bidding_signals_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'trusted_bidding_signals_slot_size_param', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'top_window_origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
@@ -251,7 +251,7 @@ auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = {
       packedSize: 88,
       fields: [
         { name: 'shared_storage_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'script_source_load', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'script_source_load', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false },
         { name: 'trusted_scoring_signals_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'top_window_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'permissions_policy_state', packedOffset: 32, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, nullable: false },

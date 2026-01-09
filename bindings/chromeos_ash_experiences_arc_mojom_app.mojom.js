@@ -153,7 +153,7 @@ arc.mojom.WindowLayoutSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WindowSizeTypeSpec, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
         { name: 'resizable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -236,7 +236,7 @@ arc.mojom.WindowInfoSpec = {
       packedSize: 32,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true },
         { name: 'window_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'state', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

@@ -124,7 +124,7 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
       name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_Params',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.TcpServerSocketPortSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

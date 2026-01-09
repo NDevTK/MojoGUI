@@ -196,7 +196,7 @@ media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnPipelineStatistics_Params',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -237,7 +237,7 @@ actor.mojom.DragAndReleaseActionSpec = {
       name: 'actor.mojom.DragAndReleaseAction',
       packedSize: 16,
       fields: [
-        { name: 'to_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'to_target', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,8 +281,8 @@ actor.mojom.ToolInvocationSpec = {
       packedSize: 40,
       fields: [
         { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ToolActionSpec, nullable: false },
+        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false },
         { name: 'observed_target', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ObservedToolTargetSpec, nullable: true },
       ],
       versions: [{version: 0}]

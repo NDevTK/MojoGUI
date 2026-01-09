@@ -22,7 +22,7 @@ content.mojom.UpdateScrollbarThemeParamsSpec = {
       name: 'content.mojom.UpdateScrollbarThemeParams',
       packedSize: 32,
       fields: [
-        { name: 'preferred_scroller_style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'preferred_scroller_style', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ScrollerStyleSpec, nullable: false },
         { name: 'initial_button_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'autoscroll_button_delay', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'has_initial_button_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -317,7 +317,7 @@ content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
       name: 'content.mojom.Renderer.OnNetworkConnectionChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.NetworkConnectionTypeSpec, nullable: false },
         { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]

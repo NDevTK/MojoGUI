@@ -425,7 +425,7 @@ device.mojom.UsbDevice_Open_ResponseParamsSpec = {
       name: 'device.mojom.UsbDevice.Open_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbOpenDeviceResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

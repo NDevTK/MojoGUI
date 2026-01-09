@@ -81,7 +81,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
       name: 'device.mojom.UsbDeviceManagerClient.OnDeviceAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
       name: 'device.mojom.UsbDeviceManagerClient.OnDeviceRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

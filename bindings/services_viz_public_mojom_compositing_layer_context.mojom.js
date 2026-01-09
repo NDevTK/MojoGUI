@@ -36,15 +36,15 @@ viz.mojom.LayerTreeUpdateSpec = {
       name: 'viz.mojom.LayerTreeUpdate',
       packedSize: 344,
       fields: [
-        { name: 'begin_frame_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'begin_frame_args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'primary_main_frame_item_sequence_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.LayerSelectionSpec, nullable: false },
         { name: 'device_viewport', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'display_color_spaces', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
-        { name: 'local_surface_id_from_parent', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'current_local_surface_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'target_local_surface_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_surface_id_from_parent', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
+        { name: 'current_local_surface_id', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
+        { name: 'target_local_surface_id', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
         { name: 'background_color', packedOffset: 72, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'viewport_damage_rect', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'debug_state', packedOffset: 88, packedBitOffset: 0, type: cc.mojom.LayerTreeDebugStateSpec, nullable: false },
@@ -54,8 +54,8 @@ viz.mojom.LayerTreeUpdateSpec = {
         { name: 'ui_resource_requests', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'layers', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'layer_order', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'transform_tree_update', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'scroll_tree_update', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'transform_tree_update', packedOffset: 144, packedBitOffset: 0, type: viz.mojom.TransformTreeUpdateSpec, nullable: true },
+        { name: 'scroll_tree_update', packedOffset: 152, packedBitOffset: 0, type: viz.mojom.ScrollTreeUpdateSpec, nullable: true },
         { name: 'transform_nodes', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'clip_nodes', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'effect_nodes', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -223,7 +223,7 @@ viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
       name: 'viz.mojom.LayerContext.UpdateDisplayTiling_Params',
       packedSize: 16,
       fields: [
-        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TilingSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -307,7 +307,7 @@ viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnRequestCommitForFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

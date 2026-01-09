@@ -103,8 +103,8 @@ attribution_internals.mojom.WebUIReportSpec = {
         { name: 'trigger_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'report_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'report_body', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 40, packedBitOffset: 0, type: attribution_internals.mojom.ReportStatusSpec, nullable: false },
+        { name: 'data', packedOffset: 48, packedBitOffset: 0, type: attribution_internals.mojom.WebUIReportDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ attribution_internals.mojom.WebUIDebugReportSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: attribution_internals.mojom.NetworkStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ attribution_internals.mojom.WebUIAggregatableDebugReportSpec = {
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'process_result', packedOffset: 24, packedBitOffset: 0, type: attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec, nullable: false },
-        { name: 'send_result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'send_result', packedOffset: 32, packedBitOffset: 0, type: attribution_internals.mojom.SendAggregatableDebugReportResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

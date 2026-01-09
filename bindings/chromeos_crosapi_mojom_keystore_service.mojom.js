@@ -81,7 +81,7 @@ crosapi.mojom.GetPublicKeySuccessResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'algorithm_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'algorithm_properties', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

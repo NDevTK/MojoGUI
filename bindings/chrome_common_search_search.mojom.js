@@ -345,8 +345,8 @@ search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.FocusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: search.mojom.OmniboxFocusStateSpec, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: search.mojom.OmniboxFocusChangeReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,7 +360,7 @@ search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.MostVisitedInfoChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: search.mojom.InstantMostVisitedInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -388,7 +388,7 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
       name: 'search.mojom.EmbeddedSearchClient.ThemeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: search.mojom.NtpThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

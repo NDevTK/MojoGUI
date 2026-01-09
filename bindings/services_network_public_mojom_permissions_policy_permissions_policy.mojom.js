@@ -34,7 +34,7 @@ network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
       name: 'network.mojom.ParsedPermissionsPolicyDeclaration',
       packedSize: 48,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: network.mojom.PermissionsPolicyFeatureSpec, nullable: false },
         { name: 'allowed_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'self_if_matches', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'reporting_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },

@@ -87,7 +87,7 @@ storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
       name: 'storage.mojom.CacheStorageObserver.OnCacheListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
       name: 'storage.mojom.CacheStorageObserver.OnCacheContentChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
         { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -197,7 +197,7 @@ storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
       fields: [
         { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
         { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
-        { name: 'bucket_locator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket_locator', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
         { name: 'owner', packedOffset: 24, packedBitOffset: 0, type: storage.mojom.CacheStorageOwnerSpec, nullable: false },
         { name: 'coep_reporter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'dip_reporter', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },

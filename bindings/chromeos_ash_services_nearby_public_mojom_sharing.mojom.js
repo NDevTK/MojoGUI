@@ -48,7 +48,7 @@ sharing.mojom.NearbyDependenciesSpec = {
       name: 'sharing.mojom.NearbyDependencies',
       packedSize: 40,
       fields: [
-        { name: 'webrtc_dependencies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'webrtc_dependencies', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.WebRtcDependenciesSpec, nullable: false },
         { name: 'wifilan_dependencies', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.WifiLanDependenciesSpec, nullable: true },
         { name: 'wifidirect_dependencies', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.WifiDirectDependenciesSpec, nullable: true },
         { name: 'bluetooth_adapter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },

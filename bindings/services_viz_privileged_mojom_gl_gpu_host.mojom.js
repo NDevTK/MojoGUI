@@ -315,7 +315,7 @@ viz.mojom.GpuHost_DidLoseContext_ParamsSpec = {
       name: 'viz.mojom.GpuHost.DidLoseContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ContextLostReasonSpec, nullable: false },
         { name: 'active_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
       ],
       versions: [{version: 0}]

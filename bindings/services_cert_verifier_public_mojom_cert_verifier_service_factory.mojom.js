@@ -23,7 +23,7 @@ cert_verifier.mojom.CertVerifierCreationParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierCreationParams',
       packedSize: 32,
       fields: [
-        { name: 'initial_additional_certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'initial_additional_certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: true },
         { name: 'ct_policy', packedOffset: 8, packedBitOffset: 0, type: [EnableIf=is_ct_supported] network.mojom.CTPolicySpec, nullable: true },
         { name: 'wait_for_update', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

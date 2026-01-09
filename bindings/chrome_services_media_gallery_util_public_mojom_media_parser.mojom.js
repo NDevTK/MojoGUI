@@ -16,7 +16,7 @@ chrome.mojom.ExtractVideoFrameResultSpec = {
       name: 'chrome.mojom.ExtractVideoFrameResult',
       packedSize: 24,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.VideoFrameDataSpec, nullable: false },
         { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]

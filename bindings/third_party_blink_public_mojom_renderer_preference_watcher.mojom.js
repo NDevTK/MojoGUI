@@ -72,7 +72,7 @@ blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
       name: 'blink.mojom.RendererPreferenceWatcher.NotifyUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

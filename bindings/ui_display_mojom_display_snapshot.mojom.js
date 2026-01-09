@@ -54,7 +54,7 @@ display.mojom.DisplaySnapshotSpec = {
         { name: 'native_mode_index', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'product_code', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'maximum_cursor_size', packedOffset: 144, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'variable_refresh_rate_state', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'variable_refresh_rate_state', packedOffset: 152, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false },
         { name: 'drm_formats_and_modifiers', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'year_of_manufacture', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'connector_index', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },

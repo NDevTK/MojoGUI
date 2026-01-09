@@ -86,7 +86,7 @@ blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
       name: 'blink.mojom.GeolocationService.CreateGeolocation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

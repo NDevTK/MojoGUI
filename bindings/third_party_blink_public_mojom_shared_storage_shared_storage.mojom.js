@@ -135,7 +135,7 @@ blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'urls_with_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false },
         { name: 'private_aggregation_config', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false },
         { name: 'saved_query_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'start_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
@@ -154,7 +154,7 @@ blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true },
         { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -170,7 +170,7 @@ blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
       packedSize: 48,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false },
         { name: 'private_aggregation_config', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false },
         { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'keep_alive_after_operation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

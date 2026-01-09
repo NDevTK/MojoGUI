@@ -346,7 +346,7 @@ blink.mojom.MixedContentIssueDetailsSpec = {
       name: 'blink.mojom.MixedContentIssueDetails',
       packedSize: 56,
       fields: [
-        { name: 'request_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_context', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestContextTypeSpec, nullable: false },
         { name: 'resolution_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MixedContentResolutionStatusSpec, nullable: false },
         { name: 'insecure_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'main_resource_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

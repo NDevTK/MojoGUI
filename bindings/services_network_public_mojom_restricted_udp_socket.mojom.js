@@ -22,7 +22,7 @@ network.mojom.RestrictedUDPSocketParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocketParams',
       packedSize: 24,
       fields: [
-        { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true },
         { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
@@ -129,7 +129,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
         { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]

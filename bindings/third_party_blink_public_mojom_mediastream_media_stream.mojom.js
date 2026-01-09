@@ -636,7 +636,7 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'controls', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false },
-        { name: 'audio_stream_selection_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_stream_selection_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StreamSelectionInfoSpec, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'user_gesture', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],

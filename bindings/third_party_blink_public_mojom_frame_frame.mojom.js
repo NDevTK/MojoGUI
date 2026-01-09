@@ -990,7 +990,7 @@ blink.mojom.LocalFrameHost_EnterFullscreen_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.EnterFullscreen_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FullscreenOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1030,7 +1030,7 @@ blink.mojom.LocalFrameHost_FullscreenStateChanged_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.FullscreenStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FullscreenOptionsSpec, nullable: true },
         { name: 'is_fullscreen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1257,7 +1257,7 @@ blink.mojom.LocalFrameHost_SuddenTerminationDisablerChanged_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.SuddenTerminationDisablerChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'disabler_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'disabler_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SuddenTerminationDisablerTypeSpec, nullable: false },
         { name: 'present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1287,7 +1287,7 @@ blink.mojom.LocalFrameHost_ScrollRectToVisibleInParentFrame_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'rect_to_scroll', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollIntoViewParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1301,7 +1301,7 @@ blink.mojom.LocalFrameHost_BubbleLogicalScrollInParentFrame_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.BubbleLogicalScrollInParentFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScrollDirectionSpec, nullable: false },
         { name: 'granularity', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1386,7 +1386,7 @@ blink.mojom.LocalFrameHost_GoToEntryAtOffset_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'actual_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'soft_navigation_heuristics_task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'soft_navigation_heuristics_task_id', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true },
         { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'has_user_gesture', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -1404,7 +1404,7 @@ blink.mojom.LocalFrameHost_NavigateToNavigationApiKey_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'actual_navigation_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'soft_navigation_heuristics_task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'soft_navigation_heuristics_task_id', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true },
         { name: 'has_user_gesture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1462,8 +1462,8 @@ blink.mojom.LocalFrameHost_UpdateUserActivationState_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.UpdateUserActivationState_Params',
       packedSize: 24,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'notification_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UserActivationUpdateTypeSpec, nullable: false },
+        { name: 'notification_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UserActivationNotificationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1530,7 +1530,7 @@ blink.mojom.LocalFrameHost_ForwardResourceTimingToParent_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.ForwardResourceTimingToParent_Params',
       packedSize: 16,
       fields: [
-        { name: 'timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ResourceTimingInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1754,7 +1754,7 @@ blink.mojom.LocalFrameHost_ShowContextMenu_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.ShowContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UntrustworthyContextMenuParamsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1902,7 +1902,7 @@ blink.mojom.LocalFrameHost_DidAddMessageToConsole_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.DidAddMessageToConsole_Params',
       packedSize: 48,
       fields: [
-        { name: 'log_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_level', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false },
         { name: 'msg', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false },
         { name: 'source_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
         { name: 'untrusted_stack_trace', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: true },
@@ -1934,7 +1934,7 @@ blink.mojom.LocalFrameHost_DidInferColorScheme_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.DidInferColorScheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PreferredColorSchemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1963,7 +1963,7 @@ blink.mojom.LocalFrameHost_ReceivedDelegatedCapability_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.ReceivedDelegatedCapability_Params',
       packedSize: 16,
       fields: [
-        { name: 'delegated_capability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'delegated_capability', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DelegatedCapabilitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2051,7 +2051,7 @@ blink.mojom.LocalFrameHost_SetFencedFrameAutomaticBeaconReportEventData_ParamsSp
       name: 'blink.mojom.LocalFrameHost.SetFencedFrameAutomaticBeaconReportEventData_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AutomaticBeaconTypeSpec, nullable: false },
         { name: 'event_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'destinations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'once', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -2083,7 +2083,7 @@ blink.mojom.LocalFrameHost_CreateFencedFrame_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.CreateFencedFrame_Params',
       packedSize: 40,
       fields: [
-        { name: 'remote_frame_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_frame_interfaces', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromRendererSpec, nullable: false },
         { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
         { name: 'devtools_frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'fenced_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
@@ -2128,12 +2128,12 @@ blink.mojom.LocalFrameHost_StartDragging_ParamsSpec = {
       name: 'blink.mojom.LocalFrameHost.StartDragging_Params',
       packedSize: 56,
       fields: [
-        { name: 'drag_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'operations_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'drag_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DragDataSpec, nullable: false },
+        { name: 'operations_allowed', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AllowedDragOperationsSpec, nullable: false },
         { name: 'image', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
         { name: 'cursor_offset_in_dip', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
         { name: 'drag_obj_rect_in_dip', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'event_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_info', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.DragEventSourceInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2928,7 +2928,7 @@ blink.mojom.LocalFrame_SetFrameOwnerProperties_ParamsSpec = {
       name: 'blink.mojom.LocalFrame.SetFrameOwnerProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FrameOwnerPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2942,7 +2942,7 @@ blink.mojom.LocalFrame_NotifyUserActivation_ParamsSpec = {
       name: 'blink.mojom.LocalFrame.NotifyUserActivation_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.UserActivationNotificationTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2984,7 +2984,7 @@ blink.mojom.LocalFrame_AddMessageToConsole_ParamsSpec = {
       name: 'blink.mojom.LocalFrame.AddMessageToConsole_Params',
       packedSize: 32,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'discard_duplicates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -3555,7 +3555,7 @@ blink.mojom.LocalFrame_MixedContentFound_ParamsSpec = {
       fields: [
         { name: 'main_resource_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'mixed_content_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'request_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_context', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RequestContextTypeSpec, nullable: false },
         { name: 'url_before_redirects', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'source_location', packedOffset: 32, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: true },
         { name: 'was_allowed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -3683,7 +3683,7 @@ blink.mojom.LocalFrame_SetNavigationApiHistoryEntriesForRestore_ParamsSpec = {
       name: 'blink.mojom.LocalFrame.SetNavigationApiHistoryEntriesForRestore_Params',
       packedSize: 24,
       fields: [
-        { name: 'entry_arrays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry_arrays', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.NavigationApiHistoryEntryArraysSpec, nullable: false },
         { name: 'restore_reason', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NavigationApiEntryRestoreReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -3758,7 +3758,7 @@ blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
-        { name: 'page_swap_event_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_swap_event_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PageSwapEventParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3798,7 +3798,7 @@ blink.mojom.LocalFrame_DispatchPageSwap_ParamsSpec = {
       name: 'blink.mojom.LocalFrame.DispatchPageSwap_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_swap_event_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'page_swap_event_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PageSwapEventParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -4208,7 +4208,7 @@ blink.mojom.LocalMainFrame_FinalizeNavigationConfidence_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'randomized_trigger_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ConfidenceLevelSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -4455,7 +4455,7 @@ blink.mojom.LocalMainFrameHost_TextAutosizerPageInfoChanged_ParamsSpec = {
       name: 'blink.mojom.LocalMainFrameHost.TextAutosizerPageInfoChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TextAutosizerPageInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

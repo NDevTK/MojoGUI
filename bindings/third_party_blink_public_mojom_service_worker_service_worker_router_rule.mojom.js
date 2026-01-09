@@ -82,7 +82,7 @@ blink.mojom.ServiceWorkerRouterConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterCondition',
       packedSize: 48,
       fields: [
-        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternSpec, nullable: true },
         { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRequestConditionSpec, nullable: true },
         { name: 'running_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, nullable: true },
         { name: 'or_condition', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterOrConditionSpec, nullable: true },

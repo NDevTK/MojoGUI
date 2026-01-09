@@ -60,7 +60,7 @@ viz.mojom.TransferableResourceSpec = {
       name: 'viz.mojom.TransferableResource',
       packedSize: 96,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
         { name: 'shared_image', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false },
         { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
         { name: 'synchronization_type', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SynchronizationTypeSpec, nullable: false },

@@ -289,7 +289,7 @@ network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
       name: 'network.mojom.NetLogProxySink.AddEntry_Params',
       packedSize: 48,
       fields: [
-        { name: 'net_log_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_log_source', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
         { name: 'phase', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false },
         { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
         { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },

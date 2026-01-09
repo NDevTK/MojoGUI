@@ -146,7 +146,7 @@ network.mojom.DeviceBoundSessionKeySpec = {
       name: 'network.mojom.DeviceBoundSessionKey',
       packedSize: 24,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -246,7 +246,7 @@ network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'same_site', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'same_site', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieSameSiteSpec, nullable: false },
         { name: 'secure', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'http_only', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -376,9 +376,9 @@ network.mojom.DeviceBoundSessionEventSpec = {
       packedSize: 48,
       fields: [
         { name: 'event_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'event_type_details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_type_details', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionEventTypeDetailsSpec, nullable: false },
         { name: 'succeeded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -538,7 +538,7 @@ network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDeletionReasonSpec, nullable: false },
         { name: 'created_after_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -584,7 +584,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'cookies_to_set', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

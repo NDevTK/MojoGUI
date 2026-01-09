@@ -60,8 +60,8 @@ viz.mojom.CompositorRenderPassQuadStateSpec = {
       name: 'viz.mojom.CompositorRenderPassQuadState',
       packedSize: 80,
       fields: [
-        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'mask_resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false },
+        { name: 'mask_resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
         { name: 'mask_uv_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'mask_texture_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'filters_scale', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
@@ -98,7 +98,7 @@ viz.mojom.SurfaceQuadStateSpec = {
       name: 'viz.mojom.SurfaceQuadState',
       packedSize: 48,
       fields: [
-        { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceRangeSpec, nullable: false },
         { name: 'default_background_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'override_child_filter_quality', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.FilterQualitySpec, nullable: true },
         { name: 'override_child_dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: true },
@@ -118,7 +118,7 @@ viz.mojom.TextureQuadStateSpec = {
       name: 'viz.mojom.TextureQuadState',
       packedSize: 80,
       fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
         { name: 'tex_coord_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
         { name: 'dynamic_range_limit', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: false },
@@ -145,7 +145,7 @@ viz.mojom.TileQuadStateSpec = {
       packedSize: 32,
       fields: [
         { name: 'tex_coord_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
         { name: 'nearest_neighbor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'force_anti_aliasing_off', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -175,7 +175,7 @@ viz.mojom.SharedElementQuadStateSpec = {
       name: 'viz.mojom.SharedElementQuadState',
       packedSize: 16,
       fields: [
-        { name: 'element_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'element_resource_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -191,8 +191,8 @@ viz.mojom.DrawQuadSpec = {
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'visible_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'sqs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'draw_quad_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sqs', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SharedQuadStateSpec, nullable: true },
+        { name: 'draw_quad_state', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.DrawQuadStateSpec, nullable: false },
         { name: 'needs_blending', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

@@ -454,7 +454,7 @@ content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = {
       name: 'content.mojom.WebTestRenderFrame.ProcessWorkItem_Params',
       packedSize: 16,
       fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1407,7 +1407,7 @@ content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.WorkItemAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -130,7 +130,7 @@ blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
       name: 'blink.mojom.TranslationManagerCreateTranslatorClient.OnResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CreateTranslatorResultSpec, nullable: false },
         { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
         { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: true },
       ],

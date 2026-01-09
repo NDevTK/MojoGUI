@@ -49,7 +49,7 @@ mojom.IwaDevModeAppInfoSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'web_bundle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'location', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 24, packedBitOffset: 0, type: mojom.IwaDevModeLocationSpec, nullable: false },
         { name: 'installed_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update_info', packedOffset: 40, packedBitOffset: 0, type: mojom.UpdateInfoSpec, nullable: true },
       ],
@@ -339,7 +339,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpe
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromDevProxy_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojom.InstallIsolatedWebAppResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -365,7 +365,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Res
       name: 'mojom.WebAppInternalsHandler.SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojom.InstallIsolatedWebAppResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,7 +392,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.ParseUpdateManifestFromUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojom.ParseUpdateManifestFromUrlResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSp
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromBundleUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojom.InstallIsolatedWebAppResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

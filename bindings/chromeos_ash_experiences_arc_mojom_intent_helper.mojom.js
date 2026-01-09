@@ -202,7 +202,7 @@ arc.mojom.ActivityIconSpec = {
       name: 'arc.mojom.ActivityIcon',
       packedSize: 32,
       fields: [
-        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false },
         { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -235,7 +235,7 @@ arc.mojom.TextSelectionActionSpec = {
       packedSize: 40,
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityIconSpec, nullable: false },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false },
         { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false },
       ],

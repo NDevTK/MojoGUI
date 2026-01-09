@@ -847,7 +847,7 @@ cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = {
       name: 'cros.mojom.ResultMetadataObserver.OnMetadataAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'camera_metadata', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1071,7 +1071,7 @@ cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = {
       name: 'cros.mojom.CameraInfoObserver.OnCameraInfoUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'camera_info', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

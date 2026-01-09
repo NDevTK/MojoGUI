@@ -828,7 +828,7 @@ bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'service_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'service_uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -883,7 +883,7 @@ bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.AddFakeCharacteristic_Params',
       packedSize: 40,
       fields: [
-        { name: 'characteristic_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'characteristic_uuid', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false },
         { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.CharacteristicPropertiesSpec, nullable: false },
         { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -942,7 +942,7 @@ bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.AddFakeDescriptor_Params',
       packedSize: 40,
       fields: [
-        { name: 'descriptor_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'descriptor_uuid', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: false },
         { name: 'characteristic_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'service_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'peripheral_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

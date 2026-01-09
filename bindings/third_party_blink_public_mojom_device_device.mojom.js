@@ -194,7 +194,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetDirectoryId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetHostname_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetSerialNumber_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
       name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

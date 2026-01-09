@@ -72,7 +72,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpe
       name: 'media.mojom.AudioSourceSpeechRecognitionContext.BindAudioSourceFetcher_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false },
         { name: 'fetcher_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],

@@ -17,7 +17,7 @@ network.mojom.StructuredHeadersParameterSpec = {
       packedSize: 24,
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: network.mojom.StructuredHeadersItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -31,7 +31,7 @@ network.mojom.StructuredHeadersParameterizedItemSpec = {
       name: 'network.mojom.StructuredHeadersParameterizedItem',
       packedSize: 24,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: network.mojom.StructuredHeadersItemSpec, nullable: false },
         { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

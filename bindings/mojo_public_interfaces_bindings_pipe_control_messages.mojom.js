@@ -16,7 +16,7 @@ mojo.pipe_control.RunOrClosePipeMessageParamsSpec = {
       name: 'mojo.pipe_control.RunOrClosePipeMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.pipe_control.RunOrClosePipeInputSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,8 +16,8 @@ printing.mojom.PrinterCapsAndInfoSpec = {
       name: 'printing.mojom.PrinterCapsAndInfo',
       packedSize: 24,
       fields: [
-        { name: 'printer_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'printer_caps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'printer_info', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrinterBasicInfoSpec, nullable: false },
+        { name: 'printer_caps', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterSemanticCapsAndDefaultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -454,7 +454,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'media', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'media', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.RequestedMediaSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -556,7 +556,7 @@ printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
       name: 'printing.mojom.PrintBackendService.StartPrinting_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false },
         { name: 'job_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -571,7 +571,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
       name: 'printing.mojom.PrintBackendService.RenderPrintedPage_Params',
       packedSize: 56,
       fields: [
-        { name: 'page_data_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_data_type', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.MetafileDataTypeSpec, nullable: false },
         { name: 'serialized_page', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
         { name: 'page_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'page_content_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
@@ -590,7 +590,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
       name: 'printing.mojom.PrintBackendService.RenderPrintedPage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
       name: 'printing.mojom.PrintBackendService.RenderPrintedDocument_Params',
       packedSize: 32,
       fields: [
-        { name: 'data_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_type', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.MetafileDataTypeSpec, nullable: false },
         { name: 'serialized_doc', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
         { name: 'document_cookie', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'page_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -620,7 +620,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
       name: 'printing.mojom.PrintBackendService.RenderPrintedDocument_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -647,7 +647,7 @@ printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
       name: 'printing.mojom.PrintBackendService.DocumentDone_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

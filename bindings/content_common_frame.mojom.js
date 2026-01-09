@@ -52,7 +52,7 @@ content.mojom.CreateViewParamsSpec = {
         { name: 'opener_frame_token', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true },
         { name: 'replication_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false },
         { name: 'devtools_main_frame_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'main_frame', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'main_frame', packedOffset: 48, packedBitOffset: 0, type: content.mojom.CreateMainFrameUnionSpec, nullable: false },
         { name: 'prerender_param', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PrerenderParamSpec, nullable: true },
         { name: 'type', packedOffset: 64, packedBitOffset: 0, type: content.mojom.ViewWidgetTypeSpec, nullable: false },
         { name: 'fenced_frame_mode', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false },
@@ -202,7 +202,7 @@ content.mojom.CreateNewWindowParamsSpec = {
       name: 'content.mojom.CreateNewWindowParams',
       packedSize: 160,
       fields: [
-        { name: 'window_container_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_container_type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WindowContainerTypeSpec, nullable: false },
         { name: 'session_storage_namespace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'clone_from_session_storage_namespace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'frame_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -758,7 +758,7 @@ content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec = {
       name: 'content.mojom.FrameBindingsControl.EnableMojoJsBindings_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ExtraMojoJsFeaturesSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1116,8 +1116,8 @@ content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec = {
       name: 'content.mojom.FrameHost.DidCommitProvisionalLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false },
+        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1131,8 +1131,8 @@ content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec = {
       name: 'content.mojom.FrameHost.DidCommitSameDocumentNavigation_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'same_document_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false },
+        { name: 'same_document_params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DidCommitSameDocumentNavigationParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1263,7 +1263,7 @@ content.mojom.FrameHost_UpdateState_ParamsSpec = {
       name: 'content.mojom.FrameHost.UpdateState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: content.mojom.PageStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

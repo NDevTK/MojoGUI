@@ -23,7 +23,7 @@ blink.mojom.BucketPoliciesSpec = {
       name: 'blink.mojom.BucketPolicies',
       packedSize: 40,
       fields: [
-        { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BucketDurabilitySpec, nullable: false },
         { name: 'quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'expires', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'persisted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -283,7 +283,7 @@ blink.mojom.BucketHost_Durability_ResponseParamsSpec = {
       name: 'blink.mojom.BucketHost.Durability_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BucketDurabilitySpec, nullable: false },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -406,7 +406,7 @@ blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = {
       name: 'blink.mojom.BucketHost.GetDirectory_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -434,7 +434,7 @@ blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = {
       name: 'blink.mojom.BucketHost.GetDirectoryForDevtools_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]

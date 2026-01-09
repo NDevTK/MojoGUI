@@ -65,7 +65,7 @@ ash.personalization_app.mojom.SeaPenTemplateQuerySpec = {
       name: 'ash.personalization_app.mojom.SeaPenTemplateQuery',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenTemplateIdSpec, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'user_visible_query', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, nullable: false },
       ],
@@ -97,7 +97,7 @@ ash.personalization_app.mojom.RecentSeaPenImageInfoSpec = {
       name: 'ash.personalization_app.mojom.RecentSeaPenImageInfo',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenQuerySpec, nullable: false },
         { name: 'creation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -427,7 +427,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetSeaPenThumbnails_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenQuerySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

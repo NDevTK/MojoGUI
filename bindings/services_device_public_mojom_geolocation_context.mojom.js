@@ -107,7 +107,7 @@ device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'requesting_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'has_precise_permission', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -138,7 +138,7 @@ device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
       name: 'device.mojom.GeolocationContext.SetOverride_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

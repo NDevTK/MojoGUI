@@ -153,8 +153,8 @@ blink.mojom.WebPrintingMediaSizeSpec = {
       name: 'blink.mojom.WebPrintingMediaSize',
       packedSize: 24,
       fields: [
-        { name: 'x_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'y_dimension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'x_dimension', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false },
+        { name: 'y_dimension', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -513,7 +513,7 @@ blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrinter.FetchAttributes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrinterFetchResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -541,7 +541,7 @@ blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrinter.Print_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -628,7 +628,7 @@ blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrintingService.GetPrinters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetPrintersResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

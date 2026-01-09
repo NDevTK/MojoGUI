@@ -198,9 +198,9 @@ viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.SubmitCompositorFrame_Params',
       packedSize: 40,
       fields: [
-        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: false },
+        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true },
         { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -215,7 +215,7 @@ viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.DidNotProduceFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSink.BindLayerContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.PendingLayerContextSpec, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LayerContextSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -391,7 +391,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFrame_Params',
       packedSize: 32,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
@@ -449,7 +449,7 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
       name: 'viz.mojom.CompositorFrameSinkClient.OnSurfaceEvicted_Params',
       packedSize: 16,
       fields: [
-        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -69,7 +69,7 @@ device.mojom.PositionCacheDiagnosticsSpec = {
         { name: 'last_hit', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'last_miss', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
         { name: 'hit_rate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'last_network_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'last_network_result', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: true },
         { name: 'cache_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

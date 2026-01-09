@@ -78,7 +78,7 @@ payments.mojom.PaymentResponseSpec = {
       fields: [
         { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stringified_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shipping_address', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: true },
         { name: 'shipping_option', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'payer', packedOffset: 32, packedBitOffset: 0, type: payments.mojom.PayerDetailSpec, nullable: false },
         { name: 'get_assertion_authenticator_response', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.GetAssertionAuthenticatorResponseSpec, nullable: true },
@@ -112,7 +112,7 @@ payments.mojom.PaymentItemSpec = {
       packedSize: 32,
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'amount', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'amount', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
         { name: 'pending', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -129,7 +129,7 @@ payments.mojom.PaymentShippingOptionSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'amount', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'amount', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false },
         { name: 'selected', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -239,7 +239,7 @@ payments.mojom.PaymentDetailsSpec = {
         { name: 'shipping_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: true },
         { name: 'id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'stringified_payment_method_errors', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
@@ -443,7 +443,7 @@ payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec = {
       name: 'payments.mojom.PaymentRequestClient.OnShippingAddressChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -830,7 +830,7 @@ payments.mojom.PaymentRequest_Retry_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Retry_Params',
       packedSize: 16,
       fields: [
-        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentValidationErrorsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -36,7 +36,7 @@ extensions.mojom.DispatchEventParamsSpec = {
       name: 'extensions.mojom.DispatchEventParams',
       packedSize: 48,
       fields: [
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'filtering_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.EventFilteringInfoSpec, nullable: false },
         { name: 'worker_thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

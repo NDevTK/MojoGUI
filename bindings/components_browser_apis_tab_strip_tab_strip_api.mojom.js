@@ -16,7 +16,7 @@ tabs_api.mojom.TabsSnapshotSpec = {
       name: 'tabs_api.mojom.TabsSnapshot',
       packedSize: 24,
       fields: [
-        { name: 'tab_strip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_strip', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false },
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -154,7 +154,7 @@ tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripService.GetTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripService.CreateTabAt_Params',
       packedSize: 24,
       fields: [
-        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: true },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -197,7 +197,7 @@ tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripService.ActivateTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -212,7 +212,7 @@ tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'tab_to_activate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tab_to_activate', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -226,8 +226,8 @@ tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripService.MoveNode_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -53,7 +53,7 @@ remote_cocoa.mojom.MenuControllerParamsSpec = {
       name: 'remote_cocoa.mojom.MenuControllerParams',
       packedSize: 56,
       fields: [
-        { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.FontSpec, nullable: false },
         { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'iph_dot_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },

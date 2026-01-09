@@ -192,7 +192,7 @@ arc.mojom.keymint.KeyParameterSpec = {
       packedSize: 24,
       fields: [
         { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.TagSpec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyParameterValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

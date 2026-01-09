@@ -17,9 +17,9 @@ blink.mojom.FrameOwnerPropertiesSpec = {
       packedSize: 56,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'scrollbar_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'color_scheme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'preferred_color_scheme', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scrollbar_mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollbarModeSpec, nullable: false },
+        { name: 'color_scheme', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ColorSchemeSpec, nullable: false },
+        { name: 'preferred_color_scheme', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PreferredColorSchemeSpec, nullable: false },
         { name: 'margin_width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'margin_height', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'allow_fullscreen', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

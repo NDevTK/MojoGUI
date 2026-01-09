@@ -192,7 +192,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec 
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetLifecycleState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.LifecycleStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.WebMemoryMeasurementSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -473,8 +473,8 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec 
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.V8ContextDescriptionSpec, nullable: false },
+        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -518,7 +518,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
       fields: [
         { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
         { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
-        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: performance_manager.mojom.IframeAttributionDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -343,7 +343,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'idp_get_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'requirement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'requirement', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

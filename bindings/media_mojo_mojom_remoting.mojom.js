@@ -333,7 +333,7 @@ media.mojom.Remoter_Stop_ParamsSpec = {
       name: 'media.mojom.Remoter.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,7 +493,7 @@ media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnSinkAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingSinkMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,7 +533,7 @@ media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnStartFailed_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStartFailReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -561,7 +561,7 @@ media.mojom.RemotingSource_OnStopped_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -912,7 +912,7 @@ media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamReceiver.ReceiveFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
         { name: 'frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

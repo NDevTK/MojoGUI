@@ -246,7 +246,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnImportItemStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnImportItemFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,7 +360,7 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnFaviconsImportGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FaviconUsageDataListSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,7 +510,7 @@ chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
       name: 'chrome.mojom.ProfileImport.StartImport_Params',
       packedSize: 32,
       fields: [
-        { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false },
         { name: 'localized_strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'items', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
@@ -540,7 +540,7 @@ chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
       name: 'chrome.mojom.ProfileImport.ReportImportItemFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

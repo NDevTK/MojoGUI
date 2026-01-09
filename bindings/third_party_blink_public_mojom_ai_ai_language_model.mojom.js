@@ -209,8 +209,8 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

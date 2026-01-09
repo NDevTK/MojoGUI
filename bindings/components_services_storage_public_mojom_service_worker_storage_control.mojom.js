@@ -38,7 +38,7 @@ storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
       packedSize: 32,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
         { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'version_reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -953,7 +953,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.Delete_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1021,7 +1021,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseP
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
@@ -1051,7 +1051,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParam
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1080,7 +1080,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForId_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1108,7 +1108,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Response
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1136,7 +1136,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1163,7 +1163,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Response
       name: 'storage.mojom.ServiceWorkerStorageControl.GetAllRegistrationsDeprecated_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1192,7 +1192,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Respon
       name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
@@ -1208,7 +1208,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
         { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1222,7 +1222,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec =
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1251,7 +1251,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec 
       name: 'storage.mojom.ServiceWorkerStorageControl.DeleteRegistration_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'storage_key_state', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, nullable: false },
       ],
@@ -1281,7 +1281,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateToActiveState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1310,7 +1310,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponsePara
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateLastUpdateCheckTime_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1339,7 +1339,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_Respons
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1368,7 +1368,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Response
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadHeader_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1397,7 +1397,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsS
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateFetchHandlerType_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1426,7 +1426,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Response
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateResourceSha256Checksums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1577,7 +1577,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponsePar
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUncommittedResourceId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1604,7 +1604,7 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParam
       name: 'storage.mojom.ServiceWorkerStorageControl.DoomUncommittedResources_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1632,7 +1632,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserData_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1662,7 +1662,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUserData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1690,7 +1690,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1718,7 +1718,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsS
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataByKeyPrefix_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1747,7 +1747,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Response
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserKeysAndDataByKeyPrefix_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'user_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1776,7 +1776,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponsePar
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataByKeyPrefixes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1803,7 +1803,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_Respons
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrations_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1831,7 +1831,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1859,7 +1859,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1899,7 +1899,7 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec 
       name: 'storage.mojom.ServiceWorkerStorageControl.ApplyPolicyUpdates_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1925,7 +1925,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseP
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForTest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1953,7 +1953,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForLiveVersionForTest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1980,7 +1980,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_Respons
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgeableResourceIdsForTest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -2007,7 +2007,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Respo
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUncommittedResourceIdsForTest_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

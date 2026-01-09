@@ -80,8 +80,8 @@ ui.mojom.GestureDataSpec = {
       packedSize: 32,
       fields: [
         { name: 'location', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false },
-        { name: 'device_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device_type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.GestureDeviceTypeSpec, nullable: false },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.GestureDataDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -96,8 +96,8 @@ ui.mojom.ScrollDataSpec = {
       packedSize: 56,
       fields: [
         { name: 'location', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false },
-        { name: 'momentum_phase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'scroll_event_phase', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'momentum_phase', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventMomentumPhaseSpec, nullable: false },
+        { name: 'scroll_event_phase', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ScrollEventPhaseSpec, nullable: false },
         { name: 'x_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'y_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'x_offset_ordinal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -116,7 +116,7 @@ ui.mojom.PointerDetailsSpec = {
       name: 'ui.mojom.PointerDetails',
       packedSize: 56,
       fields: [
-        { name: 'pointer_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pointer_type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventPointerTypeSpec, nullable: false },
         { name: 'radius_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'radius_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'force', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
@@ -175,9 +175,9 @@ ui.mojom.EventSpec = {
       name: 'ui.mojom.Event',
       packedSize: 88,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false },
         { name: 'time_stamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'latency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'latency', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.LatencyInfoSpec, nullable: false },
         { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: true },
         { name: 'gesture_data', packedOffset: 32, packedBitOffset: 0, type: ui.mojom.GestureDataSpec, nullable: true },
         { name: 'scroll_data', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.ScrollDataSpec, nullable: true },

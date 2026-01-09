@@ -61,7 +61,7 @@ lens.mojom.WordSpec = {
       fields: [
         { name: 'plain_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'text_separator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true },
         { name: 'writing_direction', packedOffset: 24, packedBitOffset: 0, type: lens.mojom.WritingDirectionSpec, nullable: true },
         { name: 'formula_metadata', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.FormulaMetadataSpec, nullable: true },
       ],
@@ -78,7 +78,7 @@ lens.mojom.LineSpec = {
       packedSize: 24,
       fields: [
         { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -115,7 +115,7 @@ lens.mojom.TranslatedLineSpec = {
         { name: 'text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'background_primary_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false },
         { name: 'background_image_data', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.BackgroundImageDataSpec, nullable: true },
-        { name: 'geometry', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 40, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ lens.mojom.ParagraphSpec = {
       fields: [
         { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.TranslatedParagraphSpec, nullable: true },
-        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true },
         { name: 'writing_direction', packedOffset: 24, packedBitOffset: 0, type: lens.mojom.WritingDirectionSpec, nullable: true },
         { name: 'content_language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],

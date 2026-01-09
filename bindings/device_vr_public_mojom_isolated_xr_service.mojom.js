@@ -16,11 +16,11 @@ device.mojom.XRRuntimeSessionOptionsSpec = {
       name: 'device.mojom.XRRuntimeSessionOptions',
       packedSize: 64,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionModeSpec, nullable: false },
         { name: 'required_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'optional_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'tracked_images', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'depth_options', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'depth_options', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRDepthOptionsSpec, nullable: true },
         { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'render_process_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'render_frame_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -37,7 +37,7 @@ device.mojom.XRRuntimeSessionResultSpec = {
       name: 'device.mojom.XRRuntimeSessionResult',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionSpec, nullable: false },
         { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: true },
         { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'overlay', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
@@ -470,7 +470,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
       name: 'device.mojom.ImmersiveOverlay.RequestNextOverlayPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRRenderInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

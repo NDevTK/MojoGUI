@@ -402,7 +402,7 @@ media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RecordAutoPictureInPictureInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AutoPipInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -713,7 +713,7 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false },
         { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -743,7 +743,7 @@ media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec =
       name: 'media.mojom.MediaPlayerObserver.OnMediaEffectivelyFullscreenChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.FullscreenVideoStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

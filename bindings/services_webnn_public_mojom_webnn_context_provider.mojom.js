@@ -37,7 +37,7 @@ webnn.mojom.CreateContextSuccessSpec = {
       name: 'webnn.mojom.CreateContextSuccess',
       packedSize: 48,
       fields: [
-        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
         { name: 'context_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false },
         { name: 'write_tensor_producer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'read_tensor_consumer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
@@ -124,7 +124,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

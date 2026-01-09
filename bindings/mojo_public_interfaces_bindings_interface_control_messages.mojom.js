@@ -16,7 +16,7 @@ mojo.interface_control.RunMessageParamsSpec = {
       name: 'mojo.interface_control.RunMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunInputSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -30,7 +30,7 @@ mojo.interface_control.RunResponseMessageParamsSpec = {
       name: 'mojo.interface_control.RunResponseMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOutputSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -84,7 +84,7 @@ mojo.interface_control.RunOrClosePipeMessageParamsSpec = {
       name: 'mojo.interface_control.RunOrClosePipeMessageParams',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOrClosePipeInputSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

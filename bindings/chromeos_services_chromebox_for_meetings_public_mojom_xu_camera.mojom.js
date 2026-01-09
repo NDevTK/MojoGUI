@@ -177,7 +177,7 @@ ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetUnitId_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -206,7 +206,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.MapCtrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
         { name: 'mapping_ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.ControlMappingSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -234,8 +234,8 @@ ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.GetCtrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
         { name: 'fn', packedOffset: 16, packedBitOffset: 0, type: ash.cfm.mojom.GetFnSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -264,8 +264,8 @@ ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
       name: 'ash.cfm.mojom.XuCamera.SetCtrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.WebcamIdSpec, nullable: false },
+        { name: 'ctrl', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.CtrlTypeSpec, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

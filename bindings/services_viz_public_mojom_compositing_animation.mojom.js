@@ -105,9 +105,9 @@ viz.mojom.AnimationKeyframeSpec = {
       name: 'viz.mojom.AnimationKeyframe',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.AnimationKeyframeValueSpec, nullable: false },
         { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'timing_function', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timing_function', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TimingFunctionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ viz.mojom.AnimationKeyframeModelSpec = {
       packedSize: 104,
       fields: [
         { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false },
-        { name: 'timing_function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing_function', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.TimingFunctionSpec, nullable: false },
         { name: 'keyframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'scaled_duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'direction', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.AnimationDirectionSpec, nullable: false },

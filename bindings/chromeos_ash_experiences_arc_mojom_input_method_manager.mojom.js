@@ -34,9 +34,9 @@ arc.mojom.TextInputStateSpec = {
       packedSize: 56,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
+        { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false },
         { name: 'cursor_pos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'flags', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'should_do_learning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

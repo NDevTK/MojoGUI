@@ -236,7 +236,7 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
       name: 'chromecast.mojom.CastContentWindow.CreateWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'z_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'z_order', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.ZOrderSpec, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.VisibilityPrioritySpec, nullable: false },
       ],
       versions: [{version: 0}]

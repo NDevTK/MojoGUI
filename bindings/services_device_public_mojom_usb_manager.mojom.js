@@ -162,7 +162,7 @@ device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
       name: 'device.mojom.UsbDeviceManager.GetDevices_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbEnumerationOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -235,7 +235,7 @@ device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
       name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

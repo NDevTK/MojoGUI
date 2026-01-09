@@ -205,7 +205,7 @@ web_package.mojom.BundleIntegrityBlockSignatureStackEntrySpec = {
       packedSize: 24,
       fields: [
         { name: 'attributes_cbor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'signature_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'signature_info', packedOffset: 8, packedBitOffset: 0, type: web_package.mojom.SignatureInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

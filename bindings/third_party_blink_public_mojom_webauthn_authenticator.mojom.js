@@ -803,7 +803,7 @@ blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetCredentialResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -1465,7 +1465,7 @@ drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
       name: 'drivefs.mojom.DriveFs.CreateNativeHostSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -2358,7 +2358,7 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false },
         { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -2373,7 +2373,7 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2527,7 +2527,7 @@ drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec = {
       name: 'drivefs.mojom.DriveFsDelegate.OnNotificationReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DriveFsNotificationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -30,12 +30,12 @@ content.mojom.DidCommitProvisionalLoadParamsSpec = {
         { name: 'navigation_api_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'referrer', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
-        { name: 'transition', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transition', packedOffset: 40, packedBitOffset: 0, type: content.mojom.PageTransitionSpec, nullable: false },
         { name: 'contents_mime_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'method', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'post_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'previous_page_state', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'page_state', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'previous_page_state', packedOffset: 72, packedBitOffset: 0, type: content.mojom.PageStateSpec, nullable: true },
+        { name: 'page_state', packedOffset: 80, packedBitOffset: 0, type: content.mojom.PageStateSpec, nullable: false },
         { name: 'origin', packedOffset: 88, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'initiator_base_url', packedOffset: 96, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'permissions_policy_header', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -219,7 +219,7 @@ content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false },
-        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -241,7 +241,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
         { name: 'document_token', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
         { name: 'devtools_navigation_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'policy_container', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false },
-        { name: 'alternative_error_page_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'alternative_error_page_info', packedOffset: 64, packedBitOffset: 0, type: content.mojom.AlternativeErrorPageOverrideInfoSpec, nullable: true },
         { name: 'error_code', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'extended_error_code', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'has_stale_copy_in_cache', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -258,7 +258,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false },
-        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

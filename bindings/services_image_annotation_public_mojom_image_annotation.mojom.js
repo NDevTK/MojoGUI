@@ -207,7 +207,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
       name: 'image_annotation.mojom.Annotator.AnnotateImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: image_annotation.mojom.AnnotateImageResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

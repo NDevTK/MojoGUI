@@ -135,7 +135,7 @@ ash.cloud_upload.mojom.DialogArgsSpec = {
       packedSize: 24,
       fields: [
         { name: 'file_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'dialog_specific_args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dialog_specific_args', packedOffset: 8, packedBitOffset: 0, type: ash.cloud_upload.mojom.DialogSpecificArgsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -169,7 +169,7 @@ blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
       name: 'blink.mojom.PresentationConnection.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

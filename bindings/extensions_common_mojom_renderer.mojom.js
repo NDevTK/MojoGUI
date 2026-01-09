@@ -17,13 +17,13 @@ extensions.mojom.ExtensionLoadedParamsSpec = {
       packedSize: 112,
       fields: [
         { name: 'manifest', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ManifestLocationSpec, nullable: false },
         { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'active_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'withheld_permissions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_permissions', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
+        { name: 'withheld_permissions', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
         { name: 'tab_specific_permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'policy_blocked_hosts', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'policy_allowed_hosts', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_blocked_hosts', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
+        { name: 'policy_allowed_hosts', packedOffset: 56, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
         { name: 'id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'worker_activation_token', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'guid', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
@@ -43,7 +43,7 @@ extensions.mojom.UserScriptWorldInfoSpec = {
       name: 'extensions.mojom.UserScriptWorldInfo',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'world_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'csp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'enable_messaging', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -314,7 +314,7 @@ extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
       name: 'extensions.mojom.Renderer.ActivateExtension_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
       name: 'extensions.mojom.Renderer.UnloadExtension_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -370,7 +370,7 @@ extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
       name: 'extensions.mojom.Renderer.SuspendExtension_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,7 +384,7 @@ extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
       name: 'extensions.mojom.Renderer.CancelSuspendExtension_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -412,7 +412,7 @@ extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
       name: 'extensions.mojom.Renderer.SetUserScriptsAllowed_Params',
       packedSize: 24,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -427,8 +427,8 @@ extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
       name: 'extensions.mojom.Renderer.SetSessionInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ChannelSpec, nullable: false },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.FeatureSessionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -499,7 +499,7 @@ extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
       name: 'extensions.mojom.Renderer.ClearUserScriptWorldConfig_Params',
       packedSize: 24,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'world_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -540,11 +540,11 @@ extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
       name: 'extensions.mojom.Renderer.UpdatePermissions_Params',
       packedSize: 56,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'active_permissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'withheld_permissions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'policy_blocked_hosts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'policy_allowed_hosts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
+        { name: 'active_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
+        { name: 'withheld_permissions', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
+        { name: 'policy_blocked_hosts', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
+        { name: 'policy_allowed_hosts', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
         { name: 'uses_default_policy_host_restrictions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -559,8 +559,8 @@ extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
       name: 'extensions.mojom.Renderer.UpdateDefaultPolicyHostRestrictions_Params',
       packedSize: 24,
       fields: [
-        { name: 'default_policy_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'default_policy_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_policy_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
+        { name: 'default_policy_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -574,8 +574,8 @@ extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
       name: 'extensions.mojom.Renderer.UpdateUserHostRestrictions_Params',
       packedSize: 24,
       fields: [
-        { name: 'user_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'user_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
+        { name: 'user_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -589,8 +589,8 @@ extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
       name: 'extensions.mojom.Renderer.UpdateTabSpecificPermissions_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'new_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
+        { name: 'new_hosts', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false },
         { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'update_origin_allowlist', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -607,7 +607,7 @@ extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

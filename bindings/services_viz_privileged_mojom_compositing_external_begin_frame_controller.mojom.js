@@ -99,7 +99,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
         { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -113,7 +113,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpe
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec =
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrameNoAck_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
       name: 'viz.mojom.ExternalBeginFrameController.IssueExternalVSync_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

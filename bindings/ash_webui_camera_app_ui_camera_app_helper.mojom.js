@@ -70,10 +70,10 @@ ash.camera_app.mojom.WifiConfigSpec = {
       packedSize: 64,
       fields: [
         { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'security', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false },
         { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'eap_method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'eap_phase2_method', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'eap_method', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapMethodSpec, nullable: true },
+        { name: 'eap_phase2_method', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.WifiEapPhase2MethodSpec, nullable: true },
         { name: 'eap_identity', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'eap_anonymous_identity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
@@ -1643,7 +1643,7 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'file_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileTypeSpec, nullable: false },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDestinationSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2032,7 +2032,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2059,7 +2059,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
       name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

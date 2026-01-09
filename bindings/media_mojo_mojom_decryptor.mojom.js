@@ -161,8 +161,8 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
       name: 'media.mojom.Decryptor.Decrypt_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
+        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.Decrypt_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
       name: 'media.mojom.Decryptor.CancelDecrypt_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeAudioDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeVideoDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_Params',
       packedSize: 16,
       fields: [
-        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
         { name: 'audio_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -286,7 +286,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_Params',
       packedSize: 16,
       fields: [
-        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,8 +299,8 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameSpec, nullable: true },
         { name: 'releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -315,7 +315,7 @@ media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.ResetDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.DeinitializeDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StreamTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

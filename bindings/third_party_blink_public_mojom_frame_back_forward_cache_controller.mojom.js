@@ -16,8 +16,8 @@ blink.mojom.BlockingDetailsSpec = {
       name: 'blink.mojom.BlockingDetails',
       packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebSchedulerTrackedFeatureSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -96,8 +96,8 @@ blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec 
       name: 'blink.mojom.BackForwardCacheControllerHost.EvictFromBackForwardCache_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererEvictionReasonSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

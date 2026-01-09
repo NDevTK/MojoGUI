@@ -181,7 +181,7 @@ ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsS
       name: 'ash.ime.mojom.InputMethodUserDataService.FetchJapaneseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec =
       packedSize: 24,
       fields: [
         { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,7 +224,7 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec 
       packedSize: 32,
       fields: [
         { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
         { name: 'entry_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

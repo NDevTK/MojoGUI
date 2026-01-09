@@ -346,7 +346,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpe
       name: 'blink.mojom.SharedStorageWorkletServiceClient.SharedStorageGet_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedStorageGetStatusSpec, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
       ],
@@ -459,7 +459,7 @@ blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSp
       name: 'blink.mojom.SharedStorageWorkletServiceClient.GetInterestGroups_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetInterestGroupsResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -473,7 +473,7 @@ blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec 
       name: 'blink.mojom.SharedStorageWorkletServiceClient.DidAddMessageToConsole_Params',
       packedSize: 24,
       fields: [
-        { name: 'log_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_level', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -605,7 +605,7 @@ blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec = {
       name: 'blink.mojom.SharedStorageWorkletService.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedStorageWorkletTokenSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -650,7 +650,7 @@ blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false },
         { name: 'pa_operation_details', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationOperationDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -681,7 +681,7 @@ blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false },
         { name: 'pa_operation_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationOperationDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]

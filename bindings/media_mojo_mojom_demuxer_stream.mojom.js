@@ -102,10 +102,10 @@ media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.DemuxerStream.Initialize_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.TypeSpec, nullable: false },
         { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: true },
+        { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -132,10 +132,10 @@ media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
       name: 'media.mojom.DemuxerStream.Read_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
         { name: 'batch_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: true },
+        { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

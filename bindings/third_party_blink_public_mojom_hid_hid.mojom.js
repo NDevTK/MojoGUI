@@ -31,8 +31,8 @@ blink.mojom.HidDeviceFilterSpec = {
       name: 'blink.mojom.HidDeviceFilter',
       packedSize: 24,
       fields: [
-        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceIdFilterSpec, nullable: true },
+        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.UsageFilterSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

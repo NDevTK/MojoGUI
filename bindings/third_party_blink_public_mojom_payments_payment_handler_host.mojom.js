@@ -31,7 +31,7 @@ payments.mojom.PaymentHandlerModifierSpec = {
       name: 'payments.mojom.PaymentHandlerModifier',
       packedSize: 24,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true },
         { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentHandlerMethodDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -46,12 +46,12 @@ payments.mojom.PaymentRequestDetailsUpdateSpec = {
       name: 'payments.mojom.PaymentRequestDetailsUpdate',
       packedSize: 56,
       fields: [
-        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true },
         { name: 'shipping_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stringified_payment_method_errors', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'shipping_address_errors', packedOffset: 40, packedBitOffset: 0, type: payments.mojom.AddressErrorsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

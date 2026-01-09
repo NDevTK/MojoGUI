@@ -137,7 +137,7 @@ ash.diagnostics.mojom.NetworkSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkStateSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypeSpec, nullable: false },
-        { name: 'type_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'type_properties', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypePropertiesSpec, nullable: true },
         { name: 'observer_guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'mac_address', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },

@@ -59,7 +59,7 @@ chromeos.machine_learning.mojom.TensorSpec = {
       name: 'chromeos.machine_learning.mojom.Tensor',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ValueListSpec, nullable: false },
         { name: 'shape', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.Int64ListSpec, nullable: false },
       ],
       versions: [{version: 0}]

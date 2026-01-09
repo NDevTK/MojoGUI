@@ -81,7 +81,7 @@ blink.mojom.SharedWorker_Connect_ParamsSpec = {
       name: 'blink.mojom.SharedWorker.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'message_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message_port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false },
         { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

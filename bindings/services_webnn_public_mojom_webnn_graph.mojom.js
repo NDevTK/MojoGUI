@@ -227,8 +227,8 @@ webnn.mojom.ClampSpec = {
       fields: [
         { name: 'input_operand_id', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
-        { name: 'min_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'max_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'min_value', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.NumberSpec, nullable: false },
+        { name: 'max_value', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.NumberSpec, nullable: false },
         { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -385,7 +385,7 @@ webnn.mojom.ConstantPaddingSpec = {
       name: 'webnn.mojom.ConstantPadding',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.NumberSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ webnn.mojom.PadSpec = {
         { name: 'output_operand_id', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.OperandIdSpec, nullable: false },
         { name: 'beginning_padding', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'ending_padding', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mode', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 32, packedBitOffset: 0, type: webnn.mojom.PaddingModeSpec, nullable: false },
         { name: 'label', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]

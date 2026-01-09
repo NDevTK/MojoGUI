@@ -39,8 +39,8 @@ arc.mojom.VideoEncodeProfileSpec = {
       name: 'arc.mojom.VideoEncodeProfile',
       packedSize: 32,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
         { name: 'max_framerate_numerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'max_framerate_denominator', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -85,9 +85,9 @@ arc.mojom.VideoEncodeAcceleratorConfigSpec = {
       name: 'arc.mojom.VideoEncodeAcceleratorConfig',
       packedSize: 56,
       fields: [
-        { name: 'input_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'input_visible_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'output_profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false },
+        { name: 'input_visible_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
+        { name: 'output_profile', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false },
         { name: 'initial_bitrate_deprecated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'initial_framerate', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'h264_output_level', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },

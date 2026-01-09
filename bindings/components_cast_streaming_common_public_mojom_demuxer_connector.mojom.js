@@ -153,7 +153,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
       name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetAudioBufferResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
       name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetVideoBufferResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

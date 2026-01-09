@@ -120,8 +120,8 @@ blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateWriterClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -219,8 +219,8 @@ blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateRewriterClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -318,8 +318,8 @@ blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateSummarizerClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -417,8 +417,8 @@ blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateProofreaderClient.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIManagerCreateClientErrorSpec, nullable: false },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -592,7 +592,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateLanguageModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelCreateOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -619,7 +619,7 @@ blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
       name: 'blink.mojom.AIManager.CreateLanguageModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelCreateOptionsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -634,7 +634,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateSummarizer_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AISummarizerCreateOptionsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -661,7 +661,7 @@ blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
       name: 'blink.mojom.AIManager.CreateSummarizer_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AISummarizerCreateOptionsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -688,7 +688,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
       name: 'blink.mojom.AIManager.GetLanguageModelParams_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'language_model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'language_model_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelParamsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -702,7 +702,7 @@ blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateWriter_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIWriterCreateOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -729,7 +729,7 @@ blink.mojom.AIManager_CreateWriter_ParamsSpec = {
       name: 'blink.mojom.AIManager.CreateWriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIWriterCreateOptionsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -744,7 +744,7 @@ blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateRewriter_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIRewriterCreateOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -771,7 +771,7 @@ blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
       name: 'blink.mojom.AIManager.CreateRewriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIRewriterCreateOptionsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -786,7 +786,7 @@ blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
       name: 'blink.mojom.AIManager.CanCreateProofreader_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIProofreaderCreateOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -813,7 +813,7 @@ blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
       name: 'blink.mojom.AIManager.CreateProofreader_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIProofreaderCreateOptionsSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

@@ -102,7 +102,7 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
       name: 'media.mojom.FlingingRendererClientExtension.OnRemotePlayStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStatusStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -16,7 +16,7 @@ blink.mojom.ImpressionSpec = {
       name: 'blink.mojom.Impression',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
         { name: 'is_empty_attribution_src_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -122,7 +122,7 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
         { name: 'data_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
@@ -137,7 +137,7 @@ blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart
       name: 'blink.mojom.AttributionHost.NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
         { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

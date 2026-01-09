@@ -310,16 +310,16 @@ chromeos.network_config.mojom.NetworkStatePropertiesSpec = {
       name: 'chromeos.network_config.mojom.NetworkStateProperties',
       packedSize: 104,
       fields: [
-        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ConnectionStateTypeSpec, nullable: false },
         { name: 'error_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'portal_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'portal_state', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false },
         { name: 'portal_probe_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'proxy_mode', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxyModeSpec, nullable: false },
-        { name: 'source', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type_state', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.OncSourceSpec, nullable: false },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
+        { name: 'type_state', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeStatePropertiesSpec, nullable: false },
         { name: 'priority', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'connectable', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'connect_requested', packedOffset: 84, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -344,8 +344,8 @@ chromeos.network_config.mojom.DeviceStatePropertiesSpec = {
         { name: 'sim_lock_status', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.SIMLockStatusSpec, nullable: true },
         { name: 'sim_infos', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'inhibit_reason', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.InhibitReasonSpec, nullable: false },
-        { name: 'device_state', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_state', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.DeviceStateTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
         { name: 'serial', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'scanning', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'sim_absent', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -366,7 +366,7 @@ chromeos.network_config.mojom.NetworkFilterSpec = {
       packedSize: 32,
       fields: [
         { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.FilterTypeSpec, nullable: false },
-        { name: 'network_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'network_type', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
         { name: 'limit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -461,7 +461,7 @@ chromeos.network_config.mojom.IPConfigPropertiesSpec = {
         { name: 'included_routes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'name_servers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'search_domains', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigTypeSpec, nullable: false },
         { name: 'web_proxy_auto_discovery_url', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'routing_prefix', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -511,7 +511,7 @@ chromeos.network_config.mojom.ManagedBooleanSpec = {
       name: 'chromeos.network_config.mojom.ManagedBoolean',
       packedSize: 24,
       fields: [
-        { name: 'policy_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'active_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'policy_value', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
@@ -527,7 +527,7 @@ chromeos.network_config.mojom.ManagedInt32Spec = {
       name: 'chromeos.network_config.mojom.ManagedInt32',
       packedSize: 24,
       fields: [
-        { name: 'policy_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'active_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'policy_value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -544,7 +544,7 @@ chromeos.network_config.mojom.ManagedStringSpec = {
       packedSize: 32,
       fields: [
         { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'policy_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -560,7 +560,7 @@ chromeos.network_config.mojom.ManagedStringListSpec = {
       packedSize: 32,
       fields: [
         { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'policy_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -597,7 +597,7 @@ chromeos.network_config.mojom.ManagedApnListSpec = {
       packedSize: 32,
       fields: [
         { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'policy_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -679,7 +679,7 @@ chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec = {
       packedSize: 32,
       fields: [
         { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'policy_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -698,7 +698,7 @@ chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec = {
         { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true },
         { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringListSpec, nullable: true },
         { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigTypeSpec, nullable: false },
         { name: 'web_proxy_auto_discovery_url', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -873,7 +873,7 @@ chromeos.network_config.mojom.ManagedWireGuardPeerListSpec = {
       packedSize: 32,
       fields: [
         { name: 'active_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'policy_source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.PolicySourceSpec, nullable: false },
         { name: 'policy_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1046,8 +1046,8 @@ chromeos.network_config.mojom.ManagedPropertiesSpec = {
       name: 'chromeos.network_config.mojom.ManagedProperties',
       packedSize: 152,
       fields: [
-        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.ConnectionStateTypeSpec, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_config.mojom.OncSourceSpec, nullable: false },
         { name: 'error_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'guid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'ip_address_config_type', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false },
@@ -1057,11 +1057,11 @@ chromeos.network_config.mojom.ManagedPropertiesSpec = {
         { name: 'name_servers_config_type', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedStringSpec, nullable: false },
         { name: 'priority', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedInt32Spec, nullable: true },
         { name: 'proxy_settings', packedOffset: 80, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedProxySettingsSpec, nullable: true },
-        { name: 'portal_state', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'portal_state', packedOffset: 88, packedBitOffset: 0, type: chromeos.network_config.mojom.PortalStateSpec, nullable: false },
         { name: 'static_ip_config', packedOffset: 96, packedBitOffset: 0, type: chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec, nullable: true },
         { name: 'saved_ip_config', packedOffset: 104, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigPropertiesSpec, nullable: true },
-        { name: 'type', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'type_properties', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 112, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
+        { name: 'type_properties', packedOffset: 120, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeManagedPropertiesSpec, nullable: false },
         { name: 'traffic_counter_properties', packedOffset: 128, packedBitOffset: 0, type: chromeos.network_config.mojom.TrafficCounterPropertiesSpec, nullable: true },
         { name: 'connectable', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -1394,7 +1394,7 @@ chromeos.network_config.mojom.ConfigPropertiesSpec = {
         { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: chromeos.network_config.mojom.PriorityConfigSpec, nullable: true },
         { name: 'proxy_settings', packedOffset: 56, packedBitOffset: 0, type: chromeos.network_config.mojom.ProxySettingsSpec, nullable: true },
         { name: 'static_ip_config', packedOffset: 64, packedBitOffset: 0, type: chromeos.network_config.mojom.IPConfigPropertiesSpec, nullable: true },
-        { name: 'type_config', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type_config', packedOffset: 72, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeConfigPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2025,7 +2025,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_Param
       name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetNetworkTypeEnabledState_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -2108,7 +2108,7 @@ chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = 
       name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestNetworkScan_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_config.mojom.NetworkTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

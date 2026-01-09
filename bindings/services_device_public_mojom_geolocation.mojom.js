@@ -107,7 +107,7 @@ device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
       name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -648,7 +648,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
       name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -1149,7 +1149,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponsePar
       name: 'blink.mojom.FrameWidgetInputHandler.HandleStylusWritingGestureAction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HandwritingGestureResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1364,7 +1364,7 @@ blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec 
       name: 'blink.mojom.FrameWidgetInputHandler.AdjustSelectionByCharacterOffset_Params',
       packedSize: 24,
       fields: [
-        { name: 'behavior', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'behavior', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectionMenuBehaviorSpec, nullable: false },
         { name: 'start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'end', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

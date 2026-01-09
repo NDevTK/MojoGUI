@@ -135,7 +135,7 @@ extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec 
       name: 'extensions.mojom.ServiceWorkerHost.DidInitializeServiceWorkerContext_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'service_worker_version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'service_worker_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerTokenSpec, nullable: false },
         { name: 'worker_thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -153,7 +153,7 @@ extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorkerHost.DidStartServiceWorkerContext_Params',
       packedSize: 48,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'activation_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'service_worker_scope', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
@@ -171,7 +171,7 @@ extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorkerHost.DidStopServiceWorkerContext_Params',
       packedSize: 48,
       fields: [
-        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
         { name: 'activation_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'service_worker_scope', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
@@ -189,7 +189,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorkerHost.RequestWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.RequestParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
       fields: [
         { name: 'response_wrapper', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExtraResponseDataSpec, nullable: true },
         { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

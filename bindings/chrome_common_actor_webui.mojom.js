@@ -165,7 +165,7 @@ actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = {
       name: 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, nullable: false },
         { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -209,7 +209,7 @@ actor.webui.mojom.UserConfirmationDialogResponseSpec = {
       name: 'actor.webui.mojom.UserConfirmationDialogResponse',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.ConfirmationRequestResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ actor.webui.mojom.NavigationConfirmationResponseSpec = {
       name: 'actor.webui.mojom.NavigationConfirmationResponse',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.ConfirmationRequestResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -269,7 +269,7 @@ auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = {
         { name: 'real_time_contributions', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'generate_bid_timing_metrics', packedOffset: 64, packedBitOffset: 0, type: auction_worklet.mojom.BidderTimingMetricsSpec, nullable: false },
         { name: 'generate_bid_dependency_latencies', packedOffset: 72, packedBitOffset: 0, type: auction_worklet.mojom.GenerateBidDependencyLatenciesSpec, nullable: false },
-        { name: 'reject_reason', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reject_reason', packedOffset: 80, packedBitOffset: 0, type: auction_worklet.mojom.RejectReasonSpec, nullable: false },
         { name: 'errors', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'bidding_signals_data_version', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
@@ -456,7 +456,7 @@ auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = {
       packedSize: 144,
       fields: [
         { name: 'bidder_worklet_non_shared_params', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BidderWorkletNonSharedParamsSpec, nullable: false },
-        { name: 'key_value_signals_cache_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key_value_signals_cache_key', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCacheKeySpec, nullable: true },
         { name: 'kanon_mode', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.KAnonymityBidModeSpec, nullable: false },
         { name: 'interest_group_join_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'direct_from_seller_per_buyer_signals', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },

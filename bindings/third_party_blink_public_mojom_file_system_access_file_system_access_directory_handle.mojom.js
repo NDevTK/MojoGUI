@@ -16,7 +16,7 @@ blink.mojom.FileSystemAccessEntrySpec = {
       name: 'blink.mojom.FileSystemAccessEntry',
       packedSize: 24,
       fields: [
-        { name: 'entry_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entry_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessHandleSpec, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -87,7 +87,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec
       name: 'blink.mojom.FileSystemAccessDirectoryEntriesListener.DidReadDirectory_Params',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'has_more_entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -272,7 +272,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetPermissionStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSp
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetPermissionStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RequestPermission_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,8 +312,8 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RequestPermission_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetFile_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -370,7 +370,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetDirectory_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -412,7 +412,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Rename_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,7 +440,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Move_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,7 +467,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Remove_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -495,7 +495,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RemoveEntry_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -522,7 +522,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Resolve_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
@@ -563,7 +563,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetUniqueId_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
@@ -590,7 +590,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSp
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetCloudIdentifiers_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'cloud_identifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

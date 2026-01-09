@@ -48,7 +48,7 @@ blink.mojom.SpeculationCandidateSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false },
-        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
         { name: 'target_browsing_context_name_hint', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false },
         { name: 'eagerness', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false },
         { name: 'no_vary_search_hint', packedOffset: 40, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true },

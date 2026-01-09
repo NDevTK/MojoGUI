@@ -122,7 +122,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_R
       name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
