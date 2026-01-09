@@ -11,6 +11,9 @@ reading_list.mojom = reading_list.mojom || {};
 
 // Enum: CurrentPageActionButtonState
 reading_list.mojom.CurrentPageActionButtonState = {
+  kAdd: 0,
+  kDisabled: 1,
+  kMarkAsRead: 2,
 };
 
 // Struct: ReadLaterEntriesByStatus

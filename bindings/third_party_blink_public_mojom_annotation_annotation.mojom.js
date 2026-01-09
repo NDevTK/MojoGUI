@@ -11,10 +11,13 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AnnotationType
 blink.mojom.AnnotationType = {
+  and: 0,
 };
 
 // Enum: AttachmentResult
 blink.mojom.AttachmentResult = {
+  because: 0,
+  the: 1,
 };
 
 // Struct: SelectorCreationResult

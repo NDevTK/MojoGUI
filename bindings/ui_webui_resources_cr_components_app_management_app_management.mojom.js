@@ -11,30 +11,55 @@ app_management.mojom = app_management.mojom || {};
 
 // Enum: AppType
 app_management.mojom.AppType = {
+  kUnknown: 0,
+  kArc: 1,
+  see: 2,
+  see: 3,
+  see: 4,
 };
 
 // Enum: PermissionType
 app_management.mojom.PermissionType = {
+  kUnknown: 0,
+  kCamera: 1,
+  kLocation: 2,
+  kMicrophone: 3,
+  kNotifications: 4,
+  kContacts: 5,
+  kStorage: 6,
+  kPrinting: 7,
+  kFileHandling: 8,
 };
 
 // Enum: TriState
 app_management.mojom.TriState = {
+  kAllow: 0,
+  kBlock: 1,
+  kAsk: 2,
 };
 
 // Enum: InstallReason
 app_management.mojom.InstallReason = {
+  kUnknown: 0,
+  kSystem: 1,
+  but: 2,
+  no: 3,
 };
 
 // Enum: InstallSource
 app_management.mojom.InstallSource = {
+  kUnknown: 0,
+  kSystem: 1,
 };
 
 // Enum: WindowMode
 app_management.mojom.WindowMode = {
+  kUnknown: 0,
 };
 
 // Enum: RunOnOsLoginMode
 app_management.mojom.RunOnOsLoginMode = {
+  kUnknown: 0,
 };
 
 // Struct: Permission

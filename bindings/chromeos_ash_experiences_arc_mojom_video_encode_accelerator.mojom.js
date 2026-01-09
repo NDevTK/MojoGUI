@@ -20,10 +20,17 @@ arc.mojom.Error = {
   GPU: 0,
   GPU: 1,
   GPU: 2,
+  and: 3,
+  kErrorMax: 4,
 };
 
 // Enum: Result
 arc.mojom.Result = {
+  kSuccess: 0,
+  kIllegalStateError: 1,
+  kInvalidArgumentError: 2,
+  kPlatformFailureError: 3,
+  kInsufficientResourcesError: 4,
 };
 
 // Struct: VideoEncodeProfile

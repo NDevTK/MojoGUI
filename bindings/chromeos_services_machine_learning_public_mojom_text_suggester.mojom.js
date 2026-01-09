@@ -12,14 +12,19 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: TextSuggestionMode
 chromeos.machine_learning.mojom.TextSuggestionMode = {
+  and: 0,
+  however: 1,
+  and: 2,
 };
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
+  no: 0,
 };
 
 // Enum: MultiWordExperimentGroup
 chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
+  kGboard: 0,
 };
 
 // Struct: NextWordCompletionCandidate

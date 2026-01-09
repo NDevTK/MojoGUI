@@ -11,18 +11,31 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SpeculationAction
 blink.mojom.SpeculationAction = {
+  kPrefetch: 0,
+  kPrerenderUntilScript: 1,
+  kPrerender: 2,
 };
 
 // Enum: SpeculationTargetHint
 blink.mojom.SpeculationTargetHint = {
+  kNoHint: 0,
+  kBlank: 1,
+  kSelf: 2,
 };
 
 // Enum: SpeculationEagerness
 blink.mojom.SpeculationEagerness = {
+  kConservative: 0,
+  kModerate: 1,
+  kImmediate: 2,
+  kEager: 3,
 };
 
 // Enum: SpeculationInjectionType
 blink.mojom.SpeculationInjectionType = {
+  kNone: 0,
+  i: 1,
+  statically: 2,
 };
 
 // Struct: SpeculationCandidate

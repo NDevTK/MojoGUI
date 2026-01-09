@@ -11,10 +11,20 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SingletonJavaScriptValue
 blink.mojom.SingletonJavaScriptValue = {
+  kNull: 0,
+  kUndefined: 1,
 };
 
 // Enum: RemoteArrayType
 blink.mojom.RemoteArrayType = {
+  kInt8Array: 0,
+  kUint8Array: 1,
+  kInt16Array: 2,
+  kUint16Array: 3,
+  kInt32Array: 4,
+  kUint32Array: 5,
+  kFloat32Array: 6,
+  kFloat64Array: 7,
 };
 
 // Enum: RemoteInvocationError

@@ -11,6 +11,8 @@ network.mojom = network.mojom || {};
 
 // Enum: SSLVersion
 network.mojom.SSLVersion = {
+  kTLS12: 0,
+  kTLS13: 1,
 };
 
 // Enum: SSLNamedGroupsPreset

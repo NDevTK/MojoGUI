@@ -11,6 +11,12 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: PluginStatus
 chrome.mojom.PluginStatus = {
+  kAllowed: 0,
+  but: 1,
+  so: 2,
+  kDisabled: 3,
+  kNotFound: 4,
+  kUnauthorized: 5,
 };
 
 // Struct: PluginInfo

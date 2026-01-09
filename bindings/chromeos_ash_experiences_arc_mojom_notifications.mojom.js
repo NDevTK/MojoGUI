@@ -17,6 +17,7 @@ arc.mojom.ArcNotificationEvent = {
   DEPRECATED_BUTTON_3_CLICKED: 3,
   DEPRECATED_BUTTON_4_CLICKED: 4,
   DEPRECATED_BUTTON_5_CLICKED: 5,
+  or: 6,
 };
 
 // Enum: ArcNotificationType

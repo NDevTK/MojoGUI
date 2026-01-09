@@ -23,14 +23,38 @@ crosapi.mojom.ConnectionType = {
 
 // Enum: OptionType
 crosapi.mojom.OptionType = {
+  kBool: 0,
+  kInt: 1,
+  kFixed: 2,
+  kString: 3,
+  kButton: 4,
+  kGroup: 5,
 };
 
 // Enum: OptionUnit
 crosapi.mojom.OptionUnit = {
+  e: 0,
+  threshold: 1,
+  e: 2,
+  scan: 3,
+  e: 4,
+  color: 5,
+  e: 6,
+  scan: 7,
+  e: 8,
+  resolution: 9,
+  e: 10,
+  brightness: 11,
+  e: 12,
 };
 
 // Enum: OptionConstraintType
 crosapi.mojom.OptionConstraintType = {
+  kIntRange: 0,
+  kFixedRange: 1,
+  kIntList: 2,
+  kFixedList: 3,
+  kStringList: 4,
 };
 
 // Enum: OptionConfigurability

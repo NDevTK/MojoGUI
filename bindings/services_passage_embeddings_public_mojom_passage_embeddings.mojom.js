@@ -11,6 +11,10 @@ passage_embeddings.mojom = passage_embeddings.mojom || {};
 
 // Enum: PassagePriority
 passage_embeddings.mojom.PassagePriority = {
+  kUnknown: 0,
+  kUrgent: 1,
+  kUserInitiated: 2,
+  kPassive: 3,
 };
 
 // Struct: PassageEmbeddingsResult

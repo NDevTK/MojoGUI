@@ -11,10 +11,18 @@ network.mojom = network.mojom || {};
 
 // Enum: CoopAccessReportType
 network.mojom.CoopAccessReportType = {
+  kAccessFromCoopPageToOpener: 0,
+  kAccessFromCoopPageToOpenee: 1,
+  kAccessFromCoopPageToOther: 2,
+  kAccessToCoopPageFromOpener: 3,
+  kAccessToCoopPageFromOpenee: 4,
+  kAccessToCoopPageFromOther: 5,
 };
 
 // Enum: CrossOriginOpenerPolicyValue
 network.mojom.CrossOriginOpenerPolicyValue = {
+  the: 0,
+  provided: 1,
 };
 
 // Struct: CrossOriginOpenerPolicyReporterParams

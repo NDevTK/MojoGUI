@@ -11,7 +11,7 @@ infobar_internals.mojom = infobar_internals.mojom || {};
 
 // Enum: InfoBarType
 infobar_internals.mojom.InfoBarType = {
-  M: 0,
+  Mac: 0,
 };
 
 // Struct: InfoBarEntry

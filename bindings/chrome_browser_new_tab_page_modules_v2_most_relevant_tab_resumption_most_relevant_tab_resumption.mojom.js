@@ -12,6 +12,10 @@ ntp.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.mojom 
 
 // Enum: ScoredURLUserAction
 ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
+  kUnknown: 0,
+  kSeen: 1,
+  kActivated: 2,
+  kDismissed: 3,
 };
 
 // Interface: PageHandler

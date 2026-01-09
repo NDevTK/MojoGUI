@@ -11,6 +11,8 @@ ax.mojom = ax.mojom || {};
 
 // Enum: SpeechRecognitionType
 ax.mojom.SpeechRecognitionType = {
+  kOnDevice: 0,
+  kNetwork: 1,
 };
 
 // Struct: SpeechRecognitionResultEvent

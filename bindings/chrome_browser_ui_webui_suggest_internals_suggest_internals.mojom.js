@@ -11,6 +11,11 @@ suggest_internals.mojom = suggest_internals.mojom || {};
 
 // Enum: RequestStatus
 suggest_internals.mojom.RequestStatus = {
+  kHardcoded: 0,
+  kCreated: 1,
+  kSent: 2,
+  kSucceeded: 3,
+  kFailed: 4,
 };
 
 // Struct: Request

@@ -18,6 +18,10 @@ blink.mojom.CredentialType = {
 
 // Enum: CredentialMediationRequirement
 blink.mojom.CredentialMediationRequirement = {
+  kSilent: 0,
+  kOptional: 1,
+  kRequired: 2,
+  kConditional: 3,
 };
 
 // Enum: CredentialManagerError

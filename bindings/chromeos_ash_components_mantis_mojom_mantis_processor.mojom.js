@@ -15,10 +15,12 @@ mantis.mojom.MantisError = {
 
 // Enum: SafetyClassifierVerdict
 mantis.mojom.SafetyClassifierVerdict = {
+  kPass: 0,
 };
 
 // Enum: SegmentationMode
 mantis.mojom.SegmentationMode = {
+  kLasso: 0,
 };
 
 // Struct: TouchPoint

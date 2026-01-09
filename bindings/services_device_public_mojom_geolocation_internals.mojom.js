@@ -15,6 +15,12 @@ device.mojom.ProviderState = {
 
 // Enum: LocationProviderManagerMode
 device.mojom.LocationProviderManagerMode = {
+  regardless: 0,
+  regardless: 1,
+  regardless: 2,
+  fall: 3,
+  fall: 4,
+  also: 5,
 };
 
 // Struct: AccessPointData

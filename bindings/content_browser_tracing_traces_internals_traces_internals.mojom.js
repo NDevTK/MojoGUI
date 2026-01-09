@@ -11,14 +11,32 @@ traces_internals.mojom = traces_internals.mojom || {};
 
 // Enum: ReportUploadState
 traces_internals.mojom.ReportUploadState = {
+  kNotUploaded: 0,
+  kPending: 1,
+  kPending_UserRequested: 2,
+  kUploaded: 3,
 };
 
 // Enum: SkipUploadReason
 traces_internals.mojom.SkipUploadReason = {
+  kNoSkip: 0,
+  kSizeLimitExceeded: 1,
+  kNotAnonymized: 2,
+  kScenarioQuotaExceeded: 3,
+  kUploadTimedOut: 4,
+  kLocalScenario: 5,
 };
 
 // Enum: TracingScenarioState
 traces_internals.mojom.TracingScenarioState = {
+  kDisabled: 0,
+  kEnabled: 1,
+  kSetup: 2,
+  kStarting: 3,
+  kRecording: 4,
+  kStopping: 5,
+  kFinalizing: 6,
+  kCloning: 7,
 };
 
 // Struct: ClientTraceReport

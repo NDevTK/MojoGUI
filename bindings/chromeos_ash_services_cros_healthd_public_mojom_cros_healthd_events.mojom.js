@@ -12,58 +12,79 @@ ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: DeviceType
 ash.cros_healthd.mojom.DeviceType = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: InputTouchButton
 ash.cros_healthd.mojom.InputTouchButton = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: CrashType
 ash.cros_healthd.mojom.CrashType = {
+  kKernel: 0,
+  kEmbeddedController: 1,
 };
 
 // Enum: EventCategoryEnum
 ash.cros_healthd.mojom.EventCategoryEnum = {
+  should: 0,
+  kUsb: 1,
+  kThunderbolt: 2,
+  kLid: 3,
+  kBluetooth: 4,
+  kPower: 5,
+  kAudio: 6,
 };
 
 // Struct: UsbEventInfo

@@ -11,6 +11,7 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SpeechSynthesisErrorCode
 blink.mojom.SpeechSynthesisErrorCode = {
+  this: 0,
 };
 
 // Struct: SpeechSynthesisUtterance

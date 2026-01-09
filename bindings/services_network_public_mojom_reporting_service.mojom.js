@@ -11,6 +11,10 @@ network.mojom = network.mojom || {};
 
 // Enum: ReportingApiReportStatus
 network.mojom.ReportingApiReportStatus = {
+  kQueued: 0,
+  kPending: 1,
+  kDoomed: 2,
+  kSuccess: 3,
 };
 
 // Struct: ReportingApiReport

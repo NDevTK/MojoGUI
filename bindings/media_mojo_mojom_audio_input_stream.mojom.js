@@ -11,6 +11,12 @@ media.mojom = media.mojom || {};
 
 // Enum: DisconnectReason
 media.mojom.DisconnectReason = {
+  e: 0,
+  kTerminatedByClient: 1,
+  kStreamCreationFailed: 2,
+  kDocumentDestroyed: 3,
+  kSystemPermissions: 4,
+  kDeviceInUse: 5,
 };
 
 // Interface: AudioInputStream

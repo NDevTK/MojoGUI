@@ -11,14 +11,29 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: ButtonType
 crosapi.mojom.ButtonType = {
+  should: 0,
+  kVolumeUp: 1,
 };
 
 // Enum: TelemetryDiagnosticLedName
 crosapi.mojom.TelemetryDiagnosticLedName = {
+  should: 0,
+  kBattery: 1,
+  kPower: 2,
+  kAdapter: 3,
+  kLeft: 4,
+  kRight: 5,
 };
 
 // Enum: TelemetryDiagnosticLedColor
 crosapi.mojom.TelemetryDiagnosticLedColor = {
+  should: 0,
+  kRed: 1,
+  kGreen: 2,
+  kBlue: 3,
+  kYellow: 4,
+  kWhite: 5,
+  kAmber: 6,
 };
 
 // Enum: Type
@@ -27,10 +42,12 @@ crosapi.mojom.Type = {
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: Reason
@@ -39,18 +56,26 @@ crosapi.mojom.Reason = {
 
 // Enum: TelemetryDiagnosticMemtesterTestItemEnum
 crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnum = {
+  repeating: 0,
+  repeating: 1,
+  repeated: 2,
 };
 
 // Enum: TelemetryDiagnosticHardwarePresenceStatus
 crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatus = {
+  should: 0,
+  skipping: 1,
 };
 
 // Enum: TelemetryDiagnosticCameraSubtestResult
 crosapi.mojom.TelemetryDiagnosticCameraSubtestResult = {
+  should: 0,
+  possibly: 1,
 };
 
 // Enum: Issue
 crosapi.mojom.Issue = {
+  should: 0,
 };
 
 // Struct: TelemetryDiagnosticMemoryRoutineArgument

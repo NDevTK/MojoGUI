@@ -11,6 +11,7 @@ storage.mojom = storage.mojom || {};
 
 // Enum: DisallowInactiveClientReason
 storage.mojom.DisallowInactiveClientReason = {
+  but: 0,
 };
 
 // Interface: IndexedDBClientStateChecker

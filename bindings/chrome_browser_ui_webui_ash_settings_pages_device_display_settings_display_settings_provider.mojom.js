@@ -12,14 +12,33 @@ ash.settings.mojom = ash.settings.mojom || {};
 
 // Enum: DisplaySettingsType
 ash.settings.mojom.DisplaySettingsType = {
+  kResolution: 0,
+  kRefreshRate: 1,
+  kScaling: 2,
+  kOrientation: 3,
+  kOverscan: 4,
+  kNightLight: 5,
+  kNightLightSchedule: 6,
+  kDisplayPage: 7,
+  kMirrorMode: 8,
+  kUnifiedMode: 9,
+  kPrimaryDisplay: 10,
 };
 
 // Enum: DisplaySettingsNightLightScheduleOption
 ash.settings.mojom.DisplaySettingsNightLightScheduleOption = {
+  kNever: 0,
+  kSunsetToSunrise: 1,
+  kCustom: 2,
 };
 
 // Enum: DisplaySettingsOrientationOption
 ash.settings.mojom.DisplaySettingsOrientationOption = {
+  kAuto: 0,
+  k0Degree: 1,
+  k90Degree: 2,
+  k180Degree: 3,
+  k270Degree: 4,
 };
 
 // Struct: DisplaySettingsValue

@@ -11,18 +11,35 @@ side_panel.mojom = side_panel.mojom || {};
 
 // Enum: CustomizeChromeSection
 side_panel.mojom.CustomizeChromeSection = {
+  kUnspecified: 0,
+  kAppearance: 1,
+  kShortcuts: 2,
+  kModules: 3,
+  kWallpaperSearch: 4,
+  kToolbar: 5,
+  kFooter: 6,
 };
 
 // Enum: ChromeWebStoreCollection
 side_panel.mojom.ChromeWebStoreCollection = {
+  kWritingEssentials: 0,
 };
 
 // Enum: ChromeWebStoreCategory
 side_panel.mojom.ChromeWebStoreCategory = {
+  kWorkflowPlanning: 0,
+  kShopping: 1,
 };
 
 // Enum: NewTabPageType
 side_panel.mojom.NewTabPageType = {
+  kFirstPartyWebUI: 0,
+  kThirdPartyWebUI: 1,
+  kThirdPartyRemote: 2,
+  kExtension: 3,
+  kIncognito: 4,
+  kGuestMode: 5,
+  kNone: 6,
 };
 
 // Struct: BackgroundImage

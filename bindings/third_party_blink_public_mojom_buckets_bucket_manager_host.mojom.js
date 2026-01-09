@@ -11,6 +11,9 @@ blink.mojom = blink.mojom || {};
 
 // Enum: BucketError
 blink.mojom.BucketError = {
+  kUnknown: 0,
+  kQuotaExceeded: 1,
+  kInvalidExpiration: 2,
 };
 
 // Struct: BucketPolicies

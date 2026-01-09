@@ -11,9 +11,9 @@ page_image_service.mojom = page_image_service.mojom || {};
 
 // Enum: ClientId
 page_image_service.mojom.ClientId = {
-  J: 0,
-  N: 1,
-  N: 2,
+  JourneysSidePanel: 0,
+  NtpRealbox: 1,
+  NtpQuests: 2,
 };
 
 // Struct: Options

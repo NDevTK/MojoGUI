@@ -11,6 +11,19 @@ media.mojom = media.mojom || {};
 
 // Enum: CdmCapabilityQueryStatus
 media.mojom.CdmCapabilityQueryStatus = {
+  kSuccess: 0,
+  kUnknown: 1,
+  kHardwareSecureCodecNotSupported: 2,
+  kNoSupportedVideoCodec: 3,
+  kNoSupportedEncryptionScheme: 4,
+  kUnsupportedKeySystem: 5,
+  kMediaFoundationCdmNotSupported: 6,
+  kDisconnectionError: 7,
+  kMediaFoundationGetCdmFactoryFailed: 8,
+  kCreateDummyMediaFoundationCdmFailed: 9,
+  kUnexpectedEmptyCapability: 10,
+  kNoMediaDrmSupport: 11,
+  kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
 
 // Struct: VideoCodecInfo

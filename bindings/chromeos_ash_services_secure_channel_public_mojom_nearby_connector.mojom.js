@@ -12,10 +12,40 @@ ash.secure_channel.mojom = ash.secure_channel.mojom || {};
 
 // Enum: NearbyConnectionStep
 ash.secure_channel.mojom.NearbyConnectionStep = {
+  kDiscoveringEndpointStarted: 0,
+  kDiscoveringEndpointEnded: 1,
+  kRequestingConnectionStarted: 2,
+  kRequestingConnectionEnded: 3,
+  kAcceptingConnectionStarted: 4,
+  kAcceptingConnectionFinished: 5,
+  kWaitingForConnectionToBeAcceptedByRemoteDeviceStarted: 6,
+  kWaitingForConnectionToBeAcceptedByRemoteDeviceEnded: 7,
+  kConnected: 8,
+  kUpgradedToWebRtc: 9,
+  kDisconnectionStarted: 10,
+  kDisconnectionFinished: 11,
 };
 
 // Enum: NearbyConnectionStepResult
 ash.secure_channel.mojom.NearbyConnectionStepResult = {
+  kSuccess: 0,
+  kOutOfOrderApiCall: 1,
+  kAlreadyHaveActiveStrategy: 2,
+  kAlreadyAdvertising: 3,
+  kAlreadyDiscovering: 4,
+  kEndpointIOError: 5,
+  kEndpointUnknown: 6,
+  kConnectionRejected: 7,
+  kAlreadyConnectedToEndpoint: 8,
+  kNotConnectedToEndpoint: 9,
+  kBluetoothError: 10,
+  kBleError: 11,
+  kWifiLanError: 12,
+  kPayloadUnknown: 13,
+  kAlreadyListening: 14,
+  kReset: 15,
+  kTimeout: 16,
+  kUnknown: 17,
 };
 
 // Interface: NearbyConnectionStateListener

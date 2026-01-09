@@ -12,10 +12,39 @@ side_panel.customize_chrome.mojom = side_panel.customize_chrome.mojom || {};
 
 // Enum: ActionId
 side_panel.customize_chrome.mojom.ActionId = {
+  kShowBookmarks: 0,
+  kShowHistoryCluster: 1,
+  kShowReadAnything: 2,
+  kShowReadingList: 3,
+  kShowLensOverlay: 4,
+  kShowSearchCompanion: 5,
+  kHome: 6,
+  kForward: 7,
+  kNewIncognitoWindow: 8,
+  kShowPasswordManager: 9,
+  kShowPaymentMethods: 10,
+  kShowAddresses: 11,
+  kShowDownloads: 12,
+  kClearBrowsingData: 13,
+  kPrint: 14,
+  kShowTranslate: 15,
+  kSendTabToSelf: 16,
+  kQrCodeGenerator: 17,
+  kRouteMedia: 18,
+  kTaskManager: 19,
+  kDevTools: 20,
+  kShowChromeLabs: 21,
+  kCopyLink: 22,
+  kTabSearch: 23,
+  kSplitTab: 24,
+  kContextualTasks: 25,
 };
 
 // Enum: CategoryId
 side_panel.customize_chrome.mojom.CategoryId = {
+  kNavigation: 0,
+  kYourChrome: 1,
+  kTools: 2,
 };
 
 // Struct: Action

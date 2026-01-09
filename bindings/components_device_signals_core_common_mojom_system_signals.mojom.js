@@ -15,6 +15,7 @@ device_signals.mojom.PresenceValue = {
 
 // Enum: AntiVirusProductState
 device_signals.mojom.AntiVirusProductState = {
+  temporarily: 0,
 };
 
 // Struct: ExecutableMetadata

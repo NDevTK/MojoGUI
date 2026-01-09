@@ -53,6 +53,9 @@ blink.mojom.PermissionName = {
 
 // Enum: EmbeddedPermissionControlResult
 blink.mojom.EmbeddedPermissionControlResult = {
+  kDenied: 0,
+  without: 1,
+  which: 2,
 };
 
 // Struct: MidiPermissionDescriptor

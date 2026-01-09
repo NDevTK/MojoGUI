@@ -12,25 +12,54 @@ ash.multidevice_setup.mojom = ash.multidevice_setup.mojom || {};
 
 // Enum: CameraRollOptInEntryPoint
 ash.multidevice_setup.mojom.CameraRollOptInEntryPoint = {
+  kSetupFlow: 0,
+  kOnboardingDialog: 1,
+  kSettings: 2,
 };
 
 // Enum: EventTypeForDebugging
 ash.multidevice_setup.mojom.EventTypeForDebugging = {
+  kNewUserPotentialHostExists: 0,
+  kExistingUserConnectedHostSwitched: 1,
+  kExistingUserNewChromebookAdded: 2,
 };
 
 // Enum: HostStatus
 ash.multidevice_setup.mojom.HostStatus = {
+  but: 0,
+  but: 1,
+  the: 2,
+  or: 3,
+  but: 4,
+  and: 5,
 };
 
 // Enum: Feature
 ash.multidevice_setup.mojom.Feature = {
+  kBetterTogetherSuite: 0,
+  kInstantTethering: 1,
+  kMessages: 2,
+  kSmartLock: 3,
+  kPhoneHub: 4,
+  kPhoneHubNotifications: 5,
+  kPhoneHubTaskContinuation: 6,
+  kWifiSync: 7,
+  kEche: 8,
+  kPhoneHubCameraRoll: 9,
 };
 
 // Enum: FeatureState
 ash.multidevice_setup.mojom.FeatureState = {
   EDU: 0,
-  S: 1,
-  P: 2,
+  via: 1,
+  via: 2,
+  Smart: 3,
+  but: 4,
+  but: 5,
+  and: 6,
+  Phone: 7,
+  use: 8,
+  use: 9,
 };
 
 // Struct: HostDevice

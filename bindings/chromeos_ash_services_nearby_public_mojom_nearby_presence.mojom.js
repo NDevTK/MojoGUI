@@ -13,22 +13,49 @@ ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
 
 // Enum: IdentityType
 ash.nearby.presence.mojom.IdentityType = {
+  kIdentityTypeUnspecified: 0,
+  kIdentityTypePrivateGroup: 1,
+  kIdentityTypeContactsGroup: 2,
+  kIdentityTypePublic: 3,
 };
 
 // Enum: PresenceDeviceType
 ash.nearby.presence.mojom.PresenceDeviceType = {
+  kPhone: 0,
+  kTablet: 1,
+  kDisplay: 2,
+  kLaptop: 3,
+  kTv: 4,
+  kWatch: 5,
+  kChromeos: 6,
+  kFoldable: 7,
 };
 
 // Enum: ActionType
 ash.nearby.presence.mojom.ActionType = {
+  kCallTransferAction: 0,
+  kActiveUnlockAction: 1,
+  kNearbyShareAction: 2,
+  kInstantTetheringAction: 3,
+  kPhoneHubAction: 4,
+  kPresenceManagerAction: 5,
+  kFinderAction: 6,
+  kFastPairSassAction: 7,
+  kTapToTransferAction: 8,
+  kLastAction: 9,
 };
 
 // Enum: PublicCredentialType
 ash.nearby.presence.mojom.PublicCredentialType = {
+  kLocalPublicCredential: 0,
+  kRemotePublicCredential: 1,
 };
 
 // Enum: CredentialType
 ash.nearby.presence.mojom.CredentialType = {
+  kCredentialTypeUnknown: 0,
+  kCredentialTypeDevice: 1,
+  kCredentialTypeGaia: 2,
 };
 
 // Struct: ScanRequest

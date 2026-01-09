@@ -11,6 +11,8 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: OfflinePageAutoFetcherScheduleResult
 chrome.mojom.OfflinePageAutoFetcherScheduleResult = {
+  so: 0,
+  so: 1,
 };
 
 // Interface: OfflinePageAutoFetcher

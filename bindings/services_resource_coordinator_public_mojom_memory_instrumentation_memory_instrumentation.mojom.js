@@ -42,10 +42,15 @@ memory_instrumentation.mojom.ProcessType = {
 
 // Enum: MemoryMapOption
 memory_instrumentation.mojom.MemoryMapOption = {
+  e: 0,
+  system: 1,
 };
 
 // Enum: MemDumpFlags
 memory_instrumentation.mojom.MemDumpFlags = {
+  populate: 0,
+  populate: 1,
+  populate: 2,
 };
 
 // Enum: RequestOutcome

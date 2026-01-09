@@ -25,18 +25,30 @@ device.mojom.XRTargetRayMode = {
 
 // Enum: XRSessionFeatureRequestStatus
 device.mojom.XRSessionFeatureRequestStatus = {
+  kNotRequested: 0,
+  kRequired: 1,
+  kOptionalAccepted: 2,
+  kOptionalRejected: 3,
 };
 
 // Enum: XREnvironmentBlendMode
 device.mojom.XREnvironmentBlendMode = {
+  kOpaque: 0,
+  kAlphaBlend: 1,
+  kAdditive: 2,
 };
 
 // Enum: XRInteractionMode
 device.mojom.XRInteractionMode = {
+  kScreenSpace: 0,
+  kWorldSpace: 1,
 };
 
 // Enum: XREye
 device.mojom.XREye = {
+  kNone: 0,
+  kLeft: 1,
+  kRight: 2,
 };
 
 // Enum: XRPresentationTransportMethod
@@ -47,10 +59,17 @@ device.mojom.XRPresentationTransportMethod = {
 
 // Enum: XRReferenceSpaceType
 device.mojom.XRReferenceSpaceType = {
+  kViewer: 0,
+  kLocal: 1,
+  kLocalFloor: 2,
+  kBoundedFloor: 3,
+  kUnbounded: 4,
 };
 
 // Enum: XRInputSourceSpaceType
 device.mojom.XRInputSourceSpaceType = {
+  kTargetRay: 0,
+  kGrip: 1,
 };
 
 // Enum: XRPlaneOrientation
@@ -62,10 +81,19 @@ device.mojom.XRPlaneOrientation = {
 
 // Enum: XRSemanticLabel
 device.mojom.XRSemanticLabel = {
+  kOther: 0,
+  kFloor: 1,
+  kWall: 2,
+  kCeiling: 3,
+  kTable: 4,
 };
 
 // Enum: XRLayerLayout
 device.mojom.XRLayerLayout = {
+  kMono: 0,
+  kStereo: 1,
+  kStereoLeftRight: 2,
+  kStereoTopBottom: 3,
 };
 
 // Enum: CreateCompositionLayerResult

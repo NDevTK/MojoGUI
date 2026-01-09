@@ -11,31 +11,60 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: DiagnosticsRoutineEnum
 crosapi.mojom.DiagnosticsRoutineEnum = {
-  DEPRECATED_: 0,
+  kBatteryCapacity: 0,
+  kBatteryHealth: 1,
+  kSmartctlCheck: 2,
+  kAcPower: 3,
+  kCpuCache: 4,
+  kCpuStress: 5,
+  kFloatingPointAccuracy: 6,
+  DEPRECATED_kNvmeWearLevel: 7,
+  kNvmeSelfTest: 8,
+  kDiskRead: 9,
+  kPrimeSearch: 10,
+  kBatteryDischarge: 11,
+  kBatteryCharge: 12,
+  kMemory: 13,
+  kLanConnectivity: 14,
+  kDnsResolution: 15,
+  kSignalStrength: 16,
+  kGatewayCanBePinged: 17,
+  kDnsResolverPresent: 18,
+  kSensitiveSensor: 19,
+  kFingerprintAlive: 20,
+  kSmartctlCheckWithPercentageUsed: 21,
+  kEmmcLifetime: 22,
 };
 
 // Enum: DiagnosticsRoutineStatusEnum
 crosapi.mojom.DiagnosticsRoutineStatusEnum = {
+  kReady: 0,
 };
 
 // Enum: DiagnosticsRoutineUserMessageEnum
 crosapi.mojom.DiagnosticsRoutineUserMessageEnum = {
+  kUnplugACPower: 0,
 };
 
 // Enum: DiagnosticsRoutineCommandEnum
 crosapi.mojom.DiagnosticsRoutineCommandEnum = {
+  kContinue: 0,
 };
 
 // Enum: DiagnosticsAcPowerStatusEnum
 crosapi.mojom.DiagnosticsAcPowerStatusEnum = {
+  kConnected: 0,
 };
 
 // Enum: DiagnosticsNvmeSelfTestTypeEnum
 crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnum = {
+  kShortSelfTest: 0,
 };
 
 // Enum: DiagnosticsDiskReadRoutineTypeEnum
 crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
+  kLinearRead: 0,
+  kRandomRead: 1,
 };
 
 // Struct: DiagnosticsInteractiveRoutineUpdate

@@ -12,6 +12,7 @@ chromecast.mojom = chromecast.mojom || {};
 // Enum: PageState
 chromecast.mojom.PageState = {
   IDLE: 0,
+  but: 1,
 };
 
 // Interface: CastWebContentsObserver

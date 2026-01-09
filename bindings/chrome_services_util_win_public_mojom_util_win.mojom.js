@@ -11,6 +11,12 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: SelectFileDialogType
 chrome.mojom.SelectFileDialogType = {
+  kNone: 0,
+  but: 1,
+  but: 2,
+  if: 3,
+  allowing: 4,
+  but: 5,
 };
 
 // Enum: CertificateType
@@ -19,10 +25,12 @@ chrome.mojom.CertificateType = {
 
 // Enum: AntiVirusProductState
 chrome.mojom.AntiVirusProductState = {
+  temporarily: 0,
 };
 
 // Enum: ShortcutOperation
 chrome.mojom.ShortcutOperation = {
+  keep: 0,
 };
 
 // Struct: FileFilterSpec

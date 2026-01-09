@@ -11,6 +11,9 @@ service_manager.mojom = service_manager.mojom || {};
 
 // Enum: InstanceState
 service_manager.mojom.InstanceState = {
+  or: 0,
+  the: 1,
+  but: 2,
 };
 
 // Struct: RunningServiceInfo

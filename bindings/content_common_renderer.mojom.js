@@ -11,6 +11,8 @@ content.mojom = content.mojom || {};
 
 // Enum: RenderProcessVisibleState
 content.mojom.RenderProcessVisibleState = {
+  kVisible: 0,
+  kHidden: 1,
 };
 
 // Struct: UpdateScrollbarThemeParams

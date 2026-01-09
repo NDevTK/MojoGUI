@@ -11,10 +11,14 @@ web_package.mojom = web_package.mojom || {};
 
 // Enum: BundleParseErrorType
 web_package.mojom.BundleParseErrorType = {
+  kParserInternalError: 0,
+  kFormatError: 1,
+  kVersionError: 2,
 };
 
 // Enum: BundleFormatVersion
 web_package.mojom.BundleFormatVersion = {
+  kB1: 0,
 };
 
 // Struct: BundleIntegrityBlockParseError

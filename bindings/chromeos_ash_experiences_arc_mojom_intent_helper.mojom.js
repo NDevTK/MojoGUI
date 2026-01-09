@@ -14,7 +14,7 @@ arc.mojom.PatternType = {
   PATTERN_LITERAL: 0,
   PATTERN_PREFIX: 1,
   PATTERN_SIMPLE_GLOB: 2,
-  D: 3,
+  Default: 3,
 };
 
 // Enum: ChromePage
@@ -74,10 +74,14 @@ arc.mojom.ChromeApp = {
 
 // Enum: SupportedLinkChangeSource
 arc.mojom.SupportedLinkChangeSource = {
+  kUnknown: 0,
 };
 
 // Enum: AndroidSetting
 arc.mojom.AndroidSetting = {
+  kGeoLocation: 0,
+  replaced: 1,
+  kGeoLocationUserTriggered: 2,
 };
 
 // Enum: CaptionTextShadowType

@@ -12,6 +12,10 @@ ash.office_fallback.mojom = ash.office_fallback.mojom || {};
 
 // Enum: DialogChoice
 ash.office_fallback.mojom.DialogChoice = {
+  kCancel: 0,
+  kOk: 1,
+  kQuickOffice: 2,
+  kTryAgain: 3,
 };
 
 // Interface: PageHandlerFactory

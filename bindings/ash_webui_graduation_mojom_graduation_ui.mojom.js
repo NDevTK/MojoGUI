@@ -12,10 +12,15 @@ ash.graduation_ui.mojom = ash.graduation_ui.mojom || {};
 
 // Enum: GraduationScreen
 ash.graduation_ui.mojom.GraduationScreen = {
+  kWelcome: 0,
+  kTakeoutUi: 1,
+  kError: 2,
 };
 
 // Enum: AuthResult
 ash.graduation_ui.mojom.AuthResult = {
+  kSuccess: 0,
+  kError: 1,
 };
 
 // Struct: ProfileInfo

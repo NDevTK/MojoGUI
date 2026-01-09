@@ -12,10 +12,17 @@ ash.hotspot_config.mojom = ash.hotspot_config.mojom || {};
 
 // Enum: HotspotState
 ash.hotspot_config.mojom.HotspotState = {
+  kDisabled: 0,
+  kEnabled: 1,
+  kEnabling: 2,
+  kDisabling: 3,
 };
 
 // Enum: WiFiSecurityMode
 ash.hotspot_config.mojom.WiFiSecurityMode = {
+  kWpa2: 0,
+  kWpa3: 1,
+  kWpa2Wpa3: 2,
 };
 
 // Enum: WiFiBand
@@ -28,10 +35,12 @@ ash.hotspot_config.mojom.SetHotspotConfigResult = {
 
 // Enum: HotspotAllowStatus
 ash.hotspot_config.mojom.HotspotAllowStatus = {
+  kAllowed: 0,
 };
 
 // Enum: HotspotControlResult
 ash.hotspot_config.mojom.HotspotControlResult = {
+  kUnknownFailure: 0,
 };
 
 // Enum: DisableReason

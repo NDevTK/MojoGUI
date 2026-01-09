@@ -12,6 +12,11 @@ ash.mojom.status_area_internals = ash.mojom.status_area_internals || {};
 
 // Enum: BatteryIcon
 ash.mojom.status_area_internals.BatteryIcon = {
+  kDefault: 0,
+  kXIcon: 1,
+  kUnreliableIcon: 2,
+  kBoltIcon: 3,
+  kBatterySaverPlusIcon: 4,
 };
 
 // Interface: PageHandler

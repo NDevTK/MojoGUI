@@ -11,10 +11,29 @@ ax.mojom = ax.mojom || {};
 
 // Enum: TtsEventType
 ax.mojom.TtsEventType = {
+  kStart: 0,
+  kEnd: 1,
+  kWord: 2,
+  kSentence: 3,
+  kMarker: 4,
+  kInterrupted: 5,
+  kCancelled: 6,
+  kError: 7,
+  kPause: 8,
+  kResume: 9,
 };
 
 // Enum: TtsError
 ax.mojom.TtsError = {
+  kNoError: 0,
+  kErrorExtensionIdMismatch: 1,
+  kErrorInvalidLang: 2,
+  kErrorInvalidPitch: 3,
+  kErrorInvalidRate: 4,
+  kErrorInvalidVolume: 5,
+  kErrorMissingPauseOrResume: 6,
+  kErrorUndeclaredEventType: 7,
+  kErrorUtteranceTooLong: 8,
 };
 
 // Struct: TtsVoice

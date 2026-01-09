@@ -12,6 +12,7 @@ ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 // Enum: ButtonType
 ash.cros_healthd.mojom.ButtonType = {
+  should: 0,
 };
 
 // Enum: Type
@@ -24,54 +25,85 @@ ash.cros_healthd.mojom.Reason = {
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 ash.cros_healthd.mojom.State = {
+  should: 0,
 };
 
 // Enum: MemtesterTestItemEnum
 ash.cros_healthd.mojom.MemtesterTestItemEnum = {
+  repeating: 0,
+  repeating: 1,
+  repeated: 2,
 };
 
 // Enum: PairError
 ash.cros_healthd.mojom.PairError = {
+  should: 0,
 };
 
 // Enum: ConnectError
 ash.cros_healthd.mojom.ConnectError = {
+  should: 0,
 };
 
 // Enum: AddressType
 ash.cros_healthd.mojom.AddressType = {
+  should: 0,
 };
 
 // Enum: CameraSubtestResult
 ash.cros_healthd.mojom.CameraSubtestResult = {
+  should: 0,
+  possibly: 1,
 };
 
 // Enum: DiskReadTypeEnum
 ash.cros_healthd.mojom.DiskReadTypeEnum = {
+  should: 0,
+  kLinearRead: 1,
+  kRandomRead: 2,
 };
 
 // Enum: LedName
 ash.cros_healthd.mojom.LedName = {
+  should: 0,
+  kBattery: 1,
+  kPower: 2,
+  kAdapter: 3,
+  kLeft: 4,
+  kRight: 5,
 };
 
 // Enum: LedColor
 ash.cros_healthd.mojom.LedColor = {
+  should: 0,
+  kRed: 1,
+  kGreen: 2,
+  kBlue: 3,
+  kYellow: 4,
+  kWhite: 5,
+  kAmber: 6,
 };
 
 // Enum: HardwarePresenceStatus
 ash.cros_healthd.mojom.HardwarePresenceStatus = {
+  should: 0,
+  skipping: 1,
 };
 
 // Enum: Type
 ash.cros_healthd.mojom.Type = {
+  should: 0,
+  also: 1,
 };
 
 // Enum: Issue
 ash.cros_healthd.mojom.Issue = {
+  should: 0,
 };
 
 // Struct: MemoryRoutineArgument

@@ -11,6 +11,25 @@ browser_command.mojom = browser_command.mojom || {};
 
 // Enum: Command
 browser_command.mojom.Command = {
+  kUnknownCommand: 0,
+  kOpenSafetyCheck: 1,
+  kOpenSafeBrowsingEnhancedProtectionSettings: 2,
+  kOpenFeedbackForm: 3,
+  kOpenPrivacyGuide: 4,
+  kStartTabGroupTutorial: 5,
+  kOpenPasswordManager: 6,
+  kNoOpCommand: 7,
+  kOpenPerformanceSettings: 8,
+  kOpenNTPAndStartCustomizeChromeTutorial: 9,
+  kStartPasswordManagerTutorial: 10,
+  kStartSavedTabGroupTutorial: 11,
+  kOpenAISettings: 12,
+  kOpenSafetyCheckFromWhatsNew: 13,
+  kOpenPaymentsSettings: 14,
+  kOpenGlicSettings: 15,
+  kPrewarmGlicFre: 16,
+  kOpenSplitView: 17,
+  kOpenAutofillSettings: 18,
 };
 
 // Struct: ClickInfo

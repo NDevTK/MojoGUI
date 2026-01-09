@@ -11,10 +11,25 @@ media_session.mojom = media_session.mojom || {};
 
 // Enum: MediaPlaybackState
 media_session.mojom.MediaPlaybackState = {
+  kPaused: 0,
+  kPlaying: 1,
 };
 
 // Enum: MediaSessionAction
 media_session.mojom.MediaSessionAction = {
+  kPlay: 0,
+  kPause: 1,
+  kPreviousTrack: 2,
+  kNextTrack: 3,
+  kSeekBackward: 4,
+  kSeekForward: 5,
+  kSkipAd: 6,
+  kStop: 7,
+  kSeekTo: 8,
+  kScrubTo: 9,
+  kEnterPictureInPicture: 10,
+  kExitPictureInPicture: 11,
+  kSwitchAudioDevice: 12,
 };
 
 // Enum: MediaSessionImageType
@@ -23,22 +38,33 @@ media_session.mojom.MediaSessionImageType = {
 
 // Enum: MediaPictureInPictureState
 media_session.mojom.MediaPictureInPictureState = {
+  kNotInPictureInPicture: 0,
+  kInPictureInPicture: 1,
 };
 
 // Enum: MediaAudioVideoState
 media_session.mojom.MediaAudioVideoState = {
+  see: 0,
+  kAudioOnly: 1,
+  kAudioVideo: 2,
 };
 
 // Enum: MediaImageBitmapColorType
 media_session.mojom.MediaImageBitmapColorType = {
+  kRGBA_8888: 0,
+  this: 1,
 };
 
 // Enum: MicrophoneState
 media_session.mojom.MicrophoneState = {
+  kMuted: 0,
+  kUnmuted: 1,
 };
 
 // Enum: CameraState
 media_session.mojom.CameraState = {
+  kTurnedOn: 0,
+  kTurnedOff: 1,
 };
 
 // Enum: SessionState

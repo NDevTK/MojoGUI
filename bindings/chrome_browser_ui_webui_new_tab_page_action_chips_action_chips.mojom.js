@@ -11,6 +11,10 @@ action_chips.mojom = action_chips.mojom || {};
 
 // Enum: ChipType
 action_chips.mojom.ChipType = {
+  kImage: 0,
+  kDeepSearch: 1,
+  kRecentTab: 2,
+  kDeepDive: 3,
 };
 
 // Struct: TabInfo

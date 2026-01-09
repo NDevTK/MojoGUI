@@ -11,10 +11,12 @@ service_manager.mojom = service_manager.mojom || {};
 
 // Enum: ConnectResult
 service_manager.mojom.ConnectResult = {
+  or: 0,
 };
 
 // Enum: BindInterfacePriority
 service_manager.mojom.BindInterfacePriority = {
+  but: 0,
 };
 
 // Struct: Identity

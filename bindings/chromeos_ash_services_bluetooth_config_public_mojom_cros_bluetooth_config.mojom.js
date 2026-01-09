@@ -16,23 +16,39 @@ ash.bluetooth_config.mojom.BluetoothSystemState = {
 
 // Enum: BluetoothModificationState
 ash.bluetooth_config.mojom.BluetoothModificationState = {
+  and: 0,
+  or: 1,
 };
 
 // Enum: DeviceType
 ash.bluetooth_config.mojom.DeviceType = {
+  kUnknown: 0,
+  kComputer: 1,
+  kPhone: 2,
+  kHeadset: 3,
+  kVideoCamera: 4,
+  kGameController: 5,
+  kKeyboard: 6,
+  kKeyboardMouseCombo: 7,
+  kMouse: 8,
+  kTablet: 9,
 };
 
 // Enum: AudioOutputCapability
 ash.bluetooth_config.mojom.AudioOutputCapability = {
-  B: 0,
+  Bluetooth: 0,
 };
 
 // Enum: DeviceConnectionState
 ash.bluetooth_config.mojom.DeviceConnectionState = {
+  kNotConnected: 0,
+  kConnecting: 1,
+  kConnected: 2,
 };
 
 // Enum: PairingResult
 ash.bluetooth_config.mojom.PairingResult = {
+  either: 0,
 };
 
 // Struct: BatteryProperties

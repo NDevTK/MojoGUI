@@ -13,14 +13,32 @@ chromeos.printing.printing_manager.mojom = chromeos.printing.printing_manager.mo
 
 // Enum: PrintJobCompletionStatus
 chromeos.printing.printing_manager.mojom.PrintJobCompletionStatus = {
+  kFailed: 0,
+  kCanceled: 1,
+  kPrinted: 2,
 };
 
 // Enum: PrinterErrorCode
 chromeos.printing.printing_manager.mojom.PrinterErrorCode = {
+  kNoError: 0,
+  kPaperJam: 1,
+  kOutOfPaper: 2,
+  kOutOfInk: 3,
+  kDoorOpen: 4,
+  kPrinterUnreachable: 5,
+  kTrayMissing: 6,
+  kOutputFull: 7,
+  kStopped: 8,
+  kFilterFailed: 9,
+  kUnknownError: 10,
+  kClientUnauthorized: 11,
+  kExpiredCertificate: 12,
 };
 
 // Enum: ActivePrintJobState
 chromeos.printing.printing_manager.mojom.ActivePrintJobState = {
+  failed: 0,
+  and: 1,
 };
 
 // Enum: LaunchSource

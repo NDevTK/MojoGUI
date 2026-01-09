@@ -11,10 +11,29 @@ lobster.mojom = lobster.mojom || {};
 
 // Enum: StatusCode
 lobster.mojom.StatusCode = {
+  kOk: 0,
+  kBlockedOutputs: 1,
+  kNoInternetConnection: 2,
+  kResourceExhausted: 3,
+  kInvalidArgument: 4,
+  kBackendFailure: 5,
+  kUnsupportedLanguage: 6,
+  kRestrictedRegion: 7,
 };
 
 // Enum: WebUIMetricEvent
 lobster.mojom.WebUIMetricEvent = {
+  kQueryPageImpression: 0,
+  kRequestInitialCandidates: 1,
+  kRequestInitialCandidatesSuccess: 2,
+  kRequestInitialCandidatesError: 3,
+  kInitialCandidatesImpression: 4,
+  kRequestMoreCandidates: 5,
+  kRequestMoreCandidatesSuccess: 6,
+  kRequestMoreCandidatesError: 7,
+  kMoreCandidatesAppended: 8,
+  kFeedbackThumbsUp: 9,
+  kFeedbackThumbsDown: 10,
 };
 
 // Struct: Candidate

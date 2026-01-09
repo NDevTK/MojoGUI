@@ -28,6 +28,7 @@ network.mojom.SecureDnsMode = {
 network.mojom.SecureDnsPolicy = {
   ALLOW: 0,
   DISABLE: 1,
+  so: 2,
 };
 
 // Enum: Tristate
@@ -51,7 +52,11 @@ network.mojom.DnsQueryType = {
 // Enum: Source
 network.mojom.Source = {
   HOSTS: 0,
-  IP: 1,
+  etc: 1,
+  e: 2,
+  e: 3,
+  IP: 4,
+  etc: 5,
 };
 
 // Enum: CacheUsage
@@ -60,6 +65,8 @@ network.mojom.CacheUsage = {
 
 // Enum: Purpose
 network.mojom.Purpose = {
+  kUnspecified: 0,
+  kPreconnect: 1,
 };
 
 // Enum: UpdateType

@@ -11,6 +11,8 @@ blink.mojom = blink.mojom || {};
 
 // Enum: ObservedFeatureType
 blink.mojom.ObservedFeatureType = {
+  kWebLock: 0,
+  kBlockingIndexedDBLock: 1,
 };
 
 // Interface: ObservedFeature

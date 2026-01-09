@@ -12,6 +12,10 @@ ash.wifi_direct.mojom = ash.wifi_direct.mojom || {};
 
 // Enum: WifiDirectOperationResult
 ash.wifi_direct.mojom.WifiDirectOperationResult = {
+  kSuccess: 0,
+  kOperationInProgress: 1,
+  kInvalidArguments: 2,
+  kUnknownFailure: 3,
 };
 
 // Struct: WifiP2PCapabilities

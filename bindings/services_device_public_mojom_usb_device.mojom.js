@@ -69,6 +69,8 @@ device.mojom.UsbUsageType = {
 
 // Enum: UsbTransferStatus
 device.mojom.UsbTransferStatus = {
+  but: 0,
+  but: 1,
 };
 
 // Struct: UsbEndpointInfo

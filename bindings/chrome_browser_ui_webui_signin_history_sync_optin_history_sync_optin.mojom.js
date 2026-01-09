@@ -11,10 +11,16 @@ history_sync_optin.mojom = history_sync_optin.mojom || {};
 
 // Enum: LaunchContext
 history_sync_optin.mojom.LaunchContext = {
+  kWindow: 0,
+  kModal: 1,
 };
 
 // Enum: ScreenMode
 history_sync_optin.mojom.ScreenMode = {
+  kPending: 0,
+  kRestricted: 1,
+  kUnrestricted: 2,
+  and: 3,
 };
 
 // Struct: AccountInfo

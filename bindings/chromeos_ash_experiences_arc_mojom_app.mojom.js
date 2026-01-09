@@ -15,6 +15,8 @@ arc.mojom.WindowSizeType = {
 
 // Enum: InstallPriority
 arc.mojom.InstallPriority = {
+  kMedium: 0,
+  kLow: 1,
 };
 
 // Enum: ShowPackageInfoPage
@@ -27,6 +29,8 @@ arc.mojom.AppDiscoveryRequestState = {
 
 // Enum: AppShortcutItemType
 arc.mojom.AppShortcutItemType = {
+  which: 0,
+  which: 1,
 };
 
 // Enum: PaiFlowState
@@ -35,6 +39,15 @@ arc.mojom.PaiFlowState = {
 
 // Enum: AppCategory
 arc.mojom.AppCategory = {
+  kGame: 0,
+  kAudio: 1,
+  kVideo: 2,
+  kImage: 3,
+  kSocial: 4,
+  kNews: 5,
+  kMaps: 6,
+  kProductivity: 7,
+  kAccessibility: 8,
 };
 
 // Struct: InstallationResult

@@ -11,6 +11,12 @@ device.mojom = device.mojom || {};
 
 // Enum: WakeLockType
 device.mojom.WakeLockType = {
+  apps: 0,
+  and: 1,
+  playing: 2,
+  but: 3,
+  but: 4,
+  this: 5,
 };
 
 // Enum: WakeLockReason

@@ -17,6 +17,10 @@ network.mojom.CookieMatchType = {
 
 // Enum: RestrictedCookieManagerRole
 network.mojom.RestrictedCookieManagerRole = {
+  and: 0,
+  for: 1,
+  a: 2,
+  and: 3,
 };
 
 // Struct: CookieManagerGetOptions

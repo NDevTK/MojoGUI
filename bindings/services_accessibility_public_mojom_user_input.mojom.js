@@ -11,6 +11,11 @@ ax.mojom = ax.mojom || {};
 
 // Enum: SyntheticMouseEventButton
 ax.mojom.SyntheticMouseEventButton = {
+  kLeft: 0,
+  kMiddle: 1,
+  kRight: 2,
+  kBack: 3,
+  kForward: 4,
 };
 
 // Struct: SyntheticKeyEvent

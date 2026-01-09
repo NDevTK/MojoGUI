@@ -11,6 +11,13 @@ prefs.mojom = prefs.mojom || {};
 
 // Enum: ValueState
 prefs.mojom.ValueState = {
+  but: 0,
+  and: 1,
+  but: 2,
+  but: 3,
+  so: 4,
+  signaling: 5,
+  and: 6,
 };
 
 // Interface: TrackedPreferenceValidationDelegate

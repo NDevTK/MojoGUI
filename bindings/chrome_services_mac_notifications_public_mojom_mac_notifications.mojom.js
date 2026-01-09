@@ -15,10 +15,16 @@ mac_notifications.mojom.NotificationOperation = {
 
 // Enum: RequestPermissionResult
 mac_notifications.mojom.RequestPermissionResult = {
+  kRequestFailed: 0,
+  kPermissionDenied: 1,
+  kPermissionGranted: 2,
+  kPermissionPreviouslyDenied: 3,
+  kPermissionPreviouslyGranted: 4,
 };
 
 // Enum: PermissionStatus
 mac_notifications.mojom.PermissionStatus = {
+  or: 0,
 };
 
 // Struct: ProfileIdentifier

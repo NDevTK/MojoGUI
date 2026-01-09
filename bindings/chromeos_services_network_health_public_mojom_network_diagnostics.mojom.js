@@ -12,6 +12,21 @@ chromeos.network_diagnostics.mojom = chromeos.network_diagnostics.mojom || {};
 
 // Enum: RoutineType
 chromeos.network_diagnostics.mojom.RoutineType = {
+  kSignalStrength: 0,
+  kGatewayCanBePinged: 1,
+  kHasSecureWiFiConnection: 2,
+  kDnsResolverPresent: 3,
+  kDnsLatency: 4,
+  kDnsResolution: 5,
+  kCaptivePortal: 6,
+  kHttpFirewall: 7,
+  kHttpsFirewall: 8,
+  kHttpsLatency: 9,
+  kVideoConferencing: 10,
+  kArcHttp: 11,
+  kArcDnsResolution: 12,
+  kArcPing: 13,
+  kGoogleServicesConnectivity: 14,
 };
 
 // Enum: RoutineVerdict
@@ -32,14 +47,20 @@ chromeos.network_diagnostics.mojom.SignalStrengthProblem = {
 
 // Enum: GatewayCanBePingedProblem
 chromeos.network_diagnostics.mojom.GatewayCanBePingedProblem = {
+  hence: 0,
 };
 
 // Enum: HasSecureWiFiConnectionProblem
 chromeos.network_diagnostics.mojom.HasSecureWiFiConnectionProblem = {
+  kSecurityTypeWep8021x: 0,
+  kSecurityTypeWepPsk: 1,
+  kUnknownSecurityType: 2,
 };
 
 // Enum: DnsResolverPresentProblem
 chromeos.network_diagnostics.mojom.DnsResolverPresentProblem = {
+  kMalformedNameServers: 0,
+  kEmptyNameServers: 1,
 };
 
 // Enum: DnsLatencyProblem
@@ -80,10 +101,12 @@ chromeos.network_diagnostics.mojom.ArcDnsResolutionProblem = {
 
 // Enum: ArcPingProblem
 chromeos.network_diagnostics.mojom.ArcPingProblem = {
+  hence: 0,
 };
 
 // Enum: GoogleServicesConnectivityProblemType
 chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemType = {
+  when: 0,
 };
 
 // Enum: GoogleServicesConnectivityProxyProblemType

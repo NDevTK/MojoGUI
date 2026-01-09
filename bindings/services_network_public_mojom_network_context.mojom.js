@@ -11,10 +11,15 @@ network.mojom = network.mojom || {};
 
 // Enum: TrustTokenOperationPolicyVerdict
 network.mojom.TrustTokenOperationPolicyVerdict = {
+  kForbid: 0,
+  kPotentiallyPermit: 1,
 };
 
 // Enum: SCTAuditingMode
 network.mojom.SCTAuditingMode = {
+  so: 0,
+  and: 1,
+  and: 2,
 };
 
 // Enum: DomainReliabilityClearMode

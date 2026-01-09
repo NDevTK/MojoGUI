@@ -12,8 +12,8 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: AnnotationUsecase
 chromeos.machine_learning.mojom.AnnotationUsecase = {
-  S: 0,
-  L: 1,
+  Share: 0,
+  Linkify: 1,
 };
 
 // Struct: TextEntity

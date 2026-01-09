@@ -11,6 +11,8 @@ media.mojom = media.mojom || {};
 
 // Enum: AacOutputFormat
 media.mojom.AacOutputFormat = {
+  kAAC: 0,
+  kADTS: 1,
 };
 
 // Struct: AacAudioEncoderConfig

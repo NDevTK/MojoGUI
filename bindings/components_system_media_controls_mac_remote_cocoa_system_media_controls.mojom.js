@@ -11,6 +11,9 @@ system_media_controls.mojom = system_media_controls.mojom || {};
 
 // Enum: PlaybackStatus
 system_media_controls.mojom.PlaybackStatus = {
+  kPlaying: 0,
+  kPaused: 1,
+  kStopped: 2,
 };
 
 // Interface: SystemMediaControls

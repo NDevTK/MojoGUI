@@ -20,6 +20,9 @@ chromeos.machine_learning.mojom.Status = {
 chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
   OK: 0,
   LOAD_MODEL_ERROR: 1,
+  but: 2,
+  but: 3,
+  but: 4,
 };
 
 // Struct: InkPoint

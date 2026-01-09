@@ -11,6 +11,13 @@ blink.mojom = blink.mojom || {};
 
 // Enum: RequestDigitalIdentityStatus
 blink.mojom.RequestDigitalIdentityStatus = {
+  kSuccess: 0,
+  kError: 1,
+  kErrorTooManyRequests: 2,
+  kErrorCanceled: 3,
+  kErrorNoRequests: 4,
+  kErrorNoTransientUserActivation: 5,
+  kErrorInvalidJson: 6,
 };
 
 // Struct: DigitalCredentialGetRequest

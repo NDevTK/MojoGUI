@@ -11,6 +11,8 @@ attribution_internals.mojom = attribution_internals.mojom || {};
 
 // Enum: Attributability
 attribution_internals.mojom.Attributability = {
+  kAttributable: 0,
+  kReachedEventLevelAttributionLimit: 1,
 };
 
 // Struct: ReportID

@@ -11,6 +11,8 @@ device.mojom = device.mojom || {};
 
 // Enum: HidBusType
 device.mojom.HidBusType = {
+  kHIDBusTypeUSB: 0,
+  kHIDBusTypeBluetooth: 1,
 };
 
 // Struct: HidUsageAndPage

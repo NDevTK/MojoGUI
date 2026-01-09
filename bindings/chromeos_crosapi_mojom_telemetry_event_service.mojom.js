@@ -11,46 +11,59 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: DeviceType
 crosapi.mojom.DeviceType = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
+  i: 1,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: TelemetryInputTouchButton
 crosapi.mojom.TelemetryInputTouchButton = {
+  should: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  should: 0,
 };
 
 // Enum: TelemetryEventCategoryEnum
 crosapi.mojom.TelemetryEventCategoryEnum = {
+  should: 0,
+  kAudioJack: 1,
 };
 
 // Struct: TelemetryAudioJackEventInfo

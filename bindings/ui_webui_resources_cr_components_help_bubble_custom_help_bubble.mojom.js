@@ -11,6 +11,8 @@ custom_help_bubble.mojom = custom_help_bubble.mojom || {};
 
 // Enum: CustomHelpBubbleUserAction
 custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
+  kDismiss: 0,
+  clicking: 1,
 };
 
 // Interface: CustomHelpBubbleHandlerFactory

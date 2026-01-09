@@ -11,6 +11,8 @@ blink.mojom = blink.mojom || {};
 
 // Enum: DevicePostureType
 blink.mojom.DevicePostureType = {
+  kContinuous: 0,
+  kFolded: 1,
 };
 
 // Interface: DevicePostureProvider

@@ -11,14 +11,26 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: VideoConferenceAppUpdate
 crosapi.mojom.VideoConferenceAppUpdate = {
+  kAppAdded: 0,
+  kAppRemoved: 1,
 };
 
 // Enum: VideoConferenceMediaDevice
 crosapi.mojom.VideoConferenceMediaDevice = {
+  kMicrophone: 0,
+  kCamera: 1,
 };
 
 // Enum: VideoConferenceAppType
 crosapi.mojom.VideoConferenceAppType = {
+  but: 0,
+  kChromeTab: 1,
+  kChromeExtension: 2,
+  kChromeApp: 3,
+  kWebApp: 4,
+  kArcApp: 5,
+  but: 6,
+  but: 7,
 };
 
 // Struct: TitleChangeInfo

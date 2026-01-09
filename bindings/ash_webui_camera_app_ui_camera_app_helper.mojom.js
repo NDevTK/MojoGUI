@@ -12,14 +12,22 @@ ash.camera_app.mojom = ash.camera_app.mojom || {};
 
 // Enum: ScreenState
 ash.camera_app.mojom.ScreenState = {
+  kOn: 0,
+  kOff: 1,
+  kOffAuto: 2,
 };
 
 // Enum: LidState
 ash.camera_app.mojom.LidState = {
+  kOpen: 0,
 };
 
 // Enum: WindowStateType
 ash.camera_app.mojom.WindowStateType = {
+  kMinimized: 0,
+  kMaximized: 1,
+  kFullscreen: 2,
+  kRegular: 3,
 };
 
 // Enum: FileMonitorResult
@@ -28,14 +36,19 @@ ash.camera_app.mojom.FileMonitorResult = {
 
 // Enum: StorageMonitorStatus
 ash.camera_app.mojom.StorageMonitorStatus = {
+  display: 0,
 };
 
 // Enum: AspectRatio
 ash.camera_app.mojom.AspectRatio = {
+  kOthers: 0,
+  k4To3: 1,
+  k16To9: 2,
 };
 
 // Enum: FileType
 ash.camera_app.mojom.FileType = {
+  kPhoto: 0,
 };
 
 // Struct: WifiConfig

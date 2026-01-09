@@ -11,14 +11,21 @@ actor.mojom = actor.mojom || {};
 
 // Enum: Type
 actor.mojom.Type = {
+  kLeft: 0,
+  kRight: 1,
 };
 
 // Enum: Count
 actor.mojom.Count = {
+  kSingle: 0,
+  kDouble: 1,
 };
 
 // Enum: Mode
 actor.mojom.Mode = {
+  kDeleteExisting: 0,
+  kPrepend: 1,
+  kAppend: 2,
 };
 
 // Enum: ScrollDirection
@@ -27,10 +34,21 @@ actor.mojom.ScrollDirection = {
 
 // Enum: ActionResultCode
 actor.mojom.ActionResultCode = {
+  kOk: 0,
+  and: 1,
+  a: 2,
+  but: 3,
+  so: 4,
+  but: 5,
+  nor: 6,
+  the: 7,
 };
 
 // Enum: JournalEntryType
 actor.mojom.JournalEntryType = {
+  kBegin: 0,
+  kEnd: 1,
+  kInstant: 2,
 };
 
 // Struct: ObservedToolTarget

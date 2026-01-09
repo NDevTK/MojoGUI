@@ -11,10 +11,17 @@ pdf.mojom = pdf.mojom || {};
 
 // Enum: SaveRequestType
 pdf.mojom.SaveRequestType = {
+  kAnnotation: 0,
+  kOriginal: 1,
+  kEdited: 2,
+  kSearchified: 3,
 };
 
 // Enum: GetPdfBytesStatus
 pdf.mojom.GetPdfBytesStatus = {
+  kSuccess: 0,
+  kSizeLimitExceeded: 1,
+  kFailed: 2,
 };
 
 // Struct: SaveDataBufferHandlerGetResult

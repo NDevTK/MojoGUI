@@ -18,6 +18,10 @@ crosapi.mojom.DeviceAccessResultCode = {
 
 // Enum: VideoRotation
 crosapi.mojom.VideoRotation = {
+  kVideoRotation0: 0,
+  kVideoRotation90: 1,
+  kVideoRotation180: 2,
+  kVideoRotation270: 3,
 };
 
 // Struct: NativePixmapHandle

@@ -11,6 +11,21 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: ProbeCategoryEnum
 crosapi.mojom.ProbeCategoryEnum = {
+  kBattery: 0,
+  kNonRemovableBlockDevices: 1,
+  kCachedVpdData: 2,
+  kCpu: 3,
+  kTimezone: 4,
+  kMemory: 5,
+  kBacklight: 6,
+  kFan: 7,
+  kStatefulPartition: 8,
+  kBluetooth: 9,
+  kSystem: 10,
+  kNetwork: 11,
+  kTpm: 12,
+  kAudio: 13,
+  kBus: 14,
 };
 
 // Enum: ProbeErrorType
@@ -31,6 +46,9 @@ crosapi.mojom.ProbeUsbSpecSpeed = {
 
 // Enum: ProbeCpuArchitectureEnum
 crosapi.mojom.ProbeCpuArchitectureEnum = {
+  kX86_64: 0,
+  kAArch64: 1,
+  kArmv7l: 2,
 };
 
 // Enum: ProbeTpmGSCVersion
@@ -43,6 +61,7 @@ crosapi.mojom.ProbeDisplayInputType = {
 
 // Enum: ProbeThermalSensorSource
 crosapi.mojom.ProbeThermalSensorSource = {
+  should: 0,
 };
 
 // Struct: ProbeError

@@ -11,6 +11,10 @@ content.mojom = content.mojom || {};
 
 // Enum: LcTypeString
 content.mojom.LcTypeString = {
+  kShortDate: 0,
+  kYearMonth: 1,
+  kTimeFormat: 2,
+  kShortTime: 3,
 };
 
 // Enum: LcTypeStrings

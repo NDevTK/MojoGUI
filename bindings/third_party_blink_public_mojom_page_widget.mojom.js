@@ -11,6 +11,8 @@ blink.mojom = blink.mojom || {};
 
 // Enum: DeviceEmulationCacheBehavior
 blink.mojom.DeviceEmulationCacheBehavior = {
+  which: 0,
+  but: 1,
 };
 
 // Struct: ProximateCharacterRangeBounds

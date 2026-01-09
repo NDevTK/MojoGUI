@@ -11,6 +11,7 @@ mahi.mojom = mahi.mojom || {};
 
 // Enum: ResponseStatus
 mahi.mojom.ResponseStatus = {
+  kSuccess: 0,
 };
 
 // Struct: ExtractionMethods

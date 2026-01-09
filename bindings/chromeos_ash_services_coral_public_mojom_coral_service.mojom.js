@@ -11,6 +11,8 @@ coral.mojom = coral.mojom || {};
 
 // Enum: CoralError
 coral.mojom.CoralError = {
+  implementations: 0,
+  instead: 1,
 };
 
 // Struct: Tab

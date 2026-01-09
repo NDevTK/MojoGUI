@@ -11,34 +11,58 @@ blink.mojom = blink.mojom || {};
 
 // Enum: RequestTokenStatus
 blink.mojom.RequestTokenStatus = {
+  kSuccess: 0,
+  kErrorTooManyRequests: 1,
+  kErrorCanceled: 2,
+  kError: 3,
 };
 
 // Enum: RequestUserInfoStatus
 blink.mojom.RequestUserInfoStatus = {
+  kSuccess: 0,
+  kError: 1,
 };
 
 // Enum: DisconnectStatus
 blink.mojom.DisconnectStatus = {
+  kSuccess: 0,
+  kErrorTooManyRequests: 1,
+  kError: 2,
 };
 
 // Enum: IdpSigninStatus
 blink.mojom.IdpSigninStatus = {
+  kSignedIn: 0,
+  kSignedOut: 1,
 };
 
 // Enum: RpContext
 blink.mojom.RpContext = {
+  kSignIn: 0,
+  kSignUp: 1,
+  kUse: 2,
+  kContinue: 3,
 };
 
 // Enum: RpMode
 blink.mojom.RpMode = {
+  kActive: 0,
+  kPassive: 1,
 };
 
 // Enum: RegisterIdpStatus
 blink.mojom.RegisterIdpStatus = {
+  kSuccess: 0,
+  kErrorFeatureDisabled: 1,
+  kErrorCrossOriginConfig: 2,
+  kErrorNoTransientActivation: 3,
+  kErrorDeclined: 4,
+  kErrorInvalidConfig: 5,
 };
 
 // Enum: Format
 blink.mojom.Format = {
+  kSdJwt: 0,
 };
 
 // Struct: IdentityProviderConfig

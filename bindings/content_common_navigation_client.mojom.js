@@ -11,6 +11,10 @@ content.mojom = content.mojom || {};
 
 // Enum: NavigationClientDisconnectReason
 content.mojom.NavigationClientDisconnectReason = {
+  it: 0,
+  this: 1,
+  method: 2,
+  other: 3,
 };
 
 // Struct: DidCommitProvisionalLoadParams

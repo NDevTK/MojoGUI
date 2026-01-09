@@ -11,6 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: Mode
 blink.mojom.Mode = {
+  but: 0,
+  but: 1,
+  rather: 2,
+  and: 3,
 };
 
 // Struct: FileChooserParams

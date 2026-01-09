@@ -15,6 +15,9 @@ storage.mojom.GetEntriesMode = {
 
 // Enum: FileOpenMode
 storage.mojom.FileOpenMode = {
+  creating: 0,
+  overwriting: 1,
+  truncating: 2,
 };
 
 // Enum: FileReadAccess

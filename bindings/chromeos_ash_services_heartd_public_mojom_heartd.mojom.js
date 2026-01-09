@@ -12,14 +12,20 @@ ash.heartd.mojom = ash.heartd.mojom || {};
 
 // Enum: HeartbeatResponse
 ash.heartd.mojom.HeartbeatResponse = {
+  kSuccess: 0,
+  kRateLimit: 1,
+  kNotAllowed: 2,
 };
 
 // Enum: ServiceName
 ash.heartd.mojom.ServiceName = {
+  kKiosk: 0,
 };
 
 // Enum: ActionType
 ash.heartd.mojom.ActionType = {
+  kNormalReboot: 0,
+  kForceReboot: 1,
 };
 
 // Struct: HeartbeatServiceArgument

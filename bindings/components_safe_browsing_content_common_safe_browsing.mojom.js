@@ -11,6 +11,9 @@ safe_browsing.mojom = safe_browsing.mojom || {};
 
 // Enum: PhishingDetectorResult
 safe_browsing.mojom.PhishingDetectorResult = {
+  or: 0,
+  cancelling: 1,
+  it: 2,
 };
 
 // Enum: ClientSideDetectionType
@@ -19,14 +22,21 @@ safe_browsing.mojom.ClientSideDetectionType = {
 
 // Enum: PhishingImageEmbeddingResult
 safe_browsing.mojom.PhishingImageEmbeddingResult = {
+  or: 0,
+  cancelling: 1,
+  it: 2,
 };
 
 // Enum: WebRequestProtocolType
 safe_browsing.mojom.WebRequestProtocolType = {
+  kHttpHttps: 0,
+  kWebSocket: 1,
 };
 
 // Enum: WebRequestContactInitiatorType
 safe_browsing.mojom.WebRequestContactInitiatorType = {
+  kExtension: 0,
+  kContentScript: 1,
 };
 
 // Struct: AttributeNameValue
