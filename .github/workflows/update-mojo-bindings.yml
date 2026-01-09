@@ -310,9 +310,22 @@ jobs:
                   offset = 0
                   bit = 0
                   
-                  for param in params:
-                      if not param or not param.get('name'): continue
-                      
+                  # Filter valid params and assign weight
+                  valid_params = [p for p in params if p and p.get('name')]
+                  
+                  def get_size_weight(param):
+                      p_type = mojo_type_map(param.get('type', 'string'))
+                      if p_type == 'mojo.internal.Bool': return 0
+                      if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1
+                      if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2
+                      if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.AssociatedInterfaceProxy', 'mojo.internal.Handle'): return 4
+                      return 8 # Default 8
+
+                  # Sort: primary by size (desc), secondary by original index (stable)
+                  # Python sort is stable, so just sort by weight desc
+                  valid_params.sort(key=get_size_weight, reverse=True)
+                  
+                  for param in valid_params:
                       p_type = mojo_type_map(param.get('type', 'string'))
                       is_bool = p_type == 'mojo.internal.Bool'
                       nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
@@ -327,15 +340,25 @@ jobs:
                               bit = 0
                               offset += 8
                           
+                          # Alignment
+                          weight = get_size_weight(param)
+                          if weight == 0: weight = 1
+                          
+                          if offset % weight != 0:
+                              offset += (weight - (offset % weight))
+                          
                           f_off = offset
                           f_bit = 0
-                          offset += 8
+                          offset += weight
                       
                       fields_code.append(f"{{ name: '{param['name']}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
                   
-                  # Finalize size
                   if bit > 0:
                       offset += 8
+                  
+                  # Align struct size to 8 bytes
+                  if offset % 8 != 0:
+                      offset += (8 - (offset % 8))
                   
                   packed_size = 8 + offset  # Header (8 bytes) + payload
                   return fields_code, packed_size
