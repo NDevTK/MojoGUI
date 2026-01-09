@@ -71,6 +71,11 @@ media.mojom.DecryptorPtr = class {
     // Call: ResetDecoder(stream_type)
   }
 
+  deinitializeDecoder(stream_type) {
+    // Method: DeinitializeDecoder
+    // Call: DeinitializeDecoder(stream_type)
+  }
+
 };
 
 media.mojom.DecryptorRequest = class {

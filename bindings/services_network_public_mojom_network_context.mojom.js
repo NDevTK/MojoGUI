@@ -477,6 +477,408 @@ network.mojom.NetworkContextPtr = class {
     // Call: ClearNetworkErrorLogging(filter)
   }
 
+  clearDomainReliability(filter, mode) {
+    // Method: ClearDomainReliability
+    // Call: ClearDomainReliability(filter, mode)
+  }
+
+  clearSharedDictionaryCache(start_time, end_time, filter) {
+    // Method: ClearSharedDictionaryCache
+    // Call: ClearSharedDictionaryCache(start_time, end_time, filter)
+  }
+
+  clearSharedDictionaryCacheForIsolationKey(isolation_key) {
+    // Method: ClearSharedDictionaryCacheForIsolationKey
+    // Call: ClearSharedDictionaryCacheForIsolationKey(isolation_key)
+  }
+
+  setDocumentReportingEndpoints(reporting_source, origin, isolation_info, endpoints) {
+    // Method: SetDocumentReportingEndpoints
+    // Call: SetDocumentReportingEndpoints(reporting_source, origin, isolation_info, endpoints)
+  }
+
+  setEnterpriseReportingEndpoints(endpoints) {
+    // Method: SetEnterpriseReportingEndpoints
+    // Call: SetEnterpriseReportingEndpoints(endpoints)
+  }
+
+  sendReportsAndRemoveSource(reporting_source) {
+    // Method: SendReportsAndRemoveSource
+    // Call: SendReportsAndRemoveSource(reporting_source)
+  }
+
+  queueReport(type, group, url, reporting_source, network_anonymization_key, body) {
+    // Method: QueueReport
+    // Call: QueueReport(type, group, url, reporting_source, network_anonymization_key, body)
+  }
+
+  queueEnterpriseReport(type, group, url, body) {
+    // Method: QueueEnterpriseReport
+    // Call: QueueEnterpriseReport(type, group, url, body)
+  }
+
+  queueSignedExchangeReport(report, network_anonymization_key) {
+    // Method: QueueSignedExchangeReport
+    // Call: QueueSignedExchangeReport(report, network_anonymization_key)
+  }
+
+  closeAllConnections() {
+    // Method: CloseAllConnections
+    // Call: CloseAllConnections()
+  }
+
+  closeIdleConnections() {
+    // Method: CloseIdleConnections
+    // Call: CloseIdleConnections()
+  }
+
+  setNetworkConditions(throttling_profile_id, conditions) {
+    // Method: SetNetworkConditions
+    // Call: SetNetworkConditions(throttling_profile_id, conditions)
+  }
+
+  setAcceptLanguage(new_accept_language) {
+    // Method: SetAcceptLanguage
+    // Call: SetAcceptLanguage(new_accept_language)
+  }
+
+  setEnableReferrers(enable_referrers) {
+    // Method: SetEnableReferrers
+    // Call: SetEnableReferrers(enable_referrers)
+  }
+
+  setCTPolicy(ct_policy) {
+    // Method: SetCTPolicy
+    // Call: SetCTPolicy(ct_policy)
+  }
+
+  createUDPSocket(receiver, listener) {
+    // Method: CreateUDPSocket
+    // Call: CreateUDPSocket(receiver, listener)
+  }
+
+  createRestrictedUDPSocket(addr, mode, traffic_annotation, params, receiver, listener, allow_multicast) {
+    // Method: CreateRestrictedUDPSocket
+    return new Promise((resolve) => {
+      // Call: CreateRestrictedUDPSocket(addr, mode, traffic_annotation, params, receiver, listener, allow_multicast)
+      resolve({});
+    });
+  }
+
+  createTCPServerSocket(local_addr, options, traffic_annotation, socket) {
+    // Method: CreateTCPServerSocket
+    return new Promise((resolve) => {
+      // Call: CreateTCPServerSocket(local_addr, options, traffic_annotation, socket)
+      resolve({});
+    });
+  }
+
+  createTCPConnectedSocket(local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer) {
+    // Method: CreateTCPConnectedSocket
+    return new Promise((resolve) => {
+      // Call: CreateTCPConnectedSocket(local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer)
+      resolve({});
+    });
+  }
+
+  createTCPBoundSocket(local_addr, traffic_annotation, socket) {
+    // Method: CreateTCPBoundSocket
+    return new Promise((resolve) => {
+      // Call: CreateTCPBoundSocket(local_addr, traffic_annotation, socket)
+      resolve({});
+    });
+  }
+
+  createProxyResolvingSocketFactory(factory) {
+    // Method: CreateProxyResolvingSocketFactory
+    // Call: CreateProxyResolvingSocketFactory(factory)
+  }
+
+  lookUpProxyForURL(url, network_anonymization_key, proxy_lookup_client) {
+    // Method: LookUpProxyForURL
+    // Call: LookUpProxyForURL(url, network_anonymization_key, proxy_lookup_client)
+  }
+
+  forceReloadProxyConfig() {
+    // Method: ForceReloadProxyConfig
+    // Call: ForceReloadProxyConfig()
+  }
+
+  clearBadProxiesCache() {
+    // Method: ClearBadProxiesCache
+    // Call: ClearBadProxiesCache()
+  }
+
+  createWebSocket(url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id) {
+    // Method: CreateWebSocket
+    // Call: CreateWebSocket(url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id)
+  }
+
+  createWebTransport(url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state) {
+    // Method: CreateWebTransport
+    // Call: CreateWebTransport(url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state)
+  }
+
+  createNetLogExporter(receiver) {
+    // Method: CreateNetLogExporter
+    // Call: CreateNetLogExporter(receiver)
+  }
+
+  preconnectSockets(num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client) {
+    // Method: PreconnectSockets
+    // Call: PreconnectSockets(num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client)
+  }
+
+  createP2PSocketManager(network_anonymization_key, client, trusted_socket_manager, socket_manager) {
+    // Method: CreateP2PSocketManager
+    // Call: CreateP2PSocketManager(network_anonymization_key, client, trusted_socket_manager, socket_manager)
+  }
+
+  createMdnsResponder(responder_receiver) {
+    // Method: CreateMdnsResponder
+    // Call: CreateMdnsResponder(responder_receiver)
+  }
+
+  resolveHost(host, network_anonymization_key, optional_parameters, response_client) {
+    // Method: ResolveHost
+    // Call: ResolveHost(host, network_anonymization_key, optional_parameters, response_client)
+  }
+
+  createHostResolver(config_overrides, host_resolver) {
+    // Method: CreateHostResolver
+    // Call: CreateHostResolver(config_overrides, host_resolver)
+  }
+
+  verifyCert(certificate, host_port, ocsp_response, sct_list) {
+    // Method: VerifyCert
+    return new Promise((resolve) => {
+      // Call: VerifyCert(certificate, host_port, ocsp_response, sct_list)
+      resolve({});
+    });
+  }
+
+  verifyCertForSignedExchange(certificate, host_port, ocsp_response, sct_list) {
+    // Method: VerifyCertForSignedExchange
+    return new Promise((resolve) => {
+      // Call: VerifyCertForSignedExchange(certificate, host_port, ocsp_response, sct_list)
+      resolve({});
+    });
+  }
+
+  verify2QwacCertBinding(binding, hostname, tls_certificate) {
+    // Method: Verify2QwacCertBinding
+    return new Promise((resolve) => {
+      // Call: Verify2QwacCertBinding(binding, hostname, tls_certificate)
+      resolve({});
+    });
+  }
+
+  addHSTS(host, expiry, include_subdomains) {
+    // Method: AddHSTS
+    // Call: AddHSTS(host, expiry, include_subdomains)
+  }
+
+  isHSTSActiveForHost(host, is_top_level_nav) {
+    // Method: IsHSTSActiveForHost
+    return new Promise((resolve) => {
+      // Call: IsHSTSActiveForHost(host, is_top_level_nav)
+      resolve({});
+    });
+  }
+
+  getHSTSState(domain) {
+    // Method: GetHSTSState
+    return new Promise((resolve) => {
+      // Call: GetHSTSState(domain)
+      resolve({});
+    });
+  }
+
+  setCorsOriginAccessListsForOrigin(source_origin, allow_patterns, block_patterns) {
+    // Method: SetCorsOriginAccessListsForOrigin
+    // Call: SetCorsOriginAccessListsForOrigin(source_origin, allow_patterns, block_patterns)
+  }
+
+  deleteDynamicDataForHost(host) {
+    // Method: DeleteDynamicDataForHost
+    return new Promise((resolve) => {
+      // Call: DeleteDynamicDataForHost(host)
+      resolve({});
+    });
+  }
+
+  setSplitAuthCacheByNetworkAnonymizationKey(split_auth_cache_by_network_anonymization_key) {
+    // Method: SetSplitAuthCacheByNetworkAnonymizationKey
+    // Call: SetSplitAuthCacheByNetworkAnonymizationKey(split_auth_cache_by_network_anonymization_key)
+  }
+
+  saveHttpAuthCacheProxyEntries() {
+    // Method: SaveHttpAuthCacheProxyEntries
+    return new Promise((resolve) => {
+      // Call: SaveHttpAuthCacheProxyEntries()
+      resolve({});
+    });
+  }
+
+  loadHttpAuthCacheProxyEntries(cache_key) {
+    // Method: LoadHttpAuthCacheProxyEntries
+    // Call: LoadHttpAuthCacheProxyEntries(cache_key)
+  }
+
+  addAuthCacheEntry(challenge, network_anonymization_key, credentials) {
+    // Method: AddAuthCacheEntry
+    // Call: AddAuthCacheEntry(challenge, network_anonymization_key, credentials)
+  }
+
+  setCorsNonWildcardRequestHeadersSupport(value) {
+    // Method: SetCorsNonWildcardRequestHeadersSupport
+    // Call: SetCorsNonWildcardRequestHeadersSupport(value)
+  }
+
+  lookupProxyAuthCredentials(proxy_server, auth_scheme, realm) {
+    // Method: LookupProxyAuthCredentials
+    return new Promise((resolve) => {
+      // Call: LookupProxyAuthCredentials(proxy_server, auth_scheme, realm)
+      resolve({});
+    });
+  }
+
+  enableStaticKeyPinningForTesting() {
+    // Method: EnableStaticKeyPinningForTesting
+    // Call: EnableStaticKeyPinningForTesting()
+  }
+
+  verifyCertificateForTesting(certificate, hostname, ocsp_response, sct_list) {
+    // Method: VerifyCertificateForTesting
+    return new Promise((resolve) => {
+      // Call: VerifyCertificateForTesting(certificate, hostname, ocsp_response, sct_list)
+      resolve({});
+    });
+  }
+
+  getTrustAnchorIDsForTesting() {
+    // Method: GetTrustAnchorIDsForTesting
+    return new Promise((resolve) => {
+      // Call: GetTrustAnchorIDsForTesting()
+      resolve({});
+    });
+  }
+
+  addDomainReliabilityContextForTesting(origin, upload_url) {
+    // Method: AddDomainReliabilityContextForTesting
+    // Call: AddDomainReliabilityContextForTesting(origin, upload_url)
+  }
+
+  forceDomainReliabilityUploadsForTesting() {
+    // Method: ForceDomainReliabilityUploadsForTesting
+    // Call: ForceDomainReliabilityUploadsForTesting()
+  }
+
+  setSCTAuditingMode(mode) {
+    // Method: SetSCTAuditingMode
+    // Call: SetSCTAuditingMode(mode)
+  }
+
+  addReportingApiObserver(observer) {
+    // Method: AddReportingApiObserver
+    // Call: AddReportingApiObserver(observer)
+  }
+
+  getSharedDictionaryUsageInfo() {
+    // Method: GetSharedDictionaryUsageInfo
+    return new Promise((resolve) => {
+      // Call: GetSharedDictionaryUsageInfo()
+      resolve({});
+    });
+  }
+
+  getSharedDictionaryInfo(isolation_key) {
+    // Method: GetSharedDictionaryInfo
+    return new Promise((resolve) => {
+      // Call: GetSharedDictionaryInfo(isolation_key)
+      resolve({});
+    });
+  }
+
+  getSharedDictionaryOriginsBetween(start_time, end_time) {
+    // Method: GetSharedDictionaryOriginsBetween
+    return new Promise((resolve) => {
+      // Call: GetSharedDictionaryOriginsBetween(start_time, end_time)
+      resolve({});
+    });
+  }
+
+  setSharedDictionaryCacheMaxSize(cache_max_size) {
+    // Method: SetSharedDictionaryCacheMaxSize
+    // Call: SetSharedDictionaryCacheMaxSize(cache_max_size)
+  }
+
+  preloadSharedDictionaryInfoForDocument(urls, preload_handle) {
+    // Method: PreloadSharedDictionaryInfoForDocument
+    // Call: PreloadSharedDictionaryInfoForDocument(urls, preload_handle)
+  }
+
+  hasPreloadedSharedDictionaryInfoForTesting() {
+    // Method: HasPreloadedSharedDictionaryInfoForTesting
+    return new Promise((resolve) => {
+      // Call: HasPreloadedSharedDictionaryInfoForTesting()
+      resolve({});
+    });
+  }
+
+  flushCachedClientCertIfNeeded(host, certificate) {
+    // Method: FlushCachedClientCertIfNeeded
+    // Call: FlushCachedClientCertIfNeeded(host, certificate)
+  }
+
+  flushMatchingCachedClientCert(certificate) {
+    // Method: FlushMatchingCachedClientCert
+    // Call: FlushMatchingCachedClientCert(certificate)
+  }
+
+  flushClientCertCache() {
+    // Method: FlushClientCertCache
+    // Call: FlushClientCertCache()
+  }
+
+  revokeNetworkForNonces(nonces_to_patterns) {
+    // Method: RevokeNetworkForNonces
+    // Call: RevokeNetworkForNonces(nonces_to_patterns)
+  }
+
+  clearNonces(nonces) {
+    // Method: ClearNonces
+    // Call: ClearNonces(nonces)
+  }
+
+  exemptUrlFromNetworkRevocationForNonce(exempted_url, nonce) {
+    // Method: ExemptUrlFromNetworkRevocationForNonce
+    // Call: ExemptUrlFromNetworkRevocationForNonce(exempted_url, nonce)
+  }
+
+  prefetch(request_id, options, request, traffic_annotation) {
+    // Method: Prefetch
+    // Call: Prefetch(request_id, options, request, traffic_annotation)
+  }
+
+  getBoundNetworkForTesting() {
+    // Method: GetBoundNetworkForTesting
+    return new Promise((resolve) => {
+      // Call: GetBoundNetworkForTesting()
+      resolve({});
+    });
+  }
+
+  getDeviceBoundSessionManager(device_bound_session_manager) {
+    // Method: GetDeviceBoundSessionManager
+    // Call: GetDeviceBoundSessionManager(device_bound_session_manager)
+  }
+
+  addQuicHints(origins, network_anonymization_key) {
+    // Method: AddQuicHints
+    // Call: AddQuicHints(origins, network_anonymization_key)
+  }
+
 };
 
 network.mojom.NetworkContextRequest = class {

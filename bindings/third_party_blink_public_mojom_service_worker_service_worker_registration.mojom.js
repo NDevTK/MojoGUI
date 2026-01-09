@@ -86,6 +86,21 @@ blink.mojom.ServiceWorkerRegistrationObjectPtr = class {
     this.interfaceName = 'blink.mojom.ServiceWorkerRegistrationObject';
   }
 
+  setServiceWorkerObjects(changed_mask, installing, waiting, active) {
+    // Method: SetServiceWorkerObjects
+    // Call: SetServiceWorkerObjects(changed_mask, installing, waiting, active)
+  }
+
+  setUpdateViaCache(update_via_cache) {
+    // Method: SetUpdateViaCache
+    // Call: SetUpdateViaCache(update_via_cache)
+  }
+
+  updateFound() {
+    // Method: UpdateFound
+    // Call: UpdateFound()
+  }
+
 };
 
 blink.mojom.ServiceWorkerRegistrationObjectRequest = class {

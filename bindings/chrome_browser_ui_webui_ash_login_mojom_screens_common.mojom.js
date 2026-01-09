@@ -156,6 +156,16 @@ ash.screens_common.mojom.GaiaInfoPageHandlerPtr = class {
     this.interfaceName = 'ash.screens_common.mojom.GaiaInfoPageHandler';
   }
 
+  onBackClicked() {
+    // Method: OnBackClicked
+    // Call: OnBackClicked()
+  }
+
+  onNextClicked(user_flow) {
+    // Method: OnNextClicked
+    // Call: OnNextClicked(user_flow)
+  }
+
 };
 
 ash.screens_common.mojom.GaiaInfoPageHandlerRequest = class {
@@ -189,6 +199,21 @@ ash.screens_common.mojom.GestureNavigationPageHandlerPtr = class {
   constructor() {
     this.ptr = null;
     this.interfaceName = 'ash.screens_common.mojom.GestureNavigationPageHandler';
+  }
+
+  onPageChange(page) {
+    // Method: OnPageChange
+    // Call: OnPageChange(page)
+  }
+
+  onSkipClicked() {
+    // Method: OnSkipClicked
+    // Call: OnSkipClicked()
+  }
+
+  onExitClicked() {
+    // Method: OnExitClicked
+    // Call: OnExitClicked()
   }
 
 };

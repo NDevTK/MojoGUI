@@ -165,6 +165,19 @@ blink.mojom.AdAuctionServicePtr = class {
     });
   }
 
+  deprecatedReplaceInURN(uuid_url, replacements) {
+    // Method: DeprecatedReplaceInURN
+    // Call: DeprecatedReplaceInURN(uuid_url, replacements)
+  }
+
+  getInterestGroupAdAuctionData(sellers, config) {
+    // Method: GetInterestGroupAdAuctionData
+    return new Promise((resolve) => {
+      // Call: GetInterestGroupAdAuctionData(sellers, config)
+      resolve({});
+    });
+  }
+
 };
 
 blink.mojom.AdAuctionServiceRequest = class {

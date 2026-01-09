@@ -91,6 +91,32 @@ chromecast.shell.mojom.CastDemoPtr = class {
     // Call: SetWifiCredentials(ssid, psk)
   }
 
+  getAvailableWifiNetworks() {
+    // Method: GetAvailableWifiNetworks
+    return new Promise((resolve) => {
+      // Call: GetAvailableWifiNetworks()
+      resolve({});
+    });
+  }
+
+  getConnectionStatus() {
+    // Method: GetConnectionStatus
+    return new Promise((resolve) => {
+      // Call: GetConnectionStatus()
+      resolve({});
+    });
+  }
+
+  addVolumeChangeObserver(observer) {
+    // Method: AddVolumeChangeObserver
+    // Call: AddVolumeChangeObserver(observer)
+  }
+
+  persistLocalStorage() {
+    // Method: PersistLocalStorage
+    // Call: PersistLocalStorage()
+  }
+
 };
 
 chromecast.shell.mojom.CastDemoRequest = class {

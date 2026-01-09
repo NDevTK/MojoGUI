@@ -56,12 +56,37 @@ unexportable_keys.mojom.UnexportableKeyServicePtr = class {
     this.interfaceName = 'unexportable_keys.mojom.UnexportableKeyService';
   }
 
+  generateSigningKey(acceptable_algorithms, priority) {
+    // Method: GenerateSigningKey
+    // Call: GenerateSigningKey(acceptable_algorithms, priority)
+  }
+
+  fromWrappedSigningKey(wrapped_key, priority) {
+    // Method: FromWrappedSigningKey
+    // Call: FromWrappedSigningKey(wrapped_key, priority)
+  }
+
+  sign(key_id, data, priority) {
+    // Method: Sign
+    // Call: Sign(key_id, data, priority)
+  }
+
+  getAllSigningKeysForGarbageCollection(priority) {
+    // Method: GetAllSigningKeysForGarbageCollection
+    // Call: GetAllSigningKeysForGarbageCollection(priority)
+  }
+
   deleteKey(key_id, priority) {
     // Method: DeleteKey
     return new Promise((resolve) => {
       // Call: DeleteKey(key_id, priority)
       resolve({});
     });
+  }
+
+  deleteAllKeys(priority) {
+    // Method: DeleteAllKeys
+    // Call: DeleteAllKeys(priority)
   }
 
 };

@@ -16,6 +16,11 @@ blink.mojom.BlobURLStorePtr = class {
     this.interfaceName = 'blink.mojom.BlobURLStore';
   }
 
+  register(blob, url) {
+    // Method: Register
+    // Call: Register(blob, url)
+  }
+
   revoke(url) {
     // Method: Revoke
     // Call: Revoke(url)

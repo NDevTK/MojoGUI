@@ -190,9 +190,83 @@ gpu.mojom.GpuChannelPtr = class {
     // Call: TerminateForTesting()
   }
 
+  getChannelToken() {
+    // Method: GetChannelToken
+    return new Promise((resolve) => {
+      // Call: GetChannelToken()
+      resolve({});
+    });
+  }
+
+  flush() {
+    // Method: Flush
+    // Call: Flush()
+  }
+
+  getSharedMemoryForFlushId() {
+    // Method: GetSharedMemoryForFlushId
+    return new Promise((resolve) => {
+      // Call: GetSharedMemoryForFlushId()
+      resolve({});
+    });
+  }
+
+  createCommandBuffer(params, routing_id, shared_state, receiver, client) {
+    // Method: CreateCommandBuffer
+    return new Promise((resolve) => {
+      // Call: CreateCommandBuffer(params, routing_id, shared_state, receiver, client)
+      resolve({});
+    });
+  }
+
+  destroyCommandBuffer(routing_id) {
+    // Method: DestroyCommandBuffer
+    // Call: DestroyCommandBuffer(routing_id)
+  }
+
   flushDeferredRequests(requests, flushed_deferred_message_id) {
     // Method: FlushDeferredRequests
     // Call: FlushDeferredRequests(requests, flushed_deferred_message_id)
+  }
+
+  createGpuMemoryBuffer(size, format, buffer_usage) {
+    // Method: CreateGpuMemoryBuffer
+    return new Promise((resolve) => {
+      // Call: CreateGpuMemoryBuffer(size, format, buffer_usage)
+      resolve({});
+    });
+  }
+
+  createDCOMPTexture(route_id, receiver) {
+    // Method: CreateDCOMPTexture
+    return new Promise((resolve) => {
+      // Call: CreateDCOMPTexture(route_id, receiver)
+      resolve({});
+    });
+  }
+
+  registerOverlayStateObserver(promotion_hint_observer, mailbox) {
+    // Method: RegisterOverlayStateObserver
+    return new Promise((resolve) => {
+      // Call: RegisterOverlayStateObserver(promotion_hint_observer, mailbox)
+      resolve({});
+    });
+  }
+
+  waitForTokenInRange(routing_id, start, end) {
+    // Method: WaitForTokenInRange
+    return new Promise((resolve) => {
+      // Call: WaitForTokenInRange(routing_id, start, end)
+      resolve({});
+    });
+  }
+
+  waitForGetOffsetInRange(routing_id, set_get_buffer_count, start, end) {
+    // Method: WaitForGetOffsetInRange
+    return new Promise((resolve) => {
+      // Call: WaitForGetOffsetInRange(routing_id, set_get_buffer_count, start, end)
+      resolve({});
+    });
   }
 
   registerSysmemBufferCollection(service_handle, sysmem_token, format, usage, register_with_image_pipe) {

@@ -95,11 +95,6 @@ device.mojom.NFCPtr = class {
     // Call: SetClient(client)
   }
 
-  setClient(client) {
-    // Method: SetClient
-    // Call: SetClient(client)
-  }
-
   push(message, options) {
     // Method: Push
     return new Promise((resolve) => {

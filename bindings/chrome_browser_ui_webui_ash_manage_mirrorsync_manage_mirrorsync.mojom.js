@@ -52,6 +52,14 @@ ash.manage_mirrorsync.mojom.PageHandlerPtr = class {
     });
   }
 
+  getSyncingPaths() {
+    // Method: GetSyncingPaths
+    return new Promise((resolve) => {
+      // Call: GetSyncingPaths()
+      resolve({});
+    });
+  }
+
 };
 
 ash.manage_mirrorsync.mojom.PageHandlerRequest = class {

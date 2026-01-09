@@ -23,6 +23,32 @@ printing.mojom.PdfNupConverterPtr = class {
     this.interfaceName = 'printing.mojom.PdfNupConverter';
   }
 
+  nupPageConvert(pages_per_sheet, page_size, printable_area, pdf_page_regions) {
+    // Method: NupPageConvert
+    return new Promise((resolve) => {
+      // Call: NupPageConvert(pages_per_sheet, page_size, printable_area, pdf_page_regions)
+      resolve({});
+    });
+  }
+
+  nupDocumentConvert(pages_per_sheet, page_size, printable_area, src_pdf_region) {
+    // Method: NupDocumentConvert
+    return new Promise((resolve) => {
+      // Call: NupDocumentConvert(pages_per_sheet, page_size, printable_area, src_pdf_region)
+      resolve({});
+    });
+  }
+
+  setWebContentsURL(url) {
+    // Method: SetWebContentsURL
+    // Call: SetWebContentsURL(url)
+  }
+
+  setUseSkiaRendererPolicy(use_skia) {
+    // Method: SetUseSkiaRendererPolicy
+    // Call: SetUseSkiaRendererPolicy(use_skia)
+  }
+
 };
 
 printing.mojom.PdfNupConverterRequest = class {

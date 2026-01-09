@@ -74,6 +74,14 @@ blink.mojom.BlobPtr = class {
     });
   }
 
+  captureSnapshot() {
+    // Method: CaptureSnapshot
+    return new Promise((resolve) => {
+      // Call: CaptureSnapshot()
+      resolve({});
+    });
+  }
+
   getInternalUUID() {
     // Method: GetInternalUUID
     return new Promise((resolve) => {

@@ -167,6 +167,26 @@ network.mojom.MdnsListenClientPtr = class {
     this.interfaceName = 'network.mojom.MdnsListenClient';
   }
 
+  onAddressResult(update_type, query_type, endpoint) {
+    // Method: OnAddressResult
+    // Call: OnAddressResult(update_type, query_type, endpoint)
+  }
+
+  onTextResult(update_type, query_type, text_records) {
+    // Method: OnTextResult
+    // Call: OnTextResult(update_type, query_type, text_records)
+  }
+
+  onHostnameResult(update_type, query_type, host) {
+    // Method: OnHostnameResult
+    // Call: OnHostnameResult(update_type, query_type, host)
+  }
+
+  onUnhandledResult(update_type, query_type) {
+    // Method: OnUnhandledResult
+    // Call: OnUnhandledResult(update_type, query_type)
+  }
+
 };
 
 network.mojom.MdnsListenClientRequest = class {

@@ -49,6 +49,14 @@ storage.mojom.FileLockPtr = class {
     this.interfaceName = 'storage.mojom.FileLock';
   }
 
+  release() {
+    // Method: Release
+    return new Promise((resolve) => {
+      // Call: Release()
+      resolve({});
+    });
+  }
+
 };
 
 storage.mojom.FileLockRequest = class {

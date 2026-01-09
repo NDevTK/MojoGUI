@@ -28,6 +28,11 @@ webnn.mojom.WebNNGraphBuilderPtr = class {
     // Call: CreatePendingConstant(constant_handle, data_type, data)
   }
 
+  createGraph(graph_info) {
+    // Method: CreateGraph
+    // Call: CreateGraph(graph_info)
+  }
+
   isValidGraphForTesting(context_properties, graph_info) {
     // Method: IsValidGraphForTesting
     return new Promise((resolve) => {

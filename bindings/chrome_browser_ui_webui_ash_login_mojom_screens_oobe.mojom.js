@@ -61,6 +61,31 @@ ash.screens_oobe.mojom.ConsumerUpdatePagePtr = class {
     this.interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePage';
   }
 
+  showSkipButton() {
+    // Method: ShowSkipButton
+    // Call: ShowSkipButton()
+  }
+
+  setLowBatteryWarningVisible(visible) {
+    // Method: SetLowBatteryWarningVisible
+    // Call: SetLowBatteryWarningVisible(visible)
+  }
+
+  setScreenStep(step) {
+    // Method: SetScreenStep
+    // Call: SetScreenStep(step)
+  }
+
+  setUpdateStatusMessage(percent, percent_message, time_left_message) {
+    // Method: SetUpdateStatusMessage
+    // Call: SetUpdateStatusMessage(percent, percent_message, time_left_message)
+  }
+
+  setAutoTransition(enabled) {
+    // Method: SetAutoTransition
+    // Call: SetAutoTransition(enabled)
+  }
+
 };
 
 ash.screens_oobe.mojom.ConsumerUpdatePageRequest = class {

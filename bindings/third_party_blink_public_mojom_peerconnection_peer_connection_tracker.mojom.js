@@ -97,6 +97,61 @@ blink.mojom.PeerConnectionTrackerHostPtr = class {
     // Call: RemovePeerConnection(lid)
   }
 
+  updatePeerConnection(lid, type, value) {
+    // Method: UpdatePeerConnection
+    // Call: UpdatePeerConnection(lid, type, value)
+  }
+
+  onPeerConnectionSessionIdSet(lid, session_id) {
+    // Method: OnPeerConnectionSessionIdSet
+    // Call: OnPeerConnectionSessionIdSet(lid, session_id)
+  }
+
+  getUserMedia(request_id, audio, video, audio_constraints, video_constraints) {
+    // Method: GetUserMedia
+    // Call: GetUserMedia(request_id, audio, video, audio_constraints, video_constraints)
+  }
+
+  getUserMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
+    // Method: GetUserMediaSuccess
+    // Call: GetUserMediaSuccess(request_id, stream_id, audio_track_info, video_track_info)
+  }
+
+  getUserMediaFailure(request_id, error, error_message) {
+    // Method: GetUserMediaFailure
+    // Call: GetUserMediaFailure(request_id, error, error_message)
+  }
+
+  getDisplayMedia(request_id, audio, video, audio_constraints, video_constraints) {
+    // Method: GetDisplayMedia
+    // Call: GetDisplayMedia(request_id, audio, video, audio_constraints, video_constraints)
+  }
+
+  getDisplayMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
+    // Method: GetDisplayMediaSuccess
+    // Call: GetDisplayMediaSuccess(request_id, stream_id, audio_track_info, video_track_info)
+  }
+
+  getDisplayMediaFailure(request_id, error, error_message) {
+    // Method: GetDisplayMediaFailure
+    // Call: GetDisplayMediaFailure(request_id, error, error_message)
+  }
+
+  webRtcEventLogWrite(lid, output) {
+    // Method: WebRtcEventLogWrite
+    // Call: WebRtcEventLogWrite(lid, output)
+  }
+
+  webRtcDataChannelLogWrite(lid, output) {
+    // Method: WebRtcDataChannelLogWrite
+    // Call: WebRtcDataChannelLogWrite(lid, output)
+  }
+
+  addStandardStats(lid, value) {
+    // Method: AddStandardStats
+    // Call: AddStandardStats(lid, value)
+  }
+
 };
 
 blink.mojom.PeerConnectionTrackerHostRequest = class {

@@ -53,6 +53,14 @@ blink.mojom.NotificationServicePtr = class {
     this.interfaceName = 'blink.mojom.NotificationService';
   }
 
+  getPermissionStatus() {
+    // Method: GetPermissionStatus
+    return new Promise((resolve) => {
+      // Call: GetPermissionStatus()
+      resolve({});
+    });
+  }
+
   displayNonPersistentNotification(token, notification_data, notification_resources, event_listener) {
     // Method: DisplayNonPersistentNotification
     // Call: DisplayNonPersistentNotification(token, notification_data, notification_resources, event_listener)

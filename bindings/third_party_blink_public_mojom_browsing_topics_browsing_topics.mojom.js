@@ -26,6 +26,11 @@ blink.mojom.BrowsingTopicsDocumentServicePtr = class {
     this.interfaceName = 'blink.mojom.BrowsingTopicsDocumentService';
   }
 
+  getBrowsingTopics(observe) {
+    // Method: GetBrowsingTopics
+    // Call: GetBrowsingTopics(observe)
+  }
+
 };
 
 blink.mojom.BrowsingTopicsDocumentServiceRequest = class {

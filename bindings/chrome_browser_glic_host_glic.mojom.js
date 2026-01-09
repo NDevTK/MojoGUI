@@ -848,6 +848,16 @@ glic.mojom.WebClientHandlerPtr = class {
     // Call: SubscribeToPinCandidates(options, observer)
   }
 
+  createTask(task_options) {
+    // Method: CreateTask
+    // Call: CreateTask(task_options)
+  }
+
+  performActions(actions_proto) {
+    // Method: PerformActions
+    // Call: PerformActions(actions_proto)
+  }
+
   stopActorTask(task_id, stop_reason) {
     // Method: StopActorTask
     // Call: StopActorTask(task_id, stop_reason)

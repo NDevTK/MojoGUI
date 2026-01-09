@@ -21,6 +21,11 @@ blink.mojom.FileBackedBlobFactoryPtr = class {
     // Call: RegisterBlob(blob, uuid, content_type, file)
   }
 
+  registerBlobSync(blob, uuid, content_type, file) {
+    // Method: RegisterBlobSync
+    // Call: RegisterBlobSync(blob, uuid, content_type, file)
+  }
+
 };
 
 blink.mojom.FileBackedBlobFactoryRequest = class {

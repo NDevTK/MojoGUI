@@ -31,6 +31,14 @@ extensions.mojom.EventDispatcherPtr = class {
     this.interfaceName = 'extensions.mojom.EventDispatcher';
   }
 
+  dispatchEvent(params, event_args) {
+    // Method: DispatchEvent
+    return new Promise((resolve) => {
+      // Call: DispatchEvent(params, event_args)
+      resolve({});
+    });
+  }
+
 };
 
 extensions.mojom.EventDispatcherRequest = class {

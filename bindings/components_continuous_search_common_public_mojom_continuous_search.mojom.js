@@ -49,6 +49,14 @@ continuous_search.mojom.SearchResultExtractorPtr = class {
     this.interfaceName = 'continuous_search.mojom.SearchResultExtractor';
   }
 
+  extractCurrentSearchResults(result_types) {
+    // Method: ExtractCurrentSearchResults
+    return new Promise((resolve) => {
+      // Call: ExtractCurrentSearchResults(result_types)
+      resolve({});
+    });
+  }
+
 };
 
 continuous_search.mojom.SearchResultExtractorRequest = class {

@@ -598,6 +598,14 @@ device.mojom.VRServicePtr = class {
     // Call: SetFramesThrottled(throttled)
   }
 
+  makeXrCompatible() {
+    // Method: MakeXrCompatible
+    return new Promise((resolve) => {
+      // Call: MakeXrCompatible()
+      resolve({});
+    });
+  }
+
 };
 
 device.mojom.VRServiceRequest = class {

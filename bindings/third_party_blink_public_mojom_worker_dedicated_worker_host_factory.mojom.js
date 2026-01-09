@@ -21,6 +21,11 @@ blink.mojom.DedicatedWorkerHostFactoryClientPtr = class {
     // Call: OnWorkerHostCreated(browser_interface_broker, host, origin)
   }
 
+  onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver) {
+    // Method: OnScriptLoadStarted
+    // Call: OnScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver)
+  }
+
   onScriptLoadStartFailed() {
     // Method: OnScriptLoadStartFailed
     // Call: OnScriptLoadStartFailed()

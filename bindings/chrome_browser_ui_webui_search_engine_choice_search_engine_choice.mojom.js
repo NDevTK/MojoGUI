@@ -43,6 +43,31 @@ search_engine_choice.mojom.PageHandlerPtr = class {
     this.interfaceName = 'search_engine_choice.mojom.PageHandler';
   }
 
+  displayDialog() {
+    // Method: DisplayDialog
+    // Call: DisplayDialog()
+  }
+
+  handleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection) {
+    // Method: HandleSearchEngineChoiceSelected
+    // Call: HandleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection)
+  }
+
+  handleLearnMoreLinkClicked() {
+    // Method: HandleLearnMoreLinkClicked
+    // Call: HandleLearnMoreLinkClicked()
+  }
+
+  handleMoreButtonClicked() {
+    // Method: HandleMoreButtonClicked
+    // Call: HandleMoreButtonClicked()
+  }
+
+  recordScrollState(scroll_state) {
+    // Method: RecordScrollState
+    // Call: RecordScrollState(scroll_state)
+  }
+
 };
 
 search_engine_choice.mojom.PageHandlerRequest = class {

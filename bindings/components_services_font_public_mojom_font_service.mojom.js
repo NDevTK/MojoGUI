@@ -86,6 +86,30 @@ font_service.mojom.FontServicePtr = class {
     });
   }
 
+  matchFontByPostscriptNameOrFullFontName(postscript_name_or_full_font_name) {
+    // Method: MatchFontByPostscriptNameOrFullFontName
+    return new Promise((resolve) => {
+      // Call: MatchFontByPostscriptNameOrFullFontName(postscript_name_or_full_font_name)
+      resolve({});
+    });
+  }
+
+  listFamilies() {
+    // Method: ListFamilies
+    return new Promise((resolve) => {
+      // Call: ListFamilies()
+      resolve({});
+    });
+  }
+
+  matchFontWithFallback(family, is_bold, is_italic, charset, fallback_family_type) {
+    // Method: MatchFontWithFallback
+    return new Promise((resolve) => {
+      // Call: MatchFontWithFallback(family, is_bold, is_italic, charset, fallback_family_type)
+      resolve({});
+    });
+  }
+
 };
 
 font_service.mojom.FontServiceRequest = class {
