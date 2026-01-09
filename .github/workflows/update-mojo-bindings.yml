@@ -511,7 +511,7 @@ jobs:
                   
                   # Parse and generate bindings
                   parsed = parse_mojom_file(mojom_path)
-                  if parsed and parsed.get('interfaces'):
+                  if parsed and (parsed.get('interfaces') or parsed.get('structs') or parsed.get('enums')):
                       rel_path = mojom_path.replace('chromium_src/', '')
                       out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
                       out_path = bindings_dir / out_filename
