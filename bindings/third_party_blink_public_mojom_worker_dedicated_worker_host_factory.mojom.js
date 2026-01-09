@@ -1,0 +1,85 @@
+// Auto-generated MojoJS binding
+// Source: chromium_src/third_party/blink/public/mojom/worker/dedicated_worker_host_factory.mojom
+// Module: blink.mojom
+
+'use strict';
+
+// Module namespace
+var blink = blink || {};
+blink.mojom = blink.mojom || {};
+
+
+// Interface: DedicatedWorkerHostFactoryClient
+blink.mojom.DedicatedWorkerHostFactoryClientPtr = class {
+  constructor() {
+    this.ptr = null;
+    this.interfaceName = 'blink.mojom.DedicatedWorkerHostFactoryClient';
+  }
+
+  tODO() {
+    // Method: TODO
+    // Call: TODO()
+  }
+
+  onWorkerHostCreated(browser_interface_broker, host, origin) {
+    // Method: OnWorkerHostCreated
+    // Call: OnWorkerHostCreated(browser_interface_broker, host, origin)
+  }
+
+  onWorkerHostCreated() {
+    // Method: OnWorkerHostCreated
+    // Call: OnWorkerHostCreated()
+  }
+
+  onScriptLoadStartFailed() {
+    // Method: OnScriptLoadStartFailed
+    // Call: OnScriptLoadStartFailed()
+  }
+
+  onScriptLoadStarted(example, is) {
+    // Method: OnScriptLoadStarted
+    // Call: OnScriptLoadStarted(example, is)
+  }
+
+  onWorkerHostCreated() {
+    // Method: OnWorkerHostCreated
+    // Call: OnWorkerHostCreated()
+  }
+
+  onScriptLoadStarted() {
+    // Method: OnScriptLoadStarted
+    // Call: OnScriptLoadStarted()
+  }
+
+  onScriptLoadStartFailed() {
+    // Method: OnScriptLoadStartFailed
+    // Call: OnScriptLoadStartFailed()
+  }
+
+};
+
+blink.mojom.DedicatedWorkerHostFactoryClientRequest = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+// Interface: DedicatedWorkerHostFactory
+blink.mojom.DedicatedWorkerHostFactoryPtr = class {
+  constructor() {
+    this.ptr = null;
+    this.interfaceName = 'blink.mojom.DedicatedWorkerHostFactory';
+  }
+
+  createWorkerHostAndStartScriptLoad(token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status) {
+    // Method: CreateWorkerHostAndStartScriptLoad
+    // Call: CreateWorkerHostAndStartScriptLoad(token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status)
+  }
+
+};
+
+blink.mojom.DedicatedWorkerHostFactoryRequest = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};

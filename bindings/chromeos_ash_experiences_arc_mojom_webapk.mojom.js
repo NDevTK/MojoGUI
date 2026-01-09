@@ -1,0 +1,69 @@
+// Auto-generated MojoJS binding
+// Source: chromium_src/chromeos/ash/experiences/arc/mojom/webapk.mojom
+// Module: arc.mojom
+
+'use strict';
+
+// Module namespace
+var arc = arc || {};
+arc.mojom = arc.mojom || {};
+
+
+// Enum: WebApkInstallResult
+arc.mojom.WebApkInstallResult = {
+  kSuccess: 0,
+  kErrorUnknown: 1,
+  kErrorServiceTimeout: 2,
+  kErrorPolicyViolation: 3,
+  kErrorApiDisabled: 4,
+  kErrorUnknownAccount: 5,
+  kErrorResolveNetworkError: 6,
+  kErrorResolveError: 7,
+  kErrorNotGoogleSigned: 8,
+};
+
+// Struct: WebShareTargetInfo
+arc.mojom.WebShareTargetInfo = class {
+  constructor(values = {}) {
+    this.file_accepts = values.file_accepts !== undefined ? values.file_accepts : "";
+  }
+};
+
+// Struct: WebApkInfo
+arc.mojom.WebApkInfo = class {
+  constructor(values = {}) {
+    this.package_name = values.package_name !== undefined ? values.package_name : "";
+    this.share_info = values.share_info !== undefined ? values.share_info : 0;
+  }
+};
+
+// Interface: WebApkInstance
+arc.mojom.WebApkInstancePtr = class {
+  constructor() {
+    this.ptr = null;
+    this.interfaceName = 'arc.mojom.WebApkInstance';
+  }
+
+  0(package_name, version, app_name, token) {
+    // Method: 0
+    return new Promise((resolve) => {
+      // Call: 0(package_name, version, app_name, token)
+      resolve({});
+    });
+  }
+
+  1(package_name) {
+    // Method: 1
+    return new Promise((resolve) => {
+      // Call: 1(package_name)
+      resolve({});
+    });
+  }
+
+};
+
+arc.mojom.WebApkInstanceRequest = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
