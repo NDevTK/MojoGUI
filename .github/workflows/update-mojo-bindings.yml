@@ -124,7 +124,71 @@ jobs:
                   '--output_dir', 'chromium_src', 
                   '--depth', 'chromium_src', 
                   '--bytecode_path', 'bindings', 
-          
+                  mojom_path
+              ]
+              try:
+                  subprocess.run(cmd, check=True, capture_output=True)
+                  return True
+              except subprocess.CalledProcessError:
+                  return False
+
+          def parse_mojom_file(file_path):
+               # Simplified regex checks for interface names
+               try:
+                   with open(file_path, 'r', encoding='utf-8') as f:
+                       content = f.read()
+                   module_match = re.search(r'module\s+([\w.]+);', content)
+                   module = module_match.group(1) if module_match else 'unknown'
+                   interfaces = []
+                   for match in re.finditer(r'interface\s+(\w+)', content):
+                       interfaces.append({'name': match.group(1)})
+                   return {'module': module, 'interfaces': interfaces}
+               except:
+                   return None
+
+          def main():
+              bindings_dir = Path('bindings')
+              
+              # Read file list
+              with open('mojom_files.txt', 'r') as f:
+                  files = [line.strip() for line in f if line.strip()]
+              
+              print(f"Processing {len(files)} files...")
+              
+              successful_count = 0
+              
+              for mojom_path in files:
+                  # Skip non-files or weird entries
+                  if not os.path.isfile(mojom_path):
+                      continue
+
+                  # 1. Parse
+                  if not run_parser(mojom_path):
+                      # print(f"Skipping {mojom_path} (Parse failed)")
+                      continue
+                      
+                  # 2. Generate
+                  if run_generator(mojom_path):
+                      successful_count += 1
+                      # Move generated -lite.js file to bindings/
+                      # Expected path: chromium_src/path/to/foo.mojom-lite.js
+                      src_p = Path(mojom_path)
+                      gen_lite = src_p.with_suffix('.mojom-lite.js')
+                      
+                      if gen_lite.exists():
+                          # Flatten name: third_party_blink_..._foo.mojom.js
+                          rel_parts = src_p.parts[1:] # Drop chromium_src
+                          flat_name = '_'.join(rel_parts).replace('.mojom', '.mojom.js')
+                          dest = bindings_dir / flat_name
+                          
+                          import shutil
+                          shutil.move(str(gen_lite), str(dest))
+                          # print(f"Generated: {flat_name}")
+
+              print(f"Successfully generated bindings for {successful_count} files.")
+
+          if __name__ == '__main__':
+              main()
           SCRIPT
           
           # Run the script
