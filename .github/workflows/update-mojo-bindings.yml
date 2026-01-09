@@ -110,7 +110,8 @@ jobs:
                   'interfaces': [],
                   'structs': [],
                   'unions': [],
-                  'enums': []
+                  'enums': [],
+                  'constants': []
               }
 
               # Extract module name
@@ -201,6 +202,14 @@ jobs:
                   struct_body = match.group(2)
                   fields = parse_params(struct_body)
                   result['structs'].append({'name': struct_name, 'fields': fields})
+
+              # Extract constants (module level)
+              const_pattern = r'const\s+([\w\.]+)\s+(\w+)\s*=\s*([^;]+);'
+              for match in re.finditer(const_pattern, content_no_comments):
+                  c_type = match.group(1)
+                  c_name = match.group(2)
+                  c_value = match.group(3).strip()
+                  result['constants'].append({'name': c_name, 'type': c_type, 'value': c_value})
 
               # Extract unions
               union_pattern = r'union\s+(\w+)\s*\{([^}]*)\}'
@@ -679,7 +688,10 @@ jobs:
               
               js_code += "\n"
               
-              # Generate enums
+              # Generate constants
+              for const in parsed.get('constants', []):
+                  js_code += f"\n{current_ns}.{const['name']} = {const['value']};\n"
+
               # Generate enums
               for enum in parsed.get('enums', []):
                   js_code += f"\n// Enum: {enum['name']}\n"
@@ -687,6 +699,11 @@ jobs:
                   for i, value in enumerate(enum['values']):
                       js_code += f"  {value}: {i},\n"
                   js_code += "};\n"
+                  
+                  # Generate EnumSpec (critical for array<Enum> validation)
+                  js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum() }};\n"
+                  
+
 
               # Generate unions
               for union in parsed.get('unions', []):
