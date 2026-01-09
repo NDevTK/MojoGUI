@@ -248,17 +248,21 @@ jobs:
                   return None
               
               param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
+              
+              # Extract MinVersion
+              min_version_match = re.search(r'\[MinVersion=(\d+)\]', param_str)
+              min_version = int(min_version_match.group(1)) if min_version_match else 0
               param_str = re.sub(r'\[.*?\]', '', param_str).strip() # Remove attributes
+              
+              ordinal_match = re.search(r'@(\d+)', param_str)
+              ordinal = int(ordinal_match.group(1)) if ordinal_match else None
               param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
+              
               param_str = re.sub(r'=.*$', '', param_str).strip()
               param_str = param_str.rstrip(';').strip()
               
               if not param_str:
                   return None
-              
-              ordinal_match = re.search(r'@(\d+)', param_str)
-              ordinal = int(ordinal_match.group(1)) if ordinal_match else None
-              param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
               
               optional = '?' in param_str
               param_str = param_str.replace('?', '').strip()
@@ -276,7 +280,7 @@ jobs:
               if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
                   return None
               
-              return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal}
+              return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version}
 
           def to_camel_case(name):
               """Convert PascalCase to camelCase."""
@@ -395,79 +399,263 @@ jobs:
                   return 'mojo.internal.Pointer'
 
               def get_struct_layout(params):
-                  """Calculate field offsets and size with boolean bit packing."""
-                  fields_code = []
-                  offset = 0
-                  bit = 0
+                  """Calculate field offsets and size using Mojo's Best Fit algorithm."""
                   
-                  # Filter valid params and assign weight
-                  valid_params = [p for p in params if p and p.get('name')]
+                  # 1. Expand Nullable Primitives (int32? -> bool + int32)
+                  expanded_params = []
+                  ordinal_counter = 0
                   
-                  def get_size_weight(param):
+                  for param in params:
+                      if not param or not param.get('name'): continue
+                      
                       p_type = resolve_mojo_type(param.get('type', 'string'))
+                      is_nullable = param.get('optional') or '?' in param.get('type', '')
+                      ordinal = param.get('ordinal')
+                      if ordinal is None:
+                          ordinal = ordinal_counter
+                      ordinal_counter = ordinal + 1
+                      min_version = param.get('min_version', 0)
                       
-                      # Basic Types
-                      if p_type == 'mojo.internal.Bool': return 0
-                      if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1
-                      if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2
-                      if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.AssociatedInterfaceProxy', 'mojo.internal.Handle'): return 4
-                      if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double'): return 8
-                      if p_type.startswith('mojo.internal.'): return 8 # Array/Map/Pointer
-
-                      # Spec Types (Struct/Enum/Union)
-                      # Resolve to kind using Global Map
-                      spec_name = p_type.replace('Spec', '') # e.g. device.mojom.BatteryStatus
-                      kind = global_kind_map.get(spec_name)
+                      # Check if this is a nullable primitive (not pointer/handle)
+                      is_pointer = p_type == 'mojo.internal.String' or p_type.startswith('mojo.internal.Array') or p_type.startswith('mojo.internal.Map') or p_type.endswith('Spec') or p_type.startswith('mojo.internal.Interface')
+                      # Handle/Encoding types are 4 bytes but treated as opaque
                       
-                      if kind == 'enum': return 4 # Enums are Int32
-                      if kind == 'union': return 16 # Unions are 16 bytes
-                      if kind == 'struct': return 8 # Struct Pointers
+                      # Simplification: If it's a primitive number/bool and nullable, split it.
+                      is_primitive = p_type in ('mojo.internal.Bool', 'mojo.internal.Int8', 'mojo.internal.Uint8', 'mojo.internal.Int16', 'mojo.internal.Uint16', 'mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Float', 'mojo.internal.Double')
                       
-                      # Fallback
-                      if 'Spec' in p_type and 'Enum' not in p_type: return 8
-                      return 8
-
-                  # Sort: primary by size (desc), secondary by original index (stable)
-                  # REVERTED: Mojo actually uses definition order (mostly) with alignment padding.
-                  # valid_params.sort(key=get_size_weight, reverse=True)
-                  
-                  for param in valid_params:
-                      p_type = resolve_mojo_type(param.get('type', 'string'))
-                      is_bool = p_type == 'mojo.internal.Bool'
-                      nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
-                      
-                      if is_bool:
-                          f_off = offset
-                          f_bit = bit
-                          bit += 1
+                      if is_nullable and is_primitive:
+                          # Split!
+                          # 1. HasValue (Bool)
+                          expanded_params.append({
+                              'name': f"{param['name']}_$flag",
+                              'type': 'mojo.internal.Bool',
+                              'original_name': param['name'],
+                              'original_type': p_type,
+                              'is_flag': True,
+                              'ordinal': ordinal,
+                              'sub_ordinal': 0,
+                              'min_version': min_version,
+                              'nullable': False # The flag itself is not nullable
+                          })
+                          # 2. Value (Primitive, Un-nullable kind)
+                          expanded_params.append({
+                              'name': f"{param['name']}_$value",
+                              'type': p_type,
+                              'original_name': param['name'],
+                              'is_value': True,
+                              'ordinal': ordinal,
+                              'sub_ordinal': 1,
+                              'min_version': min_version,
+                              'nullable': False # The value storage is not nullable
+                          })
                       else:
-                          # If we were packing bits, move to next 8-byte word
-                          if bit > 0:
-                              bit = 0
-                              offset += 8
-                          
-                          # Alignment
-                          weight = get_size_weight(param)
-                          if weight == 0: weight = 1
-                          
-                          if offset % weight != 0:
-                              offset += (weight - (offset % weight))
-                          
-                          f_off = offset
-                          f_bit = 0
-                          offset += weight
+                          # Normal field
+                          expanded_params.append({
+                              'name': param['name'],
+                              'type': p_type,
+                              'original_name': param['name'],
+                              'ordinal': ordinal,
+                              'sub_ordinal': 0,
+                              'min_version': min_version,
+                              'nullable': is_nullable
+                          })
+                  
+                  # 2. Sort by Ordinal
+                  expanded_params.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
+                  
+                  # 3. Best Fit Algorithm
+                  packed_fields = []
+                  
+                  def get_size_alignment(p_type):
+                      if p_type == 'mojo.internal.Bool': return 1, 1 # Bit packed later
+                      if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1, 1
+                      if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2, 2
+                      if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.AssociatedInterfaceProxy', 'mojo.internal.Handle'): return 4, 4
+                      if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double'): return 8, 8
+                      # Pointers
+                      spec_name = p_type.replace('Spec', '')
+                      kind = global_kind_map.get(spec_name)
+                      if kind == 'enum': return 4, 4
+                      if kind == 'union': return 16, 8
+                      return 8, 8
+                  
+                  def get_pad(offset, alignment):
+                      return (alignment - (offset % alignment)) % alignment
+
+                  def get_field_offset(src_field, last_field):
+                      # If trying to pack Bool after Bool in same byte
+                      if (src_field['type'] == 'mojo.internal.Bool' and 
+                          last_field['type'] == 'mojo.internal.Bool' and
+                          last_field['bit'] < 7 and
+                          src_field['offset'] is None): # Only if not already placed
+                          # Special case handled by logic below, but here we calculate space.
+                          # Actually, Best Fit iterates through *Packed* fields.
+                          pass
                       
-                      fields_code.append(f"{{ name: '{param['name']}', packedOffset: {f_off}, packedBitOffset: {f_bit}, type: {p_type}, nullable: {nullable} }}")
+                      start = last_field['offset'] + last_field['size']
+                      pad = get_pad(start, src_field['alignment'])
+                      return start + pad
+
+                  # Initialize fields with size/alignment
+                  for p in expanded_params:
+                      size, align = get_size_alignment(p['type'])
+                      p['size'] = size
+                      p['alignment'] = align
+                      p['offset'] = None
+                      p['bit'] = 0
                   
-                  if bit > 0:
-                      offset += 8
+                  if not expanded_params:
+                     return [], 8
+
+                  # First field always at 0
+                  first = expanded_params[0]
+                  first['offset'] = 0
+                  first['bit'] = 0
+                  packed_fields.append(first)
                   
-                  # Align struct size to 8 bytes
+                  # Pack remaining fields
+                  for src in expanded_params[1:]:
+                      placed = False
+                      
+                      # Try to fit in holes provided by existing fields
+                      # Iterate through gaps between packed_fields
+                      
+                      # Special Bool Packing Check first?
+                      # If src is Bool, try to pack into ANY existing Bool that has space
+                      if src['type'] == 'mojo.internal.Bool':
+                          for dst in packed_fields:
+                              if dst['type'] == 'mojo.internal.Bool' and dst['bit'] < 7:
+                                  # Check if this byte is "open" for this version? 
+                                  # Assuming versions allow packing.
+                                  src['offset'] = dst['offset']
+                                  src['bit'] = dst['bit'] + 1
+                                  # Update the dst bit count to reserve it? 
+                                  # Simpler: Just increment bit count of "byte owner" or track used bits map.
+                                  # Let's just find the latest bool in this byte.
+                                  
+                                  # Better: Find all bools at this offset. Max bit.
+                                  bools_at_offset = [f for f in packed_fields if f['offset'] == dst['offset'] and f['type'] == 'mojo.internal.Bool']
+                                  max_bit = max(f['bit'] for f in bools_at_offset)
+                                  if max_bit < 7:
+                                      src['offset'] = dst['offset']
+                                      src['bit'] = max_bit + 1
+                                      # Insert in list order
+                                      # Find index of last bool at this offset
+                                      idx = packed_fields.index(bools_at_offset[-1])
+                                      packed_fields.insert(idx + 1, src)
+                                      placed = True
+                                      break
+                          if placed: continue
+
+                      # Find hole
+                      # Check gap before first field? (Should be 0 if header is separate)
+                      # Check gaps between fields
+                      for i in range(len(packed_fields) + 1):
+                          prev = packed_fields[i-1] if i > 0 else None
+                          curr = packed_fields[i] if i < len(packed_fields) else None
+                          
+                          start = 0
+                          if prev:
+                              start = prev['offset'] + prev['size']
+                          
+                          # Proposed offset
+                          pad = get_pad(start, src['alignment'])
+                          proposed_offset = start + pad
+                          
+                          end_limit = curr['offset'] if curr else float('inf')
+                          
+                          if proposed_offset + src['size'] <= end_limit:
+                              # Fits!
+                              src['offset'] = proposed_offset
+                              src['bit'] = 0
+                              packed_fields.insert(i, src)
+                              placed = True
+                              break
+                      
+                      if not placed:
+                          # Append to end
+                          last = packed_fields[-1]
+                          start = last['offset'] + last['size']
+                          pad = get_pad(start, src['alignment'])
+                          src['offset'] = start + pad
+                          src['bit'] = 0
+                          packed_fields.append(src)
+
+                  
+                  # 4. Generate Code
+                  fields_code = []
+                  
+                  # Re-sort by ordinal for output? No, JS expects `fields` array to match `PackedStruct` order (offset order)?
+                  # Actually, generated JS usually lists fields in ordinal order in the `fields` array, 
+                  # but each entry has `packedOffset`.
+                  # Re-sort to match original ordinal order so we can map back.
+                  
+                  # Wait, if we split fields, we need to map them back to the generated JS structure.
+                  # MojoJS `StructSpec` has `fields` array.
+                  # If we split into $flag and $value, do we emit TWO fields in JS?
+                  # JS Bindings Lite: `mojo.internal.StructField`
+                  # For nullable value types:
+                  # It emits:
+                  # 1. The Flag field (Bool)
+                  # 2. The Value field
+                  # AND sets `nullableValueKindProperties` on them.
+                  
+                  # We need to emit in Ordinal Order of the PACKED fields.
+                  packed_fields.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
+                  
+                  offset = 0
+                  for p in packed_fields:
+                      p_offset = p['offset']
+                      p_bit = p['bit']
+                      p_type = p['type']
+                      p_nullable = 'true' if p['nullable'] else 'false'
+                      p_name = p['name']
+                      
+                      field_js = f"{{ name: '{p_name}', packedOffset: {p_offset}, packedBitOffset: {p_bit}, type: {p_type}, nullable: {p_nullable}, minVersion: {p['min_version']}"
+                      
+                      if p.get('is_flag'):
+                          field_js += f", nullableValueKindProperties: {{ isPrimary: true, linkedValueFieldName: '{p['original_name']}_$value', originalFieldName: '{p['original_name']}' }}"
+                      elif p.get('is_value'):
+                          field_js += f", nullableValueKindProperties: {{ isPrimary: false, linkedValueFieldName: '{p['original_name']}_$flag', originalFieldName: '{p['original_name']}' }}"
+                      
+                      field_js += " }"
+                      fields_code.append(field_js)
+                      
+                      end_off = p_offset + p['size']
+                      if end_off > offset: offset = end_off
+
+                  # 5. Calculate Versions
+                  unique_versions = sorted(list(set(f['min_version'] for f in packed_fields)))
+                  if not unique_versions: unique_versions = [0]
+                  
+                  versions_info = []
+                  for v in unique_versions:
+                      # Find all fields relevant to this version (min_version <= v)
+                      fields_in_v = [f for f in packed_fields if f['min_version'] <= v]
+                      
+                      if not fields_in_v:
+                          sz = 8 # Header only
+                      else:
+                          max_end = 0
+                          for f in fields_in_v:
+                              end = f['offset'] + f['size']
+                              if end > max_end: max_end = end
+                          
+                          # Align to 8 bytes
+                          if max_end % 8 != 0:
+                              max_end += (8 - (max_end % 8))
+                          sz = 8 + max_end
+                      
+                      versions_info.append(f"{{version: {v}, packedSize: {sz}}}")
+                  
+                  versions_code = "[" + ", ".join(versions_info) + "]"
+
+                  # Align struct size to 8 bytes (Global)
                   if offset % 8 != 0:
                       offset += (8 - (offset % 8))
                   
-                  packed_size = 8 + offset  # Header (8 bytes) + payload
-                  return fields_code, packed_size
+                  packed_size = 8 + offset
+                  return fields_code, packed_size, versions_code
 
               
               # Build namespace chain
@@ -524,7 +712,7 @@ jobs:
               for struct in parsed.get('structs', []):
                   struct_name = struct['name']
                   full_name = f"{current_ns}.{struct_name}"
-                  fields_code, packed_size = get_struct_layout(struct.get('fields', []))
+                  fields_code, packed_size, versions_code = get_struct_layout(struct.get('fields', []))
                   
                   js_code += f"\n// Struct: {struct_name}\n"
                   js_code += f"{full_name}Spec = {{\n"
@@ -536,7 +724,7 @@ jobs:
                   for field in fields_code:
                       js_code += f"        {field},\n"
                   js_code += "      ],\n"
-                  js_code += "      versions: [{version: 0}]\n"
+                  js_code += f"      versions: {versions_code}\n"
                   js_code += "    }\n"
                   js_code += "  }\n"
                   js_code += "};\n"
@@ -619,7 +807,7 @@ jobs:
                   # Generate ParamsSpec placeholders for each method
                   for idx, method in enumerate(interface.get('methods', [])):
                       # Calculate layout for Params
-                      params_code, params_size = get_struct_layout(method.get('params', []))
+                      params_code, params_size, params_versions = get_struct_layout(method.get('params', []))
                       
                       js_code += f"// ParamsSpec for {method['name']}\n"
                       js_code += f"{full_name}_{method['name']}_ParamsSpec = {{\n"
@@ -631,25 +819,25 @@ jobs:
                       for field in params_code:
                           js_code += f"        {field},\n"
                       js_code += "      ],\n"
-                      js_code += "      versions: [{version: 0}]\n"
+                      js_code += f"      versions: {params_versions}\n"
                       js_code += "    }\n"
                       js_code += "  }\n"
                       js_code += "};\n\n"
                       
                       if method.get('returns'):
                           # Calculate layout for ResponseParams
-                          ret_code, ret_size = get_struct_layout(method.get('returns', []))
+                          ret_code, ret_size, ret_versions = get_struct_layout(method.get('returns', []))
                           
                           js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
                           js_code += "  $: {\n"
                           js_code += "    structSpec: {\n"
-                          js_code += f"      name: '{interface_string}.{method['name']}_ResponseParams',\n"
+                          js_code += "      name: '{interface_string}.{method['name']}_ResponseParams',\n"
                           js_code += f"      packedSize: {ret_size},\n"
                           js_code += "      fields: [\n"
                           for field in ret_code:
                               js_code += f"        {field},\n"
                           js_code += "      ],\n"
-                          js_code += "      versions: [{version: 0}]\n"
+                          js_code += f"      versions: {ret_versions}\n"
                           js_code += "    }\n"
                           js_code += "  }\n"
                           js_code += "};\n\n"
