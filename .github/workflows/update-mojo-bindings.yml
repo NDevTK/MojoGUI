@@ -128,23 +128,30 @@ jobs:
                   interface_body = content_no_comments[start_pos:end_pos-1]
                   
                   methods = []
-                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
+                  method_pattern = r'(?:\[([^\]]*)\]\s*)?([A-Z][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
                   for method_match in re.finditer(method_pattern, interface_body):
-                      method_name = method_match.group(1)
-                      params_str = method_match.group(2).strip()
-                      returns_str = method_match.group(3)
+                      attributes_str = method_match.group(1)
+                      method_name = method_match.group(2)
+                      params_str = method_match.group(3).strip()
+                      returns_str = method_match.group(4)
                       
                       # Skip false positives
                       if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch'):
                           continue
                       
+                      is_sync = False
+                      if attributes_str:
+                          if 'Sync' in attributes_str:
+                              is_sync = True
+
                       params = parse_params(params_str) if params_str else []
                       returns = parse_params(returns_str) if returns_str else []
                       
                       methods.append({
                           'name': method_name,
                           'params': params,
-                          'returns': returns
+                          'returns': returns,
+                          'sync': is_sync
                       })
                   
                   # Deduplicate methods
@@ -426,7 +433,17 @@ jobs:
                           js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
                       else:
                           js_code += "      null,\n"
-                      js_code += f"      [{params_str}]);\n"
+                      if method.get('returns'):
+                          js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
+                      else:
+                          js_code += "      null,\n"
+                      js_code += f"      [{params_str}],\n"
+                      js_code += "      undefined,\n"
+                      if method.get('sync'):
+                          js_code += "      mojo.internal.kMessageFlagIsSync\n"
+                      else:
+                          js_code += "      undefined\n"
+                      js_code += "    );\n"
                       js_code += "  }\n\n"
                   
                   js_code += "};\n\n"
@@ -457,7 +474,7 @@ jobs:
                       for field in params_code:
                           js_code += f"        {field},\n"
                       js_code += "      ],\n"
-                      js_code += "      versions: [{version: 0}]\n"
+                      js_code += f"      versions: [{{version: 0, packedSize: {params_size}}}]\n"
                       js_code += "    }\n"
                       js_code += "  }\n"
                       js_code += "};\n\n"
@@ -475,7 +492,7 @@ jobs:
                           for field in ret_code:
                               js_code += f"        {field},\n"
                           js_code += "      ],\n"
-                          js_code += "      versions: [{version: 0}]\n"
+                          js_code += f"      versions: [{{version: 0, packedSize: {ret_size}}}]\n"
                           js_code += "    }\n"
                           js_code += "  }\n"
                           js_code += "};\n\n"
