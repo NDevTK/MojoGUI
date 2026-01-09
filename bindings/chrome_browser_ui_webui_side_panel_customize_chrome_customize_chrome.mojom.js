@@ -431,11 +431,11 @@ side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = 
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePageHandler.SetMostVisitedSettings_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'shortcuts_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'personal_shortcuts_visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1015,11 +1015,11 @@ side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetModulesSettings_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'modules_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'managed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1031,12 +1031,12 @@ side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetMostVisitedSettings_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'shortcuts_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'personal_shortcuts_visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'disabled_shortcuts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'disabled_shortcuts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1062,11 +1062,11 @@ side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.CustomizeChromePage.SetFooterSettings_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'extension_policy_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'management_notice_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extension_policy_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'management_notice_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

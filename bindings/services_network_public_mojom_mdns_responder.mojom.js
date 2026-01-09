@@ -120,10 +120,10 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'goodbye_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'goodbye_scheduled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -400,10 +400,10 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Params
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'clear_conversion_history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'clear_suggestion_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'clear_suggestion_history', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

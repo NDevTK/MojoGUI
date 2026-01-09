@@ -179,10 +179,10 @@ blink.mojom.BucketHost_Persist_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BucketHost.Persist_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'persisted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,10 +206,10 @@ blink.mojom.BucketHost_Persisted_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BucketHost.Persisted_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'persisted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

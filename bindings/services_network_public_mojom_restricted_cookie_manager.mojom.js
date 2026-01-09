@@ -127,7 +127,7 @@ network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedCookieManager.GetAllForUrl_Params',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'site_for_cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -135,8 +135,8 @@ network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = {
         { name: 'storage_access_api_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_ad_tagged', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'apply_devtools_overrides', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_disable_third_party_cookies', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'apply_devtools_overrides', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_disable_third_party_cookies', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedCookieManager.SetCanonicalCookie_Params',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
         { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -170,7 +170,7 @@ network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = {
         { name: 'storage_access_api_status', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_ad_tagged', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'apply_devtools_overrides', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'apply_devtools_overrides', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,16 +213,16 @@ network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedCookieManager.SetCookieFromString_Params',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'site_for_cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'top_frame_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'storage_access_api_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'get_version_shared_memory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_ad_tagged', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'apply_devtools_overrides', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cookie', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_ad_tagged', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'apply_devtools_overrides', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'cookie', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,16 +247,16 @@ network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.RestrictedCookieManager.GetCookiesString_Params',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'site_for_cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'top_frame_origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'storage_access_api_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'get_version_shared_memory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_ad_tagged', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'apply_devtools_overrides', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_disable_third_party_cookies', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ad_tagged', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'apply_devtools_overrides', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'force_disable_third_party_cookies', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -258,10 +258,10 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'strip_path_from_mapped_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'write_proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'write_proto', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -358,12 +358,12 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.EstablishGpuChannel_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'client_tracing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'is_gpu_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_extra_handles_validation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_extra_handles_validation', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -94,7 +94,7 @@ blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgent.AttachDevToolsSession_Params',
-      packedSize: 80,
+      packedSize: 72,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
@@ -102,9 +102,9 @@ blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = {
         { name: 'reattach_session_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'script_to_evaluate_on_load', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'client_expects_binary_responses', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'client_is_trusted', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'session_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'session_waits_for_debugger', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'client_is_trusted', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'session_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_waits_for_debugger', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,10 +130,10 @@ blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DevToolsAgent.ReportChildTargets_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'wait_for_debugger', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'wait_for_debugger', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

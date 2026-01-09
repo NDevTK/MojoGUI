@@ -459,10 +459,10 @@ device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.ImmersiveOverlay.SetOverlayAndWebXRVisibility_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'overlay_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'webxr_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'webxr_visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

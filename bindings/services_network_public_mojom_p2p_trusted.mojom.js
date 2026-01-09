@@ -196,10 +196,10 @@ network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.StartRtpDump_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'outgoing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,10 +211,10 @@ network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PTrustedSocketManager.StopRtpDump_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'outgoing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

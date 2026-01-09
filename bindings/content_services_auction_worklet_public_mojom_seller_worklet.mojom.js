@@ -183,7 +183,7 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SellerWorklet.ScoreAd_Params',
-      packedSize: 208,
+      packedSize: 200,
       fields: [
         { name: 'ad_metadata_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'bid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
@@ -203,13 +203,13 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
         { name: 'browser_signal_buyer_and_seller_reporting_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'browser_signal_bidding_duration_msecs', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'browser_signal_for_debugging_only_in_cooldown_or_lockout', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'seller_timeout', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'group_by_origin_id', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'allow_group_by_origin_mode', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'trace_id', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'bidder_joining_origin', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'score_ad_client', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 136, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'seller_timeout', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group_by_origin_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'allow_group_by_origin_mode', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'trace_id', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bidder_joining_origin', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'score_ad_client', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

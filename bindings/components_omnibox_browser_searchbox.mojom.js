@@ -344,16 +344,16 @@ searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.OpenAutocompleteMatch_Params',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
         { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'are_matches_showing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'mouse_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'alt_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -427,7 +427,7 @@ searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.ExecuteAction_Params',
-      packedSize: 80,
+      packedSize: 56,
       fields: [
         { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'action_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
@@ -435,9 +435,9 @@ searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
         { name: 'match_selection_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mouse_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'alt_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -651,14 +651,14 @@ searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'searchbox.mojom.PageHandler.SubmitQuery_Params',
-      packedSize: 56,
+      packedSize: 32,
       fields: [
         { name: 'query_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'mouse_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
         { name: 'alt_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

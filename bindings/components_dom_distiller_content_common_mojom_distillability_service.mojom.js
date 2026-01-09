@@ -70,12 +70,12 @@ dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillabilityService.NotifyIsDistillable_Params',
-      packedSize: 40,
+      packedSize: 16,
       fields: [
         { name: 'page_is_distillable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_last_update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_long_article', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_mobile_friendly', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_last_update', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_long_article', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_mobile_friendly', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

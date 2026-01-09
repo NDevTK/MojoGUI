@@ -291,12 +291,12 @@ ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec 
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.TriggerPrivacyIndicators_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_camera_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_microphone_used', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_microphone_used', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

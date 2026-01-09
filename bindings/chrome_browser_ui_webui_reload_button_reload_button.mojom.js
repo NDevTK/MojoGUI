@@ -275,10 +275,10 @@ reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'reload_button.mojom.Page.SetReloadButtonState_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_menu_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_menu_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

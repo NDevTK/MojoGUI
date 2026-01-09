@@ -885,12 +885,12 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.RegisterAdvertisement_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'service_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'use_scan_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'connectable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'connectable', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

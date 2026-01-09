@@ -1036,10 +1036,10 @@ bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.FakeCentral.IsNotifying_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_notifying', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_notifying', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

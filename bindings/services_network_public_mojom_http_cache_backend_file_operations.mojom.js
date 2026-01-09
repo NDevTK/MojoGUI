@@ -99,11 +99,11 @@ network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FileEnumerator.GetNext_ResponseParams',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

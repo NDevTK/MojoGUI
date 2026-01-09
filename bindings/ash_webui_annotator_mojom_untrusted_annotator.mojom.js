@@ -221,10 +221,10 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandler.OnUndoRedoAvailabilityChanged_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'redo_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

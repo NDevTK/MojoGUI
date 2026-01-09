@@ -784,11 +784,11 @@ content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestControlHost.InitiateCaptureDump_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'capture_navigation_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'capture_pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'capture_pixels', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

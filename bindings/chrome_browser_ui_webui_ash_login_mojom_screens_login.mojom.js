@@ -339,10 +339,10 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_login.mojom.ArcVmDataMigrationPage.SetBatteryState_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'enough', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'connected', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'connected', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -692,11 +692,11 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_login.mojom.EncryptionMigrationPage.SetBatteryState_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'is_enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_charging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_charging', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

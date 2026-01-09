@@ -494,12 +494,12 @@ printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintBackendService.AskUserForSettings_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'max_pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'has_selection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_scripted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_scripted', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

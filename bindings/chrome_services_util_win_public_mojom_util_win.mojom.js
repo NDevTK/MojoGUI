@@ -169,10 +169,10 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.IsPinnedToTaskbar_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_pinned_to_taskbar', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_pinned_to_taskbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

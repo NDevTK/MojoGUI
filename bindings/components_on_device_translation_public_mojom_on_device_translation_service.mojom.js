@@ -103,10 +103,10 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.FileOperationProxy.FileExists_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_directory', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

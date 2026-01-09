@@ -747,10 +747,10 @@ drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.UpdateNetworkState_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'pause_syncing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_offline', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_offline', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

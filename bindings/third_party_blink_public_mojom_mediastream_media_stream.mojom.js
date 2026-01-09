@@ -845,11 +845,11 @@ blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamTrackMetricsHost.AddTrack_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'is_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_remote', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

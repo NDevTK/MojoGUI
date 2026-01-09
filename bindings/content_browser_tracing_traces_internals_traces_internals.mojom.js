@@ -774,10 +774,10 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_ResponseParams',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'service_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'service_registered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'service_registered', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

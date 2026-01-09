@@ -476,10 +476,10 @@ ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSp
   $: {
     structSpec: {
       name: 'ash.eche_app.mojom.SystemInfoObserver.OnAndroidDeviceNetworkInfoChanged_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'is_different_network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'android_device_on_cellular', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'android_device_on_cellular', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

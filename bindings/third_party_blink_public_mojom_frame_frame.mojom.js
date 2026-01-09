@@ -1574,12 +1574,12 @@ blink.mojom.LocalFrameHost_FocusedElementChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrameHost.FocusedElementChanged_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
         { name: 'is_editable_element', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_richly_editable_element', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'bounds_in_frame_widget', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'focus_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_richly_editable_element', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'bounds_in_frame_widget', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focus_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1607,7 +1607,7 @@ blink.mojom.LocalFrameHost_ShowPopupMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrameHost.ShowPopupMenu_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
         { name: 'popup_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -1615,7 +1615,7 @@ blink.mojom.LocalFrameHost_ShowPopupMenu_ParamsSpec = {
         { name: 'selected_item', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'menu_items', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'right_aligned', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_multiple_selection', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allow_multiple_selection', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1940,13 +1940,13 @@ blink.mojom.LocalFrameHost_SetFencedFrameAutomaticBeaconReportEventData_ParamsSp
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrameHost.SetFencedFrameAutomaticBeaconReportEventData_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
         { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'destinations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'once', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cross_origin_exposed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cross_origin_exposed', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3271,13 +3271,13 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrame.JavaScriptExecuteRequestForTests_Params',
-      packedSize: 48,
+      packedSize: 32,
       fields: [
         { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'has_user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'resolve_promises', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'honor_js_content_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'world_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'resolve_promises', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'honor_js_content_settings', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'world_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3701,7 +3701,7 @@ blink.mojom.LocalFrame_AddResourceTimingEntryForFailedSubframeNavigation_ParamsS
   $: {
     structSpec: {
       name: 'blink.mojom.LocalFrame.AddResourceTimingEntryForFailedSubframeNavigation_Params',
-      packedSize: 128,
+      packedSize: 120,
       fields: [
         { name: 'subframe_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'initial_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
@@ -3715,9 +3715,9 @@ blink.mojom.LocalFrame_AddResourceTimingEntryForFailedSubframeNavigation_ParamsS
         { name: 'connection_info', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'alpn_negotiated_protocol', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_secure_transport', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_validated', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'normalized_server_timing', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'completion_status', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_validated', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'normalized_server_timing', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'completion_status', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

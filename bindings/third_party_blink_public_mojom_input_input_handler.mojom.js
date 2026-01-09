@@ -280,10 +280,10 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'from_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'unadjusted_movement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1026,11 +1026,11 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameWidgetInputHandler.SelectAroundCaret_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'should_show_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'should_show_context_menu', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_show_context_menu', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1477,10 +1477,10 @@ blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetInputHandler.RequestCompositionUpdates_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'immediate_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'monitor_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'monitor_request', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

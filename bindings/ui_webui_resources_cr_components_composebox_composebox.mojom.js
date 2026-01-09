@@ -221,10 +221,10 @@ composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.SetCreateImageMode_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'image_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'image_present', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

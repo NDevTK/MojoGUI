@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T07:59:53.732939Z",
+  "generated_at": "2026-01-09T18:42:26.133260Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7355,7 +7355,8 @@
         "IsSupported",
         "IsConfigured",
         "GetManagementType",
-        "IsEditable"
+        "IsEditable",
+        "GetLocalAuthFactorsComplexity"
       ]
     },
     {

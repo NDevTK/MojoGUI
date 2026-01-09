@@ -762,11 +762,11 @@ new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.PageHandler.SetModulesDisabled_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_user_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_user_action', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -272,12 +272,12 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.BluetoothInternalsHandler.CheckSystemPermissions_ResponseParams',
-      packedSize: 40,
+      packedSize: 16,
       fields: [
         { name: 'need_location_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'need_nearby_devices_permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'need_location_services', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_request_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'need_nearby_devices_permission', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'need_location_services', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_request_permissions', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

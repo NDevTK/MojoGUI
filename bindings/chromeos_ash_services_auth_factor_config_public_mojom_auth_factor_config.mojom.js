@@ -28,6 +28,15 @@ ash.auth.mojom.ManagementType = {
   kChildRestriction: 3,
 };
 
+// Enum: LocalAuthFactorsComplexity
+ash.auth.mojom.LocalAuthFactorsComplexity = {
+  kUnset: 0,
+  kNone: 1,
+  kLow: 2,
+  kMedium: 3,
+  kHigh: 4,
+};
+
 // Enum: ConfigureResult
 ash.auth.mojom.ConfigureResult = {
   kSuccess: 0,
@@ -210,6 +219,15 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       [auth_token, factor]);
   }
 
+  getLocalAuthFactorsComplexity(auth_token) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec,
+      null,
+      [auth_token]);
+  }
+
 };
 
 ash.auth.mojom.AuthFactorConfig.getRemote = function() {
@@ -342,6 +360,20 @@ ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = {
       packedSize: 16,
       fields: [
         { name: 'editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// ParamsSpec for GetLocalAuthFactorsComplexity
+ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.auth.mojom.AuthFactorConfig.GetLocalAuthFactorsComplexity_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
