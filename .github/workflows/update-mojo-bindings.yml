@@ -173,8 +173,8 @@ jobs:
                   for line in enum_body.split(','):
                       line = line.strip()
                       if line and not line.startswith('//'):
-                          # Remove comments and extract value name
-                          value_match = re.match(r'([A-Z_][A-Z0-9_]*)', line)
+                          # Valid identifier: starts with letter/underscore, then alphanumeric/underscore
+                          value_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', line)
                           if value_match:
                               values.append(value_match.group(1))
                   
