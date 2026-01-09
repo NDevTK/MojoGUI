@@ -517,7 +517,7 @@ jobs:
                       p['bit'] = 0
                   
                   if not expanded_params:
-                     return [], 8
+                      return [], 8, "[{version: 0, packedSize: 8}]"
 
                   # First field always at 0
                   first = expanded_params[0]
