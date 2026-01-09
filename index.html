@@ -187,6 +187,12 @@
     <!-- Scripts -->
     <!-- Mojo runtime (order matters: mojo_bindings.js defines mojo namespace first) -->
     <script src="bindings/mojo_bindings.js"></script>
+    <script>
+        // Initialize mojo.internal.interfaceSupport namespace before files that need it
+        if (typeof mojo !== 'undefined' && mojo.internal) {
+            mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
+        }
+    </script>
     <script src="bindings/bindings_lite.js"></script>
     <script src="bindings/interface_support.js"></script>
     <script src="bindings/index.js"></script>
