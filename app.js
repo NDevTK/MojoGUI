@@ -604,14 +604,20 @@
     }
 
     function highlightSyntax(code) {
-        return code
+        // First escape HTML entities to prevent XSS and display issues
+        let escaped = code
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        // Apply syntax highlighting in order (comments first to avoid conflicts)
+        return escaped
             .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
             .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw)\b/g, '<span class="keyword">$1</span>')
             .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
-            .replace(/"([^"]*)"/g, '<span class="string">"$1"</span>')
+            .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
             .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
-            .replace(/\.(\w+)\s*\(/g, '.<span class="function">$1</span>(')
-            .replace(/(\w+):/g, '<span class="property">$1</span>:');
+            .replace(/\.(\w+)\s*\(/g, '.<span class="function">$1</span>(');
     }
 
     // ========================================

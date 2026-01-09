@@ -4,6 +4,19 @@
 (function (global) {
   'use strict';
 
+  // Create trusted types policy for script URLs
+  let trustedPolicy = null;
+  if (typeof window.trustedTypes !== 'undefined') {
+    try {
+      trustedPolicy = window.trustedTypes.createPolicy('mojoBindings', {
+        createScriptURL: (input) => input
+      });
+    } catch (e) {
+      // Policy might already exist or not be allowed
+      console.warn('Could not create trusted types policy:', e);
+    }
+  }
+
   const MojoBindings = {
     _indexData: null,
     _loadedModules: {},
@@ -35,12 +48,22 @@
       }
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `./bindings/${filename}`;
+        const scriptUrl = `./bindings/${filename}`;
+
+        // Use trusted types if available
+        if (trustedPolicy) {
+          script.src = trustedPolicy.createScriptURL(scriptUrl);
+        } else {
+          script.src = scriptUrl;
+        }
+
         script.onload = () => {
           this._loadedModules[filename] = true;
           resolve(true);
         };
-        script.onerror = reject;
+        script.onerror = () => {
+          reject(new Error(`Failed to load binding: ${filename}`));
+        };
         document.head.appendChild(script);
       });
     },
@@ -52,3 +75,4 @@
 
   global.MojoBindings = MojoBindings;
 })(typeof window !== 'undefined' ? window : this);
+
