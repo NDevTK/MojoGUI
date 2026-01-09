@@ -48,8 +48,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$,
-      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$,
+      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
+      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
       [size, id]);
   }
 
@@ -57,7 +57,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$,
+      discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
       [id]);
   }

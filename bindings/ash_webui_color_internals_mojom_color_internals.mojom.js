@@ -49,7 +49,7 @@ ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec.$,
+      ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
       [colors]);
   }
@@ -124,7 +124,7 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec.$,
+      ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
       [observer]);
   }

@@ -56,7 +56,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec,
       null,
       []);
   }
@@ -65,7 +65,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec,
       null,
       [state]);
   }
@@ -74,7 +74,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec,
       null,
       [has_nonempty_beforeunload]);
   }
@@ -83,7 +83,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec,
       null,
       []);
   }
@@ -92,7 +92,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec,
       null,
       []);
   }
@@ -101,7 +101,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec,
       null,
       []);
   }
@@ -110,7 +110,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec,
       null,
       []);
   }
@@ -119,7 +119,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec,
       null,
       [is_ad_frame]);
   }
@@ -128,7 +128,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec,
       null,
       []);
   }
@@ -137,7 +137,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec,
       null,
       [time_since_navigation_start]);
   }
@@ -146,8 +146,8 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$,
-      performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec,
+      performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec,
       [mode]);
   }
 
@@ -155,7 +155,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$,
+      performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec,
       null,
       []);
   }
@@ -390,7 +390,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec,
       null,
       [main_thread_task_load_is_low]);
   }
@@ -399,7 +399,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec,
       null,
       [description, iframe_attribution_data]);
   }
@@ -408,7 +408,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec,
       null,
       [v8_context_token]);
   }
@@ -417,7 +417,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec,
       null,
       [v8_context_token]);
   }
@@ -426,7 +426,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec,
       null,
       [parent_frame_token, remote_frame_token, iframe_attribution_data]);
   }
@@ -435,7 +435,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$,
+      performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec,
       null,
       [parent_frame_token, remote_frame_token]);
   }
@@ -584,8 +584,8 @@ performance_manager.mojom.ChildProcessCoordinationUnitRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$,
-      performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$,
+      performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec,
+      performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec,
       []);
   }
 

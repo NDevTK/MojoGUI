@@ -48,7 +48,7 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec.$,
+      media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
       null,
       [gpu_feature_info, receiver, gpu_remote]);
   }

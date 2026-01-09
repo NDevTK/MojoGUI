@@ -100,8 +100,8 @@ sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec.$,
-      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec.$,
+      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
+      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
       [port]);
   }
 

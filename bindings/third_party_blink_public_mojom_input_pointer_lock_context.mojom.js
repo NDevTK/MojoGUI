@@ -48,8 +48,8 @@ blink.mojom.PointerLockContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec.$,
-      blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec.$,
+      blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
+      blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
       [unadjusted_movement]);
   }
 

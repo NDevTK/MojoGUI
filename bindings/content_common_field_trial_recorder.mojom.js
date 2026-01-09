@@ -48,7 +48,7 @@ content.mojom.FieldTrialRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec.$,
+      content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
       null,
       [trial_name]);
   }

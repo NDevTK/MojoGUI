@@ -48,8 +48,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$,
-      gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$,
+      gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
       [s]);
   }
 
@@ -57,8 +57,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$,
-      gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$,
+      gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
       [t]);
   }
 
@@ -66,8 +66,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$,
-      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$,
+      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
       [g]);
   }
 
@@ -75,8 +75,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$,
-      gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$,
+      gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
+      gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
       [t]);
   }
 

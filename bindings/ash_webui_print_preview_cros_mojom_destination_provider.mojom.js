@@ -50,8 +50,8 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec.$,
-      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec.$,
+      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
+      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
       [destination_id, printer_type]);
   }
 

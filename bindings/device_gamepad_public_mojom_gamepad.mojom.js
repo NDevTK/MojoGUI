@@ -84,7 +84,7 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$,
+      device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
       [index, gamepad]);
   }
@@ -93,7 +93,7 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$,
+      device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
       [index, gamepad]);
   }
@@ -102,7 +102,7 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$,
+      device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
       [index, gamepad]);
   }
@@ -208,8 +208,8 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$,
-      device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$,
+      device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
+      device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
       []);
   }
 
@@ -217,7 +217,7 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$,
+      device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       null,
       []);
   }
@@ -226,7 +226,7 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$,
+      device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
       [gamepad_observer]);
   }
@@ -340,8 +340,8 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$,
-      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$,
+      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
+      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
       [pad_index, type, params]);
   }
 
@@ -349,8 +349,8 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$,
-      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$,
+      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
+      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
       [pad_index]);
   }
 

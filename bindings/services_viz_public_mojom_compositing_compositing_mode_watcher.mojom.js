@@ -48,7 +48,7 @@ viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$,
+      viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +122,7 @@ viz.mojom.CompositingModeReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$,
+      viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
       [watcher]);
   }

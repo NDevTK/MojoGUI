@@ -49,7 +49,7 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$,
+      ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
       [window, bitmaps, point, frame_delay]);
   }
@@ -58,7 +58,7 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$,
+      ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
       [window, point]);
   }

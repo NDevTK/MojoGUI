@@ -47,7 +47,7 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec.$,
+      mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec,
       null,
       [receiver]);
   }
@@ -56,7 +56,7 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec.$,
+      mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec,
       null,
       [receiver]);
   }

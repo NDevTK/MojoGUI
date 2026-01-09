@@ -48,7 +48,7 @@ device.mojom.GeolocationControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec.$,
+      device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
       null,
       []);
   }

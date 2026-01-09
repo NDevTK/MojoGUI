@@ -48,7 +48,7 @@ blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$,
+      blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
       null,
       [local_surface_id]);
   }
@@ -57,7 +57,7 @@ blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$,
+      blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
       null,
       [is_opaque]);
   }
@@ -146,7 +146,7 @@ blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
       null,
       [embedder]);
   }
@@ -221,7 +221,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
       null,
       [parent_frame_sink_id, frame_sink_id, client]);
   }
@@ -230,7 +230,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
       null,
       [bundle_id, receiver, client]);
   }
@@ -239,7 +239,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, client, sink]);
   }
@@ -248,7 +248,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, bundle_id, client, sink]);
   }
@@ -257,7 +257,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
       null,
       [parent_frame_sink_id, frame_sink_id, surface_client, client, sink]);
   }
@@ -266,7 +266,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
       null,
       [frame_sink_id, embedder]);
   }
@@ -275,7 +275,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -284,7 +284,7 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$,
+      blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
       [frame_sink_id]);
   }

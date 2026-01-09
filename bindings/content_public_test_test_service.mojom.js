@@ -48,7 +48,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.TestService_DoSomething_ParamsSpec.$,
+      content.mojom.TestService_DoSomething_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.TestService_DoTerminateProcess_ParamsSpec.$,
+      content.mojom.TestService_DoTerminateProcess_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.TestService_DoCrashImmediately_ParamsSpec.$,
+      content.mojom.TestService_DoCrashImmediately_ParamsSpec,
       null,
       []);
   }
@@ -75,8 +75,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.TestService_CreateFolder_ParamsSpec.$,
-      content.mojom.TestService_CreateFolder_ResponseParamsSpec.$,
+      content.mojom.TestService_CreateFolder_ParamsSpec,
+      content.mojom.TestService_CreateFolder_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.TestService_GetRequestorName_ParamsSpec.$,
-      content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$,
+      content.mojom.TestService_GetRequestorName_ParamsSpec,
+      content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
       []);
   }
 
@@ -93,8 +93,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$,
-      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$,
+      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec,
+      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
       [message]);
   }
 
@@ -102,8 +102,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$,
-      content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$,
+      content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec,
+      content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
       [message]);
   }
 
@@ -111,8 +111,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$,
-      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$,
+      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec,
+      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
       [message]);
   }
 
@@ -120,8 +120,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$,
-      content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$,
+      content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec,
+      content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
       [region]);
   }
 
@@ -129,8 +129,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$,
-      content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$,
+      content.mojom.TestService_IsProcessSandboxed_ParamsSpec,
+      content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
       []);
   }
 
@@ -138,8 +138,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.TestService_PseudonymizeString_ParamsSpec.$,
-      content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$,
+      content.mojom.TestService_PseudonymizeString_ParamsSpec,
+      content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
       [value]);
   }
 
@@ -147,7 +147,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.TestService_PassWriteableFile_ParamsSpec.$,
+      content.mojom.TestService_PassWriteableFile_ParamsSpec,
       null,
       [file]);
   }
@@ -156,7 +156,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$,
+      content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
       []);
   }

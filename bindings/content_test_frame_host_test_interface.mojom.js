@@ -48,7 +48,7 @@ content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FrameHostTestInterface_Ping_ParamsSpec.$,
+      content.mojom.FrameHostTestInterface_Ping_ParamsSpec,
       null,
       [source_url, source_event]);
   }

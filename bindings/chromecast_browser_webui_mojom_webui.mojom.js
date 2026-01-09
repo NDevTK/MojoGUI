@@ -48,7 +48,7 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$,
+      chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
       [list]);
   }
@@ -123,7 +123,7 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$,
+      chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
       [message, cb]);
   }
@@ -132,7 +132,7 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$,
+      chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
       [function, args]);
   }
@@ -223,8 +223,8 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$,
-      chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$,
+      chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
+      chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
       [path]);
   }
 
@@ -311,7 +311,7 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$,
+      chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
       [host, web_ui, resources]);
   }
@@ -320,7 +320,7 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$,
+      chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
       [host, resources]);
   }

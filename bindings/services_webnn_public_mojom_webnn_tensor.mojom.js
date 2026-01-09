@@ -48,8 +48,8 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$,
-      webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$,
+      webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
+      webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$,
+      webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
       [src_buffer]);
   }
@@ -66,7 +66,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$,
+      webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$,
+      webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
       [fence]);
   }

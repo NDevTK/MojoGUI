@@ -54,7 +54,7 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$,
+      optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
       [chunk]);
   }
@@ -63,7 +63,7 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$,
+      optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
       []);
   }
@@ -151,7 +151,7 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$,
+      optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
       [request, consumer]);
   }

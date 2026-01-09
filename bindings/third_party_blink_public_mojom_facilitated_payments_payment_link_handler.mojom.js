@@ -49,7 +49,7 @@ payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$,
+      payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
       null,
       [url]);
   }

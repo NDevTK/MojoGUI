@@ -48,7 +48,7 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$,
+      network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
       [ready_event]);
   }
@@ -57,7 +57,7 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$,
+      network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
       [enabled]);
   }

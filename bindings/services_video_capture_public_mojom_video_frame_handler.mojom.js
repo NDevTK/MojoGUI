@@ -48,7 +48,7 @@ video_capture.mojom.VideoFrameAccessHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$,
+      video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec,
       null,
       [buffer_id]);
   }
@@ -123,7 +123,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
       []);
   }
@@ -132,7 +132,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
       [buffer_id, buffer_handle]);
   }
@@ -141,7 +141,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec,
       null,
       [frame_access_handler]);
   }
@@ -150,7 +150,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
       [buffer]);
   }
@@ -159,7 +159,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }
@@ -168,7 +168,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -177,7 +177,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
       [reason]);
   }
@@ -186,7 +186,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
       [capture_version]);
   }
@@ -195,7 +195,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
       []);
   }
@@ -204,7 +204,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
       [message]);
   }
@@ -213,7 +213,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
       []);
   }
@@ -222,7 +222,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
       []);
   }
@@ -231,7 +231,7 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$,
+      video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
       []);
   }

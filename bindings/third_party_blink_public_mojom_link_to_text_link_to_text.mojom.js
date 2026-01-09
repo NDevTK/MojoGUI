@@ -74,7 +74,7 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -83,8 +83,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$,
-      blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
+      blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
       []);
   }
 
@@ -92,7 +92,7 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
       null,
       []);
   }
@@ -101,8 +101,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$,
-      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
+      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
       []);
   }
 
@@ -110,8 +110,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$,
-      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
+      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
       []);
   }
 
@@ -119,8 +119,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$,
-      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$,
+      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
+      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
       []);
   }
 

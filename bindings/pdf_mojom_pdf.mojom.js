@@ -63,8 +63,8 @@ pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$,
-      pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec.$,
+      pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec,
+      pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec,
       [offset, block_size]);
   }
 
@@ -152,7 +152,7 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$,
+      pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec,
       null,
       [position]);
   }
@@ -161,7 +161,7 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$,
+      pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec,
       null,
       [extent]);
   }
@@ -170,7 +170,7 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$,
+      pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec,
       null,
       [base, extent]);
   }
@@ -179,8 +179,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$,
-      pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec.$,
+      pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec,
+      pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec,
       [size_limit]);
   }
 
@@ -188,8 +188,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      pdf.mojom.PdfListener_GetPageText_ParamsSpec.$,
-      pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec.$,
+      pdf.mojom.PdfListener_GetPageText_ParamsSpec,
+      pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec,
       [page_index]);
   }
 
@@ -197,8 +197,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$,
-      pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec.$,
+      pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec,
+      pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec,
       []);
   }
 
@@ -206,8 +206,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$,
-      pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec.$,
+      pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec,
+      pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec,
       [request_type]);
   }
 
@@ -419,7 +419,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfHost_SetListener_ParamsSpec.$,
+      pdf.mojom.PdfHost_SetListener_ParamsSpec,
       null,
       [client]);
   }
@@ -428,7 +428,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$,
+      pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec,
       null,
       []);
   }
@@ -437,7 +437,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$,
+      pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec,
       null,
       [restrictions]);
   }
@@ -446,7 +446,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$,
+      pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec,
       null,
       [url, policy]);
   }
@@ -455,7 +455,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$,
+      pdf.mojom.PdfHost_SelectionChanged_ParamsSpec,
       null,
       [left, left_height, right, right_height]);
   }
@@ -464,7 +464,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$,
+      pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec,
       null,
       [can_save]);
   }
@@ -473,7 +473,7 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$,
+      pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec,
       null,
       []);
   }

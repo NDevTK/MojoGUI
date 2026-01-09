@@ -69,7 +69,7 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AISummarizer_Summarize_ParamsSpec.$,
+      blink.mojom.AISummarizer_Summarize_ParamsSpec,
       null,
       [input, context, pending_responder]);
   }
@@ -78,8 +78,8 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$,
-      blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec.$,
+      blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
+      blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
       [input, context]);
   }
 

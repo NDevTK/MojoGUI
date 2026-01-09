@@ -48,7 +48,7 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$,
+      ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
       [enabled_features]);
   }
@@ -123,7 +123,7 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$,
+      ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
       [accessibility_service_client]);
   }
@@ -132,7 +132,7 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$,
+      ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
       [at_controller, enabled_features]);
   }
@@ -141,7 +141,7 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$,
+      ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
       [agent, type]);
   }
@@ -246,7 +246,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
       [automation]);
   }
@@ -255,7 +255,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
       [automation_client]);
   }
@@ -264,7 +264,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
       [autoclick_client]);
   }
@@ -273,7 +273,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
       [sr_receiver]);
   }
@@ -282,7 +282,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
       [tts_receiver]);
   }
@@ -291,7 +291,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
       [user_input_receiver]);
   }
@@ -300,7 +300,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
       [user_interface_receiver]);
   }
@@ -309,7 +309,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$,
+      ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
       [file_loader_receiver]);
   }

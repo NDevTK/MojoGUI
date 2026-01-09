@@ -48,8 +48,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec.$,
-      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$,
+      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
+      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec.$,
-      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec.$,
+      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
+      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
       [font_unique_name]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec.$,
-      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec.$,
+      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
+      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
       []);
   }
 

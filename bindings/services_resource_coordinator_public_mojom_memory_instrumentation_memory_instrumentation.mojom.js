@@ -107,8 +107,8 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$,
-      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
       [args]);
   }
 
@@ -116,8 +116,8 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$,
-      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
       [option, flags, pids]);
   }
 
@@ -236,8 +236,8 @@ memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$,
-      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
+      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
       [strip_path_from_mapped_files, write_proto]);
   }
 
@@ -325,8 +325,8 @@ memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$,
-      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
+      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
       [pids]);
   }
 
@@ -413,8 +413,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$,
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
       [dump_type, level_of_detail, determinism, allocator_dump_names]);
   }
 
@@ -422,8 +422,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$,
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
       [pid, allocator_dump_names]);
   }
 
@@ -431,8 +431,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$,
-      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
       [pid]);
   }
 
@@ -440,8 +440,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$,
-      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec.$,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
       [dump_type, level_of_detail, determinism]);
   }
 
@@ -619,7 +619,7 @@ memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$,
+      memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
       [receiver, client_process]);
   }

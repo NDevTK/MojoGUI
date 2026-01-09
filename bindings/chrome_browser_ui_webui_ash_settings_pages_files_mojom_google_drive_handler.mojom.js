@@ -50,7 +50,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -126,7 +126,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$,
+      ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec,
       null,
       []);
   }
@@ -135,8 +135,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$,
-      ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec.$,
+      ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec,
+      ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec,
       []);
   }
 
@@ -144,7 +144,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$,
+      ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec,
       null,
       []);
   }
@@ -153,7 +153,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$,
+      ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec,
       null,
       []);
   }
@@ -279,7 +279,7 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$,
+      ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec,
       null,
       []);
   }
@@ -288,7 +288,7 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$,
+      ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec,
       null,
       [status]);
   }

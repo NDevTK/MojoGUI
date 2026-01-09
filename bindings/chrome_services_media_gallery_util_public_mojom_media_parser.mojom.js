@@ -48,8 +48,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$,
-      chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$,
+      chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
+      chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
       [mime_type, total_size, get_attached_images, media_data_source]);
   }
 
@@ -57,8 +57,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$,
-      chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec.$,
+      chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
+      chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
       [mime_type, total_size, media_data_source]);
   }
 
@@ -66,8 +66,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$,
-      chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$,
+      chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
+      chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
       [decode_time, file]);
   }
 
@@ -75,8 +75,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$,
-      chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$,
+      chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
+      chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
       []);
   }
 
@@ -252,8 +252,8 @@ chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$,
-      chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$,
+      chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
+      chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
       [libyuv_cpu_flags, libavutil_cpu_flags]);
   }
 
@@ -341,8 +341,8 @@ chrome.mojom.MediaDataSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.MediaDataSource_Read_ParamsSpec.$,
-      chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$,
+      chrome.mojom.MediaDataSource_Read_ParamsSpec,
+      chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
       [position, length]);
   }
 

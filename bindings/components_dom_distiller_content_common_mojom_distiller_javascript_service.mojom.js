@@ -48,7 +48,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
       null,
       [theme]);
   }
@@ -66,7 +66,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
       null,
       [font_family]);
   }
@@ -75,7 +75,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$,
+      dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
       null,
       [font_scale]);
   }

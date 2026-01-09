@@ -55,7 +55,7 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -130,7 +130,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec,
       null,
       []);
   }
@@ -139,7 +139,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
       null,
       [prepopulate_id, save_guest_mode_selection]);
   }
@@ -148,7 +148,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
       null,
       []);
   }
@@ -157,7 +157,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
       null,
       []);
   }
@@ -166,7 +166,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec.$,
+      search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec,
       null,
       [scroll_state]);
   }

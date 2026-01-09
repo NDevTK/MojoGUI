@@ -48,8 +48,8 @@ media.mojom.MediaDrmSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec.$,
-      media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec.$,
+      media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
+      media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
       [key_system, is_secure]);
   }
 

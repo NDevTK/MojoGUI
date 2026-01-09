@@ -56,8 +56,8 @@ remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec.$,
-      remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec.$,
+      remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
+      remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
       [url]);
   }
 

@@ -59,8 +59,8 @@ page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$,
-      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$,
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
       [client_id, page_url, options]);
   }
 

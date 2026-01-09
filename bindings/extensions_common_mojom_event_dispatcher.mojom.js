@@ -48,8 +48,8 @@ extensions.mojom.EventDispatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec.$,
-      extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec.$,
+      extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
+      extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
       [params, event_args]);
   }
 

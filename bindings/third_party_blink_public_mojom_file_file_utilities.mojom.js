@@ -48,8 +48,8 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec.$,
-      blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec.$,
+      blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
+      blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 

@@ -129,7 +129,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -138,7 +138,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec,
       null,
       [observer]);
   }
@@ -147,8 +147,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$,
-      ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec,
+      ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec,
       []);
   }
 
@@ -156,8 +156,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$,
-      ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec,
+      ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec,
       [config]);
   }
 
@@ -165,8 +165,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$,
-      ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec,
+      ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec,
       []);
   }
 
@@ -174,8 +174,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$,
-      ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec,
+      ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec,
       []);
   }
 
@@ -368,7 +368,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$,
+      ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec,
       null,
       []);
   }
@@ -442,7 +442,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$,
+      ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec,
       null,
       []);
   }
@@ -451,7 +451,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$,
+      ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec,
       null,
       [reason]);
   }

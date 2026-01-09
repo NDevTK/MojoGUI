@@ -48,7 +48,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$,
+      lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
       [page]);
   }
@@ -123,7 +123,7 @@ lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$,
+      lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
       []);
   }

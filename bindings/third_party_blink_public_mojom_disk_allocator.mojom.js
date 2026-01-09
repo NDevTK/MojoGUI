@@ -48,7 +48,7 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec.$,
+      blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
       [file]);
   }

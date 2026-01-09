@@ -48,7 +48,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.DeviceService_BindFingerprint_ParamsSpec.$,
+      device.mojom.DeviceService_BindFingerprint_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$,
+      device.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$,
+      device.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +75,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$,
+      device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +84,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +93,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$,
+      device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,7 +102,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.DeviceService_BindPressureManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindPressureManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -111,7 +111,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.DeviceService_BindNFCProvider_ParamsSpec.$,
+      device.mojom.DeviceService_BindNFCProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -120,7 +120,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindVibrationManager_ParamsSpec,
       null,
       [receiver, listener]);
   }
@@ -129,7 +129,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.DeviceService_BindHidManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindHidManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -138,7 +138,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.DeviceService_BindMtpManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindMtpManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -147,7 +147,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$,
+      device.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -156,7 +156,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$,
+      device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -165,7 +165,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$,
+      device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -174,7 +174,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$,
+      device.mojom.DeviceService_BindSensorProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -183,7 +183,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -192,7 +192,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$,
+      device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -201,7 +201,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$,
+      device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -210,7 +210,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$,
+      device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -219,7 +219,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$,
+      device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
       null,
       [receiver]);
   }

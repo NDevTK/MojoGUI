@@ -298,7 +298,7 @@ ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$,
+      ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -373,7 +373,7 @@ ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$,
+      ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
       [operation, progress, update_error_code]);
   }
@@ -450,7 +450,7 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$,
+      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
       [componentStatus]);
   }
@@ -459,7 +459,7 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$,
+      ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
       [status]);
   }
@@ -548,7 +548,7 @@ ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$,
+      ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
       [status, progress, error]);
   }
@@ -625,7 +625,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = c
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$,
+      ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -700,7 +700,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$,
+      ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
       [plugged_in]);
   }
@@ -775,7 +775,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$,
+      ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
       [detected]);
   }
@@ -850,7 +850,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$,
+      ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
       [result]);
   }
@@ -925,7 +925,7 @@ ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$,
+      ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
       [status, progress, error]);
   }
@@ -1002,7 +1002,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$,
+      ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -1077,8 +1077,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
       []);
   }
 
@@ -1086,8 +1086,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
       []);
   }
 
@@ -1095,8 +1095,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
       []);
   }
 
@@ -1104,8 +1104,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
       []);
   }
 
@@ -1113,8 +1113,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
       []);
   }
 
@@ -1122,7 +1122,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
       []);
   }
@@ -1131,8 +1131,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1140,8 +1140,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
       []);
   }
 
@@ -1149,8 +1149,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
       []);
   }
 
@@ -1158,8 +1158,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
       []);
   }
 
@@ -1167,8 +1167,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
       []);
   }
 
@@ -1176,8 +1176,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
       []);
   }
 
@@ -1185,8 +1185,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
       []);
   }
 
@@ -1194,8 +1194,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
       [should_wipe_device]);
   }
 
@@ -1203,8 +1203,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
       []);
   }
 
@@ -1212,8 +1212,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
       []);
   }
 
@@ -1221,8 +1221,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
       []);
   }
 
@@ -1230,8 +1230,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
       []);
   }
 
@@ -1239,8 +1239,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
       []);
   }
 
@@ -1248,8 +1248,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
       [code]);
   }
 
@@ -1257,8 +1257,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
       []);
   }
 
@@ -1266,8 +1266,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
       []);
   }
 
@@ -1275,8 +1275,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1284,8 +1284,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
       []);
   }
 
@@ -1293,8 +1293,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
       [components]);
   }
 
@@ -1302,8 +1302,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
       []);
   }
 
@@ -1311,8 +1311,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1320,8 +1320,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
       []);
   }
 
@@ -1329,8 +1329,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
       []);
   }
 
@@ -1338,8 +1338,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
       []);
   }
 
@@ -1347,8 +1347,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
       []);
   }
 
@@ -1356,8 +1356,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
       []);
   }
 
@@ -1365,8 +1365,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
       []);
   }
 
@@ -1374,8 +1374,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
       []);
   }
 
@@ -1383,8 +1383,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
       []);
   }
 
@@ -1392,8 +1392,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
       []);
   }
 
@@ -1401,8 +1401,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
       []);
   }
 
@@ -1410,8 +1410,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
       []);
   }
 
@@ -1419,8 +1419,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
       []);
   }
 
@@ -1428,8 +1428,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
       [serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version]);
   }
 
@@ -1437,8 +1437,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
       []);
   }
 
@@ -1446,8 +1446,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
       []);
   }
 
@@ -1455,8 +1455,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
       [components]);
   }
 
@@ -1464,8 +1464,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
       []);
   }
 
@@ -1473,8 +1473,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
       []);
   }
 
@@ -1482,8 +1482,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1491,8 +1491,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
       []);
   }
 
@@ -1500,8 +1500,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1509,8 +1509,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
       []);
   }
 
@@ -1518,8 +1518,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
       []);
   }
 
@@ -1527,8 +1527,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1536,8 +1536,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
       []);
   }
 
@@ -1545,8 +1545,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
       []);
   }
 
@@ -1554,8 +1554,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
       []);
   }
 
@@ -1563,7 +1563,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
       []);
   }
@@ -1572,8 +1572,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
       [shutdown_method]);
   }
 
@@ -1581,7 +1581,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
       []);
   }
@@ -1590,8 +1590,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
       []);
   }
 
@@ -1599,8 +1599,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
       []);
   }
 
@@ -1608,8 +1608,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
       []);
   }
 
@@ -1617,8 +1617,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
       []);
   }
 
@@ -1626,8 +1626,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
       []);
   }
 
@@ -1635,7 +1635,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       null,
       [is_approved]);
   }
@@ -1644,8 +1644,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec.$,
-      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
+      ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
       []);
   }
 
@@ -1653,7 +1653,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
       [observer]);
   }
@@ -1662,7 +1662,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1671,7 +1671,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1680,7 +1680,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
       [observer]);
   }
@@ -1689,7 +1689,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1698,7 +1698,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1707,7 +1707,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
       [observer]);
   }
@@ -1716,7 +1716,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -1725,7 +1725,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -1734,7 +1734,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$,
+      ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
       [observer]);
   }

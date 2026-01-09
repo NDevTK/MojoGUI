@@ -55,7 +55,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$,
+      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
       null,
       [pending_client, pending_handler]);
   }
@@ -131,7 +131,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$,
+      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
       null,
       [colorSchemeMode]);
   }
@@ -140,7 +140,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$,
+      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
       null,
       []);
   }
@@ -228,7 +228,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$,
+      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
       null,
       [colorSchemeMode]);
   }

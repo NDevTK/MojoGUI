@@ -62,7 +62,7 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$,
+      history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -138,7 +138,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$,
+      history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
       null,
       []);
   }
@@ -147,7 +147,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$,
+      history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$,
+      history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
       []);
   }
@@ -165,7 +165,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$,
+      history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
       [height]);
   }
@@ -279,7 +279,7 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$,
+      history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
       [account_info]);
   }
@@ -288,7 +288,7 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$,
+      history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
       null,
       [screen_mode]);
   }

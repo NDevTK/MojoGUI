@@ -55,7 +55,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioLog_OnCreated_ParamsSpec.$,
+      media.mojom.AudioLog_OnCreated_ParamsSpec,
       null,
       [params, device_id]);
   }
@@ -64,7 +64,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioLog_OnStarted_ParamsSpec.$,
+      media.mojom.AudioLog_OnStarted_ParamsSpec,
       null,
       []);
   }
@@ -73,7 +73,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioLog_OnStopped_ParamsSpec.$,
+      media.mojom.AudioLog_OnStopped_ParamsSpec,
       null,
       []);
   }
@@ -82,7 +82,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AudioLog_OnClosed_ParamsSpec.$,
+      media.mojom.AudioLog_OnClosed_ParamsSpec,
       null,
       []);
   }
@@ -91,7 +91,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.AudioLog_OnError_ParamsSpec.$,
+      media.mojom.AudioLog_OnError_ParamsSpec,
       null,
       []);
   }
@@ -100,7 +100,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.AudioLog_OnSetVolume_ParamsSpec.$,
+      media.mojom.AudioLog_OnSetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -109,7 +109,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$,
+      media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec,
       null,
       [message]);
   }
@@ -118,7 +118,7 @@ media.mojom.AudioLogRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.AudioLog_OnLogMessage_ParamsSpec.$,
+      media.mojom.AudioLog_OnLogMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -288,7 +288,7 @@ media.mojom.AudioLogFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$,
+      media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec,
       null,
       [component, component_id, audio_log_receiver]);
   }

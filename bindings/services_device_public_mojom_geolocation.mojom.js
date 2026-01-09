@@ -48,7 +48,7 @@ device.mojom.GeolocationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec.$,
+      device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
       [high_accuracy]);
   }
@@ -57,8 +57,8 @@ device.mojom.GeolocationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.Geolocation_QueryNextPosition_ParamsSpec.$,
-      device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec.$,
+      device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
+      device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
       []);
   }
 

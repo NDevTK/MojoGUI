@@ -48,8 +48,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec.$,
-      viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec.$,
+      viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec,
+      viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
       [client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation]);
   }
 
@@ -57,7 +57,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.GpuService_SetChannelClientPid_ParamsSpec.$,
+      viz.mojom.GpuService_SetChannelClientPid_ParamsSpec,
       null,
       [client_id, client_pid]);
   }
@@ -66,7 +66,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec.$,
+      viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec,
       null,
       [client_id, cache_handle]);
   }
@@ -75,7 +75,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec.$,
+      viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec,
       null,
       [client_id, cache_handle, pending_backend]);
   }
@@ -84,7 +84,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec.$,
+      viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec,
       null,
       [cache_handle]);
   }
@@ -93,7 +93,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.GpuService_CloseChannel_ParamsSpec.$,
+      viz.mojom.GpuService_CloseChannel_ParamsSpec,
       null,
       [client_id]);
   }
@@ -102,7 +102,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec.$,
+      viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
       [jda]);
   }
@@ -111,7 +111,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec.$,
+      viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec,
       null,
       [jea]);
   }
@@ -120,8 +120,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec.$,
-      viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec.$,
+      viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec,
+      viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
       [surface_handle]);
   }
 
@@ -129,7 +129,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec.$,
+      viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
       [token]);
   }
@@ -138,7 +138,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$,
+      viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
       [vea_provider]);
   }
@@ -147,7 +147,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec.$,
+      viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec,
       null,
       [receiver, client_id]);
   }
@@ -156,8 +156,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec.$,
-      viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec.$,
+      viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec,
+      viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec,
       []);
   }
 
@@ -165,7 +165,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec.$,
+      viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec,
       null,
       [sequence_num]);
   }
@@ -174,8 +174,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec.$,
-      viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec.$,
+      viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec,
+      viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec,
       [sequence_num]);
   }
 
@@ -183,8 +183,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec.$,
-      viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec.$,
+      viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec,
+      viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec,
       []);
   }
 
@@ -192,7 +192,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      viz.mojom.GpuService_LoadedBlob_ParamsSpec.$,
+      viz.mojom.GpuService_LoadedBlob_ParamsSpec,
       null,
       [cache_handle, key, data]);
   }
@@ -201,7 +201,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      viz.mojom.GpuService_WakeUpGpu_ParamsSpec.$,
+      viz.mojom.GpuService_WakeUpGpu_ParamsSpec,
       null,
       []);
   }
@@ -210,7 +210,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      viz.mojom.GpuService_GpuSwitched_ParamsSpec.$,
+      viz.mojom.GpuService_GpuSwitched_ParamsSpec,
       null,
       []);
   }
@@ -219,7 +219,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      viz.mojom.GpuService_DisplayAdded_ParamsSpec.$,
+      viz.mojom.GpuService_DisplayAdded_ParamsSpec,
       null,
       []);
   }
@@ -228,7 +228,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      viz.mojom.GpuService_DisplayRemoved_ParamsSpec.$,
+      viz.mojom.GpuService_DisplayRemoved_ParamsSpec,
       null,
       []);
   }
@@ -237,7 +237,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec.$,
+      viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec,
       null,
       []);
   }
@@ -246,7 +246,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      viz.mojom.GpuService_DestroyAllChannels_ParamsSpec.$,
+      viz.mojom.GpuService_DestroyAllChannels_ParamsSpec,
       null,
       []);
   }
@@ -255,7 +255,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec.$,
+      viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec,
       null,
       []);
   }
@@ -264,7 +264,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      viz.mojom.GpuService_OnBackgrounded_ParamsSpec.$,
+      viz.mojom.GpuService_OnBackgrounded_ParamsSpec,
       null,
       []);
   }
@@ -273,7 +273,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      viz.mojom.GpuService_OnForegrounded_ParamsSpec.$,
+      viz.mojom.GpuService_OnForegrounded_ParamsSpec,
       null,
       []);
   }
@@ -282,7 +282,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      viz.mojom.GpuService_BeginCATransaction_ParamsSpec.$,
+      viz.mojom.GpuService_BeginCATransaction_ParamsSpec,
       null,
       []);
   }
@@ -291,7 +291,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      viz.mojom.GpuService_CommitCATransaction_ParamsSpec.$,
+      viz.mojom.GpuService_CommitCATransaction_ParamsSpec,
       null,
       []);
   }
@@ -300,7 +300,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec.$,
+      viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec,
       null,
       []);
   }
@@ -309,8 +309,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      viz.mojom.GpuService_GetDawnInfo_ParamsSpec.$,
-      viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec.$,
+      viz.mojom.GpuService_GetDawnInfo_ParamsSpec,
+      viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec,
       [collect_metrics]);
   }
 
@@ -318,7 +318,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      viz.mojom.GpuService_Crash_ParamsSpec.$,
+      viz.mojom.GpuService_Crash_ParamsSpec,
       null,
       []);
   }
@@ -327,7 +327,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      viz.mojom.GpuService_Hang_ParamsSpec.$,
+      viz.mojom.GpuService_Hang_ParamsSpec,
       null,
       []);
   }
@@ -336,7 +336,7 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$,
+      viz.mojom.GpuService_ThrowJavaException_ParamsSpec,
       null,
       []);
   }

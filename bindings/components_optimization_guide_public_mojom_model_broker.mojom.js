@@ -71,7 +71,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$,
+      optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec,
       null,
       [session, params]);
   }
@@ -80,7 +80,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$,
+      optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
       null,
       [session]);
   }
@@ -89,7 +89,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$,
+      optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +192,7 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$,
+      optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec,
       null,
       [reason]);
   }
@@ -201,7 +201,7 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$,
+      optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec,
       null,
       [config, solution]);
   }
@@ -291,7 +291,7 @@ optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$,
+      optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec,
       null,
       [options, subcriber]);
   }

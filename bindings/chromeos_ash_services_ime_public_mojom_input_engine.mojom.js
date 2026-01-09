@@ -49,8 +49,8 @@ ash.ime.mojom.InputChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec.$,
-      ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec.$,
+      ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
+      ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
       [message]);
   }
 

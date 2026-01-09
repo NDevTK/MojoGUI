@@ -54,8 +54,8 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$,
-      blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$,
+      blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
+      blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
       [client]);
   }
 
@@ -63,7 +63,7 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$,
+      blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
       null,
       [posture]);
   }
@@ -72,7 +72,7 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$,
+      blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
       null,
       []);
   }
@@ -187,7 +187,7 @@ blink.mojom.DevicePostureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$,
+      blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec,
       null,
       [posture]);
   }

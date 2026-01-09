@@ -48,7 +48,7 @@ network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec.$,
+      network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
       [params]);
   }

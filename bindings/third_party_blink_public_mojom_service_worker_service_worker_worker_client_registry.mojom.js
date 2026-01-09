@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$,
+      blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
       [client]);
   }
@@ -57,7 +57,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$,
+      blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
       [host]);
   }

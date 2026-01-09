@@ -48,8 +48,8 @@ content.mojom.MainFrameCounterTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec.$,
-      content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec.$,
+      content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
+      content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
       []);
   }
 

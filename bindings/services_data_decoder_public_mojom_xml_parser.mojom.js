@@ -54,8 +54,8 @@ data_decoder.mojom.XmlParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.XmlParser_Parse_ParamsSpec.$,
-      data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec.$,
+      data_decoder.mojom.XmlParser_Parse_ParamsSpec,
+      data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec,
       [xml, whitespace_behavior]);
   }
 

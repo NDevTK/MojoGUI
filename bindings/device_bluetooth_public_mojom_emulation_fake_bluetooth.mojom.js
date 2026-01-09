@@ -83,7 +83,7 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec.$,
+      bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec,
       null,
       [available]);
   }
@@ -92,8 +92,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec.$,
-      bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec,
+      bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec,
       [state]);
   }
 
@@ -101,8 +101,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec.$,
-      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec,
+      bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec,
       []);
   }
 
@@ -229,7 +229,7 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec,
       null,
       [address, name, manufacturer_data, known_service_uuids]);
   }
@@ -238,7 +238,7 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec,
       null,
       [result]);
   }
@@ -247,7 +247,7 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.FakeCentral_SetState_ParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetState_ParamsSpec,
       null,
       [state]);
   }
@@ -256,8 +256,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec,
       [address, code]);
   }
 
@@ -265,8 +265,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec,
       [address, code]);
   }
 
@@ -274,8 +274,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec,
       [type, address, code]);
   }
 
@@ -283,8 +283,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec,
       [address]);
   }
 
@@ -292,8 +292,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
       [address]);
   }
 
@@ -301,8 +301,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
       [type, characteristic_id, service_id, peripheral_address, code, data]);
   }
 
@@ -310,8 +310,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
       [type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data]);
   }
 
@@ -319,8 +319,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
       [peripheral_address, service_uuid]);
   }
 
@@ -328,8 +328,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
       [service_id, peripheral_address]);
   }
 
@@ -337,8 +337,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
       [characteristic_uuid, properties, service_id, peripheral_address]);
   }
 
@@ -346,8 +346,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
       [identifier, service_id, peripheral_address]);
   }
 
@@ -355,8 +355,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
+      bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
       [descriptor_uuid, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -364,8 +364,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
+      bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
       [descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -373,8 +373,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
       [gatt_code, value, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -382,8 +382,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -391,8 +391,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -400,8 +400,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
       [gatt_code, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -409,8 +409,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec,
+      bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
       [characteristic_id, service_id, peripheral_address]);
   }
 
@@ -418,8 +418,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
       [characteristic_id, service_id, peripheral_address]);
   }
 
@@ -427,8 +427,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
       [gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -436,8 +436,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
+      bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
       [gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -445,8 +445,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec.$,
-      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec.$,
+      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
+      bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
       [descriptor_id, characteristic_id, service_id, peripheral_address]);
   }
 
@@ -454,7 +454,7 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      bluetooth.mojom.FakeCentral_SetClient_ParamsSpec.$,
+      bluetooth.mojom.FakeCentral_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -1229,7 +1229,7 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec.$,
+      bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec,
       null,
       [type, peripheral_address]);
   }
@@ -1238,7 +1238,7 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec.$,
+      bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec,
       null,
       [type, data, write_type, characteristic_id]);
   }
@@ -1247,7 +1247,7 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec.$,
+      bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec,
       null,
       [type, data, descriptor_id]);
   }

@@ -60,7 +60,7 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$,
+      content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
       [name, object_id, origin_matcher]);
   }
@@ -69,7 +69,7 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$,
+      content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
       [name]);
   }
@@ -78,7 +78,7 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.GinJavaBridge_SetHost_ParamsSpec.$,
+      content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
       [host]);
   }
@@ -183,8 +183,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$,
-      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$,
+      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
       []);
   }
 
@@ -192,8 +192,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$,
-      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$,
+      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
       [method_name]);
   }
 
@@ -201,8 +201,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$,
-      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$,
+      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
+      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
       [method_name, arguments]);
   }
 
@@ -344,7 +344,7 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$,
+      content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
       [object_id, receiver]);
   }
@@ -353,7 +353,7 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$,
+      content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
       [object_id]);
   }

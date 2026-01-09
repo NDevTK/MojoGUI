@@ -60,7 +60,7 @@ network.mojom.SSLConfigClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$,
+      network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
       null,
       [ssl_config]);
   }

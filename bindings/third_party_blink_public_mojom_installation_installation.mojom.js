@@ -48,7 +48,7 @@ blink.mojom.InstallationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.InstallationService_OnInstall_ParamsSpec.$,
+      blink.mojom.InstallationService_OnInstall_ParamsSpec,
       null,
       []);
   }

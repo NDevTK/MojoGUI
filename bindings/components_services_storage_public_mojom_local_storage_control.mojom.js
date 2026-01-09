@@ -48,7 +48,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
       [storage_key, receiver]);
   }
@@ -57,8 +57,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$,
-      storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$,
+      storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
+      storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       null,
       [storage_key]);
   }
@@ -75,7 +75,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +84,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.LocalStorageControl_Flush_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
       [policy_updates]);
   }
@@ -111,7 +111,7 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$,
+      storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
       []);
   }

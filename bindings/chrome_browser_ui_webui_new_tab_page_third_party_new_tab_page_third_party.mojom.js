@@ -48,7 +48,7 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ new_tab_page_third_party.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$,
+      new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec,
       null,
       []);
   }
@@ -198,7 +198,7 @@ new_tab_page_third_party.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$,
+      new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec,
       null,
       [theme]);
   }

@@ -56,8 +56,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      echo.mojom.EchoService_EchoString_ParamsSpec.$,
-      echo.mojom.EchoService_EchoString_ResponseParamsSpec.$,
+      echo.mojom.EchoService_EchoString_ParamsSpec,
+      echo.mojom.EchoService_EchoString_ResponseParamsSpec,
       [input]);
   }
 
@@ -65,7 +65,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$,
+      echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
       null,
       [input, region]);
   }
@@ -74,7 +74,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      echo.mojom.EchoService_Quit_ParamsSpec.$,
+      echo.mojom.EchoService_Quit_ParamsSpec,
       null,
       []);
   }
@@ -83,7 +83,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      echo.mojom.EchoService_Crash_ParamsSpec.$,
+      echo.mojom.EchoService_Crash_ParamsSpec,
       null,
       []);
   }
@@ -92,7 +92,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      echo.mojom.EchoService_DelayLoad_ParamsSpec.$,
+      echo.mojom.EchoService_DelayLoad_ParamsSpec,
       null,
       []);
   }
@@ -101,8 +101,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$,
-      echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$,
+      echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
+      echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
       [library, call_winmm_delayload]);
   }
 
@@ -110,8 +110,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$,
-      echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$,
+      echo.mojom.EchoService_DecryptEncrypt_ParamsSpec,
+      echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
       [encryptor, input]);
   }
 

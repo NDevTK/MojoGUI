@@ -57,7 +57,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec,
       null,
       [thermal_state]);
   }
@@ -75,7 +75,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec,
       null,
       [peer_connection_local_id, output_period_ms]);
   }
@@ -84,7 +84,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec,
       null,
       [peer_connection_local_id]);
   }
@@ -93,7 +93,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec,
       null,
       [peer_connection_local_id]);
   }
@@ -102,7 +102,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec,
       null,
       [peer_connection_local_id]);
   }
@@ -111,7 +111,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$,
+      blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec,
       null,
       []);
   }
@@ -291,7 +291,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec,
       null,
       [info]);
   }
@@ -300,7 +300,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec,
       null,
       [lid]);
   }
@@ -309,7 +309,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec,
       null,
       [lid, type, value]);
   }
@@ -318,7 +318,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec,
       null,
       [lid, session_id]);
   }
@@ -327,7 +327,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec,
       null,
       [request_id, audio, video, audio_constraints, video_constraints]);
   }
@@ -336,7 +336,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec,
       null,
       [request_id, stream_id, audio_track_info, video_track_info]);
   }
@@ -345,7 +345,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec,
       null,
       [request_id, error, error_message]);
   }
@@ -354,7 +354,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec,
       null,
       [request_id, audio, video, audio_constraints, video_constraints]);
   }
@@ -363,7 +363,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec,
       null,
       [request_id, stream_id, audio_track_info, video_track_info]);
   }
@@ -372,7 +372,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec,
       null,
       [request_id, error, error_message]);
   }
@@ -381,7 +381,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec,
       null,
       [lid, output]);
   }
@@ -390,7 +390,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec,
       null,
       [lid, output]);
   }
@@ -399,7 +399,7 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$,
+      blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec,
       null,
       [lid, value]);
   }

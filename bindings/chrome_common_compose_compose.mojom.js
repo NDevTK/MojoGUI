@@ -81,7 +81,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
       [client_handler, handler, dialog]);
   }
@@ -158,7 +158,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
       []);
   }
@@ -167,7 +167,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
       [input, mode, edited]);
   }
@@ -176,7 +176,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
       [style]);
   }
@@ -185,7 +185,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
       []);
   }
@@ -194,7 +194,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
       [webui_state]);
   }
@@ -203,8 +203,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
       []);
   }
 
@@ -212,8 +212,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
       []);
   }
 
@@ -221,8 +221,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
       []);
   }
 
@@ -230,8 +230,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
       []);
   }
 
@@ -239,8 +239,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
       []);
   }
 
@@ -248,7 +248,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
       []);
   }
@@ -257,7 +257,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
       []);
   }
@@ -266,7 +266,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
       []);
   }
@@ -275,7 +275,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
       []);
   }
@@ -284,7 +284,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
       []);
   }
@@ -293,7 +293,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
       [feedback]);
   }
@@ -302,8 +302,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$,
-      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec.$,
+      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
+      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
       [new_result]);
   }
 
@@ -669,7 +669,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$,
+      compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -678,7 +678,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$,
+      compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
       [reason]);
   }
@@ -687,7 +687,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$,
+      compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
       []);
   }
@@ -696,7 +696,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$,
+      compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
       []);
   }
@@ -810,7 +810,7 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$,
+      compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
       [response]);
   }
@@ -819,7 +819,7 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$,
+      compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
       [partial_response]);
   }

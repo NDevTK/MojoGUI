@@ -48,8 +48,8 @@ quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$,
-      quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec.$,
+      quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec,
+      quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
       [dictionary_file]);
   }
 
@@ -136,8 +136,8 @@ quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$,
-      quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec.$,
+      quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec,
+      quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
       [word]);
   }
 

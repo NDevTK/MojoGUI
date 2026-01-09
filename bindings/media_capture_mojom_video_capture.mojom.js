@@ -57,7 +57,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
       [result]);
   }
@@ -66,7 +66,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
       [buffer_id, buffer_handle]);
   }
@@ -75,7 +75,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
       [buffer]);
   }
@@ -84,7 +84,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
       [buffer_id]);
   }
@@ -93,7 +93,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
       [reason]);
   }
@@ -102,7 +102,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$,
+      media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
       [capture_version]);
   }
@@ -248,7 +248,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoCaptureHost_Start_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
       [device_id, session_id, params, observer]);
   }
@@ -257,7 +257,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoCaptureHost_Stop_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
       [device_id]);
   }
@@ -266,7 +266,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoCaptureHost_Pause_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
       [device_id]);
   }
@@ -275,7 +275,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoCaptureHost_Resume_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
       [device_id, session_id, params]);
   }
@@ -284,7 +284,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
       [device_id]);
   }
@@ -293,7 +293,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
       [device_id, buffer_id, feedback]);
   }
@@ -302,8 +302,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$,
-      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$,
+      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
+      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
       [device_id, session_id]);
   }
 
@@ -311,8 +311,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$,
-      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$,
+      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
+      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
       [device_id, session_id]);
   }
 
@@ -320,7 +320,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
       [device_id, message]);
   }

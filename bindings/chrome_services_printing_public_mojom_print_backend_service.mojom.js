@@ -48,7 +48,7 @@ printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$,
+      printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
       [service]);
   }
@@ -123,7 +123,7 @@ printing.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$,
+      printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
       [service]);
   }
@@ -198,7 +198,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintBackendService_Init_ParamsSpec.$,
+      printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
       [locale, remote]);
   }
@@ -207,7 +207,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintBackendService_Poke_ParamsSpec.$,
+      printing.mojom.PrintBackendService_Poke_ParamsSpec,
       null,
       []);
   }
@@ -216,7 +216,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$,
+      printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
       null,
       []);
   }
@@ -225,7 +225,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$,
+      printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
       null,
       []);
   }
@@ -234,7 +234,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$,
+      printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec,
       null,
       [printer_name]);
   }
@@ -243,7 +243,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$,
+      printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
       null,
       [printer_name]);
   }
@@ -252,8 +252,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$,
-      printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$,
+      printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
+      printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
       [printer_name, media]);
   }
 
@@ -261,7 +261,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$,
+      printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
       [context_id, parent_window_id]);
   }
@@ -270,7 +270,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$,
+      printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
       null,
       [context_id]);
   }
@@ -279,7 +279,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$,
+      printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
       null,
       [context_id, max_pages, has_selection, is_scripted]);
   }
@@ -288,7 +288,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$,
+      printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
       null,
       [context_id, job_settings]);
   }
@@ -297,8 +297,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$,
-      printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$,
+      printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
+      printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
       [context_id, document_cookie, document_name, settings]);
   }
 
@@ -306,8 +306,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$,
-      printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$,
+      printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
       [document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor]);
   }
 
@@ -315,8 +315,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$,
-      printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$,
+      printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
+      printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
       [document_cookie, page_count, data_type, serialized_doc]);
   }
 
@@ -324,8 +324,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$,
-      printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$,
+      printing.mojom.PrintBackendService_DocumentDone_ParamsSpec,
+      printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
       [document_cookie]);
   }
 
@@ -333,7 +333,7 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      printing.mojom.PrintBackendService_Cancel_ParamsSpec.$,
+      printing.mojom.PrintBackendService_Cancel_ParamsSpec,
       null,
       [document_cookie]);
   }

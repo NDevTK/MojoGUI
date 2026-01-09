@@ -48,7 +48,7 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
       [packet_header, packet_length, incoming]);
   }
@@ -147,7 +147,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
       [incoming, outgoing]);
   }
@@ -156,7 +156,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
       [incoming, outgoing]);
   }
@@ -165,7 +165,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
       []);
   }
@@ -174,7 +174,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$,
+      network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec.$,
+      content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec.$,
+      content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
       null,
       [renderer_settings]);
   }

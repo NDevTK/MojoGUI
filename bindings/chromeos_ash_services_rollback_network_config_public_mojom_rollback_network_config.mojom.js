@@ -49,8 +49,8 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec.$,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec.$,
+      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
+      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
       [config]);
   }
 
@@ -58,8 +58,8 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec.$,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec.$,
+      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
+      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
       []);
   }
 

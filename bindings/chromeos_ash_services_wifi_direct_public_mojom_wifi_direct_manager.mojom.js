@@ -68,8 +68,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$,
-      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$,
+      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
       [credentials]);
   }
 
@@ -77,8 +77,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$,
-      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$,
+      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
       [credentials, frequency]);
   }
 
@@ -86,8 +86,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$,
-      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$,
+      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
       []);
   }
 
@@ -230,8 +230,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$,
-      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$,
+      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
       []);
   }
 
@@ -239,8 +239,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$,
-      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$,
+      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
+      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
       [socket]);
   }
 

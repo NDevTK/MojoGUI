@@ -48,7 +48,7 @@ viz.mojom.VSyncParameterObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec.$,
+      viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
       [timebase, interval]);
   }

@@ -76,8 +76,8 @@ smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$,
-      smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$,
+      smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
+      smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
       [options, delegate]);
   }
 
@@ -166,8 +166,8 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$,
-      smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$,
+      smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
+      smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
       []);
   }
 
@@ -175,8 +175,8 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$,
-      smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$,
+      smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
+      smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
       [path]);
   }
 
@@ -289,8 +289,8 @@ smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$,
-      smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$,
+      smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
+      smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
       []);
   }
 

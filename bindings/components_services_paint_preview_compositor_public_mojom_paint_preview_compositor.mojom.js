@@ -63,8 +63,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
       [request]);
   }
 
@@ -72,8 +72,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
       [frame_guid, clip_rect, scale_factor]);
   }
 
@@ -81,8 +81,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
       [request]);
   }
 
@@ -90,8 +90,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
       [clip_rect, scale_factor]);
   }
 
@@ -99,7 +99,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
       [url]);
   }
@@ -289,7 +289,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
       [manager]);
   }
@@ -298,8 +298,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
       [compositor]);
   }
 
@@ -307,8 +307,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$,
-      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$,
+      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
+      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
       []);
   }
 

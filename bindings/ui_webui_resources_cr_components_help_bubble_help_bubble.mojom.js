@@ -71,7 +71,7 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
       [client, handler]);
   }
@@ -147,7 +147,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$,
+      help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
       [client, handler]);
   }
@@ -223,7 +223,7 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -232,7 +232,7 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
       [native_identifier, button_index]);
   }
@@ -241,7 +241,7 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
       [native_identifier, reason]);
   }
@@ -346,7 +346,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
       null,
       [params]);
   }
@@ -355,7 +355,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -364,7 +364,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -373,7 +373,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$,
+      help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
       null,
       [native_identifier, shown]);
   }

@@ -49,7 +49,7 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -125,7 +125,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
       [disk_size, username]);
   }
@@ -134,7 +134,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -143,7 +143,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec,
       null,
       []);
   }
@@ -152,7 +152,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
       []);
   }
@@ -161,8 +161,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$,
-      ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$,
+      ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec,
+      ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
       []);
   }
 
@@ -304,7 +304,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$,
+      ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
       [install_state, progress_fraction]);
   }
@@ -313,7 +313,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$,
+      ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
       [error]);
   }
@@ -322,7 +322,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$,
+      ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec,
       null,
       []);
   }
@@ -331,7 +331,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$,
+      ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
       []);
   }

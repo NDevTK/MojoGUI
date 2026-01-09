@@ -48,7 +48,7 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$,
+      content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
       [groups]);
   }
@@ -57,7 +57,7 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$,
+      content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
       [groups]);
   }

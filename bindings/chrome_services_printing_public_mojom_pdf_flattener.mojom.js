@@ -48,8 +48,8 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec.$,
-      printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec.$,
+      printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec,
+      printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec,
       [src_pdf_region]);
   }
 
@@ -57,7 +57,7 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }

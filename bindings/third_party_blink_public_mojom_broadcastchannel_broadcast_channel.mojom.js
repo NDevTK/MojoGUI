@@ -48,7 +48,7 @@ blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec.$,
+      blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -123,7 +123,7 @@ blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec.$,
+      blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec,
       null,
       [name, client, connection]);
   }

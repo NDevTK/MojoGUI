@@ -61,7 +61,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
       [version]);
   }
@@ -70,8 +70,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec.$,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
       [urls, name, set_id]);
   }
 
@@ -79,7 +79,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
       []);
   }
@@ -88,7 +88,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
       []);
   }
@@ -97,8 +97,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec.$,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
       [url]);
   }
 
@@ -106,7 +106,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
       [uuid, in_new_tab]);
   }
@@ -115,7 +115,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
       [uuids, disposition]);
   }
@@ -124,7 +124,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
       [in_new_tab]);
   }
@@ -133,8 +133,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec.$,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
+      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
       [uuid]);
   }
 
@@ -361,7 +361,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec.$,
+      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
       [set]);
   }
@@ -370,7 +370,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec.$,
+      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
       [set]);
   }
@@ -379,7 +379,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec.$,
+      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
       [uuid]);
   }
@@ -388,7 +388,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec.$,
+      commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
       []);
   }
@@ -504,7 +504,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteC
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec.$,
+      commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
       [page, handler]);
   }

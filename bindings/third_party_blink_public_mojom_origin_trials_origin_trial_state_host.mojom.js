@@ -48,7 +48,7 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec.$,
+      blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
       [origin_trial_features]);
   }
@@ -57,7 +57,7 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec.$,
+      blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
       [token, script_origins]);
   }

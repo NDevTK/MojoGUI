@@ -48,7 +48,7 @@ codelabs.mojom.ObjectARemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      codelabs.mojom.ObjectA_DoA_ParamsSpec.$,
+      codelabs.mojom.ObjectA_DoA_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +122,7 @@ codelabs.mojom.ObjectBRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      codelabs.mojom.ObjectB_DoB_ParamsSpec.$,
+      codelabs.mojom.ObjectB_DoB_ParamsSpec,
       null,
       []);
   }
@@ -196,7 +196,7 @@ codelabs.mojom.AssociatedProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$,
+      codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec,
       null,
       [process]);
   }
@@ -323,7 +323,7 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      codelabs.mojom.Process_SayHello_ParamsSpec.$,
+      codelabs.mojom.Process_SayHello_ParamsSpec,
       null,
       []);
   }
@@ -332,7 +332,7 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$,
+      codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec,
       null,
       [name, receiver]);
   }

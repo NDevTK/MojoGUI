@@ -49,7 +49,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +76,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
       [tool]);
   }
@@ -190,7 +190,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
       [undo_available, redo_available]);
   }
@@ -199,7 +199,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
       [success]);
   }
@@ -289,7 +289,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$,
+      ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
       [handler, annotator]);
   }

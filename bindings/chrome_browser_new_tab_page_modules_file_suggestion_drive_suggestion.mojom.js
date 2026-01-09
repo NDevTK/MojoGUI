@@ -48,8 +48,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec.$,
-      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec.$,
+      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
+      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec.$,
+      file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec.$,
+      file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }

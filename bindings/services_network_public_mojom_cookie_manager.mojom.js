@@ -183,7 +183,7 @@ network.mojom.CookieChangeListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$,
+      network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec,
       null,
       [change]);
   }
@@ -258,8 +258,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CookieManager_GetAllCookies_ParamsSpec.$,
-      network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec.$,
+      network.mojom.CookieManager_GetAllCookies_ParamsSpec,
+      network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec,
       []);
   }
 
@@ -267,8 +267,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec.$,
-      network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec.$,
+      network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec,
+      network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec,
       []);
   }
 
@@ -276,8 +276,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.CookieManager_GetCookieList_ParamsSpec.$,
-      network.mojom.CookieManager_GetCookieList_ResponseParamsSpec.$,
+      network.mojom.CookieManager_GetCookieList_ParamsSpec,
+      network.mojom.CookieManager_GetCookieList_ResponseParamsSpec,
       [url, cookie_options, cookie_partition_key_collection]);
   }
 
@@ -285,8 +285,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$,
-      network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec.$,
+      network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec,
+      network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec,
       [cookie, source_url, cookie_options]);
   }
 
@@ -294,8 +294,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$,
-      network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec.$,
+      network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec,
+      network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec,
       [cookie]);
   }
 
@@ -303,8 +303,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.CookieManager_DeleteCookies_ParamsSpec.$,
-      network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec.$,
+      network.mojom.CookieManager_DeleteCookies_ParamsSpec,
+      network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec,
       [filter]);
   }
 
@@ -312,8 +312,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec.$,
-      network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec.$,
+      network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec,
+      network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec,
       []);
   }
 
@@ -321,8 +321,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec.$,
-      network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec.$,
+      network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec,
+      network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec,
       []);
   }
 
@@ -330,7 +330,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$,
+      network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec,
       null,
       [url, name, listener]);
   }
@@ -339,7 +339,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$,
+      network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec,
       null,
       [notification_pointer]);
   }
@@ -348,7 +348,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.CookieManager_CloneInterface_ParamsSpec.$,
+      network.mojom.CookieManager_CloneInterface_ParamsSpec,
       null,
       [new_interface]);
   }
@@ -357,7 +357,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.CookieManager_FlushCookieStore_ParamsSpec.$,
+      network.mojom.CookieManager_FlushCookieStore_ParamsSpec,
       null,
       []);
   }
@@ -366,8 +366,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$,
-      network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec.$,
+      network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec,
+      network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec,
       [allow]);
   }
 
@@ -375,7 +375,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.CookieManager_SetContentSettings_ParamsSpec.$,
+      network.mojom.CookieManager_SetContentSettings_ParamsSpec,
       null,
       [content_settings_type, settings]);
   }
@@ -384,7 +384,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec.$,
+      network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec,
       null,
       []);
   }
@@ -393,7 +393,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$,
+      network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec,
       null,
       [block]);
   }
@@ -402,7 +402,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$,
+      network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec,
       null,
       [enable]);
   }
@@ -411,7 +411,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$,
+      network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec,
       null,
       [enable]);
   }
@@ -420,7 +420,7 @@ network.mojom.CookieManagerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$,
+      network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec,
       null,
       [delay]);
   }

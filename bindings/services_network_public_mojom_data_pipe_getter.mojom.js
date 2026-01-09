@@ -48,8 +48,8 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DataPipeGetter_Read_ParamsSpec.$,
-      network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$,
+      network.mojom.DataPipeGetter_Read_ParamsSpec,
+      network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
       [pipe]);
   }
 
@@ -57,7 +57,7 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DataPipeGetter_Clone_ParamsSpec.$,
+      network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
       [receiver]);
   }

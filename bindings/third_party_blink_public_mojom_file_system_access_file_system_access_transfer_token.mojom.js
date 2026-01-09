@@ -48,8 +48,8 @@ blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec.$,
-      blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec,
+      blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec.$,
+      blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec,
       null,
       [token_clone]);
   }

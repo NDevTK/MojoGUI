@@ -64,7 +64,7 @@ ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$,
+      ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       null,
       [index_id]);
   }
@@ -139,8 +139,8 @@ ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$,
-      ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$,
+      ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
+      ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
       [index_id, backend, index_receiver, reporter_remote]);
   }
 

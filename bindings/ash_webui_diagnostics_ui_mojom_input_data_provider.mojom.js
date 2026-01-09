@@ -61,7 +61,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$,
+      ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -70,7 +70,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$,
+      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
       null,
       []);
   }
@@ -79,7 +79,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$,
+      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
       null,
       []);
   }
@@ -180,7 +180,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$,
+      ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
       null,
       [is_display_on]);
   }
@@ -255,7 +255,7 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$,
+      ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
       [is_tablet_mode]);
   }
@@ -330,7 +330,7 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$,
+      ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
       [is_lid_open]);
   }
@@ -405,7 +405,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$,
+      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
       null,
       [new_keyboard]);
   }
@@ -414,7 +414,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$,
+      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
       null,
       [id]);
   }
@@ -423,7 +423,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$,
+      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
       null,
       [new_touch_device]);
   }
@@ -432,7 +432,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$,
+      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
       null,
       [id]);
   }
@@ -549,8 +549,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$,
-      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
+      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
       []);
   }
 
@@ -558,7 +558,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
       null,
       [observer]);
   }
@@ -567,7 +567,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
       null,
       [id, observer]);
   }
@@ -576,8 +576,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$,
-      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
+      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
       [observer]);
   }
 
@@ -585,8 +585,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$,
-      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
+      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
       [observer]);
   }
 
@@ -594,7 +594,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
       null,
       [observer]);
   }
@@ -603,7 +603,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
       null,
       [evdev_id]);
   }
@@ -612,7 +612,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
       null,
       []);
   }
@@ -621,7 +621,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$,
+      ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
       null,
       [enabled]);
   }

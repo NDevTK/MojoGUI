@@ -48,8 +48,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebUsbService_GetDevices_ParamsSpec.$,
-      blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$,
+      blink.mojom.WebUsbService_GetDevices_ParamsSpec,
+      blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebUsbService_GetDevice_ParamsSpec.$,
+      blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
       [guid, device_receiver]);
   }
@@ -66,8 +66,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WebUsbService_GetPermission_ParamsSpec.$,
-      blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$,
+      blink.mojom.WebUsbService_GetPermission_ParamsSpec,
+      blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
       [options]);
   }
 
@@ -75,7 +75,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$,
+      blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       null,
       [guid]);
   }
@@ -84,7 +84,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WebUsbService_SetClient_ParamsSpec.$,
+      blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
       [client]);
   }

@@ -66,8 +66,8 @@ shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec.$,
-      shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec.$,
+      shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec,
+      shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec,
       [bitmap_data]);
   }
 

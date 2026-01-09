@@ -49,7 +49,7 @@ chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
       [interface_name, interface_pipe]);
   }
@@ -125,7 +125,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
       [instances_info]);
   }
@@ -134,7 +134,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
       [service_name, interface_name, interface_pipe]);
   }
@@ -143,7 +143,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -152,7 +152,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
       [interface_pipe]);
   }
@@ -161,8 +161,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$,
-      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$,
+      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
+      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
       []);
   }
 

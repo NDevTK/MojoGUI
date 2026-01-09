@@ -57,7 +57,7 @@ ash.secure_channel.mojom.FilePayloadListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$,
+      ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec,
       null,
       [update]);
   }

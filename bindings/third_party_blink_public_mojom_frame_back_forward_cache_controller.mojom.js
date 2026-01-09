@@ -48,7 +48,7 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec.$,
+      blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
       [reason, source]);
   }
@@ -57,7 +57,7 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec.$,
+      blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
       [details]);
   }

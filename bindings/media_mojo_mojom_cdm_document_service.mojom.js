@@ -48,8 +48,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$,
-      media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$,
+      media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
+      media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
       [service_id, challenge]);
   }
 
@@ -57,8 +57,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$,
-      media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$,
+      media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
+      media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
       [version]);
   }
 
@@ -66,8 +66,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$,
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec.$,
+      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
+      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$,
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$,
+      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
+      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
       []);
   }
 
@@ -84,7 +84,7 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$,
+      media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
       [client_token]);
   }
@@ -93,7 +93,7 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$,
+      media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
       [event, hresult]);
   }

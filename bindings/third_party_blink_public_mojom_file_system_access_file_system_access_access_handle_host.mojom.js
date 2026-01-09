@@ -48,7 +48,7 @@ blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec.$,
+      blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
       null,
       []);
   }

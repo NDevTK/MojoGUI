@@ -116,7 +116,7 @@ network.mojom.ResolveHostHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$,
+      network.mojom.ResolveHostHandle_Cancel_ParamsSpec,
       null,
       [result]);
   }
@@ -191,7 +191,7 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$,
+      network.mojom.ResolveHostClient_OnComplete_ParamsSpec,
       null,
       [result, resolve_error_info, resolved_addresses, alternative_endpoints]);
   }
@@ -200,7 +200,7 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$,
+      network.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
       null,
       [text_results]);
   }
@@ -209,7 +209,7 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$,
+      network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
       null,
       [hosts]);
   }
@@ -315,7 +315,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$,
+      network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
       null,
       [update_type, query_type, endpoint]);
   }
@@ -324,7 +324,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$,
+      network.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
       null,
       [update_type, query_type, text_records]);
   }
@@ -333,7 +333,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$,
+      network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
       null,
       [update_type, query_type, host]);
   }
@@ -342,7 +342,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$,
+      network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
       null,
       [update_type, query_type]);
   }
@@ -466,7 +466,7 @@ network.mojom.HostResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.HostResolver_ResolveHost_ParamsSpec.$,
+      network.mojom.HostResolver_ResolveHost_ParamsSpec,
       null,
       [host, network_anonymization_key, optional_parameters, response_client]);
   }
@@ -475,8 +475,8 @@ network.mojom.HostResolverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.HostResolver_MdnsListen_ParamsSpec.$,
-      network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$,
+      network.mojom.HostResolver_MdnsListen_ParamsSpec,
+      network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
       [host, query_type, response_client]);
   }
 
@@ -582,7 +582,7 @@ network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$,
+      network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
       null,
       []);
   }
@@ -656,7 +656,7 @@ network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$,
+      network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
       null,
       [client]);
   }

@@ -48,7 +48,7 @@ prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$,
+      prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
       [histogram_prefix]);
   }

@@ -54,8 +54,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioEncoder_Initialize_ParamsSpec.$,
-      media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$,
+      media.mojom.AudioEncoder_Initialize_ParamsSpec,
+      media.mojom.AudioEncoder_Initialize_ResponseParamsSpec,
       [client, config]);
   }
 
@@ -63,8 +63,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioEncoder_Encode_ParamsSpec.$,
-      media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$,
+      media.mojom.AudioEncoder_Encode_ParamsSpec,
+      media.mojom.AudioEncoder_Encode_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -72,8 +72,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioEncoder_Flush_ParamsSpec.$,
-      media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$,
+      media.mojom.AudioEncoder_Flush_ParamsSpec,
+      media.mojom.AudioEncoder_Flush_ResponseParamsSpec,
       []);
   }
 
@@ -214,7 +214,7 @@ media.mojom.AudioEncoderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$,
+      media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec,
       null,
       [buffer, description]);
   }

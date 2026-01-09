@@ -49,7 +49,7 @@ chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$,
+      chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec,
       null,
       [features]);
   }

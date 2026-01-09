@@ -80,7 +80,7 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec,
       null,
       []);
   }
@@ -89,7 +89,7 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec,
       null,
       [euicc]);
   }
@@ -98,7 +98,7 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec,
       null,
       [euicc]);
   }
@@ -107,7 +107,7 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec,
       null,
       [profile]);
   }
@@ -223,7 +223,7 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -232,8 +232,8 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$,
-      ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec,
+      ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec,
       []);
   }
 
@@ -333,8 +333,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec,
       []);
   }
 
@@ -342,8 +342,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec,
       []);
   }
 
@@ -351,8 +351,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec,
       []);
   }
 
@@ -360,8 +360,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec,
       []);
   }
 
@@ -369,8 +369,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec,
       [activation_code, confirmation_code, install_method]);
   }
 
@@ -378,8 +378,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$,
-      ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec,
+      ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec,
       []);
   }
 
@@ -600,8 +600,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$,
-      ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec,
+      ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec,
       []);
   }
 
@@ -609,8 +609,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$,
-      ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec,
+      ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec,
       [confirmation_code]);
   }
 
@@ -618,8 +618,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$,
-      ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec,
+      ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec,
       []);
   }
 
@@ -627,8 +627,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$,
-      ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec,
+      ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec,
       [nickname]);
   }
 

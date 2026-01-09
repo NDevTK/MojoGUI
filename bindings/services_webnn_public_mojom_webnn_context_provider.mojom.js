@@ -55,8 +55,8 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$,
-      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec.$,
+      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
+      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
       [options]);
   }
 

@@ -48,8 +48,8 @@ ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec.$,
-      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$,
+      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
+      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
       []);
   }
 

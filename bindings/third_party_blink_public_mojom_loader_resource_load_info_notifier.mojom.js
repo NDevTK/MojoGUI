@@ -48,7 +48,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
       null,
       [redirect_info, redirect_response]);
   }
@@ -66,7 +66,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
       null,
       [request_id, final_response_url, head, request_destination, is_ad_resource]);
   }
@@ -75,7 +75,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
       null,
       [request_id, transfer_size_diff]);
   }
@@ -84,7 +84,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
       null,
       [resource_load_info, status]);
   }
@@ -93,7 +93,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
       null,
       [request_id]);
   }
@@ -102,7 +102,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$,
+      blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
       null,
       [pending_resource_load_info_notifier]);
   }

@@ -104,8 +104,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
       [idp_get_params, requirement]);
   }
 
@@ -113,8 +113,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
       [provider]);
   }
 
@@ -122,7 +122,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec,
       null,
       []);
   }
@@ -131,8 +131,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
       [account_id, token]);
   }
 
@@ -140,7 +140,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec,
       null,
       [origin, status, options]);
   }
@@ -149,8 +149,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
       [url]);
   }
 
@@ -158,8 +158,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
       [url]);
   }
 
@@ -167,7 +167,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec,
       null,
       []);
   }
@@ -176,7 +176,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec,
       null,
       []);
   }
@@ -185,8 +185,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$,
-      blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec,
+      blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
       [options]);
   }
 

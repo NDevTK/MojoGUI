@@ -48,8 +48,8 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$,
-      storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$,
+      storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
+      storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
       [token]);
   }
 
@@ -57,7 +57,7 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$,
+      storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
       null,
       [storage_key, bits, token]);
   }
@@ -66,7 +66,7 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$,
+      storage.mojom.FileSystemAccessContext_Clone_ParamsSpec,
       null,
       [receiever]);
   }

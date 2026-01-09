@@ -48,7 +48,7 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$,
+      storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$,
+      storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
       [path, directory]);
   }
@@ -66,7 +66,7 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$,
+      storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -75,7 +75,7 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$,
+      storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
       [path, receiver]);
   }
@@ -84,7 +84,7 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.StorageService_BindTestApi_ParamsSpec.$,
+      storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
       [test_api_receiver]);
   }

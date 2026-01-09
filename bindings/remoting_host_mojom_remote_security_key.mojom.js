@@ -48,8 +48,8 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec.$,
-      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec.$,
+      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
+      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
       [request_data]);
   }
 

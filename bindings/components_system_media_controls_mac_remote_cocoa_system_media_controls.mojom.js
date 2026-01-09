@@ -55,7 +55,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -64,7 +64,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -73,7 +73,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -82,7 +82,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -91,7 +91,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -100,7 +100,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec,
       null,
       [status]);
   }
@@ -109,7 +109,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec,
       null,
       [title]);
   }
@@ -118,7 +118,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec,
       null,
       [artist]);
   }
@@ -127,7 +127,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec,
       null,
       [album]);
   }
@@ -136,7 +136,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec,
       null,
       [thumbnail]);
   }
@@ -145,7 +145,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec,
       null,
       [position]);
   }
@@ -154,7 +154,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec,
       null,
       []);
   }
@@ -382,7 +382,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec,
       null,
       []);
   }
@@ -391,7 +391,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec,
       null,
       []);
   }
@@ -400,7 +400,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec,
       null,
       []);
   }
@@ -409,7 +409,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec,
       null,
       []);
   }
@@ -418,7 +418,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec,
       null,
       []);
   }
@@ -427,7 +427,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec,
       null,
       []);
   }
@@ -436,7 +436,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -445,7 +445,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec,
       null,
       []);
   }
@@ -454,7 +454,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$,
+      system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec,
       null,
       []);
   }

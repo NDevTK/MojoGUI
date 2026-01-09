@@ -48,7 +48,7 @@ ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$,
+      ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
       [entry]);
   }
@@ -123,7 +123,7 @@ ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$,
+      ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
       [params]);
   }
@@ -198,7 +198,7 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$,
+      ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
       [entry]);
   }
@@ -207,7 +207,7 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$,
+      ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
       [source_id, url]);
   }
@@ -297,7 +297,7 @@ ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$,
+      ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
       [receiver, client_remote]);
   }

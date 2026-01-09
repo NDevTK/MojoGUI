@@ -48,8 +48,8 @@ test.mojom.FooRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Foo_GetFoo_ParamsSpec.$,
-      test.mojom.Foo_GetFoo_ResponseParamsSpec.$,
+      test.mojom.Foo_GetFoo_ParamsSpec,
+      test.mojom.Foo_GetFoo_ResponseParamsSpec,
       []);
   }
 
@@ -135,8 +135,8 @@ test.mojom.BarRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Bar_GetBar_ParamsSpec.$,
-      test.mojom.Bar_GetBar_ResponseParamsSpec.$,
+      test.mojom.Bar_GetBar_ParamsSpec,
+      test.mojom.Bar_GetBar_ResponseParamsSpec,
       []);
   }
 
@@ -222,8 +222,8 @@ test.mojom.BazRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Baz_GetBaz_ParamsSpec.$,
-      test.mojom.Baz_GetBaz_ResponseParamsSpec.$,
+      test.mojom.Baz_GetBaz_ParamsSpec,
+      test.mojom.Baz_GetBaz_ResponseParamsSpec,
       []);
   }
 

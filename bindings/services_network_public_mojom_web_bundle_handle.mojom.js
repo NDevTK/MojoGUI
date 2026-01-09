@@ -60,7 +60,7 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebBundleHandle_Clone_ParamsSpec.$,
+      network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -69,7 +69,7 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec.$,
+      network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
       [type, message]);
   }
@@ -78,7 +78,7 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec.$,
+      network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
       [success]);
   }

@@ -48,8 +48,8 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$,
-      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$,
+      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
+      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
       []);
   }
 

@@ -48,7 +48,7 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PowerMonitor_AddClient_ParamsSpec.$,
+      device.mojom.PowerMonitor_AddClient_ParamsSpec,
       null,
       [client]);
   }
@@ -123,7 +123,7 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec.$,
+      device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
       null,
       [battery_power_status]);
   }
@@ -132,7 +132,7 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.PowerMonitorClient_Suspend_ParamsSpec.$,
+      device.mojom.PowerMonitorClient_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -141,7 +141,7 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.PowerMonitorClient_Resume_ParamsSpec.$,
+      device.mojom.PowerMonitorClient_Resume_ParamsSpec,
       null,
       []);
   }

@@ -73,7 +73,7 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$,
+      blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
       [writer]);
   }
@@ -82,7 +82,7 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$,
+      blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
@@ -172,7 +172,7 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$,
+      blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
       [rewriter]);
   }
@@ -181,7 +181,7 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$,
+      blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
@@ -271,7 +271,7 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$,
+      blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
       [summarizer]);
   }
@@ -280,7 +280,7 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$,
+      blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
@@ -370,7 +370,7 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$,
+      blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
       [proofreader]);
   }
@@ -379,7 +379,7 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$,
+      blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
       null,
       [error, quota_error_info]);
   }
@@ -469,8 +469,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$,
-      blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$,
+      blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
+      blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
       [options]);
   }
 
@@ -478,7 +478,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$,
+      blink.mojom.AIManager_CreateLanguageModel_ParamsSpec,
       null,
       [client, options]);
   }
@@ -487,8 +487,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$,
-      blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$,
+      blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
+      blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
       [options]);
   }
 
@@ -496,7 +496,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$,
+      blink.mojom.AIManager_CreateSummarizer_ParamsSpec,
       null,
       [client, options]);
   }
@@ -505,8 +505,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$,
-      blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$,
+      blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
+      blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
       []);
   }
 
@@ -514,8 +514,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$,
-      blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$,
+      blink.mojom.AIManager_CanCreateWriter_ParamsSpec,
+      blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
       [options]);
   }
 
@@ -523,7 +523,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AIManager_CreateWriter_ParamsSpec.$,
+      blink.mojom.AIManager_CreateWriter_ParamsSpec,
       null,
       [client, options]);
   }
@@ -532,8 +532,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$,
-      blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$,
+      blink.mojom.AIManager_CanCreateRewriter_ParamsSpec,
+      blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
       [options]);
   }
 
@@ -541,7 +541,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AIManager_CreateRewriter_ParamsSpec.$,
+      blink.mojom.AIManager_CreateRewriter_ParamsSpec,
       null,
       [client, options]);
   }
@@ -550,8 +550,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$,
-      blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$,
+      blink.mojom.AIManager_CanCreateProofreader_ParamsSpec,
+      blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
       [options]);
   }
 
@@ -559,7 +559,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AIManager_CreateProofreader_ParamsSpec.$,
+      blink.mojom.AIManager_CreateProofreader_ParamsSpec,
       null,
       [client, options]);
   }
@@ -568,7 +568,7 @@ blink.mojom.AIManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$,
+      blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
       null,
       [observer_remote]);
   }

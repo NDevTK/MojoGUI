@@ -48,8 +48,8 @@ foo.mojom.FooHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      foo.mojom.FooHandler_GetData_ParamsSpec.$,
-      foo.mojom.FooHandler_GetData_ResponseParamsSpec.$,
+      foo.mojom.FooHandler_GetData_ParamsSpec,
+      foo.mojom.FooHandler_GetData_ResponseParamsSpec,
       []);
   }
 

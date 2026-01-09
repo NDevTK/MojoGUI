@@ -48,7 +48,7 @@ chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ServiceConnector_Connect_ParamsSpec.$,
+      chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
       [service_name, receiver]);
   }

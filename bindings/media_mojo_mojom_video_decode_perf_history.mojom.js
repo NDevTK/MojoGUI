@@ -48,8 +48,8 @@ media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec.$,
-      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec.$,
+      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
+      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
       [features]);
   }
 

@@ -49,7 +49,7 @@ ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$,
+      ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
       [actionId, accelerators]);
   }
@@ -125,7 +125,7 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$,
+      ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
       [actionIds, observer]);
   }
@@ -134,8 +134,8 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$,
-      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$,
+      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
+      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
       []);
   }
 

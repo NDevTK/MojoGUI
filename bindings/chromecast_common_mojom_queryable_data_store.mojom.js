@@ -49,7 +49,7 @@ chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec.$,
+      chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec,
       null,
       [key, value]);
   }

@@ -72,7 +72,7 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
       [notification]);
   }
@@ -81,8 +81,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$,
-      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
       [profile, origin]);
   }
 
@@ -90,7 +90,7 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
       [identifier]);
   }
@@ -99,7 +99,7 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
       [profile]);
   }
@@ -108,7 +108,7 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
       []);
   }
@@ -117,8 +117,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$,
-      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$,
+      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
+      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
       []);
   }
 
@@ -287,7 +287,7 @@ mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
       [info]);
   }
@@ -362,7 +362,7 @@ mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$,
+      mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
       [service, handler]);
   }

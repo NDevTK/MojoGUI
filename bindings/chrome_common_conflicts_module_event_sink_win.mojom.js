@@ -47,7 +47,7 @@ mojom.ModuleEventSinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.ModuleEventSink_OnModuleEvents_ParamsSpec.$,
+      mojom.ModuleEventSink_OnModuleEvents_ParamsSpec,
       null,
       [module_load_addresses]);
   }

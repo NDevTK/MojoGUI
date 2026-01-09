@@ -54,7 +54,7 @@ viz.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.LayerContext_SetVisible_ParamsSpec.$,
+      viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -63,7 +63,7 @@ viz.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$,
+      viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
       [update]);
   }
@@ -72,7 +72,7 @@ viz.mojom.LayerContextRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$,
+      viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
       [tiling]);
   }
@@ -175,7 +175,7 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$,
+      viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
       [args]);
   }
@@ -184,7 +184,7 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$,
+      viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
       [layer_id, tiling_scales_to_clean_up]);
   }

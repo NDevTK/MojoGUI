@@ -48,7 +48,7 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$,
+      omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +133,7 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$,
+      omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
       null,
       [url]);
   }
@@ -221,7 +221,7 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$,
+      omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec,
       null,
       [context]);
   }
@@ -230,7 +230,7 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$,
+      omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec,
       null,
       [context]);
   }
@@ -239,8 +239,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$,
-      omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$,
+      omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec,
+      omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
       []);
   }
 
@@ -248,7 +248,7 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$,
+      omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec,
       null,
       [preserve_context_on_close]);
   }

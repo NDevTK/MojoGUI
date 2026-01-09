@@ -48,8 +48,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BytesProvider_RequestAsReply_ParamsSpec.$,
-      blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec.$,
+      blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
+      blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BytesProvider_RequestAsStream_ParamsSpec.$,
+      blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
       [pipe]);
   }
@@ -66,8 +66,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BytesProvider_RequestAsFile_ParamsSpec.$,
-      blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec.$,
+      blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
+      blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
       [source_offset, source_size, file, file_offset]);
   }
 

@@ -49,7 +49,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$,
+      commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$,
+      commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$,
+      commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec,
       null,
       [handler]);
   }

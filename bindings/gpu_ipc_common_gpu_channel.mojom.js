@@ -71,7 +71,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec.$,
+      gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec,
       null,
       []);
   }
@@ -80,7 +80,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec.$,
+      gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
       null,
       []);
   }
@@ -89,8 +89,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec.$,
-      gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec,
+      gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
       []);
   }
 
@@ -98,7 +98,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.GpuChannel_Flush_ParamsSpec.$,
+      gpu.mojom.GpuChannel_Flush_ParamsSpec,
       null,
       []);
   }
@@ -107,8 +107,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec.$,
-      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
+      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
       []);
   }
 
@@ -116,8 +116,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec.$,
-      gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
+      gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
       [params, routing_id, shared_state, receiver, client]);
   }
 
@@ -125,7 +125,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec.$,
+      gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
       null,
       [routing_id]);
   }
@@ -134,7 +134,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec.$,
+      gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
       null,
       [requests, flushed_deferred_message_id]);
   }
@@ -143,8 +143,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$,
-      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
+      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
       [size, format, buffer_usage]);
   }
 
@@ -152,8 +152,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$,
-      gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
+      gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
       [route_id, receiver]);
   }
 
@@ -161,8 +161,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec.$,
-      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
+      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
       [promotion_hint_observer, mailbox]);
   }
 
@@ -170,8 +170,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec.$,
-      gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
+      gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
       [routing_id, start, end]);
   }
 
@@ -179,8 +179,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec.$,
-      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
+      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
       [routing_id, set_get_buffer_count, start, end]);
   }
 
@@ -188,7 +188,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec.$,
+      gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec,
       null,
       [service_handle, sysmem_token, format, usage, register_with_image_pipe]);
   }
@@ -197,8 +197,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$,
-      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
+      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
       [mailbox, sync_token_dependencies, release_count]);
   }
 
@@ -206,8 +206,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$,
-      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec.$,
+      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
+      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
       [buffer_handle, shared_memory]);
   }
 
@@ -639,7 +639,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec.$,
+      gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
       null,
       [shm_id]);
   }
@@ -648,7 +648,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec.$,
+      gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
       null,
       [id, buffer]);
   }
@@ -657,7 +657,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec.$,
+      gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
       null,
       [gpu_fence_id, fence_handle]);
   }
@@ -666,8 +666,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec.$,
-      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec.$,
+      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
+      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
       [id]);
   }
 
@@ -675,7 +675,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec.$,
+      gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
       null,
       [sync_token, signal_id]);
   }
@@ -684,7 +684,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec.$,
+      gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec,
       null,
       [query, signal_id]);
   }
@@ -846,7 +846,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$,
+      gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -855,7 +855,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$,
+      gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
       null,
       []);
   }
@@ -864,7 +864,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$,
+      gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
       [reason, error]);
   }
@@ -873,7 +873,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec.$,
+      gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
       [data]);
   }
@@ -882,7 +882,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec.$,
+      gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
       [signal_id, state]);
   }
@@ -1014,7 +1014,7 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.DCOMPTexture_StartListening_ParamsSpec.$,
+      gpu.mojom.DCOMPTexture_StartListening_ParamsSpec,
       null,
       [client]);
   }
@@ -1023,7 +1023,7 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec.$,
+      gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
       null,
       [size]);
   }
@@ -1032,8 +1032,8 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec.$,
-      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec.$,
+      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
+      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
       [token]);
   }
 
@@ -1148,7 +1148,7 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec.$,
+      gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
       null,
       [mailbox]);
   }
@@ -1157,7 +1157,7 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec.$,
+      gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
       null,
       [output_rect]);
   }
@@ -1246,7 +1246,7 @@ gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec.$,
+      gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
       null,
       [promoted]);
   }

@@ -48,7 +48,7 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$,
+      blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec,
       null,
       [api_script, host]);
   }
@@ -57,7 +57,7 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$,
+      blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec,
       null,
       [extension_api]);
   }
@@ -147,7 +147,7 @@ blink.mojom.DevToolsFrontendHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$,
+      blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec,
       null,
       [message]);
   }

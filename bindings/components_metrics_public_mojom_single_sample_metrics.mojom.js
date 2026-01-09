@@ -48,7 +48,7 @@ metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$,
+      metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
       [histogram_name, min, max, bucket_count, flags, receiver]);
   }
@@ -128,7 +128,7 @@ metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$,
+      metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
       [sample]);
   }

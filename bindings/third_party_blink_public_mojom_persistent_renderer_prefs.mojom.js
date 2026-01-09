@@ -48,7 +48,7 @@ blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec.$,
+      blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
       [value]);
   }

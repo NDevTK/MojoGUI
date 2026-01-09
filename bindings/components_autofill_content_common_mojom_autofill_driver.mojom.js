@@ -48,7 +48,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec,
       null,
       [updated_forms, removed_forms]);
   }
@@ -57,7 +57,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec,
       null,
       [form, source]);
   }
@@ -66,7 +66,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec,
       null,
       [form, field_id, caret_bounds]);
   }
@@ -75,7 +75,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec,
       null,
       [form, field_id, timestamp]);
   }
@@ -84,7 +84,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec,
       null,
       [form, field_id]);
   }
@@ -102,7 +102,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec,
       null,
       [form, field_id]);
   }
@@ -111,7 +111,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec,
       null,
       [form, field_id]);
   }
@@ -120,7 +120,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec,
       null,
       [form, field_id]);
   }
@@ -129,7 +129,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec,
       null,
       []);
   }
@@ -138,7 +138,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec,
       null,
       [form, field_id, caret_bounds, trigger_source, password_request]);
   }
@@ -147,7 +147,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      autofill.mojom.AutofillDriver_HidePopup_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_HidePopup_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec,
       null,
       [form]);
   }
@@ -165,7 +165,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec,
       null,
       [fill_id]);
   }
@@ -174,7 +174,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec,
       null,
       [fill_id]);
   }
@@ -183,7 +183,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$,
+      autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec,
       null,
       [form, field_id, old_value]);
   }
@@ -481,7 +481,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec,
       null,
       [forms_data]);
   }
@@ -490,7 +490,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec,
       null,
       [visible_forms_data]);
   }
@@ -499,7 +499,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec,
       null,
       [form_data]);
   }
@@ -508,7 +508,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec,
       null,
       [form_data]);
   }
@@ -517,7 +517,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec,
       null,
       [submission_indication_event]);
   }
@@ -526,7 +526,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec,
       null,
       [form_data]);
   }
@@ -535,7 +535,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec,
       null,
       [log]);
   }
@@ -544,7 +544,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec,
       null,
       []);
   }
@@ -553,7 +553,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec,
       null,
       [renderer_id, value, autocomplete_attribute_has_username, is_likely_otp]);
   }
@@ -562,7 +562,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec,
       null,
       [request]);
   }
@@ -571,7 +571,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec,
       null,
       [form_action, frame_url]);
   }
@@ -580,7 +580,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec,
       null,
       [focused_field_id, focused_field_type]);
   }
@@ -589,7 +589,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec.$,
+      autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec,
       null,
       [form_renderer_id, result]);
   }
@@ -837,7 +837,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec,
       null,
       [password_generation_ui_data]);
   }
@@ -846,7 +846,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec,
       null,
       [form_data, password_value]);
   }
@@ -855,7 +855,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec,
       null,
       [form_data]);
   }
@@ -864,7 +864,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec,
       null,
       [bounds, form_data, field_renderer_id, password_value]);
   }
@@ -873,7 +873,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec,
       null,
       []);
   }
@@ -882,7 +882,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec,
       null,
       []);
   }
@@ -891,7 +891,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec.$,
+      autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec,
       null,
       []);
   }

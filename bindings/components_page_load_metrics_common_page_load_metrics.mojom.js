@@ -55,7 +55,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$,
+      page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
       [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics]);
   }
@@ -64,7 +64,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$,
+      page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
       [dropped_frames_memory]);
   }
@@ -73,7 +73,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$,
+      page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
       [custom_user_timing]);
   }

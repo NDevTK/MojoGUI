@@ -48,7 +48,7 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$,
+      blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       null,
       [events_and_updates, location_and_scroll_updates, reset_token]);
   }
@@ -57,7 +57,7 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$,
+      blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
       [changes, reset_token]);
   }
@@ -149,7 +149,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$,
+      blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
       [ax_mode, reset_token]);
   }
@@ -158,7 +158,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$,
+      blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
       []);
   }
@@ -167,8 +167,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$,
-      blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$,
+      blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
+      blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
       [point, event_to_fire, request_id]);
   }
 
@@ -176,7 +176,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$,
+      blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
       [action_data]);
   }
@@ -185,7 +185,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RenderAccessibility_Reset_ParamsSpec.$,
+      blink.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
       [reset_token]);
   }

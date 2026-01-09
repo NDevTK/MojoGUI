@@ -48,8 +48,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$,
-      storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$,
+      storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
+      storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
       [bucket]);
   }
 
@@ -57,8 +57,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$,
-      storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$,
+      storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
+      storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$,
-      storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$,
+      storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
+      storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
       [bucket]);
   }
 
@@ -75,7 +75,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$,
+      storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       null,
       []);
   }

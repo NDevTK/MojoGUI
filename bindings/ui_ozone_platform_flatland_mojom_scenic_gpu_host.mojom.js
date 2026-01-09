@@ -48,7 +48,7 @@ ui.mojom.ScenicGpuHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec.$,
+      ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
       null,
       [window_id, view_holder_token]);
   }

@@ -48,8 +48,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$,
-      content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$,
+      content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
+      content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
       [name]);
   }
 
@@ -57,7 +57,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$,
+      content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
       [allowed]);
   }
@@ -66,7 +66,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$,
+      content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
       [action]);
   }
@@ -75,7 +75,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$,
+      content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
       null,
       [private_memory_footprint_bytes]);
   }
@@ -84,8 +84,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$,
-      content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$,
+      content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
+      content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
       []);
   }
 

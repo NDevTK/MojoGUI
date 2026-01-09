@@ -57,8 +57,8 @@ blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec.$,
-      blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec.$,
+      blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec,
+      blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec,
       [provider_receiver, cloud_project_number]);
   }
 
@@ -146,8 +146,8 @@ blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec.$,
-      blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec.$,
+      blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec,
+      blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec,
       [content_binding]);
   }
 

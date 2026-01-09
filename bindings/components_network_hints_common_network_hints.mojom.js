@@ -48,7 +48,7 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$,
+      network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
       [url_list]);
   }
@@ -57,7 +57,7 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$,
+      network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
       [url, allow_credentials]);
   }

@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
       null,
       [status]);
   }

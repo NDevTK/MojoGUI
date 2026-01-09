@@ -48,8 +48,8 @@ blink.mojom.DocumentMetadataRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DocumentMetadata_GetEntities_ParamsSpec.$,
-      blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec.$,
+      blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
+      blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
       []);
   }
 

@@ -48,8 +48,8 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec.$,
-      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec.$,
+      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
+      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
       [origin, accept_ch_frame]);
   }
 
@@ -57,7 +57,7 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec.$,
+      network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }

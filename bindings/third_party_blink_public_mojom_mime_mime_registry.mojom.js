@@ -48,8 +48,8 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec.$,
-      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec.$,
+      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
+      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
       [extension]);
   }
 

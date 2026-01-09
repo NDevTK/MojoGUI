@@ -48,7 +48,7 @@ auction_worklet.mojom.ScoreAdClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec.$,
+      auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec,
       null,
       [score, reject_reason, component_auction_modified_bid_params, bid_in_seller_currency, scoring_signals_data_version, debug_loss_report_url, debug_win_report_url, pa_requests, real_time_contributions, score_ad_timing_metrics, score_ad_dependency_latencies, errors]);
   }
@@ -134,7 +134,7 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec.$,
+      auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec,
       null,
       [ad_metadata_json, bid, bid_currency, auction_ad_config_non_shared_params, key_value_signals_cache_key, ad, ad_components, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, component_expect_bid_currency, browser_signal_interest_group_owner, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_buyer_and_seller_reporting_id, browser_signal_bidding_duration_msecs, browser_signal_for_debugging_only_in_cooldown_or_lockout, browser_signal_for_debugging_only_sampling, seller_timeout, group_by_origin_id, allow_group_by_origin_mode, trace_id, bidder_joining_origin, score_ad_client]);
   }
@@ -143,7 +143,7 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec.$,
+      auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec,
       null,
       []);
   }
@@ -152,8 +152,8 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec.$,
-      auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec.$,
+      auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec,
+      auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec,
       [auction_ad_config_non_shared_params, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, browser_signal_interest_group_owner, browser_signal_buyer_and_seller_reporting_id, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_desirability, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signals_component_auction_report_result_params, scoring_signals_data_version, trace_id]);
   }
 
@@ -161,7 +161,7 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec.$,
+      auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec,
       null,
       [agent, thread_index]);
   }

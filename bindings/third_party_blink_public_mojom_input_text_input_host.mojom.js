@@ -48,7 +48,7 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec.$,
+      blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
       [index]);
   }
@@ -57,7 +57,7 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec.$,
+      blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
       [rect]);
   }

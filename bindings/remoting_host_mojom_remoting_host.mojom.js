@@ -56,7 +56,7 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$,
+      remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -65,7 +65,7 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$,
+      remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
       null,
       [privileged_handle, unprivileged_handle]);
   }
@@ -74,7 +74,7 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$,
+      remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
       null,
       [receiver, peer_pid]);
   }
@@ -179,7 +179,7 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$,
+      remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
       null,
       [terminal_id]);
   }
@@ -188,7 +188,7 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$,
+      remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
       null,
       [terminal_id, session_id, desktop_pipe]);
   }
@@ -279,7 +279,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -288,7 +288,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -297,7 +297,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -306,7 +306,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -315,7 +315,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
       null,
       [signaling_id, channel_name, route]);
   }
@@ -324,7 +324,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
       null,
       [owner_email]);
   }
@@ -333,7 +333,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$,
+      remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
       null,
       []);
   }

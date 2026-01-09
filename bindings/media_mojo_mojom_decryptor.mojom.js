@@ -48,7 +48,7 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.Decryptor_Initialize_ParamsSpec.$,
+      media.mojom.Decryptor_Initialize_ParamsSpec,
       null,
       [audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe]);
   }
@@ -57,8 +57,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.Decryptor_Decrypt_ParamsSpec.$,
-      media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$,
+      media.mojom.Decryptor_Decrypt_ParamsSpec,
+      media.mojom.Decryptor_Decrypt_ResponseParamsSpec,
       [stream_type, encrypted]);
   }
 
@@ -66,7 +66,7 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$,
+      media.mojom.Decryptor_CancelDecrypt_ParamsSpec,
       null,
       [stream_type]);
   }
@@ -75,8 +75,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$,
-      media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$,
+      media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec,
+      media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec,
       [config]);
   }
 
@@ -84,8 +84,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$,
-      media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$,
+      media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec,
+      media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec,
       [config]);
   }
 
@@ -93,8 +93,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$,
-      media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$,
+      media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec,
+      media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec,
       [encrypted]);
   }
 
@@ -102,8 +102,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$,
-      media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$,
+      media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec,
+      media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec,
       [encrypted]);
   }
 
@@ -111,7 +111,7 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.Decryptor_ResetDecoder_ParamsSpec.$,
+      media.mojom.Decryptor_ResetDecoder_ParamsSpec,
       null,
       [stream_type]);
   }
@@ -120,7 +120,7 @@ media.mojom.DecryptorRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$,
+      media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec,
       null,
       [stream_type]);
   }

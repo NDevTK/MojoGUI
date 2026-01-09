@@ -61,7 +61,7 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FindInPage_Find_ParamsSpec.$,
+      blink.mojom.FindInPage_Find_ParamsSpec,
       null,
       [request_id, search_text, options]);
   }
@@ -70,7 +70,7 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FindInPage_StopFinding_ParamsSpec.$,
+      blink.mojom.FindInPage_StopFinding_ParamsSpec,
       null,
       [action]);
   }
@@ -79,7 +79,7 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$,
+      blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec,
       null,
       []);
   }
@@ -88,7 +88,7 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FindInPage_SetClient_ParamsSpec.$,
+      blink.mojom.FindInPage_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -97,8 +97,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$,
-      blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec.$,
+      blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec,
+      blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec,
       [point]);
   }
 
@@ -106,7 +106,7 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$,
+      blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec,
       null,
       [request_id, point]);
   }
@@ -115,8 +115,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$,
-      blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec.$,
+      blink.mojom.FindInPage_FindMatchRects_ParamsSpec,
+      blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec,
       [current_version]);
   }
 
@@ -304,7 +304,7 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$,
+      blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec,
       null,
       [request_id, number_of_matches, update_type]);
   }
@@ -313,7 +313,7 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$,
+      blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec,
       null,
       [request_id, active_match_rect, active_match_ordinal, update_type]);
   }

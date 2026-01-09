@@ -49,7 +49,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = c
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec.$,
+      chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
       [info]);
   }
@@ -124,7 +124,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec.$,
+      chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
       [observer]);
   }

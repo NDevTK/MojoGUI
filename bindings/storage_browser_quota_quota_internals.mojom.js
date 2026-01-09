@@ -48,8 +48,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$,
-      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$,
-      storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec,
       null,
       [origin_url]);
   }
@@ -75,8 +75,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$,
-      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$,
-      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
       []);
   }
 
@@ -93,8 +93,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$,
-      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec.$,
+      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec,
+      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
       []);
   }
 

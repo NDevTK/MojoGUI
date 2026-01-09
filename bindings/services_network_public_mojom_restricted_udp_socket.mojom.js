@@ -54,8 +54,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$,
-      network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$,
+      network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -63,8 +63,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$,
-      network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$,
+      network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
       [group_address]);
   }
 
@@ -72,7 +72,7 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$,
+      network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
       null,
       [num_additional_datagrams]);
   }
@@ -81,8 +81,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$,
-      network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$,
+      network.mojom.RestrictedUDPSocket_Send_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
       [data]);
   }
 
@@ -90,8 +90,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$,
-      network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$,
+      network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
+      network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
       [data, dest_addr, dns_query_type]);
   }
 

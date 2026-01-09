@@ -53,8 +53,8 @@ blink.mojom.InnerTextAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec.$,
-      blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec.$,
+      blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
+      blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
       [params]);
   }
 

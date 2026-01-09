@@ -48,7 +48,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$,
+      blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec,
       null,
       [id]);
   }
@@ -57,7 +57,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$,
+      blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec,
       null,
       [id]);
   }
@@ -66,7 +66,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$,
+      blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec,
       null,
       [id]);
   }
@@ -75,7 +75,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$,
+      blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec,
       null,
       [id]);
   }

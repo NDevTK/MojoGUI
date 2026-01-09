@@ -54,7 +54,7 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec.$,
+      network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec,
       null,
       [details]);
   }
@@ -63,7 +63,7 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec.$,
+      network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec,
       null,
       [observer]);
   }

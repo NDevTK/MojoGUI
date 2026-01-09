@@ -100,7 +100,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec,
       null,
       [touch_action]);
   }
@@ -109,7 +109,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec,
       null,
       [is_throttled, subtree_throttled, display_locked]);
   }
@@ -118,7 +118,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -127,7 +127,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec,
       null,
       []);
   }
@@ -136,7 +136,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec,
       null,
       [clip_rect, guid]);
   }
@@ -154,7 +154,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec,
       null,
       [inert]);
   }
@@ -163,7 +163,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec,
       null,
       [opener_frame]);
   }
@@ -172,7 +172,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec,
       null,
       [focus_type, source_frame_token]);
   }
@@ -181,7 +181,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec,
       null,
       [source_frame_token, source_origin, target_origin, message]);
   }
@@ -190,7 +190,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec,
       null,
       [frame_content_rect, document_cookie]);
   }
@@ -199,7 +199,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.RemoteFrameHost_Detach_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_Detach_ParamsSpec,
       null,
       []);
   }
@@ -208,7 +208,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec,
       null,
       [intersection_state, visual_properties]);
   }
@@ -217,7 +217,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec,
       null,
       [properties]);
   }
@@ -226,7 +226,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec.$,
+      blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec,
       null,
       [params]);
   }
@@ -503,7 +503,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec.$,
+      blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec,
       null,
       [options]);
   }
@@ -512,7 +512,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec.$,
+      blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec,
       null,
       [set]);
   }
@@ -521,7 +521,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec,
       null,
       [properties]);
   }
@@ -530,7 +530,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec.$,
+      blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec,
       null,
       [policy]);
   }
@@ -539,7 +539,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec,
       null,
       [origin, is_potentially_trustworthy_unique_origin]);
   }
@@ -548,7 +548,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec,
       null,
       [is_ad_frame]);
   }
@@ -557,7 +557,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec,
       null,
       [name, unique_name]);
   }
@@ -566,7 +566,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec,
       null,
       []);
   }
@@ -575,7 +575,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec,
       null,
       [needs_tracking]);
   }
@@ -584,7 +584,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.RemoteFrame_Collapse_ParamsSpec.$,
+      blink.mojom.RemoteFrame_Collapse_ParamsSpec,
       null,
       [collapsed]);
   }
@@ -593,7 +593,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.RemoteFrame_Focus_ParamsSpec.$,
+      blink.mojom.RemoteFrame_Focus_ParamsSpec,
       null,
       []);
   }
@@ -602,7 +602,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec,
       null,
       [has_gesture]);
   }
@@ -611,7 +611,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec.$,
+      blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec,
       null,
       [direction, granularity]);
   }
@@ -620,7 +620,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec.$,
+      blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec,
       null,
       [state_update_type, notification_type]);
   }
@@ -629,7 +629,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec,
       null,
       [embedding_token]);
   }
@@ -638,7 +638,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec,
       null,
       [is_focused]);
   }
@@ -647,7 +647,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec.$,
+      blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec,
       null,
       []);
   }
@@ -656,7 +656,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec.$,
+      blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec,
       null,
       [timing]);
   }
@@ -665,7 +665,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec.$,
+      blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec,
       null,
       [rect, params]);
   }
@@ -674,7 +674,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec,
       null,
       []);
   }
@@ -683,7 +683,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec,
       null,
       []);
   }
@@ -692,7 +692,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec.$,
+      blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec,
       null,
       [sizing_info]);
   }
@@ -701,7 +701,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec,
       null,
       [sandbox_flags, parsed_permissions_policy]);
   }
@@ -710,7 +710,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec,
       null,
       [frame_policy]);
   }
@@ -719,7 +719,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec.$,
+      blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec,
       null,
       [opener_frame_token]);
   }
@@ -728,7 +728,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec,
       null,
       []);
   }
@@ -737,7 +737,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec.$,
+      blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec,
       null,
       [min_size, max_size]);
   }
@@ -746,7 +746,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec,
       null,
       []);
   }
@@ -755,7 +755,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec.$,
+      blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec,
       null,
       [metadata]);
   }
@@ -764,7 +764,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec.$,
+      blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id, allow_paint_holding]);
   }
@@ -773,7 +773,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec.$,
+      blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec,
       null,
       []);
   }
@@ -782,7 +782,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec.$,
+      blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec,
       null,
       [token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces]);
   }
@@ -791,7 +791,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec.$,
+      blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec,
       null,
       [params, navigation_metrics_token]);
   }
@@ -800,7 +800,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec.$,
+      blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec,
       null,
       [event_type]);
   }
@@ -1345,7 +1345,7 @@ blink.mojom.RemoteMainFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec.$,
+      blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec,
       null,
       [page_info]);
   }
@@ -1420,7 +1420,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec.$,
+      blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec,
       null,
       []);
   }
@@ -1429,7 +1429,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec.$,
+      blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec,
       null,
       [reverse]);
   }
@@ -1438,7 +1438,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec.$,
+      blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec,
       null,
       [url]);
   }
@@ -1447,7 +1447,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec.$,
+      blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec,
       null,
       []);
   }

@@ -61,8 +61,8 @@ media.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmStorage_Open_ParamsSpec.$,
-      media.mojom.CdmStorage_Open_ResponseParamsSpec.$,
+      media.mojom.CdmStorage_Open_ParamsSpec,
+      media.mojom.CdmStorage_Open_ResponseParamsSpec,
       [file_name]);
   }
 
@@ -150,8 +150,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmFile_Read_ParamsSpec.$,
-      media.mojom.CdmFile_Read_ResponseParamsSpec.$,
+      media.mojom.CdmFile_Read_ParamsSpec,
+      media.mojom.CdmFile_Read_ResponseParamsSpec,
       []);
   }
 
@@ -159,8 +159,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.CdmFile_Write_ParamsSpec.$,
-      media.mojom.CdmFile_Write_ResponseParamsSpec.$,
+      media.mojom.CdmFile_Write_ParamsSpec,
+      media.mojom.CdmFile_Write_ResponseParamsSpec,
       [data]);
   }
 

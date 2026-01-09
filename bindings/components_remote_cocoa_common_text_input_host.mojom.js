@@ -48,8 +48,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
       []);
   }
 
@@ -93,7 +93,7 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec,
       null,
       [text, as_character]);
   }
@@ -102,7 +102,7 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec,
       null,
       [range]);
   }
@@ -111,7 +111,7 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec,
       null,
       [text, selected_range, replacement_range]);
   }
@@ -120,7 +120,7 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec,
       null,
       []);
   }
@@ -129,8 +129,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
       []);
   }
 
@@ -138,8 +138,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
       []);
   }
 
@@ -147,8 +147,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
       [requested_range]);
   }
 
@@ -156,8 +156,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
       [requested_range]);
   }
 
@@ -165,8 +165,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$,
-      remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec,
+      remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
       [command]);
   }
 
@@ -174,7 +174,7 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$,
+      remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec,
       null,
       [command]);
   }

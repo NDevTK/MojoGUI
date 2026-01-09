@@ -48,7 +48,7 @@ ax.mojom.AutoclickRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$,
+      ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
       [point]);
   }
@@ -123,7 +123,7 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$,
+      ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
       [bounds]);
   }
@@ -132,8 +132,8 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$,
-      ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec.$,
+      ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
+      ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
       []);
   }
 

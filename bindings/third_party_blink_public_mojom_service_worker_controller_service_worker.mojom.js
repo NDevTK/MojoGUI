@@ -48,8 +48,8 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$,
-      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$,
+      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
+      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
       [params, response_callback]);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$,
+      blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
       [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter]);
   }
@@ -164,7 +164,7 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$,
+      blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
       [controller]);
   }

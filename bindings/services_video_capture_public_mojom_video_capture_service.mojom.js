@@ -48,7 +48,7 @@ video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$,
+      video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
       [jda]);
   }
@@ -123,7 +123,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec,
       null,
       [accelerator_factory]);
   }
@@ -132,7 +132,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec,
       null,
       [receiver]);
   }
@@ -141,7 +141,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -150,7 +150,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -159,7 +159,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec,
       null,
       [receiver]);
   }
@@ -168,7 +168,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$,
+      video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec,
       null,
       [luid]);
   }

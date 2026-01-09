@@ -48,8 +48,8 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec.$,
-      network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec.$,
+      network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
+      network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$,
+      network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
       [pipe]);
   }

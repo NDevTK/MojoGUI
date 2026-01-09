@@ -48,7 +48,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$,
+      extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, extra]);
   }
@@ -57,7 +57,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$,
+      extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, extra]);
   }
@@ -66,7 +66,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$,
+      extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
       [extension_id, call_name, args, url, url_title, call_type]);
   }
@@ -75,8 +75,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$,
-      extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$,
+      extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
+      extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
       [extension_id]);
   }
 

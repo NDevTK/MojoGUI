@@ -49,8 +49,8 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec.$,
-      ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$,
+      ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
+      ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec.$,
+      ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
       []);
   }

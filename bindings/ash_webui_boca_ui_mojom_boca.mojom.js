@@ -203,8 +203,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec,
+      ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec,
       []);
   }
 
@@ -212,8 +212,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec,
+      ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec,
       []);
   }
 
@@ -221,8 +221,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListCourses_ParamsSpec,
+      ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec,
       []);
   }
 
@@ -230,8 +230,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListStudents_ParamsSpec,
+      ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec,
       [course_id]);
   }
 
@@ -239,8 +239,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec,
+      ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec,
       [course_id]);
   }
 
@@ -248,8 +248,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_CreateSession_ParamsSpec,
+      ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec,
       [config]);
   }
 
@@ -257,8 +257,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetSession_ParamsSpec,
+      ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec,
       []);
   }
 
@@ -266,8 +266,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_EndSession_ParamsSpec,
+      ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec,
       []);
   }
 
@@ -275,8 +275,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec,
+      ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec,
       [extended_duration]);
   }
 
@@ -284,8 +284,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec,
+      ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec,
       [student_id]);
   }
 
@@ -293,8 +293,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec,
+      ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec,
       [student_id]);
   }
 
@@ -302,8 +302,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_AddStudents_ParamsSpec,
+      ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec,
       [students]);
   }
 
@@ -311,8 +311,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec,
+      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec,
       [on_task_config]);
   }
 
@@ -320,8 +320,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec,
+      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec,
       [caption_config]);
   }
 
@@ -329,8 +329,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec,
+      ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec,
       [is_float_mode]);
   }
 
@@ -338,8 +338,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec,
+      ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec,
       [access_code]);
   }
 
@@ -347,8 +347,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec,
+      ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec,
       [id]);
   }
 
@@ -356,8 +356,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec,
+      ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec,
       [id]);
   }
 
@@ -365,8 +365,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec,
+      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec,
       [id]);
   }
 
@@ -374,8 +374,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec,
+      ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec,
       [pref]);
   }
 
@@ -383,7 +383,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec,
       null,
       [pref, value]);
   }
@@ -392,8 +392,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec,
+      ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec,
       [url, permission, setting]);
   }
 
@@ -401,8 +401,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_CloseTab_ParamsSpec,
+      ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
       [tab_id]);
   }
 
@@ -410,7 +410,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       null,
       []);
   }
@@ -419,7 +419,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec,
       null,
       []);
   }
@@ -428,8 +428,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec,
+      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
       []);
   }
 
@@ -437,7 +437,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec,
       null,
       [crd_connection_code]);
   }
@@ -446,8 +446,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec,
+      ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
       [student, receiver_id]);
   }
 
@@ -455,8 +455,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec,
+      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
       []);
   }
 
@@ -464,8 +464,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec,
+      ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
       [receiver_id]);
   }
 
@@ -473,8 +473,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$,
-      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$,
+      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec,
+      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
       []);
   }
 
@@ -1313,7 +1313,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$,
+      ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec,
       null,
       [activities]);
   }
@@ -1322,7 +1322,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$,
+      ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec,
       null,
       [config]);
   }
@@ -1331,7 +1331,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$,
+      ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec,
       null,
       [active_networks]);
   }
@@ -1340,7 +1340,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$,
+      ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec,
       null,
       []);
   }
@@ -1349,7 +1349,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$,
+      ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec,
       null,
       [state]);
   }
@@ -1358,7 +1358,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$,
+      ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec,
       null,
       [is_error]);
   }
@@ -1367,7 +1367,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$,
+      ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec,
       null,
       [frame_data]);
   }
@@ -1376,7 +1376,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$,
+      ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec,
       null,
       [state]);
   }
@@ -1385,7 +1385,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$,
+      ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec,
       null,
       []);
   }
@@ -1394,7 +1394,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$,
+      ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec,
       null,
       []);
   }
@@ -1592,7 +1592,7 @@ ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$,
+      ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec,
       null,
       [handler, page]);
   }

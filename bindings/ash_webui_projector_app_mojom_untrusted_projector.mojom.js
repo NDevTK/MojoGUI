@@ -49,8 +49,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
       []);
   }
 
@@ -58,8 +58,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
       []);
   }
 
@@ -67,8 +67,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
       []);
   }
 
@@ -76,8 +76,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +85,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
       [pref]);
   }
 
@@ -94,7 +94,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
       null,
       [pref, value]);
   }
@@ -103,7 +103,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
       null,
       []);
   }
@@ -112,8 +112,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
       [storage_dir_name]);
   }
 
@@ -121,8 +121,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
       [url, method, request_body, use_credentials, use_api_key, headers, account_email]);
   }
 
@@ -130,8 +130,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
       []);
   }
 
@@ -139,8 +139,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
       [video_file_id, resource_key]);
   }
 
@@ -473,7 +473,7 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
       [precondition]);
   }
@@ -482,7 +482,7 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
       [progress]);
   }
@@ -491,7 +491,7 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
       []);
   }
@@ -500,7 +500,7 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
       []);
   }
@@ -509,7 +509,7 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
       [pending_screencasts]);
   }
@@ -638,7 +638,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$,
+      ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
       [handler, page]);
   }

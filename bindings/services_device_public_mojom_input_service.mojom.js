@@ -63,7 +63,7 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$,
+      device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
       [device_info]);
   }
@@ -72,7 +72,7 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$,
+      device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
       [id]);
   }
@@ -161,8 +161,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$,
-      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec.$,
+      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
+      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -170,8 +170,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$,
-      device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec.$,
+      device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
+      device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
       []);
   }
 

@@ -48,8 +48,8 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$,
-      emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec.$,
+      emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
+      emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
       [query, language_codes]);
   }
 
@@ -57,7 +57,7 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$,
+      emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
       null,
       [language_codes]);
   }

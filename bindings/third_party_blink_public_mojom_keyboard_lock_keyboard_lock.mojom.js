@@ -64,8 +64,8 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec.$,
-      blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec.$,
+      blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
+      blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
       [key_codes]);
   }
 
@@ -73,7 +73,7 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec.$,
+      blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
       null,
       []);
   }
@@ -82,8 +82,8 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec.$,
-      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec.$,
+      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
+      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
       []);
   }
 

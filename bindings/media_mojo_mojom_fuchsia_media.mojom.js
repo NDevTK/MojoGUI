@@ -55,7 +55,7 @@ media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$,
+      media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec,
       null,
       [key_system, cdm_request]);
   }
@@ -131,7 +131,7 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$,
+      media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec,
       null,
       [codec, secure_mode, stream_processor_request]);
   }
@@ -140,8 +140,8 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$,
-      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$,
+      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec,
+      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
       []);
   }
 

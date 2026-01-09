@@ -48,7 +48,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec.$,
+      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec.$,
+      blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec.$,
+      blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
       null,
       [origin, insecure_url]);
   }

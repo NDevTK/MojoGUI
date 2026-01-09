@@ -55,8 +55,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$,
-      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$,
+      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
+      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
       [stream_type, id]);
   }
 
@@ -64,8 +64,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$,
-      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$,
+      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
+      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
       [id]);
   }
 
@@ -180,7 +180,7 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DebugRecording_Enable_ParamsSpec.$,
+      audio.mojom.DebugRecording_Enable_ParamsSpec,
       null,
       [file_provider]);
   }

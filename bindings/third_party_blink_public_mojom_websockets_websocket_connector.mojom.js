@@ -48,7 +48,7 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebSocketConnector_Connect_ParamsSpec.$,
+      blink.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
       [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id]);
   }

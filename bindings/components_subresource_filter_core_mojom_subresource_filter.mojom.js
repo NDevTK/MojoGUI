@@ -76,7 +76,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$,
+      subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
       [ruleset_file]);
   }

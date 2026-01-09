@@ -54,7 +54,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$,
+      device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       null,
       [token, source, metadata]);
   }
@@ -63,7 +63,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$,
+      device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       null,
       [token, source]);
   }
@@ -72,7 +72,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$,
+      device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       null,
       [token, source, state, own_contribution_estimate]);
   }
@@ -81,8 +81,8 @@ device.mojom.PressureManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.PressureManager_AddClient_ParamsSpec.$,
-      device.mojom.PressureManager_AddClient_ResponseParamsSpec.$,
+      device.mojom.PressureManager_AddClient_ParamsSpec,
+      device.mojom.PressureManager_AddClient_ResponseParamsSpec,
       [source, token, client]);
   }
 
@@ -219,7 +219,7 @@ device.mojom.PressureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$,
+      device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
       [update]);
   }

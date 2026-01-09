@@ -65,7 +65,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$,
+      prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
       [pref_path, value, value_state, external_validation_value_state, is_personal]);
   }
@@ -74,7 +74,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$,
+      prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
       [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal]);
   }

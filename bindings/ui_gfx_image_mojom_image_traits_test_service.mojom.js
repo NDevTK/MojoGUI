@@ -48,8 +48,8 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$,
-      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
       [in]);
   }
 
@@ -57,8 +57,8 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$,
-      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
+      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
       [in]);
   }
 

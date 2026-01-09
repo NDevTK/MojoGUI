@@ -48,7 +48,7 @@ blink.mojom.WakeLockServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WakeLockService_GetWakeLock_ParamsSpec.$,
+      blink.mojom.WakeLockService_GetWakeLock_ParamsSpec,
       null,
       [type, reason, description, wake_lock]);
   }

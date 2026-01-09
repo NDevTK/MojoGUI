@@ -48,7 +48,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
       [key, watch_time]);
   }
@@ -57,7 +57,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
       [watch_time_keys]);
   }
@@ -66,7 +66,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
       [status]);
   }
@@ -75,7 +75,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
       [secondary_properties]);
   }
@@ -84,7 +84,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
       [value]);
   }
@@ -93,7 +93,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
       [duration]);
   }
@@ -102,7 +102,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
       [frames_decoded, frames_dropped]);
   }
@@ -111,7 +111,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
       [total_count]);
   }
@@ -120,7 +120,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$,
+      media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
       [total_completed_count, total_duration]);
   }

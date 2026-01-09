@@ -48,7 +48,7 @@ content.mojom.RouteProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RouteProvider_GetRoute_ParamsSpec.$,
+      content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
       [frame_token, receiver]);
   }

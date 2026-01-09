@@ -48,8 +48,8 @@ user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$,
-      user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$,
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
       [raw_html]);
   }
 

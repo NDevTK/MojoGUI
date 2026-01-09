@@ -141,8 +141,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$,
-      on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
+      on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
       [params, model]);
   }
 
@@ -150,8 +150,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$,
-      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
+      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
       [weights]);
   }
 
@@ -159,7 +159,7 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
       [params, model]);
   }
@@ -168,8 +168,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$,
-      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
+      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
       []);
   }
 

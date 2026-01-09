@@ -48,7 +48,7 @@ heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$,
+      heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec,
       null,
       [process_probability_pct, process_index]);
   }
@@ -57,7 +57,7 @@ heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$,
+      heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec,
       null,
       []);
   }

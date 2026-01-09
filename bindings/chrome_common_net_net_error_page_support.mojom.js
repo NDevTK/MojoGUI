@@ -48,7 +48,7 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$,
+      chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$,
+      chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
       [showing_download_button]);
   }
@@ -66,7 +66,7 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$,
+      chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
       null,
       []);
   }

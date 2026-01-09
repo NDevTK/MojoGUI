@@ -80,7 +80,7 @@ ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$,
+      ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
       [is_tablet_mode]);
   }
@@ -155,7 +155,7 @@ ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$,
+      ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec,
       null,
       []);
   }
@@ -229,7 +229,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$,
+      ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
       [brightness_percent, triggered_by_als]);
   }
@@ -305,7 +305,7 @@ ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$,
+      ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
       [is_ambient_light_sensor_enabled]);
   }
@@ -380,8 +380,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$,
-      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
       [observer]);
   }
 
@@ -389,7 +389,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec,
       null,
       [observer]);
   }
@@ -398,8 +398,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$,
-      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
       [observer]);
   }
 
@@ -407,8 +407,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$,
-      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
       [observer]);
   }
 
@@ -416,7 +416,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec,
       null,
       [type, value]);
   }
@@ -425,7 +425,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec,
       null,
       [enabled]);
   }
@@ -434,7 +434,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec,
       null,
       [percent]);
   }
@@ -443,7 +443,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -452,7 +452,7 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec,
       null,
       []);
   }
@@ -461,8 +461,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$,
-      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec,
+      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
       []);
   }
 

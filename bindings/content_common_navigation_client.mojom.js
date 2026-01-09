@@ -57,8 +57,8 @@ content.mojom.NavigationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$,
-      content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$,
+      content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
+      content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
       [common_params, request_params, response_head, response_body, url_loader_client_endpoints, subresource_loader_factories, subresource_overrides, controller_service_worker_info, container_info, subresource_proxying_loader_factory, keep_alive_loader_factory, fetch_later_loader_factory, document_token, devtools_navigation_token, base_auction_nonce, permissions_policy, policy_container, code_cache_host, code_cache_host_for_background, cookie_manager_info, storage_info]);
   }
 
@@ -66,8 +66,8 @@ content.mojom.NavigationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$,
-      content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$,
+      content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
+      content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
       [common_params, request_params, has_stale_copy_in_cache, error_code, extended_error_code, resolve_error_info, error_page_content, subresource_loader_factories, document_token, devtools_navigation_token, policy_container, alternative_error_page_info]);
   }
 

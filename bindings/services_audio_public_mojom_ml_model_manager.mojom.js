@@ -48,7 +48,7 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$,
+      audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
       null,
       [tflite_file]);
   }
@@ -57,7 +57,7 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$,
+      audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$,
+      media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -123,8 +123,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$,
-      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$,
+      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
+      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
       []);
   }
 
@@ -132,7 +132,7 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$,
+      media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -141,8 +141,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$,
-      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$,
+      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
+      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
       [rect]);
   }
 
@@ -322,7 +322,7 @@ media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$,
+      media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
       [observer]);
   }

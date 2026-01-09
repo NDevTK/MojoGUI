@@ -48,8 +48,8 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec.$,
-      gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec.$,
+      gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
+      gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
       [g]);
   }
 
@@ -57,8 +57,8 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec.$,
-      gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec.$,
+      gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
+      gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
       [impl]);
   }
 

@@ -67,7 +67,7 @@ network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$,
+      network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
       [report_type, property, source_location, reported_window_url]);
   }

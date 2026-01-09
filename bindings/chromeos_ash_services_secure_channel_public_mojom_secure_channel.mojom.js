@@ -125,7 +125,7 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$,
+      ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -134,8 +134,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$,
-      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$,
+      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec,
+      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
       [payload_id, payload_files, listener]);
   }
 
@@ -143,8 +143,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$,
-      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$,
+      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec,
+      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
       []);
   }
 
@@ -273,7 +273,7 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$,
+      ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
       null,
       [message]);
   }
@@ -348,7 +348,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$,
+      ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
       null,
       [reason]);
   }
@@ -357,7 +357,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$,
+      ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
       null,
       [channel, message_receiver_receiver, nearby_connection_state_listener_receiver]);
   }
@@ -448,7 +448,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
       null,
       [result, error_code]);
   }
@@ -457,7 +457,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
       null,
       [step, status]);
   }
@@ -466,7 +466,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
       null,
       [state]);
   }
@@ -571,7 +571,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
       null,
       [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate]);
   }
@@ -580,7 +580,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
       null,
       [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger]);
   }
@@ -589,7 +589,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
       null,
       [nearby_connector]);
   }
@@ -598,8 +598,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$,
-      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$,
+      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
+      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
       [remote_device_id]);
   }
 

@@ -48,8 +48,8 @@ wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec.$,
-      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec.$,
+      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec,
+      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec,
       []);
   }
 

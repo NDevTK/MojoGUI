@@ -48,7 +48,7 @@ chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$,
+      chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -123,7 +123,7 @@ chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$,
+      chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -198,7 +198,7 @@ chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$,
+      chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec,
       null,
       [client_id, client, pipe]);
   }

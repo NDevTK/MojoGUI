@@ -48,7 +48,7 @@ viz.mojom.GpuLoggingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec.$,
+      viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec,
       null,
       [severity, header, message]);
   }

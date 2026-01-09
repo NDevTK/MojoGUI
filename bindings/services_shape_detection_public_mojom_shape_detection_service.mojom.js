@@ -48,7 +48,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$,
+      shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$,
+      shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$,
+      shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
       [receiver]);
   }

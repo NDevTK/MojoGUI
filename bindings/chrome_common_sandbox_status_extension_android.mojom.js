@@ -48,7 +48,7 @@ chrome.mojom.SandboxStatusExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec.$,
+      chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec,
       null,
       []);
   }

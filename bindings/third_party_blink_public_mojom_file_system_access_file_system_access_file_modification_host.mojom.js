@@ -48,8 +48,8 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec.$,
-      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
+      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
       [capacity_delta]);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec.$,
+      blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
       []);
   }

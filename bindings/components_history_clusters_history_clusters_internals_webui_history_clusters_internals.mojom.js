@@ -48,7 +48,7 @@ history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, page_handler]);
   }
@@ -124,8 +124,8 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$,
-      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$,
+      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
+      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
       []);
   }
 
@@ -133,7 +133,7 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec.$,
+      history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
       []);
   }
@@ -233,7 +233,7 @@ history_clusters_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$,
+      history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
       [message]);
   }

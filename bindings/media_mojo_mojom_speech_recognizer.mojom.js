@@ -56,7 +56,7 @@ media.mojom.SpeechRecognizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.SpeechRecognizer_Start_ParamsSpec.$,
+      media.mojom.SpeechRecognizer_Start_ParamsSpec,
       null,
       [params]);
   }
@@ -131,8 +131,8 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$,
-      media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$,
+      media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec,
+      media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
       [languages]);
   }
 
@@ -140,8 +140,8 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec.$,
-      media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$,
+      media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec,
+      media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
       [languages]);
   }
 

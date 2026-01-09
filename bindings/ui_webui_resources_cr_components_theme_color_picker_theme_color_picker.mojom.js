@@ -48,7 +48,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
       null,
       [handler, client]);
   }
@@ -124,8 +124,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$,
-      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
+      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
       [is_dark_mode]);
   }
 
@@ -133,7 +133,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +142,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -151,7 +151,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -160,7 +160,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
       null,
       [seed_color, variant]);
   }
@@ -169,7 +169,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
       null,
       [hue]);
   }
@@ -178,7 +178,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
       null,
       []);
   }
@@ -347,7 +347,7 @@ theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$,
+      theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
       null,
       [theme]);
   }

@@ -56,7 +56,7 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$,
+      media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec,
       null,
       [encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode]);
   }
@@ -65,7 +65,7 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$,
+      media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec,
       null,
       [encoder_id, num_encoded_frames]);
   }
@@ -74,7 +74,7 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$,
+      media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec,
       null,
       [encoder_id, status]);
   }
@@ -83,7 +83,7 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$,
+      media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec,
       null,
       [encoder_id]);
   }

@@ -49,7 +49,7 @@ chromecast.media.mojom.VideoGeometryChangeClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$,
+      chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec,
       null,
       [rect_f, transform]);
   }
@@ -125,7 +125,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$,
+      chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec,
       null,
       [overlay_plane_id, client_pending_remote]);
   }
@@ -201,7 +201,7 @@ chromecast.media.mojom.VideoGeometrySetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$,
+      chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec,
       null,
       [rect_f, transform, overlay_plane_id]);
   }

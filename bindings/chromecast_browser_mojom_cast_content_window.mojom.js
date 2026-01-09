@@ -70,7 +70,7 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$,
+      chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
       [visibility_type]);
   }
@@ -79,7 +79,7 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$,
+      chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
       []);
   }
@@ -167,7 +167,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
       [z_order, priority]);
   }
@@ -176,7 +176,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -185,7 +185,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
       []);
   }
@@ -194,7 +194,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
       []);
   }
@@ -203,7 +203,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
       [priority]);
   }
@@ -212,7 +212,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$,
+      chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
       [enabled]);
   }

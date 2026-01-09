@@ -48,7 +48,7 @@ extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$,
+      extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
       null,
       [id]);
   }
@@ -133,7 +133,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$,
+      extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [source, id]);
   }
@@ -142,7 +142,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$,
+      extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
       []);
   }
@@ -245,7 +245,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$,
+      extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
       null,
       [actions]);
   }
@@ -254,7 +254,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$,
+      extensions_bar.mojom.Page_ActionRemoved_ParamsSpec,
       null,
       [id]);
   }
@@ -263,7 +263,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$,
+      extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
       null,
       []);
   }

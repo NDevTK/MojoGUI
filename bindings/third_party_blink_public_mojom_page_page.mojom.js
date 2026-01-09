@@ -55,7 +55,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$,
+      blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec,
       null,
       [state, page_restore_params]);
   }
@@ -64,7 +64,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$,
+      blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec,
       null,
       [is_audio_playing]);
   }
@@ -73,7 +73,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$,
+      blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec,
       null,
       [prerender_page_activation_params]);
   }
@@ -82,7 +82,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$,
+      blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec,
       null,
       [preferences]);
   }
@@ -91,7 +91,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$,
+      blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec,
       null,
       [preferences]);
   }
@@ -100,7 +100,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$,
+      blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec,
       null,
       [index, length]);
   }
@@ -109,7 +109,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$,
+      blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec,
       null,
       [color]);
   }
@@ -118,7 +118,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$,
+      blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec,
       null,
       [token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces]);
   }
@@ -127,7 +127,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$,
+      blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec,
       null,
       [browsing_context_group_token]);
   }
@@ -136,7 +136,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$,
+      blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec,
       null,
       [support]);
   }
@@ -145,7 +145,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$,
+      blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec,
       null,
       [color_provider_colors]);
   }
@@ -154,7 +154,7 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$,
+      blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec,
       null,
       [supports_draggable_regions]);
   }

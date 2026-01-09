@@ -69,7 +69,7 @@ ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec.$,
+      ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
       []);
   }
@@ -143,8 +143,8 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.SearchHandler_Search_ParamsSpec.$,
-      ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec.$,
+      ash.settings.mojom.SearchHandler_Search_ParamsSpec,
+      ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results, parent_result_behavior]);
   }
 
@@ -152,7 +152,7 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.SearchHandler_Observe_ParamsSpec.$,
+      ash.settings.mojom.SearchHandler_Observe_ParamsSpec,
       null,
       [observer]);
   }

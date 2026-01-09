@@ -48,7 +48,7 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$,
+      updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec,
       null,
       [http_status_code, content_length]);
   }
@@ -57,7 +57,7 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$,
+      updater.mojom.PostRequestObserver_OnProgress_ParamsSpec,
       null,
       [current]);
   }
@@ -66,7 +66,7 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$,
+      updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec,
       null,
       [response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec]);
   }
@@ -175,7 +175,7 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$,
+      updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec,
       null,
       [http_status_code, content_length]);
   }
@@ -184,7 +184,7 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$,
+      updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec,
       null,
       [current]);
   }
@@ -193,7 +193,7 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$,
+      updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec,
       null,
       [net_error, content_size]);
   }
@@ -298,8 +298,8 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater.mojom.FetchService_PostRequest_ParamsSpec.$,
-      updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$,
+      updater.mojom.FetchService_PostRequest_ParamsSpec,
+      updater.mojom.FetchService_PostRequest_ResponseParamsSpec,
       [url, post_data, content_type, additional_headers]);
   }
 
@@ -307,8 +307,8 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      updater.mojom.FetchService_DownloadToFile_ParamsSpec.$,
-      updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$,
+      updater.mojom.FetchService_DownloadToFile_ParamsSpec,
+      updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec,
       [url, output_file]);
   }
 

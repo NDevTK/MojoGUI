@@ -48,7 +48,7 @@ blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$,
+      blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
       []);
   }
@@ -122,8 +122,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$,
-      blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$,
+      blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
       []);
   }
 
@@ -131,8 +131,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$,
-      blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$,
+      blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
       []);
   }
 
@@ -140,8 +140,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$,
-      blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$,
+      blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
       []);
   }
 
@@ -149,8 +149,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$,
-      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$,
+      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
       []);
   }
 
@@ -158,8 +158,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$,
-      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$,
+      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
+      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
       []);
   }
 
@@ -349,8 +349,8 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$,
-      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$,
+      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
+      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
       [keys]);
   }
 
@@ -358,7 +358,7 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$,
+      blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
       [observer]);
   }

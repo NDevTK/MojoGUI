@@ -49,8 +49,8 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$,
-      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$,
+      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
+      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
       []);
   }
 
@@ -58,7 +58,7 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$,
+      ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$,
+      ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
       [user_description]);
   }

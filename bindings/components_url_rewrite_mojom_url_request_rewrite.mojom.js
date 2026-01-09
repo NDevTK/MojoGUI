@@ -54,7 +54,7 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$,
+      url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
       [rules]);
   }

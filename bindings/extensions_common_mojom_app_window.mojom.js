@@ -48,7 +48,7 @@ extensions.mojom.AppWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec.$,
+      extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
       [deemphasized]);
   }

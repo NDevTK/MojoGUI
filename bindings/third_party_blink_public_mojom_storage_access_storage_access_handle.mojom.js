@@ -48,7 +48,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,8 +75,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$,
-      blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$,
+      blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec,
+      blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$,
-      blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$,
+      blink.mojom.StorageAccessHandle_Estimate_ParamsSpec,
+      blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec,
       []);
   }
 
@@ -93,7 +93,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,7 +102,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec,
       null,
       [receiver]);
   }
@@ -111,7 +111,7 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$,
+      blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec,
       null,
       [receiver]);
   }

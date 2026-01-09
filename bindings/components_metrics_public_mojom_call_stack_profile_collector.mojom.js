@@ -54,7 +54,7 @@ metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec.$,
+      metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
       [start_timestamp, profile_type, profile]);
   }

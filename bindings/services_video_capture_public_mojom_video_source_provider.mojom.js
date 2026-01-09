@@ -54,8 +54,8 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$,
-      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
+      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
       []);
   }
 
@@ -63,7 +63,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
       null,
       [source_id, stream]);
   }
@@ -72,7 +72,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
       null,
       [device_info, producer, virtual_device_receiver]);
   }
@@ -81,7 +81,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
       null,
       [device_info, virtual_device_receiver]);
   }
@@ -90,7 +90,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
       null,
       [observer, raise_event_if_virtual_devices_already_present]);
   }
@@ -99,7 +99,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -108,7 +108,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$,
+      video_capture.mojom.VideoSourceProvider_Close_ParamsSpec,
       null,
       []);
   }

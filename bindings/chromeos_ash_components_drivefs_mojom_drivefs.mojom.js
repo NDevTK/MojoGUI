@@ -268,7 +268,7 @@ drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$,
+      drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
       [config, drive_fs, delegate]);
   }
@@ -345,8 +345,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
       [path]);
   }
 
@@ -354,8 +354,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.DriveFs_SetPinned_ParamsSpec.$,
-      drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
+      drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
       [path, pinned]);
   }
 
@@ -363,7 +363,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec.$,
+      drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
       [pause_syncing, is_offline]);
   }
@@ -372,8 +372,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.DriveFs_ResetCache_ParamsSpec.$,
-      drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
+      drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
       []);
   }
 
@@ -381,8 +381,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
+      drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
       [path, crop_to_square]);
   }
 
@@ -390,8 +390,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      drivefs.mojom.DriveFs_CopyFile_ParamsSpec.$,
-      drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
+      drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
       [source, target]);
   }
 
@@ -399,7 +399,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec.$,
+      drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
       [query, query_params]);
   }
@@ -408,7 +408,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec.$,
+      drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
       []);
   }
@@ -417,7 +417,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec.$,
+      drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
       [options]);
   }
@@ -426,8 +426,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec.$,
-      drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
+      drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
       [request]);
   }
 
@@ -435,8 +435,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec.$,
-      drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
+      drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
       [arguments]);
   }
 
@@ -444,8 +444,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
+      drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
       []);
   }
 
@@ -453,7 +453,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec.$,
+      drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -462,7 +462,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec.$,
+      drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -471,7 +471,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec.$,
+      drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
       [enable]);
   }
@@ -480,7 +480,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec.$,
+      drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
       []);
   }
@@ -489,7 +489,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec.$,
+      drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
       []);
   }
@@ -498,7 +498,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec.$,
+      drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
       [params, host, port]);
   }
@@ -507,8 +507,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec.$,
-      drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
+      drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
       [item_ids]);
   }
 
@@ -516,8 +516,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
       []);
   }
 
@@ -525,8 +525,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec.$,
-      drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
+      drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -534,8 +534,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec.$,
-      drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
+      drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
       [path, status]);
   }
 
@@ -543,8 +543,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
+      drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
       []);
   }
 
@@ -552,7 +552,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec.$,
+      drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
       []);
   }
@@ -561,8 +561,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
       []);
   }
 
@@ -570,8 +570,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec.$,
-      drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
+      drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
       [stable_id, pinned]);
   }
 
@@ -579,8 +579,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
       [stable_id]);
   }
 
@@ -588,7 +588,7 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec.$,
+      drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
       [path, cancel_mode]);
   }
@@ -597,8 +597,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec.$,
-      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
+      drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -606,8 +606,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
+      drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
       []);
   }
 
@@ -615,8 +615,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec.$,
-      drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
+      drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
       []);
   }
 
@@ -624,8 +624,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec.$,
-      drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
+      drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
       [path]);
   }
 
@@ -633,8 +633,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec.$,
-      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
+      drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
       [path]);
   }
 
@@ -642,8 +642,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
+      drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
       [path]);
   }
 
@@ -651,8 +651,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
+      drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
       []);
   }
 
@@ -660,8 +660,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -669,8 +669,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec.$,
-      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
+      drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
       [path]);
   }
 
@@ -1580,8 +1580,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$,
-      drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
       [client_id, app_id, scopes]);
   }
 
@@ -1589,7 +1589,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
       []);
   }
@@ -1598,7 +1598,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
       [retry_delay]);
   }
@@ -1607,7 +1607,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
       [retry_delay]);
   }
@@ -1616,7 +1616,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
       [status]);
   }
@@ -1625,7 +1625,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
       [changes]);
   }
@@ -1634,7 +1634,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -1643,7 +1643,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
       [team_drive_ids]);
   }
@@ -1652,7 +1652,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
       [team_drive_id, change_type]);
   }
@@ -1661,7 +1661,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
       []);
   }
@@ -1670,8 +1670,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec.$,
-      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
       [params, port, host]);
   }
 
@@ -1679,8 +1679,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec.$,
-      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
       [reason]);
   }
 
@@ -1688,7 +1688,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
       [request, delegate]);
   }
@@ -1697,8 +1697,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec.$,
-      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
       []);
   }
 
@@ -1706,7 +1706,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
       [doc_id]);
   }
@@ -1715,7 +1715,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
       [status]);
   }
@@ -1724,7 +1724,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
       [progress_event]);
   }
@@ -1733,8 +1733,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec.$,
-      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
+      drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
       [client_id, app_id, scopes]);
   }
 
@@ -1742,7 +1742,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
       [notification]);
   }
@@ -1751,7 +1751,7 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec.$,
+      drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
       [error_list]);
   }
@@ -2164,8 +2164,8 @@ drivefs.mojom.SearchQueryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec.$,
-      drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec.$,
+      drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
+      drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
       []);
   }
 
@@ -2252,7 +2252,7 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$,
+      drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
       [request_body]);
   }
@@ -2261,7 +2261,7 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec.$,
+      drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
       [response]);
   }
@@ -2270,7 +2270,7 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec.$,
+      drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
       [response_body]);
   }
@@ -2279,7 +2279,7 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec.$,
+      drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
       [status]);
   }

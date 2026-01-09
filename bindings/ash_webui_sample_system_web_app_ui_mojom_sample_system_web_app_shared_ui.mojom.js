@@ -49,7 +49,7 @@ ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$,
+      ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec,
       null,
       [task]);
   }
@@ -124,8 +124,8 @@ ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$,
-      ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$,
+      ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec,
+      ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
       [task]);
   }
 

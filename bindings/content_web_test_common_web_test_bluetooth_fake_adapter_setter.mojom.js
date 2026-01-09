@@ -48,7 +48,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$,
+      content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
       null,
       [adapter_name]);
   }

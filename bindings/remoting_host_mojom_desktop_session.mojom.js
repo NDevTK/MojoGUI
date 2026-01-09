@@ -155,7 +155,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$,
+      remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec,
       null,
       [desktop_pipe]);
   }
@@ -164,7 +164,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$,
+      remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec,
       null,
       []);
   }
@@ -173,7 +173,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$,
+      remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec,
       null,
       []);
   }
@@ -274,7 +274,7 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$,
+      remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec,
       null,
       [terminal_id, screen_resolution, is_virtual_terminal]);
   }
@@ -283,7 +283,7 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$,
+      remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec,
       null,
       [terminal_id]);
   }
@@ -292,7 +292,7 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$,
+      remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec,
       null,
       [terminal_id, screen_resolution]);
   }
@@ -398,8 +398,8 @@ remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$,
-      remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec.$,
+      remoting.mojom.DesktopSessionAgent_Start_ParamsSpec,
+      remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
       [authenticated_jid, resolution, options]);
   }
 
@@ -488,8 +488,8 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$,
-      remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec.$,
+      remoting.mojom.FileWriter_WriteChunk_ParamsSpec,
+      remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
       [data]);
   }
 
@@ -497,8 +497,8 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.FileWriter_CloseFile_ParamsSpec.$,
-      remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec.$,
+      remoting.mojom.FileWriter_CloseFile_ParamsSpec,
+      remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec,
       []);
   }
 
@@ -611,8 +611,8 @@ remoting.mojom.FileReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.FileReader_ReadChunk_ParamsSpec.$,
-      remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec.$,
+      remoting.mojom.FileReader_ReadChunk_ParamsSpec,
+      remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec,
       [bytes_to_read]);
   }
 
@@ -699,8 +699,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$,
-      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec,
+      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
       [desktop_display_id]);
   }
 
@@ -708,7 +708,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec,
       null,
       [new_resolution]);
   }
@@ -717,7 +717,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec,
       null,
       []);
   }
@@ -726,7 +726,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec,
       null,
       []);
   }
@@ -735,7 +735,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -744,7 +744,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -753,7 +753,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -762,7 +762,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -771,7 +771,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -780,7 +780,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec,
       null,
       []);
   }
@@ -789,7 +789,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec,
       null,
       []);
   }
@@ -798,8 +798,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$,
-      remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec,
+      remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
       []);
   }
 
@@ -807,8 +807,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$,
-      remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec,
+      remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
       [file_path]);
   }
 
@@ -816,7 +816,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec,
       null,
       []);
   }
@@ -1106,7 +1106,7 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$,
+      remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec,
       null,
       []);
   }
@@ -1115,7 +1115,7 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$,
+      remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1203,7 +1203,7 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$,
+      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec,
       null,
       [id, region, size]);
   }
@@ -1212,7 +1212,7 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$,
+      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec,
       null,
       [id]);
   }
@@ -1221,7 +1221,7 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$,
+      remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec,
       null,
       [result]);
   }
@@ -1326,7 +1326,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1335,7 +1335,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -1344,7 +1344,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec,
       null,
       [audio_packet]);
   }
@@ -1353,7 +1353,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec,
       null,
       [layout]);
   }
@@ -1362,7 +1362,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec,
       null,
       [mouse_cursor]);
   }
@@ -1371,7 +1371,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec,
       null,
       [position]);
   }
@@ -1380,7 +1380,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec,
       null,
       [keyboard_layout]);
   }
@@ -1389,7 +1389,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec,
       null,
       [new_position]);
   }
@@ -1398,7 +1398,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$,
+      remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec,
       null,
       [usb_keycode]);
   }
@@ -1585,7 +1585,7 @@ remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$,
+      remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec,
       null,
       [error_code, error_details, error_location]);
   }
@@ -1662,7 +1662,7 @@ remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$,
+      remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec,
       null,
       [function_name, file_name, line_number]);
   }

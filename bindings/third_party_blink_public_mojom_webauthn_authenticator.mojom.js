@@ -155,8 +155,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Authenticator_MakeCredential_ParamsSpec.$,
-      blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_MakeCredential_ParamsSpec,
+      blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
       [options]);
   }
 
@@ -164,8 +164,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Authenticator_GetCredential_ParamsSpec.$,
-      blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_GetCredential_ParamsSpec,
+      blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
       [options]);
   }
 
@@ -173,8 +173,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$,
-      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -182,8 +182,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$,
-      blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -191,8 +191,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.Authenticator_Report_ParamsSpec.$,
-      blink.mojom.Authenticator_Report_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_Report_ParamsSpec,
+      blink.mojom.Authenticator_Report_ResponseParamsSpec,
       [options]);
   }
 
@@ -200,8 +200,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$,
-      blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$,
+      blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
+      blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
       []);
   }
 
@@ -209,7 +209,7 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.Authenticator_Cancel_ParamsSpec.$,
+      blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
       []);
   }

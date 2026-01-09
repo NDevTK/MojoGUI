@@ -49,7 +49,7 @@ ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }

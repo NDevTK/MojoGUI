@@ -48,7 +48,7 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$,
+      blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec,
       null,
       [size]);
   }
@@ -57,7 +57,7 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$,
+      blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PictureInPictureSession_Update_ParamsSpec.$,
+      blink.mojom.PictureInPictureSession_Update_ParamsSpec,
       null,
       [player_id, player_remote, surface_id, natural_size, show_play_pause_button]);
   }
@@ -154,7 +154,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$,
+      blink.mojom.PictureInPictureSession_Stop_ParamsSpec,
       null,
       []);
   }
@@ -163,7 +163,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$,
+      blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec,
       null,
       [media_position]);
   }
@@ -269,8 +269,8 @@ blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$,
-      blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec.$,
+      blink.mojom.PictureInPictureService_StartSession_ParamsSpec,
+      blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec,
       [player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds]);
   }
 

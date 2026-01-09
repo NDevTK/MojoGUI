@@ -48,7 +48,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobURLStore_Register_ParamsSpec.$,
+      blink.mojom.BlobURLStore_Register_ParamsSpec,
       null,
       [blob, url]);
   }
@@ -57,7 +57,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobURLStore_Revoke_ParamsSpec.$,
+      blink.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
       [url]);
   }
@@ -66,7 +66,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$,
+      blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
       [url, factory]);
   }
@@ -75,7 +75,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$,
+      blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
       [url, token, is_top_level_navigation]);
   }
@@ -196,7 +196,7 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobURLToken_Clone_ParamsSpec.$,
+      blink.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
       [token]);
   }
@@ -205,8 +205,8 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobURLToken_GetToken_ParamsSpec.$,
-      blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$,
+      blink.mojom.BlobURLToken_GetToken_ParamsSpec,
+      blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
       []);
   }
 

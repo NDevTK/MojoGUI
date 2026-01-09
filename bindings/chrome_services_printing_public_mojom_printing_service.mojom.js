@@ -48,7 +48,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$,
+      printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$,
+      printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$,
+      printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +75,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$,
+      printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
       null,
       [receiver]);
   }

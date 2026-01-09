@@ -48,7 +48,7 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,8 +124,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$,
-      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
+      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
       [url, title]);
   }
 
@@ -133,7 +133,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -142,7 +142,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
       [tile, new_pos]);
   }
@@ -151,7 +151,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
       [source]);
   }
@@ -160,7 +160,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
       []);
   }
@@ -169,7 +169,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
       [source]);
   }
@@ -178,7 +178,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
       []);
   }
@@ -187,8 +187,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$,
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
+      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
       [tile, new_url, new_title]);
   }
 
@@ -196,7 +196,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -205,7 +205,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -214,7 +214,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -223,7 +223,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
       []);
   }
@@ -232,8 +232,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$,
-      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
+      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
       []);
   }
 
@@ -241,7 +241,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
       [is_expanded]);
   }
@@ -250,7 +250,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
       [tiles, time]);
   }
@@ -259,7 +259,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
       [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
@@ -590,7 +590,7 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
       [info]);
   }
@@ -599,7 +599,7 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$,
+      most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
       []);
   }

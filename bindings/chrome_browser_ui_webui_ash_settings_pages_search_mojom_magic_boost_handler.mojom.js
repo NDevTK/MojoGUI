@@ -50,7 +50,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -125,7 +125,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec.$,
+      ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec,
       null,
       []);
   }

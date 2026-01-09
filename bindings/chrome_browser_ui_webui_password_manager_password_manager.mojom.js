@@ -48,7 +48,7 @@ password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$,
+      password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec,
       null,
       []);
   }
@@ -133,8 +133,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$,
-      password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec,
+      password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
       []);
   }
 
@@ -142,8 +142,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$,
-      password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec,
+      password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
       [id]);
   }
 
@@ -151,7 +151,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$,
+      password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec,
       null,
       [id]);
   }
@@ -160,8 +160,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$,
-      password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec,
+      password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
       []);
   }
 
@@ -169,7 +169,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$,
+      password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec,
       null,
       [site]);
   }
@@ -178,8 +178,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$,
-      password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec,
+      password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
       []);
   }
 
@@ -187,7 +187,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$,
+      password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec,
       null,
       []);
   }
@@ -196,8 +196,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$,
-      password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec,
+      password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -205,7 +205,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$,
+      password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -214,8 +214,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$,
-      password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec,
+      password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
       []);
   }
 
@@ -223,8 +223,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$,
-      password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec,
+      password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -232,8 +232,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$,
-      password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$,
+      password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec,
+      password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
       []);
   }
 

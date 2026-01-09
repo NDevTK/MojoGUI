@@ -48,7 +48,7 @@ content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$,
+      content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec,
       null,
       [frame_token]);
   }
@@ -123,7 +123,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$,
+      content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec,
       null,
       [remote_host, route_provider_receiver]);
   }
@@ -132,7 +132,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$,
+      content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec,
       null,
       [params]);
   }
@@ -141,7 +141,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$,
+      content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec,
       null,
       [params]);
   }
@@ -150,7 +150,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$,
+      content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec,
       null,
       [receiver, global_scope_creation_params]);
   }

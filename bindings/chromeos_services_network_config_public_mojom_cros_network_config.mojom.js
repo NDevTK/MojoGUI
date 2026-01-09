@@ -215,7 +215,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -224,8 +224,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec,
       [guid]);
   }
 
@@ -233,8 +233,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec,
       [filter]);
   }
 
@@ -242,8 +242,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec,
       []);
   }
 
@@ -251,8 +251,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec,
       [guid]);
   }
 
@@ -260,8 +260,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec,
       [guid, properties]);
   }
 
@@ -269,8 +269,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec,
       [properties, shared]);
   }
 
@@ -278,8 +278,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec,
       [guid]);
   }
 
@@ -287,8 +287,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec,
       [type, enabled]);
   }
 
@@ -296,8 +296,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec,
       [state]);
   }
 
@@ -305,8 +305,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec,
       [guid, network_id]);
   }
 
@@ -314,7 +314,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec,
       null,
       [type]);
   }
@@ -323,8 +323,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec,
       []);
   }
 
@@ -332,8 +332,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec,
       [guid]);
   }
 
@@ -341,8 +341,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec,
       [guid]);
   }
 
@@ -350,7 +350,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec,
       null,
       [providers]);
   }
@@ -359,8 +359,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec,
       []);
   }
 
@@ -368,8 +368,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec,
       []);
   }
 
@@ -377,8 +377,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec,
       []);
   }
 
@@ -386,7 +386,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec,
       null,
       [properties]);
   }
@@ -395,8 +395,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec,
       []);
   }
 
@@ -404,8 +404,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec,
       [guid]);
   }
 
@@ -413,7 +413,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec,
       null,
       [guid]);
   }
@@ -422,8 +422,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec,
       [guid, day]);
   }
 
@@ -431,8 +431,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec,
       [network_guid, apn]);
   }
 
@@ -440,8 +440,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec.$,
-      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec,
       [network_guid, apn]);
   }
 
@@ -449,7 +449,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec,
       null,
       [network_guid, apn_id]);
   }
@@ -458,7 +458,7 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec,
       null,
       [network_guid, apn]);
   }
@@ -1191,7 +1191,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec,
       null,
       [networks]);
   }
@@ -1200,7 +1200,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec,
       null,
       [network]);
   }
@@ -1209,7 +1209,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec,
       null,
       []);
   }
@@ -1218,7 +1218,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec,
       null,
       []);
   }
@@ -1227,7 +1227,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec,
       null,
       []);
   }
@@ -1236,7 +1236,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec,
       null,
       []);
   }
@@ -1245,7 +1245,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec,
       null,
       [userhash]);
   }

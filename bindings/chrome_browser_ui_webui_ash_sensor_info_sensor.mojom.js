@@ -58,7 +58,7 @@ sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -133,7 +133,7 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$,
+      sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +142,7 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$,
+      sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
       null,
       []);
   }

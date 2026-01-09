@@ -49,8 +49,8 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec.$,
-      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec.$,
+      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
+      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
       [in]);
   }
 

@@ -48,8 +48,8 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec.$,
-      pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$,
+      pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
+      pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
       [params, pdf_region]);
   }
 
@@ -57,7 +57,7 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }

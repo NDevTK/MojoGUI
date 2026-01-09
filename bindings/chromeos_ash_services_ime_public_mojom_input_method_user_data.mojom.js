@@ -49,8 +49,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
       []);
   }
 
@@ -58,8 +58,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry]);
   }
 
@@ -67,8 +67,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry_index, entry]);
   }
 
@@ -76,8 +76,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
       [dict_id, entry_index]);
   }
 
@@ -85,8 +85,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
       [dictionary_name]);
   }
 
@@ -94,8 +94,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
       [dict_id, dictionary_name]);
   }
 
@@ -103,8 +103,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
       [dict_id]);
   }
 
@@ -112,8 +112,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
       [dict_id]);
   }
 
@@ -121,8 +121,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
       [dict_id, tsv_data]);
   }
 
@@ -130,8 +130,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$,
-      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$,
+      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
+      ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
       [clear_conversion_history, clear_suggestion_history]);
   }
 

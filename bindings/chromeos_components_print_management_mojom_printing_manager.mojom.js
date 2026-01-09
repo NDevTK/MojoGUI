@@ -86,7 +86,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec,
       null,
       []);
   }
@@ -95,7 +95,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec,
       null,
       [print_job]);
   }
@@ -183,7 +183,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec,
       null,
       [observer]);
   }
@@ -192,8 +192,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec.$,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec,
       []);
   }
 
@@ -201,8 +201,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec.$,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec,
       []);
   }
 
@@ -210,8 +210,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec,
       [id]);
   }
 
@@ -219,8 +219,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec.$,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec,
       []);
   }
 
@@ -228,8 +228,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec.$,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec,
+      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec,
       []);
   }
 
@@ -435,7 +435,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec,
       null,
       [source]);
   }
@@ -444,7 +444,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$,
+      chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec,
       null,
       [duration]);
   }

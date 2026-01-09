@@ -48,7 +48,7 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec.$,
+      pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
       [image, page_index]);
   }
@@ -57,7 +57,7 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec.$,
+      pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
       [page_index]);
   }
@@ -66,8 +66,8 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec.$,
-      pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$,
+      pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
+      pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
       []);
   }
 

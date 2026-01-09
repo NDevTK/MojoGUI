@@ -55,8 +55,8 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.LockScreenService_GetKeys_ParamsSpec.$,
-      blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec.$,
+      blink.mojom.LockScreenService_GetKeys_ParamsSpec,
+      blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec,
       []);
   }
 
@@ -64,8 +64,8 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.LockScreenService_SetData_ParamsSpec.$,
-      blink.mojom.LockScreenService_SetData_ResponseParamsSpec.$,
+      blink.mojom.LockScreenService_SetData_ParamsSpec,
+      blink.mojom.LockScreenService_SetData_ResponseParamsSpec,
       [key, data]);
   }
 

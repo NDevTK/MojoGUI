@@ -48,7 +48,7 @@ blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec.$,
+      blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
       [downloaded_bytes, total_bytes]);
   }

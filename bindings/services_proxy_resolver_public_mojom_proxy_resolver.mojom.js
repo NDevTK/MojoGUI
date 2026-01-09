@@ -71,7 +71,7 @@ proxy_resolver.mojom.HostResolverRequestClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$,
+      proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec,
       null,
       [error, result]);
   }
@@ -147,7 +147,7 @@ proxy_resolver.mojom.ProxyResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec,
       null,
       [url, network_anonymization_key, client]);
   }
@@ -224,7 +224,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec,
       null,
       [error, proxy_info]);
   }
@@ -233,7 +233,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec,
       null,
       [error]);
   }
@@ -242,7 +242,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec,
       null,
       [line_number, error]);
   }
@@ -251,7 +251,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec,
       null,
       [host, operation, network_anonymization_key, client]);
   }
@@ -373,7 +373,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec,
       null,
       [pac_script, receiver, client]);
   }
@@ -450,7 +450,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec,
       null,
       [error]);
   }
@@ -459,7 +459,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec,
       null,
       [error]);
   }
@@ -468,7 +468,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec,
       null,
       [line_number, error]);
   }
@@ -477,7 +477,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$,
+      proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec,
       null,
       [host, operation, network_anonymization_key, client]);
   }
@@ -598,8 +598,8 @@ proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$,
-      proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$,
+      proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec,
+      proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
       [url]);
   }
 

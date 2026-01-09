@@ -48,8 +48,8 @@ content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec.$,
-      content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec.$,
+      content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec,
+      content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
       [in]);
   }
 

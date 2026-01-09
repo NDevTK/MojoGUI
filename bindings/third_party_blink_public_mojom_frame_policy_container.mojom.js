@@ -48,7 +48,7 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$,
+      blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
       [referrer_policy]);
   }
@@ -57,7 +57,7 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$,
+      blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
       [content_security_policies]);
   }

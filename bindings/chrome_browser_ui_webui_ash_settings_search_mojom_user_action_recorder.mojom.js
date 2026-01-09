@@ -49,7 +49,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +76,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec,
       null,
       []);
   }
@@ -85,7 +85,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec,
       null,
       []);
   }
@@ -94,7 +94,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec,
       null,
       []);
   }
@@ -103,7 +103,7 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$,
+      ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec,
       null,
       [setting, value]);
   }

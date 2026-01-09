@@ -49,7 +49,7 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$,
+      ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec,
       null,
       [keyboards]);
   }
@@ -58,7 +58,7 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$,
+      ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec,
       null,
       [policies]);
   }
@@ -147,7 +147,7 @@ ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$,
+      ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec,
       null,
       [touchpads]);
   }
@@ -222,7 +222,7 @@ ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$,
+      ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec,
       null,
       [pointSticks]);
   }
@@ -297,7 +297,7 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$,
+      ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec,
       null,
       [mice]);
   }
@@ -306,7 +306,7 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$,
+      ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec,
       null,
       [policies]);
   }
@@ -395,7 +395,7 @@ ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$,
+      ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec,
       null,
       [button]);
   }
@@ -470,7 +470,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$,
+      ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec,
       null,
       [graphics_tablets]);
   }
@@ -545,7 +545,7 @@ ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$,
+      ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec,
       null,
       [brightness_percent]);
   }
@@ -620,7 +620,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$,
+      ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
       [keyboard_ambient_light_sensor_enabled]);
   }
@@ -695,7 +695,7 @@ ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$,
+      ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
       [is_lid_open]);
   }
@@ -770,7 +770,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec,
       null,
       [observer]);
   }
@@ -779,7 +779,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec,
       null,
       [observer]);
   }
@@ -788,7 +788,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec,
       null,
       [observer]);
   }
@@ -797,7 +797,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec,
       null,
       [observer]);
   }
@@ -806,7 +806,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec,
       null,
       [observer]);
   }
@@ -815,7 +815,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec,
       null,
       [observer]);
   }
@@ -824,7 +824,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec,
       null,
       [observer]);
   }
@@ -833,7 +833,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec,
       null,
       [observer]);
   }
@@ -842,8 +842,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec,
       [observer]);
   }
 
@@ -851,7 +851,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec,
       null,
       [device_id]);
   }
@@ -860,7 +860,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec,
       null,
       [device_id, settings]);
   }
@@ -869,7 +869,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec,
       null,
       [device_id, settings]);
   }
@@ -878,7 +878,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec,
       null,
       [device_id, settings]);
   }
@@ -887,7 +887,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec,
       null,
       [device_id, settings]);
   }
@@ -896,7 +896,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec,
       null,
       [device_id, settings]);
   }
@@ -905,7 +905,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec,
       null,
       [percent]);
   }
@@ -914,7 +914,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -923,7 +923,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec,
       null,
       [device_id]);
   }
@@ -932,7 +932,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec,
       null,
       []);
   }
@@ -941,8 +941,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec,
       []);
   }
 
@@ -950,8 +950,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec,
       []);
   }
 
@@ -959,8 +959,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
       []);
   }
 
@@ -968,8 +968,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec,
       []);
   }
 
@@ -977,8 +977,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
       []);
   }
 
@@ -986,8 +986,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec,
       []);
   }
 
@@ -995,7 +995,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec,
       null,
       []);
   }
@@ -1004,7 +1004,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec,
       null,
       [percent]);
   }
@@ -1013,8 +1013,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec,
+      ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec,
       [device_key]);
   }
 
@@ -1022,7 +1022,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$,
+      ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec,
       null,
       [package_id]);
   }

@@ -49,7 +49,7 @@ chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$,
+      chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
       null,
       [receiver, stream_factory]);
   }
@@ -58,8 +58,8 @@ chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$,
-      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$,
+      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
+      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
       [receiver, stream_factory, desired_audio_parameters]);
   }
 
@@ -163,8 +163,8 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$,
-      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
       [voice_name, voice_bytes]);
   }
 
@@ -172,8 +172,8 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$,
-      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
       [voice_name]);
   }
 
@@ -181,8 +181,8 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$,
-      chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec,
+      chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
       [text_jspb, speaker_params_jspb]);
   }
 
@@ -190,7 +190,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec,
       null,
       []);
   }
@@ -199,7 +199,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -208,7 +208,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -217,7 +217,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$,
+      chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec,
       null,
       []);
   }
@@ -414,8 +414,8 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$,
-      chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec,
+      chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
       []);
   }
 
@@ -423,7 +423,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
       null,
       [frames_buffer, char_index, last_buffer]);
   }
@@ -432,7 +432,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec,
       null,
       []);
   }
@@ -441,7 +441,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
@@ -450,7 +450,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -459,7 +459,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$,
+      chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec,
       null,
       []);
   }
@@ -615,7 +615,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$,
+      chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec,
       null,
       []);
   }
@@ -624,7 +624,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$,
+      chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
       null,
       [char_index]);
   }
@@ -633,7 +633,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$,
+      chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec,
       null,
       []);
   }
@@ -642,7 +642,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$,
+      chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec,
       null,
       []);
   }

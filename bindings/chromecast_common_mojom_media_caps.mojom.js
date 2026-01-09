@@ -49,7 +49,7 @@ chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$,
+      chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -124,7 +124,7 @@ chromecast.media.mojom.MediaCapsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$,
+      chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec,
       null,
       [codec_profile_level]);
   }

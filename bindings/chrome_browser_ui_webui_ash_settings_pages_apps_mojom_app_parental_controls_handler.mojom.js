@@ -57,8 +57,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$,
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec,
       null,
       [app_id, is_blocked]);
   }
@@ -75,7 +75,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -84,7 +84,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec,
       null,
       []);
   }
@@ -93,8 +93,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$,
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec,
       [pin]);
   }
 
@@ -102,8 +102,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$,
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec,
       [pin]);
   }
 
@@ -111,8 +111,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$,
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec,
       [pin]);
   }
 
@@ -120,8 +120,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$,
-      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec,
       []);
   }
 
@@ -356,7 +356,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec,
       null,
       [app]);
   }
@@ -365,7 +365,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$,
+      ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec,
       null,
       [app]);
   }

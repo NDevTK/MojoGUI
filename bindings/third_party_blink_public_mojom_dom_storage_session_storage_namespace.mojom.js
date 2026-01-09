@@ -48,7 +48,7 @@ blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SessionStorageNamespace_Clone_ParamsSpec.$,
+      blink.mojom.SessionStorageNamespace_Clone_ParamsSpec,
       null,
       [clone_to_namespace]);
   }

@@ -78,7 +78,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$,
+      blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
       null,
       [candidates, enable_cross_origin_prerender_iframes]);
   }
@@ -87,7 +87,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$,
+      blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
       null,
       []);
   }
@@ -96,7 +96,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$,
+      blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
       null,
       [url]);
   }

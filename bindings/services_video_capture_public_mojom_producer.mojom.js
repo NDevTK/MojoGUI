@@ -48,7 +48,7 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$,
+      video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
       null,
       [buffer_id, buffer_handle]);
   }
@@ -57,7 +57,7 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$,
+      video_capture.mojom.Producer_OnBufferRetired_ParamsSpec,
       null,
       [buffer_id]);
   }

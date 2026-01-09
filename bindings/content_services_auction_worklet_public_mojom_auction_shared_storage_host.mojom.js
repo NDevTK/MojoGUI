@@ -56,7 +56,7 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$,
+      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
       null,
       [method_with_options, source_auction_worklet_function]);
   }
@@ -65,7 +65,7 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$,
+      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
       null,
       [methods_with_options, with_lock, source_auction_worklet_function]);
   }

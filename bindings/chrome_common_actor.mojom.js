@@ -171,7 +171,7 @@ actor.mojom.JournalClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$,
+      actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
       [entries]);
   }
@@ -246,7 +246,7 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$,
+      actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       null,
       [observation_delay]);
   }

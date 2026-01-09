@@ -60,8 +60,8 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$,
-      chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$,
+      chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec,
+      chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
       [untrusted_request_url]);
   }
 
@@ -148,7 +148,7 @@ chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$,
+      chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec,
       null,
       []);
   }
@@ -222,7 +222,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$,
+      chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec,
       null,
       [is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler]);
   }
@@ -231,7 +231,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$,
+      chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec,
       null,
       [params]);
   }
@@ -240,7 +240,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$,
+      chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec,
       null,
       [params]);
   }

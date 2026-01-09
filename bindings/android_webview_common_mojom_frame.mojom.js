@@ -60,7 +60,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$,
+      android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec,
       null,
       [page_scale_factor]);
   }
@@ -69,7 +69,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$,
+      android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec,
       null,
       [zoom_factor]);
   }
@@ -78,8 +78,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$,
-      android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$,
+      android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec,
+      android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
       []);
   }
 
@@ -87,7 +87,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$,
+      android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec,
       null,
       []);
   }
@@ -96,7 +96,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$,
+      android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec,
       null,
       [target_x, target_y, duration]);
   }
@@ -240,7 +240,7 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$,
+      android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec,
       null,
       [data]);
   }
@@ -249,7 +249,7 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$,
+      android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec,
       null,
       [contents_size]);
   }
@@ -258,8 +258,8 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$,
-      android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$,
+      android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec,
+      android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
       [url, has_user_gesture, is_redirect, is_outermost_main_frame]);
   }
 

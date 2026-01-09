@@ -50,8 +50,8 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$,
-      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec.$,
+      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec,
+      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
       []);
   }
 
@@ -59,7 +59,7 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec.$,
+      ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec,
       null,
       []);
   }
@@ -68,7 +68,7 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec.$,
+      ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec,
       null,
       []);
   }
@@ -181,7 +181,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$,
+      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
       null,
       [remote, receiver]);
   }
@@ -190,7 +190,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec.$,
+      ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
       null,
       [interface_name, receiver]);
   }

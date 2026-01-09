@@ -48,8 +48,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$,
-      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$,
+      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
+      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$,
-      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$,
+      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
+      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$,
-      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$,
+      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
+      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$,
-      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$,
+      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
+      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
       []);
   }
 

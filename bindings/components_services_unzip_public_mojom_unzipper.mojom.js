@@ -48,8 +48,8 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$,
-      unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$,
+      unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
+      unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
       [path]);
   }
 
@@ -136,7 +136,7 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$,
+      unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
       [bytes]);
   }
@@ -211,8 +211,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.Unzipper_Unzip_ParamsSpec.$,
-      unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$,
+      unzip.mojom.Unzipper_Unzip_ParamsSpec,
+      unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
       [zip_file, output_dir, options, filter, listener]);
   }
 
@@ -220,8 +220,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$,
-      unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$,
+      unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
+      unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
       [zip_file]);
   }
 
@@ -229,8 +229,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$,
-      unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$,
+      unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
+      unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
       [zip_file]);
   }
 
@@ -238,8 +238,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$,
-      unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$,
+      unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
+      unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
       [in_file, out_file]);
   }
 

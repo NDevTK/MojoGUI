@@ -101,7 +101,7 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$,
+      nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
       [share_target]);
   }
@@ -110,7 +110,7 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$,
+      nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
       [share_target]);
   }
@@ -199,7 +199,7 @@ nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$,
+      nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
       [status, token]);
   }
@@ -275,7 +275,7 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$,
+      nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
       []);
   }
@@ -284,7 +284,7 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$,
+      nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
       [success]);
   }
@@ -372,7 +372,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$,
+      nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -381,8 +381,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$,
-      nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec.$,
+      nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
       [listener]);
   }
 
@@ -390,7 +390,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$,
+      nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       null,
       []);
   }
@@ -399,8 +399,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$,
-      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec.$,
+      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -408,8 +408,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$,
-      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec.$,
+      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
+      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
       []);
   }
 
@@ -578,8 +578,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$,
-      nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec.$,
+      nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
       []);
   }
 
@@ -587,8 +587,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$,
-      nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec.$,
+      nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
       []);
   }
 
@@ -596,8 +596,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$,
-      nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec.$,
+      nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
+      nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
       []);
   }
 
@@ -735,7 +735,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$,
+      nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
       [in_high_visibility]);
   }
@@ -744,7 +744,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$,
+      nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
       [share_target, metadata]);
   }
@@ -753,7 +753,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$,
+      nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
       []);
   }
@@ -762,7 +762,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$,
+      nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
       []);
   }
@@ -878,7 +878,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -887,8 +887,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$,
-      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
       []);
   }
 
@@ -896,8 +896,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$,
-      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
       []);
   }
 
@@ -905,8 +905,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$,
-      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
       []);
   }
 
@@ -914,8 +914,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$,
-      nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -923,8 +923,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$,
-      nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
+      nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
       [share_target_id]);
   }
 
@@ -932,7 +932,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$,
+      nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
       [success]);
   }

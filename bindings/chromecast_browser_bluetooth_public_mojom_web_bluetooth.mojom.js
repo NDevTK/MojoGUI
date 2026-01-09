@@ -48,7 +48,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$,
+      chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec,
       null,
       [client]);
   }
@@ -123,7 +123,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$,
+      chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec,
       null,
       [address]);
   }
@@ -132,7 +132,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec.$,
+      chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec,
       null,
       []);
   }

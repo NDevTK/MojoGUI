@@ -48,8 +48,8 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$,
-      blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec.$,
+      blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
+      blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
       [token, is_recursive]);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$,
+      blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
       [token]);
   }

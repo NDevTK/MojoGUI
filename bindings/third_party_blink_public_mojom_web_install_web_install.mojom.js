@@ -55,8 +55,8 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebInstallService_Install_ParamsSpec.$,
-      blink.mojom.WebInstallService_Install_ResponseParamsSpec.$,
+      blink.mojom.WebInstallService_Install_ParamsSpec,
+      blink.mojom.WebInstallService_Install_ResponseParamsSpec,
       [options]);
   }
 
@@ -64,8 +64,8 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$,
-      blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$,
+      blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
+      blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
       [options]);
   }
 

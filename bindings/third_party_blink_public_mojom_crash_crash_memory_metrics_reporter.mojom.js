@@ -48,7 +48,7 @@ blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec.$,
+      blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
       null,
       [shared_metrics_buffer]);
   }

@@ -48,8 +48,8 @@ sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$,
-      sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$,
+      sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec,
+      sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec,
       [local_addr, port, backlog, traffic_annotation, socket]);
   }
 
@@ -57,8 +57,8 @@ sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$,
-      sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$,
+      sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec,
+      sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec,
       [timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer]);
   }
 

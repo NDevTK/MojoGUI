@@ -48,7 +48,7 @@ device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec.$,
+      device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
       [tag, receiver, client_id]);
   }

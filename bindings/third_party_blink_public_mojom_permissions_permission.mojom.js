@@ -99,7 +99,7 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$,
+      blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
       [status]);
   }
@@ -174,7 +174,7 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$,
+      blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
       [allow, statuses]);
   }
@@ -250,8 +250,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PermissionService_HasPermission_ParamsSpec.$,
-      blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$,
+      blink.mojom.PermissionService_HasPermission_ParamsSpec,
+      blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
       [permission]);
   }
 
@@ -259,7 +259,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$,
+      blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
       [permissions, descriptor, client]);
   }
@@ -268,8 +268,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$,
-      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$,
+      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
+      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
       [permissions, descriptor]);
   }
 
@@ -277,8 +277,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PermissionService_RequestPermission_ParamsSpec.$,
-      blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$,
+      blink.mojom.PermissionService_RequestPermission_ParamsSpec,
+      blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
       [permission, user_gesture]);
   }
 
@@ -286,8 +286,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$,
-      blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$,
+      blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
+      blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
       [permission, user_gesture]);
   }
 
@@ -295,8 +295,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PermissionService_RevokePermission_ParamsSpec.$,
-      blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$,
+      blink.mojom.PermissionService_RevokePermission_ParamsSpec,
+      blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
       [permission]);
   }
 
@@ -304,7 +304,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$,
+      blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
       [permission, last_known_status, observer]);
   }
@@ -313,7 +313,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$,
+      blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
       [permission, last_known_status, observer]);
   }
@@ -322,7 +322,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$,
+      blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
       [permission, event_type, is_added]);
   }

@@ -48,7 +48,7 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$,
+      blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$,
+      blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec,
       null,
       [caret_x, caret_y, marked_text, suggestions]);
   }
@@ -66,7 +66,7 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$,
+      blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec,
       null,
       [caret_x, caret_y, marked_text, suggestions]);
   }

@@ -48,8 +48,8 @@ network.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec.$,
-      network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec.$,
+      network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec,
+      network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
       [headers]);
   }
 

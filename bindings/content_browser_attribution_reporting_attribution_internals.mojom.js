@@ -56,7 +56,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
       [sources]);
   }
@@ -65,7 +65,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
       [reports]);
   }
@@ -74,7 +74,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
       [source]);
   }
@@ -83,7 +83,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
       [report]);
   }
@@ -92,7 +92,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
       [report]);
   }
@@ -101,7 +101,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
       [report]);
   }
@@ -110,7 +110,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
       [trigger]);
   }
@@ -119,7 +119,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
       [registration]);
   }
@@ -128,7 +128,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec.$,
+      attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
       [debug_mode]);
   }
@@ -315,8 +315,8 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec.$,
-      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec.$,
+      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
+      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -324,7 +324,7 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      attribution_internals.mojom.Handler_SendReport_ParamsSpec.$,
+      attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       null,
       [id]);
   }
@@ -333,7 +333,7 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      attribution_internals.mojom.Handler_ClearStorage_ParamsSpec.$,
+      attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       null,
       []);
   }
@@ -448,7 +448,7 @@ attribution_internals.mojom.FactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      attribution_internals.mojom.Factory_Create_ParamsSpec.$,
+      attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
       [observer, handler]);
   }

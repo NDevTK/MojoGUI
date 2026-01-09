@@ -58,7 +58,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -67,7 +67,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -76,7 +76,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -85,7 +85,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -94,7 +94,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -103,7 +103,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -112,7 +112,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -121,7 +121,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec,
       null,
       [in_child_session]);
   }
@@ -130,7 +130,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec,
       null,
       [app_id, app_name, is_camera_used, is_microphone_used]);
   }
@@ -139,7 +139,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec,
       null,
       []);
   }
@@ -148,7 +148,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec,
       null,
       [icon]);
   }
@@ -157,7 +157,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$,
+      ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec,
       null,
       [percent]);
   }

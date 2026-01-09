@@ -48,8 +48,8 @@ ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec.$,
-      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec.$,
+      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
+      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
       [in]);
   }
 

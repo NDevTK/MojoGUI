@@ -58,8 +58,8 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$,
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$,
+      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
+      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
       [request]);
   }
 
@@ -146,7 +146,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$,
+      ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
       [response]);
   }

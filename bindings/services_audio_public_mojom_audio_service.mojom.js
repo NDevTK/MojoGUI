@@ -48,7 +48,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$,
+      audio.mojom.AudioService_BindSystemInfo_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$,
+      audio.mojom.AudioService_BindDebugRecording_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$,
+      audio.mojom.AudioService_BindStreamFactory_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +75,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$,
+      audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
       null,
       [receiver]);
   }
@@ -84,7 +84,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$,
+      audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -93,7 +93,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      audio.mojom.AudioService_BindTestingApi_ParamsSpec.$,
+      audio.mojom.AudioService_BindTestingApi_ParamsSpec,
       null,
       [receiver]);
   }
@@ -102,7 +102,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$,
+      audio.mojom.AudioService_BindMlModelManager_ParamsSpec,
       null,
       [receiver]);
   }

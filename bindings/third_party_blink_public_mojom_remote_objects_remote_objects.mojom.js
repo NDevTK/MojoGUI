@@ -75,7 +75,7 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$,
+      blink.mojom.RemoteObjectHost_GetObject_ParamsSpec,
       null,
       [object_id, receiver]);
   }
@@ -84,7 +84,7 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$,
+      blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec,
       null,
       [object_id]);
   }
@@ -93,7 +93,7 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$,
+      blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec,
       null,
       [object_id]);
   }
@@ -197,8 +197,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteObject_HasMethod_ParamsSpec.$,
-      blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$,
+      blink.mojom.RemoteObject_HasMethod_ParamsSpec,
+      blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec,
       [name]);
   }
 
@@ -206,8 +206,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteObject_GetMethods_ParamsSpec.$,
-      blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$,
+      blink.mojom.RemoteObject_GetMethods_ParamsSpec,
+      blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec,
       []);
   }
 
@@ -215,8 +215,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$,
-      blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$,
+      blink.mojom.RemoteObject_InvokeMethod_ParamsSpec,
+      blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec,
       [name, arguments]);
   }
 
@@ -224,7 +224,7 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$,
+      blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec,
       null,
       []);
   }
@@ -379,7 +379,7 @@ blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$,
+      blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec,
       null,
       [host, gateway]);
   }
@@ -455,7 +455,7 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$,
+      blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec,
       null,
       [name, object_id]);
   }
@@ -464,7 +464,7 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$,
+      blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec,
       null,
       [name]);
   }

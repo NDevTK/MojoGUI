@@ -48,7 +48,7 @@ network.mojom.ObliviousHttpClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec.$,
+      network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
       [response]);
   }

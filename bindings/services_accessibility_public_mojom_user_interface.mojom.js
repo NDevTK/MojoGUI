@@ -61,7 +61,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$,
+      ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
       [darken]);
   }
@@ -70,7 +70,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$,
+      ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
       [subpage]);
   }
@@ -79,8 +79,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$,
-      ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$,
+      ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
+      ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
       [title, description, cancelName]);
   }
 
@@ -88,7 +88,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$,
+      ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
       [focus_rings, at_type]);
   }
@@ -97,7 +97,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.UserInterface_SetHighlights_ParamsSpec.$,
+      ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
       [rects, color]);
   }
@@ -106,7 +106,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$,
+      ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
       [is_visible]);
   }

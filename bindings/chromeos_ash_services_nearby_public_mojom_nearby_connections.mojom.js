@@ -49,7 +49,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec.$,
+      nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec,
       null,
       [endpoint_id, info]);
   }
@@ -58,7 +58,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec.$,
+      nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec,
       null,
       [endpoint_id]);
   }
@@ -148,7 +148,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec,
       null,
       [endpoint_id, info]);
   }
@@ -157,7 +157,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec,
       null,
       [endpoint_id]);
   }
@@ -166,7 +166,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec,
       null,
       [endpoint_id, status]);
   }
@@ -175,7 +175,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec,
       null,
       [endpoint_id]);
   }
@@ -184,7 +184,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec,
       null,
       [endpoint_id, medium]);
   }
@@ -318,7 +318,7 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec.$,
+      nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec,
       null,
       [endpoint_id, payload]);
   }
@@ -327,7 +327,7 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec.$,
+      nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec,
       null,
       [endpoint_id, update]);
   }
@@ -418,7 +418,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec,
       null,
       [endpoint_id, info]);
   }
@@ -427,7 +427,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec,
       null,
       [endpoint_id, resolution]);
   }
@@ -436,7 +436,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec,
       null,
       [endpoint_id]);
   }
@@ -445,7 +445,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec.$,
+      nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec,
       null,
       [endpoint_id, bandwidth_info]);
   }
@@ -565,7 +565,7 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec.$,
+      nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec,
       null,
       [endpoint_id, payload]);
   }
@@ -574,7 +574,7 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec.$,
+      nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec,
       null,
       [endpoint_id, update]);
   }
@@ -665,8 +665,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
       [service_id, endpoint_info, options, listener]);
   }
 
@@ -674,8 +674,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
       [service_id]);
   }
 
@@ -683,8 +683,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
       [service_id, options, listener]);
   }
 
@@ -692,8 +692,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
       [service_id]);
   }
 
@@ -701,8 +701,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
       [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address]);
   }
 
@@ -710,8 +710,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
       [service_id, endpoint_info, endpoint_id, options, listener]);
   }
 
@@ -719,8 +719,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
       [service_id, endpoint_id, listener]);
   }
 
@@ -728,8 +728,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
       [service_id, endpoint_id]);
   }
 
@@ -737,8 +737,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
       [service_id, endpoint_id]);
   }
 
@@ -746,8 +746,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
       [service_id, endpoint_ids, payload]);
   }
 
@@ -755,8 +755,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
       [service_id, payload_id]);
   }
 
@@ -764,8 +764,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
       [service_id]);
   }
 
@@ -773,8 +773,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
       [service_id, endpoint_id]);
   }
 
@@ -782,8 +782,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
       [service_id, payload_id, input_file, output_file]);
   }
 
@@ -791,8 +791,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
       [service_id, remote_device, connection_options, listener]);
   }
 
@@ -800,8 +800,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
       [service_id, remote_device, listener]);
   }
 
@@ -809,8 +809,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
       [service_id, remote_device]);
   }
 
@@ -818,8 +818,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec.$,
-      nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec,
+      nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
       [service_id, remote_device]);
   }
 
@@ -827,7 +827,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec.$,
+      nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec,
       null,
       [service_id]);
   }

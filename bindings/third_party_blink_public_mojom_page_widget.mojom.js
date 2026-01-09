@@ -54,8 +54,8 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec.$,
-      blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec.$,
+      blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec,
+      blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec,
       [drag_data, point_in_viewport, screen_point, operations_allowed, key_modifiers]);
   }
 
@@ -63,8 +63,8 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec.$,
-      blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec.$,
+      blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec,
+      blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec,
       [point_in_viewport, screen_point, operations_allowed, key_modifiers]);
   }
 
@@ -72,7 +72,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec.$,
+      blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec,
       null,
       [point_in_viewport, screen_point]);
   }
@@ -81,7 +81,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec.$,
+      blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec,
       null,
       [drag_data, point_in_viewport, screen_point, key_modifiers]);
   }
@@ -90,7 +90,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec.$,
+      blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec,
       null,
       [point_in_viewport, screen_point, drag_operation]);
   }
@@ -99,7 +99,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec.$,
+      blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec,
       null,
       []);
   }
@@ -108,8 +108,8 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec.$,
-      blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec.$,
+      blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec,
+      blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec,
       [focus_widget_rect_in_dips]);
   }
 
@@ -117,7 +117,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec.$,
+      blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec,
       null,
       [remote]);
   }
@@ -126,7 +126,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec,
       null,
       [opaque]);
   }
@@ -135,7 +135,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.FrameWidget_SetTextDirection_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetTextDirection_ParamsSpec,
       null,
       [direction]);
   }
@@ -144,7 +144,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.FrameWidget_SetActive_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetActive_ParamsSpec,
       null,
       [active]);
   }
@@ -153,7 +153,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec,
       null,
       [touch_action]);
   }
@@ -162,7 +162,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec.$,
+      blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec,
       null,
       [is_throttled, subtree_throttled, display_locked]);
   }
@@ -171,7 +171,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec,
       null,
       [inert]);
   }
@@ -180,8 +180,8 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec.$,
-      blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec.$,
+      blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec,
+      blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec,
       [point_in_local_root]);
   }
 
@@ -189,7 +189,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec.$,
+      blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec,
       null,
       [parameters, cache_behavior]);
   }
@@ -198,7 +198,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec.$,
+      blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec,
       null,
       []);
   }
@@ -207,7 +207,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec.$,
+      blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec,
       null,
       [host]);
   }
@@ -216,7 +216,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec.$,
+      blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec,
       null,
       [intersection_state, visual_properties]);
   }
@@ -225,7 +225,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec.$,
+      blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec,
       null,
       []);
   }
@@ -635,7 +635,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec,
       null,
       [tap_point, rect_to_zoom]);
   }
@@ -644,7 +644,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec,
       null,
       [rect_to_zoom]);
   }
@@ -653,7 +653,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec,
       null,
       [touch_event_consumers]);
   }
@@ -662,7 +662,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec,
       null,
       [sizing_info]);
   }
@@ -671,7 +671,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec,
       null,
       [position]);
   }
@@ -680,7 +680,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec,
       null,
       [velocity]);
   }
@@ -689,7 +689,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec.$,
+      blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec,
       null,
       []);
   }
@@ -848,7 +848,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec.$,
+      blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec,
       null,
       []);
   }
@@ -857,7 +857,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec.$,
+      blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec,
       null,
       [initial_rect, anchor_rect]);
   }
@@ -866,7 +866,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec.$,
+      blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec,
       null,
       [bounds]);
   }

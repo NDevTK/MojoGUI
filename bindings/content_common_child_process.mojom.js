@@ -48,7 +48,7 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.ChildProcessHost_Ping_ParamsSpec.$,
+      content.mojom.ChildProcessHost_Ping_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$,
+      content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec,
       null,
       [receiver]);
   }
@@ -145,7 +145,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$,
+      content.mojom.ChildProcess_ProcessShutdown_ParamsSpec,
       null,
       []);
   }
@@ -154,8 +154,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$,
-      content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec.$,
+      content.mojom.ChildProcess_GetTaskPort_ParamsSpec,
+      content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec,
       []);
   }
 
@@ -163,7 +163,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$,
+      content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
       [on]);
   }
@@ -172,7 +172,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$,
+      content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -181,7 +181,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$,
+      content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec,
       null,
       [remote]);
   }
@@ -190,7 +190,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$,
+      content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
       []);
   }
@@ -199,7 +199,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$,
+      content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
       [receiver]);
   }
@@ -208,7 +208,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.ChildProcess_BindReceiver_ParamsSpec.$,
+      content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
       [receiver]);
   }
@@ -217,7 +217,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$,
+      content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
       [file]);
   }
@@ -226,7 +226,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$,
+      content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       null,
       []);
   }
@@ -235,7 +235,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$,
+      content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
       [salt]);
   }
@@ -244,7 +244,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$,
+      content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec,
       null,
       [settings]);
   }
@@ -253,7 +253,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$,
+      content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
       [memory_pressure_level]);
   }
@@ -262,7 +262,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$,
+      content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
       [battery_saver_mode_enabled]);
   }

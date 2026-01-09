@@ -48,7 +48,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$,
+      cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec,
       null,
       [url_loader_factory]);
   }
@@ -123,7 +123,7 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec,
       null,
       [url_loader_factory, reconnector]);
   }
@@ -132,7 +132,7 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec,
       null,
       [params, net_log_source, cert_verifier_request]);
   }
@@ -141,8 +141,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$,
-      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec.$,
+      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec,
+      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
       [binding, hostname, tls_certificate, net_log_source]);
   }
 
@@ -150,7 +150,7 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -286,7 +286,7 @@ cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec,
       null,
       []);
   }
@@ -360,7 +360,7 @@ cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec,
       null,
       [result, net_error]);
   }

@@ -48,8 +48,8 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec.$,
-      content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$,
+      content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
+      content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
       []);
   }
 

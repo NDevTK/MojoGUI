@@ -69,7 +69,7 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.ProducerHost_CommitData_ParamsSpec.$,
+      tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       null,
       [data_request]);
   }
@@ -78,7 +78,7 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$,
+      tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -87,7 +87,7 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$,
+      tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
       [registration_info]);
   }
@@ -96,7 +96,7 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$,
+      tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
       [writer_id, target_buffer]);
   }
@@ -105,7 +105,7 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$,
+      tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
       [writer_id]);
   }
@@ -237,7 +237,7 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$,
+      tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
       []);
   }
@@ -246,7 +246,7 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$,
+      tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       null,
       [id, data_source_config]);
   }
@@ -255,7 +255,7 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$,
+      tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       null,
       [id]);
   }
@@ -264,7 +264,7 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.ProducerClient_Flush_ParamsSpec.$,
+      tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
       [flush_request_id, data_source_ids]);
   }
@@ -273,7 +273,7 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$,
+      tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
       []);
   }
@@ -404,7 +404,7 @@ tracing.mojom.PerfettoServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$,
+      tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
       [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes]);
   }
@@ -482,7 +482,7 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$,
+      tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
       [tracing_session_host, tracing_session_client, config, output_file]);
   }
@@ -491,8 +491,8 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$,
-      tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec.$,
+      tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
+      tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
       [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled]);
   }
 
@@ -601,7 +601,7 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$,
+      tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -610,7 +610,7 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$,
+      tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
       []);
   }
@@ -619,7 +619,7 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$,
+      tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       null,
       [stream]);
   }
@@ -628,8 +628,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$,
-      tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec.$,
+      tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
+      tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
       []);
   }
 
@@ -637,7 +637,7 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$,
+      tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       null,
       [agent_label_filter, stream, privacy_filtering_enabled]);
   }
@@ -783,7 +783,7 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$,
+      tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
       []);
   }
@@ -792,7 +792,7 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$,
+      tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
       [tracing_succeeded]);
   }

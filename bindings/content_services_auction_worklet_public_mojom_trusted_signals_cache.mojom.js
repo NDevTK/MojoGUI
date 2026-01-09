@@ -55,7 +55,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$,
+      auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
       [compression_scheme, compression_group_data]);
   }
@@ -64,7 +64,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$,
+      auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
       [error_message]);
   }
@@ -154,7 +154,7 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$,
+      auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
       [compression_group_token, client]);
   }

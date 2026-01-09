@@ -48,8 +48,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec,
       [bucketId]);
   }
 
@@ -66,8 +66,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec,
       [bucketId]);
   }
 
@@ -75,8 +75,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -84,8 +84,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -93,8 +93,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$,
-      storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec.$,
+      storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec,
+      storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec,
       [client_info]);
   }
 

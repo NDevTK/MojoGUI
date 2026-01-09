@@ -48,7 +48,7 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$,
+      network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
       [proxy_config]);
   }
@@ -57,7 +57,7 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$,
+      network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$,
+      network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
       []);
   }
@@ -219,7 +219,7 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$,
+      network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
       [line_number, details]);
   }
@@ -228,7 +228,7 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$,
+      network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
       [net_error]);
   }

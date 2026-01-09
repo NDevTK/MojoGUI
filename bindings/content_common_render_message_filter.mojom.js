@@ -48,8 +48,8 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec.$,
-      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$,
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec.$,
-      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$,
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
       []);
   }
 

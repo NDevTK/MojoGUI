@@ -48,7 +48,7 @@ media.mojom.MediaLogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaLog_AddLogRecord_ParamsSpec.$,
+      media.mojom.MediaLog_AddLogRecord_ParamsSpec,
       null,
       [event]);
   }

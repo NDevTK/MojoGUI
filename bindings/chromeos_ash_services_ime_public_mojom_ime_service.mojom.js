@@ -49,8 +49,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$,
-      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$,
+      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
+      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
       [ime_spec, to_engine_request, from_engine, extra]);
   }
 
@@ -58,8 +58,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$,
-      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$,
+      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
+      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
       [connection_factory]);
   }
 
@@ -176,8 +176,8 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$,
-      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$,
+      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
+      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
       [url, file_path]);
   }
 
@@ -265,7 +265,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$,
+      ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
       [provider]);
   }
@@ -274,7 +274,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$,
+      ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -283,7 +283,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$,
+      ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
       [receiver]);
   }

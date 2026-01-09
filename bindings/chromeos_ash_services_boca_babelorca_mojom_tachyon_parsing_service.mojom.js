@@ -56,8 +56,8 @@ ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$,
-      ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$,
+      ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec,
+      ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
       [stream_data]);
   }
 

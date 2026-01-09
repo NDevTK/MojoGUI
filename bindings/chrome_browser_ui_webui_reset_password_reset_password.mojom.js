@@ -47,7 +47,7 @@ mojom.ResetPasswordHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec.$,
+      mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec,
       null,
       []);
   }

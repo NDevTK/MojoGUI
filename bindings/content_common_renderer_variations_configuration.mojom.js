@@ -48,7 +48,7 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec.$,
+      content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
       [variations_headers]);
   }
@@ -57,7 +57,7 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec.$,
+      content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
       [trial_name, group_name]);
   }

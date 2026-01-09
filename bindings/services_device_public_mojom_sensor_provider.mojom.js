@@ -72,8 +72,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SensorProvider_GetSensor_ParamsSpec.$,
-      device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$,
+      device.mojom.SensorProvider_GetSensor_ParamsSpec,
+      device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
       [type]);
   }
 
@@ -81,8 +81,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$,
-      device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$,
+      device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
+      device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
       [type, metadata]);
   }
 
@@ -90,8 +90,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$,
-      device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$,
+      device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
+      device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
       [type, reading]);
   }
 
@@ -99,7 +99,7 @@ device.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$,
+      device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       null,
       [type]);
   }
@@ -108,8 +108,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$,
-      device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$,
+      device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
+      device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
       [type]);
   }
 

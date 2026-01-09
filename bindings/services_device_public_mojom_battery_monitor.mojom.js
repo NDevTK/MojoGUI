@@ -48,8 +48,8 @@ device.mojom.BatteryMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec.$,
-      device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec.$,
+      device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
+      device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
       []);
   }
 

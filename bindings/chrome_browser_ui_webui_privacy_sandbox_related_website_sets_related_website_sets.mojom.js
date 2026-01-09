@@ -55,8 +55,8 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec.$,
-      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec.$,
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
       []);
   }
 

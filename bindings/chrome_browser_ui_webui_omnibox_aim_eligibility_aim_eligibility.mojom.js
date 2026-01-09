@@ -48,7 +48,7 @@ aim_eligibility.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$,
+      aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -123,8 +123,8 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$,
-      aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$,
+      aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec,
+      aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
       []);
   }
 
@@ -132,7 +132,7 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$,
+      aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec,
       null,
       []);
   }
@@ -141,8 +141,8 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$,
-      aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$,
+      aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec,
+      aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
       [base64_encoded_response]);
   }
 
@@ -268,7 +268,7 @@ aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }

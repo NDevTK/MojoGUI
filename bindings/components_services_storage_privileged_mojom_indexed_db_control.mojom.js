@@ -55,7 +55,7 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$,
+      storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -64,7 +64,7 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$,
+      storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec,
       null,
       [bucket_locator, database_name, object_store_name]);
   }
@@ -155,7 +155,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec,
       null,
       [bucket_locator, client_info, client_state_checker_remote, receiver]);
   }
@@ -164,7 +164,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       null,
       [bucket_id, reason]);
   }
@@ -173,8 +173,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$,
-      storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec,
+      storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -182,8 +182,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$,
-      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec,
+      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
       []);
   }
 
@@ -191,7 +191,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
       null,
       [bucket_id]);
   }
@@ -200,8 +200,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$,
-      storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$,
+      storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec,
+      storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -209,7 +209,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec,
       null,
       []);
   }
@@ -218,7 +218,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -227,7 +227,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec,
       null,
       [policy_updates]);
   }
@@ -236,7 +236,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec,
       null,
       [receiver]);
   }

@@ -48,8 +48,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$,
-      blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$,
+      blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
+      blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$,
+      blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
       []);
   }
@@ -66,8 +66,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$,
-      blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$,
+      blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
+      blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$,
-      blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$,
+      blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
+      blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
       [document_url, manifest_url, manifest_content]);
   }
 

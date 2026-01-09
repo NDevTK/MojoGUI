@@ -48,7 +48,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec,
       null,
       [lcp_element]);
   }
@@ -57,7 +57,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec,
       null,
       [element_locator]);
   }
@@ -66,7 +66,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec,
       null,
       [lcp_influencer_scripts]);
   }
@@ -75,7 +75,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec,
       null,
       [origin]);
   }
@@ -84,7 +84,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec,
       null,
       [font_url, hit]);
   }
@@ -93,7 +93,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec,
       null,
       [subresource_url, subresource_load_start, request_destination]);
   }
@@ -102,7 +102,7 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$,
+      blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec,
       null,
       [unused_preloads]);
   }

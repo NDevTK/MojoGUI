@@ -72,7 +72,7 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$,
+      browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -147,8 +147,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$,
-      browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$,
+      browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
+      browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
       [command_id]);
   }
 
@@ -156,8 +156,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$,
-      browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$,
+      browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
+      browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
       [command_id, click_info]);
   }
 

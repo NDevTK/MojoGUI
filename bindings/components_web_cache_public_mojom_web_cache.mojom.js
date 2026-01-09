@@ -48,7 +48,7 @@ web_cache.mojom.WebCacheRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_cache.mojom.WebCache_ClearCache_ParamsSpec.$,
+      web_cache.mojom.WebCache_ClearCache_ParamsSpec,
       null,
       [on_navigation]);
   }

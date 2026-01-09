@@ -116,7 +116,7 @@ dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$,
+      dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -191,8 +191,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$,
-      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
+      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
       []);
   }
 
@@ -200,8 +200,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$,
-      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
+      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -209,7 +209,7 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$,
+      dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec,
       null,
       [observer]);
   }
@@ -218,8 +218,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$,
-      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
+      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
       []);
   }
 
@@ -227,8 +227,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$,
-      dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec,
+      dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
       [file_name]);
   }
 

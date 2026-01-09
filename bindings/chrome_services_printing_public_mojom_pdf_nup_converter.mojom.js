@@ -55,8 +55,8 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$,
-      printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$,
+      printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
+      printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
       [pages_per_sheet, page_size, printable_area, pdf_page_regions]);
   }
 
@@ -64,8 +64,8 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$,
-      printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$,
+      printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
+      printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
       [pages_per_sheet, page_size, printable_area, src_pdf_region]);
   }
 
@@ -73,7 +73,7 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$,
+      printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
       null,
       [url]);
   }
@@ -82,7 +82,7 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }

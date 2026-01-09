@@ -49,7 +49,7 @@ ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec.$,
+      ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec,
       null,
       []);
   }
@@ -123,8 +123,8 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.SearchHandler_Search_ParamsSpec.$,
-      ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec.$,
+      ash.help_app.mojom.SearchHandler_Search_ParamsSpec,
+      ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results]);
   }
 
@@ -132,7 +132,7 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.help_app.mojom.SearchHandler_Update_ParamsSpec.$,
+      ash.help_app.mojom.SearchHandler_Update_ParamsSpec,
       null,
       [concepts]);
   }
@@ -141,7 +141,7 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.help_app.mojom.SearchHandler_Observe_ParamsSpec.$,
+      ash.help_app.mojom.SearchHandler_Observe_ParamsSpec,
       null,
       [observer]);
   }

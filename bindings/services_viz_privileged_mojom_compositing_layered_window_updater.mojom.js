@@ -48,7 +48,7 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec.$,
+      viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
       [pixel_size, region]);
   }
@@ -57,7 +57,7 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec.$,
+      viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       null,
       []);
   }

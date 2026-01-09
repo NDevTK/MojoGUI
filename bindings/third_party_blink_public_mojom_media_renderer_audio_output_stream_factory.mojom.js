@@ -48,8 +48,8 @@ blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$,
-      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$,
+      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
+      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
       [stream_provider_receiver, session_id, device_id]);
   }
 

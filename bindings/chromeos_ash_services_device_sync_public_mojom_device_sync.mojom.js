@@ -105,7 +105,7 @@ ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec,
       null,
       []);
   }
@@ -114,7 +114,7 @@ ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +201,7 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -210,8 +210,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec,
       []);
   }
 
@@ -219,8 +219,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec,
       []);
   }
 
@@ -228,8 +228,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec,
       []);
   }
 
@@ -237,8 +237,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec,
       []);
   }
 
@@ -246,8 +246,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec,
       []);
   }
 
@@ -255,8 +255,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec,
       []);
   }
 
@@ -264,8 +264,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec,
       [device_public_key, software_feature, enabled, is_exclusive]);
   }
 
@@ -273,8 +273,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec,
       [device_instance_id, feature, status_change]);
   }
 
@@ -282,8 +282,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec,
       [software_feature]);
   }
 
@@ -291,8 +291,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec,
       [device_instance_ids, cryptauth_service, feature]);
   }
 
@@ -300,8 +300,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec,
       []);
   }
 
@@ -309,8 +309,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$,
-      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec,
+      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec,
       []);
   }
 

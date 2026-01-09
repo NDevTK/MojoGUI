@@ -48,7 +48,7 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec.$,
+      network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
       [net_error, proxy_info]);
   }

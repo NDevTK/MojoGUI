@@ -48,7 +48,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$,
+      extensions.mojom.LocalFrame_SetFrameName_ParamsSpec,
       null,
       [frame_name]);
   }
@@ -57,7 +57,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$,
+      extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
       null,
       [spatial_nav_enabled]);
   }
@@ -66,7 +66,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$,
+      extensions.mojom.LocalFrame_SetTabId_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -75,7 +75,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$,
+      extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
       null,
       [send_onclosed]);
   }
@@ -84,7 +84,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$,
+      extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
       null,
       [view_type]);
   }
@@ -93,7 +93,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$,
+      extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec,
       null,
       [extension_id, module_name, function_name, args]);
   }
@@ -102,8 +102,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$,
-      extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$,
+      extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec,
+      extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
       [param]);
   }
 
@@ -111,7 +111,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$,
+      extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
       null,
       [tab_id, extension_id, script_id, url]);
   }
@@ -120,7 +120,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$,
+      extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
       null,
       [window_id]);
   }
@@ -129,8 +129,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$,
-      extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$,
+      extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
+      extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
       [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
   }
 
@@ -370,8 +370,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$,
-      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$,
+      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
+      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
       [extension_id, script_type, run_location]);
   }
 
@@ -379,8 +379,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$,
-      extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$,
+      extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
+      extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
       [url]);
   }
 
@@ -388,8 +388,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.LocalFrameHost_Request_ParamsSpec.$,
-      extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$,
+      extensions.mojom.LocalFrameHost_Request_ParamsSpec,
+      extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec,
       [params]);
   }
 
@@ -397,7 +397,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
       null,
       [request_uuid]);
   }
@@ -406,7 +406,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
       null,
       [css_selectors]);
   }
@@ -415,7 +415,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
       null,
       [message, source, stack_trace, level]);
   }
@@ -424,7 +424,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
       null,
       [extension_id_to_scripts, frame_url]);
   }
@@ -433,7 +433,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
       null,
       []);
   }
@@ -442,7 +442,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
       null,
       []);
   }
@@ -451,7 +451,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
       null,
       []);
   }
@@ -460,7 +460,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
       null,
       [info, channel_type, channel_name, port_id, port, port_host]);
   }
@@ -469,7 +469,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
       null,
       [native_app_name, port_id, port, port_host]);
   }
@@ -478,7 +478,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$,
+      extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
       null,
       [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
   }

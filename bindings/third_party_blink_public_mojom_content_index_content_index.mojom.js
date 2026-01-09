@@ -65,8 +65,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$,
-      blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$,
+      blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
+      blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
       [category]);
   }
 
@@ -74,8 +74,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ContentIndexService_Add_ParamsSpec.$,
-      blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$,
+      blink.mojom.ContentIndexService_Add_ParamsSpec,
+      blink.mojom.ContentIndexService_Add_ResponseParamsSpec,
       [service_worker_registration_id, description, icon, launchUrl]);
   }
 
@@ -83,8 +83,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ContentIndexService_Delete_ParamsSpec.$,
-      blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$,
+      blink.mojom.ContentIndexService_Delete_ParamsSpec,
+      blink.mojom.ContentIndexService_Delete_ResponseParamsSpec,
       [service_worker_registration_id, id]);
   }
 
@@ -92,8 +92,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$,
-      blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$,
+      blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
+      blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 

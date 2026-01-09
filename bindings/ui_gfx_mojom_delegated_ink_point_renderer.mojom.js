@@ -48,7 +48,7 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec.$,
+      gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
       [point]);
   }
@@ -57,7 +57,7 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec.$,
+      gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
       []);
   }

@@ -64,7 +64,7 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$,
+      ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
       [status]);
   }
@@ -139,7 +139,7 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$,
+      ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
       [metadata]);
   }
@@ -148,7 +148,7 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$,
+      ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
       [result]);
   }
@@ -237,8 +237,8 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$,
-      ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$,
+      ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
+      ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
       [delegate]);
   }
 

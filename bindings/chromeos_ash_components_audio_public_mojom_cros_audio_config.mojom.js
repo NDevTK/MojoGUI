@@ -94,7 +94,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$,
+      ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
       [properties]);
   }
@@ -169,7 +169,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec,
       null,
       [observer]);
   }
@@ -178,7 +178,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec,
       null,
       [muted]);
   }
@@ -187,7 +187,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec,
       null,
       [volume]);
   }
@@ -196,7 +196,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec,
       null,
       [gain]);
   }
@@ -205,7 +205,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec,
       null,
       [device]);
   }
@@ -214,7 +214,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec,
       null,
       [muted]);
   }
@@ -223,7 +223,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec,
       null,
       []);
   }
@@ -232,7 +232,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec,
       null,
       [preferred_effect]);
   }
@@ -241,7 +241,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -250,7 +250,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -259,7 +259,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -268,7 +268,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -277,7 +277,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$,
+      ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec,
       null,
       [enabled]);
   }

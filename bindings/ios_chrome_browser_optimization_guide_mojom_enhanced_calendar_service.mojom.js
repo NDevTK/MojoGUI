@@ -48,8 +48,8 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec.$,
-      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec.$,
+      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
+      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
       [request_params]);
   }
 

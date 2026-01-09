@@ -63,7 +63,7 @@ ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$,
+      ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
       []);
   }
@@ -137,7 +137,7 @@ ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$,
+      ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec,
       null,
       [value]);
   }
@@ -212,7 +212,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$,
+      ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec,
       null,
       []);
   }
@@ -286,7 +286,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$,
+      ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec,
       null,
       [enable_drive_pinning]);
   }
@@ -295,7 +295,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$,
+      ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec,
       null,
       [enable_drive_pinning]);
   }
@@ -384,7 +384,7 @@ ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$,
+      ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec,
       null,
       [required_space, free_space]);
   }
@@ -460,7 +460,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$,
+      ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec,
       null,
       []);
   }
@@ -534,7 +534,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec,
       null,
       []);
   }
@@ -543,7 +543,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec,
       null,
       [user_flow]);
   }
@@ -631,7 +631,7 @@ ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$,
+      ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec,
       null,
       []);
   }
@@ -705,7 +705,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$,
+      ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec,
       null,
       [page]);
   }
@@ -714,7 +714,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec,
       null,
       []);
   }
@@ -723,7 +723,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec,
       null,
       []);
   }
@@ -824,7 +824,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec,
       null,
       []);
   }
@@ -833,7 +833,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$,
+      ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
       []);
   }

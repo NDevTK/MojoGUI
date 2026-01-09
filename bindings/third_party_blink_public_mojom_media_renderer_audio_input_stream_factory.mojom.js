@@ -48,7 +48,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$,
+      blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
       null,
       [client, session_id, params, automatic_gain_control, shared_memory_count, processing_config]);
   }
@@ -57,7 +57,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$,
+      blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
       [input_stream_id, output_device_id]);
   }
@@ -152,7 +152,7 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$,
+      blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
       null,
       [stream, client_request, data_pipe, initially_muted, stream_id]);
   }

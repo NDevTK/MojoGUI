@@ -56,7 +56,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -131,8 +131,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$,
-      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$,
+      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
+      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
       [path]);
   }
 
@@ -140,8 +140,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec.$,
-      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$,
+      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
+      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
       []);
   }
 

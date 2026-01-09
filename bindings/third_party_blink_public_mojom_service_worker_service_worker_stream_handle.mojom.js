@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec.$,
+      blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec.$,
+      blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec,
       null,
       []);
   }

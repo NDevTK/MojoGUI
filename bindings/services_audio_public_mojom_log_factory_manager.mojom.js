@@ -48,7 +48,7 @@ audio.mojom.LogFactoryManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec.$,
+      audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec,
       null,
       [factory]);
   }

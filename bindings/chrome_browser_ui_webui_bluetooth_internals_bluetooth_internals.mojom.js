@@ -47,7 +47,7 @@ mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$,
+      mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec,
       null,
       [should_debug_logs_be_enabled]);
   }
@@ -122,8 +122,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$,
-      mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$,
+      mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec,
+      mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec,
       []);
   }
 
@@ -131,8 +131,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$,
-      mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$,
+      mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec,
+      mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec,
       []);
   }
 
@@ -140,8 +140,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$,
-      mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$,
+      mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec,
+      mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec,
       []);
   }
 
@@ -149,7 +149,7 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$,
+      mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +158,7 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$,
+      mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec,
       null,
       []);
   }
@@ -167,7 +167,7 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$,
+      mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec,
       null,
       []);
   }
@@ -176,8 +176,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$,
-      mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$,
+      mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec,
+      mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
       []);
   }
 
@@ -185,8 +185,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$,
-      mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$,
+      mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec,
+      mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -419,8 +419,8 @@ mojom.BluetoothBtsnoopRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.BluetoothBtsnoop_Stop_ParamsSpec.$,
-      mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$,
+      mojom.BluetoothBtsnoop_Stop_ParamsSpec,
+      mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec,
       []);
   }
 

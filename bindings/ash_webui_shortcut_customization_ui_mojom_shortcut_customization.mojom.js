@@ -88,7 +88,7 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
       [config]);
   }
@@ -163,7 +163,7 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec.$,
+      ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec,
       null,
       []);
   }
@@ -237,8 +237,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
       [source]);
   }
 
@@ -246,8 +246,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
       []);
   }
 
@@ -255,8 +255,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
       []);
   }
 
@@ -264,8 +264,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
       [source, action_id, accelerator]);
   }
 
@@ -273,8 +273,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
       [action_id]);
   }
 
@@ -282,8 +282,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
       []);
   }
 
@@ -291,7 +291,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -300,7 +300,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -309,8 +309,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
       []);
   }
 
@@ -318,7 +318,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
       null,
       [prevent_processing_accelerators]);
   }
@@ -327,8 +327,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
       [source, action_id, accelerator]);
   }
 
@@ -336,8 +336,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
       [source, action_id, accelerator]);
   }
 
@@ -345,8 +345,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
       [source, action_id, old_accelerator, new_accelerator]);
   }
 
@@ -354,8 +354,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
       [source, action_id]);
   }
 
@@ -363,8 +363,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
       []);
   }
 
@@ -372,7 +372,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec,
       null,
       [user_action]);
   }
@@ -381,7 +381,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec,
       null,
       [category]);
   }
@@ -390,7 +390,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec,
       null,
       [completed_actions]);
   }
@@ -399,7 +399,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec,
       null,
       [is_add, subactions]);
   }
@@ -408,8 +408,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec.$,
-      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec.$,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec,
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
       []);
   }
 

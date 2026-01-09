@@ -87,7 +87,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$,
+      content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       null,
       [drag]);
   }
@@ -96,7 +96,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$,
+      content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       null,
       [scroll]);
   }
@@ -105,7 +105,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$,
+      content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       null,
       [pinch]);
   }
@@ -114,7 +114,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$,
+      content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       null,
       [tap]);
   }
@@ -123,7 +123,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$,
+      content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       null,
       [pointer_action]);
   }

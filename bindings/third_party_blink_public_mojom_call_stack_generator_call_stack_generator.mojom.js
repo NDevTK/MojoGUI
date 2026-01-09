@@ -48,8 +48,8 @@ blink.mojom.CallStackGeneratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec.$,
-      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec.$,
+      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
+      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
       []);
   }
 

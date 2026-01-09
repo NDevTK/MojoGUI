@@ -54,7 +54,7 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$,
+      blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
       null,
       [host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger]);
   }
@@ -63,7 +63,7 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$,
+      blink.mojom.DevToolsAgent_InspectElement_ParamsSpec,
       null,
       [point]);
   }
@@ -72,7 +72,7 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$,
+      blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
       null,
       [report, wait_for_debugger]);
   }
@@ -184,7 +184,7 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$,
+      blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
       null,
       [worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type]);
   }
@@ -193,7 +193,7 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$,
+      blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
       null,
       []);
   }
@@ -202,7 +202,7 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$,
+      blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
       null,
       []);
   }
@@ -211,7 +211,7 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$,
+      blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
       null,
       []);
   }
@@ -331,7 +331,7 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$,
+      blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
       null,
       [call_id, method, message]);
   }
@@ -340,7 +340,7 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$,
+      blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
       null,
       []);
   }
@@ -430,7 +430,7 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$,
+      blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
       null,
       [message, call_id, updates]);
   }
@@ -439,7 +439,7 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$,
+      blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
       null,
       [message, updates]);
   }

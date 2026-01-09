@@ -48,8 +48,8 @@ ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec.$,
-      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec.$,
+      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec,
+      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec,
       []);
   }
 

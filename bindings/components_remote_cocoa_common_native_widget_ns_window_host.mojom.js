@@ -56,7 +56,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec,
       null,
       [visible]);
   }
@@ -65,7 +65,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec,
       null,
       [is_space_active]);
   }
@@ -74,7 +74,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec,
       null,
       []);
   }
@@ -83,7 +83,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec,
       null,
       [new_size]);
   }
@@ -92,8 +92,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec,
       []);
   }
 
@@ -101,7 +101,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec,
       null,
       [enabled]);
   }
@@ -110,7 +110,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec,
       null,
       [is_first_responder]);
   }
@@ -119,7 +119,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec,
       null,
       [capture_is_active]);
   }
@@ -128,7 +128,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -137,7 +137,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -146,7 +146,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -155,8 +155,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec,
       [event]);
   }
 
@@ -164,8 +164,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec,
       [event]);
   }
 
@@ -173,8 +173,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec,
       [event, target_is_this_window]);
   }
 
@@ -182,8 +182,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec,
       []);
   }
 
@@ -191,8 +191,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec,
       [location_in_content]);
   }
 
@@ -200,8 +200,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec,
       [location_in_content]);
   }
 
@@ -209,8 +209,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec,
       []);
   }
 
@@ -218,8 +218,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec,
       []);
   }
 
@@ -227,7 +227,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec,
       null,
       [window_bounds_in_screen_dips, content_bounds_in_screen_dips]);
   }
@@ -236,7 +236,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec,
       null,
       []);
   }
@@ -245,7 +245,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec,
       null,
       []);
   }
@@ -254,7 +254,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec,
       null,
       [target_fullscreen_state]);
   }
@@ -263,7 +263,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec,
       null,
       [is_fullscreen]);
   }
@@ -272,7 +272,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec,
       null,
       [miniaturized]);
   }
@@ -281,7 +281,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec,
       null,
       [zoomed]);
   }
@@ -290,7 +290,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec,
       null,
       [display]);
   }
@@ -299,7 +299,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec,
       null,
       []);
   }
@@ -308,7 +308,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec,
       null,
       []);
   }
@@ -317,7 +317,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec,
       null,
       [is_key, is_content_first_responder, full_keyboard_access_enabled]);
   }
@@ -326,7 +326,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec,
       null,
       [data]);
   }
@@ -335,7 +335,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec,
       null,
       []);
   }
@@ -344,7 +344,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec,
       null,
       []);
   }
@@ -353,7 +353,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec,
       null,
       [is_revealed]);
   }
@@ -362,7 +362,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec,
       null,
       [reveal_amount]);
   }
@@ -371,7 +371,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec,
       null,
       [menu_bar_height]);
   }
@@ -380,7 +380,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec,
       null,
       [button]);
   }
@@ -389,8 +389,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec,
       [button]);
   }
 
@@ -398,8 +398,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec,
       []);
   }
 
@@ -407,8 +407,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec,
       []);
   }
 
@@ -416,8 +416,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec,
       []);
   }
 
@@ -425,8 +425,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec,
       []);
   }
 
@@ -434,8 +434,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec,
       []);
   }
 
@@ -443,8 +443,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec,
       []);
   }
 
@@ -452,7 +452,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec,
       null,
       []);
   }
@@ -461,7 +461,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec,
       null,
       [window_token, view_token]);
   }
@@ -470,8 +470,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec,
       []);
   }
 
@@ -479,8 +479,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec,
       [command]);
   }
 
@@ -488,8 +488,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec,
       [command, window_open_disposition, is_before_first_responder]);
   }
 
@@ -497,8 +497,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec,
       [command, window_open_disposition, is_before_first_responder]);
   }
 
@@ -506,8 +506,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec.$,
-      remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec.$,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec,
+      remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec,
       [accelerator, require_priority_handler]);
   }
 

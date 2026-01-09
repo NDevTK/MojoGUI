@@ -57,7 +57,7 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$,
+      suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -66,8 +66,8 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$,
-      suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$,
+      suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
+      suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
       [response, delay]);
   }
 
@@ -169,7 +169,7 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$,
+      suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
       [request]);
   }
@@ -178,7 +178,7 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$,
+      suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
       [request]);
   }
@@ -187,7 +187,7 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$,
+      suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
       [request]);
   }

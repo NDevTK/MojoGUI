@@ -48,7 +48,7 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIProofreader_Proofread_ParamsSpec.$,
+      blink.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
       [input, pending_responder]);
   }
@@ -57,7 +57,7 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec.$,
+      blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
       [input, corrected_input, correction_instruction, pending_responder]);
   }

@@ -55,7 +55,7 @@ reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -131,7 +131,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      reload_button.mojom.PageHandler_Reload_ParamsSpec.$,
+      reload_button.mojom.PageHandler_Reload_ParamsSpec,
       null,
       [ignore_cache, flags]);
   }
@@ -140,7 +140,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      reload_button.mojom.PageHandler_StopReload_ParamsSpec.$,
+      reload_button.mojom.PageHandler_StopReload_ParamsSpec,
       null,
       []);
   }
@@ -149,7 +149,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$,
+      reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [offset_x, offset_y]);
   }
@@ -253,7 +253,7 @@ reload_button.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$,
+      reload_button.mojom.Page_SetReloadButtonState_ParamsSpec,
       null,
       [is_loading, is_menu_enabled]);
   }

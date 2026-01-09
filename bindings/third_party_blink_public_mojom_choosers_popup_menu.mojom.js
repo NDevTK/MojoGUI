@@ -57,7 +57,7 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec.$,
+      blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
       [indices]);
   }
@@ -66,7 +66,7 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PopupMenuClient_DidCancel_ParamsSpec.$,
+      blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
       []);
   }

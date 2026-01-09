@@ -48,7 +48,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher]);
   }
@@ -57,7 +57,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
@@ -66,7 +66,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
       [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
@@ -75,8 +75,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$,
-      extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
+      extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
       [params]);
   }
 
@@ -84,7 +84,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
       [request_uuid]);
   }
@@ -93,7 +93,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
       [info, channel_type, channel_name, port_id, port, port_host]);
   }
@@ -102,7 +102,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
       [native_app_name, port_id, port, port_host]);
   }
@@ -111,7 +111,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$,
+      extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
       [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
   }

@@ -68,8 +68,8 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$,
-      device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec.$,
+      device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec,
+      device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
       []);
   }
 
@@ -77,8 +77,8 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.Sensor_AddConfiguration_ParamsSpec.$,
-      device.mojom.Sensor_AddConfiguration_ResponseParamsSpec.$,
+      device.mojom.Sensor_AddConfiguration_ParamsSpec,
+      device.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
       [configuration]);
   }
 
@@ -86,7 +86,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$,
+      device.mojom.Sensor_RemoveConfiguration_ParamsSpec,
       null,
       [configuration]);
   }
@@ -95,7 +95,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.Sensor_Suspend_ParamsSpec.$,
+      device.mojom.Sensor_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -104,7 +104,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.Sensor_Resume_ParamsSpec.$,
+      device.mojom.Sensor_Resume_ParamsSpec,
       null,
       []);
   }
@@ -113,7 +113,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$,
+      device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec,
       null,
       [enabled]);
   }
@@ -281,7 +281,7 @@ device.mojom.SensorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SensorClient_RaiseError_ParamsSpec.$,
+      device.mojom.SensorClient_RaiseError_ParamsSpec,
       null,
       []);
   }
@@ -290,7 +290,7 @@ device.mojom.SensorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$,
+      device.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
       null,
       []);
   }

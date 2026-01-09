@@ -48,7 +48,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VibrationManager_Vibrate_ParamsSpec.$,
+      device.mojom.VibrationManager_Vibrate_ParamsSpec,
       null,
       [milliseconds]);
   }
@@ -57,7 +57,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.VibrationManager_Cancel_ParamsSpec.$,
+      device.mojom.VibrationManager_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -145,7 +145,7 @@ device.mojom.VibrationManagerListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$,
+      device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
       []);
   }

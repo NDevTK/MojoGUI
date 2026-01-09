@@ -61,7 +61,7 @@ metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$,
+      metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec,
       null,
       [shared_memory, child_histogram_fetcher]);
   }
@@ -137,8 +137,8 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$,
-      metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$,
+      metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec,
+      metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
       []);
   }
 
@@ -146,7 +146,7 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$,
+      metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
       null,
       [call_source]);
   }

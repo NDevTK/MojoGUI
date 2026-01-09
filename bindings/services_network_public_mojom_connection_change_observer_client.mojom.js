@@ -56,7 +56,7 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$,
+      network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
       []);
   }
@@ -65,7 +65,7 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$,
+      network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -74,7 +74,7 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$,
+      network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
       null,
       []);
   }

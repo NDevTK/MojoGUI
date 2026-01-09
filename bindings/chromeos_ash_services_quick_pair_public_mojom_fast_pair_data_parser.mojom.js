@@ -74,8 +74,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$,
-      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$,
+      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
+      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
       [service_data]);
   }
 
@@ -83,8 +83,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$,
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$,
+      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
+      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
       [aes_key, encrypted_response_bytes]);
   }
 
@@ -92,8 +92,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$,
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$,
+      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
+      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
       [aes_key, encrypted_passkey_bytes]);
   }
 
@@ -101,8 +101,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$,
-      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$,
+      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
+      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
       [service_data, address]);
   }
 
@@ -110,8 +110,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$,
-      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$,
+      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
+      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
       [message_bytes]);
   }
 

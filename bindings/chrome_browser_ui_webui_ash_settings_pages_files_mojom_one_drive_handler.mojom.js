@@ -50,7 +50,7 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -126,8 +126,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$,
-      ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$,
+      ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec,
+      ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec,
       []);
   }
 
@@ -135,8 +135,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$,
-      ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$,
+      ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec,
+      ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -144,8 +144,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$,
-      ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$,
+      ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec,
+      ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec,
       []);
   }
 
@@ -153,8 +153,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$,
-      ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$,
+      ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec,
+      ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec,
       []);
   }
 
@@ -318,7 +318,7 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$,
+      ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec,
       null,
       []);
   }
@@ -327,7 +327,7 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$,
+      ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec,
       null,
       [is_allowed]);
   }

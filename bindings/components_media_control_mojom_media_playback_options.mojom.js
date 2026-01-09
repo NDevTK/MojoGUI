@@ -49,7 +49,7 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$,
+      components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
       [blocked]);
   }
@@ -58,7 +58,7 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$,
+      components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -67,7 +67,7 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$,
+      components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
       [type]);
   }

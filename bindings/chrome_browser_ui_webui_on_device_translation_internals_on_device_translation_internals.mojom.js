@@ -55,7 +55,7 @@ on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -131,7 +131,7 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$,
+      on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
       [package_index]);
   }
@@ -140,7 +140,7 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$,
+      on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
       [package_index]);
   }
@@ -229,7 +229,7 @@ on_device_translation_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$,
+      on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
       [status]);
   }

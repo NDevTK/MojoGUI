@@ -62,7 +62,7 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$,
+      blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec,
       null,
       [action, details]);
   }
@@ -138,7 +138,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaSessionService_SetClient_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -147,7 +147,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec,
       null,
       [state]);
   }
@@ -156,7 +156,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetPositionState_ParamsSpec,
       null,
       [position]);
   }
@@ -165,7 +165,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetMetadata_ParamsSpec,
       null,
       [metadata]);
   }
@@ -174,7 +174,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec,
       null,
       [microphone_state]);
   }
@@ -183,7 +183,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$,
+      blink.mojom.MediaSessionService_SetCameraState_ParamsSpec,
       null,
       [camera_state]);
   }
@@ -192,7 +192,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$,
+      blink.mojom.MediaSessionService_EnableAction_ParamsSpec,
       null,
       [action]);
   }
@@ -201,7 +201,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$,
+      blink.mojom.MediaSessionService_DisableAction_ParamsSpec,
       null,
       [action]);
   }

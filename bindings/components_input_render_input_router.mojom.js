@@ -48,7 +48,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
       [state]);
   }
@@ -57,7 +57,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
       [force_enable_zoom, frame_sink_id]);
   }
@@ -66,7 +66,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -75,7 +75,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -84,7 +84,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
       [frame_sink_id, is_hidden]);
   }
@@ -93,7 +93,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
       [root_widget_frame_sink_id]);
   }
@@ -240,7 +240,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
       [event, dispatched_to_renderer]);
   }
@@ -249,7 +249,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
       [ack_source, ack_result, event]);
   }
@@ -258,7 +258,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
       []);
   }
@@ -267,7 +267,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
       [overscroll]);
   }
@@ -276,7 +276,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$,
+      input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
       [is_responsive, ack_timeout_ts]);
   }

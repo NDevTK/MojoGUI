@@ -48,7 +48,7 @@ printing.mojom.PrinterXmlParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$,
+      printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
       [capabilities_xml]);
   }

@@ -221,7 +221,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -230,7 +230,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -239,7 +239,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -248,7 +248,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -257,7 +257,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -266,7 +266,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -275,7 +275,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -284,7 +284,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -293,7 +293,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -302,7 +302,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec,
       null,
       [params]);
   }
@@ -311,7 +311,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec,
       null,
       []);
   }
@@ -320,7 +320,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec,
       null,
       [params]);
   }
@@ -329,7 +329,7 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec.$,
+      ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec,
       null,
       [params]);
   }

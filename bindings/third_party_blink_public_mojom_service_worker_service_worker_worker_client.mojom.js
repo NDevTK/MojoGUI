@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec.$,
+      blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
       null,
       [mode]);
   }

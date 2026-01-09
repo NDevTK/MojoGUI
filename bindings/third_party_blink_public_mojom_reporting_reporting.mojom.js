@@ -48,7 +48,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec,
       null,
       [url, id, message, source_file, line_number, column_number]);
   }
@@ -57,7 +57,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec,
       null,
       [url, id, anticipatedRemoval, message, source_file, line_number, column_number]);
   }
@@ -66,7 +66,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec,
       null,
       [url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number]);
   }
@@ -75,7 +75,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec,
       null,
       [url, endpoint, document_url, blocked_url, destination, report_only]);
   }
@@ -84,7 +84,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec,
       null,
       [url, endpoint, policy_id, disposition, message, source_file, line_number, column_number]);
   }
@@ -93,7 +93,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec,
       null,
       [url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number]);
   }
@@ -102,7 +102,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec,
       null,
       [url, group, policy_id, disposition, message, source_file, line_number, column_number]);
   }
@@ -111,7 +111,7 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$,
+      blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec,
       null,
       [url, endpoint, subresource_url, integrity_hash, type, destination]);
   }

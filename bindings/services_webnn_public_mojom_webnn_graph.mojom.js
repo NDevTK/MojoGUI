@@ -177,7 +177,7 @@ webnn.mojom.WebNNGraphRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$,
+      webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
       [named_inputs, named_outputs]);
   }

@@ -48,8 +48,8 @@ viz.mojom.InputTargetClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec.$,
-      viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec.$,
+      viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
+      viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
       [point, trace_id]);
   }
 

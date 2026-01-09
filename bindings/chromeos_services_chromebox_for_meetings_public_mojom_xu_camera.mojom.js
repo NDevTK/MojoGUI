@@ -60,8 +60,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$,
-      ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$,
+      ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec,
+      ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
       [id, guid]);
   }
 
@@ -69,8 +69,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$,
-      ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$,
+      ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
       [id, mapping_ctrl]);
   }
 
@@ -78,8 +78,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$,
-      ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$,
+      ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
       [id, ctrl, fn]);
   }
 
@@ -87,8 +87,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$,
-      ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$,
+      ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec,
+      ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
       [id, ctrl, data]);
   }
 

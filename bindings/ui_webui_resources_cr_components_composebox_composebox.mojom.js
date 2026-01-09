@@ -48,7 +48,7 @@ composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler, searchbox_page, searchbox_handler]);
   }
@@ -126,7 +126,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$,
+      composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
       [focused]);
   }
@@ -135,7 +135,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$,
+      composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -144,7 +144,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$,
+      composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
       [enabled, image_present]);
   }
@@ -153,7 +153,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$,
+      composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
       []);
   }
@@ -162,7 +162,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$,
+      composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
       [is_image]);
   }
@@ -171,7 +171,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$,
+      composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
       [url]);
   }

@@ -54,7 +54,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$,
+      mojom.OmniboxPageHandler_SetClientPage_ParamsSpec,
       null,
       [page]);
   }
@@ -63,7 +63,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$,
+      mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec,
       null,
       [input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification]);
   }
@@ -72,8 +72,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$,
-      mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$,
+      mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec,
+      mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
       []);
   }
 
@@ -81,8 +81,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.OmniboxPageHandler_StartMl_ParamsSpec.$,
-      mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$,
+      mojom.OmniboxPageHandler_StartMl_ParamsSpec,
+      mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
       [signals]);
   }
 
@@ -230,7 +230,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$,
+      mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec,
       null,
       [autocomplete_controller_type, input_text]);
   }
@@ -239,7 +239,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$,
+      mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec,
       null,
       [autocomplete_controller_type, response]);
   }
@@ -248,7 +248,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$,
+      mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec,
       null,
       [autocomplete_controller_type, input_text, matches]);
   }
@@ -257,7 +257,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$,
+      mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec,
       null,
       [autocomplete_controller_type, image_url, image_data]);
   }

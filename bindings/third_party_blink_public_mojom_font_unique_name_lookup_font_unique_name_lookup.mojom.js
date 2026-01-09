@@ -48,8 +48,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec.$,
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec.$,
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec.$,
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$,
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
       []);
   }
 

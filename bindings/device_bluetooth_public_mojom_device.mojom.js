@@ -83,7 +83,7 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Device_Disconnect_ParamsSpec.$,
+      bluetooth.mojom.Device_Disconnect_ParamsSpec,
       null,
       []);
   }
@@ -92,8 +92,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.Device_GetInfo_ParamsSpec.$,
-      bluetooth.mojom.Device_GetInfo_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_GetInfo_ParamsSpec,
+      bluetooth.mojom.Device_GetInfo_ResponseParamsSpec,
       []);
   }
 
@@ -101,8 +101,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.Device_GetServices_ParamsSpec.$,
-      bluetooth.mojom.Device_GetServices_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_GetServices_ParamsSpec,
+      bluetooth.mojom.Device_GetServices_ResponseParamsSpec,
       []);
   }
 
@@ -110,8 +110,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$,
-      bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_GetCharacteristics_ParamsSpec,
+      bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec,
       [service_id]);
   }
 
@@ -119,8 +119,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$,
-      bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec,
+      bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec,
       [service_id, characteristic_id]);
   }
 
@@ -128,8 +128,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$,
-      bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec,
+      bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec,
       [service_id, characteristic_id, value]);
   }
 
@@ -137,8 +137,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$,
-      bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_GetDescriptors_ParamsSpec,
+      bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec,
       [service_id, characteristic_id]);
   }
 
@@ -146,8 +146,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$,
-      bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec,
+      bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec,
       [service_id, characteristic_id, descriptor_id]);
   }
 
@@ -155,8 +155,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$,
-      bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec.$,
+      bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec,
+      bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec,
       [service_id, characteristic_id, descriptor_id, value]);
   }
 

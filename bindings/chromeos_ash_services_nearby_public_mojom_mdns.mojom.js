@@ -48,7 +48,7 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$,
+      sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
       [service_info]);
   }
@@ -57,7 +57,7 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$,
+      sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
       [service_info]);
   }
@@ -146,7 +146,7 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$,
+      sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -155,8 +155,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$,
-      sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$,
+      sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
+      sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
       [service_type]);
   }
 
@@ -164,8 +164,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$,
-      sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$,
+      sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
+      sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
       [service_type]);
   }
 

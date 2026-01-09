@@ -56,7 +56,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$,
+      network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
       [report]);
   }
@@ -65,7 +65,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$,
+      network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
       [report]);
   }
@@ -74,7 +74,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$,
+      network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
       [endpoints]);
   }

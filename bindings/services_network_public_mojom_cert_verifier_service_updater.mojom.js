@@ -48,7 +48,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
       [certificates]);
   }
@@ -57,7 +57,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
       null,
       [ct_policy]);
   }

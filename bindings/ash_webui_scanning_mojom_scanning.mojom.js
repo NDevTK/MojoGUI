@@ -94,7 +94,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$,
+      ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
       [page_number, progress_percent]);
   }
@@ -103,7 +103,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$,
+      ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
       [page_data, new_page_index]);
   }
@@ -112,7 +112,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$,
+      ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
       [result, scanned_file_paths]);
   }
@@ -121,7 +121,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$,
+      ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
       [success]);
   }
@@ -130,7 +130,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$,
+      ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
       [result]);
   }
@@ -264,8 +264,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$,
-      ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$,
+      ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
+      ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
       []);
   }
 
@@ -273,8 +273,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$,
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$,
+      ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
+      ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
       [scanner_id]);
   }
 
@@ -282,8 +282,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$,
-      ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$,
+      ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
+      ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
       [scanner_id, settings, observer]);
   }
 
@@ -291,8 +291,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$,
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$,
+      ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
+      ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
       [scanner_id, settings, observer]);
   }
 
@@ -300,7 +300,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$,
+      ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
       []);
   }
@@ -485,8 +485,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$,
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$,
+      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
+      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
       [scanner_id, settings]);
   }
 
@@ -494,7 +494,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$,
+      ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
       [page_index]);
   }
@@ -503,8 +503,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$,
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$,
+      ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
+      ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
       [scanner_id, settings, page_index]);
   }
 
@@ -512,7 +512,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$,
+      ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
       []);
   }

@@ -49,7 +49,7 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$,
+      ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
       []);
   }
@@ -58,8 +58,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$,
-      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$,
+      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
+      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
       []);
   }
 
@@ -67,7 +67,7 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$,
+      ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
       [id]);
   }
@@ -76,7 +76,7 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$,
+      ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -85,7 +85,7 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$,
+      ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }

@@ -48,7 +48,7 @@ media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec.$,
+      media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec,
       null,
       [features, video_stats]);
   }
@@ -124,8 +124,8 @@ media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec.$,
-      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec.$,
+      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec,
+      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
       [features, frames_per_second]);
   }
 

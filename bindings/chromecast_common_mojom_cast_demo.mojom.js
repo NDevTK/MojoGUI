@@ -49,7 +49,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec,
       null,
       [level]);
   }
@@ -124,7 +124,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec,
       null,
       [event_name, data]);
   }
@@ -133,7 +133,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec,
       null,
       [retailer_name]);
   }
@@ -142,7 +142,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec,
       null,
       [store_id]);
   }
@@ -151,8 +151,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$,
-      chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec,
+      chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec,
       []);
   }
 
@@ -160,8 +160,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$,
-      chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec,
+      chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec,
       []);
   }
 
@@ -169,7 +169,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec,
       null,
       [level]);
   }
@@ -178,8 +178,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$,
-      chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec,
+      chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec,
       []);
   }
 
@@ -187,7 +187,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec,
       null,
       []);
   }
@@ -196,7 +196,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec,
       null,
       [ssid, psk]);
   }
@@ -205,8 +205,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$,
-      chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec,
+      chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec,
       []);
   }
 
@@ -214,8 +214,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$,
-      chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec,
+      chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -223,7 +223,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -232,7 +232,7 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$,
+      chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec,
       null,
       []);
   }

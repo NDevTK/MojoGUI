@@ -63,8 +63,8 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$,
-      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$,
+      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
+      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
       []);
   }
 
@@ -150,7 +150,7 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$,
+      recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
       [status, thumbnail]);
   }
@@ -226,7 +226,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$,
+      recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor]);
   }
@@ -235,7 +235,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      recording.mojom.RecordingService_RecordWindow_ParamsSpec.$,
+      recording.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip]);
   }
@@ -244,7 +244,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      recording.mojom.RecordingService_RecordRegion_ParamsSpec.$,
+      recording.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip]);
   }
@@ -253,7 +253,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      recording.mojom.RecordingService_StopRecording_ParamsSpec.$,
+      recording.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
       []);
   }
@@ -262,7 +262,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$,
+      recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
       [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor]);
   }
@@ -271,7 +271,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$,
+      recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
       [new_window_size_dip]);
   }
@@ -280,7 +280,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$,
+      recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
       [new_frame_sink_size_dip, new_device_scale_factor]);
   }

@@ -48,7 +48,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$,
+      chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$,
+      chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$,
+      chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,7 +75,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$,
+      chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
       [receiver]);
   }

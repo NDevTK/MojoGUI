@@ -48,8 +48,8 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec.$,
-      feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$,
+      feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
+      feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
       []);
   }
 

@@ -48,8 +48,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$,
-      blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec.$,
+      blink.mojom.CookieStore_AddSubscriptions_ParamsSpec,
+      blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id, subscription]);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$,
-      blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec.$,
+      blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
+      blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id, subscription]);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$,
-      blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec.$,
+      blink.mojom.CookieStore_GetSubscriptions_ParamsSpec,
+      blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 

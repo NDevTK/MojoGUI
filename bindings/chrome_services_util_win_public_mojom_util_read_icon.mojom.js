@@ -55,8 +55,8 @@ chrome.mojom.UtilReadIconRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec.$,
-      chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec.$,
+      chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
+      chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
       [file, size, scale]);
   }
 

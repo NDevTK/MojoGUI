@@ -48,7 +48,7 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$,
+      tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$,
+      tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
       [rule, histogram_value, flow_id]);
   }
@@ -147,7 +147,7 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$,
+      tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
       [rule, histogram_name, histogram_lower_value, histogram_upper_value]);
   }
@@ -156,7 +156,7 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$,
+      tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
       [rule]);
   }
@@ -248,7 +248,7 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$,
+      tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
       [tracing_process_id, client, agent]);
   }

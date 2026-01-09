@@ -62,7 +62,7 @@ policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -138,8 +138,8 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$,
-      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$,
+      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
+      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
       []);
   }
 
@@ -147,7 +147,7 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$,
+      policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$,
+      policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -271,7 +271,7 @@ policy.local_user_files.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$,
+      policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
       [remaining_time]);
   }

@@ -101,7 +101,7 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$,
+      metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
       [entry]);
   }
@@ -176,7 +176,7 @@ metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$,
+      metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
       [receiver, client_remote]);
   }

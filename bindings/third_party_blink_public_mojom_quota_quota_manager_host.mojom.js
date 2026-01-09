@@ -48,8 +48,8 @@ blink.mojom.QuotaManagerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec.$,
-      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec.$,
+      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
+      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
       []);
   }
 

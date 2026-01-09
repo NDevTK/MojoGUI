@@ -62,7 +62,7 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$,
+      content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec,
       null,
       [peripheral_address]);
   }
@@ -71,7 +71,7 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$,
+      content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -80,7 +80,7 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$,
+      content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec,
       null,
       []);
   }
@@ -181,7 +181,7 @@ content.mojom.FakeBluetoothChooserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$,
+      content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec,
       null,
       [fake_chooser, client]);
   }
@@ -257,7 +257,7 @@ content.mojom.FakeBluetoothChooserClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$,
+      content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec,
       null,
       [event]);
   }

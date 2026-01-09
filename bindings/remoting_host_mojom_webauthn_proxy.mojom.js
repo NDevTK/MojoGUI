@@ -48,8 +48,8 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$,
-      remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec.$,
+      remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
+      remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
       []);
   }
 
@@ -135,8 +135,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$,
-      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$,
+      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
+      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -144,8 +144,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$,
-      remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec.$,
+      remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
+      remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
       [request_data, request_canceller]);
   }
 
@@ -153,8 +153,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$,
-      remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec.$,
+      remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
+      remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
       [request_data, request_canceller]);
   }
 

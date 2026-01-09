@@ -48,7 +48,7 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$,
+      device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec,
       null,
       [context_id, context]);
   }
@@ -57,7 +57,7 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$,
+      device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec,
       null,
       [type, reason, description, wake_lock]);
   }
@@ -66,7 +66,7 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$,
+      device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec,
       null,
       [type, observer]);
   }
@@ -75,8 +75,8 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$,
-      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec.$,
+      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec,
+      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
       [type]);
   }
 
@@ -210,7 +210,7 @@ device.mojom.WakeLockObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$,
+      device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec,
       null,
       [type]);
   }

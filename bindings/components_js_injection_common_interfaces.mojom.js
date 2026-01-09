@@ -48,7 +48,7 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$,
+      js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec,
       null,
       [message, ports]);
   }
@@ -57,7 +57,7 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$,
+      js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec,
       null,
       [browser_to_js_messaging]);
   }
@@ -147,7 +147,7 @@ js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$,
+      js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec,
       null,
       []);
   }
@@ -221,7 +221,7 @@ js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$,
+      js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec,
       null,
       [browser_to_js_messaging]);
   }
@@ -296,7 +296,7 @@ js_injection.mojom.BrowserToJsMessagingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$,
+      js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -371,7 +371,7 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$,
+      js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec,
       null,
       [js_objects, client]);
   }
@@ -380,7 +380,7 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$,
+      js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec,
       null,
       [script]);
   }
@@ -389,7 +389,7 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$,
+      js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec,
       null,
       [script_id]);
   }

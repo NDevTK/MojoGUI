@@ -64,8 +64,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$,
-      content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec.$,
+      content.mojom.SandboxSupport_GetSystemColors_ParamsSpec,
+      content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
       []);
   }
 
@@ -73,8 +73,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$,
-      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$,
+      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
+      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
       [locale, default_language, defaults]);
   }
 
@@ -82,8 +82,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$,
-      content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$,
+      content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
+      content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
       [lcid, defaults]);
   }
 
@@ -91,8 +91,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.SandboxSupport_LocaleString_ParamsSpec.$,
-      content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$,
+      content.mojom.SandboxSupport_LocaleString_ParamsSpec,
+      content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
       [lcid, defaults, type]);
   }
 
@@ -100,8 +100,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$,
-      content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$,
+      content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
+      content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
       [lcid, defaults, collection]);
   }
 

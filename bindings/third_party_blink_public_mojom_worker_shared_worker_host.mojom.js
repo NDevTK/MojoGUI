@@ -48,7 +48,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec,
       null,
       [connection_id]);
   }
@@ -57,7 +57,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +66,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec,
       null,
       [agent, agent_host]);
   }
@@ -75,7 +75,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec,
       null,
       [error_message]);
   }
@@ -84,7 +84,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec,
       null,
       [details]);
   }
@@ -93,7 +93,7 @@ blink.mojom.SharedWorkerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$,
+      blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec,
       null,
       [feature]);
   }

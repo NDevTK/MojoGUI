@@ -81,7 +81,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -157,7 +157,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
       [shortcuts_types, shortcuts_visible, personal_shortcuts_visible]);
   }
@@ -166,7 +166,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
       null,
       []);
   }
@@ -175,8 +175,8 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec.$,
-      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
       []);
   }
 
@@ -184,8 +184,8 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec.$,
-      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -193,8 +193,8 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec.$,
-      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -202,7 +202,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
       null,
       []);
   }
@@ -211,7 +211,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
       null,
       []);
   }
@@ -220,7 +220,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
       null,
       [is_theme_editable]);
   }
@@ -229,7 +229,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
       null,
       []);
   }
@@ -238,7 +238,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
       null,
       [follow]);
   }
@@ -247,7 +247,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
       null,
       []);
   }
@@ -256,8 +256,8 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec.$,
-      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
+      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
       []);
   }
 
@@ -265,7 +265,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
       null,
       [attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id]);
   }
@@ -274,7 +274,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
       null,
       [collection_id]);
   }
@@ -283,7 +283,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
       null,
       []);
   }
@@ -292,7 +292,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
       null,
       []);
   }
@@ -301,7 +301,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
       null,
       [theme_id]);
   }
@@ -310,7 +310,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
       null,
       [category]);
   }
@@ -319,7 +319,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
       null,
       [collection]);
   }
@@ -328,7 +328,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
       null,
       []);
   }
@@ -337,7 +337,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -346,7 +346,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
       null,
       [module_id, disabled]);
   }
@@ -355,7 +355,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -364,7 +364,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
       null,
       []);
   }
@@ -373,7 +373,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
       null,
       []);
   }
@@ -382,7 +382,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
       null,
       []);
   }
@@ -391,7 +391,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
       null,
       []);
   }
@@ -400,7 +400,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -409,7 +409,7 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
       null,
       []);
   }
@@ -921,7 +921,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
       null,
       [modules_settings, managed, visible]);
   }
@@ -930,7 +930,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
       null,
       [shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts]);
   }
@@ -939,7 +939,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
       null,
       [visible]);
   }
@@ -948,7 +948,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
       null,
       [visible, extension_policy_enabled, management_notice_state]);
   }
@@ -957,7 +957,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
       null,
       [theme]);
   }
@@ -966,7 +966,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
       null,
       [is_theme_editable]);
   }
@@ -975,7 +975,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
       null,
       [section]);
   }
@@ -984,7 +984,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
       null,
       [ntp_type]);
   }
@@ -993,7 +993,7 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec.$,
+      side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
       null,
       [name, description]);
   }

@@ -48,7 +48,7 @@ chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec.$,
+      chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
       null,
       [receiver]);
   }

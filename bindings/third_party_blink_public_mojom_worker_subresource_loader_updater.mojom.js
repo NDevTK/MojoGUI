@@ -48,7 +48,7 @@ blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec.$,
+      blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
       [subresource_loader_factories]);
   }

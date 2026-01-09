@@ -49,8 +49,8 @@ ash.mall.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$,
-      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$,
+      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
+      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
       [path]);
   }
 

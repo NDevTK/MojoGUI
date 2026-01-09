@@ -48,8 +48,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$,
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$,
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
       [calculate_now]);
   }
 
@@ -66,8 +66,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$,
-      browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$,
+      browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
+      browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$,
-      browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$,
+      browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
+      browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
       [hosts]);
   }
 

@@ -48,7 +48,7 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$,
+      chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
       [filter]);
   }

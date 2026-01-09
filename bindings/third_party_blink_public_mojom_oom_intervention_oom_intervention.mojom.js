@@ -48,7 +48,7 @@ blink.mojom.OomInterventionHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$,
+      blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +122,7 @@ blink.mojom.OomInterventionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.OomIntervention_StartDetection_ParamsSpec.$,
+      blink.mojom.OomIntervention_StartDetection_ParamsSpec,
       null,
       [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled]);
   }

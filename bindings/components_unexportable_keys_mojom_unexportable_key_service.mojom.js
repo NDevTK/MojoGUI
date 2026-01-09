@@ -75,7 +75,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec,
       null,
       [acceptable_algorithms, priority]);
   }
@@ -84,7 +84,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec,
       null,
       [wrapped_key, priority]);
   }
@@ -93,7 +93,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec,
       null,
       [key_id, data, priority]);
   }
@@ -102,7 +102,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec,
       null,
       [priority]);
   }
@@ -111,8 +111,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$,
-      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec,
+      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec,
       [key_id, priority]);
   }
 
@@ -120,7 +120,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
       [priority]);
   }

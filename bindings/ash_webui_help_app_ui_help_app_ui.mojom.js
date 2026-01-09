@@ -82,7 +82,7 @@ ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -157,8 +157,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$,
-      ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$,
+      ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
+      ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
       []);
   }
 
@@ -166,7 +166,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec,
       null,
       []);
   }
@@ -175,7 +175,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec,
       null,
       []);
   }
@@ -184,7 +184,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec,
       null,
       [action_type_id]);
   }
@@ -193,8 +193,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$,
-      ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$,
+      ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec,
+      ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -202,7 +202,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec,
       null,
       []);
   }
@@ -211,7 +211,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec,
       null,
       []);
   }
@@ -220,8 +220,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$,
-      ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$,
+      ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec,
+      ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
       []);
   }
 
@@ -229,7 +229,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec,
       null,
       [url]);
   }
@@ -238,7 +238,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec,
       null,
       [component]);
   }
@@ -247,7 +247,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec,
       null,
       []);
   }
@@ -256,7 +256,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$,
+      ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec,
       null,
       []);
   }

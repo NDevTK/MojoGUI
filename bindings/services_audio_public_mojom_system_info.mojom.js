@@ -48,8 +48,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -57,8 +57,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
+      audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -66,8 +66,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$,
-      audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
+      audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$,
-      audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
+      audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
       []);
   }
 
@@ -84,8 +84,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
       []);
   }
 
@@ -93,8 +93,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
+      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
       []);
   }
 
@@ -102,8 +102,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
+      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
       [input_device_id]);
   }
 
@@ -111,8 +111,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$,
-      audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$,
+      audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
+      audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
       [input_device_id]);
   }
 

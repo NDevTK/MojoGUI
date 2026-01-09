@@ -48,7 +48,7 @@ viz.mojom.BeginFrameObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec.$,
+      viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
       [args]);
   }

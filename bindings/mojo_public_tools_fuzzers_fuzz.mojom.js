@@ -55,7 +55,7 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$,
+      fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
       []);
   }
@@ -138,7 +138,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       null,
       []);
   }
@@ -147,7 +147,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +156,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
       [a, b]);
   }
@@ -165,7 +165,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       null,
       [a, b]);
   }
@@ -174,7 +174,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       null,
       [a, b]);
   }
@@ -183,7 +183,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$,
+      fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
       [receiver]);
   }

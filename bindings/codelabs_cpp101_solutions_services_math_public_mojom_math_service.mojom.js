@@ -48,8 +48,8 @@ math.mojom.MathServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      math.mojom.MathService_Divide_ParamsSpec.$,
-      math.mojom.MathService_Divide_ResponseParamsSpec.$,
+      math.mojom.MathService_Divide_ParamsSpec,
+      math.mojom.MathService_Divide_ResponseParamsSpec,
       [dividend, divisor]);
   }
 

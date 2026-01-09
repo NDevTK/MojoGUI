@@ -48,7 +48,7 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$,
+      blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
       null,
       [files]);
   }
@@ -57,7 +57,7 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$,
+      blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
       [launch_url, time_navigation_started_in_browser, navigation_started]);
   }

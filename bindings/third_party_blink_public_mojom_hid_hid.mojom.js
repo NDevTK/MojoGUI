@@ -48,7 +48,7 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.HidService_RegisterClient_ParamsSpec.$,
+      blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
       [client]);
   }
@@ -57,8 +57,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.HidService_GetDevices_ParamsSpec.$,
-      blink.mojom.HidService_GetDevices_ResponseParamsSpec.$,
+      blink.mojom.HidService_GetDevices_ParamsSpec,
+      blink.mojom.HidService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.HidService_RequestDevice_ParamsSpec.$,
-      blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$,
+      blink.mojom.HidService_RequestDevice_ParamsSpec,
+      blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
       [filters, exclusion_filters]);
   }
 
@@ -75,8 +75,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.HidService_Connect_ParamsSpec.$,
-      blink.mojom.HidService_Connect_ResponseParamsSpec.$,
+      blink.mojom.HidService_Connect_ParamsSpec,
+      blink.mojom.HidService_Connect_ResponseParamsSpec,
       [device_guid, client]);
   }
 
@@ -84,7 +84,7 @@ blink.mojom.HidServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.HidService_Forget_ParamsSpec.$,
+      blink.mojom.HidService_Forget_ParamsSpec,
       null,
       [device_info]);
   }

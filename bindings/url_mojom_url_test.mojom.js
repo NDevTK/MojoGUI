@@ -48,8 +48,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      url.mojom.UrlTest_BounceUrl_ParamsSpec.$,
-      url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$,
+      url.mojom.UrlTest_BounceUrl_ParamsSpec,
+      url.mojom.UrlTest_BounceUrl_ResponseParamsSpec,
       [in]);
   }
 
@@ -57,8 +57,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      url.mojom.UrlTest_BounceOrigin_ParamsSpec.$,
-      url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$,
+      url.mojom.UrlTest_BounceOrigin_ParamsSpec,
+      url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec,
       [in]);
   }
 

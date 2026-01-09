@@ -48,7 +48,7 @@ content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec.$,
+      content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec,
       null,
       [platform_thread_id, thread_type]);
   }

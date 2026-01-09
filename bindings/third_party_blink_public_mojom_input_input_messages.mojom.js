@@ -48,7 +48,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
       [suggestion]);
   }
@@ -57,7 +57,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
       [marker_tag, suggestion_index]);
   }
@@ -66,7 +66,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
       [suggestion]);
   }
@@ -84,7 +84,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$,
+      blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
       [max_number_of_suggestions]);
   }

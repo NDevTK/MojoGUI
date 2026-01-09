@@ -48,7 +48,7 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FontCacheWin_PreCacheFont_ParamsSpec.$,
+      content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
       null,
       [log_font]);
   }
@@ -57,7 +57,7 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec.$,
+      content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
       null,
       []);
   }

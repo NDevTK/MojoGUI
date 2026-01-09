@@ -77,7 +77,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$,
+      chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
       [params, web_contents, window]);
   }
@@ -86,7 +86,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$,
+      chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
       [client, hosts]);
   }
@@ -95,7 +95,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$,
+      chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
       []);
   }
@@ -104,7 +104,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$,
+      chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       null,
       []);
   }

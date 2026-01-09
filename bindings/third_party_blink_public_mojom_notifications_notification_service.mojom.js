@@ -55,7 +55,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$,
+      blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
       []);
   }
@@ -64,7 +64,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$,
+      blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       null,
       []);
   }
@@ -73,7 +73,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$,
+      blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       null,
       []);
   }
@@ -173,8 +173,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$,
-      blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$,
+      blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
+      blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -182,7 +182,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$,
+      blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
       [token, notification_data, notification_resources, event_listener]);
   }
@@ -191,7 +191,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$,
+      blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
       [token]);
   }
@@ -200,8 +200,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$,
-      blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$,
+      blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
+      blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
       [service_worker_registration_id, notification_data, notification_resources]);
   }
 
@@ -209,7 +209,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$,
+      blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
       [notification_id]);
   }
@@ -218,8 +218,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.NotificationService_GetNotifications_ParamsSpec.$,
-      blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$,
+      blink.mojom.NotificationService_GetNotifications_ParamsSpec,
+      blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
       [service_worker_registration_id, filter_tag, include_triggered]);
   }
 

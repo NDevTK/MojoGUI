@@ -63,8 +63,8 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$,
-      patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec.$,
+      patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec,
+      patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
       [input_file, patch_file, output_file]);
   }
 
@@ -72,8 +72,8 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$,
-      patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec.$,
+      patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec,
+      patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
       [input_file, patch_file, output_file]);
   }
 

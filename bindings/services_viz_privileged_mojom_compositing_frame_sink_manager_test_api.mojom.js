@@ -48,8 +48,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec.$,
-      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec.$,
+      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
+      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       null,
       [result_size]);
   }
@@ -66,8 +66,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec.$,
-      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec.$,
+      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
+      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
       [frame_sink_id]);
   }
 
@@ -75,7 +75,7 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec.$,
+      viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       null,
       [frame_sink_id]);
   }

@@ -48,8 +48,8 @@ blink.mojom.SmartCardServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SmartCardService_CreateContext_ParamsSpec.$,
-      blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec.$,
+      blink.mojom.SmartCardService_CreateContext_ParamsSpec,
+      blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
       []);
   }
 

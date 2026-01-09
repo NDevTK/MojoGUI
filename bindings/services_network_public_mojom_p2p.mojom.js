@@ -56,7 +56,7 @@ network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$,
+      network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec,
       null,
       [networks, default_ipv4_local_address, default_ipv6_local_address]);
   }
@@ -133,7 +133,7 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$,
+      network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec,
       null,
       [client]);
   }
@@ -142,8 +142,8 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$,
-      network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$,
+      network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec,
+      network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec,
       [host_name, address_family, enable_mdns]);
   }
 
@@ -151,7 +151,7 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$,
+      network.mojom.P2PSocketManager_CreateSocket_ParamsSpec,
       null,
       [type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket]);
   }
@@ -276,7 +276,7 @@ network.mojom.P2PSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PSocket_Send_ParamsSpec.$,
+      network.mojom.P2PSocket_Send_ParamsSpec,
       null,
       [data, packet_info]);
   }
@@ -285,7 +285,7 @@ network.mojom.P2PSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.P2PSocket_SendBatch_ParamsSpec.$,
+      network.mojom.P2PSocket_SendBatch_ParamsSpec,
       null,
       [packet_batch]);
   }
@@ -294,7 +294,7 @@ network.mojom.P2PSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.P2PSocket_SetOption_ParamsSpec.$,
+      network.mojom.P2PSocket_SetOption_ParamsSpec,
       null,
       [option, value]);
   }
@@ -399,7 +399,7 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$,
+      network.mojom.P2PSocketClient_SocketCreated_ParamsSpec,
       null,
       [local_address, remote_address]);
   }
@@ -408,7 +408,7 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$,
+      network.mojom.P2PSocketClient_SendComplete_ParamsSpec,
       null,
       [send_metrics]);
   }
@@ -417,7 +417,7 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$,
+      network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec,
       null,
       [send_metrics_batch]);
   }
@@ -426,7 +426,7 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$,
+      network.mojom.P2PSocketClient_DataReceived_ParamsSpec,
       null,
       [packets]);
   }

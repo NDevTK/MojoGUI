@@ -48,7 +48,7 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec.$,
+      storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
       [bucket_info]);
   }
@@ -57,7 +57,7 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec.$,
+      storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
       [bucket_locator]);
   }

@@ -54,7 +54,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
       []);
   }
@@ -63,7 +63,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -72,7 +72,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
       []);
   }
@@ -81,8 +81,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$,
-      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
+      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
       []);
   }
 
@@ -90,8 +90,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$,
-      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
+      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
       [settings]);
   }
 
@@ -99,8 +99,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$,
-      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
+      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
       []);
   }
 
@@ -108,7 +108,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       null,
       []);
   }
@@ -117,7 +117,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$,
+      video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
       [feedback]);
   }
@@ -323,8 +323,8 @@ video_capture.mojom.VideoSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$,
-      video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$,
+      video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
+      video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
       [subscriber, requested_settings, force_reopen_with_new_settings, subscription]);
   }
 

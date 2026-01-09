@@ -54,7 +54,7 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec.$,
+      network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
       [details]);
   }
@@ -63,7 +63,7 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.CookieAccessObserver_Clone_ParamsSpec.$,
+      network.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }

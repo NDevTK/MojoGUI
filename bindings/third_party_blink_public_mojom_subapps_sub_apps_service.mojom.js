@@ -54,8 +54,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SubAppsService_Add_ParamsSpec.$,
-      blink.mojom.SubAppsService_Add_ResponseParamsSpec.$,
+      blink.mojom.SubAppsService_Add_ParamsSpec,
+      blink.mojom.SubAppsService_Add_ResponseParamsSpec,
       [sub_apps_to_add]);
   }
 
@@ -63,8 +63,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SubAppsService_List_ParamsSpec.$,
-      blink.mojom.SubAppsService_List_ResponseParamsSpec.$,
+      blink.mojom.SubAppsService_List_ParamsSpec,
+      blink.mojom.SubAppsService_List_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SubAppsService_Remove_ParamsSpec.$,
-      blink.mojom.SubAppsService_Remove_ResponseParamsSpec.$,
+      blink.mojom.SubAppsService_Remove_ParamsSpec,
+      blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
       [manifest_id_paths]);
   }
 

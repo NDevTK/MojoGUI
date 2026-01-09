@@ -66,8 +66,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.OutputProtection_QueryStatus_ParamsSpec.$,
-      media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$,
+      media.mojom.OutputProtection_QueryStatus_ParamsSpec,
+      media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.OutputProtection_EnableProtection_ParamsSpec.$,
-      media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$,
+      media.mojom.OutputProtection_EnableProtection_ParamsSpec,
+      media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
       [desired_protection_mask]);
   }
 

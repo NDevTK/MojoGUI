@@ -48,7 +48,7 @@ blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec.$,
+      blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
       null,
       [statm_file, status_file]);
   }

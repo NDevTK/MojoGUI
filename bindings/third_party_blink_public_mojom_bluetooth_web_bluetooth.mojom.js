@@ -126,8 +126,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec,
+      blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec,
       []);
   }
 
@@ -135,8 +135,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec,
+      blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec,
       [options]);
   }
 
@@ -144,8 +144,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WebBluetoothService_GetDevices_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_GetDevices_ParamsSpec,
+      blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -153,7 +153,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec.$,
+      blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec,
       null,
       [device_id]);
   }
@@ -162,8 +162,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec,
       [device_id, client]);
   }
 
@@ -171,7 +171,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec,
       null,
       [device_id]);
   }
@@ -180,8 +180,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec,
       [device_id, quantity, services_uuid]);
   }
 
@@ -189,8 +189,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec,
       [service_instance_id, quantity, characteristics_uuid]);
   }
 
@@ -198,8 +198,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec,
       [characteristic_instance_id]);
   }
 
@@ -207,8 +207,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec,
       [characteristic_instance_id, value, write_type]);
   }
 
@@ -216,8 +216,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec,
       [characteristic_instance_id, client]);
   }
 
@@ -225,7 +225,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec,
       null,
       [characteristic_instance_id]);
   }
@@ -234,8 +234,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec,
       [characteristics_instance_id, quantity, descriptor_uuid]);
   }
 
@@ -243,8 +243,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec,
       [descriptor_instance_id]);
   }
 
@@ -252,8 +252,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec,
+      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec,
       [descriptor_instance_id, value]);
   }
 
@@ -261,8 +261,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec,
+      blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec,
       [client, options]);
   }
 
@@ -270,8 +270,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec.$,
-      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec.$,
+      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec,
+      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec,
       [device_id, client]);
   }
 
@@ -768,7 +768,7 @@ blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$,
+      blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
       null,
       []);
   }
@@ -842,7 +842,7 @@ blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$,
+      blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec,
       null,
       [value]);
   }
@@ -917,7 +917,7 @@ blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$,
+      blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec,
       null,
       [result]);
   }

@@ -71,7 +71,7 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -147,7 +147,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
       null,
       [folder_id]);
   }
@@ -156,8 +156,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$,
-      side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
+      side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
       [folder_id, title]);
   }
 
@@ -165,7 +165,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       null,
       [folder_id]);
   }
@@ -174,7 +174,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -183,7 +183,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -192,7 +192,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -201,7 +201,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -210,7 +210,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -219,7 +219,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -228,7 +228,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -237,7 +237,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
       [node_id, source]);
   }
@@ -246,7 +246,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
       [node_id, source]);
   }
@@ -255,7 +255,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -264,7 +264,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
       [node_id, parent_folder_depth, click_modifiers, source]);
   }
@@ -273,7 +273,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
       []);
   }
@@ -282,7 +282,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
       [node_id, new_title]);
   }
@@ -291,7 +291,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
       [node_id, folder_id]);
   }
@@ -300,7 +300,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       null,
       [node_ids]);
   }
@@ -309,7 +309,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
       [sort_order]);
   }
@@ -318,7 +318,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
       [view_type]);
   }
@@ -327,7 +327,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
       [id, point, source]);
   }
@@ -336,7 +336,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -345,8 +345,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$,
-      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec.$,
+      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
+      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
       []);
   }
 
@@ -769,7 +769,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$,
+      side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
       null,
       [node]);
   }
@@ -778,7 +778,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$,
+      side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
       null,
       [node_ids]);
   }
@@ -787,7 +787,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$,
+      side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
       null,
       [folder_id, children_ordered_ids]);
   }
@@ -796,7 +796,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$,
+      side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
       null,
       [old_parent_index, old_node_index, new_parent_index, new_node_index]);
   }
@@ -805,7 +805,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$,
+      side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
       null,
       [id, new_title, new_url]);
   }

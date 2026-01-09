@@ -48,7 +48,7 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$,
+      viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
       [start_time, bucket_size]);
   }
@@ -57,8 +57,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$,
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$,
+      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
+      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
       []);
   }
 
@@ -66,7 +66,7 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$,
+      viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
       [root_frame_sink_id, bucket_size]);
   }
@@ -75,8 +75,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$,
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$,
+      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
+      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
       [root_frame_sink_id]);
   }
 

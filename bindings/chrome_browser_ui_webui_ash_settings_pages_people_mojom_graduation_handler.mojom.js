@@ -50,7 +50,7 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$,
+      ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
       []);
   }
@@ -59,7 +59,7 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$,
+      ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -147,7 +147,7 @@ ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$,
+      ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
       [is_app_enabled]);
   }

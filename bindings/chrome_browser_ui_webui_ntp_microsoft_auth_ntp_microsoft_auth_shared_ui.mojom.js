@@ -54,7 +54,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec,
       null,
       []);
   }
@@ -63,7 +63,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec,
       null,
       []);
   }
@@ -72,7 +72,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$,
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec,
       null,
       []);
   }

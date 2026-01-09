@@ -48,7 +48,7 @@ IPC.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      IPC.mojom.Channel_SetPeerPid_ParamsSpec.$,
+      IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
       [pid]);
   }
@@ -57,7 +57,7 @@ IPC.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$,
+      IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
       [receiver]);
   }

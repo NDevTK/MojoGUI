@@ -55,7 +55,7 @@ media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$,
+      media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
       [status]);
   }

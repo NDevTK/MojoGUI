@@ -100,7 +100,7 @@ blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec.$,
+      blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
       [name, receiver]);
   }

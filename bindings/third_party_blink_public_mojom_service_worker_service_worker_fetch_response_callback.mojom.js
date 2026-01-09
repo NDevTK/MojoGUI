@@ -48,7 +48,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
       [response, timing]);
   }
@@ -57,7 +57,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
       [response, body_as_stream, timing]);
   }
@@ -66,7 +66,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$,
+      blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
       [request_body, timing]);
   }

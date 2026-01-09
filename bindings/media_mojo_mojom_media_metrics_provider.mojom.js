@@ -66,7 +66,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_Initialize_ParamsSpec,
       null,
       [is_mse, url_scheme, stream_type]);
   }
@@ -75,7 +75,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec,
       null,
       [status]);
   }
@@ -84,7 +84,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_OnError_ParamsSpec,
       null,
       [status]);
   }
@@ -93,7 +93,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec,
       null,
       [status]);
   }
@@ -102,7 +102,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +111,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec,
       null,
       []);
   }
@@ -120,7 +120,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec,
       null,
       []);
   }
@@ -129,7 +129,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec,
       null,
       [elapsed]);
   }
@@ -138,7 +138,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec,
       null,
       [elapsed]);
   }
@@ -147,7 +147,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec,
       null,
       [elapsed]);
   }
@@ -156,7 +156,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec,
       null,
       [renderer_type]);
   }
@@ -165,7 +165,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec,
       null,
       [demuxer_type]);
   }
@@ -174,7 +174,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec,
       null,
       [key_system]);
   }
@@ -183,7 +183,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec,
       null,
       []);
   }
@@ -192,7 +192,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec,
       null,
       []);
   }
@@ -201,7 +201,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec,
       null,
       []);
   }
@@ -210,7 +210,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec,
       null,
       [container_name]);
   }
@@ -219,7 +219,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec,
       null,
       [properties, recorder]);
   }
@@ -228,7 +228,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec,
       null,
       [recorder]);
   }
@@ -237,7 +237,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec,
       null,
       [receiver]);
   }
@@ -246,7 +246,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec,
       null,
       [codec]);
   }
@@ -255,7 +255,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec,
       null,
       [codec]);
   }
@@ -264,7 +264,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec,
       null,
       [info]);
   }
@@ -273,7 +273,7 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$,
+      media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec,
       null,
       [info]);
   }

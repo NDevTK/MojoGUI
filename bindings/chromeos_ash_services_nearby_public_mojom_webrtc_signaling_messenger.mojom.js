@@ -54,7 +54,7 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$,
+      sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -63,7 +63,7 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$,
+      sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
       [success]);
   }
@@ -152,7 +152,7 @@ sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$,
+      sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
       []);
   }
@@ -226,8 +226,8 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$,
-      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$,
+      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
       [self_id, peer_id, location_hint, message]);
   }
 
@@ -235,8 +235,8 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$,
-      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$,
+      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
+      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
       [self_id, location_hint, listener]);
   }
 

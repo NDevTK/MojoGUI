@@ -48,7 +48,7 @@ web.mojom.WebUsageControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$,
+      web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
       null,
       [enabled]);
   }

@@ -48,7 +48,7 @@ comments.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -124,7 +124,7 @@ comments.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      comments.mojom.PageHandler_ShowUI_ParamsSpec.$,
+      comments.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }

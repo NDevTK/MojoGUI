@@ -61,7 +61,7 @@ web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$,
+      web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
       null,
       [receiver, base_url, data_source]);
   }
@@ -70,7 +70,7 @@ web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$,
+      web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
       null,
       [data_source, file]);
   }
@@ -162,8 +162,8 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$,
-      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec.$,
+      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
       []);
   }
 
@@ -171,8 +171,8 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$,
-      web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec.$,
+      web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
       [offset]);
   }
 
@@ -180,8 +180,8 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$,
-      web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec.$,
+      web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec,
+      web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
       [response_offset, response_length]);
   }
 
@@ -189,7 +189,7 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      web_package.mojom.WebBundleParser_Close_ParamsSpec.$,
+      web_package.mojom.WebBundleParser_Close_ParamsSpec,
       null,
       []);
   }
@@ -347,8 +347,8 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_package.mojom.BundleDataSource_Read_ParamsSpec.$,
-      web_package.mojom.BundleDataSource_Read_ResponseParamsSpec.$,
+      web_package.mojom.BundleDataSource_Read_ParamsSpec,
+      web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
       [offset, length]);
   }
 
@@ -356,8 +356,8 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      web_package.mojom.BundleDataSource_Length_ParamsSpec.$,
-      web_package.mojom.BundleDataSource_Length_ResponseParamsSpec.$,
+      web_package.mojom.BundleDataSource_Length_ParamsSpec,
+      web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
       []);
   }
 
@@ -365,8 +365,8 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$,
-      web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec.$,
+      web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
+      web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
       []);
   }
 
@@ -374,7 +374,7 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      web_package.mojom.BundleDataSource_Close_ParamsSpec.$,
+      web_package.mojom.BundleDataSource_Close_ParamsSpec,
       null,
       []);
   }

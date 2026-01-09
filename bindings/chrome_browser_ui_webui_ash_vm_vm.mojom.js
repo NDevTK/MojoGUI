@@ -49,8 +49,8 @@ ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec.$,
-      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec.$,
+      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
+      ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
       []);
   }
 

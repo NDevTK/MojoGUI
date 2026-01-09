@@ -48,7 +48,7 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.TextureReleaser_Release_ParamsSpec.$,
+      viz.mojom.TextureReleaser_Release_ParamsSpec,
       null,
       [sync_token, is_lost]);
   }

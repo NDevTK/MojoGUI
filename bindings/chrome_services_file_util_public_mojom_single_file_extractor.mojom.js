@@ -48,8 +48,8 @@ chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$,
-      chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec.$,
+      chrome.mojom.SingleFileExtractor_Extract_ParamsSpec,
+      chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
       [src_file, dst_file, listener]);
   }
 
@@ -138,7 +138,7 @@ chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$,
+      chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec,
       null,
       [total_bytes, progress_bytes]);
   }

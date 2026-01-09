@@ -48,8 +48,8 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$,
-      device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$,
+      device.mojom.ScreenOrientation_LockOrientation_ParamsSpec,
+      device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec,
       [orientation]);
   }
 
@@ -57,7 +57,7 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$,
+      device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec,
       null,
       []);
   }
@@ -158,8 +158,8 @@ device.mojom.ScreenOrientationListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$,
-      device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$,
+      device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec,
+      device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec,
       []);
   }
 

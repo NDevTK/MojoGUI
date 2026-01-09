@@ -65,7 +65,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -141,8 +141,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
       [source]);
   }
 
@@ -150,8 +150,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
       []);
   }
 
@@ -159,7 +159,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
       null,
       [source, sha256_hash_hex]);
   }
@@ -168,7 +168,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
       null,
       [source]);
   }
@@ -177,8 +177,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
       [source]);
   }
 
@@ -186,8 +186,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
       [source]);
   }
 
@@ -195,8 +195,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
       [source, display_name, sha256_hash_hex]);
   }
 
@@ -204,7 +204,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec,
       null,
       []);
   }
@@ -213,7 +213,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
       [include]);
   }
@@ -466,8 +466,8 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
       []);
   }
 
@@ -475,8 +475,8 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$,
-      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
+      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
       [title, message]);
   }
 
@@ -484,7 +484,7 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
       null,
       [sources]);
   }
@@ -493,7 +493,7 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$,
+      certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
       null,
       []);
   }

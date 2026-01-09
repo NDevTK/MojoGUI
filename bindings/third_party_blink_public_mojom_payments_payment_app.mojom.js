@@ -106,7 +106,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.PaymentManager_Init_ParamsSpec.$,
+      payments.mojom.PaymentManager_Init_ParamsSpec,
       null,
       [context_url, service_worker_scope]);
   }
@@ -115,8 +115,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$,
-      payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -124,8 +124,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$,
-      payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -133,8 +133,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$,
-      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
+      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
       []);
   }
 
@@ -142,8 +142,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$,
-      payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
       [instrument_key]);
   }
 
@@ -151,8 +151,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$,
-      payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
+      payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
       [instrument_key, instrument]);
   }
 
@@ -160,8 +160,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$,
-      payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
+      payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
       []);
   }
 
@@ -169,7 +169,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$,
+      payments.mojom.PaymentManager_SetUserHint_ParamsSpec,
       null,
       [user_hint]);
   }
@@ -178,8 +178,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$,
-      payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$,
+      payments.mojom.PaymentManager_EnableDelegations_ParamsSpec,
+      payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
       [delegations]);
   }
 
@@ -458,7 +458,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
       null,
       [payment_aborted]);
   }
@@ -467,7 +467,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
       null,
       [response]);
   }
@@ -476,7 +476,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$,
+      payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
       null,
       [response]);
   }

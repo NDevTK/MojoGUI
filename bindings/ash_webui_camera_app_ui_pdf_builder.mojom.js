@@ -49,7 +49,7 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$,
+      ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec,
       null,
       [jpeg, page_index]);
   }
@@ -58,7 +58,7 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$,
+      ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec,
       null,
       [jpeg, page_index]);
   }
@@ -67,7 +67,7 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$,
+      ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec,
       null,
       [page_index]);
   }
@@ -76,8 +76,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$,
-      ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$,
+      ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec,
+      ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +85,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$,
-      ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$,
+      ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec,
+      ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
       []);
   }
 

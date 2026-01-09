@@ -48,7 +48,7 @@ network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec.$,
+      network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
       null,
       [type, http_rtt, transport_rtt, downlink_bandwidth_kbps]);
   }
@@ -126,7 +126,7 @@ network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec.$,
+      network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
       null,
       [client]);
   }

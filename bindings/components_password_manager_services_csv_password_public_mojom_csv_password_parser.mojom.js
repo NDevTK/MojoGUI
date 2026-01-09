@@ -55,8 +55,8 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$,
-      password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$,
+      password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
+      password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
       [raw_csv]);
   }
 

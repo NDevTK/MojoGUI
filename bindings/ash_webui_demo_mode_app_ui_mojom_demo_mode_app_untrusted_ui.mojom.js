@@ -49,7 +49,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -124,7 +124,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$,
+      ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +133,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$,
+      ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
       [app_id]);
   }

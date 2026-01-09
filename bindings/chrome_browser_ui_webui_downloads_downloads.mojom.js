@@ -99,7 +99,7 @@ downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
@@ -175,7 +175,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$,
+      downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
       [search_terms]);
   }
@@ -184,7 +184,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -193,7 +193,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      downloads.mojom.PageHandler_Drag_ParamsSpec.$,
+      downloads.mojom.PageHandler_Drag_ParamsSpec,
       null,
       [id]);
   }
@@ -202,7 +202,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -211,7 +211,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$,
+      downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
       [id]);
   }
@@ -220,7 +220,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -229,7 +229,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$,
+      downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
       [id]);
   }
@@ -238,7 +238,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$,
+      downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
       [id]);
   }
@@ -247,7 +247,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$,
+      downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
       [id]);
   }
@@ -256,7 +256,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      downloads.mojom.PageHandler_Show_ParamsSpec.$,
+      downloads.mojom.PageHandler_Show_ParamsSpec,
       null,
       [id]);
   }
@@ -265,7 +265,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      downloads.mojom.PageHandler_Pause_ParamsSpec.$,
+      downloads.mojom.PageHandler_Pause_ParamsSpec,
       null,
       [id]);
   }
@@ -274,7 +274,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      downloads.mojom.PageHandler_Resume_ParamsSpec.$,
+      downloads.mojom.PageHandler_Resume_ParamsSpec,
       null,
       [id]);
   }
@@ -283,7 +283,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      downloads.mojom.PageHandler_Remove_ParamsSpec.$,
+      downloads.mojom.PageHandler_Remove_ParamsSpec,
       null,
       [id]);
   }
@@ -292,7 +292,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      downloads.mojom.PageHandler_Undo_ParamsSpec.$,
+      downloads.mojom.PageHandler_Undo_ParamsSpec,
       null,
       []);
   }
@@ -301,7 +301,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      downloads.mojom.PageHandler_Cancel_ParamsSpec.$,
+      downloads.mojom.PageHandler_Cancel_ParamsSpec,
       null,
       [id]);
   }
@@ -310,7 +310,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      downloads.mojom.PageHandler_ClearAll_ParamsSpec.$,
+      downloads.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
       []);
   }
@@ -319,7 +319,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
       []);
   }
@@ -328,7 +328,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$,
+      downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
       []);
   }
@@ -337,7 +337,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$,
+      downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
       []);
   }
@@ -346,7 +346,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -355,7 +355,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -364,7 +364,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      downloads.mojom.PageHandler_DeepScan_ParamsSpec.$,
+      downloads.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
       [id]);
   }
@@ -373,7 +373,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$,
+      downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -382,8 +382,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$,
-      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec.$,
+      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
+      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
       []);
   }
 
@@ -786,7 +786,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.Page_RemoveItem_ParamsSpec.$,
+      downloads.mojom.Page_RemoveItem_ParamsSpec,
       null,
       [index]);
   }
@@ -795,7 +795,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      downloads.mojom.Page_UpdateItem_ParamsSpec.$,
+      downloads.mojom.Page_UpdateItem_ParamsSpec,
       null,
       [index, data]);
   }
@@ -804,7 +804,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      downloads.mojom.Page_InsertItems_ParamsSpec.$,
+      downloads.mojom.Page_InsertItems_ParamsSpec,
       null,
       [index, items]);
   }
@@ -813,7 +813,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      downloads.mojom.Page_ClearAll_ParamsSpec.$,
+      downloads.mojom.Page_ClearAll_ParamsSpec,
       null,
       []);
   }

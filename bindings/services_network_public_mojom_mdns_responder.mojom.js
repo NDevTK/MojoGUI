@@ -48,8 +48,8 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec.$,
-      network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec.$,
+      network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
+      network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
       [address]);
   }
 
@@ -57,8 +57,8 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec.$,
-      network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec.$,
+      network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
+      network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
       [address]);
   }
 

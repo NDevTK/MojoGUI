@@ -55,8 +55,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$,
-      font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec.$,
+      font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
+      font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
       [family_name, style]);
   }
 
@@ -64,8 +64,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$,
-      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec.$,
+      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
+      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
       [family_name, style, bcp47s, character]);
   }
 
@@ -73,8 +73,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$,
-      font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec.$,
+      font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
+      font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
       []);
   }
 
@@ -82,8 +82,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$,
-      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$,
+      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
+      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
       [family_name, style]);
   }
 

@@ -48,8 +48,8 @@ shape_detection.mojom.TextDetectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.TextDetection_Detect_ParamsSpec.$,
-      shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec.$,
+      shape_detection.mojom.TextDetection_Detect_ParamsSpec,
+      shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec,
       [bitmap_data]);
   }
 

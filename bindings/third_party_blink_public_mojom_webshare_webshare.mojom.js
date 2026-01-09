@@ -48,8 +48,8 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ShareService_Share_ParamsSpec.$,
-      blink.mojom.ShareService_Share_ResponseParamsSpec.$,
+      blink.mojom.ShareService_Share_ParamsSpec,
+      blink.mojom.ShareService_Share_ResponseParamsSpec,
       [title, text, url, files]);
   }
 

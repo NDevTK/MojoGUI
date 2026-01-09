@@ -48,8 +48,8 @@ network.mojom.CookieEncryptionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec.$,
-      network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec.$,
+      network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
+      network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
       []);
   }
 

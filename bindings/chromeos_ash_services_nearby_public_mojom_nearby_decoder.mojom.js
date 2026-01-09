@@ -48,8 +48,8 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec.$,
-      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$,
+      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
       [data]);
   }
 
@@ -57,8 +57,8 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec.$,
-      sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$,
+      sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
+      sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
       [data]);
   }
 

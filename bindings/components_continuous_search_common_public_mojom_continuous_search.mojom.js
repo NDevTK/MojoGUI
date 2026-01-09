@@ -66,8 +66,8 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$,
-      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$,
+      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
+      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
       [result_types]);
   }
 

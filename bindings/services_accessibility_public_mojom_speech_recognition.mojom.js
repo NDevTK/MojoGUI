@@ -54,7 +54,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$,
+      ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec,
       null,
       []);
   }
@@ -63,7 +63,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$,
+      ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec,
       null,
       [event]);
   }
@@ -72,7 +72,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$,
+      ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec,
       null,
       [event]);
   }
@@ -174,8 +174,8 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.SpeechRecognition_Start_ParamsSpec.$,
-      ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$,
+      ax.mojom.SpeechRecognition_Start_ParamsSpec,
+      ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
       [options]);
   }
 
@@ -183,8 +183,8 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.SpeechRecognition_Stop_ParamsSpec.$,
-      ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$,
+      ax.mojom.SpeechRecognition_Stop_ParamsSpec,
+      ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
       [options]);
   }
 
