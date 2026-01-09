@@ -58,6 +58,24 @@ jobs:
           echo "Found $(wc -l < mojom_files.txt) .mojom files"
           head -20 mojom_files.txt
 
+      - name: Copy Mojo JS core bindings
+        run: |
+          echo "Copying Mojo JS core bindings..."
+          # Copy all JS files from mojo/public/js to bindings directory
+          # We purposefully don't rename bindings.js to mojo_bindings.js to avoid breaking internal references if any exist
+          # But we will ensure bindings.js is available at bindings/mojo_bindings.js for convenience if it's a single file,
+          # or we'll just use it as is.
+          # Let's copy them flat into bindings/ for now as they are likely expected to be together.
+          cp chromium_src/mojo/public/js/*.js bindings/
+          
+          # Rename bindings.js to mojo_bindings.js as that is what is often expected, 
+          # but keep original if needed by other files?
+          # Actually, let's just copy it to mojo_bindings.js so we have the standard name
+          cp chromium_src/mojo/public/js/bindings.js bindings/mojo_bindings.js
+          
+          echo "Core bindings copied."
+          ls -la bindings/
+
       - name: Generate JavaScript bindings
         run: |
           python3 << 'SCRIPT'
@@ -511,6 +529,9 @@ jobs:
           git add bindings/*.mojom.js
           git add bindings/index.js
           git add bindings/index.json
+          # Add the copied core bindings
+          git add bindings/mojo_bindings.js
+          git add bindings/*.js
           
           # Show what will be committed
           echo "Files staged for commit:"

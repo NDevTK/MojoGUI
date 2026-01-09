@@ -92,7 +92,9 @@
     }
 
     function checkMojoAvailability() {
-        state.mojoAvailable = typeof Mojo !== 'undefined' && Mojo.bindInterface;
+        // Check for both legacy (Mojo) and standard (mojo) namespaces
+        state.mojoAvailable = (typeof Mojo !== 'undefined' && Mojo.bindInterface) ||
+            (typeof mojo !== 'undefined' && mojo.bindInterface);
 
         const statusEl = elements.mojoStatus;
         const statusText = statusEl.querySelector('.status-text');
@@ -565,6 +567,7 @@
             code += `// The binding file defines the interface in the global scope\n`;
             code += `// after being loaded via <script> tag\n\n`;
             code += `// Step 2: Create a remote and bind it\n`;
+            code += `// Namespace depends on binding version (mojo vs global)\n`;
             code += `const ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n\n`;
             code += `// Select a method to see the full call...`;
             return code;
