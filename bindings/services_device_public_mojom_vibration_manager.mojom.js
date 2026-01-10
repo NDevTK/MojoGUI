@@ -252,8 +252,9 @@ device.mojom.VibrationManagerReceiver = class {
               const params = decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
               console.log('[GeneratedReceiver] Calling impl.vibrate');
               const result = this.impl.vibrate(params.milliseconds);
-              console.log('[GeneratedReceiver] Vibrate expectsResponse:', header.expectsResponse);
-              if (header.expectsResponse) {
+              const vibratesExpectsResponse = header.expectsResponse || (header.flags & 1);
+              console.log('[GeneratedReceiver] Vibrate expectsResponse:', vibratesExpectsResponse);
+              if (vibratesExpectsResponse) {
                 Promise.resolve(result).then(response => {
                   console.log('[GeneratedReceiver] Sending vibrate response:', response);
                   const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec);
@@ -267,8 +268,9 @@ device.mojom.VibrationManagerReceiver = class {
               const params = decoder.decodeStructInline(device.mojom.VibrationManager_Cancel_ParamsSpec.$.structSpec);
               console.log('[GeneratedReceiver] Calling impl.cancel');
               const result = this.impl.cancel();
-              console.log('[GeneratedReceiver] Cancel expectsResponse:', header.expectsResponse);
-              if (header.expectsResponse) {
+              const cancelExpectsResponse = header.expectsResponse || (header.flags & 1);
+              console.log('[GeneratedReceiver] Cancel expectsResponse:', cancelExpectsResponse);
+              if (cancelExpectsResponse) {
                 Promise.resolve(result).then(response => {
                   console.log('[GeneratedReceiver] Sending cancel response:', response);
                   const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec);
