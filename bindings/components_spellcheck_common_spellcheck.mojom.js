@@ -151,13 +151,18 @@ spellcheck.mojom.SpellCheckerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -166,14 +171,19 @@ spellcheck.mojom.SpellCheckerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.dictionaries, params.custom_words, params.enable);
           break;
         }
         case 1: {
           const params = spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.customDictionaryChanged');
           const result = this.impl.customDictionaryChanged(params.words_added, params.words_removed);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -256,13 +266,18 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -271,9 +286,13 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestDictionary');
           const result = this.impl.requestDictionary();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -486,13 +505,18 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -501,11 +525,13 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyChecked');
           const result = this.impl.notifyChecked(params.word, params.misspelled);
           break;
         }
         case 1: {
           const params = spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.callSpellingService');
           const result = this.impl.callSpellingService(params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -517,6 +543,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
         case 2: {
           const params = spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestTextCheck');
           const result = this.impl.requestTextCheck(params.text, params.spelling_markers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -528,11 +555,13 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
         case 3: {
           const params = spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnectSessionBridge');
           const result = this.impl.disconnectSessionBridge();
           break;
         }
         case 4: {
           const params = spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.checkSpelling');
           const result = this.impl.checkSpelling(params.word);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -544,6 +573,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
         case 5: {
           const params = spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fillSuggestionList');
           const result = this.impl.fillSuggestionList(params.word);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -555,6 +585,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
         case 6: {
           const params = spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeDictionaries');
           const result = this.impl.initializeDictionaries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -564,6 +595,9 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

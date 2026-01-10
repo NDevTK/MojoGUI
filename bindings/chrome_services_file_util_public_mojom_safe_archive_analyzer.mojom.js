@@ -237,13 +237,18 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -252,6 +257,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeZipFile');
           const result = this.impl.analyzeZipFile(params.zip_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -263,6 +269,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 1: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeDmgFile');
           const result = this.impl.analyzeDmgFile(params.dmg_file, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -274,6 +281,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 2: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeRarFile');
           const result = this.impl.analyzeRarFile(params.rar_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -285,6 +293,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 3: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeSevenZipFile');
           const result = this.impl.analyzeSevenZipFile(params.seven_zip_file, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,6 +305,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 4: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedZipFile');
           const result = this.impl.analyzeObfuscatedZipFile(params.zip_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -307,6 +317,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 5: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedRarFile');
           const result = this.impl.analyzeObfuscatedRarFile(params.rar_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -316,6 +327,9 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -404,13 +418,18 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -419,6 +438,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestTemporaryFile');
           const result = this.impl.requestTemporaryFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -428,6 +448,9 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

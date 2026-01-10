@@ -164,13 +164,18 @@ blink.mojom.ClipboardListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -179,9 +184,13 @@ blink.mojom.ClipboardListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClipboardDataChanged');
           const result = this.impl.onClipboardDataChanged(params.types, params.change_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -715,13 +724,18 @@ blink.mojom.ClipboardHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -730,6 +744,7 @@ blink.mojom.ClipboardHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSequenceNumber');
           const result = this.impl.getSequenceNumber(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -741,6 +756,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isFormatAvailable');
           const result = this.impl.isFormatAvailable(params.format, params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -752,6 +768,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 2: {
           const params = blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readAvailableTypes');
           const result = this.impl.readAvailableTypes(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -763,6 +780,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ClipboardHost_ReadText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readText');
           const result = this.impl.readText(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -774,6 +792,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 4: {
           const params = blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readHtml');
           const result = this.impl.readHtml(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -785,6 +804,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 5: {
           const params = blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readSvg');
           const result = this.impl.readSvg(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -796,6 +816,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 6: {
           const params = blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readRtf');
           const result = this.impl.readRtf(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -807,6 +828,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 7: {
           const params = blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readPng');
           const result = this.impl.readPng(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -818,6 +840,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 8: {
           const params = blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readFiles');
           const result = this.impl.readFiles(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -829,6 +852,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 9: {
           const params = blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readDataTransferCustomData');
           const result = this.impl.readDataTransferCustomData(params.buffer, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -840,6 +864,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 10: {
           const params = blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readAvailableCustomAndStandardFormats');
           const result = this.impl.readAvailableCustomAndStandardFormats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -851,6 +876,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 11: {
           const params = blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readUnsanitizedCustomFormat');
           const result = this.impl.readUnsanitizedCustomFormat(params.format);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -862,56 +888,67 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 12: {
           const params = blink.mojom.ClipboardHost_WriteText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeText');
           const result = this.impl.writeText(params.text);
           break;
         }
         case 13: {
           const params = blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeHtml');
           const result = this.impl.writeHtml(params.markup, params.url);
           break;
         }
         case 14: {
           const params = blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeSvg');
           const result = this.impl.writeSvg(params.markup);
           break;
         }
         case 15: {
           const params = blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeSmartPasteMarker');
           const result = this.impl.writeSmartPasteMarker();
           break;
         }
         case 16: {
           const params = blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeDataTransferCustomData');
           const result = this.impl.writeDataTransferCustomData(params.data);
           break;
         }
         case 17: {
           const params = blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeBookmark');
           const result = this.impl.writeBookmark(params.url, params.title);
           break;
         }
         case 18: {
           const params = blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeImage');
           const result = this.impl.writeImage(params.image);
           break;
         }
         case 19: {
           const params = blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeUnsanitizedCustomFormat');
           const result = this.impl.writeUnsanitizedCustomFormat(params.format, params.data);
           break;
         }
         case 20: {
           const params = blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commitWrite');
           const result = this.impl.commitWrite();
           break;
         }
         case 21: {
           const params = blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeStringToFindPboard');
           const result = this.impl.writeStringToFindPboard(params.text);
           break;
         }
         case 22: {
           const params = blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPlatformPermissionState');
           const result = this.impl.getPlatformPermissionState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -923,9 +960,13 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 23: {
           const params = blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerClipboardListener');
           const result = this.impl.registerClipboardListener(params.listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

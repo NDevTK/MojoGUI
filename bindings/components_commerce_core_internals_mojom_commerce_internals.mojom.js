@@ -145,13 +145,18 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -160,9 +165,13 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCommerceInternalsHandler');
           const result = this.impl.createCommerceInternalsHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -366,13 +375,18 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -381,6 +395,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIsShoppingListEligible');
           const result = this.impl.getIsShoppingListEligible();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -392,11 +407,13 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetPriceTrackingEmailPref');
           const result = this.impl.resetPriceTrackingEmailPref();
           break;
         }
         case 2: {
           const params = commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -408,6 +425,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 3: {
           const params = commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSubscriptionDetails');
           const result = this.impl.getSubscriptionDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +437,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 4: {
           const params = commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsDetails');
           const result = this.impl.getProductSpecificationsDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -430,11 +449,13 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 5: {
           const params = commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetProductSpecifications');
           const result = this.impl.resetProductSpecifications();
           break;
         }
         case 6: {
           const params = commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getShoppingEligibilityDetails');
           const result = this.impl.getShoppingEligibilityDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -444,6 +465,9 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -527,13 +551,18 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -542,9 +571,13 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShoppingListEligibilityChanged');
           const result = this.impl.onShoppingListEligibilityChanged(params.eligible);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

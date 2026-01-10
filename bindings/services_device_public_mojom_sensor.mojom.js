@@ -223,13 +223,18 @@ device.mojom.SensorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -238,6 +243,7 @@ device.mojom.SensorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDefaultConfiguration');
           const result = this.impl.getDefaultConfiguration();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -249,6 +255,7 @@ device.mojom.SensorReceiver = class {
         }
         case 1: {
           const params = device.mojom.Sensor_AddConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addConfiguration');
           const result = this.impl.addConfiguration(params.configuration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -260,24 +267,31 @@ device.mojom.SensorReceiver = class {
         }
         case 2: {
           const params = device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeConfiguration');
           const result = this.impl.removeConfiguration(params.configuration);
           break;
         }
         case 3: {
           const params = device.mojom.Sensor_Suspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           break;
         }
         case 4: {
           const params = device.mojom.Sensor_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 5: {
           const params = device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.configureReadingChangeNotifications');
           const result = this.impl.configureReadingChangeNotifications(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -375,13 +389,18 @@ device.mojom.SensorClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -390,14 +409,19 @@ device.mojom.SensorClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SensorClient_RaiseError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.raiseError');
           const result = this.impl.raiseError();
           break;
         }
         case 1: {
           const params = device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sensorReadingChanged');
           const result = this.impl.sensorReadingChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

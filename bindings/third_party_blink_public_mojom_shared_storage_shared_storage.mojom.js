@@ -186,13 +186,18 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -201,6 +206,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectURL');
           const result = this.impl.selectURL(params.name, params.urls_with_metadata, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.resolve_to_config, params.saved_query_name, params.start_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -212,6 +218,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.run');
           const result = this.impl.run(params.name, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.start_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -221,6 +228,9 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -386,13 +396,18 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -401,6 +416,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWorklet');
           const result = this.impl.createWorklet(params.script_source_url, params.data_origin, params.data_origin_type, params.credentials_mode, params.creation_method, params.origin_trial_features, params.worklet_host);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -412,6 +428,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
           const result = this.impl.sharedStorageGet(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -423,6 +440,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 2: {
           const params = blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -434,6 +452,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -443,6 +462,9 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

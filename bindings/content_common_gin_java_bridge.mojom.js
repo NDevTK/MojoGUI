@@ -147,13 +147,18 @@ content.mojom.GinJavaBridgeReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -162,19 +167,25 @@ content.mojom.GinJavaBridgeReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addNamedObject');
           const result = this.impl.addNamedObject(params.name, params.object_id, params.origin_matcher);
           break;
         }
         case 1: {
           const params = content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
           const result = this.impl.removeNamedObject(params.name);
           break;
         }
         case 2: {
           const params = content.mojom.GinJavaBridge_SetHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHost');
           const result = this.impl.setHost(params.host);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -309,13 +320,18 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -324,6 +340,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMethods');
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -335,6 +352,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         }
         case 1: {
           const params = content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasMethod');
           const result = this.impl.hasMethod(params.method_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -346,6 +364,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         }
         case 2: {
           const params = content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.invokeMethod');
           const result = this.impl.invokeMethod(params.method_name, params.arguments);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -355,6 +374,9 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -455,13 +477,18 @@ content.mojom.GinJavaBridgeHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -470,14 +497,19 @@ content.mojom.GinJavaBridgeHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getObject');
           const result = this.impl.getObject(params.object_id, params.receiver);
           break;
         }
         case 1: {
           const params = content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.objectWrapperDeleted');
           const result = this.impl.objectWrapperDeleted(params.object_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

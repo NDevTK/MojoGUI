@@ -376,13 +376,18 @@ bluetooth.mojom.DeviceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -391,11 +396,13 @@ bluetooth.mojom.DeviceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Device_Disconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           break;
         }
         case 1: {
           const params = bluetooth.mojom.Device_GetInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInfo');
           const result = this.impl.getInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -407,6 +414,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 2: {
           const params = bluetooth.mojom.Device_GetServices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getServices');
           const result = this.impl.getServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -418,6 +426,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 3: {
           const params = bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCharacteristics');
           const result = this.impl.getCharacteristics(params.service_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -429,6 +438,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 4: {
           const params = bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readValueForCharacteristic');
           const result = this.impl.readValueForCharacteristic(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -440,6 +450,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 5: {
           const params = bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeValueForCharacteristic');
           const result = this.impl.writeValueForCharacteristic(params.service_id, params.characteristic_id, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -451,6 +462,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 6: {
           const params = bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDescriptors');
           const result = this.impl.getDescriptors(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,6 +474,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 7: {
           const params = bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readValueForDescriptor');
           const result = this.impl.readValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -473,6 +486,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 8: {
           const params = bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeValueForDescriptor');
           const result = this.impl.writeValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -482,6 +496,9 @@ bluetooth.mojom.DeviceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

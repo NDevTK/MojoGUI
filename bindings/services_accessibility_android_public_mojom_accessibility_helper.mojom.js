@@ -620,13 +620,18 @@ ax.android.mojom.AccessibilityHelperHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -635,19 +640,25 @@ ax.android.mojom.AccessibilityHelperHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAccessibilityEvent');
           const result = this.impl.onAccessibilityEvent(params.event_data);
           break;
         }
         case 2: {
           const params = ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotificationStateChanged');
           const result = this.impl.onNotificationStateChanged(params.notification_key, params.state);
           break;
         }
         case 3: {
           const params = ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onToggleNativeChromeVoxArcSupport');
           const result = this.impl.onToggleNativeChromeVoxArcSupport(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -850,13 +861,18 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -865,6 +881,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
       switch (header.ordinal) {
         case 7: {
           const params = ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -876,11 +893,13 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
         }
         case 2: {
           const params = ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFilter');
           const result = this.impl.setFilter(params.filter_type);
           break;
         }
         case 4: {
           const params = ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -892,11 +911,13 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
         }
         case 8: {
           const params = ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setExploreByTouchEnabled');
           const result = this.impl.setExploreByTouchEnabled(params.enabled);
           break;
         }
         case 9: {
           const params = ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshWithExtraData');
           const result = this.impl.refreshWithExtraData(params.refresh_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -908,11 +929,13 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
         }
         case 11: {
           const params = ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestSendAccessibilityTree');
           const result = this.impl.requestSendAccessibilityTree(params.window);
           break;
         }
         case 12: {
           const params = ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNativeChromeVoxArcSupportForFocusedWindow');
           const result = this.impl.setNativeChromeVoxArcSupportForFocusedWindow(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -922,6 +945,9 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

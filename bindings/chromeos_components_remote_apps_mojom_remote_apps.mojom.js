@@ -231,13 +231,18 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -246,6 +251,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFolder');
           const result = this.impl.addFolder(params.name, params.add_to_front);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -257,6 +263,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 1: {
           const params = chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.source_id, params.name, params.folder_id, params.icon_url, params.add_to_front);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -268,6 +275,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 2: {
           const params = chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteApp');
           const result = this.impl.deleteApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -279,6 +287,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 3: {
           const params = chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sortLauncherWithRemoteAppsFirst');
           const result = this.impl.sortLauncherWithRemoteAppsFirst();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -290,6 +299,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
         case 4: {
           const params = chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPinnedApps');
           const result = this.impl.setPinnedApps(params.app_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -299,6 +309,9 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -384,13 +397,18 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -399,9 +417,13 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindRemoteAppsAndAppLaunchObserver');
           const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.source_id, params.remote_apps, params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -486,13 +508,18 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -501,9 +528,13 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemoteAppLaunched');
           const result = this.impl.onRemoteAppLaunched(params.app_id, params.source_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

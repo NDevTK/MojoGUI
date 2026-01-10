@@ -183,13 +183,18 @@ media_router.mojom.MediaControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -198,39 +203,49 @@ media_router.mojom.MediaControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_router.mojom.MediaController_Play_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           break;
         }
         case 1: {
           const params = media_router.mojom.MediaController_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 2: {
           const params = media_router.mojom.MediaController_SetMute_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMute');
           const result = this.impl.setMute(params.mute);
           break;
         }
         case 3: {
           const params = media_router.mojom.MediaController_SetVolume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 4: {
           const params = media_router.mojom.MediaController_Seek_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.seek');
           const result = this.impl.seek(params.time);
           break;
         }
         case 5: {
           const params = media_router.mojom.MediaController_NextTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
         case 6: {
           const params = media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

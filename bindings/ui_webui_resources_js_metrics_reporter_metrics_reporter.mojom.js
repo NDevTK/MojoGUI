@@ -149,13 +149,18 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -164,11 +169,13 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPageRemoteCreated');
           const result = this.impl.onPageRemoteCreated(params.page);
           break;
         }
         case 1: {
           const params = metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGetMark');
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -180,14 +187,19 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         }
         case 2: {
           const params = metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClearMark');
           const result = this.impl.onClearMark(params.name);
           break;
         }
         case 3: {
           const params = metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUmaReportTime');
           const result = this.impl.onUmaReportTime(params.name, params.time);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -293,13 +305,18 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -308,6 +325,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGetMark');
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -319,9 +337,13 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
         }
         case 1: {
           const params = metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClearMark');
           const result = this.impl.onClearMark(params.name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

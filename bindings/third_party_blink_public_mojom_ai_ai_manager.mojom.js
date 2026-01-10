@@ -160,13 +160,18 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -175,14 +180,19 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.writer);
           break;
         }
         case 1: {
           const params = blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -283,13 +293,18 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -298,14 +313,19 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.rewriter);
           break;
         }
         case 1: {
           const params = blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -406,13 +426,18 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -421,14 +446,19 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.summarizer);
           break;
         }
         case 1: {
           const params = blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -529,13 +559,18 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -544,14 +579,19 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.proofreader);
           break;
         }
         case 1: {
           const params = blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -851,13 +891,18 @@ blink.mojom.AIManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -866,6 +911,7 @@ blink.mojom.AIManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canCreateLanguageModel');
           const result = this.impl.canCreateLanguageModel(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -877,11 +923,13 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 1: {
           const params = blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createLanguageModel');
           const result = this.impl.createLanguageModel(params.client, params.options);
           break;
         }
         case 2: {
           const params = blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canCreateSummarizer');
           const result = this.impl.canCreateSummarizer(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -893,11 +941,13 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 3: {
           const params = blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSummarizer');
           const result = this.impl.createSummarizer(params.client, params.options);
           break;
         }
         case 4: {
           const params = blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLanguageModelParams');
           const result = this.impl.getLanguageModelParams();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -909,6 +959,7 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 5: {
           const params = blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canCreateWriter');
           const result = this.impl.canCreateWriter(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -920,11 +971,13 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 6: {
           const params = blink.mojom.AIManager_CreateWriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWriter');
           const result = this.impl.createWriter(params.client, params.options);
           break;
         }
         case 7: {
           const params = blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canCreateRewriter');
           const result = this.impl.canCreateRewriter(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -936,11 +989,13 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 8: {
           const params = blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRewriter');
           const result = this.impl.createRewriter(params.client, params.options);
           break;
         }
         case 9: {
           const params = blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canCreateProofreader');
           const result = this.impl.canCreateProofreader(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -952,14 +1007,19 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 10: {
           const params = blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createProofreader');
           const result = this.impl.createProofreader(params.client, params.options);
           break;
         }
         case 11: {
           const params = blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addModelDownloadProgressObserver');
           const result = this.impl.addModelDownloadProgressObserver(params.observer_remote);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

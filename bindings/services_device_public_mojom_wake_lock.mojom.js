@@ -179,13 +179,18 @@ device.mojom.WakeLockReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -194,21 +199,25 @@ device.mojom.WakeLockReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.WakeLock_RequestWakeLock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestWakeLock');
           const result = this.impl.requestWakeLock();
           break;
         }
         case 1: {
           const params = device.mojom.WakeLock_CancelWakeLock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelWakeLock');
           const result = this.impl.cancelWakeLock();
           break;
         }
         case 2: {
           const params = device.mojom.WakeLock_AddClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addClient');
           const result = this.impl.addClient(params.wake_lock);
           break;
         }
         case 3: {
           const params = device.mojom.WakeLock_ChangeType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.changeType');
           const result = this.impl.changeType(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -220,6 +229,7 @@ device.mojom.WakeLockReceiver = class {
         }
         case 4: {
           const params = device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasWakeLockForTests');
           const result = this.impl.hasWakeLockForTests();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -229,6 +239,9 @@ device.mojom.WakeLockReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

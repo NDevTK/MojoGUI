@@ -358,13 +358,18 @@ arc.mojom.KeymasterHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -373,6 +378,7 @@ arc.mojom.KeymasterHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterHost_GetServer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getServer');
           const result = this.impl.getServer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -382,6 +388,9 @@ arc.mojom.KeymasterHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -470,13 +479,18 @@ arc.mojom.KeymasterInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -485,6 +499,7 @@ arc.mojom.KeymasterInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -494,6 +509,9 @@ arc.mojom.KeymasterInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -863,13 +881,18 @@ arc.mojom.KeymasterServerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -878,11 +901,13 @@ arc.mojom.KeymasterServerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
           const result = this.impl.setSystemVersion(params.os_version, params.os_patchlevel);
           break;
         }
         case 1: {
           const params = arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -894,6 +919,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 2: {
           const params = arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -905,6 +931,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 3: {
           const params = arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.key_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -916,6 +943,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 4: {
           const params = arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importKey');
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -927,6 +955,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 5: {
           const params = arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exportKey');
           const result = this.impl.exportKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -938,6 +967,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 6: {
           const params = arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.attestKey');
           const result = this.impl.attestKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -949,6 +979,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 7: {
           const params = arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.upgradeKey');
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -960,6 +991,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 8: {
           const params = arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -971,6 +1003,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 9: {
           const params = arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -982,6 +1015,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 10: {
           const params = arc.mojom.KeymasterServer_Begin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.begin');
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -993,6 +1027,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 11: {
           const params = arc.mojom.KeymasterServer_Update_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1004,6 +1039,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 12: {
           const params = arc.mojom.KeymasterServer_Finish_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.finish');
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1015,6 +1051,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 13: {
           const params = arc.mojom.KeymasterServer_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1024,6 +1061,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

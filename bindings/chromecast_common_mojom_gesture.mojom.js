@@ -228,13 +228,18 @@ chromecast.mojom.GestureHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -243,6 +248,7 @@ chromecast.mojom.GestureHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBackGesture');
           const result = this.impl.onBackGesture();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -254,44 +260,55 @@ chromecast.mojom.GestureHandlerReceiver = class {
         }
         case 1: {
           const params = chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBackGestureProgress');
           const result = this.impl.onBackGestureProgress(params.touch_location);
           break;
         }
         case 2: {
           const params = chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTopDragGestureProgress');
           const result = this.impl.onTopDragGestureProgress(params.touch_location);
           break;
         }
         case 3: {
           const params = chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTopDragGestureDone');
           const result = this.impl.onTopDragGestureDone();
           break;
         }
         case 4: {
           const params = chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRightDragGestureProgress');
           const result = this.impl.onRightDragGestureProgress(params.touch_location);
           break;
         }
         case 5: {
           const params = chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRightDragGestureDone');
           const result = this.impl.onRightDragGestureDone();
           break;
         }
         case 6: {
           const params = chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBackGestureCancel');
           const result = this.impl.onBackGestureCancel();
           break;
         }
         case 7: {
           const params = chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTapGesture');
           const result = this.impl.onTapGesture();
           break;
         }
         case 8: {
           const params = chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTapDownGesture');
           const result = this.impl.onTapDownGesture();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -423,13 +440,18 @@ chromecast.mojom.GestureSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -438,24 +460,31 @@ chromecast.mojom.GestureSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.handler);
           break;
         }
         case 1: {
           const params = chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCanGoBack');
           const result = this.impl.setCanGoBack(params.can_go_back);
           break;
         }
         case 2: {
           const params = chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCanTopDrag');
           const result = this.impl.setCanTopDrag(params.can_top_drag);
           break;
         }
         case 3: {
           const params = chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCanRightDrag');
           const result = this.impl.setCanRightDrag(params.can_top_drag);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

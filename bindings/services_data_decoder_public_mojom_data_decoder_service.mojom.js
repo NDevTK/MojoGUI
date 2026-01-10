@@ -189,13 +189,18 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -204,39 +209,49 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindImageDecoder');
           const result = this.impl.bindImageDecoder(params.receiver);
           break;
         }
         case 1: {
           const params = data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindXmlParser');
           const result = this.impl.bindXmlParser(params.reciever);
           break;
         }
         case 2: {
           const params = data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindWebBundleParserFactory');
           const result = this.impl.bindWebBundleParserFactory(params.receiver);
           break;
         }
         case 3: {
           const params = data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindGzipper');
           const result = this.impl.bindGzipper(params.receiver);
           break;
         }
         case 4: {
           const params = data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindStructuredHeadersParser');
           const result = this.impl.bindStructuredHeadersParser(params.receiver);
           break;
         }
         case 5: {
           const params = data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindCborParser');
           const result = this.impl.bindCborParser(params.receiver);
           break;
         }
         case 6: {
           const params = data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPixCodeValidator');
           const result = this.impl.bindPixCodeValidator(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

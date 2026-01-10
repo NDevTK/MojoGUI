@@ -135,13 +135,18 @@ media_session.mojom.MediaSessionServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -150,24 +155,31 @@ media_session.mojom.MediaSessionServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAudioFocusManager');
           const result = this.impl.bindAudioFocusManager(params.receiver);
           break;
         }
         case 1: {
           const params = media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAudioFocusManagerDebug');
           const result = this.impl.bindAudioFocusManagerDebug(params.receiver);
           break;
         }
         case 2: {
           const params = media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindMediaControllerManager');
           const result = this.impl.bindMediaControllerManager(params.receiver);
           break;
         }
         case 3: {
           const params = media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bind');
           const result = this.impl.bind(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

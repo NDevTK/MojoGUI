@@ -158,13 +158,18 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -173,6 +178,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVariationsData');
           const result = this.impl.getVariationsData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -184,6 +190,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
         }
         case 1: {
           const params = chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMemoryDetails');
           const result = this.impl.getMemoryDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -193,6 +200,9 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

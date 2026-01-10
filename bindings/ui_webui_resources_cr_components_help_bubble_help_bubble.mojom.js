@@ -163,13 +163,18 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -178,9 +183,13 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -265,13 +274,18 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -280,9 +294,13 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -400,13 +418,18 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -415,19 +438,25 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
           const result = this.impl.bindTrackedElementHandler(params.handler);
           break;
         }
         case 1: {
           const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
           const result = this.impl.helpBubbleButtonPressed(params.native_identifier, params.button_index);
           break;
         }
         case 2: {
           const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
           const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -560,13 +589,18 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -575,24 +609,31 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
           const result = this.impl.showHelpBubble(params.params);
           break;
         }
         case 1: {
           const params = help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
           const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
           break;
         }
         case 2: {
           const params = help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');
           const result = this.impl.hideHelpBubble(params.native_identifier);
           break;
         }
         case 3: {
           const params = help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.externalHelpBubbleUpdated');
           const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

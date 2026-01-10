@@ -165,13 +165,18 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -180,29 +185,37 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPointerDown');
           const result = this.impl.onPointerDown(params.target);
           break;
         }
         case 1: {
           const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
           const result = this.impl.onPointerHoverEager(params.target, params.mouse_data);
           break;
         }
         case 2: {
           const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
           const result = this.impl.onPointerHoverModerate(params.target, params.mouse_data);
           break;
         }
         case 3: {
           const params = blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
           const result = this.impl.onModerateViewportHeuristicTriggered(params.target);
           break;
         }
         case 4: {
           const params = blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
           const result = this.impl.onEagerViewportHeuristicTriggered(params.targets);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

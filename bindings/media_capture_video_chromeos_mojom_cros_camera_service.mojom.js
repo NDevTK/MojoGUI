@@ -244,13 +244,18 @@ cros.mojom.KioskVisionObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -259,19 +264,25 @@ cros.mojom.KioskVisionObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameProcessed');
           const result = this.impl.onFrameProcessed(params.detection);
           break;
         }
         case 1: {
           const params = cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTrackCompleted');
           const result = this.impl.onTrackCompleted(params.track);
           break;
         }
         case 2: {
           const params = cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -363,13 +374,18 @@ cros.mojom.CameraHalDispatcherReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -378,6 +394,7 @@ cros.mojom.CameraHalDispatcherReceiver = class {
       switch (header.ordinal) {
         case 5: {
           const params = cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerClientWithToken');
           const result = this.impl.registerClientWithToken(params.client, params.type, params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -387,6 +404,9 @@ cros.mojom.CameraHalDispatcherReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -537,13 +557,18 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -552,29 +577,37 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cameraDeviceActivityChange');
           const result = this.impl.cameraDeviceActivityChange(params.camera_id, params.opened, params.type);
           break;
         }
         case 1: {
           const params = cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cameraPrivacySwitchStateChange');
           const result = this.impl.cameraPrivacySwitchStateChange(params.state, params.camera_id);
           break;
         }
         case 2: {
           const params = cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cameraSWPrivacySwitchStateChange');
           const result = this.impl.cameraSWPrivacySwitchStateChange(params.state);
           break;
         }
         case 3: {
           const params = cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cameraEffectChange');
           const result = this.impl.cameraEffectChange(params.config);
           break;
         }
         case 4: {
           const params = cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.autoFramingStateChange');
           const result = this.impl.autoFramingStateChange(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -809,13 +842,18 @@ cros.mojom.CrosCameraServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -824,6 +862,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCameraModule');
           const result = this.impl.getCameraModule(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -835,16 +874,19 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 1: {
           const params = cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
           const result = this.impl.setTracingEnabled(params.enabled);
           break;
         }
         case 2: {
           const params = cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAutoFramingState');
           const result = this.impl.setAutoFramingState(params.state);
           break;
         }
         case 3: {
           const params = cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCameraSWPrivacySwitchState');
           const result = this.impl.getCameraSWPrivacySwitchState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -856,11 +898,13 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 4: {
           const params = cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCameraSWPrivacySwitchState');
           const result = this.impl.setCameraSWPrivacySwitchState(params.state);
           break;
         }
         case 5: {
           const params = cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAutoFramingSupported');
           const result = this.impl.getAutoFramingSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -872,6 +916,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 6: {
           const params = cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCameraEffect');
           const result = this.impl.setCameraEffect(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -883,14 +928,19 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
         case 7: {
           const params = cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addCrosCameraServiceObserver');
           const result = this.impl.addCrosCameraServiceObserver(params.observer);
           break;
         }
         case 8: {
           const params = cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startKioskVisionDetection');
           const result = this.impl.startKioskVisionDetection(params.dlc_path, params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

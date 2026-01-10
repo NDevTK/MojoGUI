@@ -81,19 +81,27 @@ media.mojom.LocalMuterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -310,13 +318,18 @@ media.mojom.AudioStreamFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -325,6 +338,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createInputStream');
           const result = this.impl.createInputStream(params.stream, params.client, params.observer, params.log, params.device_id, params.params, params.group_id, params.shared_memory_count, params.enable_agc, params.processing_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -336,11 +350,13 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 1: {
           const params = media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
         }
         case 2: {
           const params = media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createOutputStream');
           const result = this.impl.createOutputStream(params.stream, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -352,6 +368,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 3: {
           const params = media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSwitchableOutputStream');
           const result = this.impl.createSwitchableOutputStream(params.stream, params.device_switch_receiver, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -363,11 +380,13 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 4: {
           const params = media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindMuter');
           const result = this.impl.bindMuter(params.receiver, params.group_id);
           break;
         }
         case 5: {
           const params = media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createLoopbackStream');
           const result = this.impl.createLoopbackStream(params.receiver, params.client, params.observer, params.params, params.shared_memory_count, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -377,6 +396,9 @@ media.mojom.AudioStreamFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

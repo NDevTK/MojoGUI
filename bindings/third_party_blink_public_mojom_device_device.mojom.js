@@ -116,13 +116,18 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -131,9 +136,13 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConfigurationChanged');
           const result = this.impl.onConfigurationChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -306,13 +315,18 @@ blink.mojom.DeviceAPIServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -321,6 +335,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDirectoryId');
           const result = this.impl.getDirectoryId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -332,6 +347,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHostname');
           const result = this.impl.getHostname();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -343,6 +359,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 2: {
           const params = blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSerialNumber');
           const result = this.impl.getSerialNumber();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -354,6 +371,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAnnotatedAssetId');
           const result = this.impl.getAnnotatedAssetId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -365,6 +383,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 4: {
           const params = blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAnnotatedLocation');
           const result = this.impl.getAnnotatedLocation();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -374,6 +393,9 @@ blink.mojom.DeviceAPIServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -479,13 +501,18 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -494,6 +521,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getManagedConfiguration');
           const result = this.impl.getManagedConfiguration(params.keys);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,9 +533,13 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToManagedConfiguration');
           const result = this.impl.subscribeToManagedConfiguration(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

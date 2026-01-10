@@ -191,13 +191,18 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -206,6 +211,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -217,6 +223,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
         }
         case 1: {
           const params = chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.file_name, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -228,6 +235,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
         }
         case 2: {
           const params = chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exists');
           const result = this.impl.exists(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -239,6 +247,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
         }
         case 3: {
           const params = chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSize');
           const result = this.impl.getSize(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -250,6 +259,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
         }
         case 4: {
           const params = chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -259,6 +269,9 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

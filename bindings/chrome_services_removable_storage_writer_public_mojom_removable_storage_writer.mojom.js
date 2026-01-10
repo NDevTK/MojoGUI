@@ -123,13 +123,18 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -138,14 +143,19 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.source, params.target, params.client);
           break;
         }
         case 1: {
           const params = chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.source, params.target, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -245,13 +255,18 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -260,14 +275,19 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
         case 1: {
           const params = chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

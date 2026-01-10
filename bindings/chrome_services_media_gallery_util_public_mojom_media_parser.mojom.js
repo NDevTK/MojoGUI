@@ -247,13 +247,18 @@ chrome.mojom.MediaParserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -262,6 +267,7 @@ chrome.mojom.MediaParserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseMediaMetadata');
           const result = this.impl.parseMediaMetadata(params.mime_type, params.total_size, params.get_attached_images, params.media_data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -273,6 +279,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 1: {
           const params = chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.extractVideoFrame');
           const result = this.impl.extractVideoFrame(params.mime_type, params.total_size, params.media_data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -284,6 +291,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 2: {
           const params = chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
           const result = this.impl.checkMediaFile(params.decode_time, params.file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -295,6 +303,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 3: {
           const params = chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCpuInfo');
           const result = this.impl.getCpuInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -304,6 +313,9 @@ chrome.mojom.MediaParserReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -394,13 +406,18 @@ chrome.mojom.MediaParserFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -409,6 +426,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createMediaParser');
           const result = this.impl.createMediaParser(params.libyuv_cpu_flags, params.libavutil_cpu_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -418,6 +436,9 @@ chrome.mojom.MediaParserFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -508,13 +529,18 @@ chrome.mojom.MediaDataSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -523,6 +549,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaDataSource_Read_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.position, params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -532,6 +559,9 @@ chrome.mojom.MediaDataSourceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

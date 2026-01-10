@@ -251,13 +251,18 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -266,29 +271,37 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPotentialHostExistsForNewUser');
           const result = this.impl.onPotentialHostExistsForNewUser();
           break;
         }
         case 1: {
           const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNoLongerNewUser');
           const result = this.impl.onNoLongerNewUser();
           break;
         }
         case 2: {
           const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectedHostSwitchedForExistingUser');
           const result = this.impl.onConnectedHostSwitchedForExistingUser(params.new_host_device_name);
           break;
         }
         case 3: {
           const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewChromebookAddedForExistingUser');
           const result = this.impl.onNewChromebookAddedForExistingUser(params.new_host_device_name);
           break;
         }
         case 4: {
           const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBecameEligibleForWifiSync');
           const result = this.impl.onBecameEligibleForWifiSync();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -373,13 +386,18 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -388,9 +406,13 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStatusChanged');
           const result = this.impl.onHostStatusChanged(params.host_status, params.host_device);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -474,13 +496,18 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -489,9 +516,13 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFeatureStatesChanged');
           const result = this.impl.onFeatureStatesChanged(params.feature_states_map);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -834,13 +865,18 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -849,21 +885,25 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAccountStatusChangeDelegate');
           const result = this.impl.setAccountStatusChangeDelegate(params.delegate);
           break;
         }
         case 1: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addHostStatusObserver');
           const result = this.impl.addHostStatusObserver(params.observer);
           break;
         }
         case 2: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFeatureStateObserver');
           const result = this.impl.addFeatureStateObserver(params.observer);
           break;
         }
         case 3: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEligibleHostDevices');
           const result = this.impl.getEligibleHostDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -875,6 +915,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 4: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEligibleActiveHostDevices');
           const result = this.impl.getEligibleActiveHostDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -886,6 +927,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 5: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id, params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -897,11 +939,13 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 6: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeHostDevice');
           const result = this.impl.removeHostDevice();
           break;
         }
         case 7: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHostStatus');
           const result = this.impl.getHostStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -913,6 +957,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 8: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFeatureEnabledState');
           const result = this.impl.setFeatureEnabledState(params.feature, params.enabled, params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -924,6 +969,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 9: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeatureStates');
           const result = this.impl.getFeatureStates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -935,6 +981,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 10: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.retrySetHostNow');
           const result = this.impl.retrySetHostNow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -946,6 +993,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 11: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerEventForDebugging');
           const result = this.impl.triggerEventForDebugging(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -957,11 +1005,13 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 12: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setQuickStartPhoneInstanceID');
           const result = this.impl.setQuickStartPhoneInstanceID(params.qs_phone_instance_id);
           break;
         }
         case 13: {
           const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuickStartPhoneInstanceID');
           const result = this.impl.getQuickStartPhoneInstanceID();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -971,6 +1021,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1060,13 +1113,18 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1075,6 +1133,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1084,6 +1143,9 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

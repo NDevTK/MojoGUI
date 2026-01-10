@@ -150,13 +150,18 @@ emoji_picker.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -165,9 +170,13 @@ emoji_picker.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -530,13 +539,18 @@ emoji_picker.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -545,21 +559,25 @@ emoji_picker.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 1: {
           const params = emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertEmoji');
           const result = this.impl.insertEmoji(params.emoji, params.is_variant, params.search_length);
           break;
         }
         case 2: {
           const params = emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertGif');
           const result = this.impl.insertGif(params.gif);
           break;
         }
         case 3: {
           const params = emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isIncognitoTextField');
           const result = this.impl.isIncognitoTextField();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -571,6 +589,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeatureList');
           const result = this.impl.getFeatureList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -582,6 +601,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCategories');
           const result = this.impl.getCategories();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -593,6 +613,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const params = emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeaturedGifs');
           const result = this.impl.getFeaturedGifs(params.pos);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -604,6 +625,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const params = emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.searchGifs');
           const result = this.impl.searchGifs(params.query, params.pos);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -615,6 +637,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const params = emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGifsByIds');
           const result = this.impl.getGifsByIds(params.ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -626,11 +649,13 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const params = emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUiFullyLoaded');
           const result = this.impl.onUiFullyLoaded();
           break;
         }
         case 10: {
           const params = emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInitialCategory');
           const result = this.impl.getInitialCategory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -642,6 +667,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const params = emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInitialQuery');
           const result = this.impl.getInitialQuery();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -653,16 +679,19 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const params = emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateHistoryInPrefs');
           const result = this.impl.updateHistoryInPrefs(params.category, params.history);
           break;
         }
         case 13: {
           const params = emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updatePreferredVariantsInPrefs');
           const result = this.impl.updatePreferredVariantsInPrefs(params.preferred_variants);
           break;
         }
         case 14: {
           const params = emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHistoryFromPrefs');
           const result = this.impl.getHistoryFromPrefs(params.category);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -672,6 +701,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -244,13 +244,18 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -259,6 +264,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHelpContents');
           const result = this.impl.getHelpContents(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -268,6 +274,9 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -555,13 +564,18 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -570,6 +584,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeedbackContext');
           const result = this.impl.getFeedbackContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -581,6 +596,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 1: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScreenshotPng');
           const result = this.impl.getScreenshotPng();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -592,6 +608,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 2: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendReport');
           const result = this.impl.sendReport(params.report);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -603,54 +620,67 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
         case 3: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDiagnosticsApp');
           const result = this.impl.openDiagnosticsApp();
           break;
         }
         case 4: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openExploreApp');
           const result = this.impl.openExploreApp();
           break;
         }
         case 5: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openMetricsDialog');
           const result = this.impl.openMetricsDialog();
           break;
         }
         case 6: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openSystemInfoDialog');
           const result = this.impl.openSystemInfoDialog();
           break;
         }
         case 7: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAutofillDialog');
           const result = this.impl.openAutofillDialog(params.autofill_metadata);
           break;
         }
         case 8: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordPostSubmitAction');
           const result = this.impl.recordPostSubmitAction(params.action);
           break;
         }
         case 9: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordPreSubmitAction');
           const result = this.impl.recordPreSubmitAction(params.action);
           break;
         }
         case 10: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordExitPath');
           const result = this.impl.recordExitPath(params.exit_path);
           break;
         }
         case 11: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordHelpContentOutcome');
           const result = this.impl.recordHelpContentOutcome(params.outcome);
           break;
         }
         case 12: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordHelpContentSearchResultCount');
           const result = this.impl.recordHelpContentSearchResultCount(params.count);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

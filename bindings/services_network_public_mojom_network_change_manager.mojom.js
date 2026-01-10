@@ -169,13 +169,18 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -184,14 +189,19 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInitialConnectionType');
           const result = this.impl.onInitialConnectionType(params.type);
           break;
         }
         case 1: {
           const params = network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
           const result = this.impl.onNetworkChanged(params.type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -312,13 +322,18 @@ network.mojom.NetworkChangeManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -327,19 +342,25 @@ network.mojom.NetworkChangeManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNotifications');
           const result = this.impl.requestNotifications(params.client_remote);
           break;
         }
         case 1: {
           const params = network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
           const result = this.impl.onNetworkChanged(params.dns_changed, params.ip_address_change_type, params.connection_type_changed, params.new_connection_type, params.connection_subtype_changed, params.new_connection_subtype);
           break;
         }
         case 2: {
           const params = network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindNetworkInterfaceChangeListener');
           const result = this.impl.bindNetworkInterfaceChangeListener(params.notifier);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

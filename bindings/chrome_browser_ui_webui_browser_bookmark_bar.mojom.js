@@ -118,13 +118,18 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -133,9 +138,13 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -240,13 +249,18 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -255,6 +269,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBookmarkBar');
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -266,9 +281,13 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openInNewTab');
           const result = this.impl.openInNewTab(params.node_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -397,13 +416,18 @@ bookmark_bar.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -412,24 +436,31 @@ bookmark_bar.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bookmarkLoaded');
           const result = this.impl.bookmarkLoaded();
           break;
         }
         case 1: {
           const params = bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.favIconChanged');
           const result = this.impl.favIconChanged(params.bookmark_data);
           break;
         }
         case 2: {
           const params = bookmark_bar.mojom.Page_Show_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show();
           break;
         }
         case 3: {
           const params = bookmark_bar.mojom.Page_Hide_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

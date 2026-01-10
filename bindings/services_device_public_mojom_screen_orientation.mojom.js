@@ -111,13 +111,18 @@ device.mojom.ScreenOrientationReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -126,6 +131,7 @@ device.mojom.ScreenOrientationReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.lockOrientation');
           const result = this.impl.lockOrientation(params.orientation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -137,9 +143,13 @@ device.mojom.ScreenOrientationReceiver = class {
         }
         case 1: {
           const params = device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unlockOrientation');
           const result = this.impl.unlockOrientation();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -228,13 +238,18 @@ device.mojom.ScreenOrientationListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -243,6 +258,7 @@ device.mojom.ScreenOrientationListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isAutoRotateEnabledByUser');
           const result = this.impl.isAutoRotateEnabledByUser();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -252,6 +268,9 @@ device.mojom.ScreenOrientationListenerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

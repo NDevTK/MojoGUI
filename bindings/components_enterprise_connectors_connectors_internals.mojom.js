@@ -307,13 +307,18 @@ connectors_internals.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -322,6 +327,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceTrustState');
           const result = this.impl.getDeviceTrustState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -333,6 +339,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteDeviceTrustKey');
           const result = this.impl.deleteDeviceTrustKey();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -344,6 +351,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getClientCertificateState');
           const result = this.impl.getClientCertificateState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -355,6 +363,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSignalsReportingState');
           const result = this.impl.getSignalsReportingState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -364,6 +373,9 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

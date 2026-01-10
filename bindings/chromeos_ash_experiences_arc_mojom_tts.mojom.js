@@ -145,13 +145,18 @@ arc.mojom.TtsHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -160,14 +165,19 @@ arc.mojom.TtsHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVoicesChanged');
           const result = this.impl.onVoicesChanged(params.voices);
           break;
         }
         case 2: {
           const params = arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTtsEvent');
           const result = this.impl.onTtsEvent(params.utteranceId, params.event_type, params.char_index, params.length, params.error_msg);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -302,13 +312,18 @@ arc.mojom.TtsInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -317,6 +332,7 @@ arc.mojom.TtsInstanceReceiver = class {
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.TtsInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -328,19 +344,25 @@ arc.mojom.TtsInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.TtsInstance_Speak_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance);
           break;
         }
         case 2: {
           const params = arc.mojom.TtsInstance_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 4: {
           const params = arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshVoices');
           const result = this.impl.refreshVoices();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

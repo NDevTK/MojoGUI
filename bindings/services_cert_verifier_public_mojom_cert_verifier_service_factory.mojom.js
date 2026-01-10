@@ -357,13 +357,18 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -372,11 +377,13 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNewCertVerifier');
           const result = this.impl.getNewCertVerifier(params.receiver, params.updater, params.client, params.creation_params);
           break;
         }
         case 1: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateCRLSet');
           const result = this.impl.updateCRLSet(params.crl_set);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -388,6 +395,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 2: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
           const result = this.impl.updateCtLogList(params.log_list, params.update_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -399,6 +407,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 3: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableCtEnforcement');
           const result = this.impl.disableCtEnforcement();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -410,6 +419,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 4: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateChromeRootStore');
           const result = this.impl.updateChromeRootStore(params.new_root_store);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,6 +431,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 5: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateMtcMetadata');
           const result = this.impl.updateMtcMetadata(params.new_mtc_metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -432,6 +443,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 6: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUseChromeRootStore');
           const result = this.impl.setUseChromeRootStore(params.use_crs);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -443,6 +455,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 7: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getChromeRootStoreInfo');
           const result = this.impl.getChromeRootStoreInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,6 +467,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 8: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPlatformRootStoreInfo');
           const result = this.impl.getPlatformRootStoreInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -465,9 +479,13 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
         }
         case 9: {
           const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');
           const result = this.impl.updateNetworkTime(params.system_time, params.system_ticks, params.current_time);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

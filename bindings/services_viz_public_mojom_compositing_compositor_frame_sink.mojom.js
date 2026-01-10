@@ -232,13 +232,18 @@ viz.mojom.CompositorFrameSinkReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -247,39 +252,49 @@ viz.mojom.CompositorFrameSinkReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setParams');
           const result = this.impl.setParams(params.params);
           break;
         }
         case 1: {
           const params = viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
           const result = this.impl.setNeedsBeginFrame(params.needs_begin_frame);
           break;
         }
         case 2: {
           const params = viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submitCompositorFrame');
           const result = this.impl.submitCompositorFrame(params.local_surface_id, params.frame, params.hit_test_region_list, params.submit_time);
           break;
         }
         case 3: {
           const params = viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didNotProduceFrame');
           const result = this.impl.didNotProduceFrame(params.ack);
           break;
         }
         case 4: {
           const params = viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyNewLocalSurfaceIdExpectedWhilePaused');
           const result = this.impl.notifyNewLocalSurfaceIdExpectedWhilePaused();
           break;
         }
         case 5: {
           const params = viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindLayerContext');
           const result = this.impl.bindLayerContext(params.context, params.settings);
           break;
         }
         case 6: {
           const params = viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setThreads');
           const result = this.impl.setThreads(params.threads);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -445,13 +460,18 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -460,34 +480,43 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didReceiveCompositorFrameAck');
           const result = this.impl.didReceiveCompositorFrameAck(params.resources);
           break;
         }
         case 1: {
           const params = viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBeginFrame');
           const result = this.impl.onBeginFrame(params.args, params.details, params.resources);
           break;
         }
         case 2: {
           const params = viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBeginFramePausedChanged');
           const result = this.impl.onBeginFramePausedChanged(params.paused);
           break;
         }
         case 3: {
           const params = viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reclaimResources');
           const result = this.impl.reclaimResources(params.resources);
           break;
         }
         case 4: {
           const params = viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
           const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.sequence_id);
           break;
         }
         case 5: {
           const params = viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSurfaceEvicted');
           const result = this.impl.onSurfaceEvicted(params.local_surface_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

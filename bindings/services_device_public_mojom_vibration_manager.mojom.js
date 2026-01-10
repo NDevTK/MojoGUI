@@ -115,13 +115,18 @@ device.mojom.VibrationManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -130,6 +135,7 @@ device.mojom.VibrationManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.VibrationManager_Vibrate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.vibrate');
           const result = this.impl.vibrate(params.milliseconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -141,6 +147,7 @@ device.mojom.VibrationManagerReceiver = class {
         }
         case 1: {
           const params = device.mojom.VibrationManager_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -150,6 +157,9 @@ device.mojom.VibrationManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -232,13 +242,18 @@ device.mojom.VibrationManagerListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -247,9 +262,13 @@ device.mojom.VibrationManagerListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVibrate');
           const result = this.impl.onVibrate();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -449,13 +449,18 @@ network.mojom.CookieChangeListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -464,9 +469,13 @@ network.mojom.CookieChangeListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCookieChange');
           const result = this.impl.onCookieChange(params.change);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -905,13 +914,18 @@ network.mojom.CookieManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -920,6 +934,7 @@ network.mojom.CookieManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.CookieManager_GetAllCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllCookies');
           const result = this.impl.getAllCookies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -931,6 +946,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 1: {
           const params = network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllCookiesWithAccessSemantics');
           const result = this.impl.getAllCookiesWithAccessSemantics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -942,6 +958,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 2: {
           const params = network.mojom.CookieManager_GetCookieList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCookieList');
           const result = this.impl.getCookieList(params.url, params.cookie_options, params.cookie_partition_key_collection);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -953,6 +970,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 3: {
           const params = network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCanonicalCookie');
           const result = this.impl.setCanonicalCookie(params.cookie, params.source_url, params.cookie_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -964,6 +982,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 4: {
           const params = network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteCanonicalCookie');
           const result = this.impl.deleteCanonicalCookie(params.cookie);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -975,6 +994,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 5: {
           const params = network.mojom.CookieManager_DeleteCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteCookies');
           const result = this.impl.deleteCookies(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -986,6 +1006,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 6: {
           const params = network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSessionOnlyCookies');
           const result = this.impl.deleteSessionOnlyCookies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -997,6 +1018,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 7: {
           const params = network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteStaleSessionOnlyCookies');
           const result = this.impl.deleteStaleSessionOnlyCookies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1008,21 +1030,25 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 8: {
           const params = network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addCookieChangeListener');
           const result = this.impl.addCookieChangeListener(params.url, params.name, params.listener);
           break;
         }
         case 9: {
           const params = network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addGlobalChangeListener');
           const result = this.impl.addGlobalChangeListener(params.notification_pointer);
           break;
         }
         case 10: {
           const params = network.mojom.CookieManager_CloneInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cloneInterface');
           const result = this.impl.cloneInterface(params.new_interface);
           break;
         }
         case 11: {
           const params = network.mojom.CookieManager_FlushCookieStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushCookieStore');
           const result = this.impl.flushCookieStore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1034,6 +1060,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 12: {
           const params = network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allowFileSchemeCookies');
           const result = this.impl.allowFileSchemeCookies(params.allow);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1045,6 +1072,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 13: {
           const params = network.mojom.CookieManager_SetContentSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setContentSettings');
           const result = this.impl.setContentSettings(params.content_settings_type, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1056,29 +1084,37 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 14: {
           const params = network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setForceKeepSessionState');
           const result = this.impl.setForceKeepSessionState();
           break;
         }
         case 15: {
           const params = network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.blockThirdPartyCookies');
           const result = this.impl.blockThirdPartyCookies(params.block);
           break;
         }
         case 16: {
           const params = network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMitigationsEnabledFor3pcd');
           const result = this.impl.setMitigationsEnabledFor3pcd(params.enable);
           break;
         }
         case 17: {
           const params = network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTrackingProtectionEnabledFor3pcd');
           const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.enable);
           break;
         }
         case 18: {
           const params = network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPreCommitCallbackDelayForTesting');
           const result = this.impl.setPreCommitCallbackDelayForTesting(params.delay);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

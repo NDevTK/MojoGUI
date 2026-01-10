@@ -233,19 +233,27 @@ ash.nearby.presence.mojom.ScanSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -361,13 +369,18 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -376,19 +389,25 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
           const result = this.impl.onDeviceFound(params.device);
           break;
         }
         case 1: {
           const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged(params.device);
           break;
         }
         case 2: {
           const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceLost');
           const result = this.impl.onDeviceLost(params.device);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -580,13 +599,18 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -595,6 +619,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan(params.scan_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -606,16 +631,19 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 1: {
           const params = ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScanObserver');
           const result = this.impl.setScanObserver(params.scan_observer);
           break;
         }
         case 2: {
           const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadata');
           const result = this.impl.updateLocalDeviceMetadata(params.metadata);
           break;
         }
         case 3: {
           const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadataAndGenerateCredentials');
           const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -627,6 +655,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 4: {
           const params = ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRemoteSharedCredentials');
           const result = this.impl.updateRemoteSharedCredentials(params.shared_credentials, params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -638,6 +667,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 5: {
           const params = ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLocalSharedCredentials');
           const result = this.impl.getLocalSharedCredentials(params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -647,6 +677,9 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

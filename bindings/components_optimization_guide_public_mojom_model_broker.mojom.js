@@ -172,13 +172,18 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -187,19 +192,25 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.session, params.params);
           break;
         }
         case 1: {
           const params = optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
           const result = this.impl.createTextSafetySession(params.session);
           break;
         }
         case 2: {
           const params = optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportHealthyCompletion');
           const result = this.impl.reportHealthyCompletion();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -300,13 +311,18 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -315,14 +331,19 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unavailable');
           const result = this.impl.unavailable(params.reason);
           break;
         }
         case 1: {
           const params = optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.available');
           const result = this.impl.available(params.config, params.solution);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -407,13 +428,18 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -422,9 +448,13 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.options, params.subcriber);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

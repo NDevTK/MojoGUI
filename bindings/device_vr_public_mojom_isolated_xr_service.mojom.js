@@ -164,13 +164,18 @@ device.mojom.XRSessionControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -179,9 +184,13 @@ device.mojom.XRSessionControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFrameDataRestricted');
           const result = this.impl.setFrameDataRestricted(params.restricted);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -280,13 +289,18 @@ device.mojom.XRRuntimeEventListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -295,14 +309,19 @@ device.mojom.XRRuntimeEventListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
           const result = this.impl.onVisibilityStateChanged(params.visibility_state);
           break;
         }
         case 1: {
           const params = device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onExitPresent');
           const result = this.impl.onExitPresent();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -428,13 +447,18 @@ device.mojom.XRRuntimeReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -443,6 +467,7 @@ device.mojom.XRRuntimeReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRRuntime_RequestSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestSession');
           const result = this.impl.requestSession(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,6 +479,7 @@ device.mojom.XRRuntimeReceiver = class {
         }
         case 1: {
           const params = device.mojom.XRRuntime_ShutdownSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shutdownSession');
           const result = this.impl.shutdownSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -465,9 +491,13 @@ device.mojom.XRRuntimeReceiver = class {
         }
         case 2: {
           const params = device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listenToDeviceChanges');
           const result = this.impl.listenToDeviceChanges(params.listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -619,13 +649,18 @@ device.mojom.ImmersiveOverlayReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -634,6 +669,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNextOverlayPose');
           const result = this.impl.requestNextOverlayPose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -645,6 +681,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
         }
         case 1: {
           const params = device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submitOverlayTexture');
           const result = this.impl.submitOverlayTexture(params.frame_id, params.texture, params.sync_token, params.left_bounds, params.right_bounds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -656,11 +693,13 @@ device.mojom.ImmersiveOverlayReceiver = class {
         }
         case 2: {
           const params = device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOverlayAndWebXRVisibility');
           const result = this.impl.setOverlayAndWebXRVisibility(params.overlay_visible, params.webxr_visible);
           break;
         }
         case 3: {
           const params = device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNotificationOnWebXrSubmitted');
           const result = this.impl.requestNotificationOnWebXrSubmitted();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -670,6 +709,9 @@ device.mojom.ImmersiveOverlayReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -786,13 +828,18 @@ device.mojom.IsolatedXRRuntimeProviderClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -801,19 +848,25 @@ device.mojom.IsolatedXRRuntimeProviderClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.runtime, params.device_data, params.device_id);
           break;
         }
         case 1: {
           const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.device_index);
           break;
         }
         case 2: {
           const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDevicesEnumerated');
           const result = this.impl.onDevicesEnumerated();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -897,13 +950,18 @@ device.mojom.IsolatedXRRuntimeProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -912,9 +970,13 @@ device.mojom.IsolatedXRRuntimeProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestDevices');
           const result = this.impl.requestDevices(params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1015,13 +1077,18 @@ device.mojom.XRDeviceServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1030,14 +1097,19 @@ device.mojom.XRDeviceServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindRuntimeProvider');
           const result = this.impl.bindRuntimeProvider(params.receiver, params.host);
           break;
         }
         case 1: {
           const params = device.mojom.XRDeviceService_BindTestHook_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTestHook');
           const result = this.impl.bindTestHook(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1121,13 +1193,18 @@ device.mojom.XRDeviceServiceHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1136,9 +1213,13 @@ device.mojom.XRDeviceServiceHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindGpu');
           const result = this.impl.bindGpu(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

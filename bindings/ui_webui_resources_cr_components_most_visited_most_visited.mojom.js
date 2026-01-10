@@ -150,13 +150,18 @@ most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -165,9 +170,13 @@ most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -516,13 +525,18 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -531,6 +545,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addMostVisitedTile');
           const result = this.impl.addMostVisitedTile(params.url, params.title);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -542,36 +557,43 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
         }
         case 1: {
           const params = most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedTile');
           const result = this.impl.deleteMostVisitedTile(params.tile);
           break;
         }
         case 2: {
           const params = most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reorderMostVisitedTile');
           const result = this.impl.reorderMostVisitedTile(params.tile, params.new_pos);
           break;
         }
         case 3: {
           const params = most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restoreMostVisitedDefaults');
           const result = this.impl.restoreMostVisitedDefaults(params.source);
           break;
         }
         case 4: {
           const params = most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undoMostVisitedAutoRemoval');
           const result = this.impl.undoMostVisitedAutoRemoval();
           break;
         }
         case 5: {
           const params = most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undoMostVisitedTileAction');
           const result = this.impl.undoMostVisitedTileAction(params.source);
           break;
         }
         case 6: {
           const params = most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateMostVisitedInfo');
           const result = this.impl.updateMostVisitedInfo();
           break;
         }
         case 7: {
           const params = most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateMostVisitedTile');
           const result = this.impl.updateMostVisitedTile(params.tile, params.new_url, params.new_title);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -583,26 +605,31 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
         }
         case 8: {
           const params = most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prerenderMostVisitedTile');
           const result = this.impl.prerenderMostVisitedTile(params.tile);
           break;
         }
         case 9: {
           const params = most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prefetchMostVisitedTile');
           const result = this.impl.prefetchMostVisitedTile(params.tile);
           break;
         }
         case 10: {
           const params = most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.preconnectMostVisitedTile');
           const result = this.impl.preconnectMostVisitedTile(params.tile);
           break;
         }
         case 11: {
           const params = most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelPrerender');
           const result = this.impl.cancelPrerender();
           break;
         }
         case 12: {
           const params = most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMostVisitedExpandedState');
           const result = this.impl.getMostVisitedExpandedState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -614,19 +641,25 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
         }
         case 13: {
           const params = most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMostVisitedExpandedState');
           const result = this.impl.setMostVisitedExpandedState(params.is_expanded);
           break;
         }
         case 14: {
           const params = most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMostVisitedTilesRendered');
           const result = this.impl.onMostVisitedTilesRendered(params.tiles, params.time);
           break;
         }
         case 15: {
           const params = most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMostVisitedTileNavigation');
           const result = this.impl.onMostVisitedTileNavigation(params.tile, params.index, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -725,13 +758,18 @@ most_visited.mojom.MostVisitedPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -740,14 +778,19 @@ most_visited.mojom.MostVisitedPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMostVisitedInfo');
           const result = this.impl.setMostVisitedInfo(params.info);
           break;
         }
         case 1: {
           const params = most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMostVisitedTilesAutoRemoval');
           const result = this.impl.onMostVisitedTilesAutoRemoval();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

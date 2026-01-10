@@ -233,13 +233,18 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -248,26 +253,31 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateSigningKey');
           const result = this.impl.generateSigningKey(params.acceptable_algorithms, params.priority);
           break;
         }
         case 1: {
           const params = unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fromWrappedSigningKey');
           const result = this.impl.fromWrappedSigningKey(params.wrapped_key, params.priority);
           break;
         }
         case 2: {
           const params = unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.key_id, params.data, params.priority);
           break;
         }
         case 3: {
           const params = unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllSigningKeysForGarbageCollection');
           const result = this.impl.getAllSigningKeysForGarbageCollection(params.priority);
           break;
         }
         case 4: {
           const params = unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_id, params.priority);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -279,9 +289,13 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         }
         case 5: {
           const params = unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys(params.priority);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

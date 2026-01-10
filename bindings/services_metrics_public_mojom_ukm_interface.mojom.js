@@ -113,13 +113,18 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -128,9 +133,13 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submit');
           const result = this.impl.submit(params.entry);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -214,13 +223,18 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -229,9 +243,13 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setParameters');
           const result = this.impl.setParameters(params.params);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -332,13 +350,18 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -347,14 +370,19 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addEntry');
           const result = this.impl.addEntry(params.entry);
           break;
         }
         case 1: {
           const params = ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSourceURL');
           const result = this.impl.updateSourceURL(params.source_id, params.url);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -439,13 +467,18 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -454,9 +487,13 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createUkmRecorder');
           const result = this.impl.createUkmRecorder(params.receiver, params.client_remote);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

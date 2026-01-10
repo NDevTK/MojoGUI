@@ -248,13 +248,18 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -263,6 +268,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDetails');
           const result = this.impl.getDetails(params.package_name, params.scope, params.item_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -274,6 +280,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acknowledge');
           const result = this.impl.acknowledge(params.package_name, params.scope, params.purchase_token, params.make_available_again);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -285,6 +292,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 2: {
           const params = arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deprecatedListPurchases');
           const result = this.impl.deprecatedListPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,6 +304,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 3: {
           const params = arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listPurchases');
           const result = this.impl.listPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -307,6 +316,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 4: {
           const params = arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
           const result = this.impl.listPurchaseHistory(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -318,6 +328,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 5: {
           const params = arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.consume');
           const result = this.impl.consume(params.package_name, params.scope, params.purchase_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -327,6 +338,9 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

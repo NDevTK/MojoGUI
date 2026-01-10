@@ -257,13 +257,18 @@ coral.mojom.TitleObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -272,9 +277,13 @@ coral.mojom.TitleObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.titleUpdated');
           const result = this.impl.titleUpdated(params.group_id, params.title);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -387,13 +396,18 @@ coral.mojom.CoralProcessorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -402,6 +416,7 @@ coral.mojom.CoralProcessorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.CoralProcessor_Group_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.group');
           const result = this.impl.group(params.request, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -413,6 +428,7 @@ coral.mojom.CoralProcessorReceiver = class {
         }
         case 1: {
           const params = coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
           const result = this.impl.cacheEmbeddings(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -422,6 +438,9 @@ coral.mojom.CoralProcessorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -567,13 +586,18 @@ coral.mojom.CoralServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -582,6 +606,7 @@ coral.mojom.CoralServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
           const result = this.impl.groupDeprecated(params.request, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -593,6 +618,7 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 1: {
           const params = coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
           const result = this.impl.cacheEmbeddingsDeprecated(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -604,14 +630,19 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 2: {
           const params = coral.mojom.CoralService_PrepareResource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareResource');
           const result = this.impl.prepareResource();
           break;
         }
         case 3: {
           const params = coral.mojom.CoralService_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.ml_service, params.processor, params.language_code);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -237,13 +237,18 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -252,6 +257,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMediaApps');
           const result = this.impl.getMediaApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -263,6 +269,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 1: {
           const params = crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.returnToApp');
           const result = this.impl.returnToApp(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -274,6 +281,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 2: {
           const params = crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSystemMediaDeviceStatus');
           const result = this.impl.setSystemMediaDeviceStatus(params.device, params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -285,9 +293,13 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 3: {
           const params = crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopAllScreenShare');
           const result = this.impl.stopAllScreenShare();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -172,13 +172,18 @@ ax.mojom.TtsUtteranceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -187,9 +192,13 @@ ax.mojom.TtsUtteranceClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -367,13 +376,18 @@ ax.mojom.TtsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -382,6 +396,7 @@ ax.mojom.TtsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.Tts_Speak_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -393,21 +408,25 @@ ax.mojom.TtsReceiver = class {
         }
         case 1: {
           const params = ax.mojom.Tts_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 2: {
           const params = ax.mojom.Tts_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 3: {
           const params = ax.mojom.Tts_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const params = ax.mojom.Tts_IsSpeaking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isSpeaking');
           const result = this.impl.isSpeaking();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +438,7 @@ ax.mojom.TtsReceiver = class {
         }
         case 5: {
           const params = ax.mojom.Tts_GetVoices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVoices');
           const result = this.impl.getVoices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -428,6 +448,9 @@ ax.mojom.TtsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

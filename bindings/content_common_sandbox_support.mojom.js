@@ -222,13 +222,18 @@ content.mojom.SandboxSupportReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,6 +242,7 @@ content.mojom.SandboxSupportReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSystemColors');
           const result = this.impl.getSystemColors();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -248,6 +254,7 @@ content.mojom.SandboxSupportReceiver = class {
         }
         case 1: {
           const params = content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.lcidAndFirstDayOfWeek');
           const result = this.impl.lcidAndFirstDayOfWeek(params.locale, params.default_language, params.defaults);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -259,6 +266,7 @@ content.mojom.SandboxSupportReceiver = class {
         }
         case 2: {
           const params = content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.digitsAndSigns');
           const result = this.impl.digitsAndSigns(params.lcid, params.defaults);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -270,6 +278,7 @@ content.mojom.SandboxSupportReceiver = class {
         }
         case 3: {
           const params = content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.localeString');
           const result = this.impl.localeString(params.lcid, params.defaults, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -281,6 +290,7 @@ content.mojom.SandboxSupportReceiver = class {
         }
         case 4: {
           const params = content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.localeStrings');
           const result = this.impl.localeStrings(params.lcid, params.defaults, params.collection);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -290,6 +300,9 @@ content.mojom.SandboxSupportReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

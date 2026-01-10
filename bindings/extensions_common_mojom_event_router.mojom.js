@@ -330,13 +330,18 @@ extensions.mojom.EventRouterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -345,64 +350,79 @@ extensions.mojom.EventRouterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addListenerForMainThread');
           const result = this.impl.addListenerForMainThread(params.event_listener);
           break;
         }
         case 1: {
           const params = extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addListenerForServiceWorker');
           const result = this.impl.addListenerForServiceWorker(params.event_listener);
           break;
         }
         case 2: {
           const params = extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addLazyListenerForMainThread');
           const result = this.impl.addLazyListenerForMainThread(params.extension_id, params.event_name);
           break;
         }
         case 3: {
           const params = extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addLazyListenerForServiceWorker');
           const result = this.impl.addLazyListenerForServiceWorker(params.extension_id, params.worker_scope_url, params.event_name);
           break;
         }
         case 4: {
           const params = extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForMainThread');
           const result = this.impl.addFilteredListenerForMainThread(params.listener_owner, params.event_name, params.filter, params.add_lazy_listener);
           break;
         }
         case 5: {
           const params = extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForServiceWorker');
           const result = this.impl.addFilteredListenerForServiceWorker(params.extension_id, params.event_name, params.service_worker_context, params.filter, params.add_lazy_listener);
           break;
         }
         case 6: {
           const params = extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeListenerForMainThread');
           const result = this.impl.removeListenerForMainThread(params.event_listener);
           break;
         }
         case 7: {
           const params = extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeListenerForServiceWorker');
           const result = this.impl.removeListenerForServiceWorker(params.event_listener);
           break;
         }
         case 8: {
           const params = extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForMainThread');
           const result = this.impl.removeLazyListenerForMainThread(params.extension_id, params.event_name);
           break;
         }
         case 9: {
           const params = extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForServiceWorker');
           const result = this.impl.removeLazyListenerForServiceWorker(params.extension_id, params.worker_scope_url, params.event_name);
           break;
         }
         case 10: {
           const params = extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForMainThread');
           const result = this.impl.removeFilteredListenerForMainThread(params.listener_owner, params.event_name, params.filter, params.remove_lazy_listener);
           break;
         }
         case 11: {
           const params = extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForServiceWorker');
           const result = this.impl.removeFilteredListenerForServiceWorker(params.extension_id, params.event_name, params.service_worker_context, params.filter, params.remove_lazy_listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

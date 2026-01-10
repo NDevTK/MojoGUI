@@ -294,13 +294,18 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -309,56 +314,67 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNetworkAlmostIdle');
           const result = this.impl.setNetworkAlmostIdle();
           break;
         }
         case 1: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setLifecycleState');
           const result = this.impl.setLifecycleState(params.state);
           break;
         }
         case 2: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasNonEmptyBeforeUnload');
           const result = this.impl.setHasNonEmptyBeforeUnload(params.has_nonempty_beforeunload);
           break;
         }
         case 3: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHadFormInteraction');
           const result = this.impl.setHadFormInteraction();
           break;
         }
         case 4: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHadUserEdits');
           const result = this.impl.setHadUserEdits();
           break;
         }
         case 5: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartedUsingWebRTC');
           const result = this.impl.onStartedUsingWebRTC();
           break;
         }
         case 6: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStoppedUsingWebRTC');
           const result = this.impl.onStoppedUsingWebRTC();
           break;
         }
         case 7: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsAdFrame');
           const result = this.impl.setIsAdFrame(params.is_ad_frame);
           break;
         }
         case 8: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNonPersistentNotificationCreated');
           const result = this.impl.onNonPersistentNotificationCreated();
           break;
         }
         case 9: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFirstContentfulPaint');
           const result = this.impl.onFirstContentfulPaint(params.time_since_navigation_start);
           break;
         }
         case 10: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWebMemoryMeasurementRequested');
           const result = this.impl.onWebMemoryMeasurementRequested(params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -370,9 +386,13 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
         }
         case 11: {
           const params = performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFreezingOriginTrialOptOut');
           const result = this.impl.onFreezingOriginTrialOptOut();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -540,13 +560,18 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -555,34 +580,43 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMainThreadTaskLoadIsLow');
           const result = this.impl.setMainThreadTaskLoadIsLow(params.main_thread_task_load_is_low);
           break;
         }
         case 1: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onV8ContextCreated');
           const result = this.impl.onV8ContextCreated(params.description, params.iframe_attribution_data);
           break;
         }
         case 2: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onV8ContextDetached');
           const result = this.impl.onV8ContextDetached(params.v8_context_token);
           break;
         }
         case 3: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onV8ContextDestroyed');
           const result = this.impl.onV8ContextDestroyed(params.v8_context_token);
           break;
         }
         case 4: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemoteIframeAttached');
           const result = this.impl.onRemoteIframeAttached(params.parent_frame_token, params.remote_frame_token, params.iframe_attribution_data);
           break;
         }
         case 5: {
           const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemoteIframeDetached');
           const result = this.impl.onRemoteIframeDetached(params.parent_frame_token, params.remote_frame_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -672,13 +706,18 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -687,6 +726,7 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeChildProcessCoordination');
           const result = this.impl.initializeChildProcessCoordination();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -696,6 +736,9 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

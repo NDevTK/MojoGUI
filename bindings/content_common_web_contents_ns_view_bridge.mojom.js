@@ -253,13 +253,18 @@ remote_cocoa.mojom.WebContentsNSViewReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -268,44 +273,55 @@ remote_cocoa.mojom.WebContentsNSViewReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setParentNSView');
           const result = this.impl.setParentNSView(params.parent_ns_view_id);
           break;
         }
         case 1: {
           const params = remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetParentNSView');
           const result = this.impl.resetParentNSView();
           break;
         }
         case 2: {
           const params = remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBounds');
           const result = this.impl.setBounds(params.bounds_in_superview);
           break;
         }
         case 3: {
           const params = remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVisible');
           const result = this.impl.setVisible(params.visible);
           break;
         }
         case 4: {
           const params = remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.makeFirstResponder');
           const result = this.impl.makeFirstResponder();
           break;
         }
         case 5: {
           const params = remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.takeFocus');
           const result = this.impl.takeFocus(params.reverse);
           break;
         }
         case 6: {
           const params = remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDrag');
           const result = this.impl.startDrag(params.drop_data, params.source_origin, params.operation_mask, params.image, params.image_offset, params.is_privileged);
           break;
         }
         case 7: {
           const params = remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroy');
           const result = this.impl.destroy();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -561,13 +577,18 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -576,26 +597,31 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMouseEvent');
           const result = this.impl.onMouseEvent(params.event);
           break;
         }
         case 1: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBecameFirstResponder');
           const result = this.impl.onBecameFirstResponder(params.direction);
           break;
         }
         case 2: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWindowVisibilityChanged');
           const result = this.impl.onWindowVisibilityChanged(params.visibility);
           break;
         }
         case 3: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDropData');
           const result = this.impl.setDropData(params.drop_data);
           break;
         }
         case 4: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.draggingEntered');
           const result = this.impl.draggingEntered(params.dragging_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -607,11 +633,13 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
         }
         case 5: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.draggingExited');
           const result = this.impl.draggingExited();
           break;
         }
         case 6: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.draggingUpdated');
           const result = this.impl.draggingUpdated(params.dragging_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -623,6 +651,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
         }
         case 7: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.performDragOperation');
           const result = this.impl.performDragOperation(params.dragging_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -634,6 +663,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
         }
         case 8: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dragPromisedFileTo');
           const result = this.impl.dragPromisedFileTo(params.file_path, params.drop_data, params.download_url, params.source_origin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -645,9 +675,13 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
         }
         case 9: {
           const params = remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.endDrag');
           const result = this.impl.endDrag(params.drag_operation, params.local_point, params.screen_point);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

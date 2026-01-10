@@ -212,13 +212,18 @@ media.mojom.AudioDecoderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -227,6 +232,7 @@ media.mojom.AudioDecoderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSupportedConfigs');
           const result = this.impl.getSupportedConfigs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -238,11 +244,13 @@ media.mojom.AudioDecoderReceiver = class {
         }
         case 1: {
           const params = media.mojom.AudioDecoder_Construct_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.construct');
           const result = this.impl.construct(params.client, params.media_log);
           break;
         }
         case 2: {
           const params = media.mojom.AudioDecoder_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.cdm_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -254,11 +262,13 @@ media.mojom.AudioDecoderReceiver = class {
         }
         case 3: {
           const params = media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDataSource');
           const result = this.impl.setDataSource(params.receive_pipe);
           break;
         }
         case 4: {
           const params = media.mojom.AudioDecoder_Decode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -270,6 +280,7 @@ media.mojom.AudioDecoderReceiver = class {
         }
         case 5: {
           const params = media.mojom.AudioDecoder_Reset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -279,6 +290,9 @@ media.mojom.AudioDecoderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -378,13 +392,18 @@ media.mojom.AudioDecoderClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -393,14 +412,19 @@ media.mojom.AudioDecoderClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBufferDecoded');
           const result = this.impl.onBufferDecoded(params.buffer);
           break;
         }
         case 1: {
           const params = media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWaiting');
           const result = this.impl.onWaiting(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

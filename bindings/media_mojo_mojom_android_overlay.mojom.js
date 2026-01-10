@@ -109,13 +109,18 @@ media.mojom.AndroidOverlayProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -124,9 +129,13 @@ media.mojom.AndroidOverlayProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createOverlay');
           const result = this.impl.createOverlay(params.overlay, params.client, params.config);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -210,13 +219,18 @@ media.mojom.AndroidOverlayReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -225,9 +239,13 @@ media.mojom.AndroidOverlayReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scheduleLayout');
           const result = this.impl.scheduleLayout(params.rect);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -362,13 +380,18 @@ media.mojom.AndroidOverlayClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -377,16 +400,19 @@ media.mojom.AndroidOverlayClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSurfaceReady');
           const result = this.impl.onSurfaceReady(params.surface_key);
           break;
         }
         case 1: {
           const params = media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed();
           break;
         }
         case 2: {
           const params = media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSynchronouslyDestroyed');
           const result = this.impl.onSynchronouslyDestroyed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -398,9 +424,13 @@ media.mojom.AndroidOverlayClientReceiver = class {
         }
         case 3: {
           const params = media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPowerEfficientState');
           const result = this.impl.onPowerEfficientState(params.is_power_efficient);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

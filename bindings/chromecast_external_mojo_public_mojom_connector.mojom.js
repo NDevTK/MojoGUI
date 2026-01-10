@@ -114,13 +114,18 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -129,9 +134,13 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBindInterface');
           const result = this.impl.onBindInterface(params.interface_name, params.interface_pipe);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -286,13 +295,18 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -301,26 +315,31 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerServiceInstances');
           const result = this.impl.registerServiceInstances(params.instances_info);
           break;
         }
         case 1: {
           const params = chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindInterface');
           const result = this.impl.bindInterface(params.service_name, params.interface_name, params.interface_pipe);
           break;
         }
         case 2: {
           const params = chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 3: {
           const params = chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindChromiumConnector');
           const result = this.impl.bindChromiumConnector(params.interface_pipe);
           break;
         }
         case 4: {
           const params = chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.queryServiceList');
           const result = this.impl.queryServiceList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -330,6 +349,9 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -106,13 +106,18 @@ mojom.DebugLogsChangeHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -121,9 +126,13 @@ mojom.DebugLogsChangeHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.changeDebugLogsState');
           const result = this.impl.changeDebugLogsState(params.should_debug_logs_be_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -360,13 +369,18 @@ mojom.BluetoothInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -375,6 +389,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAdapter');
           const result = this.impl.getAdapter();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -386,6 +401,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDebugLogsChangeHandler');
           const result = this.impl.getDebugLogsChangeHandler();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -397,6 +413,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 2: {
           const params = mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.checkSystemPermissions');
           const result = this.impl.checkSystemPermissions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -408,6 +425,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 3: {
           const params = mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestSystemPermissions');
           const result = this.impl.requestSystemPermissions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +437,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 4: {
           const params = mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestLocationServices');
           const result = this.impl.requestLocationServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -430,6 +449,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 5: {
           const params = mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restartSystemBluetooth');
           const result = this.impl.restartSystemBluetooth();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -441,6 +461,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 6: {
           const params = mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startBtsnoop');
           const result = this.impl.startBtsnoop();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -452,6 +473,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 7: {
           const params = mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isBtsnoopFeatureEnabled');
           const result = this.impl.isBtsnoopFeatureEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -461,6 +483,9 @@ mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -549,13 +574,18 @@ mojom.BluetoothBtsnoopReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -564,6 +594,7 @@ mojom.BluetoothBtsnoopReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -573,6 +604,9 @@ mojom.BluetoothBtsnoopReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

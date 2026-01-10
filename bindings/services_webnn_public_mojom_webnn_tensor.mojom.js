@@ -178,13 +178,18 @@ webnn.mojom.WebNNTensorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -193,6 +198,7 @@ webnn.mojom.WebNNTensorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readTensor');
           const result = this.impl.readTensor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -204,19 +210,25 @@ webnn.mojom.WebNNTensorReceiver = class {
         }
         case 1: {
           const params = webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeTensor');
           const result = this.impl.writeTensor(params.src_buffer);
           break;
         }
         case 2: {
           const params = webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exportTensor');
           const result = this.impl.exportTensor();
           break;
         }
         case 3: {
           const params = webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importTensor');
           const result = this.impl.importTensor(params.fence);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

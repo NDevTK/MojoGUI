@@ -127,13 +127,18 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -142,9 +147,13 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
           const result = this.impl.createBrowserCommandHandler(params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -257,13 +266,18 @@ browser_command.mojom.CommandHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -272,6 +286,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
           const result = this.impl.canExecuteCommand(params.command_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -283,6 +298,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
         }
         case 1: {
           const params = browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.executeCommand');
           const result = this.impl.executeCommand(params.command_id, params.click_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -292,6 +308,9 @@ browser_command.mojom.CommandHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

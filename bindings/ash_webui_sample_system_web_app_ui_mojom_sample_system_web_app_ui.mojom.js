@@ -105,13 +105,18 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -120,9 +125,13 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -242,13 +251,18 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -257,6 +271,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPreferences');
           const result = this.impl.getPreferences();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -268,14 +283,19 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.message);
           break;
         }
         case 2: {
           const params = ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -376,13 +396,18 @@ ash.mojom.sample_swa.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -391,14 +416,19 @@ ash.mojom.sample_swa.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
           const result = this.impl.onEventOccurred(params.name);
           break;
         }
         case 1: {
           const params = ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createParentPage');
           const result = this.impl.createParentPage(params.child_untrusted_page, params.parent_trusted_page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

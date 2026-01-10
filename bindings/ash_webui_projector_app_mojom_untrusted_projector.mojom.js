@@ -344,13 +344,18 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -359,6 +364,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNewScreencastPrecondition');
           const result = this.impl.getNewScreencastPrecondition();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -370,6 +376,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldDownloadSoda');
           const result = this.impl.shouldDownloadSoda();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -381,6 +388,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 2: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installSoda');
           const result = this.impl.installSoda();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -392,6 +400,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 3: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPendingScreencasts');
           const result = this.impl.getPendingScreencasts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -403,6 +412,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 4: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUserPref');
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -414,6 +424,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 5: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserPref');
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -425,6 +436,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 6: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -436,6 +448,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 7: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startProjectorSession');
           const result = this.impl.startProjectorSession(params.storage_dir_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -447,6 +460,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 8: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendXhr');
           const result = this.impl.sendXhr(params.url, params.method, params.request_body, params.use_credentials, params.use_api_key, params.headers, params.account_email);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -458,6 +472,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 9: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAccounts');
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -469,6 +484,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 10: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVideo');
           const result = this.impl.getVideo(params.video_file_id, params.resource_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -478,6 +494,9 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -623,13 +642,18 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -638,29 +662,37 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewScreencastPreconditionChanged');
           const result = this.impl.onNewScreencastPreconditionChanged(params.precondition);
           break;
         }
         case 1: {
           const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSodaInstallProgressUpdated');
           const result = this.impl.onSodaInstallProgressUpdated(params.progress);
           break;
         }
         case 2: {
           const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSodaInstalled');
           const result = this.impl.onSodaInstalled();
           break;
         }
         case 3: {
           const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSodaInstallError');
           const result = this.impl.onSodaInstallError();
           break;
         }
         case 4: {
           const params = ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScreencastsStateChange');
           const result = this.impl.onScreencastsStateChange(params.pending_screencasts);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -745,13 +777,18 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -760,9 +797,13 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

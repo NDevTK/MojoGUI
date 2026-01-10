@@ -287,13 +287,18 @@ network.mojom.RestrictedCookieManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -302,6 +307,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllForUrl');
           const result = this.impl.getAllForUrl(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.options, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -313,6 +319,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 1: {
           const params = network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCanonicalCookie');
           const result = this.impl.setCanonicalCookie(params.cookie, params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.status, params.is_ad_tagged, params.apply_devtools_overrides);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -324,6 +331,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 2: {
           const params = network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addChangeListener');
           const result = this.impl.addChangeListener(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -335,6 +343,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 3: {
           const params = network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCookieFromString');
           const result = this.impl.setCookieFromString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.cookie);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -346,6 +355,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 4: {
           const params = network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCookiesString');
           const result = this.impl.getCookiesString(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.get_version_shared_memory, params.is_ad_tagged, params.apply_devtools_overrides, params.force_disable_third_party_cookies);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -357,6 +367,7 @@ network.mojom.RestrictedCookieManagerReceiver = class {
         }
         case 5: {
           const params = network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cookiesEnabledFor');
           const result = this.impl.cookiesEnabledFor(params.url, params.site_for_cookies, params.top_frame_origin, params.storage_access_api_status, params.apply_devtools_overrides);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -366,6 +377,9 @@ network.mojom.RestrictedCookieManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

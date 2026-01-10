@@ -876,13 +876,18 @@ ash.ime.mojom.InputMethodReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -891,11 +896,13 @@ ash.ime.mojom.InputMethodReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
           const result = this.impl.onFocusDeprecated(params.input_field_info, params.settings);
           break;
         }
         case 6: {
           const params = ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFocus');
           const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -907,11 +914,13 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 1: {
           const params = ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBlur');
           const result = this.impl.onBlur();
           break;
         }
         case 2: {
           const params = ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
           const result = this.impl.processKeyEvent(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -923,26 +932,31 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 3: {
           const params = ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
           const result = this.impl.onSurroundingTextChanged(params.text, params.offset, params.selection_range);
           break;
         }
         case 4: {
           const params = ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
           const result = this.impl.onCompositionCanceledBySystem();
           break;
         }
         case 5: {
           const params = ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
           const result = this.impl.onCandidateSelected(params.selected_candidate_index);
           break;
         }
         case 7: {
           const params = ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
           const result = this.impl.onQuickSettingsUpdated(params.settings);
           break;
         }
         case 8: {
           const params = ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
           const result = this.impl.isReadyForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -954,9 +968,13 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 9: {
           const params = ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
           const result = this.impl.onAssistiveWindowChanged(params.window);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

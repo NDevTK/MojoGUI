@@ -154,13 +154,18 @@ blink.mojom.CookieStoreReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -169,6 +174,7 @@ blink.mojom.CookieStoreReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addSubscriptions');
           const result = this.impl.addSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -180,6 +186,7 @@ blink.mojom.CookieStoreReceiver = class {
         }
         case 1: {
           const params = blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeSubscriptions');
           const result = this.impl.removeSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -191,6 +198,7 @@ blink.mojom.CookieStoreReceiver = class {
         }
         case 2: {
           const params = blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSubscriptions');
           const result = this.impl.getSubscriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -200,6 +208,9 @@ blink.mojom.CookieStoreReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

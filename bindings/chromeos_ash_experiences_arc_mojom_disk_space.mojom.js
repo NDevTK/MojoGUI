@@ -246,13 +246,18 @@ arc.mojom.DiskSpaceHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -261,6 +266,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isQuotaSupported');
           const result = this.impl.isQuotaSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -272,6 +278,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForUid');
           const result = this.impl.getQuotaCurrentSpaceForUid(params.uid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -283,6 +290,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForGid');
           const result = this.impl.getQuotaCurrentSpaceForGid(params.gid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -294,6 +302,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 3: {
           const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForProjectId');
           const result = this.impl.getQuotaCurrentSpaceForProjectId(params.project_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -305,6 +314,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 6: {
           const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpacesForIds');
           const result = this.impl.getQuotaCurrentSpacesForIds(params.uids, params.gids, params.project_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -316,6 +326,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 5: {
           const params = arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFreeDiskSpace');
           const result = this.impl.getFreeDiskSpace();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -325,6 +336,9 @@ arc.mojom.DiskSpaceHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -451,13 +465,18 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -466,6 +485,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -477,6 +497,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getApplicationsSize');
           const result = this.impl.getApplicationsSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -488,9 +509,13 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
         }
         case 2: {
           const params = arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resizeStorageBalloon');
           const result = this.impl.resizeStorageBalloon(params.free_space_bytes);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

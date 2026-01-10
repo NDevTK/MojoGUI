@@ -172,13 +172,18 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -187,9 +192,13 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCertificateManagerPageHandler');
           const result = this.impl.createCertificateManagerPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -432,13 +441,18 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -447,6 +461,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCertificates');
           const result = this.impl.getCertificates(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -458,6 +473,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 1: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCertManagementMetadata');
           const result = this.impl.getCertManagementMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -469,16 +485,19 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 2: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.viewCertificate');
           const result = this.impl.viewCertificate(params.source, params.sha256_hash_hex);
           break;
         }
         case 3: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exportCertificates');
           const result = this.impl.exportCertificates(params.source);
           break;
         }
         case 4: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importCertificate');
           const result = this.impl.importCertificate(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -490,6 +509,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 5: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importAndBindCertificate');
           const result = this.impl.importAndBindCertificate(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -501,6 +521,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 6: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteCertificate');
           const result = this.impl.deleteCertificate(params.source, params.display_name, params.sha256_hash_hex);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -512,14 +533,19 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
         case 7: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showNativeManageCertificates');
           const result = this.impl.showNativeManageCertificates();
           break;
         }
         case 8: {
           const params = certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIncludeSystemTrustStore');
           const result = this.impl.setIncludeSystemTrustStore(params.include);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -662,13 +688,18 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -677,6 +708,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.askForImportPassword');
           const result = this.impl.askForImportPassword();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -688,6 +720,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         }
         case 1: {
           const params = certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.askForConfirmation');
           const result = this.impl.askForConfirmation(params.title, params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -699,14 +732,19 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         }
         case 2: {
           const params = certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerReload');
           const result = this.impl.triggerReload(params.sources);
           break;
         }
         case 3: {
           const params = certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerMetadataUpdate');
           const result = this.impl.triggerMetadataUpdate();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

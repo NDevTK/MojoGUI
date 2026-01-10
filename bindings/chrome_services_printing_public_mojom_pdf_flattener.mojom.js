@@ -118,13 +118,18 @@ printing.mojom.PdfFlattenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -133,6 +138,7 @@ printing.mojom.PdfFlattenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flattenPdf');
           const result = this.impl.flattenPdf(params.src_pdf_region);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -144,9 +150,13 @@ printing.mojom.PdfFlattenerReceiver = class {
         }
         case 1: {
           const params = printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -123,13 +123,18 @@ media.mojom.RemoterFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -138,9 +143,13 @@ media.mojom.RemoterFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.RemoterFactory_Create_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.source, params.remoter);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -244,13 +253,18 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -259,6 +273,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendFrame');
           const result = this.impl.sendFrame(params.frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -270,9 +285,13 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         }
         case 1: {
           const params = media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelInFlightData');
           const result = this.impl.cancelInFlightData();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -442,13 +461,18 @@ media.mojom.RemoterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -457,31 +481,37 @@ media.mojom.RemoterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.Remoter_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 1: {
           const params = media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startWithPermissionAlreadyGranted');
           const result = this.impl.startWithPermissionAlreadyGranted();
           break;
         }
         case 2: {
           const params = media.mojom.Remoter_StartDataStreams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_pipe, params.video_pipe, params.audio_sender, params.video_sender);
           break;
         }
         case 3: {
           const params = media.mojom.Remoter_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.reason);
           break;
         }
         case 4: {
           const params = media.mojom.Remoter_SendMessageToSink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessageToSink');
           const result = this.impl.sendMessageToSink(params.message);
           break;
         }
         case 5: {
           const params = media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.estimateTransmissionCapacity');
           const result = this.impl.estimateTransmissionCapacity();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -491,6 +521,9 @@ media.mojom.RemoterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -652,13 +685,18 @@ media.mojom.RemotingSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -667,34 +705,43 @@ media.mojom.RemotingSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSinkAvailable');
           const result = this.impl.onSinkAvailable(params.metadata);
           break;
         }
         case 1: {
           const params = media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSinkGone');
           const result = this.impl.onSinkGone();
           break;
         }
         case 2: {
           const params = media.mojom.RemotingSource_OnStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 3: {
           const params = media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartFailed');
           const result = this.impl.onStartFailed(params.reason);
           break;
         }
         case 4: {
           const params = media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessageFromSink');
           const result = this.impl.onMessageFromSink(params.message);
           break;
         }
         case 5: {
           const params = media.mojom.RemotingSource_OnStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -844,13 +891,18 @@ media.mojom.RemoteeReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -859,29 +911,37 @@ media.mojom.RemoteeReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemotingSinkReady');
           const result = this.impl.onRemotingSinkReady(params.sink);
           break;
         }
         case 1: {
           const params = media.mojom.Remotee_SendMessageToSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessageToSource');
           const result = this.impl.sendMessageToSource(params.message);
           break;
         }
         case 2: {
           const params = media.mojom.Remotee_StartDataStreams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_stream, params.video_stream);
           break;
         }
         case 3: {
           const params = media.mojom.Remotee_OnFlushUntil_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFlushUntil');
           const result = this.impl.onFlushUntil(params.audio_frame_count, params.video_frame_count);
           break;
         }
         case 4: {
           const params = media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
           const result = this.impl.onVideoNaturalSizeChange(params.size);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -965,13 +1025,18 @@ media.mojom.RemotingSinkReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -980,9 +1045,13 @@ media.mojom.RemotingSinkReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessageFromSource');
           const result = this.impl.onMessageFromSource(params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1099,13 +1168,18 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1114,19 +1188,25 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeDataPipe');
           const result = this.impl.initializeDataPipe(params.data_pipe);
           break;
         }
         case 1: {
           const params = media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.receiveFrame');
           const result = this.impl.receiveFrame(params.frame_count, params.buffer);
           break;
         }
         case 2: {
           const params = media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushUntil');
           const result = this.impl.flushUntil(params.frame_count);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

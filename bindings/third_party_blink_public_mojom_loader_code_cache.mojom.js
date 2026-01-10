@@ -185,13 +185,18 @@ blink.mojom.CodeCacheHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -200,6 +205,7 @@ blink.mojom.CodeCacheHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPendingBackend');
           const result = this.impl.getPendingBackend(params.cache_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -211,11 +217,13 @@ blink.mojom.CodeCacheHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadata');
           const result = this.impl.didGenerateCacheableMetadata(params.cache_type, params.url, params.expected_response_time, params.data);
           break;
         }
         case 2: {
           const params = blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetchCachedCode');
           const result = this.impl.fetchCachedCode(params.cache_type, params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -227,14 +235,19 @@ blink.mojom.CodeCacheHostReceiver = class {
         }
         case 3: {
           const params = blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearCodeCacheEntry');
           const result = this.impl.clearCodeCacheEntry(params.cache_type, params.url);
           break;
         }
         case 4: {
           const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadataInCacheStorage');
           const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.url, params.expected_response_time, params.data, params.cache_storage_cache_name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

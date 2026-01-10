@@ -362,13 +362,18 @@ network.mojom.UDPSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -377,6 +382,7 @@ network.mojom.UDPSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.UDPSocket_Bind_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bind');
           const result = this.impl.bind(params.local_addr, params.socket_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -388,6 +394,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 1: {
           const params = network.mojom.UDPSocket_Connect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.remote_addr, params.socket_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -399,6 +406,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 2: {
           const params = network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBroadcast');
           const result = this.impl.setBroadcast(params.broadcast);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -410,6 +418,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 3: {
           const params = network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,6 +430,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 4: {
           const params = network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -432,6 +442,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 5: {
           const params = network.mojom.UDPSocket_JoinGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.joinGroup');
           const result = this.impl.joinGroup(params.group_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -443,6 +454,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 6: {
           const params = network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,16 +466,19 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 7: {
           const params = network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.receiveMore');
           const result = this.impl.receiveMore(params.num_additional_datagrams);
           break;
         }
         case 8: {
           const params = network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.receiveMoreWithBufferSize');
           const result = this.impl.receiveMoreWithBufferSize(params.num_additional_datagrams, params.buffer_size);
           break;
         }
         case 9: {
           const params = network.mojom.UDPSocket_SendTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendTo');
           const result = this.impl.sendTo(params.dest_addr, params.data, params.traffic_annotation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -475,6 +490,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 10: {
           const params = network.mojom.UDPSocket_Send_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data, params.traffic_annotation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -486,9 +502,13 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 11: {
           const params = network.mojom.UDPSocket_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -574,13 +594,18 @@ network.mojom.UDPSocketListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -589,9 +614,13 @@ network.mojom.UDPSocketListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceived');
           const result = this.impl.onReceived(params.result, params.src_addr, params.data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

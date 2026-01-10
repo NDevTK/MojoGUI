@@ -237,13 +237,18 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -252,6 +257,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceIds');
           const result = this.impl.getDeviceIds(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -263,6 +269,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
         case 1: {
           const params = chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllDeviceIds');
           const result = this.impl.getAllDeviceIds();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -274,9 +281,13 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
         case 2: {
           const params = chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.iio_device_id, params.device_request);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -501,13 +512,18 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -516,11 +532,13 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTimeout');
           const result = this.impl.setTimeout(params.timeout);
           break;
         }
         case 1: {
           const params = chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAttributes');
           const result = this.impl.getAttributes(params.attr_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -532,6 +550,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 2: {
           const params = chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFrequency');
           const result = this.impl.setFrequency(params.frequency);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -543,16 +562,19 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 3: {
           const params = chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startReadingSamples');
           const result = this.impl.startReadingSamples(params.observer);
           break;
         }
         case 4: {
           const params = chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopReadingSamples');
           const result = this.impl.stopReadingSamples();
           break;
         }
         case 5: {
           const params = chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllChannelIds');
           const result = this.impl.getAllChannelIds();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -564,6 +586,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 7: {
           const params = chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getChannelsEnabled');
           const result = this.impl.getChannelsEnabled(params.iio_chn_indices);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -575,6 +598,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
         case 8: {
           const params = chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getChannelsAttributes');
           const result = this.impl.getChannelsAttributes(params.iio_chn_indices, params.attr_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -584,6 +608,9 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -683,13 +710,18 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -698,14 +730,19 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSampleUpdated');
           const result = this.impl.onSampleUpdated(params.sample);
           break;
         }
         case 1: {
           const params = chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onErrorOccurred');
           const result = this.impl.onErrorOccurred(params.type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -790,13 +827,18 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -805,9 +847,13 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewDeviceAdded');
           const result = this.impl.onNewDeviceAdded(params.iio_device_id, params.types);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

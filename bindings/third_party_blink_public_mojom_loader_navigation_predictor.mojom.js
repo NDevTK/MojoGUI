@@ -379,13 +379,18 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -394,56 +399,67 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementClick');
           const result = this.impl.reportAnchorElementClick(params.clicked);
           break;
         }
         case 1: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportNewAnchorElements');
           const result = this.impl.reportNewAnchorElements(params.metrics, params.removed_elements);
           break;
         }
         case 2: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsEnteredViewport');
           const result = this.impl.reportAnchorElementsEnteredViewport(params.elements);
           break;
         }
         case 3: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsLeftViewport');
           const result = this.impl.reportAnchorElementsLeftViewport(params.elements);
           break;
         }
         case 4: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsPositionUpdate');
           const result = this.impl.reportAnchorElementsPositionUpdate(params.elements);
           break;
         }
         case 5: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOver');
           const result = this.impl.reportAnchorElementPointerOver(params.pointer_over_event);
           break;
         }
         case 6: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOut');
           const result = this.impl.reportAnchorElementPointerOut(params.hover_event);
           break;
         }
         case 7: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDown');
           const result = this.impl.reportAnchorElementPointerDown(params.pointer_down_event);
           break;
         }
         case 8: {
           const params = blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDataOnHoverTimerFired');
           const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.pointer_data);
           break;
         }
         case 9: {
           const params = blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processPointerEventUsingMLModel');
           const result = this.impl.processPointerEventUsingMLModel(params.pointer_event);
           break;
         }
         case 10: {
           const params = blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldSkipUpdateDelays');
           const result = this.impl.shouldSkipUpdateDelays();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -453,6 +469,9 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

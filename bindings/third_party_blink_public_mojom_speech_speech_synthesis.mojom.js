@@ -142,13 +142,18 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -157,9 +162,13 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSetVoiceList');
           const result = this.impl.onSetVoiceList(params.voice_list);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -337,13 +346,18 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -352,39 +366,49 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartedSpeaking');
           const result = this.impl.onStartedSpeaking();
           break;
         }
         case 1: {
           const params = blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFinishedSpeaking');
           const result = this.impl.onFinishedSpeaking(params.error_code);
           break;
         }
         case 2: {
           const params = blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPausedSpeaking');
           const result = this.impl.onPausedSpeaking();
           break;
         }
         case 3: {
           const params = blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResumedSpeaking');
           const result = this.impl.onResumedSpeaking();
           break;
         }
         case 4: {
           const params = blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEncounteredWordBoundary');
           const result = this.impl.onEncounteredWordBoundary(params.char_index, params.char_length);
           break;
         }
         case 5: {
           const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEncounteredSentenceBoundary');
           const result = this.impl.onEncounteredSentenceBoundary(params.char_index, params.char_length);
           break;
         }
         case 6: {
           const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEncounteredSpeakingError');
           const result = this.impl.onEncounteredSpeakingError();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -530,13 +554,18 @@ blink.mojom.SpeechSynthesisReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -545,29 +574,37 @@ blink.mojom.SpeechSynthesisReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVoiceListObserver');
           const result = this.impl.addVoiceListObserver(params.observer);
           break;
         }
         case 1: {
           const params = blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance, params.client);
           break;
         }
         case 2: {
           const params = blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 3: {
           const params = blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const params = blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

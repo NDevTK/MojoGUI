@@ -100,13 +100,18 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -115,9 +120,13 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -229,13 +238,18 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -244,6 +258,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getChildFolders');
           const result = this.impl.getChildFolders(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -255,6 +270,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSyncingPaths');
           const result = this.impl.getSyncingPaths();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -264,6 +280,9 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

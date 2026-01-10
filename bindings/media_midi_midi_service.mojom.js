@@ -226,13 +226,18 @@ midi.mojom.MidiSessionClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -241,39 +246,49 @@ midi.mojom.MidiSessionClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addInputPort');
           const result = this.impl.addInputPort(params.info);
           break;
         }
         case 1: {
           const params = midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addOutputPort');
           const result = this.impl.addOutputPort(params.info);
           break;
         }
         case 2: {
           const params = midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInputPortState');
           const result = this.impl.setInputPortState(params.port, params.state);
           break;
         }
         case 3: {
           const params = midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputPortState');
           const result = this.impl.setOutputPortState(params.port, params.state);
           break;
         }
         case 4: {
           const params = midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sessionStarted');
           const result = this.impl.sessionStarted(params.result);
           break;
         }
         case 5: {
           const params = midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acknowledgeSentData');
           const result = this.impl.acknowledgeSentData(params.bytes);
           break;
         }
         case 6: {
           const params = midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.port, params.data, params.timestamp);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -358,13 +373,18 @@ midi.mojom.MidiSessionProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -373,9 +393,13 @@ midi.mojom.MidiSessionProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.receiver, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -461,13 +485,18 @@ midi.mojom.MidiSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -476,9 +505,13 @@ midi.mojom.MidiSessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = midi.mojom.MidiSession_SendData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendData');
           const result = this.impl.sendData(params.port, params.data, params.timestamp);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

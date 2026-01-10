@@ -177,13 +177,18 @@ network.mojom.ClientCertificateResponderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -192,19 +197,25 @@ network.mojom.ClientCertificateResponderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.continueWithCertificate');
           const result = this.impl.continueWithCertificate(params.x509_certificate, params.provider_name, params.algorithm_preferences, params.ssl_private_key);
           break;
         }
         case 1: {
           const params = network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.continueWithoutCertificate');
           const result = this.impl.continueWithoutCertificate();
           break;
         }
         case 2: {
           const params = network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelRequest');
           const result = this.impl.cancelRequest();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -296,13 +307,18 @@ network.mojom.SSLPrivateKeyReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -311,6 +327,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.algorithm, params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -320,6 +337,9 @@ network.mojom.SSLPrivateKeyReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -403,13 +423,18 @@ network.mojom.AuthChallengeResponderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -418,9 +443,13 @@ network.mojom.AuthChallengeResponderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAuthCredentials');
           const result = this.impl.onAuthCredentials(params.credentials);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -732,13 +761,18 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -747,6 +781,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSSLCertificateError');
           const result = this.impl.onSSLCertificateError(params.url, params.net_error, params.ssl_info, params.fatal);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -758,16 +793,19 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 1: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCertificateRequested');
           const result = this.impl.onCertificateRequested(params.window_id, params.cert_info, params.cert_responder);
           break;
         }
         case 2: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
           const result = this.impl.onAuthRequired(params.window_id, params.request_id, params.url, params.first_auth_attempt, params.auth_info, params.head_headers, params.auth_challenge_responder);
           break;
         }
         case 3: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLocalNetworkAccessPermissionRequired');
           const result = this.impl.onLocalNetworkAccessPermissionRequired(params.transport_type, params.ip_address_space);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -779,6 +817,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 4: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClearSiteData');
           const result = this.impl.onClearSiteData(params.url, params.header_value, params.load_flags, params.cookie_partition_key, params.partitioned_state_allowed_only);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -790,6 +829,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 5: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLoadingStateUpdate');
           const result = this.impl.onLoadingStateUpdate(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -801,11 +841,13 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 6: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDataUseUpdate');
           const result = this.impl.onDataUseUpdate(params.network_traffic_annotation_id_hash, params.recv_bytes, params.sent_bytes);
           break;
         }
         case 7: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSharedStorageHeaderReceived');
           const result = this.impl.onSharedStorageHeaderReceived(params.request_origin, params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -817,24 +859,31 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
         case 8: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdAuctionEventRecordHeaderReceived');
           const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.ad_auction_event_record, params.top_frame_origin);
           break;
         }
         case 9: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.listener);
           break;
         }
         case 10: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWebSocketConnectedToPrivateNetwork');
           const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.request_url, params.ip_address_space);
           break;
         }
         case 11: {
           const params = network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUrlLoaderConnectedToPrivateNetwork');
           const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.request_url, params.response_address_space, params.client_address_space, params.target_address_space);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

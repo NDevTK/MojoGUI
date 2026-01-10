@@ -109,13 +109,18 @@ network.mojom.ProxyResolvingSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -124,6 +129,7 @@ network.mojom.ProxyResolvingSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -133,6 +139,9 @@ network.mojom.ProxyResolvingSocketReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -231,13 +240,18 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -246,6 +260,7 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocket');
           const result = this.impl.createProxyResolvingSocket(params.url, params.network_anonymization_key, params.options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -255,6 +270,9 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -406,13 +406,18 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -421,6 +426,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
           const result = this.impl.requestChromeMemoryDump(params.args);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -432,6 +438,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
         }
         case 1: {
           const params = memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
           const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -441,6 +448,9 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -531,13 +541,18 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -546,6 +561,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
           const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -555,6 +571,9 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -644,13 +663,18 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -659,6 +683,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
           const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -668,6 +693,9 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -833,13 +861,18 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -848,6 +881,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
           const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -859,6 +893,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 1: {
           const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
           const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -870,6 +905,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 2: {
           const params = memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
           const result = this.impl.requestPrivateMemoryFootprint(params.pid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -881,6 +917,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 3: {
           const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
           const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -890,6 +927,9 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -974,13 +1014,18 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -989,9 +1034,13 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
           const result = this.impl.registerCoordinatorClient(params.receiver, params.client_process);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

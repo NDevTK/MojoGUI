@@ -224,13 +224,18 @@ chromecast.mojom.DisplaySettingsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -239,49 +244,61 @@ chromecast.mojom.DisplaySettingsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setColorTemperature');
           const result = this.impl.setColorTemperature(params.kelvin);
           break;
         }
         case 1: {
           const params = chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setColorTemperatureSmooth');
           const result = this.impl.setColorTemperatureSmooth(params.kelvin, params.duration);
           break;
         }
         case 2: {
           const params = chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetColorTemperature');
           const result = this.impl.resetColorTemperature();
           break;
         }
         case 3: {
           const params = chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBrightness');
           const result = this.impl.setBrightness(params.brightness);
           break;
         }
         case 4: {
           const params = chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBrightnessSmooth');
           const result = this.impl.setBrightnessSmooth(params.brightness, params.duration);
           break;
         }
         case 5: {
           const params = chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetBrightness');
           const result = this.impl.resetBrightness();
           break;
         }
         case 6: {
           const params = chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScreenOn');
           const result = this.impl.setScreenOn(params.display_on);
           break;
         }
         case 7: {
           const params = chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAllowScreenPowerOff');
           const result = this.impl.setAllowScreenPowerOff(params.allow_power_off);
           break;
         }
         case 8: {
           const params = chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDisplaySettingsObserver');
           const result = this.impl.addDisplaySettingsObserver(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -365,13 +382,18 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -380,9 +402,13 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

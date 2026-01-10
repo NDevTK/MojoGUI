@@ -402,13 +402,18 @@ payments.mojom.PaymentManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -417,11 +422,13 @@ payments.mojom.PaymentManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentManager_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.context_url, params.service_worker_scope);
           break;
         }
         case 1: {
           const params = payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deletePaymentInstrument');
           const result = this.impl.deletePaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -433,6 +440,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 2: {
           const params = payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPaymentInstrument');
           const result = this.impl.getPaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -444,6 +452,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 3: {
           const params = payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keysOfPaymentInstruments');
           const result = this.impl.keysOfPaymentInstruments();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -455,6 +464,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 4: {
           const params = payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasPaymentInstrument');
           const result = this.impl.hasPaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -466,6 +476,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 5: {
           const params = payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPaymentInstrument');
           const result = this.impl.setPaymentInstrument(params.instrument_key, params.instrument);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -477,6 +488,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 6: {
           const params = payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearPaymentInstruments');
           const result = this.impl.clearPaymentInstruments();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -488,11 +500,13 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 7: {
           const params = payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserHint');
           const result = this.impl.setUserHint(params.user_hint);
           break;
         }
         case 8: {
           const params = payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableDelegations');
           const result = this.impl.enableDelegations(params.delegations);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -502,6 +516,9 @@ payments.mojom.PaymentManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -617,13 +634,18 @@ payments.mojom.PaymentHandlerResponseCallbackReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -632,19 +654,25 @@ payments.mojom.PaymentHandlerResponseCallbackReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseForAbortPayment');
           const result = this.impl.onResponseForAbortPayment(params.payment_aborted);
           break;
         }
         case 1: {
           const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseForCanMakePayment');
           const result = this.impl.onResponseForCanMakePayment(params.response);
           break;
         }
         case 2: {
           const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseForPaymentRequest');
           const result = this.impl.onResponseForPaymentRequest(params.response);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

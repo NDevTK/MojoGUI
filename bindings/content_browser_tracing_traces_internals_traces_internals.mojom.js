@@ -205,13 +205,18 @@ traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -220,9 +225,13 @@ traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -717,13 +726,18 @@ traces_internals.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -732,6 +746,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startTraceSession');
           const result = this.impl.startTraceSession(params.config_pb, params.enable_privacy_filters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -743,6 +758,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cloneTraceSession');
           const result = this.impl.cloneTraceSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -754,6 +770,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopTraceSession');
           const result = this.impl.stopTraceSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -765,6 +782,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTrackEventCategories');
           const result = this.impl.getTrackEventCategories();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -776,6 +794,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBufferUsage');
           const result = this.impl.getBufferUsage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -787,6 +806,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllTraceReports');
           const result = this.impl.getAllTraceReports();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -798,6 +818,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const params = traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSingleTrace');
           const result = this.impl.deleteSingleTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -809,6 +830,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const params = traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllTraces');
           const result = this.impl.deleteAllTraces();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -820,6 +842,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const params = traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.userUploadSingleTrace');
           const result = this.impl.userUploadSingleTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -831,6 +854,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const params = traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.downloadTrace');
           const result = this.impl.downloadTrace(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -842,6 +866,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const params = traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllScenarios');
           const result = this.impl.getAllScenarios();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -853,6 +878,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const params = traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setEnabledScenarios');
           const result = this.impl.setEnabledScenarios(params.new_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -864,6 +890,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const params = traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromString');
           const result = this.impl.setScenariosConfigFromString(params.config_string);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -875,6 +902,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const params = traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromBuffer');
           const result = this.impl.setScenariosConfigFromBuffer(params.config_pb);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -886,6 +914,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const params = traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPrivacyFilterEnabled');
           const result = this.impl.getPrivacyFilterEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -897,11 +926,13 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const params = traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPrivacyFilterEnabled');
           const result = this.impl.setPrivacyFilterEnabled(params.enable);
           break;
         }
         case 16: {
           const params = traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSystemTracingState');
           const result = this.impl.getSystemTracingState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -913,6 +944,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 17: {
           const params = traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSecurityShieldIconUrl');
           const result = this.impl.getSecurityShieldIconUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -924,6 +956,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 18: {
           const params = traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableSystemTracing');
           const result = this.impl.enableSystemTracing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -935,6 +968,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 19: {
           const params = traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableSystemTracing');
           const result = this.impl.disableSystemTracing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -944,6 +978,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1028,13 +1065,18 @@ traces_internals.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1043,9 +1085,13 @@ traces_internals.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTraceComplete');
           const result = this.impl.onTraceComplete(params.trace, params.uuid);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

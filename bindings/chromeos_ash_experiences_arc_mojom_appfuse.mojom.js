@@ -148,13 +148,18 @@ arc.mojom.AppfuseHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -163,6 +168,7 @@ arc.mojom.AppfuseHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AppfuseHost_Mount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mount');
           const result = this.impl.mount(params.uid, params.mount_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -174,6 +180,7 @@ arc.mojom.AppfuseHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unmount');
           const result = this.impl.unmount(params.uid, params.mount_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -185,6 +192,7 @@ arc.mojom.AppfuseHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.uid, params.mount_id, params.file_id, params.flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -194,6 +202,9 @@ arc.mojom.AppfuseHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -282,13 +293,18 @@ arc.mojom.AppfuseInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -297,6 +313,7 @@ arc.mojom.AppfuseInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AppfuseInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -306,6 +323,9 @@ arc.mojom.AppfuseInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

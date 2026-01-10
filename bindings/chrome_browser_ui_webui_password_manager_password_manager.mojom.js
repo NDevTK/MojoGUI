@@ -131,13 +131,18 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -146,9 +151,13 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -463,13 +472,18 @@ password_manager.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -478,11 +492,13 @@ password_manager.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.extendAuthValidity');
           const result = this.impl.extendAuthValidity();
           break;
         }
         case 1: {
           const params = password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllPasswordManagerData');
           const result = this.impl.deleteAllPasswordManagerData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -494,6 +510,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copyPlaintextBackupPassword');
           const result = this.impl.copyPlaintextBackupPassword(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,11 +522,13 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeBackupPassword');
           const result = this.impl.removeBackupPassword(params.id);
           break;
         }
         case 4: {
           const params = password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getActorLoginPermissions');
           const result = this.impl.getActorLoginPermissions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -521,11 +540,13 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.revokeActorLoginPermission');
           const result = this.impl.revokeActorLoginPermission(params.site);
           break;
         }
         case 6: {
           const params = password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.changePasswordManagerPin');
           const result = this.impl.changePasswordManagerPin();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -537,11 +558,13 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const params = password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showAddShortcutDialog');
           const result = this.impl.showAddShortcutDialog();
           break;
         }
         case 8: {
           const params = password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isAccountStorageEnabled');
           const result = this.impl.isAccountStorageEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -553,11 +576,13 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const params = password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAccountStorageEnabled');
           const result = this.impl.setAccountStorageEnabled(params.enabled);
           break;
         }
         case 10: {
           const params = password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldShowAccountStorageSettingToggle');
           const result = this.impl.shouldShowAccountStorageSettingToggle();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -569,6 +594,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const params = password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isPasswordManagerPinAvailable');
           const result = this.impl.isPasswordManagerPinAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -580,6 +606,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const params = password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.switchBiometricAuthBeforeFillingState');
           const result = this.impl.switchBiometricAuthBeforeFillingState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -589,6 +616,9 @@ password_manager.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -656,19 +686,27 @@ password_manager.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

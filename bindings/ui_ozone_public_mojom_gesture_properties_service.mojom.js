@@ -209,13 +209,18 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -224,6 +229,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listDevices');
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -235,6 +241,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 1: {
           const params = ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listProperties');
           const result = this.impl.listProperties(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -246,6 +253,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 2: {
           const params = ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProperty');
           const result = this.impl.getProperty(params.device_id, params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -257,6 +265,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 3: {
           const params = ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProperty');
           const result = this.impl.setProperty(params.device_id, params.name, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -266,6 +275,9 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

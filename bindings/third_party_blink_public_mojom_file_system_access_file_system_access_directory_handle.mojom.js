@@ -137,13 +137,18 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -152,9 +157,13 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didReadDirectory');
           const result = this.impl.didReadDirectory(params.result, params.entries, params.has_more_entries);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -504,13 +513,18 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -519,6 +533,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPermissionStatus');
           const result = this.impl.getPermissionStatus(params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -530,6 +545,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 1: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -541,6 +557,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 2: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFile');
           const result = this.impl.getFile(params.basename, params.create);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -552,6 +569,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 3: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDirectory');
           const result = this.impl.getDirectory(params.basename, params.create);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -563,11 +581,13 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 4: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEntries');
           const result = this.impl.getEntries(params.listener);
           break;
         }
         case 5: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rename');
           const result = this.impl.rename(params.new_entry_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -579,6 +599,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 6: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.move');
           const result = this.impl.move(params.destination_directory, params.new_entry_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -590,6 +611,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 7: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.recurse);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -601,6 +623,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 8: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeEntry');
           const result = this.impl.removeEntry(params.basename, params.recurse);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -612,6 +635,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 9: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resolve');
           const result = this.impl.resolve(params.possible_child);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -623,11 +647,13 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 10: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.transfer');
           const result = this.impl.transfer(params.token);
           break;
         }
         case 11: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUniqueId');
           const result = this.impl.getUniqueId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -639,6 +665,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
         }
         case 12: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCloudIdentifiers');
           const result = this.impl.getCloudIdentifiers();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -648,6 +675,9 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

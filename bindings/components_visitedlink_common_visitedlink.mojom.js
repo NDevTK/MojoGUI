@@ -137,13 +137,18 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -152,24 +157,31 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateVisitedLinks');
           const result = this.impl.updateVisitedLinks(params.table_region);
           break;
         }
         case 1: {
           const params = visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVisitedLinks');
           const result = this.impl.addVisitedLinks(params.link_hashes);
           break;
         }
         case 2: {
           const params = visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetVisitedLinks');
           const result = this.impl.resetVisitedLinks(params.invalidate_cached_hashes);
           break;
         }
         case 3: {
           const params = visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateOriginSalts');
           const result = this.impl.updateOriginSalts(params.origin_salts);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -198,13 +198,18 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -213,6 +218,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWifiDirectGroup');
           const result = this.impl.createWifiDirectGroup(params.credentials);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -224,6 +230,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
         case 1: {
           const params = ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectToWifiDirectGroup');
           const result = this.impl.connectToWifiDirectGroup(params.credentials, params.frequency);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -235,6 +242,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
         case 2: {
           const params = ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWifiP2PCapabilities');
           const result = this.impl.getWifiP2PCapabilities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -244,6 +252,9 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -354,13 +365,18 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -369,6 +385,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -380,6 +397,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
         }
         case 1: {
           const params = ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.associateSocket');
           const result = this.impl.associateSocket(params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -389,6 +407,9 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

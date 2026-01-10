@@ -620,13 +620,18 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -635,6 +640,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getState');
           const result = this.impl.getState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -646,14 +652,19 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
         }
         case 1: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 2: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.replyToInquiry');
           const result = this.impl.replyToInquiry(params.reply);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -737,13 +748,18 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -752,9 +768,13 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
           const result = this.impl.onRoutineStateChange(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -862,13 +882,18 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -877,11 +902,13 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRoutine');
           const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
           break;
         }
         case 1: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
           const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -891,6 +918,9 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -139,13 +139,18 @@ user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -154,6 +159,7 @@ user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parse');
           const result = this.impl.parse(params.raw_html);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -163,6 +169,9 @@ user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

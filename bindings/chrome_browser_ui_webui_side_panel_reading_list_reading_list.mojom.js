@@ -145,13 +145,18 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -160,9 +165,13 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -416,13 +425,18 @@ reading_list.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -431,6 +445,7 @@ reading_list.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getReadLaterEntries');
           const result = this.impl.getReadLaterEntries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -442,51 +457,61 @@ reading_list.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.url, params.mark_as_read, params.click_modifiers);
           break;
         }
         case 2: {
           const params = reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateReadStatus');
           const result = this.impl.updateReadStatus(params.url, params.read);
           break;
         }
         case 3: {
           const params = reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.markCurrentTabAsRead');
           const result = this.impl.markCurrentTabAsRead();
           break;
         }
         case 4: {
           const params = reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addCurrentTab');
           const result = this.impl.addCurrentTab();
           break;
         }
         case 5: {
           const params = reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeEntry');
           const result = this.impl.removeEntry(params.url);
           break;
         }
         case 6: {
           const params = reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showContextMenuForURL');
           const result = this.impl.showContextMenuForURL(params.url, params.x, params.y);
           break;
         }
         case 7: {
           const params = reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateCurrentPageActionButtonState');
           const result = this.impl.updateCurrentPageActionButtonState();
           break;
         }
         case 8: {
           const params = reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 9: {
           const params = reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 10: {
           const params = reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWindowData');
           const result = this.impl.getWindowData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -496,6 +521,9 @@ reading_list.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -595,13 +623,18 @@ reading_list.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -610,14 +643,19 @@ reading_list.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.itemsChanged');
           const result = this.impl.itemsChanged(params.entries);
           break;
         }
         case 1: {
           const params = reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.currentPageActionButtonStateChanged');
           const result = this.impl.currentPageActionButtonStateChanged(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

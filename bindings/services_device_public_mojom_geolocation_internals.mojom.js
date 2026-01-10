@@ -216,13 +216,18 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -231,19 +236,25 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDiagnosticsChanged');
           const result = this.impl.onDiagnosticsChanged(params.diagnostics);
           break;
         }
         case 1: {
           const params = device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkLocationRequested');
           const result = this.impl.onNetworkLocationRequested(params.access_point_data);
           break;
         }
         case 2: {
           const params = device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkLocationReceived');
           const result = this.impl.onNetworkLocationReceived(params.response);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -333,13 +344,18 @@ device.mojom.GeolocationInternalsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -348,6 +364,7 @@ device.mojom.GeolocationInternalsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addInternalsObserver');
           const result = this.impl.addInternalsObserver(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -357,6 +374,9 @@ device.mojom.GeolocationInternalsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

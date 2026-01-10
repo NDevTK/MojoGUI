@@ -212,13 +212,18 @@ media.mojom.CdmDocumentServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -227,6 +232,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.challengePlatform');
           const result = this.impl.challengePlatform(params.service_id, params.challenge);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -238,6 +244,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 1: {
           const params = media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStorageId');
           const result = this.impl.getStorageId(params.version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -249,6 +256,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 2: {
           const params = media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isVerifiedAccessEnabled');
           const result = this.impl.isVerifiedAccessEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -260,6 +268,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 3: {
           const params = media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMediaFoundationCdmData');
           const result = this.impl.getMediaFoundationCdmData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -271,14 +280,19 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 4: {
           const params = media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCdmClientToken');
           const result = this.impl.setCdmClientToken(params.client_token);
           break;
         }
         case 5: {
           const params = media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCdmEvent');
           const result = this.impl.onCdmEvent(params.event, params.hresult);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

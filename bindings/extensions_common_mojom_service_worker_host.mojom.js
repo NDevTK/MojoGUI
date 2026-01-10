@@ -243,13 +243,18 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -258,21 +263,25 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didInitializeServiceWorkerContext');
           const result = this.impl.didInitializeServiceWorkerContext(params.extension_id, params.service_worker_version_id, params.worker_thread_id, params.service_worker_token, params.event_dispatcher);
           break;
         }
         case 1: {
           const params = extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStartServiceWorkerContext');
           const result = this.impl.didStartServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 2: {
           const params = extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStopServiceWorkerContext');
           const result = this.impl.didStopServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 3: {
           const params = extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestWorker');
           const result = this.impl.requestWorker(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -284,24 +293,31 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         }
         case 4: {
           const params = extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.workerResponseAck');
           const result = this.impl.workerResponseAck(params.request_uuid);
           break;
         }
         case 5: {
           const params = extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
           const result = this.impl.openChannelToExtension(params.info, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 6: {
           const params = extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');
           const result = this.impl.openChannelToNativeApp(params.native_app_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 7: {
           const params = extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openChannelToTab');
           const result = this.impl.openChannelToTab(params.tab_id, params.frame_id, params.document_id, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -101,13 +101,18 @@ ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -116,9 +121,13 @@ ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -270,13 +279,18 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -285,6 +299,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUserEmailAddress');
           const result = this.impl.getUserEmailAddress();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,6 +311,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectToOneDrive');
           const result = this.impl.connectToOneDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -307,6 +323,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnectFromOneDrive');
           const result = this.impl.disconnectFromOneDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -318,6 +335,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openOneDriveFolder');
           const result = this.impl.openOneDriveFolder();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -327,6 +345,9 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -425,13 +446,18 @@ ash.settings.one_drive.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -440,14 +466,19 @@ ash.settings.one_drive.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onODFSMountOrUnmount');
           const result = this.impl.onODFSMountOrUnmount();
           break;
         }
         case 1: {
           const params = ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAllowUserToRemoveODFSChanged');
           const result = this.impl.onAllowUserToRemoveODFSChanged(params.is_allowed);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

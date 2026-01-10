@@ -237,13 +237,18 @@ blink.mojom.FindInPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -252,26 +257,31 @@ blink.mojom.FindInPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FindInPage_Find_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.find');
           const result = this.impl.find(params.request_id, params.search_text, params.options);
           break;
         }
         case 1: {
           const params = blink.mojom.FindInPage_StopFinding_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopFinding');
           const result = this.impl.stopFinding(params.action);
           break;
         }
         case 2: {
           const params = blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearActiveFindMatch');
           const result = this.impl.clearActiveFindMatch();
           break;
         }
         case 3: {
           const params = blink.mojom.FindInPage_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 4: {
           const params = blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNearestFindResult');
           const result = this.impl.getNearestFindResult(params.point);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -283,11 +293,13 @@ blink.mojom.FindInPageReceiver = class {
         }
         case 5: {
           const params = blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateNearestFindResult');
           const result = this.impl.activateNearestFindResult(params.request_id, params.point);
           break;
         }
         case 6: {
           const params = blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.findMatchRects');
           const result = this.impl.findMatchRects(params.current_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -297,6 +309,9 @@ blink.mojom.FindInPageReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -401,13 +416,18 @@ blink.mojom.FindInPageClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -416,14 +436,19 @@ blink.mojom.FindInPageClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNumberOfMatches');
           const result = this.impl.setNumberOfMatches(params.request_id, params.number_of_matches, params.update_type);
           break;
         }
         case 1: {
           const params = blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setActiveMatch');
           const result = this.impl.setActiveMatch(params.request_id, params.active_match_rect, params.active_match_ordinal, params.update_type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

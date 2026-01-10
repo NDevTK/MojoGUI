@@ -155,13 +155,18 @@ extensions.mojom.RendererHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -170,21 +175,25 @@ extensions.mojom.RendererHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addAPIActionToActivityLog');
           const result = this.impl.addAPIActionToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 1: {
           const params = extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addEventToActivityLog');
           const result = this.impl.addEventToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 2: {
           const params = extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDOMActionToActivityLog');
           const result = this.impl.addDOMActionToActivityLog(params.extension_id, params.call_name, params.args, params.url, params.url_title, params.call_type);
           break;
         }
         case 3: {
           const params = extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMessageBundle');
           const result = this.impl.getMessageBundle(params.extension_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -194,6 +203,9 @@ extensions.mojom.RendererHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

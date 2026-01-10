@@ -146,13 +146,18 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -161,11 +166,13 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShow');
           const result = this.impl.onShow();
           break;
         }
         case 1: {
           const params = blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClick');
           const result = this.impl.onClick();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -177,6 +184,7 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
         }
         case 2: {
           const params = blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClose');
           const result = this.impl.onClose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -186,6 +194,9 @@ blink.mojom.NonPersistentNotificationListenerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -374,13 +385,18 @@ blink.mojom.NotificationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -389,6 +405,7 @@ blink.mojom.NotificationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPermissionStatus');
           const result = this.impl.getPermissionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -400,16 +417,19 @@ blink.mojom.NotificationServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.displayNonPersistentNotification');
           const result = this.impl.displayNonPersistentNotification(params.token, params.notification_data, params.notification_resources, params.event_listener);
           break;
         }
         case 2: {
           const params = blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeNonPersistentNotification');
           const result = this.impl.closeNonPersistentNotification(params.token);
           break;
         }
         case 3: {
           const params = blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.displayPersistentNotification');
           const result = this.impl.displayPersistentNotification(params.service_worker_registration_id, params.notification_data, params.notification_resources);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,11 +441,13 @@ blink.mojom.NotificationServiceReceiver = class {
         }
         case 4: {
           const params = blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closePersistentNotification');
           const result = this.impl.closePersistentNotification(params.notification_id);
           break;
         }
         case 5: {
           const params = blink.mojom.NotificationService_GetNotifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNotifications');
           const result = this.impl.getNotifications(params.service_worker_registration_id, params.filter_tag, params.include_triggered);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -435,6 +457,9 @@ blink.mojom.NotificationServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

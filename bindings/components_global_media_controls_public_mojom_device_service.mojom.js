@@ -136,13 +136,18 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -151,9 +156,13 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectDevice');
           const result = this.impl.selectDevice(params.device_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -252,13 +261,18 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -267,14 +281,19 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDevicesUpdated');
           const result = this.impl.onDevicesUpdated(params.devices);
           break;
         }
         case 1: {
           const params = global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPermissionRejected');
           const result = this.impl.onPermissionRejected();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -393,13 +412,18 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -408,19 +432,25 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForSession');
           const result = this.impl.getDeviceListHostForSession(params.session_id, params.host_receiver, params.client_remote);
           break;
         }
         case 1: {
           const params = global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForPresentation');
           const result = this.impl.getDeviceListHostForPresentation(params.host_receiver, params.client_remote);
           break;
         }
         case 2: {
           const params = global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDevicePickerProvider');
           const result = this.impl.setDevicePickerProvider(params.provider_remote);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -628,13 +658,18 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -643,49 +678,61 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createItem');
           const result = this.impl.createItem(params.source_id);
           break;
         }
         case 1: {
           const params = global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteItem');
           const result = this.impl.deleteItem();
           break;
         }
         case 2: {
           const params = global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showItem');
           const result = this.impl.showItem();
           break;
         }
         case 3: {
           const params = global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hideItem');
           const result = this.impl.hideItem();
           break;
         }
         case 4: {
           const params = global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMetadataChanged');
           const result = this.impl.onMetadataChanged(params.metadata);
           break;
         }
         case 5: {
           const params = global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onArtworkImageChanged');
           const result = this.impl.onArtworkImageChanged(params.artwork_image);
           break;
         }
         case 6: {
           const params = global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFaviconImageChanged');
           const result = this.impl.onFaviconImageChanged(params.favicon_image);
           break;
         }
         case 7: {
           const params = global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 8: {
           const params = global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hideMediaUI');
           const result = this.impl.hideMediaUI();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -813,13 +860,18 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -828,24 +880,31 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMediaUIOpened');
           const result = this.impl.onMediaUIOpened();
           break;
         }
         case 1: {
           const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMediaUIClosed');
           const result = this.impl.onMediaUIClosed();
           break;
         }
         case 2: {
           const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMediaUIUpdated');
           const result = this.impl.onMediaUIUpdated();
           break;
         }
         case 3: {
           const params = global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPickerDismissed');
           const result = this.impl.onPickerDismissed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -246,13 +246,18 @@ device.mojom.UsbDeviceManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -261,6 +266,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enumerateDevicesAndSetClient');
           const result = this.impl.enumerateDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -272,6 +278,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 1: {
           const params = device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -283,16 +290,19 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 2: {
           const params = device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.guid, params.blocked_interface_classes, params.device_receiver, params.device_client);
           break;
         }
         case 3: {
           const params = device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSecurityKeyDevice');
           const result = this.impl.getSecurityKeyDevice(params.guid, params.device_receiver, params.device_client);
           break;
         }
         case 4: {
           const params = device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshDeviceInfo');
           const result = this.impl.refreshDeviceInfo(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -304,6 +314,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 5: {
           const params = device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.checkAccess');
           const result = this.impl.checkAccess(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -315,6 +326,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 6: {
           const params = device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFileDescriptor');
           const result = this.impl.openFileDescriptor(params.guid, params.allowed_interfaces_mask, params.lifeline_fd);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -326,9 +338,13 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 7: {
           const params = device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

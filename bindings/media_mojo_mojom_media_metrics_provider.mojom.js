@@ -492,13 +492,18 @@ media.mojom.MediaMetricsProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -507,124 +512,151 @@ media.mojom.MediaMetricsProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.is_mse, params.url_scheme, params.stream_type);
           break;
         }
         case 1: {
           const params = media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted(params.status);
           break;
         }
         case 2: {
           const params = media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
         case 3: {
           const params = media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.status);
           break;
         }
         case 4: {
           const params = media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasPlayed');
           const result = this.impl.setHasPlayed();
           break;
         }
         case 5: {
           const params = media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHaveEnough');
           const result = this.impl.setHaveEnough();
           break;
         }
         case 6: {
           const params = media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsEME');
           const result = this.impl.setIsEME();
           break;
         }
         case 7: {
           const params = media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTimeToMetadata');
           const result = this.impl.setTimeToMetadata(params.elapsed);
           break;
         }
         case 8: {
           const params = media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTimeToFirstFrame');
           const result = this.impl.setTimeToFirstFrame(params.elapsed);
           break;
         }
         case 9: {
           const params = media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTimeToPlayReady');
           const result = this.impl.setTimeToPlayReady(params.elapsed);
           break;
         }
         case 10: {
           const params = media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRendererType');
           const result = this.impl.setRendererType(params.renderer_type);
           break;
         }
         case 11: {
           const params = media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDemuxerType');
           const result = this.impl.setDemuxerType(params.demuxer_type);
           break;
         }
         case 12: {
           const params = media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeySystem');
           const result = this.impl.setKeySystem(params.key_system);
           break;
         }
         case 13: {
           const params = media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasWaitingForKey');
           const result = this.impl.setHasWaitingForKey();
           break;
         }
         case 14: {
           const params = media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsHardwareSecure');
           const result = this.impl.setIsHardwareSecure();
           break;
         }
         case 15: {
           const params = media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasTrackChange');
           const result = this.impl.setHasTrackChange();
           break;
         }
         case 16: {
           const params = media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setContainerName');
           const result = this.impl.setContainerName(params.container_name);
           break;
         }
         case 17: {
           const params = media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acquireWatchTimeRecorder');
           const result = this.impl.acquireWatchTimeRecorder(params.properties, params.recorder);
           break;
         }
         case 18: {
           const params = media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acquireVideoDecodeStatsRecorder');
           const result = this.impl.acquireVideoDecodeStatsRecorder(params.recorder);
           break;
         }
         case 19: {
           const params = media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acquirePlaybackEventsRecorder');
           const result = this.impl.acquirePlaybackEventsRecorder(params.receiver);
           break;
         }
         case 20: {
           const params = media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasAudio');
           const result = this.impl.setHasAudio(params.codec);
           break;
         }
         case 21: {
           const params = media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHasVideo');
           const result = this.impl.setHasVideo(params.codec);
           break;
         }
         case 22: {
           const params = media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVideoPipelineInfo');
           const result = this.impl.setVideoPipelineInfo(params.info);
           break;
         }
         case 23: {
           const params = media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAudioPipelineInfo');
           const result = this.impl.setAudioPipelineInfo(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

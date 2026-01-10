@@ -133,13 +133,18 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -148,9 +153,13 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.networkListChanged');
           const result = this.impl.networkListChanged(params.networks, params.default_ipv4_local_address, params.default_ipv6_local_address);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -281,13 +290,18 @@ network.mojom.P2PSocketManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -296,11 +310,13 @@ network.mojom.P2PSocketManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startNetworkNotifications');
           const result = this.impl.startNetworkNotifications(params.client);
           break;
         }
         case 1: {
           const params = network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHostAddress');
           const result = this.impl.getHostAddress(params.host_name, params.address_family, params.enable_mdns);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -312,9 +328,13 @@ network.mojom.P2PSocketManagerReceiver = class {
         }
         case 2: {
           const params = network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSocket');
           const result = this.impl.createSocket(params.type, params.local_address, params.port_range, params.remote_address, params.traffic_annotation, params.devtools_token, params.client, params.socket);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -432,13 +452,18 @@ network.mojom.P2PSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -447,19 +472,25 @@ network.mojom.P2PSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.P2PSocket_Send_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data, params.packet_info);
           break;
         }
         case 1: {
           const params = network.mojom.P2PSocket_SendBatch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendBatch');
           const result = this.impl.sendBatch(params.packet_batch);
           break;
         }
         case 2: {
           const params = network.mojom.P2PSocket_SetOption_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOption');
           const result = this.impl.setOption(params.option, params.value);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -592,13 +623,18 @@ network.mojom.P2PSocketClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -607,24 +643,31 @@ network.mojom.P2PSocketClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.socketCreated');
           const result = this.impl.socketCreated(params.local_address, params.remote_address);
           break;
         }
         case 1: {
           const params = network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendComplete');
           const result = this.impl.sendComplete(params.send_metrics);
           break;
         }
         case 2: {
           const params = network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendBatchComplete');
           const result = this.impl.sendBatchComplete(params.send_metrics_batch);
           break;
         }
         case 3: {
           const params = network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.packets);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

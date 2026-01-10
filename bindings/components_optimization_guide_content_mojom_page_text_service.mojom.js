@@ -120,13 +120,18 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -135,14 +140,19 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTextDumpChunk');
           const result = this.impl.onTextDumpChunk(params.chunk);
           break;
         }
         case 1: {
           const params = optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onChunksEnd');
           const result = this.impl.onChunksEnd();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -227,13 +237,18 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -242,9 +257,13 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPageTextDump');
           const result = this.impl.requestPageTextDump(params.request, params.consumer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

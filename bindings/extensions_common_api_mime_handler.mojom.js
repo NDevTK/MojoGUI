@@ -133,13 +133,18 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -148,6 +153,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStreamInfo');
           const result = this.impl.getStreamInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -159,9 +165,13 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         }
         case 1: {
           const params = extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPdfPluginAttributes');
           const result = this.impl.setPdfPluginAttributes(params.pdf_plugin_attributes);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -250,13 +260,18 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -265,6 +280,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setShowBeforeUnloadDialog');
           const result = this.impl.setShowBeforeUnloadDialog(params.show_dialog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -274,6 +290,9 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

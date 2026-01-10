@@ -195,13 +195,18 @@ cros.mojom.CameraModuleCallbacksReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -210,14 +215,19 @@ cros.mojom.CameraModuleCallbacksReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cameraDeviceStatusChange');
           const result = this.impl.cameraDeviceStatusChange(params.camera_id, params.new_status);
           break;
         }
         case 1: {
           const params = cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.torchModeStatusChange');
           const result = this.impl.torchModeStatusChange(params.camera_id, params.new_status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -393,13 +403,18 @@ cros.mojom.VendorTagOpsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -408,6 +423,7 @@ cros.mojom.VendorTagOpsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTagCount');
           const result = this.impl.getTagCount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +435,7 @@ cros.mojom.VendorTagOpsReceiver = class {
         }
         case 1: {
           const params = cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllTags');
           const result = this.impl.getAllTags();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -430,6 +447,7 @@ cros.mojom.VendorTagOpsReceiver = class {
         }
         case 2: {
           const params = cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSectionName');
           const result = this.impl.getSectionName(params.tag);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -441,6 +459,7 @@ cros.mojom.VendorTagOpsReceiver = class {
         }
         case 3: {
           const params = cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTagName');
           const result = this.impl.getTagName(params.tag);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -452,6 +471,7 @@ cros.mojom.VendorTagOpsReceiver = class {
         }
         case 4: {
           const params = cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTagType');
           const result = this.impl.getTagType(params.tag);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -461,6 +481,9 @@ cros.mojom.VendorTagOpsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -704,13 +727,18 @@ cros.mojom.CameraModuleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -719,6 +747,7 @@ cros.mojom.CameraModuleReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDevice');
           const result = this.impl.openDevice(params.camera_id, params.device_ops_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -730,6 +759,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 1: {
           const params = cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNumberOfCameras');
           const result = this.impl.getNumberOfCameras();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -741,6 +771,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 2: {
           const params = cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCameraInfo');
           const result = this.impl.getCameraInfo(params.camera_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -752,6 +783,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 3: {
           const params = cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCallbacks');
           const result = this.impl.setCallbacks(params.callbacks);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -763,6 +795,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 4: {
           const params = cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTorchMode');
           const result = this.impl.setTorchMode(params.camera_id, params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -774,6 +807,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 5: {
           const params = cros.mojom.CameraModule_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -785,6 +819,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 6: {
           const params = cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVendorTagOps');
           const result = this.impl.getVendorTagOps(params.vendor_tag_ops_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -796,6 +831,7 @@ cros.mojom.CameraModuleReceiver = class {
         }
         case 7: {
           const params = cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCallbacksAssociated');
           const result = this.impl.setCallbacksAssociated(params.callbacks);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -805,6 +841,9 @@ cros.mojom.CameraModuleReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -165,13 +165,18 @@ content.mojom.RendererHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -180,6 +185,7 @@ content.mojom.RendererHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
           const result = this.impl.getBrowserHistogram(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -191,21 +197,25 @@ content.mojom.RendererHostReceiver = class {
         }
         case 1: {
           const params = content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
           const result = this.impl.suddenTerminationAllowedChanged(params.allowed);
           break;
         }
         case 2: {
           const params = content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
           const result = this.impl.recordUserMetricsAction(params.action);
           break;
         }
         case 3: {
           const params = content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPrivateMemoryFootprint');
           const result = this.impl.setPrivateMemoryFootprint(params.private_memory_footprint_bytes);
           break;
         }
         case 4: {
           const params = content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasGpuProcess');
           const result = this.impl.hasGpuProcess();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -215,6 +225,9 @@ content.mojom.RendererHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

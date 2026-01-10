@@ -210,13 +210,18 @@ downloads.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -225,9 +230,13 @@ downloads.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -679,13 +688,18 @@ downloads.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -694,121 +708,145 @@ downloads.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDownloads');
           const result = this.impl.getDownloads(params.search_terms);
           break;
         }
         case 1: {
           const params = downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFileRequiringGesture');
           const result = this.impl.openFileRequiringGesture(params.id);
           break;
         }
         case 2: {
           const params = downloads.mojom.PageHandler_Drag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.drag');
           const result = this.impl.drag(params.id);
           break;
         }
         case 3: {
           const params = downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.saveSuspiciousRequiringGesture');
           const result = this.impl.saveSuspiciousRequiringGesture(params.id);
           break;
         }
         case 4: {
           const params = downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordOpenBypassWarningDialog');
           const result = this.impl.recordOpenBypassWarningDialog(params.id);
           break;
         }
         case 5: {
           const params = downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.saveDangerousFromDialogRequiringGesture');
           const result = this.impl.saveDangerousFromDialogRequiringGesture(params.id);
           break;
         }
         case 6: {
           const params = downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordCancelBypassWarningDialog');
           const result = this.impl.recordCancelBypassWarningDialog(params.id);
           break;
         }
         case 7: {
           const params = downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.discardDangerous');
           const result = this.impl.discardDangerous(params.id);
           break;
         }
         case 8: {
           const params = downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.retryDownload');
           const result = this.impl.retryDownload(params.id);
           break;
         }
         case 9: {
           const params = downloads.mojom.PageHandler_Show_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show(params.id);
           break;
         }
         case 10: {
           const params = downloads.mojom.PageHandler_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause(params.id);
           break;
         }
         case 11: {
           const params = downloads.mojom.PageHandler_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.id);
           break;
         }
         case 12: {
           const params = downloads.mojom.PageHandler_Remove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.id);
           break;
         }
         case 13: {
           const params = downloads.mojom.PageHandler_Undo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 14: {
           const params = downloads.mojom.PageHandler_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.id);
           break;
         }
         case 15: {
           const params = downloads.mojom.PageHandler_ClearAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearAll');
           const result = this.impl.clearAll();
           break;
         }
         case 16: {
           const params = downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDownloadsFolderRequiringGesture');
           const result = this.impl.openDownloadsFolderRequiringGesture();
           break;
         }
         case 17: {
           const params = downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openEsbSettings');
           const result = this.impl.openEsbSettings();
           break;
         }
         case 18: {
           const params = downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logEsbPromotionRowViewed');
           const result = this.impl.logEsbPromotionRowViewed();
           break;
         }
         case 19: {
           const params = downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDuringScanningRequiringGesture');
           const result = this.impl.openDuringScanningRequiringGesture(params.id);
           break;
         }
         case 20: {
           const params = downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reviewDangerousRequiringGesture');
           const result = this.impl.reviewDangerousRequiringGesture(params.id);
           break;
         }
         case 21: {
           const params = downloads.mojom.PageHandler_DeepScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deepScan');
           const result = this.impl.deepScan(params.id);
           break;
         }
         case 22: {
           const params = downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bypassDeepScanRequiringGesture');
           const result = this.impl.bypassDeepScanRequiringGesture(params.id);
           break;
         }
         case 23: {
           const params = downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isEligibleForEsbPromo');
           const result = this.impl.isEligibleForEsbPromo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -818,6 +856,9 @@ downloads.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -950,13 +991,18 @@ downloads.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -965,24 +1011,31 @@ downloads.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = downloads.mojom.Page_RemoveItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeItem');
           const result = this.impl.removeItem(params.index);
           break;
         }
         case 1: {
           const params = downloads.mojom.Page_UpdateItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateItem');
           const result = this.impl.updateItem(params.index, params.data);
           break;
         }
         case 2: {
           const params = downloads.mojom.Page_InsertItems_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertItems');
           const result = this.impl.insertItems(params.index, params.items);
           break;
         }
         case 3: {
           const params = downloads.mojom.Page_ClearAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearAll');
           const result = this.impl.clearAll();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

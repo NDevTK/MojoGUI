@@ -387,13 +387,18 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -402,16 +407,19 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWindowFeatures');
           const result = this.impl.setWindowFeatures(params.window_features);
           break;
         }
         case 1: {
           const params = chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestReloadImageForContextNode');
           const result = this.impl.requestReloadImageForContextNode();
           break;
         }
         case 2: {
           const params = chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestBitmapForContextNode');
           const result = this.impl.requestBitmapForContextNode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -423,6 +431,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 3: {
           const params = chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestBitmapForContextNodeWithBoundsHint');
           const result = this.impl.requestBitmapForContextNodeWithBoundsHint();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -434,6 +443,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 4: {
           const params = chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestBoundsHintForAllImages');
           const result = this.impl.requestBoundsHintForAllImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -445,6 +455,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 5: {
           const params = chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestImageForContextNode');
           const result = this.impl.requestImageForContextNode(params.image_min_area_pixels, params.image_max_size_pixels, params.image_format, params.quality);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -456,16 +467,19 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 6: {
           const params = chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.executeWebUIJavaScript');
           const result = this.impl.executeWebUIJavaScript(params.javascript);
           break;
         }
         case 7: {
           const params = chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCCTClientHeader');
           const result = this.impl.setCCTClientHeader(params.header);
           break;
         }
         case 8: {
           const params = chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMediaFeedURL');
           const result = this.impl.getMediaFeedURL();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -477,16 +491,19 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 9: {
           const params = chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadBlockedPlugins');
           const result = this.impl.loadBlockedPlugins(params.identifier);
           break;
         }
         case 10: {
           const params = chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setShouldDeferMediaLoad');
           const result = this.impl.setShouldDeferMediaLoad(params.should_defer);
           break;
         }
         case 11: {
           const params = chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.invokeTool');
           const result = this.impl.invokeTool(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -498,19 +515,25 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 12: {
           const params = chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelTool');
           const result = this.impl.cancelTool(params.task_id);
           break;
         }
         case 13: {
           const params = chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startActorJournal');
           const result = this.impl.startActorJournal(params.client);
           break;
         }
         case 14: {
           const params = chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageStabilityMonitor');
           const result = this.impl.createPageStabilityMonitor(params.monitor, params.task_id, params.supports_paint_stability);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

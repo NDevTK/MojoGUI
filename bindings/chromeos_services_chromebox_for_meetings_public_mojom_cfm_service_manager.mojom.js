@@ -89,19 +89,27 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -215,13 +223,18 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -230,6 +243,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
           const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -241,6 +255,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         }
         case 1: {
           const params = chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestBindService');
           const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -250,6 +265,9 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -333,13 +351,18 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -348,9 +371,13 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBindService');
           const result = this.impl.onBindService(params.receiver_pipe);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -129,13 +129,18 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -144,6 +149,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWavFile');
           const result = this.impl.createWavFile(params.stream_type, params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -155,6 +161,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
         }
         case 1: {
           const params = audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAecdumpFile');
           const result = this.impl.createAecdumpFile(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -164,6 +171,9 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -247,13 +257,18 @@ audio.mojom.DebugRecordingReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -262,9 +277,13 @@ audio.mojom.DebugRecordingReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DebugRecording_Enable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enable');
           const result = this.impl.enable(params.file_provider);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

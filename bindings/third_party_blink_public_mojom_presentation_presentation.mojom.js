@@ -222,13 +222,18 @@ blink.mojom.PresentationConnectionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,19 +242,25 @@ blink.mojom.PresentationConnectionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
           const params = blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didChangeState');
           const result = this.impl.didChangeState(params.state);
           break;
         }
         case 2: {
           const params = blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didClose');
           const result = this.impl.didClose(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -478,13 +489,18 @@ blink.mojom.PresentationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -493,31 +509,37 @@ blink.mojom.PresentationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationService_SetController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller);
           break;
         }
         case 1: {
           const params = blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setReceiver');
           const result = this.impl.setReceiver(params.receiver);
           break;
         }
         case 2: {
           const params = blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDefaultPresentationUrls');
           const result = this.impl.setDefaultPresentationUrls(params.presentation_urls);
           break;
         }
         case 3: {
           const params = blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listenForScreenAvailability');
           const result = this.impl.listenForScreenAvailability(params.availability_url);
           break;
         }
         case 4: {
           const params = blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopListeningForScreenAvailability');
           const result = this.impl.stopListeningForScreenAvailability(params.availability_url);
           break;
         }
         case 5: {
           const params = blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startPresentation');
           const result = this.impl.startPresentation(params.presentation_urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -529,6 +551,7 @@ blink.mojom.PresentationServiceReceiver = class {
         }
         case 6: {
           const params = blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reconnectPresentation');
           const result = this.impl.reconnectPresentation(params.presentation_urls, params.presentation_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -540,14 +563,19 @@ blink.mojom.PresentationServiceReceiver = class {
         }
         case 7: {
           const params = blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeConnection');
           const result = this.impl.closeConnection(params.presentation_url, params.presentation_id);
           break;
         }
         case 8: {
           const params = blink.mojom.PresentationService_Terminate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate(params.presentation_url, params.presentation_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -683,13 +711,18 @@ blink.mojom.PresentationControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -698,24 +731,31 @@ blink.mojom.PresentationControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScreenAvailabilityUpdated');
           const result = this.impl.onScreenAvailabilityUpdated(params.url, params.availability);
           break;
         }
         case 1: {
           const params = blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDefaultPresentationStarted');
           const result = this.impl.onDefaultPresentationStarted(params.result);
           break;
         }
         case 2: {
           const params = blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.presentation_info, params.newState);
           break;
         }
         case 3: {
           const params = blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.presentation_info, params.reason, params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -799,13 +839,18 @@ blink.mojom.PresentationReceiverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -814,9 +859,13 @@ blink.mojom.PresentationReceiverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceiverConnectionAvailable');
           const result = this.impl.onReceiverConnectionAvailable(params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

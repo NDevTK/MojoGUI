@@ -589,13 +589,18 @@ viz.mojom.FrameSinkManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -604,11 +609,13 @@ viz.mojom.FrameSinkManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerFrameSinkId');
           const result = this.impl.registerFrameSinkId(params.frame_sink_id, params.report_activation);
           break;
         }
         case 1: {
           const params = viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.invalidateFrameSinkId');
           const result = this.impl.invalidateFrameSinkId(params.frame_sink_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -620,31 +627,37 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 2: {
           const params = viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFrameSinkDebugLabel');
           const result = this.impl.setFrameSinkDebugLabel(params.frame_sink_id, params.debug_label);
           break;
         }
         case 3: {
           const params = viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRootCompositorFrameSink');
           const result = this.impl.createRootCompositorFrameSink(params.params);
           break;
         }
         case 4: {
           const params = viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCompositorDisplayLink');
           const result = this.impl.createCompositorDisplayLink(params.params);
           break;
         }
         case 5: {
           const params = viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createFrameSinkBundle');
           const result = this.impl.createFrameSinkBundle(params.bundle_id, params.receiver, params.client);
           break;
         }
         case 6: {
           const params = viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCompositorFrameSink');
           const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.compositor_frame_sink, params.compositor_frame_sink_client, params.config);
           break;
         }
         case 7: {
           const params = viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroyCompositorFrameSink');
           const result = this.impl.destroyCompositorFrameSink(params.frame_sink_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -656,56 +669,67 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 8: {
           const params = viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerFrameSinkHierarchy');
           const result = this.impl.registerFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 9: {
           const params = viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unregisterFrameSinkHierarchy');
           const result = this.impl.unregisterFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 10: {
           const params = viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVideoDetectorObserver');
           const result = this.impl.addVideoDetectorObserver(params.observer);
           break;
         }
         case 11: {
           const params = viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.receiver, params.capture_version_source);
           break;
         }
         case 12: {
           const params = viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.evictSurfaces');
           const result = this.impl.evictSurfaces(params.surface_ids);
           break;
         }
         case 13: {
           const params = viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.throttle');
           const result = this.impl.throttle(params.frame_sink_ids, params.interval);
           break;
         }
         case 14: {
           const params = viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startThrottlingAllFrameSinks');
           const result = this.impl.startThrottlingAllFrameSinks(params.interval);
           break;
         }
         case 15: {
           const params = viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopThrottlingAllFrameSinks');
           const result = this.impl.stopThrottlingAllFrameSinks();
           break;
         }
         case 16: {
           const params = viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestCopyOfOutput');
           const result = this.impl.requestCopyOfOutput(params.surface_id, params.request, params.capture_exact_surface_id);
           break;
         }
         case 17: {
           const params = viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cacheBackBuffer');
           const result = this.impl.cacheBackBuffer(params.cache_id, params.root_frame_sink_id);
           break;
         }
         case 18: {
           const params = viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.evictBackBuffer');
           const result = this.impl.evictBackBuffer(params.cache_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -717,39 +741,49 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 19: {
           const params = viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDebugRendererSettings');
           const result = this.impl.updateDebugRendererSettings(params.debug_settings);
           break;
         }
         case 20: {
           const params = viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearUnclaimedViewTransitionResources');
           const result = this.impl.clearUnclaimedViewTransitionResources(params.transition_token);
           break;
         }
         case 21: {
           const params = viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createMetricsRecorderForTest');
           const result = this.impl.createMetricsRecorderForTest(params.receiver);
           break;
         }
         case 22: {
           const params = viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableFrameSinkManagerTestApi');
           const result = this.impl.enableFrameSinkManagerTestApi(params.receiver);
           break;
         }
         case 23: {
           const params = viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setupRendererInputRouterDelegateRegistry');
           const result = this.impl.setupRendererInputRouterDelegateRegistry(params.receiver);
           break;
         }
         case 24: {
           const params = viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyRendererBlockStateChanged');
           const result = this.impl.notifyRendererBlockStateChanged(params.blocked, params.render_input_routers);
           break;
         }
         case 25: {
           const params = viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestInputBack');
           const result = this.impl.requestInputBack();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -939,13 +973,18 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -954,21 +993,25 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFirstSurfaceActivation');
           const result = this.impl.onFirstSurfaceActivation(params.surface_info);
           break;
         }
         case 1: {
           const params = viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAggregatedHitTestRegionListUpdated');
           const result = this.impl.onAggregatedHitTestRegionListUpdated(params.frame_sink_id, params.hit_test_data);
           break;
         }
         case 2: {
           const params = viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameTokenChanged');
           const result = this.impl.onFrameTokenChanged(params.frame_sink_id, params.frame_token, params.activation_time);
           break;
         }
         case 3: {
           const params = viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.verifyThreadIdsDoNotBelongToHost');
           const result = this.impl.verifyThreadIdsDoNotBelongToHost(params.thread_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -980,19 +1023,25 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         }
         case 4: {
           const params = viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScreenshotCaptured');
           const result = this.impl.onScreenshotCaptured(params.destination_token, params.copy_output_result);
           break;
         }
         case 5: {
           const params = viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVizTouchStateAvailable');
           const result = this.impl.onVizTouchStateAvailable(params.region);
           break;
         }
         case 6: {
           const params = viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onViewTransitionResourcesCaptured');
           const result = this.impl.onViewTransitionResourcesCaptured(params.transition_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1078,13 +1127,18 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1093,9 +1147,13 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setupRenderInputRouterDelegateConnection');
           const result = this.impl.setupRenderInputRouterDelegateConnection(params.id, params.rir_delegate_client_remote, params.rir_delegate_receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

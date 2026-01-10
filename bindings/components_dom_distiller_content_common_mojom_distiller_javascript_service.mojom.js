@@ -134,13 +134,18 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -149,24 +154,31 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleDistillerOpenSettingsCall');
           const result = this.impl.handleDistillerOpenSettingsCall();
           break;
         }
         case 1: {
           const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleStoreThemePref');
           const result = this.impl.handleStoreThemePref(params.theme);
           break;
         }
         case 2: {
           const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleStoreFontFamilyPref');
           const result = this.impl.handleStoreFontFamilyPref(params.font_family);
           break;
         }
         case 3: {
           const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleStoreFontScalingPref');
           const result = this.impl.handleStoreFontScalingPref(params.font_scale);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -161,13 +161,18 @@ arc.mojom.VolumeMounterHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -176,11 +181,13 @@ arc.mojom.VolumeMounterHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestAllMountPoints');
           const result = this.impl.requestAllMountPoints();
           break;
         }
         case 3: {
           const params = arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpExternalStorageMountPoints');
           const result = this.impl.setUpExternalStorageMountPoints(params.media_provider_uid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -192,9 +199,13 @@ arc.mojom.VolumeMounterHostReceiver = class {
         }
         case 4: {
           const params = arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReadyToSuspend');
           const result = this.impl.onReadyToSuspend(params.success);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -321,13 +332,18 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -336,6 +352,7 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -347,11 +364,13 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMountEvent');
           const result = this.impl.onMountEvent(params.mount_point_info);
           break;
         }
         case 2: {
           const params = arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareForRemovableMediaUnmount');
           const result = this.impl.prepareForRemovableMediaUnmount(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -361,6 +380,9 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

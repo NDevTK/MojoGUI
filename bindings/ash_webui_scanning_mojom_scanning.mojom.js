@@ -268,13 +268,18 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -283,29 +288,37 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPageProgress');
           const result = this.impl.onPageProgress(params.page_number, params.progress_percent);
           break;
         }
         case 1: {
           const params = ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPageComplete');
           const result = this.impl.onPageComplete(params.page_data, params.new_page_index);
           break;
         }
         case 2: {
           const params = ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScanComplete');
           const result = this.impl.onScanComplete(params.result, params.scanned_file_paths);
           break;
         }
         case 3: {
           const params = ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCancelComplete');
           const result = this.impl.onCancelComplete(params.success);
           break;
         }
         case 4: {
           const params = ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMultiPageScanFail');
           const result = this.impl.onMultiPageScanFail(params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -479,13 +492,18 @@ ash.scanning.mojom.ScanServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -494,6 +512,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScanners');
           const result = this.impl.getScanners();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,6 +524,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 1: {
           const params = ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScannerCapabilities');
           const result = this.impl.getScannerCapabilities(params.scanner_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -516,6 +536,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 2: {
           const params = ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan(params.scanner_id, params.settings, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -527,6 +548,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 3: {
           const params = ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startMultiPageScan');
           const result = this.impl.startMultiPageScan(params.scanner_id, params.settings, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -538,9 +560,13 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 4: {
           const params = ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelScan');
           const result = this.impl.cancelScan();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -686,13 +712,18 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -701,6 +732,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scanNextPage');
           const result = this.impl.scanNextPage(params.scanner_id, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -712,11 +744,13 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 1: {
           const params = ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removePage');
           const result = this.impl.removePage(params.page_index);
           break;
         }
         case 2: {
           const params = ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rescanPage');
           const result = this.impl.rescanPage(params.scanner_id, params.settings, params.page_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -728,9 +762,13 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 3: {
           const params = ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.completeMultiPageScan');
           const result = this.impl.completeMultiPageScan();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

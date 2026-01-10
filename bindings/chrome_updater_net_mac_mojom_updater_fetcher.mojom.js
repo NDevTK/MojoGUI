@@ -148,13 +148,18 @@ updater.mojom.PostRequestObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -163,19 +168,25 @@ updater.mojom.PostRequestObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const params = updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const params = updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
           const result = this.impl.onRequestComplete(params.response_body, params.net_error, params.header_etag, params.header_x_cup_server_proof, params.header_set_cookie, params.xheader_retry_after_sec);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -295,13 +306,18 @@ updater.mojom.FileDownloadObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -310,19 +326,25 @@ updater.mojom.FileDownloadObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const params = updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const params = updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
           const result = this.impl.onDownloadComplete(params.net_error, params.content_size);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -438,13 +460,18 @@ updater.mojom.FetchServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -453,6 +480,7 @@ updater.mojom.FetchServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.FetchService_PostRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.postRequest');
           const result = this.impl.postRequest(params.url, params.post_data, params.content_type, params.additional_headers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -464,6 +492,7 @@ updater.mojom.FetchServiceReceiver = class {
         }
         case 1: {
           const params = updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.downloadToFile');
           const result = this.impl.downloadToFile(params.url, params.output_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -473,6 +502,9 @@ updater.mojom.FetchServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

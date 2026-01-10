@@ -185,13 +185,18 @@ blink.mojom.StorageAreaObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -200,29 +205,37 @@ blink.mojom.StorageAreaObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keyChanged');
           const result = this.impl.keyChanged(params.key, params.new_value, params.old_value, params.source);
           break;
         }
         case 1: {
           const params = blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keyChangeFailed');
           const result = this.impl.keyChangeFailed(params.key, params.source);
           break;
         }
         case 2: {
           const params = blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keyDeleted');
           const result = this.impl.keyDeleted(params.key, params.old_value, params.source);
           break;
         }
         case 3: {
           const params = blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allDeleted');
           const result = this.impl.allDeleted(params.was_nonempty, params.source);
           break;
         }
         case 4: {
           const params = blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldSendOldValueOnMutations');
           const result = this.impl.shouldSendOldValueOnMutations(params.value);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -423,13 +436,18 @@ blink.mojom.StorageAreaReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -438,11 +456,13 @@ blink.mojom.StorageAreaReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.StorageArea_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const params = blink.mojom.StorageArea_Put_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.put');
           const result = this.impl.put(params.key, params.value, params.client_old_value, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,6 +474,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 2: {
           const params = blink.mojom.StorageArea_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.key, params.client_old_value, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -465,6 +486,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 3: {
           const params = blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAll');
           const result = this.impl.deleteAll(params.source, params.new_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -476,6 +498,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 4: {
           const params = blink.mojom.StorageArea_Get_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -487,6 +510,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 5: {
           const params = blink.mojom.StorageArea_GetAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAll');
           const result = this.impl.getAll(params.new_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -496,6 +520,9 @@ blink.mojom.StorageAreaReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

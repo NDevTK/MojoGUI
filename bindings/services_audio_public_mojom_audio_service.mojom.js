@@ -188,13 +188,18 @@ audio.mojom.AudioServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -203,39 +208,49 @@ audio.mojom.AudioServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSystemInfo');
           const result = this.impl.bindSystemInfo(params.receiver);
           break;
         }
         case 1: {
           const params = audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindDebugRecording');
           const result = this.impl.bindDebugRecording(params.receiver);
           break;
         }
         case 2: {
           const params = audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindStreamFactory');
           const result = this.impl.bindStreamFactory(params.receiver);
           break;
         }
         case 3: {
           const params = audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindDeviceNotifier');
           const result = this.impl.bindDeviceNotifier(params.receiver);
           break;
         }
         case 4: {
           const params = audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindLogFactoryManager');
           const result = this.impl.bindLogFactoryManager(params.receiver);
           break;
         }
         case 5: {
           const params = audio.mojom.AudioService_BindTestingApi_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTestingApi');
           const result = this.impl.bindTestingApi(params.receiver);
           break;
         }
         case 6: {
           const params = audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindMlModelManager');
           const result = this.impl.bindMlModelManager(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

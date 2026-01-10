@@ -153,13 +153,18 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -168,9 +173,13 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error, params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -256,13 +265,18 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -271,9 +285,13 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
           const result = this.impl.getProxyForUrl(params.url, params.network_anonymization_key, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -410,13 +428,18 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -425,24 +448,31 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error, params.proxy_info);
           break;
         }
         case 1: {
           const params = proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.alert');
           const result = this.impl.alert(params.error);
           break;
         }
         case 2: {
           const params = proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.line_number, params.error);
           break;
         }
         case 3: {
           const params = proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resolveDns');
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -528,13 +558,18 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -543,9 +578,13 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createResolver');
           const result = this.impl.createResolver(params.pac_script, params.receiver, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -681,13 +720,18 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -696,24 +740,31 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportResult');
           const result = this.impl.reportResult(params.error);
           break;
         }
         case 1: {
           const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.alert');
           const result = this.impl.alert(params.error);
           break;
         }
         case 2: {
           const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.line_number, params.error);
           break;
         }
         case 3: {
           const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resolveDns');
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -804,13 +855,18 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -819,6 +875,7 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
           const result = this.impl.getProxyForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -828,6 +885,9 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

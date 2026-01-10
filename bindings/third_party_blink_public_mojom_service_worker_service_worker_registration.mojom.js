@@ -222,13 +222,18 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,6 +242,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.outside_fetch_client_settings_object);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -248,6 +254,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unregister');
           const result = this.impl.unregister();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -259,6 +266,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
         }
         case 2: {
           const params = blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableNavigationPreload');
           const result = this.impl.enableNavigationPreload(params.enable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -270,6 +278,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNavigationPreloadState');
           const result = this.impl.getNavigationPreloadState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -281,6 +290,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
         }
         case 4: {
           const params = blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNavigationPreloadHeader');
           const result = this.impl.setNavigationPreloadHeader(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -290,6 +300,9 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -407,13 +420,18 @@ blink.mojom.ServiceWorkerRegistrationObjectReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -422,19 +440,25 @@ blink.mojom.ServiceWorkerRegistrationObjectReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setServiceWorkerObjects');
           const result = this.impl.setServiceWorkerObjects(params.changed_mask, params.installing, params.waiting, params.active);
           break;
         }
         case 1: {
           const params = blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpdateViaCache');
           const result = this.impl.setUpdateViaCache(params.update_via_cache);
           break;
         }
         case 2: {
           const params = blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateFound');
           const result = this.impl.updateFound();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

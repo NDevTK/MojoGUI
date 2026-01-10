@@ -162,13 +162,18 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -177,6 +182,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fileExists');
           const result = this.impl.fileExists(params.package_index, params.relative_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -188,6 +194,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
         }
         case 1: {
           const params = on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.package_index, params.relative_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -197,6 +204,9 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -327,13 +337,18 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -342,11 +357,13 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setServiceConfig');
           const result = this.impl.setServiceConfig(params.config);
           break;
         }
         case 1: {
           const params = on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTranslator');
           const result = this.impl.createTranslator(params.source_lang, params.target_lang, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -358,6 +375,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
         }
         case 2: {
           const params = on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canTranslate');
           const result = this.impl.canTranslate(params.source_lang, params.target_lang);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -367,6 +385,9 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -180,13 +180,18 @@ ax.mojom.AutomationReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -195,34 +200,43 @@ ax.mojom.AutomationReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
           const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
           break;
         }
         case 1: {
           const params = ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
           const result = this.impl.dispatchActionResult(params.data, params.result);
           break;
         }
         case 2: {
           const params = ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
           const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
           break;
         }
         case 3: {
           const params = ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
           const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
           break;
         }
         case 4: {
           const params = ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
           break;
         }
         case 5: {
           const params = ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
           const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -124,13 +124,18 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -139,14 +144,19 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionAdded');
           const result = this.impl.onPasspointSubscriptionAdded(params.subscription);
           break;
         }
         case 1: {
           const params = chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionRemoved');
           const result = this.impl.onPasspointSubscriptionRemoved(params.subscription);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -295,13 +305,18 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -310,6 +325,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPasspointSubscription');
           const result = this.impl.getPasspointSubscription(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -321,6 +337,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 1: {
           const params = chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listPasspointSubscriptions');
           const result = this.impl.listPasspointSubscriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -332,6 +349,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 2: {
           const params = chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deletePasspointSubscription');
           const result = this.impl.deletePasspointSubscription(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -343,9 +361,13 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
         case 3: {
           const params = chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerPasspointListener');
           const result = this.impl.registerPasspointListener(params.listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -732,13 +732,18 @@ searchbox.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -747,61 +752,73 @@ searchbox.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPage');
           const result = this.impl.setPage(params.page);
           break;
         }
         case 1: {
           const params = searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFocusChanged');
           const result = this.impl.onFocusChanged(params.focused);
           break;
         }
         case 2: {
           const params = searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
           const result = this.impl.queryAutocomplete(params.input, params.prevent_inline_autocomplete);
           break;
         }
         case 3: {
           const params = searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopAutocomplete');
           const result = this.impl.stopAutocomplete(params.clear_result);
           break;
         }
         case 4: {
           const params = searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAutocompleteMatch');
           const result = this.impl.openAutocompleteMatch(params.line, params.url, params.are_matches_showing, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
         case 5: {
           const params = searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNavigationLikely');
           const result = this.impl.onNavigationLikely(params.line, params.url, params.navigation_predictor);
           break;
         }
         case 6: {
           const params = searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAutocompleteMatch');
           const result = this.impl.deleteAutocompleteMatch(params.line, params.url);
           break;
         }
         case 7: {
           const params = searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateKeyword');
           const result = this.impl.activateKeyword(params.line, params.url, params.match_selection_timestamp, params.is_mouse_event);
           break;
         }
         case 8: {
           const params = searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.point);
           break;
         }
         case 9: {
           const params = searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.executeAction');
           const result = this.impl.executeAction(params.line, params.action_index, params.url, params.match_selection_timestamp, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
         case 10: {
           const params = searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onThumbnailRemoved');
           const result = this.impl.onThumbnailRemoved();
           break;
         }
         case 11: {
           const params = searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPlaceholderConfig');
           const result = this.impl.getPlaceholderConfig();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -813,6 +830,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const params = searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRecentTabs');
           const result = this.impl.getRecentTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -824,6 +842,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const params = searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTabPreview');
           const result = this.impl.getTabPreview(params.tab_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -835,16 +854,19 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const params = searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySessionStarted');
           const result = this.impl.notifySessionStarted();
           break;
         }
         case 15: {
           const params = searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySessionAbandoned');
           const result = this.impl.notifySessionAbandoned();
           break;
         }
         case 16: {
           const params = searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFileContext');
           const result = this.impl.addFileContext(params.file_info, params.file_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -856,6 +878,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 17: {
           const params = searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addTabContext');
           const result = this.impl.addTabContext(params.tab_id, params.delay_upload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -867,24 +890,31 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 18: {
           const params = searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteContext');
           const result = this.impl.deleteContext(params.token, params.from_automatic_chip);
           break;
         }
         case 19: {
           const params = searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearFiles');
           const result = this.impl.clearFiles();
           break;
         }
         case 20: {
           const params = searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submitQuery');
           const result = this.impl.submitQuery(params.query_text, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
         case 21: {
           const params = searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openLensSearch');
           const result = this.impl.openLensSearch();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1179,13 +1209,18 @@ searchbox.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1194,74 +1229,91 @@ searchbox.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.autocompleteResultChanged');
           const result = this.impl.autocompleteResultChanged(params.result);
           break;
         }
         case 1: {
           const params = searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSelection');
           const result = this.impl.updateSelection(params.old_selection, params.selection);
           break;
         }
         case 2: {
           const params = searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeywordSelected');
           const result = this.impl.setKeywordSelected(params.is_keyword_selected);
           break;
         }
         case 3: {
           const params = searchbox.mojom.Page_OnShow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShow');
           const result = this.impl.onShow();
           break;
         }
         case 4: {
           const params = searchbox.mojom.Page_SetInputText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInputText');
           const result = this.impl.setInputText(params.input);
           break;
         }
         case 5: {
           const params = searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setThumbnail');
           const result = this.impl.setThumbnail(params.thumbnail_url, params.is_deletable);
           break;
         }
         case 6: {
           const params = searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onContextualInputStatusChanged');
           const result = this.impl.onContextualInputStatusChanged(params.token, params.status, params.error_type);
           break;
         }
         case 7: {
           const params = searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabStripChanged');
           const result = this.impl.onTabStripChanged();
           break;
         }
         case 8: {
           const params = searchbox.mojom.Page_AddFileContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFileContext');
           const result = this.impl.addFileContext(params.token, params.file_info);
           break;
         }
         case 9: {
           const params = searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateAutoSuggestedTabContext');
           const result = this.impl.updateAutoSuggestedTabContext(params.tab);
           break;
         }
         case 10: {
           const params = searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateLensSearchEligibility');
           const result = this.impl.updateLensSearchEligibility(params.eligible);
           break;
         }
         case 11: {
           const params = searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateContentSharingPolicy');
           const result = this.impl.updateContentSharingPolicy(params.enabled);
           break;
         }
         case 12: {
           const params = searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateAimEligibility');
           const result = this.impl.updateAimEligibility(params.eligible);
           break;
         }
         case 13: {
           const params = searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShowAiModePrefChanged');
           const result = this.impl.onShowAiModePrefChanged(params.canShow);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -97,13 +97,18 @@ chromecast.mojom.MessageCallbackReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -112,9 +117,13 @@ chromecast.mojom.MessageCallbackReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.list);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -216,13 +225,18 @@ chromecast.mojom.WebUiReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -231,14 +245,19 @@ chromecast.mojom.WebUiReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
           const result = this.impl.registerMessageCallback(params.message, params.cb);
           break;
         }
         case 1: {
           const params = chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
           const result = this.impl.callJavascriptFunction(params.function, params.args);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -328,13 +347,18 @@ chromecast.mojom.ResourcesReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -343,6 +367,7 @@ chromecast.mojom.ResourcesReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
           const result = this.impl.requestResourceBytes(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -352,6 +377,9 @@ chromecast.mojom.ResourcesReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -454,13 +482,18 @@ chromecast.mojom.WebUiClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -469,14 +502,19 @@ chromecast.mojom.WebUiClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createController');
           const result = this.impl.createController(params.host, params.web_ui, params.resources);
           break;
         }
         case 1: {
           const params = chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createResources');
           const result = this.impl.createResources(params.host, params.resources);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

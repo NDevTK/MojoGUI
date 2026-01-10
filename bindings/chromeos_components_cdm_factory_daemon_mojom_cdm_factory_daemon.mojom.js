@@ -164,13 +164,18 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -179,16 +184,19 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_1');
           const result = this.impl.dEPRECATED_1(params.client, params.storage, params.cdm, params.output_protection);
           break;
         }
         case 2: {
           const params = chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCdmDeprecated');
           const result = this.impl.createCdmDeprecated(params.client, params.storage, params.output_protection, params.host, params.cdm);
           break;
         }
         case 3: {
           const params = chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCdm');
           const result = this.impl.createCdm(params.client, params.storage, params.output_protection, params.host, params.cdm);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -198,6 +206,9 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -464,13 +475,18 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -479,6 +495,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createFactory');
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -490,21 +507,25 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
         case 1: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removedMethod1');
           const result = this.impl.removedMethod1();
           break;
         }
         case 2: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectOemCrypto');
           const result = this.impl.connectOemCrypto(params.oemcryptor, params.protected_buffer_manager, params.output_protection);
           break;
         }
         case 3: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removedMethod3');
           const result = this.impl.removedMethod3();
           break;
         }
         case 4: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -516,11 +537,13 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
         case 5: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removedMethod5');
           const result = this.impl.removedMethod5();
           break;
         }
         case 6: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHdcp14Key');
           const result = this.impl.getHdcp14Key();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -532,6 +555,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
         case 7: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -543,6 +567,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
         case 8: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -554,6 +579,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
         case 9: {
           const params = chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -563,6 +589,9 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

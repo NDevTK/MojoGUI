@@ -109,13 +109,18 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -124,9 +129,13 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -240,13 +249,18 @@ mantis.mojom.MantisServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -255,6 +269,7 @@ mantis.mojom.MantisServiceReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMantisFeatureStatus');
           const result = this.impl.getMantisFeatureStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -266,6 +281,7 @@ mantis.mojom.MantisServiceReceiver = class {
         }
         case 0: {
           const params = mantis.mojom.MantisService_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.progress_observer, params.processor, params.dlc_uuid, params.text_classifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -275,6 +291,9 @@ mantis.mojom.MantisServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

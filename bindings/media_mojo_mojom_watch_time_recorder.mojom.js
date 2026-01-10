@@ -257,13 +257,18 @@ media.mojom.WatchTimeRecorderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -272,49 +277,61 @@ media.mojom.WatchTimeRecorderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordWatchTime');
           const result = this.impl.recordWatchTime(params.key, params.watch_time);
           break;
         }
         case 1: {
           const params = media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.finalizeWatchTime');
           const result = this.impl.finalizeWatchTime(params.watch_time_keys);
           break;
         }
         case 2: {
           const params = media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
         case 3: {
           const params = media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSecondaryProperties');
           const result = this.impl.updateSecondaryProperties(params.secondary_properties);
           break;
         }
         case 4: {
           const params = media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAutoplayInitiated');
           const result = this.impl.setAutoplayInitiated(params.value);
           break;
         }
         case 5: {
           const params = media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDurationChanged');
           const result = this.impl.onDurationChanged(params.duration);
           break;
         }
         case 6: {
           const params = media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateVideoDecodeStats');
           const result = this.impl.updateVideoDecodeStats(params.frames_decoded, params.frames_dropped);
           break;
         }
         case 7: {
           const params = media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUnderflowCount');
           const result = this.impl.updateUnderflowCount(params.total_count);
           break;
         }
         case 8: {
           const params = media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUnderflowDuration');
           const result = this.impl.updateUnderflowDuration(params.total_completed_count, params.total_duration);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

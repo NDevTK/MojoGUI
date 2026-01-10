@@ -117,13 +117,18 @@ extensions.mojom.GuestViewReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -132,11 +137,13 @@ extensions.mojom.GuestViewReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readyToCreateMimeHandlerView');
           const result = this.impl.readyToCreateMimeHandlerView(params.success);
           break;
         }
         case 1: {
           const params = extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canExecuteContentScript');
           const result = this.impl.canExecuteContentScript(params.script_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -146,6 +153,9 @@ extensions.mojom.GuestViewReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -283,13 +293,18 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -298,11 +313,13 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInternalId');
           const result = this.impl.setInternalId(params.token_id);
           break;
         }
         case 1: {
           const params = extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createBeforeUnloadControl');
           const result = this.impl.createBeforeUnloadControl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -314,14 +331,19 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         }
         case 2: {
           const params = extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroyFrameContainer');
           const result = this.impl.destroyFrameContainer(params.element_instance_id);
           break;
         }
         case 3: {
           const params = extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didLoad');
           const result = this.impl.didLoad(params.mime_handler_view_guest_element_instance_id, params.resource_url);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

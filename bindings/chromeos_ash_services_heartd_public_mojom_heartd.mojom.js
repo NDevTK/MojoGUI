@@ -177,13 +177,18 @@ ash.heartd.mojom.HeartdControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -192,16 +197,19 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableNormalRebootAction');
           const result = this.impl.enableNormalRebootAction();
           break;
         }
         case 1: {
           const params = ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableForceRebootAction');
           const result = this.impl.enableForceRebootAction();
           break;
         }
         case 2: {
           const params = ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runAction');
           const result = this.impl.runAction(params.action);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -211,6 +219,9 @@ ash.heartd.mojom.HeartdControlReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -302,13 +313,18 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -317,6 +333,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.name, params.argument, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -326,6 +343,9 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -434,13 +454,18 @@ ash.heartd.mojom.PacemakerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -449,6 +474,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendHeartbeat');
           const result = this.impl.sendHeartbeat();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -460,6 +486,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         }
         case 1: {
           const params = ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopMonitor');
           const result = this.impl.stopMonitor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -469,6 +496,9 @@ ash.heartd.mojom.PacemakerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -106,13 +106,18 @@ blink.mojom.ColorChooserFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -121,9 +126,13 @@ blink.mojom.ColorChooserFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openColorChooser');
           const result = this.impl.openColorChooser(params.chooser, params.client, params.color, params.suggestions);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -207,13 +216,18 @@ blink.mojom.ColorChooserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -222,9 +236,13 @@ blink.mojom.ColorChooserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSelectedColor');
           const result = this.impl.setSelectedColor(params.color);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -308,13 +326,18 @@ blink.mojom.ColorChooserClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -323,9 +346,13 @@ blink.mojom.ColorChooserClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didChooseColor');
           const result = this.impl.didChooseColor(params.color);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -415,13 +442,18 @@ blink.mojom.EyeDropperChooserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -430,6 +462,7 @@ blink.mojom.EyeDropperChooserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.choose');
           const result = this.impl.choose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -439,6 +472,9 @@ blink.mojom.EyeDropperChooserReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

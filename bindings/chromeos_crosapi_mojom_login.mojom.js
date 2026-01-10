@@ -112,13 +112,18 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -127,9 +132,13 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestExternalLogout');
           const result = this.impl.onRequestExternalLogout();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -382,13 +391,18 @@ crosapi.mojom.LoginReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -397,16 +411,19 @@ crosapi.mojom.LoginReceiver = class {
       switch (header.ordinal) {
         case 14: {
           const params = crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addExternalLogoutRequestObserver');
           const result = this.impl.addExternalLogoutRequestObserver(params.observer);
           break;
         }
         case 16: {
           const params = crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyOnExternalLogoutDone');
           const result = this.impl.notifyOnExternalLogoutDone();
           break;
         }
         case 0: {
           const params = crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
           const result = this.impl.rEMOVED_0(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -418,6 +435,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 4: {
           const params = crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
           const result = this.impl.rEMOVED_4(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -429,6 +447,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 5: {
           const params = crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_5');
           const result = this.impl.rEMOVED_5(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -440,6 +459,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 6: {
           const params = crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_6');
           const result = this.impl.rEMOVED_6(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -451,6 +471,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 7: {
           const params = crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_7');
           const result = this.impl.rEMOVED_7(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,6 +483,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 10: {
           const params = crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_10');
           const result = this.impl.rEMOVED_10(params.properties);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -473,6 +495,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 12: {
           const params = crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_12');
           const result = this.impl.rEMOVED_12(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -482,6 +505,9 @@ crosapi.mojom.LoginReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

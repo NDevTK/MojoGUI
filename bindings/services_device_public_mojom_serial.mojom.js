@@ -298,13 +298,18 @@ device.mojom.SerialPortManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -313,11 +318,13 @@ device.mojom.SerialPortManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortManager_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const params = device.mojom.SerialPortManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -329,6 +336,7 @@ device.mojom.SerialPortManagerReceiver = class {
         }
         case 2: {
           const params = device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openPort');
           const result = this.impl.openPort(params.token, params.use_alternate_path, params.options, params.client, params.watcher);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -338,6 +346,9 @@ device.mojom.SerialPortManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -453,13 +464,18 @@ device.mojom.SerialPortManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -468,19 +484,25 @@ device.mojom.SerialPortManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPortAdded');
           const result = this.impl.onPortAdded(params.port_info);
           break;
         }
         case 1: {
           const params = device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPortRemoved');
           const result = this.impl.onPortRemoved(params.port_info);
           break;
         }
         case 2: {
           const params = device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
           const result = this.impl.onPortConnectedStateChanged(params.port_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -728,13 +750,18 @@ device.mojom.SerialPortReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -743,16 +770,19 @@ device.mojom.SerialPortReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPort_StartWriting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startWriting');
           const result = this.impl.startWriting(params.consumer);
           break;
         }
         case 1: {
           const params = device.mojom.SerialPort_StartReading_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startReading');
           const result = this.impl.startReading(params.producer);
           break;
         }
         case 2: {
           const params = device.mojom.SerialPort_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -764,6 +794,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 3: {
           const params = device.mojom.SerialPort_Drain_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.drain');
           const result = this.impl.drain();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -775,6 +806,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 4: {
           const params = device.mojom.SerialPort_GetControlSignals_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getControlSignals');
           const result = this.impl.getControlSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -786,6 +818,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 5: {
           const params = device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setControlSignals');
           const result = this.impl.setControlSignals(params.signals);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -797,6 +830,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 6: {
           const params = device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.configurePort');
           const result = this.impl.configurePort(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -808,6 +842,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 7: {
           const params = device.mojom.SerialPort_GetPortInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPortInfo');
           const result = this.impl.getPortInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -819,6 +854,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 8: {
           const params = device.mojom.SerialPort_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.flush);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -828,6 +864,9 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -927,13 +966,18 @@ device.mojom.SerialPortClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -942,14 +986,19 @@ device.mojom.SerialPortClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReadError');
           const result = this.impl.onReadError(params.error);
           break;
         }
         case 1: {
           const params = device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSendError');
           const result = this.impl.onSendError(params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1017,19 +1066,27 @@ device.mojom.SerialPortConnectionWatcherReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

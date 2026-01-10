@@ -304,13 +304,18 @@ arc.mojom.CameraServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -319,6 +324,7 @@ arc.mojom.CameraServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.CameraService_Connect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -330,6 +336,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.CameraService_Disconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -341,6 +348,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 2: {
           const params = arc.mojom.CameraService_StreamOn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.streamOn');
           const result = this.impl.streamOn(params.width, params.height, params.pixel_format, params.frame_rate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -352,6 +360,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 3: {
           const params = arc.mojom.CameraService_StreamOff_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.streamOff');
           const result = this.impl.streamOff();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -363,6 +372,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 4: {
           const params = arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNextFrameBuffer');
           const result = this.impl.getNextFrameBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -374,6 +384,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 5: {
           const params = arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reuseFrameBuffer');
           const result = this.impl.reuseFrameBuffer(params.buffer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -385,6 +396,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 6: {
           const params = arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
           const result = this.impl.getDeviceSupportedFormats(params.device_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -396,6 +408,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 7: {
           const params = arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCameraDeviceInfos');
           const result = this.impl.getCameraDeviceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -405,6 +418,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -531,13 +547,18 @@ arc.mojom.CameraHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -546,6 +567,7 @@ arc.mojom.CameraHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.CameraHost_StartCameraService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startCameraService');
           const result = this.impl.startCameraService();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -557,11 +579,13 @@ arc.mojom.CameraHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerCameraHalClientLegacy');
           const result = this.impl.registerCameraHalClientLegacy(params.client);
           break;
         }
         case 2: {
           const params = arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerCameraHalClient');
           const result = this.impl.registerCameraHalClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -571,6 +595,9 @@ arc.mojom.CameraHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -659,13 +686,18 @@ arc.mojom.CameraInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -674,6 +706,7 @@ arc.mojom.CameraInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.CameraInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -683,6 +716,9 @@ arc.mojom.CameraInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -249,13 +249,18 @@ viz.mojom.VizMainReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -264,49 +269,61 @@ viz.mojom.VizMainReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createFrameSinkManager');
           const result = this.impl.createFrameSinkManager(params.params);
           break;
         }
         case 1: {
           const params = viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createGpuService');
           const result = this.impl.createGpuService(params.gpu_service, params.gpu_host, params.gpu_logging, params.discardable_memory_manager, params.use_shader_cache_shm_count, params.params);
           break;
         }
         case 2: {
           const params = viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRenderParams');
           const result = this.impl.setRenderParams(params.subpixel_rendering, params.text_contrast, params.text_gamma);
           break;
         }
         case 3: {
           const params = viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createInfoCollectionGpuService');
           const result = this.impl.createInfoCollectionGpuService(params.info_collection_gpu_service);
           break;
         }
         case 4: {
           const params = viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHostProcessId');
           const result = this.impl.setHostProcessId(params.pid);
           break;
         }
         case 5: {
           const params = viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyWorkloadIncrease');
           const result = this.impl.notifyWorkloadIncrease();
           break;
         }
         case 6: {
           const params = viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDebugStream');
           const result = this.impl.startDebugStream(params.viz_debug);
           break;
         }
         case 7: {
           const params = viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.filterDebugStream');
           const result = this.impl.filterDebugStream(params.filterData);
           break;
         }
         case 8: {
           const params = viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopDebugStream');
           const result = this.impl.stopDebugStream();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -276,13 +276,18 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -291,6 +296,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -302,26 +308,31 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
         }
         case 1: {
           const params = arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.bitstream_buffer);
           break;
         }
         case 2: {
           const params = arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.assignPictureBuffers');
           const result = this.impl.assignPictureBuffers(params.count);
           break;
         }
         case 9: {
           const params = arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importBufferForPicture');
           const result = this.impl.importBufferForPicture(params.picture_buffer_id, params.format, params.handle_fd, params.planes, params.modifier);
           break;
         }
         case 4: {
           const params = arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reusePictureBuffer');
           const result = this.impl.reusePictureBuffer(params.picture_buffer_id);
           break;
         }
         case 5: {
           const params = arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -333,6 +344,7 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
         }
         case 6: {
           const params = arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -342,6 +354,9 @@ arc.mojom.VideoDecodeAcceleratorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -474,13 +489,18 @@ arc.mojom.VideoDecodeClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -489,24 +509,31 @@ arc.mojom.VideoDecodeClientReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pictureReady');
           const result = this.impl.pictureReady(params.picture);
           break;
         }
         case 2: {
           const params = arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyEndOfBitstreamBuffer');
           const result = this.impl.notifyEndOfBitstreamBuffer(params.bitstream_id);
           break;
         }
         case 3: {
           const params = arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyError');
           const result = this.impl.notifyError(params.error);
           break;
         }
         case 5: {
           const params = arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.providePictureBuffers');
           const result = this.impl.providePictureBuffers(params.format, params.visible_rect);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

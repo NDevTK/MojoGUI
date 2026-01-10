@@ -150,13 +150,18 @@ arc.mojom.UsbHostHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -165,6 +170,7 @@ arc.mojom.UsbHostHostReceiver = class {
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDevice');
           const result = this.impl.openDevice(params.guid, params.pkg_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -176,6 +182,7 @@ arc.mojom.UsbHostHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -187,6 +194,7 @@ arc.mojom.UsbHostHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.guid, params.pkg_name, params.interactive);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -196,6 +204,9 @@ arc.mojom.UsbHostHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -318,13 +329,18 @@ arc.mojom.UsbHostInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -333,6 +349,7 @@ arc.mojom.UsbHostInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.UsbHostInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -344,14 +361,19 @@ arc.mojom.UsbHostInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.guid, params.event_receiver_packages);
           break;
         }
         case 2: {
           const params = arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.guid, params.event_receiver_packages);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -94,13 +94,18 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -109,9 +114,13 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateForNextCommittedLoad');
           const result = this.impl.activateForNextCommittedLoad(params.activation_state, params.ad_evidence);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -272,13 +281,18 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -287,34 +301,43 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didDisallowFirstSubresource');
           const result = this.impl.didDisallowFirstSubresource();
           break;
         }
         case 1: {
           const params = subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.frameIsAd');
           const result = this.impl.frameIsAd();
           break;
         }
         case 2: {
           const params = subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.frameWasCreatedByAdScript');
           const result = this.impl.frameWasCreatedByAdScript();
           break;
         }
         case 3: {
           const params = subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.adScriptDidCreateFencedFrame');
           const result = this.impl.adScriptDidCreateFencedFrame(params.fenced_frame_root_placeholder_token);
           break;
         }
         case 4: {
           const params = subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDocumentLoadStatistics');
           const result = this.impl.setDocumentLoadStatistics(params.statistics);
           break;
         }
         case 5: {
           const params = subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdsViolationTriggered');
           const result = this.impl.onAdsViolationTriggered(params.violation);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

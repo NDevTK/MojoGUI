@@ -330,13 +330,18 @@ printing.mojom.PrintCompositorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -345,21 +350,25 @@ printing.mojom.PrintCompositorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyUnavailableSubframe');
           const result = this.impl.notifyUnavailableSubframe(params.frame_guid);
           break;
         }
         case 1: {
           const params = printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addSubframeContent');
           const result = this.impl.addSubframeContent(params.frame_guid, params.serialized_content, params.subframe_content_info);
           break;
         }
         case 2: {
           const params = printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAccessibilityTree');
           const result = this.impl.setAccessibilityTree(params.accessibility_tree);
           break;
         }
         case 3: {
           const params = printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.compositePage');
           const result = this.impl.compositePage(params.frame_guid, params.sk_region, params.subframe_content_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -371,6 +380,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 4: {
           const params = printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.compositeDocument');
           const result = this.impl.compositeDocument(params.frame_guid, params.sk_region, params.subframe_content_info, params.document_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -382,6 +392,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 5: {
           const params = printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareToCompositeDocument');
           const result = this.impl.prepareToCompositeDocument(params.document_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -393,6 +404,7 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 6: {
           const params = printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.finishDocumentComposition');
           const result = this.impl.finishDocumentComposition(params.pages_count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -404,29 +416,37 @@ printing.mojom.PrintCompositorReceiver = class {
         }
         case 7: {
           const params = printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 8: {
           const params = printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserAgent');
           const result = this.impl.setUserAgent(params.user_agent);
           break;
         }
         case 9: {
           const params = printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setGenerateDocumentOutline');
           const result = this.impl.setGenerateDocumentOutline(params.generate_document_outline);
           break;
         }
         case 10: {
           const params = printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTitle');
           const result = this.impl.setTitle(params.title);
           break;
         }
         case 11: {
           const params = printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWatermarkBlock');
           const result = this.impl.setWatermarkBlock(params.watermark_block);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -127,13 +127,18 @@ device.mojom.MtpManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -142,14 +147,19 @@ device.mojom.MtpManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.storageAttached');
           const result = this.impl.storageAttached(params.storage_info);
           break;
         }
         case 1: {
           const params = device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.storageDetached');
           const result = this.impl.storageDetached(params.storage_name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -500,13 +510,18 @@ device.mojom.MtpManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -515,6 +530,7 @@ device.mojom.MtpManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enumerateStoragesAndSetClient');
           const result = this.impl.enumerateStoragesAndSetClient(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -526,6 +542,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 1: {
           const params = device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStorageInfo');
           const result = this.impl.getStorageInfo(params.storage_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -537,6 +554,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 2: {
           const params = device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStorageInfoFromDevice');
           const result = this.impl.getStorageInfoFromDevice(params.storage_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -548,6 +566,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 3: {
           const params = device.mojom.MtpManager_OpenStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openStorage');
           const result = this.impl.openStorage(params.storage_name, params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -559,6 +578,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 4: {
           const params = device.mojom.MtpManager_CloseStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeStorage');
           const result = this.impl.closeStorage(params.storage_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -570,6 +590,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 5: {
           const params = device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.storage_handle, params.parent_id, params.directory_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -581,6 +602,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 6: {
           const params = device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readDirectoryEntryIds');
           const result = this.impl.readDirectoryEntryIds(params.storage_handle, params.file_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -592,6 +614,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 7: {
           const params = device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readFileChunk');
           const result = this.impl.readFileChunk(params.storage_handle, params.file_id, params.offset, params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -603,6 +626,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 8: {
           const params = device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.storage_handle, params.file_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -614,6 +638,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 9: {
           const params = device.mojom.MtpManager_RenameObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameObject');
           const result = this.impl.renameObject(params.storage_handle, params.object_id, params.new_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -625,6 +650,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 10: {
           const params = device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copyFileFromLocal');
           const result = this.impl.copyFileFromLocal(params.storage_handle, params.source_file_descriptor, params.parent_id, params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -636,6 +662,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 11: {
           const params = device.mojom.MtpManager_DeleteObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteObject');
           const result = this.impl.deleteObject(params.storage_handle, params.object_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -645,6 +672,9 @@ device.mojom.MtpManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

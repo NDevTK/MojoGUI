@@ -348,13 +348,18 @@ chrome.mojom.ProfileImportObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -363,79 +368,97 @@ chrome.mojom.ProfileImportObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onImportStart');
           const result = this.impl.onImportStart();
           break;
         }
         case 1: {
           const params = chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onImportFinished');
           const result = this.impl.onImportFinished(params.succeeded, params.error_msg);
           break;
         }
         case 2: {
           const params = chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onImportItemStart');
           const result = this.impl.onImportItemStart(params.item);
           break;
         }
         case 3: {
           const params = chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onImportItemFinished');
           const result = this.impl.onImportItemFinished(params.item);
           break;
         }
         case 4: {
           const params = chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHistoryImportStart');
           const result = this.impl.onHistoryImportStart(params.total_history_rows_count);
           break;
         }
         case 5: {
           const params = chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHistoryImportGroup');
           const result = this.impl.onHistoryImportGroup(params.history_rows_group, params.visit_source);
           break;
         }
         case 6: {
           const params = chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHomePageImportReady');
           const result = this.impl.onHomePageImportReady(params.home_page);
           break;
         }
         case 7: {
           const params = chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBookmarksImportStart');
           const result = this.impl.onBookmarksImportStart(params.first_folder_name, params.total_bookmarks_count);
           break;
         }
         case 8: {
           const params = chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBookmarksImportGroup');
           const result = this.impl.onBookmarksImportGroup(params.bookmarks_group);
           break;
         }
         case 9: {
           const params = chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFaviconsImportStart');
           const result = this.impl.onFaviconsImportStart(params.total_favicons_count);
           break;
         }
         case 10: {
           const params = chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFaviconsImportGroup');
           const result = this.impl.onFaviconsImportGroup(params.favicons_group);
           break;
         }
         case 11: {
           const params = chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPasswordFormImportReady');
           const result = this.impl.onPasswordFormImportReady(params.form);
           break;
         }
         case 12: {
           const params = chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeywordsImportReady');
           const result = this.impl.onKeywordsImportReady(params.search_engines, params.unique_on_host_and_path);
           break;
         }
         case 13: {
           const params = chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportStart');
           const result = this.impl.onAutofillFormDataImportStart(params.total_autofill_form_data_entry_count);
           break;
         }
         case 14: {
           const params = chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportGroup');
           const result = this.impl.onAutofillFormDataImportGroup(params.autofill_form_data_entry_group);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -553,13 +576,18 @@ chrome.mojom.ProfileImportReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -568,19 +596,25 @@ chrome.mojom.ProfileImportReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startImport');
           const result = this.impl.startImport(params.source_profile, params.items, params.localized_strings, params.observer);
           break;
         }
         case 1: {
           const params = chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelImport');
           const result = this.impl.cancelImport();
           break;
         }
         case 2: {
           const params = chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportImportItemFinished');
           const result = this.impl.reportImportItemFinished(params.item);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

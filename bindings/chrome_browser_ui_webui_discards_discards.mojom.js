@@ -346,13 +346,18 @@ discards.mojom.DetailsProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -361,6 +366,7 @@ discards.mojom.DetailsProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTabDiscardsInfo');
           const result = this.impl.getTabDiscardsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -372,6 +378,7 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 1: {
           const params = discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAutoDiscardable');
           const result = this.impl.setAutoDiscardable(params.tab_id, params.is_auto_discardable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -383,6 +390,7 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 2: {
           const params = discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.discardById');
           const result = this.impl.discardById(params.tab_id, params.reason);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -394,16 +402,19 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 3: {
           const params = discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.freezeById');
           const result = this.impl.freezeById(params.tab_id);
           break;
         }
         case 4: {
           const params = discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadById');
           const result = this.impl.loadById(params.tab_id);
           break;
         }
         case 5: {
           const params = discards.mojom.DetailsProvider_Discard_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.discard');
           const result = this.impl.discard();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -415,14 +426,19 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 6: {
           const params = discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleBatterySaverMode');
           const result = this.impl.toggleBatterySaverMode();
           break;
         }
         case 7: {
           const params = discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshPerformanceTabCpuMeasurements');
           const result = this.impl.refreshPerformanceTabCpuMeasurements();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -650,13 +666,18 @@ discards.mojom.GraphChangeStreamReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -665,54 +686,67 @@ discards.mojom.GraphChangeStreamReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.frameCreated');
           const result = this.impl.frameCreated(params.frame);
           break;
         }
         case 1: {
           const params = discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pageCreated');
           const result = this.impl.pageCreated(params.pages);
           break;
         }
         case 2: {
           const params = discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processCreated');
           const result = this.impl.processCreated(params.process);
           break;
         }
         case 3: {
           const params = discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.workerCreated');
           const result = this.impl.workerCreated(params.worker);
           break;
         }
         case 4: {
           const params = discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.frameChanged');
           const result = this.impl.frameChanged(params.frame);
           break;
         }
         case 5: {
           const params = discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pageChanged');
           const result = this.impl.pageChanged(params.page);
           break;
         }
         case 6: {
           const params = discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processChanged');
           const result = this.impl.processChanged(params.process);
           break;
         }
         case 7: {
           const params = discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.workerChanged');
           const result = this.impl.workerChanged(params.worker);
           break;
         }
         case 8: {
           const params = discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.favIconDataAvailable');
           const result = this.impl.favIconDataAvailable(params.favicon);
           break;
         }
         case 9: {
           const params = discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.nodeDeleted');
           const result = this.impl.nodeDeleted(params.node_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -818,13 +852,18 @@ discards.mojom.GraphDumpReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -833,11 +872,13 @@ discards.mojom.GraphDumpReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToChanges');
           const result = this.impl.subscribeToChanges(params.change_subscriber);
           break;
         }
         case 1: {
           const params = discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNodeDescriptions');
           const result = this.impl.requestNodeDescriptions(params.node_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -847,6 +888,9 @@ discards.mojom.GraphDumpReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

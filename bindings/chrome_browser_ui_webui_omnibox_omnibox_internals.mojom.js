@@ -309,13 +309,18 @@ mojom.OmniboxPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -324,16 +329,19 @@ mojom.OmniboxPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClientPage');
           const result = this.impl.setClientPage(params.page);
           break;
         }
         case 1: {
           const params = mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startOmniboxQuery');
           const result = this.impl.startOmniboxQuery(params.input_string, params.reset_autocomplete_controller, params.cursor_position, params.zero_suggest, params.prevent_inline_autocomplete, params.prefer_keyword, params.current_url, params.page_classification);
           break;
         }
         case 2: {
           const params = mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMlModelVersion');
           const result = this.impl.getMlModelVersion();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -345,6 +353,7 @@ mojom.OmniboxPageHandlerReceiver = class {
         }
         case 3: {
           const params = mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startMl');
           const result = this.impl.startMl(params.signals);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -354,6 +363,9 @@ mojom.OmniboxPageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -491,13 +503,18 @@ mojom.OmniboxPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -506,24 +523,31 @@ mojom.OmniboxPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteQuery');
           const result = this.impl.handleNewAutocompleteQuery(params.autocomplete_controller_type, params.input_text);
           break;
         }
         case 1: {
           const params = mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteResponse');
           const result = this.impl.handleNewAutocompleteResponse(params.autocomplete_controller_type, params.response);
           break;
         }
         case 2: {
           const params = mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleNewMlResponse');
           const result = this.impl.handleNewMlResponse(params.autocomplete_controller_type, params.input_text, params.matches);
           break;
         }
         case 3: {
           const params = mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleAnswerIconImageData');
           const result = this.impl.handleAnswerIconImageData(params.autocomplete_controller_type, params.image_url, params.image_data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

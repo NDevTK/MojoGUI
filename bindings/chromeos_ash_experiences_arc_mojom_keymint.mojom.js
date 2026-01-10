@@ -773,13 +773,18 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -788,6 +793,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getServer');
           const result = this.impl.getServer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -797,6 +803,9 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -885,13 +894,18 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -900,6 +914,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -909,6 +924,9 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1555,13 +1573,18 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1570,11 +1593,13 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
           const result = this.impl.setSystemVersion(params.android_version, params.android_patchlevel);
           break;
         }
         case 1: {
           const params = arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1586,6 +1611,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 2: {
           const params = arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1597,6 +1623,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 3: {
           const params = arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importKey');
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1608,6 +1635,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 4: {
           const params = arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importWrappedKey');
           const result = this.impl.importWrappedKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1619,6 +1647,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 5: {
           const params = arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.upgradeKey');
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1630,6 +1659,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 6: {
           const params = arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1641,6 +1671,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 7: {
           const params = arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1652,6 +1683,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 8: {
           const params = arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroyAttestationIds');
           const result = this.impl.destroyAttestationIds();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1663,6 +1695,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 9: {
           const params = arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.begin');
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1674,6 +1707,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 10: {
           const params = arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deviceLocked');
           const result = this.impl.deviceLocked(params.password_only, params.timestamp_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1685,6 +1719,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 11: {
           const params = arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.earlyBootEnded');
           const result = this.impl.earlyBootEnded();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1696,6 +1731,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 12: {
           const params = arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.convertStorageKeyToEphemeral');
           const result = this.impl.convertStorageKeyToEphemeral(params.storage_key_blob);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1707,6 +1743,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 13: {
           const params = arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1718,6 +1755,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 14: {
           const params = arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRootOfTrustChallenge');
           const result = this.impl.getRootOfTrustChallenge();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1729,6 +1767,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 15: {
           const params = arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRootOfTrust');
           const result = this.impl.getRootOfTrust(params.challenge);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1740,6 +1779,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 16: {
           const params = arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendRootOfTrust');
           const result = this.impl.sendRootOfTrust(params.root_of_trust);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1751,6 +1791,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 17: {
           const params = arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateAad');
           const result = this.impl.updateAad(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1762,6 +1803,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 18: {
           const params = arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1773,6 +1815,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 19: {
           const params = arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.finish');
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1784,6 +1827,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 20: {
           const params = arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1795,6 +1839,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 21: {
           const params = arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSharedSecretParameters');
           const result = this.impl.getSharedSecretParameters();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1806,6 +1851,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 22: {
           const params = arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.computeSharedSecret');
           const result = this.impl.computeSharedSecret(params.secret_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1817,6 +1863,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 23: {
           const params = arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateTimeStamp');
           const result = this.impl.generateTimeStamp(params.challenge);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1828,6 +1875,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 24: {
           const params = arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateEcdsaP256KeyPair');
           const result = this.impl.generateEcdsaP256KeyPair(params.test_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1839,6 +1887,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 25: {
           const params = arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateCertificateRequest');
           const result = this.impl.generateCertificateRequest(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1850,9 +1899,13 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
         case 26: {
           const params = arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVendorPatchLevel');
           const result = this.impl.setVendorPatchLevel(params.android_vendor_patchlevel);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

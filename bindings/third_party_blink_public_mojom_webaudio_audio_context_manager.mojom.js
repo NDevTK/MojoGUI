@@ -135,13 +135,18 @@ blink.mojom.AudioContextManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -150,24 +155,31 @@ blink.mojom.AudioContextManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStarted');
           const result = this.impl.audioContextAudiblePlaybackStarted(params.id);
           break;
         }
         case 1: {
           const params = blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStopped');
           const result = this.impl.audioContextAudiblePlaybackStopped(params.id);
           break;
         }
         case 2: {
           const params = blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.audioContextCreated');
           const result = this.impl.audioContextCreated(params.id);
           break;
         }
         case 3: {
           const params = blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.audioContextClosed');
           const result = this.impl.audioContextClosed(params.id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

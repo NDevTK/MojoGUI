@@ -148,13 +148,18 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -163,11 +168,13 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setExternalDisplayALSBrightness');
           const result = this.impl.setExternalDisplayALSBrightness(params.enabled);
           break;
         }
         case 1: {
           const params = chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getExternalDisplayALSBrightness');
           const result = this.impl.getExternalDisplayALSBrightness();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -179,11 +186,13 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         }
         case 2: {
           const params = chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setExternalDisplayBrightnessPercent');
           const result = this.impl.setExternalDisplayBrightnessPercent(params.percent);
           break;
         }
         case 3: {
           const params = chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getExternalDisplayBrightnessPercent');
           const result = this.impl.getExternalDisplayBrightnessPercent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -193,6 +202,9 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

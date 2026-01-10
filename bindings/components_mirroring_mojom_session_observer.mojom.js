@@ -202,13 +202,18 @@ mirroring.mojom.SessionObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -217,39 +222,49 @@ mirroring.mojom.SessionObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 1: {
           const params = mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStart');
           const result = this.impl.didStart();
           break;
         }
         case 2: {
           const params = mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStop');
           const result = this.impl.didStop();
           break;
         }
         case 3: {
           const params = mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logInfoMessage');
           const result = this.impl.logInfoMessage(params.message);
           break;
         }
         case 4: {
           const params = mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logErrorMessage');
           const result = this.impl.logErrorMessage(params.message);
           break;
         }
         case 5: {
           const params = mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSourceChanged');
           const result = this.impl.onSourceChanged();
           break;
         }
         case 6: {
           const params = mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemotingStateChanged');
           const result = this.impl.onRemotingStateChanged(params.is_remoting);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

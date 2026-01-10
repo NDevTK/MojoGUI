@@ -139,13 +139,18 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -154,24 +159,31 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCompleteBatchCaptureContent');
           const result = this.impl.didCompleteBatchCaptureContent();
           break;
         }
         case 1: {
           const params = content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCaptureContent');
           const result = this.impl.didCaptureContent(params.data, params.first_data);
           break;
         }
         case 2: {
           const params = content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didUpdateContent');
           const result = this.impl.didUpdateContent(params.data);
           break;
         }
         case 3: {
           const params = content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didRemoveContent');
           const result = this.impl.didRemoveContent(params.ids);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -269,13 +281,18 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -284,14 +301,19 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startCapture');
           const result = this.impl.startCapture();
           break;
         }
         case 1: {
           const params = content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopCapture');
           const result = this.impl.stopCapture();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

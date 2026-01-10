@@ -374,13 +374,18 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -389,14 +394,19 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didReceiveData');
           const result = this.impl.didReceiveData(params.data_buffer);
           break;
         }
         case 1: {
           const params = content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.done');
           const result = this.impl.done();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -632,13 +642,18 @@ content.mojom.FrameReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -647,6 +662,7 @@ content.mojom.FrameReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commitSameDocumentNavigation');
           const result = this.impl.commitSameDocumentNavigation(params.common_params, params.request_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -658,36 +674,43 @@ content.mojom.FrameReceiver = class {
         }
         case 1: {
           const params = content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSubresourceLoaderFactories');
           const result = this.impl.updateSubresourceLoaderFactories(params.subresource_loader_factories);
           break;
         }
         case 2: {
           const params = content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWantErrorMessageStackTrace');
           const result = this.impl.setWantErrorMessageStackTrace();
           break;
         }
         case 3: {
           const params = content.mojom.Frame_Unload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unload');
           const result = this.impl.unload(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces, params.devtools_frame_token);
           break;
         }
         case 4: {
           const params = content.mojom.Frame_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.intention);
           break;
         }
         case 5: {
           const params = content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undoCommitNavigation');
           const result = this.impl.undoCommitNavigation(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces);
           break;
         }
         case 6: {
           const params = content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInterfaceProvider');
           const result = this.impl.getInterfaceProvider(params.interfaces);
           break;
         }
         case 7: {
           const params = content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.snapshotAccessibilityTree');
           const result = this.impl.snapshotAccessibilityTree(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -699,9 +722,13 @@ content.mojom.FrameReceiver = class {
         }
         case 8: {
           const params = content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSerializedHtmlWithLocalLinks');
           const result = this.impl.getSerializedHtmlWithLocalLinks(params.url_map, params.frame_token_map, params.save_with_empty_url, params.handler_remote);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -834,13 +861,18 @@ content.mojom.FrameBindingsControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -849,24 +881,31 @@ content.mojom.FrameBindingsControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allowBindings');
           const result = this.impl.allowBindings(params.enabled_bindings_flags);
           break;
         }
         case 1: {
           const params = content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindings');
           const result = this.impl.enableMojoJsBindings(params.features);
           break;
         }
         case 2: {
           const params = content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindingsWithBroker');
           const result = this.impl.enableMojoJsBindingsWithBroker(params.broker);
           break;
         }
         case 3: {
           const params = content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindWebUI');
           const result = this.impl.bindWebUI(params.receiver, params.remote);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -949,13 +988,18 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -964,9 +1008,13 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rendererCancellationWindowEnded');
           const result = this.impl.rendererCancellationWindowEnded();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1299,13 +1347,18 @@ content.mojom.FrameHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1314,6 +1367,7 @@ content.mojom.FrameHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createNewWindow');
           const result = this.impl.createNewWindow(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1325,74 +1379,91 @@ content.mojom.FrameHostReceiver = class {
         }
         case 1: {
           const params = content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createChildFrame');
           const result = this.impl.createChildFrame(params.child_frame_token, params.frame, params.browser_interface_broker, params.policy_container_bind_params, params.associated_interface_provider, params.scope, params.frame_name, params.frame_unique_name, params.is_created_by_script, params.frame_policy, params.frame_owner_properties, params.child_frame_owner_element_type, params.document_ukm_source_id);
           break;
         }
         case 2: {
           const params = content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCommitProvisionalLoad');
           const result = this.impl.didCommitProvisionalLoad(params.params, params.interface_params);
           break;
         }
         case 3: {
           const params = content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCommitSameDocumentNavigation');
           const result = this.impl.didCommitSameDocumentNavigation(params.params, params.same_document_params);
           break;
         }
         case 4: {
           const params = content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didOpenDocumentInputStream');
           const result = this.impl.didOpenDocumentInputStream(params.url);
           break;
         }
         case 5: {
           const params = content.mojom.FrameHost_BeginNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginNavigation');
           const result = this.impl.beginNavigation(params.common_params, params.begin_params, params.blob_url_token, params.navigation_client, params.initiator_navigation_state_keep_alive_handle, params.renderer_cancellation_listener);
           break;
         }
         case 6: {
           const params = content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subresourceResponseStarted');
           const result = this.impl.subresourceResponseStarted(params.final_response_url, params.cert_status);
           break;
         }
         case 7: {
           const params = content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resourceLoadComplete');
           const result = this.impl.resourceLoadComplete(params.url_load_info);
           break;
         }
         case 8: {
           const params = content.mojom.FrameHost_DidChangeName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didChangeName');
           const result = this.impl.didChangeName(params.name, params.unique_name);
           break;
         }
         case 9: {
           const params = content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelInitialHistoryLoad');
           const result = this.impl.cancelInitialHistoryLoad();
           break;
         }
         case 10: {
           const params = content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateEncoding');
           const result = this.impl.updateEncoding(params.encoding_name);
           break;
         }
         case 11: {
           const params = content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUserGestureCarryoverInfo');
           const result = this.impl.updateUserGestureCarryoverInfo();
           break;
         }
         case 12: {
           const params = content.mojom.FrameHost_UpdateState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.state);
           break;
         }
         case 13: {
           const params = content.mojom.FrameHost_OpenURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.params);
           break;
         }
         case 14: {
           const params = content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStopLoading');
           const result = this.impl.didStopLoading();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

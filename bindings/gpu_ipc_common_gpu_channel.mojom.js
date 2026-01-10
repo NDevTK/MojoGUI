@@ -828,13 +828,18 @@ gpu.mojom.GpuChannelReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -843,16 +848,19 @@ gpu.mojom.GpuChannelReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.crashForTesting');
           const result = this.impl.crashForTesting();
           break;
         }
         case 1: {
           const params = gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.terminateForTesting');
           const result = this.impl.terminateForTesting();
           break;
         }
         case 2: {
           const params = gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getChannelToken');
           const result = this.impl.getChannelToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -864,6 +872,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 3: {
           const params = gpu.mojom.GpuChannel_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -875,6 +884,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 4: {
           const params = gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSharedMemoryForFlushId');
           const result = this.impl.getSharedMemoryForFlushId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -886,6 +896,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 5: {
           const params = gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCommandBuffer');
           const result = this.impl.createCommandBuffer(params.params, params.routing_id, params.shared_state, params.receiver, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -897,6 +908,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 6: {
           const params = gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroyCommandBuffer');
           const result = this.impl.destroyCommandBuffer(params.routing_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -908,11 +920,13 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 7: {
           const params = gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushDeferredRequests');
           const result = this.impl.flushDeferredRequests(params.requests, params.flushed_deferred_message_id);
           break;
         }
         case 8: {
           const params = gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createGpuMemoryBuffer');
           const result = this.impl.createGpuMemoryBuffer(params.size, params.format, params.buffer_usage);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -924,6 +938,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 9: {
           const params = gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDCOMPTexture');
           const result = this.impl.createDCOMPTexture(params.route_id, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -935,6 +950,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 10: {
           const params = gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerOverlayStateObserver');
           const result = this.impl.registerOverlayStateObserver(params.promotion_hint_observer, params.mailbox);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -946,6 +962,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 11: {
           const params = gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.waitForTokenInRange');
           const result = this.impl.waitForTokenInRange(params.routing_id, params.start, params.end);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -957,6 +974,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 12: {
           const params = gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.waitForGetOffsetInRange');
           const result = this.impl.waitForGetOffsetInRange(params.routing_id, params.set_get_buffer_count, params.start, params.end);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -968,11 +986,13 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 13: {
           const params = gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerSysmemBufferCollection');
           const result = this.impl.registerSysmemBufferCollection(params.service_handle, params.sysmem_token, params.format, params.usage, params.register_with_image_pipe);
           break;
         }
         case 14: {
           const params = gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copyToGpuMemoryBufferAsync');
           const result = this.impl.copyToGpuMemoryBufferAsync(params.mailbox, params.sync_token_dependencies, params.release_count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -984,6 +1004,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
         case 15: {
           const params = gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copyNativeGmbToSharedMemoryAsync');
           const result = this.impl.copyNativeGmbToSharedMemoryAsync(params.buffer_handle, params.shared_memory);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -993,6 +1014,9 @@ gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1166,13 +1190,18 @@ gpu.mojom.CommandBufferReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1181,21 +1210,25 @@ gpu.mojom.CommandBufferReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setGetBuffer');
           const result = this.impl.setGetBuffer(params.shm_id);
           break;
         }
         case 1: {
           const params = gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerTransferBuffer');
           const result = this.impl.registerTransferBuffer(params.id, params.buffer);
           break;
         }
         case 2: {
           const params = gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createGpuFenceFromHandle');
           const result = this.impl.createGpuFenceFromHandle(params.gpu_fence_id, params.fence_handle);
           break;
         }
         case 3: {
           const params = gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGpuFenceHandle');
           const result = this.impl.getGpuFenceHandle(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1207,14 +1240,19 @@ gpu.mojom.CommandBufferReceiver = class {
         }
         case 4: {
           const params = gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.signalSyncToken');
           const result = this.impl.signalSyncToken(params.sync_token, params.signal_id);
           break;
         }
         case 5: {
           const params = gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.signalQuery');
           const result = this.impl.signalQuery(params.query, params.signal_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1363,13 +1401,18 @@ gpu.mojom.CommandBufferClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1378,29 +1421,37 @@ gpu.mojom.CommandBufferClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConsoleMessage');
           const result = this.impl.onConsoleMessage(params.message);
           break;
         }
         case 1: {
           const params = gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGpuSwitched');
           const result = this.impl.onGpuSwitched();
           break;
         }
         case 2: {
           const params = gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed(params.reason, params.error);
           break;
         }
         case 3: {
           const params = gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReturnData');
           const result = this.impl.onReturnData(params.data);
           break;
         }
         case 4: {
           const params = gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSignalAck');
           const result = this.impl.onSignalAck(params.signal_id, params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1522,13 +1573,18 @@ gpu.mojom.DCOMPTextureReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1537,16 +1593,19 @@ gpu.mojom.DCOMPTextureReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.DCOMPTexture_StartListening_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startListening');
           const result = this.impl.startListening(params.client);
           break;
         }
         case 1: {
           const params = gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTextureSize');
           const result = this.impl.setTextureSize(params.size);
           break;
         }
         case 2: {
           const params = gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDCOMPSurfaceHandle');
           const result = this.impl.setDCOMPSurfaceHandle(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1556,6 +1615,9 @@ gpu.mojom.DCOMPTextureReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1655,13 +1717,18 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1670,14 +1737,19 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSharedImageMailboxBound');
           const result = this.impl.onSharedImageMailboxBound(params.mailbox);
           break;
         }
         case 1: {
           const params = gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOutputRectChange');
           const result = this.impl.onOutputRectChange(params.output_rect);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1761,13 +1833,18 @@ gpu.mojom.OverlayStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1776,9 +1853,13 @@ gpu.mojom.OverlayStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStateChanged');
           const result = this.impl.onStateChanged(params.promoted);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

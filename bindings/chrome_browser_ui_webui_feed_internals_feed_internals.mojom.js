@@ -350,13 +350,18 @@ feed_internals.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -365,6 +370,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGeneralProperties');
           const result = this.impl.getGeneralProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -376,6 +382,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLastFetchProperties');
           const result = this.impl.getLastFetchProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -387,21 +394,25 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshForYouFeed');
           const result = this.impl.refreshForYouFeed();
           break;
         }
         case 3: {
           const params = feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshFollowingFeed');
           const result = this.impl.refreshFollowingFeed();
           break;
         }
         case 4: {
           const params = feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshWebFeedSuggestions');
           const result = this.impl.refreshWebFeedSuggestions();
           break;
         }
         case 5: {
           const params = feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeedProcessScopeDump');
           const result = this.impl.getFeedProcessScopeDump();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -413,6 +424,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const params = feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeedHistograms');
           const result = this.impl.getFeedHistograms();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -424,34 +436,43 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const params = feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.overrideFeedHost');
           const result = this.impl.overrideFeedHost(params.host);
           break;
         }
         case 8: {
           const params = feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.overrideDiscoverApiEndpoint');
           const result = this.impl.overrideDiscoverApiEndpoint(params.endpoint_url);
           break;
         }
         case 9: {
           const params = feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.overrideFeedStreamData');
           const result = this.impl.overrideFeedStreamData(params.data);
           break;
         }
         case 10: {
           const params = feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebFeedFollowIntroDebugEnabled');
           const result = this.impl.setWebFeedFollowIntroDebugEnabled(params.enabled);
           break;
         }
         case 11: {
           const params = feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUseFeedQueryRequests');
           const result = this.impl.setUseFeedQueryRequests(params.use_legacy);
           break;
         }
         case 12: {
           const params = feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFollowingFeedOrder');
           const result = this.impl.setFollowingFeedOrder(params.order);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

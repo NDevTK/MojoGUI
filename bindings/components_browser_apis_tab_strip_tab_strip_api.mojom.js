@@ -233,13 +233,18 @@ tabs_api.mojom.TabStripServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -248,39 +253,49 @@ tabs_api.mojom.TabStripServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTabs');
           const result = this.impl.getTabs();
           break;
         }
         case 1: {
           const params = tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTab');
           const result = this.impl.getTab(params.id);
           break;
         }
         case 2: {
           const params = tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTabAt');
           const result = this.impl.createTabAt(params.pos, params.url);
           break;
         }
         case 3: {
           const params = tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeTabs');
           const result = this.impl.closeTabs(params.id);
           break;
         }
         case 4: {
           const params = tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateTab');
           const result = this.impl.activateTab(params.id);
           break;
         }
         case 5: {
           const params = tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSelectedTabs');
           const result = this.impl.setSelectedTabs(params.selection, params.tab_to_activate);
           break;
         }
         case 6: {
           const params = tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveNode');
           const result = this.impl.moveNode(params.id, params.position);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -364,13 +379,18 @@ tabs_api.mojom.TabsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -379,9 +399,13 @@ tabs_api.mojom.TabsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabEvents');
           const result = this.impl.onTabEvents(params.events);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

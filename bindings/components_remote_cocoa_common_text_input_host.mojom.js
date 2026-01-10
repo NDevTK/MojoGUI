@@ -393,13 +393,18 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -408,6 +413,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasClient');
           const result = this.impl.hasClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +425,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 1: {
           const params = remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasInputContext');
           const result = this.impl.hasInputContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -430,6 +437,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 2: {
           const params = remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isRTL');
           const result = this.impl.isRTL();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -441,6 +449,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 3: {
           const params = remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSelectionRange');
           const result = this.impl.getSelectionRange();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -452,6 +461,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 4: {
           const params = remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSelectionText');
           const result = this.impl.getSelectionText();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -463,26 +473,31 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 5: {
           const params = remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text, params.as_character);
           break;
         }
         case 6: {
           const params = remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteRange');
           const result = this.impl.deleteRange(params.range);
           break;
         }
         case 7: {
           const params = remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCompositionText');
           const result = this.impl.setCompositionText(params.text, params.selected_range, params.replacement_range);
           break;
         }
         case 8: {
           const params = remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
         case 9: {
           const params = remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasCompositionText');
           const result = this.impl.hasCompositionText();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -494,6 +509,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 10: {
           const params = remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCompositionTextRange');
           const result = this.impl.getCompositionTextRange();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,6 +521,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 11: {
           const params = remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAttributedSubstringForRange');
           const result = this.impl.getAttributedSubstringForRange(params.requested_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -516,6 +533,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 12: {
           const params = remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFirstRectForRange');
           const result = this.impl.getFirstRectForRange(params.requested_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -527,6 +545,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 13: {
           const params = remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isTextEditCommandEnabled');
           const result = this.impl.isTextEditCommandEnabled(params.command);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -538,9 +557,13 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 14: {
           const params = remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTextEditCommandForNextKeyEvent');
           const result = this.impl.setTextEditCommandForNextKeyEvent(params.command);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

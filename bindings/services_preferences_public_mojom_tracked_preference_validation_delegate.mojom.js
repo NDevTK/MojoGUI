@@ -129,13 +129,18 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -144,14 +149,19 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAtomicPreferenceValidation');
           const result = this.impl.onAtomicPreferenceValidation(params.pref_path, params.value, params.value_state, params.external_validation_value_state, params.is_personal);
           break;
         }
         case 1: {
           const params = prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSplitPreferenceValidation');
           const result = this.impl.onSplitPreferenceValidation(params.pref_path, params.invalid_keys, params.external_validation_invalid_keys, params.value_state, params.external_validation_value_state, params.is_personal);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

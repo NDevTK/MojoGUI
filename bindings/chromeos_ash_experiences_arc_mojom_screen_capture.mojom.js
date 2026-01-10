@@ -149,13 +149,18 @@ arc.mojom.ScreenCaptureHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -164,6 +169,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.display_name, params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -175,11 +181,13 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.testModeAcceptPermission');
           const result = this.impl.testModeAcceptPermission(params.package_name);
           break;
         }
         case 1: {
           const params = arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession(params.notifier, params.package_name, params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -189,6 +197,9 @@ arc.mojom.ScreenCaptureHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -302,13 +313,18 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -317,6 +333,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputBufferDeprecated');
           const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -328,6 +345,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
         }
         case 1: {
           const params = arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputBuffer');
           const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -337,6 +355,9 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -425,13 +446,18 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -440,6 +466,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -449,6 +476,9 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -531,13 +561,18 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -546,9 +581,13 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceUpdate');
           const result = this.impl.forceUpdate();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

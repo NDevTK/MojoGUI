@@ -166,13 +166,18 @@ attribution_reporting.mojom.DataHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -181,29 +186,37 @@ attribution_reporting.mojom.DataHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sourceDataAvailable');
           const result = this.impl.sourceDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
         case 1: {
           const params = attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerDataAvailable');
           const result = this.impl.triggerDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
         case 2: {
           const params = attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.osSourceDataAvailable');
           const result = this.impl.osSourceDataAvailable(params.registration, params.was_fetched_via_service_worker);
           break;
         }
         case 3: {
           const params = attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.osTriggerDataAvailable');
           const result = this.impl.osTriggerDataAvailable(params.registration, params.was_fetched_via_service_worker);
           break;
         }
         case 4: {
           const params = attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportRegistrationHeaderError');
           const result = this.impl.reportRegistrationHeaderError(params.reporting_origin, params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

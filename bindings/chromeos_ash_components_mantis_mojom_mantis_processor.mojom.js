@@ -275,13 +275,18 @@ mantis.mojom.MantisProcessorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -290,6 +295,7 @@ mantis.mojom.MantisProcessorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.inpainting');
           const result = this.impl.inpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -301,6 +307,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 1: {
           const params = mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generativeFill');
           const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -312,6 +319,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 2: {
           const params = mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.segmentation');
           const result = this.impl.segmentation(params.image, params.prior);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -323,6 +331,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 3: {
           const params = mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -334,6 +343,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 4: {
           const params = mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.outpainting');
           const result = this.impl.outpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -345,6 +355,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 5: {
           const params = mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -354,6 +365,9 @@ mantis.mojom.MantisProcessorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

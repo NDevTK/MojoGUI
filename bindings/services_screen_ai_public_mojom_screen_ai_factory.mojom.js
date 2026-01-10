@@ -93,13 +93,18 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -108,9 +113,13 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shuttingDownOnIdle');
           const result = this.impl.shuttingDownOnIdle();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -242,13 +251,18 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -257,6 +271,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeOCR');
           const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -268,6 +283,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 1: {
           const params = screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');
           const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -279,9 +295,13 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 2: {
           const params = screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindShutdownHandler');
           const result = this.impl.bindShutdownHandler(params.shutdown_handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

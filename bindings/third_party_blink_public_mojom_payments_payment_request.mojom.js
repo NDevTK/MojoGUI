@@ -492,13 +492,18 @@ payments.mojom.PaymentRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -507,61 +512,73 @@ payments.mojom.PaymentRequestClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPaymentMethodChange');
           const result = this.impl.onPaymentMethodChange(params.method_name, params.stringified_details);
           break;
         }
         case 1: {
           const params = payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShippingAddressChange');
           const result = this.impl.onShippingAddressChange(params.address);
           break;
         }
         case 2: {
           const params = payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShippingOptionChange');
           const result = this.impl.onShippingOptionChange(params.shipping_option_id);
           break;
         }
         case 3: {
           const params = payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPayerDetailChange');
           const result = this.impl.onPayerDetailChange(params.detail);
           break;
         }
         case 4: {
           const params = payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPaymentResponse');
           const result = this.impl.onPaymentResponse(params.response);
           break;
         }
         case 5: {
           const params = payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.error_message);
           break;
         }
         case 6: {
           const params = payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete();
           break;
         }
         case 7: {
           const params = payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAbort');
           const result = this.impl.onAbort(params.aborted_successfully);
           break;
         }
         case 8: {
           const params = payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCanMakePayment');
           const result = this.impl.onCanMakePayment(params.result);
           break;
         }
         case 9: {
           const params = payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHasEnrolledInstrument');
           const result = this.impl.onHasEnrolledInstrument(params.result);
           break;
         }
         case 10: {
           const params = payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.warnNoFavicon');
           const result = this.impl.warnNoFavicon();
           break;
         }
         case 11: {
           const params = payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allowConnectToSource');
           const result = this.impl.allowConnectToSource(params.url, params.url_before_redirects, params.did_follow_redirect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -571,6 +588,9 @@ payments.mojom.PaymentRequestClientReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -782,13 +802,18 @@ payments.mojom.PaymentRequestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -797,49 +822,61 @@ payments.mojom.PaymentRequestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentRequest_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.client, params.method_data, params.details, params.options);
           break;
         }
         case 1: {
           const params = payments.mojom.PaymentRequest_Show_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show(params.wait_for_updated_details, params.had_user_activation);
           break;
         }
         case 2: {
           const params = payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateWith');
           const result = this.impl.updateWith(params.details);
           break;
         }
         case 3: {
           const params = payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPaymentDetailsNotUpdated');
           const result = this.impl.onPaymentDetailsNotUpdated();
           break;
         }
         case 4: {
           const params = payments.mojom.PaymentRequest_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           break;
         }
         case 5: {
           const params = payments.mojom.PaymentRequest_Complete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.result);
           break;
         }
         case 6: {
           const params = payments.mojom.PaymentRequest_Retry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.retry');
           const result = this.impl.retry(params.errors);
           break;
         }
         case 7: {
           const params = payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canMakePayment');
           const result = this.impl.canMakePayment();
           break;
         }
         case 8: {
           const params = payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasEnrolledInstrument');
           const result = this.impl.hasEnrolledInstrument();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

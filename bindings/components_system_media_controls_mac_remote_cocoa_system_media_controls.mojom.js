@@ -291,13 +291,18 @@ system_media_controls.mojom.SystemMediaControlsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -306,64 +311,79 @@ system_media_controls.mojom.SystemMediaControlsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsNextEnabled');
           const result = this.impl.setIsNextEnabled(params.enabled);
           break;
         }
         case 1: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsPreviousEnabled');
           const result = this.impl.setIsPreviousEnabled(params.enabled);
           break;
         }
         case 2: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsPlayPauseEnabled');
           const result = this.impl.setIsPlayPauseEnabled(params.enabled);
           break;
         }
         case 3: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsStopEnabled');
           const result = this.impl.setIsStopEnabled(params.enabled);
           break;
         }
         case 4: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsSeekToEnabled');
           const result = this.impl.setIsSeekToEnabled(params.enabled);
           break;
         }
         case 5: {
           const params = system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPlaybackStatus');
           const result = this.impl.setPlaybackStatus(params.status);
           break;
         }
         case 6: {
           const params = system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTitle');
           const result = this.impl.setTitle(params.title);
           break;
         }
         case 7: {
           const params = system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setArtist');
           const result = this.impl.setArtist(params.artist);
           break;
         }
         case 8: {
           const params = system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAlbum');
           const result = this.impl.setAlbum(params.album);
           break;
         }
         case 9: {
           const params = system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setThumbnail');
           const result = this.impl.setThumbnail(params.thumbnail);
           break;
         }
         case 10: {
           const params = system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPosition');
           const result = this.impl.setPosition(params.position);
           break;
         }
         case 11: {
           const params = system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearMetadata');
           const result = this.impl.clearMetadata();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -567,13 +587,18 @@ system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -582,49 +607,61 @@ system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNext');
           const result = this.impl.onNext();
           break;
         }
         case 1: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPrevious');
           const result = this.impl.onPrevious();
           break;
         }
         case 2: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPause');
           const result = this.impl.onPause();
           break;
         }
         case 3: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPlayPause');
           const result = this.impl.onPlayPause();
           break;
         }
         case 4: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 5: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPlay');
           const result = this.impl.onPlay();
           break;
         }
         case 6: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSeekTo');
           const result = this.impl.onSeekTo(params.seek_time);
           break;
         }
         case 7: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBridgeCreatedForTesting');
           const result = this.impl.onBridgeCreatedForTesting();
           break;
         }
         case 8: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMetadataClearedForTesting');
           const result = this.impl.onMetadataClearedForTesting();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

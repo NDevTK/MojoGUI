@@ -124,13 +124,18 @@ cros.mojom.CrosDisplayObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -139,9 +144,13 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayRotationChanged');
           const result = this.impl.onDisplayRotationChanged(params.rotation);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -225,13 +234,18 @@ cros.mojom.CrosLidObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -240,9 +254,13 @@ cros.mojom.CrosLidObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.new_state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -345,13 +363,18 @@ cros.mojom.CrosPowerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -360,6 +383,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSystemSuspend');
           const result = this.impl.onSystemSuspend();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -371,9 +395,13 @@ cros.mojom.CrosPowerObserverReceiver = class {
         }
         case 1: {
           const params = cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSystemResume');
           const result = this.impl.onSystemResume();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -506,13 +534,18 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -521,24 +554,31 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDisplayObserver');
           const result = this.impl.addDisplayObserver(params.observer);
           break;
         }
         case 1: {
           const params = cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addLidObserver');
           const result = this.impl.addLidObserver(params.observer);
           break;
         }
         case 2: {
           const params = cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPowerObserver');
           const result = this.impl.addPowerObserver(params.client_name, params.observer);
           break;
         }
         case 3: {
           const params = cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyDeviceChanged');
           const result = this.impl.notifyDeviceChanged(params.type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

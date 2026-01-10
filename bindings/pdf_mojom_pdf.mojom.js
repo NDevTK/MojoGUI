@@ -144,13 +144,18 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -159,6 +164,7 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.block_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -168,6 +174,9 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -374,13 +383,18 @@ pdf.mojom.PdfListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -389,21 +403,25 @@ pdf.mojom.PdfListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCaretPosition');
           const result = this.impl.setCaretPosition(params.position);
           break;
         }
         case 1: {
           const params = pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
           const result = this.impl.moveRangeSelectionExtent(params.extent);
           break;
         }
         case 2: {
           const params = pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSelectionBounds');
           const result = this.impl.setSelectionBounds(params.base, params.extent);
           break;
         }
         case 3: {
           const params = pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPdfBytes');
           const result = this.impl.getPdfBytes(params.size_limit);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -415,6 +433,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 4: {
           const params = pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPageText');
           const result = this.impl.getPageText(params.page_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -426,6 +445,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 5: {
           const params = pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMostVisiblePageIndex');
           const result = this.impl.getMostVisiblePageIndex();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -437,6 +457,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 6: {
           const params = pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSaveDataBufferHandlerForDrive');
           const result = this.impl.getSaveDataBufferHandlerForDrive(params.request_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -446,6 +467,9 @@ pdf.mojom.PdfListenerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -627,13 +651,18 @@ pdf.mojom.PdfHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -642,39 +671,49 @@ pdf.mojom.PdfHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = pdf.mojom.PdfHost_SetListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setListener');
           const result = this.impl.setListener(params.client);
           break;
         }
         case 1: {
           const params = pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDocumentLoadComplete');
           const result = this.impl.onDocumentLoadComplete();
           break;
         }
         case 2: {
           const params = pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateContentRestrictions');
           const result = this.impl.updateContentRestrictions(params.restrictions);
           break;
         }
         case 3: {
           const params = pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.saveUrlAs');
           const result = this.impl.saveUrlAs(params.url, params.policy);
           break;
         }
         case 4: {
           const params = pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectionChanged');
           const result = this.impl.selectionChanged(params.left, params.left_height, params.right, params.right_height);
           break;
         }
         case 5: {
           const params = pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPluginCanSave');
           const result = this.impl.setPluginCanSave(params.can_save);
           break;
         }
         case 6: {
           const params = pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSearchifyStarted');
           const result = this.impl.onSearchifyStarted();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

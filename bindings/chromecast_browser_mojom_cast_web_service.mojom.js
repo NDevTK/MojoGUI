@@ -212,13 +212,18 @@ chromecast.mojom.CastWebServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -227,21 +232,25 @@ chromecast.mojom.CastWebServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWebView');
           const result = this.impl.createWebView(params.params, params.web_contents, params.window);
           break;
         }
         case 1: {
           const params = chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerWebUiClient');
           const result = this.impl.registerWebUiClient(params.client, params.hosts);
           break;
         }
         case 2: {
           const params = chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushDomLocalStorage');
           const result = this.impl.flushDomLocalStorage();
           break;
         }
         case 3: {
           const params = chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearLocalStorage');
           const result = this.impl.clearLocalStorage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -251,6 +260,9 @@ chromecast.mojom.CastWebServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

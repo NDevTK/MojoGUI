@@ -89,13 +89,18 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -104,9 +109,13 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSessionServices');
           const result = this.impl.bindSessionServices(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -222,13 +231,18 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,19 +251,25 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindWebAuthnProxy');
           const result = this.impl.bindWebAuthnProxy(params.receiver);
           break;
         }
         case 1: {
           const params = remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindRemoteUrlOpener');
           const result = this.impl.bindRemoteUrlOpener(params.receiver);
           break;
         }
         case 2: {
           const params = remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSecurityKeyForwarder');
           const result = this.impl.bindSecurityKeyForwarder(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

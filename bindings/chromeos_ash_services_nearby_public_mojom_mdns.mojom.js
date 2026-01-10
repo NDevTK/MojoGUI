@@ -121,13 +121,18 @@ sharing.mojom.MdnsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -136,14 +141,19 @@ sharing.mojom.MdnsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.serviceFound');
           const result = this.impl.serviceFound(params.service_info);
           break;
         }
         case 1: {
           const params = sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.serviceLost');
           const result = this.impl.serviceLost(params.service_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -271,13 +281,18 @@ sharing.mojom.MdnsManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -286,11 +301,13 @@ sharing.mojom.MdnsManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const params = sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
           const result = this.impl.startDiscoverySession(params.service_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -302,6 +319,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         }
         case 2: {
           const params = sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopDiscoverySession');
           const result = this.impl.stopDiscoverySession(params.service_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -311,6 +329,9 @@ sharing.mojom.MdnsManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

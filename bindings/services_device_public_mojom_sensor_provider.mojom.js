@@ -273,13 +273,18 @@ device.mojom.SensorProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -288,6 +293,7 @@ device.mojom.SensorProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SensorProvider_GetSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSensor');
           const result = this.impl.getSensor(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -299,6 +305,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 1: {
           const params = device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVirtualSensor');
           const result = this.impl.createVirtualSensor(params.type, params.metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -310,6 +317,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 2: {
           const params = device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateVirtualSensor');
           const result = this.impl.updateVirtualSensor(params.type, params.reading);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -321,6 +329,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 3: {
           const params = device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeVirtualSensor');
           const result = this.impl.removeVirtualSensor(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -332,6 +341,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 4: {
           const params = device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVirtualSensorInformation');
           const result = this.impl.getVirtualSensorInformation(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -341,6 +351,9 @@ device.mojom.SensorProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

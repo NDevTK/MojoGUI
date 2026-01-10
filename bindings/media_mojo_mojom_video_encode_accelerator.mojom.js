@@ -386,13 +386,18 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -401,11 +406,13 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAccelerator');
           const result = this.impl.createVideoEncodeAccelerator(params.command_buffer_id, params.receiver);
           break;
         }
         case 1: {
           const params = media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVideoEncodeAcceleratorSupportedProfiles');
           const result = this.impl.getVideoEncodeAcceleratorSupportedProfiles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -415,6 +422,9 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -498,13 +508,18 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -513,9 +528,13 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');
           const result = this.impl.createVideoEncodeAcceleratorProvider(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -724,13 +743,18 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -739,6 +763,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.client, params.media_log);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -750,6 +775,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 1: {
           const params = media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.encode');
           const result = this.impl.encode(params.frame, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -761,21 +787,25 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 2: {
           const params = media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.useOutputBitstreamBuffer');
           const result = this.impl.useOutputBitstreamBuffer(params.bitstream_buffer_id, params.region);
           break;
         }
         case 3: {
           const params = media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChangeWithLayers');
           const result = this.impl.requestEncodingParametersChangeWithLayers(params.bitrate_allocation, params.framerate, params.size);
           break;
         }
         case 4: {
           const params = media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChangeWithBitrate');
           const result = this.impl.requestEncodingParametersChangeWithBitrate(params.bitrate, params.framerate, params.size);
           break;
         }
         case 5: {
           const params = media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isFlushSupported');
           const result = this.impl.isFlushSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -787,6 +817,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 6: {
           const params = media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -796,6 +827,9 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -930,13 +964,18 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -945,24 +984,31 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requireBitstreamBuffers');
           const result = this.impl.requireBitstreamBuffers(params.input_count, params.input_coded_size, params.output_buffer_size);
           break;
         }
         case 1: {
           const params = media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bitstreamBufferReady');
           const result = this.impl.bitstreamBufferReady(params.bitstream_buffer_id, params.metadata);
           break;
         }
         case 2: {
           const params = media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyErrorStatus');
           const result = this.impl.notifyErrorStatus(params.status);
           break;
         }
         case 3: {
           const params = media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyEncoderInfoChange');
           const result = this.impl.notifyEncoderInfoChange(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

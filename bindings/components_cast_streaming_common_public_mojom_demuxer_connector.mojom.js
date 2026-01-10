@@ -193,13 +193,18 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -208,6 +213,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -219,6 +225,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
         }
         case 1: {
           const params = cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -228,6 +235,9 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -337,13 +347,18 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -352,6 +367,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -363,6 +379,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
         }
         case 1: {
           const params = cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -372,6 +389,9 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -476,13 +496,18 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -491,6 +516,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableReceiver');
           const result = this.impl.enableReceiver();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -502,9 +528,13 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
         }
         case 1: {
           const params = cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStreamsInitialized');
           const result = this.impl.onStreamsInitialized(params.audio_buffer_requester, params.video_buffer_requester);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

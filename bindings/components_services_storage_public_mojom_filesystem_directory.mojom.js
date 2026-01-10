@@ -161,13 +161,18 @@ storage.mojom.FileLockReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -176,6 +181,7 @@ storage.mojom.FileLockReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.FileLock_Release_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.release');
           const result = this.impl.release();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -185,6 +191,9 @@ storage.mojom.FileLockReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -474,13 +483,18 @@ storage.mojom.DirectoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -489,11 +503,13 @@ storage.mojom.DirectoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.Directory_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 1: {
           const params = storage.mojom.Directory_PathExists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pathExists');
           const result = this.impl.pathExists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,6 +521,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 2: {
           const params = storage.mojom.Directory_GetEntries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEntries');
           const result = this.impl.getEntries(params.path, params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -516,6 +533,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 3: {
           const params = storage.mojom.Directory_OpenFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.path, params.mode, params.read_access, params.write_access);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -527,6 +545,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 4: {
           const params = storage.mojom.Directory_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -538,6 +557,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 5: {
           const params = storage.mojom.Directory_DeleteFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteFile');
           const result = this.impl.deleteFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -549,6 +569,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 6: {
           const params = storage.mojom.Directory_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -560,6 +581,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 7: {
           const params = storage.mojom.Directory_GetPathAccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPathAccess');
           const result = this.impl.getPathAccess(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -571,6 +593,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 8: {
           const params = storage.mojom.Directory_RenameFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameFile');
           const result = this.impl.renameFile(params.old_path, params.new_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -582,6 +605,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 9: {
           const params = storage.mojom.Directory_LockFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.lockFile');
           const result = this.impl.lockFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -591,6 +615,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

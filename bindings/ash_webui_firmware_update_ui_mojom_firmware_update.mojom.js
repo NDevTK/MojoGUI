@@ -181,13 +181,18 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -196,9 +201,13 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUpdateListChanged');
           const result = this.impl.onUpdateListChanged(params.firmware_updates);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -282,13 +291,18 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -297,9 +311,13 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceRequest');
           const result = this.impl.onDeviceRequest(params.request);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -383,13 +401,18 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -398,9 +421,13 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
           const result = this.impl.onStatusChanged(params.update);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -527,13 +554,18 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -542,11 +574,13 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observePeripheralUpdates');
           const result = this.impl.observePeripheralUpdates(params.observer);
           break;
         }
         case 1: {
           const params = ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareForUpdate');
           const result = this.impl.prepareForUpdate(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -558,6 +592,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         }
         case 2: {
           const params = ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetchInProgressUpdate');
           const result = this.impl.fetchInProgressUpdate();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -567,6 +602,9 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -683,13 +721,18 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -698,19 +741,25 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginUpdate');
           const result = this.impl.beginUpdate(params.device_id, params.filepath);
           break;
         }
         case 1: {
           const params = ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDeviceRequestObserver');
           const result = this.impl.addDeviceRequestObserver(params.observer);
           break;
         }
         case 2: {
           const params = ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addUpdateProgressObserver');
           const result = this.impl.addUpdateProgressObserver(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -793,13 +842,18 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -808,9 +862,13 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restart');
           const result = this.impl.restart();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

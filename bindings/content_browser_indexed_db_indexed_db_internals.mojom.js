@@ -222,13 +222,18 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,6 +242,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllBucketsAcrossAllStorageKeys');
           const result = this.impl.getAllBucketsAcrossAllStorageKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -248,6 +254,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
           const result = this.impl.downloadBucketData(params.bucketId);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -259,6 +266,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 2: {
           const params = storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceClose');
           const result = this.impl.forceClose(params.bucketId);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -270,6 +278,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 3: {
           const params = storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -281,6 +290,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 4: {
           const params = storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -292,6 +302,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 5: {
           const params = storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.inspectClient');
           const result = this.impl.inspectClient(params.client_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -301,6 +312,9 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

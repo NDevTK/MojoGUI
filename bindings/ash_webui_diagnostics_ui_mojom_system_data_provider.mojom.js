@@ -207,13 +207,18 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -222,9 +227,13 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
           const result = this.impl.onBatteryChargeStatusUpdated(params.battery_charge_status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -308,13 +317,18 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -323,9 +337,13 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
           const result = this.impl.onBatteryHealthUpdated(params.battery_health);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -409,13 +427,18 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -424,9 +447,13 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
           const result = this.impl.onMemoryUsageUpdated(params.memory_usage);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -510,13 +537,18 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -525,9 +557,13 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
           const result = this.impl.onCpuUsageUpdated(params.cpu_usage);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -701,13 +737,18 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -716,6 +757,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSystemInfo');
           const result = this.impl.getSystemInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -727,6 +769,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         }
         case 1: {
           const params = ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBatteryInfo');
           const result = this.impl.getBatteryInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -738,24 +781,31 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         }
         case 2: {
           const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
           const result = this.impl.observeBatteryChargeStatus(params.observer);
           break;
         }
         case 3: {
           const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
           const result = this.impl.observeBatteryHealth(params.observer);
           break;
         }
         case 4: {
           const params = ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
           const result = this.impl.observeMemoryUsage(params.observer);
           break;
         }
         case 5: {
           const params = ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
           const result = this.impl.observeCpuUsage(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

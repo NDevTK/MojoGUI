@@ -337,13 +337,18 @@ chrome.mojom.AppShimReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -352,41 +357,49 @@ chrome.mojom.AppShimReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRemoteCocoaApplication');
           const result = this.impl.createRemoteCocoaApplication(params.application);
           break;
         }
         case 1: {
           const params = chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCommandDispatcherForWidget');
           const result = this.impl.createCommandDispatcherForWidget(params.widget_id);
           break;
         }
         case 2: {
           const params = chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserAttention');
           const result = this.impl.setUserAttention(params.attention_type);
           break;
         }
         case 3: {
           const params = chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBadgeLabel');
           const result = this.impl.setBadgeLabel(params.badge_label);
           break;
         }
         case 4: {
           const params = chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateProfileMenu');
           const result = this.impl.updateProfileMenu(params.profile_menu_items);
           break;
         }
         case 5: {
           const params = chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateApplicationDockMenu');
           const result = this.impl.updateApplicationDockMenu(params.dock_menu_items);
           break;
         }
         case 6: {
           const params = chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindNotificationProvider');
           const result = this.impl.bindNotificationProvider(params.provider);
           break;
         }
         case 7: {
           const params = chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNotificationPermission');
           const result = this.impl.requestNotificationPermission();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -398,9 +411,13 @@ chrome.mojom.AppShimReceiver = class {
         }
         case 8: {
           const params = chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindChildHistogramFetcherFactory');
           const result = this.impl.bindChildHistogramFetcherFactory(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -624,13 +641,18 @@ chrome.mojom.AppShimHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -639,54 +661,67 @@ chrome.mojom.AppShimHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.focusApp');
           const result = this.impl.focusApp();
           break;
         }
         case 1: {
           const params = chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reopenApp');
           const result = this.impl.reopenApp();
           break;
         }
         case 2: {
           const params = chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.filesOpened');
           const result = this.impl.filesOpened(params.files);
           break;
         }
         case 3: {
           const params = chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.profileSelectedFromMenu');
           const result = this.impl.profileSelectedFromMenu(params.profile_path);
           break;
         }
         case 4: {
           const params = chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAppSettings');
           const result = this.impl.openAppSettings();
           break;
         }
         case 5: {
           const params = chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.urlsOpened');
           const result = this.impl.urlsOpened(params.urls);
           break;
         }
         case 6: {
           const params = chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAppWithOverrideUrl');
           const result = this.impl.openAppWithOverrideUrl(params.override_url);
           break;
         }
         case 7: {
           const params = chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableAccessibilitySupport');
           const result = this.impl.enableAccessibilitySupport(params.mode);
           break;
         }
         case 8: {
           const params = chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applicationWillTerminate');
           const result = this.impl.applicationWillTerminate();
           break;
         }
         case 9: {
           const params = chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notificationPermissionStatusChanged');
           const result = this.impl.notificationPermissionStatusChanged(params.status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -779,13 +814,18 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -794,6 +834,7 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShimConnected');
           const result = this.impl.onShimConnected(params.host_receiver, params.app_shim_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -803,6 +844,9 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

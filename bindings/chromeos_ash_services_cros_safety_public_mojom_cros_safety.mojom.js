@@ -151,13 +151,18 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -166,6 +171,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -177,6 +183,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
         }
         case 1: {
           const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.prompt, params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -186,6 +193,9 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -299,13 +309,18 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -314,6 +329,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -325,6 +341,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
         }
         case 1: {
           const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -334,6 +351,9 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

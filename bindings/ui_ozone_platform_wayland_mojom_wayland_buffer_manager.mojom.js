@@ -196,13 +196,18 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -211,34 +216,43 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWaylandBufferManagerGpu');
           const result = this.impl.setWaylandBufferManagerGpu(params.buffer_manager_gpu_associated);
           break;
         }
         case 1: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDmabufBasedBuffer');
           const result = this.impl.createDmabufBasedBuffer(params.dmabuf_fd, params.size, params.strides, params.offsets, params.modifiers, params.format, params.planes_count, params.color_space, params.hdr_metadata, params.buffer_id);
           break;
         }
         case 2: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createShmBasedBuffer');
           const result = this.impl.createShmBasedBuffer(params.shm_fd, params.length, params.size, params.buffer_id);
           break;
         }
         case 3: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSinglePixelBuffer');
           const result = this.impl.createSinglePixelBuffer(params.color, params.buffer_id);
           break;
         }
         case 4: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.destroyBuffer');
           const result = this.impl.destroyBuffer(params.buffer_id);
           break;
         }
         case 5: {
           const params = ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commitOverlays');
           const result = this.impl.commitOverlays(params.widget, params.frame_id, params.data, params.overlays);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -365,13 +379,18 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -380,19 +399,25 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.remote_host, params.shared_image_formats_with_modifiers, params.supports_dma_buf, params.supports_viewporter, params.supports_acquire_fence, params.supports_overlays, params.supports_single_pixel_buffer);
           break;
         }
         case 1: {
           const params = ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSubmission');
           const result = this.impl.onSubmission(params.widget, params.frame_id, params.swap_result, params.release_fence_handle, params.presentation_infos);
           break;
         }
         case 2: {
           const params = ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPresentation');
           const result = this.impl.onPresentation(params.widget, params.presentation_infos);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

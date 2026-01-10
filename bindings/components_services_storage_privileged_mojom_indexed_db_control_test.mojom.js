@@ -129,13 +129,18 @@ storage.mojom.MockFailureInjectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -144,9 +149,13 @@ storage.mojom.MockFailureInjectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.failOperation');
           const result = this.impl.failOperation(params.failure_class, params.failure_method, params.instance_num, params.call_num);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -401,13 +410,18 @@ storage.mojom.IndexedDBControlTestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -416,6 +430,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBaseDataPathForTesting');
           const result = this.impl.getBaseDataPathForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -427,6 +442,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 1: {
           const params = storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFilePathForTesting');
           const result = this.impl.getFilePathForTesting(params.bucket_locator, params.for_sqlite);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -438,6 +454,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 2: {
           const params = storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetCachesForTesting');
           const result = this.impl.resetCachesForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -449,6 +466,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 3: {
           const params = storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPathForBlobForTesting');
           const result = this.impl.getPathForBlobForTesting(params.bucket_locator, params.database_id, params.blob_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -460,6 +478,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 4: {
           const params = storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushBackingStoreForTesting');
           const result = this.impl.flushBackingStoreForTesting(params.bucket_locator);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -471,6 +490,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 5: {
           const params = storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flushBucketSequenceForTesting');
           const result = this.impl.flushBucketSequenceForTesting(params.bucket_locator);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -482,6 +502,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 6: {
           const params = storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUsageForTesting');
           const result = this.impl.getUsageForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -493,11 +514,13 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 7: {
           const params = storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindMockFailureSingletonForTesting');
           const result = this.impl.bindMockFailureSingletonForTesting(params.receiver);
           break;
         }
         case 8: {
           const params = storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceInitializeFromFilesForTesting');
           const result = this.impl.forceInitializeFromFilesForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -507,6 +530,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

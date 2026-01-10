@@ -196,13 +196,18 @@ data_sharing.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -211,9 +216,13 @@ data_sharing.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -462,13 +471,18 @@ data_sharing.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -477,21 +491,25 @@ data_sharing.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 1: {
           const params = data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI(params.status_code);
           break;
         }
         case 2: {
           const params = data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.apiInitComplete');
           const result = this.impl.apiInitComplete();
           break;
         }
         case 3: {
           const params = data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.makeTabGroupShared');
           const result = this.impl.makeTabGroupShared(params.tab_group_id, params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -503,6 +521,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getShareLink');
           const result = this.impl.getShareLink(params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -514,6 +533,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTabGroupPreview');
           const result = this.impl.getTabGroupPreview(params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -525,24 +545,31 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const params = data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openTabGroup');
           const result = this.impl.openTabGroup(params.group_id);
           break;
         }
         case 7: {
           const params = data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.aboutToUnShareTabGroup');
           const result = this.impl.aboutToUnShareTabGroup(params.tab_group_id);
           break;
         }
         case 8: {
           const params = data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabGroupUnShareComplete');
           const result = this.impl.onTabGroupUnShareComplete(params.tab_group_id);
           break;
         }
         case 9: {
           const params = data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGroupAction');
           const result = this.impl.onGroupAction(params.action, params.progress);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -714,13 +741,18 @@ data_sharing.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -729,11 +761,13 @@ data_sharing.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAccessTokenFetched');
           const result = this.impl.onAccessTokenFetched(params.access_token);
           break;
         }
         case 1: {
           const params = data_sharing.mojom.Page_ReadGroups_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readGroups');
           const result = this.impl.readGroups(params.read_groups_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -745,6 +779,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 2: {
           const params = data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readGroupWithToken');
           const result = this.impl.readGroupWithToken(params.param);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -756,6 +791,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 3: {
           const params = data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteGroup');
           const result = this.impl.deleteGroup(params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -767,6 +803,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 4: {
           const params = data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -776,6 +813,9 @@ data_sharing.mojom.PageReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

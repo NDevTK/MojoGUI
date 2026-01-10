@@ -126,13 +126,18 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -141,14 +146,19 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
           const params = sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.success);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -231,13 +241,18 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -246,9 +261,13 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopReceivingMessages');
           const result = this.impl.stopReceivingMessages();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -366,13 +385,18 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -381,6 +405,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.self_id, params.peer_id, params.location_hint, params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -392,6 +417,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         }
         case 1: {
           const params = sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startReceivingMessages');
           const result = this.impl.startReceivingMessages(params.self_id, params.location_hint, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -401,6 +427,9 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
