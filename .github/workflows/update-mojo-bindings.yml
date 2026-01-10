@@ -159,13 +159,14 @@ jobs:
                           continue
                       
                       params = parse_params(params_str) if params_str else []
-                      returns = parse_params(returns_str) if returns_str else []
+                      returns = parse_params(returns_str) if returns_str is not None else None
                       
                       methods.append({
                           'name': method_name,
                           'ordinal': int(ordinal_str) if ordinal_str else None,
                           'params': params,
-                          'returns': returns
+                          'returns': returns,
+                          'is_one_way': returns is None
                       })
                   
                   # Deduplicate methods
@@ -190,9 +191,12 @@ jobs:
                   for line in enum_body.split(','):
                       line = line.strip()
                       if line:
-                          value_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', line)
-                          if value_match:
-                              values.append(value_match.group(1))
+                          # Match name and optional value
+                          val_match = re.search(r'([a-zA-Z_]\w*)(?:\s*=\s*(.*?))?$', line)
+                          if val_match:
+                              v_name = val_match.group(1)
+                              v_val = val_match.group(2).strip() if val_match.group(2) else None
+                              values.append({'name': v_name, 'value': v_val})
                   result['enums'].append({'name': enum_name, 'values': values})
 
               # Extract structs
@@ -650,48 +654,38 @@ jobs:
                           packed_fields.append(src)
 
                   
-                  # 4. Generate Code
-                  fields_code = []
-                  
-                  # Re-sort by ordinal for output? No, JS expects `fields` array to match `PackedStruct` order (offset order)?
-                  # Actually, generated JS usually lists fields in ordinal order in the `fields` array, 
-                  # but each entry has `packedOffset`.
-                  # Re-sort to match original ordinal order so we can map back.
-                  
-                  # Wait, if we split fields, we need to map them back to the generated JS structure.
-                  # MojoJS `StructSpec` has `fields` array.
-                  # If we split into $flag and $value, do we emit TWO fields in JS?
-                  # JS Bindings Lite: `mojo.internal.StructField`
-                  # For nullable value types:
-                  # It emits:
-                  # 1. The Flag field (Bool)
-                  # 2. The Value field
-                  # AND sets `nullableValueKindProperties` on them.
-                  
-                  # We need to emit in Ordinal Order of the PACKED fields.
+                  # 4. Generate JavaScript Argument Lists for StructField
                   packed_fields.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
-                  
-                  offset = 0
-                  for p in packed_fields:
-                      p_offset = p['offset']
-                      p_bit = p['bit']
-                      p_type = p['type']
-                      p_nullable = 'true' if p['nullable'] else 'false'
-                      p_name = p['name']
+                  fields_code = []
+                  for f in packed_fields:
+                      # Determine DEFAULT VALUE
+                      default_val = "null"
+                      if f['type'] == 'mojo.internal.Bool': default_val = "false"
+                      elif f['type'] in ('mojo.internal.Int8', 'mojo.internal.Uint8', 'mojo.internal.Int16', 'mojo.internal.Uint16', 'mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Float', 'mojo.internal.Double'):
+                          default_val = "0"
                       
-                      field_js = f"{{ name: '{p_name}', packedOffset: {p_offset}, packedBitOffset: {p_bit}, type: {p_type}, nullable: {p_nullable}, minVersion: {p['min_version']}"
-                      
-                      if p.get('is_flag'):
-                          field_js += f", nullableValueKindProperties: {{ isPrimary: true, linkedValueFieldName: '{p['original_name']}_$value', originalFieldName: '{p['original_name']}' }}"
-                      elif p.get('is_value'):
-                          field_js += f", nullableValueKindProperties: {{ isPrimary: false, linkedValueFieldName: '{p['original_name']}_$flag', originalFieldName: '{p['original_name']}' }}"
-                      
-                      field_js += " }"
-                      fields_code.append(field_js)
-                      
-                      end_off = p_offset + p['size']
-                      if end_off > offset: offset = end_off
+                      # Nullable props
+                      props_js = "undefined"
+                      if f.get('is_flag'):
+                          props_js = f"{{ isPrimary: true, linkedValueFieldName: '{f['original_name']}_$value', originalFieldName: '{f['original_name']}' }}"
+                      elif f.get('is_value'):
+                          props_js = f"{{ isPrimary: false, linkedValueFieldName: '{f['original_name']}_$flag', originalFieldName: '{f['original_name']}' }}"
 
+                      arg_list = [
+                          f"'{f['name']}'",
+                          f"{f['offset']}",
+                          f"{f['bit']}",
+                          f"{f['type']}",
+                          default_val,
+                          "true" if f['nullable'] else "false",
+                          f"{f['min_version']}",
+                          props_js
+                      ]
+                      fields_code.append(", ".join(arg_list))
+                  
+                  # Compute Struct header and versions
+                  # (Simplified Versioning: Just total size for each min_version)
+                  version_map = {}
                   # 5. Calculate Versions
                   unique_versions = sorted(list(set(f['min_version'] for f in packed_fields)))
                   if not unique_versions: unique_versions = [0]
@@ -817,7 +811,7 @@ jobs:
                   js_code += f"{current_ns}.{iface_name}.$interfaceName = '{module}.{iface_name}';\n"
                   for method in interface.get('methods', []):
                       js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
-                      if method.get('returns') or method.get('response_params') is not None:
+                      if not method.get('is_one_way'):
                           js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
 
               # Generate constants
@@ -828,8 +822,18 @@ jobs:
               for enum in parsed.get('enums', []):
                   js_code += f"\n// Enum: {enum['name']}\n"
                   js_code += f"{current_ns}.{enum['name']} = {{\n"
-                  for i, value in enumerate(enum['values']):
-                      js_code += f"  {value}: {i},\n"
+                  last_val = -1
+                  for entry in enum['values']:
+                      v_name = entry['name']
+                      v_val = entry['value']
+                      if v_val is not None:
+                          try:
+                              last_val = int(v_val, 0)
+                          except:
+                              pass # Could be another constant reference, but we prefer literal
+                      else:
+                          last_val += 1
+                      js_code += f"  {v_name}: {last_val},\n"
                   js_code += "};\n"
                   # EnumSpec already pre-declared
 
@@ -849,11 +853,11 @@ jobs:
                       f_ordinal = field.get('ordinal', i) # Fallback to index if no ordinal
                       if f_ordinal is None: f_ordinal = i
                       
+                      f_nullable = 'true' if field.get('optional') or '?' in field.get('type', '') else 'false'
                       js_code += f"      '{field['name']}': {{\n"
                       js_code += f"        'ordinal': {f_ordinal},\n"
                       js_code += f"        'type': {f_type},\n"
-                      if field.get('optional') or '?' in field.get('type', ''):
-                          js_code += "        'nullable': true,\n"
+                      js_code += f"        'nullable': {f_nullable},\n"
                       js_code += "      },\n"
                       
                   js_code += "    });\n"
@@ -867,8 +871,8 @@ jobs:
                   js_code += f"\n// Struct: {struct_name}\n"
                   js_code += f"mojo.internal.Struct(\n"
                   js_code += f"    {full_name}Spec, '{module}.{struct_name}', [\n"
-                  for field in fields_code:
-                      js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
+                   for field in fields_code:
+                       js_code += f"      mojo.internal.StructField({field}),\n"
                   js_code += f"    ],\n"
                   js_code += f"    {versions_code});\n"
               
@@ -893,22 +897,22 @@ jobs:
                       js_code += f"mojo.internal.Struct(\n"
                       js_code += f"    {current_ns}.{param_struct_name}Spec, '{module}.{param_struct_name}', [\n"
                       for field in p_fields:
-                          js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
+                          js_code += f"      mojo.internal.StructField({field}),\n"
                       js_code += f"    ],\n"
                       js_code += f"    {p_versions});\n\n"
 
-                      # Response Params
-                      if method.get('response_params') is not None: # Check if response exists (even if empty)
-                          resp_params = method.get('response_params', [])
-                          resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
-                          r_fields, r_size, r_versions = get_struct_layout(resp_params)
-                          
-                          js_code += f"mojo.internal.Struct(\n"
-                          js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
-                          for field in r_fields:
-                              js_code += f"      mojo.internal.StructField({field[1:-1]}),\n"
-                          js_code += f"    ],\n"
-                          js_code += f"    {r_versions});\n\n"
+                       # Response Params
+                       if not method.get('is_one_way'):
+                           resp_params = method.get('returns', [])
+                           resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
+                           r_fields, r_size, r_versions = get_struct_layout(resp_params)
+                           
+                           js_code += f"mojo.internal.Struct(\n"
+                           js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
+                           for field in r_fields:
+                               js_code += f"      mojo.internal.StructField({field}),\n"
+                           js_code += f"    ],\n"
+                           js_code += f"    {r_versions});\n\n"
 
                   # Generate PendingReceiver class first (needed by Remote)
                   
