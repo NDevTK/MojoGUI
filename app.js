@@ -872,17 +872,25 @@
             return;
         }
 
-        const name = state.selectedInterface.name;
-        const isActive = InterceptorManager.toggle(name);
+        // Use Fully Qualified Name if available (module + . + name)
+        // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
+        // If module is present, try FQN.
+        const shortName = state.selectedInterface.name;
+        const moduleName = state.selectedInterface.module;
+
+        // Try FQN first if module exists
+        const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
+
+        const isActive = InterceptorManager.toggle(nameTypeToUse);
 
         updateInterceptButtonState(isActive);
 
         if (isActive) {
-            showToast(`Started intercepting ${name}`, 'success');
+            showToast(`Started intercepting ${nameTypeToUse}`, 'success');
             // Show panel
             showInterceptorPanel(true);
         } else {
-            showToast(`Stopped intercepting ${name}`, 'info');
+            showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
         }
     }
 

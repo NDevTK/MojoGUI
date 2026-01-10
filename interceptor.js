@@ -95,7 +95,17 @@
             // which might be blink.mojom.BlobRegistry
 
             if (global.MojoBindings && global.MojoBindings._indexData) {
-                const iface = global.MojoBindings._indexData.interfaces.find(i => i.name === name);
+                // Determine if 'name' is full or short
+                const isFQN = name.includes('.');
+                const shortName = isFQN ? name.split('.').pop() : name;
+
+                const iface = global.MojoBindings._indexData.interfaces.find(i => {
+                    if (isFQN) {
+                        return i.name === shortName && (i.module + '.' + i.name === name);
+                    }
+                    return i.name === name;
+                });
+
                 if (iface) {
                     const moduleParts = iface.module.split('.');
                     let current = window;
@@ -103,7 +113,7 @@
                         current = current[part];
                         if (!current) break;
                     }
-                    if (current && current[name]) return current[name];
+                    if (current && current[iface.name]) return current[iface.name]; // Use iface.name which is short
                 }
             }
 
