@@ -230,13 +230,17 @@ bluetooth.mojom.AdvertisementReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Advertisement_Unregister_ParamsSpec.$.decode(message.payload);
@@ -249,7 +253,6 @@ bluetooth.mojom.AdvertisementReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -357,13 +360,17 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec.$.decode(message.payload);
@@ -387,7 +394,6 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -473,13 +479,17 @@ bluetooth.mojom.SocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Socket_Disconnect_ParamsSpec.$.decode(message.payload);
@@ -492,7 +502,6 @@ bluetooth.mojom.SocketReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -599,13 +608,17 @@ bluetooth.mojom.ServerSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.ServerSocket_Accept_ParamsSpec.$.decode(message.payload);
@@ -629,7 +642,6 @@ bluetooth.mojom.ServerSocketReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -740,13 +752,17 @@ bluetooth.mojom.GattServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$.decode(message.payload);
@@ -770,7 +786,6 @@ bluetooth.mojom.GattServiceReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -861,13 +876,17 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$.decode(message.payload);
@@ -880,7 +899,6 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -1214,13 +1232,17 @@ bluetooth.mojom.AdapterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$.decode(message.payload);
@@ -1354,7 +1376,6 @@ bluetooth.mojom.AdapterReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -1532,13 +1553,17 @@ bluetooth.mojom.AdapterObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$.decode(message.payload);
@@ -1575,7 +1600,6 @@ bluetooth.mojom.AdapterObserverReceiver = class {
           const result = this.impl.deviceRemoved(params.device);
           break;
         }
-      }
       }
     }});
   }

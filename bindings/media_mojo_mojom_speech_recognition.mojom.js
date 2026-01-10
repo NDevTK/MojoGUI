@@ -252,13 +252,17 @@ media.mojom.SpeechRecognitionContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec.$.decode(message.payload);
@@ -276,7 +280,6 @@ media.mojom.SpeechRecognitionContextReceiver = class {
           const result = this.impl.bindWebSpeechRecognizer(params.session_receiver, params.session_client, params.audio_forwarder, params.channel_count, params.sample_rate, params.options, params.continuous);
           break;
         }
-      }
       }
     }});
   }
@@ -422,13 +425,17 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec.$.decode(message.payload);
@@ -455,7 +462,6 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
           const result = this.impl.updateRecognitionContext(params.recognition_context);
           break;
         }
-      }
       }
     }});
   }
@@ -589,13 +595,17 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec.$.decode(message.payload);
@@ -623,7 +633,6 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
           const result = this.impl.onLanguageIdentificationEvent(params.event);
           break;
         }
-      }
       }
     }});
   }
@@ -737,13 +746,17 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec.$.decode(message.payload);
@@ -760,7 +773,6 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
           const result = this.impl.speechRecognitionMaskOffensiveWordsChanged(params.mask_offensive_words);
           break;
         }
-      }
       }
     }});
   }
@@ -862,13 +874,17 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec.$.decode(message.payload);
@@ -886,7 +902,6 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }
@@ -982,13 +997,17 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec.$.decode(message.payload);
@@ -1000,7 +1019,6 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
           const result = this.impl.onFullscreenToggled();
           break;
         }
-      }
       }
     }});
   }
@@ -1113,13 +1131,17 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec.$.decode(message.payload);
@@ -1136,7 +1158,6 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
           const result = this.impl.rEMOVED_2(params.observer);
           break;
         }
-      }
       }
     }});
   }

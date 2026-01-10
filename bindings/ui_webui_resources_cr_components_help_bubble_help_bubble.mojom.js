@@ -161,20 +161,23 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
         }
-      }
       }
     }});
   }
@@ -257,20 +260,23 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
         }
-      }
       }
     }});
   }
@@ -386,13 +392,17 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.decode(message.payload);
@@ -409,7 +419,6 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
           const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
           break;
         }
-      }
       }
     }});
   }
@@ -540,13 +549,17 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.decode(message.payload);
@@ -568,7 +581,6 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
           const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
           break;
         }
-      }
       }
     }});
   }

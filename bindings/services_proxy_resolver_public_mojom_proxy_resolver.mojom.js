@@ -151,20 +151,23 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
           const result = this.impl.reportResult(params.error, params.result);
           break;
         }
-      }
       }
     }});
   }
@@ -248,20 +251,23 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
           const result = this.impl.getProxyForUrl(params.url, params.network_anonymization_key, params.client);
           break;
         }
-      }
       }
     }});
   }
@@ -396,13 +402,17 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
@@ -424,7 +434,6 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
         }
-      }
       }
     }});
   }
@@ -508,20 +517,23 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.decode(message.payload);
           const result = this.impl.createResolver(params.pac_script, params.receiver, params.client);
           break;
         }
-      }
       }
     }});
   }
@@ -655,13 +667,17 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
@@ -683,7 +699,6 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
           const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
           break;
         }
-      }
       }
     }});
   }
@@ -772,13 +787,17 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
@@ -791,7 +810,6 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
           }
           break;
         }
-      }
       }
     }});
   }

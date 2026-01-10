@@ -261,13 +261,17 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$.decode(message.payload);
@@ -285,7 +289,6 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
           const result = this.impl.onGenerateBidComplete(params.bids, params.bidding_signals_data_version, params.debug_loss_report_url, params.debug_win_report_url, params.set_priority, params.update_priority_signals_overrides, params.pa_requests, params.non_kanon_pa_requests, params.real_time_contributions, params.generate_bid_timing_metrics, params.generate_bid_dependency_latencies, params.reject_reason, params.errors);
           break;
         }
-      }
       }
     }});
   }
@@ -374,20 +377,23 @@ auction_worklet.mojom.GenerateBidFinalizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$.decode(message.payload);
           const result = this.impl.finishGenerateBid(params.auction_signals_json, params.per_buyer_signals_json, params.per_buyer_timeout, params.expected_buyer_currency, params.direct_from_seller_per_buyer_signals, params.direct_from_seller_per_buyer_signals_header_ad_slot, params.direct_from_seller_auction_signals, params.direct_from_seller_auction_signals_header_ad_slot);
           break;
         }
-      }
       }
     }});
   }
@@ -577,13 +583,17 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
-      console.log('[GeneratedReceiver] Args received:', args);
-      const message = args[0];
-      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        message = {
+          header: args[1],
+          buffer: args[2],
+          handles: args[3] || []
+        };
+      }
       const header = message && message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
-      if (header) {
-      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$.decode(message.payload);
@@ -611,7 +621,6 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
           const result = this.impl.connectDevToolsAgent(params.agent, params.thread_index);
           break;
         }
-      }
       }
     }});
   }
